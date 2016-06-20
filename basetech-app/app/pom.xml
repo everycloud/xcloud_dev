@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.example.basetech</groupId>
+		<artifactId>parent</artifactId>
+		<version>${project.version}</version>
+	</parent>
+
+	<groupId>com.example.basetech</groupId>
+	<artifactId>basetech-app</artifactId>
+	<version>${project.version}</version>
+	<packaging>war</packaging>
+
+	<name>basetech-app</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.example.basetech</groupId>
+			<artifactId>basetech-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.example.basetech</groupId>
+			<artifactId>basetech-library</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
+		<!-- gitlab -->
+		<dependency>
+			<groupId>org.gitlab</groupId>
+			<artifactId>java-gitlab-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jgit</groupId>
+			<artifactId>org.eclipse.jgit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+  				<groupId>commons-lang</groupId>
+  				<artifactId>commons-lang</artifactId>
+			</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+		</dependency>
+		
+        <dependency>
+  			<groupId>jdom</groupId>
+  			<artifactId>jdom</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+		</dependency>
+		
+		<dependency>
+  			<groupId>ch.ethz.ganymed</groupId>
+  			<artifactId>ganymed-ssh2</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tmatesoft.svnkit</groupId>
+			<artifactId>svnkit</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.xfire</groupId>
+			<artifactId>xfire-all</artifactId>
+		</dependency>
+
+		<dependency>
+  			<groupId>wsdl4j</groupId>
+  			<artifactId>wsdl4j</artifactId>
+		</dependency>
+
+		<dependency>
+  			<groupId>org.apache.ws.schema</groupId>
+  			<artifactId>XmlSchema</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>apache-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>app</finalName>
+	</build>
+</project>

@@ -1,0 +1,203 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="col-lg-12" style="float:none" ng-controller="UserDetailCtrl">
+        <div class="col-sm-4">
+            <div class="widget navy-bg p-lg text-center">
+                <div class="m-b-md">
+                    <h2 class="font-bold no-margins">
+                    {{user.nick}}
+                </h2>
+                    <small>{{user.empId}}</small>
+                </div>
+                <img alt="image" class="img-circle circle-border m-b-md" ng-src="https://work.alibaba-inc.com/photo/{{user.empId}}.100x100.jpg">
+                <div>
+                    <span>{{user.account}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="widget p-lg text-center">
+                <div class="m-b-md">
+                    <i class="fa fa-cog fa-4x"></i>
+                    <h1 class="m-xs">{{productCount}}</h1>
+                    <h3 class="font-bold no-margins">
+                                产品
+                            </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="widget p-lg text-center">
+                <div class="m-b-md">
+                    <i class="fa fa-comment fa-4x"></i>
+                    <h1 class="m-xs">{{requirementCount}}</h1>
+                    <h3 class="font-bold no-margins">
+                                需求
+                            </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="widget p-lg text-center">
+                <div class="m-b-md">
+                    <i class="fa fa-tasks fa-4x"></i>
+                    <h1 class="m-xs">{{projectCount}}</h1>
+                    <h3 class="font-bold no-margins">
+                                迭代
+                            </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="widget p-lg text-center">
+                <div class="m-b-md">
+                    <i class="fa fa-bug fa-4x"></i>
+                    <h1 class="m-xs">{{defectCount}}</h1>
+                    <h3 class="font-bold no-margins">
+                                缺陷
+                            </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <tabset>
+                <tab>
+                    <tab-heading>
+                        <i class="fa fa-cog"></i>产品
+                    </tab-heading>
+                    <table class="table table-hover no-margins">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>类型</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="p in products">
+                                <td><a href="#/productDetail/{{p.id}}">{{p.id}}</a>
+                                </td>
+                                <td><a href="#/productDetail/{{p.id}}">{{p.name}}</a>
+                                </td>
+                                <td>{{p.type}}
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </tab>
+                <tab>
+                    <tab-heading>
+                        <i class="fa fa-comment"></i>需求
+                    </tab-heading>
+                    <table class="table table-hover no-margins">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>类型</th>
+                                <th>优先级</th>
+                                <th>状态</th>
+                                <th>关联迭代</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="r in requirements">
+                                <td><a href="#/requirementDetail/{{r.id}}">{{r.id}}</a>
+                                </td>
+                                <td><a href="#/requirementDetail/{{r.id}}">{{r.name}}</a>
+                                </td>
+                                <td ng-if="r.category=='fix'">问题修复</td>
+                                <td ng-if="r.category=='feature'">功能优化</td>
+                                <td ng-lLabel level="{{r.priority}}"></td>
+                                <td ng-r-state-label status="{{r.status}}"></td>
+                                <td><a href="#/projectDetail/{{r.project}}">{{r.projectName}}</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </tab>
+                <tab>
+                    <tab-heading>
+                        <i class="fa fa-tasks"></i>迭代
+                    </tab-heading>
+                    <table class="table table-hover no-margins">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="p in projects">
+                                <td><a href="#/projectDetail/{{p.id}}">{{p.id}}</a>
+                                </td>
+                                <td><a href="#/projectDetail/{{p.id}}">{{p.name}}</a>
+                                </td>
+                                <td>{{p.status}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </tab>
+                <tab>
+                    <tab-heading>
+                        <i class="fa fa-bug"></i>缺陷
+                    </tab-heading>
+                    <table class="table table-hover no-margins">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>优先级</th>
+                                <th>状态</th>
+                                <th>关联迭代</th>
+                                <th>产品</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="d in defects">
+                                <td><a href="#/defectDetail/{{d.id}}">{{d.id}}</a>
+                                </td>
+                                <td><a href="#/defectDetail/{{d.id}}">{{d.name}}</a>
+                                </td>
+                                <td ng-lLabel level="{{d.priority}}"></td>
+                                <td ng-defectLabel status="{{d.status}}"></td>
+                                <td><a href="#/projectDetail/{{d.project}}">{{d.projectName}}</a>
+                                </td>
+                                <td><a href="#/productDetail/{{d.product}}">{{d.productName}}</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </tab>
+
+            </tabset>
+        </div>
+    </div>
+</div>
+<!--
+<script>
+    $(document).ready(function(){
+        $(".widget.p-lg").mouseenter(function(obj){
+            $(this).addClass("animated");
+            $(this).addClass("flip");
+        });
+        $(".widget.p-lg").mouseleave(function(obj){
+            $(this).removeClass("animated");
+            $(this).removeClass("filp");
+        });
+        
+    });
+</script>
+-->

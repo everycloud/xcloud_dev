@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!--  default -->
+	<appender name="DEFAULT-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/logs/app/default.log" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}.%M(%F:%L):%m%n" />
+		</layout>
+	</appender>
+	<!--  error -->
+	<appender name="ERROR-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/logs/app/error.log" />
+		<param name="append" value="true" />
+		<param name="threshold" value="ERROR" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}.%M(%F:%L):%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- web -->
+	<appender name="WEB-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/logs/app/web.log" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}.%M(%F:%L):%m%n" />
+		</layout>
+	</appender>
+	<!-- api -->
+	<appender name="API-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/logs/app/api.log" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %m%n" />
+		</layout>
+	</appender>
+	<!-- dal -->
+	<appender name="DAL-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/logs/app/dal.log" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}.%M(%F:%L):%m%n" />
+		</layout>
+	</appender>
+	<!-- framework -->
+	<appender name="FRAMEWORK-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/logs/app/framework.log" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}.%M(%F:%L):%m%n" />
+		</layout>
+	</appender>
+	<!-- biz -->
+	<appender name="BIZ-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/logs/app/biz.log" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}.%M(%F:%L):%m%n" />
+		</layout>
+	</appender>
+	<!-- performance -->
+	<appender name="PERF-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/logs/app/performance.log" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}.%M(%F:%L):%m%n" />
+		</layout>
+	</appender>
+	
+
+	<!-- web -->
+	<logger name="com.example.basetech.app.web" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="WEB-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+	
+	<!-- api -->
+	<logger name="APIRequestLogger" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="API-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+	<!-- dal -->
+	<logger name="com.example.basetech.app.dal" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="DAL-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+	<!-- framework -->
+	<logger name="com.example.basetech.framework" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="FRAMEWORK-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+	<!-- biz -->
+	<logger name="com.example.basetech.app" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="BIZ-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+	<!-- performance -->
+	<logger name="PERFORMANCE" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="PERF-APPENDER" />
+	</logger>
+	
+	
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="DEFAULT-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</root>
+
+</log4j:configuration>

@@ -1,0 +1,75 @@
+.product-icon {
+    margin: 0 auto;
+    width: 67px;
+    height: 69px;
+    background: #fff;
+    border: 1px solid #c1bfbc;
+    text-align: center;
+    line-height: 69px;
+    font-size: 32px;
+    display: block;
+}
+
+.dl-c-horizontal dt {
+    float: left;
+    width: 80px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dl-c-horizontal dd {
+    margin-left: 90px;
+}
+
+.t-page-title {
+    font-size: large;
+    margin-top: 10px;
+}
+
+.t-widget {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.t-project-box-red {
+    width: 300px;
+    height: 200px;
+    color: white;
+    background-color: #ed5565;
+    border: 1px solid #e7eaec;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.t-project-box-green {
+    width: 300px;
+    height: 200px;
+    color: white;
+    background-color: #1ab394;
+    border: 1px solid #e7eaec;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.t-project-box {
+    width: 300px;
+    height: 200px;
+    color: white;
+    background-color: #337ab7;
+    border: 1px solid #e7eaec;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.t-project-box a {
+  color: white;
+  text-decoration: none;
+}
+
+em {
+  color: #ca4440;
+  font-style: italic;
+}

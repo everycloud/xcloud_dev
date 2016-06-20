@@ -1,0 +1,110 @@
+.container{
+	margin: 0 auto;
+	width: 100%;
+	align-self: center;
+}
+body{
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	background-image: url("/image/background.jpg"); 
+	background-repeat:repeat;
+	color: black;
+	font-family: "Times New Roman";
+	font-size: large;
+	background: #f3f3f4;
+}
+#head{
+	background-color: black;
+	color: white;
+}
+#head h1{
+	margin: 0;
+	padding: 30px 0;
+}
+#head h1 img{
+	height: 90px;
+}
+#app_and_branch > div{
+	margin: 10px 0;
+}
+img#smile{
+	position: relative;
+	bottom: -5px;
+	left: 5px;
+}
+#gridContainer{
+	width:100%;
+	height:259px;
+	margin: 0;
+}
+#detailTable{
+	width: 100%;
+	border: 1px solid black;
+	font-style: italic;
+	margin-top: 50px;
+}
+#detailTable td, #detailTable th{
+	border: 1px solid black;
+	padding: 10px;
+}
+#detailTable .head{
+	width: 200px;
+}
+#detailTable .add{
+	color: green;
+}
+#detailTable .delete{
+	color: red;
+}
+#detailTable .suspicious{
+	color: #FF9900;
+}
+#detailTable .time_diff{
+	padding-left:30px;
+	font-size: 0.8em;
+}
+#detailTable #vs{
+	margin: 0 10px;
+//	color: #FF9900;
+}
+#detailTable .description{
+	color: #888;
+}
+#detailTable .detail_element:hover{
+	text-decoration:underline;
+	cursor: pointer;
+}
+#mark_down_detail{
+	padding: 10px;
+}
+#footer {
+	text-align: center;
+	margin: auto auto 10px auto;
+	padding-top: 50px;
+	color: #0066ff;
+	text-decoration:underline;
+}
+#footer  img{
+	height: 1.1em;
+	position: relative;
+	bottom: -3px;
+}
+div#code_diff{
+	margin-top: 20px;
+}
+div#control_code, div#test_code{
+	width: 49%;
+	height: 1200px;
+	float: left;
+}
+div#control_code iframe, div#test_code iframe, div#code_single iframe{
+	width: 99%;
+	height:95%;
+	background-color: white;
+	padding: 10px;
+}
+div#code_single{
+	width: 100%;
+	height: 1200px;	
+}

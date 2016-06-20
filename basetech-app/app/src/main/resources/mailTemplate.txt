@@ -1,0 +1,30 @@
+<table border='1' cellspacing="0">
+	<tr>
+		<th>项目名称: </th>
+		<td>%s</td>
+	</tr>
+	<tr>
+		<th>项目需求：</th>
+		<td>%s</td>
+	</tr>
+	<tr>
+		<th>参与人员：</th>
+		<td>%s</td>
+	</tr>
+	<tr>
+		<th>是否产出系分：</th>
+		<td>%s</td>
+	</tr>
+	<tr>
+		<th>交付日期：</th>
+		<td>%s</td>
+	</tr>
+	<tr>
+		<th>发布日期：</th>
+		<td>%s</td>
+	</tr>
+	<tr>
+		<th>备注：</th>
+		<td>%s</td>
+	</tr>
+</table>	

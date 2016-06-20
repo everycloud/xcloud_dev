@@ -1,0 +1,71 @@
+/** simple-table */
+.simple-table thead>tr>th, .simple-table tbody>tr>th, .simple-table tfoot>tr>th, 
+.simple-table thead>tr>td, .simple-table tbody>tr>td, .simple-table tfoot>tr>td {
+	border-top: 0;
+}
+.simple-table>thead>tr>th {
+	/* border-bottom-width: 2px; */
+}
+.simple-table th, .simple-table th {
+	min-width: 40px;
+}
+.simple-table tfoot {
+	border-top: 1px solid #ddd;
+}
+.simple-table, .simple-table thead th {
+	position: relative;
+}
+.simple-table thead th:after, .simple-table thead th:before {
+	content: "";
+	position: absolute;
+	opacity: .4;
+	right: 10px;
+}
+/** up-arrow */
+.simple-table thead th.st-sortable:before {
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #000 transparent;
+	top: 13px;
+}
+/** down-arrow */
+.simple-table thead th.st-sortable:after {
+	border-bottom: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #000;
+	top: 19px;
+}
+.simple-table thead th.st-sort-descent:after {
+	border-bottom: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #000;
+	top: 16px;
+}
+.simple-table thead th.st-sort-ascent:after {
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #000 transparent;
+	top: 16px;
+}
+
+/** st-container **/
+.st-search-input {
+	float: right;
+	line-height: 1.42857;
+	width: 200px;
+}
+
+/** pagination **/
+.table>tfoot>tr>td {
+	padding: 0;
+}
+.pagination {
+	margin: 0 0;
+	border-radius: 0;
+}
+.st-pagination {
+	float: right;
+	padding-top: 10px;
+}

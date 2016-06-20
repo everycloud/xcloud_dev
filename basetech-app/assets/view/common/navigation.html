@@ -1,0 +1,15 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse" ng-controller="UserCtrl">
+        <ul side-navigation class="nav" id="side-menu">
+            <li ng-class="{active: $state.includes('dashboard')}">
+                <a href="#/home"><i class="fa fa-bank (alias)"></i> <span class="nav-label">首页 </span></a>
+            </li>
+            <li ng-class="{active: $state.includes('applications') || $state.includes('appDetail')}">
+                <a href="#/applications?view=user"><i class="fa fa-cogs"></i> <span class="nav-label">应用 </span></a> 
+            </li>
+            <li ng-class="{active: $state.includes('component') || $state.includes('componentDetail')}">
+                <a href="#/component?view=component"><i class="fa fa-flask"></i> <span class="nav-label">组件</span></a> 
+            </li>
+            </ul>
+    </div>
+</nav>
