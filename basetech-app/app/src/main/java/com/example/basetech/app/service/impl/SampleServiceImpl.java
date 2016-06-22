@@ -23,6 +23,8 @@ public class SampleServiceImpl implements SampleService {
     @PostConstruct
     public void init(){
     	System.out.println("aa");
+    	Sample sample = getById(1l);
+    	System.out.print("bb");
     }
 
 }
