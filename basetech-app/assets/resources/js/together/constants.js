@@ -4,3 +4,7 @@ angular
         "opened": "开发中",
         "developed": "开发完成"
     })
+    .constant('ConstOsList', [
+        "linux",
+        "windows"
+    ])

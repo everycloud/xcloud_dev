@@ -20,6 +20,11 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: "/view/team/teams.html",
             data: { pageTitle: '团队' }
         })
+        .state('hostpool', {
+            url: "/hostpool",
+            templateUrl: "/view/hostpool/hostpool_manage.html",
+            data: { pageTitle: 'host管理' }
+        })
 }
 angular
     .module('together')
