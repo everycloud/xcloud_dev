@@ -1,5 +1,7 @@
 package com.example.basetech.app.model;
 
+import com.example.basetech.app.crud.annotation.Exclude;
+
 /**
  * Created by xuanji on 16/6/25.
  */
@@ -17,6 +19,7 @@ public class HostPool {
     private String key;
     private String allocated;
     private String alive;
+
 
     public long getId() {
         return id;
