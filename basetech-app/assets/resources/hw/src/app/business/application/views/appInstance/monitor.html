@@ -1,0 +1,159 @@
+<div class="container-fluid">
+    <div>
+        <div class="outbox-padding" style="padding-bottom: 30px;">
+            <div class="legend"><span ng-bind-html="i18n.app_term_appResourceStatistic_label"></span></div>
+            <div>
+                <div class="row-fluid">
+                    <div class="span4">
+                        <div class="bottom10 two-title"><span ng-bind-html="i18n.perform_term_CPUusageRate_label"></span></div>
+                        <div style="margin: 0 40px;" ng-if="dataValid.cpuHistory">
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="current.label"></span>
+                                <div class="pull-right">
+                                    <span style="font-size: 18px;color: #1FBE5C;" ng-bind="cpuRate.current"></span>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="maximum.label"></span>
+                                <div class="pull-right">
+                                    <span ng-bind="cpuRate.max"></span>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="average.label"></span>
+                                <div class="pull-right">
+                                    <span ng-bind="cpuRate.average"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="appHistoryCpuLinePlot">
+                        <div id="appHistoryCpuLegend"></div>
+                        <div class="margin-left-beautifier" ng-if="dataValid.cpuHistory">
+                            <tiny-lineplot id="cpuRate4Chart.id" xaxis="cpuRate4Chart.xaxis" yaxis="cpuRate4Chart.yaxis" width="cpuRate4Chart.width" height="cpuRate4Chart.height" data="cpuRate4Chart.data" tips="cpuRate4Chart.userTips" series="cpuRate4Chart.series" legend="cpuRate4Chart.legend">
+                            </tiny-lineplot>
+                        </div>
+                        <div ng-if="!dataValid.cpuHistory">
+                            <div class="customNoData">
+                                <span ng-bind="noDataTips"></span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="bottom10 two-title"><span ng-bind-html="i18n.perform_term_memUsageRate_label"></span></div>
+                        <div style="margin: 0 40px;" ng-if="dataValid.memHistory">
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="currentMemory.label"></span>
+                                <div class="pull-right">
+                                    <span style="font-size: 18px;color: #1FBE5C;" ng-bind="memoryRate.current"></span>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="maximumMemory.label"></span>
+                                <div class="pull-right">
+                                    <span ng-bind="memoryRate.max"></span>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="averageMemory.label"></span>
+                                <div class="pull-right">
+                                    <span ng-bind="memoryRate.average"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="appHistoryMemLinePlot">
+                        <div id="appHistoryMemLegend"></div>
+                        <div class="margin-left-beautifier" ng-if="dataValid.memHistory">
+                            <tiny-lineplot id="memRate4Chart.id" xaxis="memRate4Chart.xaxis" yaxis="memRate4Chart.yaxis" width="memRate4Chart.width" height="memRate4Chart.height" data="memRate4Chart.data" tips="memRate4Chart.userTips" series="memRate4Chart.series" legend="memRate4Chart.legend">
+                            </tiny-lineplot>
+                        </div>
+                        <div ng-if="!dataValid.memHistory">
+                            <div class="customNoData">
+                                <span ng-bind="noDataTips"></span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="bottom10 two-title"><span ng-bind-html="i18n.common_term_diskIOKBs_label"></span></div>
+                        <div style="margin: 0 40px;" ng-if="dataValid.diskHistory">
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="currentDiskIO.label"></span>
+                                <div class="pull-right">
+                                    <span style="font-size: 18px;color: #1FBE5C;" ng-bind="diskRate.current"></span>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="maximumDiskIO.label"></span>
+                                <div class="pull-right">
+                                    <span ng-bind="diskRate.max"></span>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-beautifier">
+                                <span ng-bind="averageDiskIO.label"></span>
+                                <div class="pull-right">
+                                    <span ng-bind="diskRate.average"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="appHistoryDiskLinePlot">
+                        <div id="appHistoryDiskLegend"></div>
+                        <div class="margin-left-beautifier" ng-if="dataValid.diskHistory">
+                            <tiny-lineplot id="diskIORate4Chart.id" xaxis="diskIORate4Chart.xaxis" yaxis="diskIORate4Chart.yaxis" width="diskIORate4Chart.width" height="diskIORate4Chart.height" data="diskIORate4Chart.data" tips="diskIORate4Chart.userTips" series="diskIORate4Chart.series"
+                            legend="diskIORate4Chart.legend">
+                            </tiny-lineplot>
+                        </div>
+                        <div ng-if="!dataValid.diskHistory">
+                            <div class="customNoData">
+                                <span ng-bind="noDataTips"></span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="outbox-padding">
+            <div class="clearfix">
+                <div class="form-inline" style="margin-top: 10px">
+                    <span class="legend" ng-bind-html="i18n.app_term_vmResourceStatistic_label"></span>
+                </div>
+            </div>
+            <div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="bottom10 two-title"><span ng-bind-html="i18n.perform_term_CPUusageRate_label + 'TOP3'"></span></div>
+                        <div class="margin-left-beautifier">
+                            <tiny-columnchart id="CPUChartModel.id" values="CPUChartModel.values" is-fill="CPUChartModel.isFill" bold="CPUChartModel.bold" width="CPUChartModel.width">
+                            </tiny-columnchart>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="bottom10 two-title"><span ng-bind-html="i18n.perform_term_memUsageRate_label + 'TOP3'"></span></div>
+                        <div class="margin-left-beautifier">
+                            <tiny-columnchart id="memoryChartModel.id" values="memoryChartModel.values" is-fill="memoryChartModel.isFill" bold="memoryChartModel.bold" width="memoryChartModel.width">
+                            </tiny-columnchart>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="bottom10 two-title"><span ng-bind-html="i18n.common_term_diskWriteSpeedKBs_label + 'TOP3'"></span></div>
+                        <div class="margin-left-beautifier">
+                            <tiny-columnchart id="diskInChartModel.id" values="diskInChartModel.values" is-fill="diskInChartModel.isFill" bold="diskInChartModel.bold" width="diskInChartModel.width">
+                            </tiny-columnchart>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="bottom10 two-title"><span ng-bind-html="i18n.common_term_diskReadSpeedKBs_label + 'TOP3'"></span></div>
+                        <div class="margin-left-beautifier">
+                            <tiny-columnchart id="diskOutChartModel.id" values="diskOutChartModel.values" is-fill="diskOutChartModel.isFill" bold="diskOutChartModel.bold" width="diskOutChartModel.width">
+                            </tiny-columnchart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

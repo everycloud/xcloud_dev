@@ -1,0 +1,31 @@
+<div>
+    <div class="create-page-distance">
+        <div class="clearfix">
+            <div class="pull-right" ng-if="templateId==null">
+                <tiny-filtersel id="searchType.id" values="searchType.values" width="searchType.width" change="searchType.change()">
+                </tiny-filtersel>
+            <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                </tiny-searchbox>
+            </span>
+
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{refresh.tips}}" class="small-icon small-icon-refresh"></div>
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <tiny-table id="info.templateTable.id" data="serviceTemplateTable.data" columns="info.templateTable.columns" enable-pagination="info.templateTable.enablePagination" render-row="info.templateTable.renderRow" pagination-style="info.templateTable.paginationStyle"
+            callback="info.templateTable.callback" change-select="info.templateTable.changeSelect" length-menu="info.templateTable.lengthMenu" display-length="info.templateTable.displayLength" total-records="info.templateTable.totalRecords">
+            </tiny-table>
+        </div>
+
+        <div style="margin:55px 0px 0px 0px;" class="create-btn-margin">
+            <tiny-button id="info.okBtn.id" text="info.okBtn.text" click="info.okBtn.click()" disable="(params.selServiceTemplate==null)||(!finishQueryApp)"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+
+
+</div>

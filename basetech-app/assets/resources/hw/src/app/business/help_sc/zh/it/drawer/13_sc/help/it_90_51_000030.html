@@ -1,0 +1,137 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="申请弹性IP">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_90_51_000030">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>申请弹性IP</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_90_51_000030"></a><a name="it_90_51_000030"></a>
+
+
+<h1 class="topictitle1">申请弹性IP</h1>
+
+
+<div>
+<div class="section"><h4 class="sectiontitle">简介</h4><p>弹性IP业务是指将公网IP地址和VPC内的虚拟机或私有IP地址绑定，以实现VPC内各种资源通过固定的公网访问地址对外提供业务。</p>
+<p>例如，VPC内部的服务器对外提供Web服务时，可以使用弹性IP地址作为Web服务的DNS解析地址，确保服务地址不变；或者使用VPC内的备份虚拟机对外提供备份服务时，可以将弹性IP地址与备份虚拟机进行绑定，实现备份业务的连续性。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">原理概述</h4><div class="p"><span>ServiceCenter</span>支持使用路由器将弹性IP地址与虚拟机或私有IP地址进行绑定。租户通过租户管理系统申请获得弹性IP地址后，可将弹性IP地址和虚拟机进行绑定，作为虚拟机公网访问的固定IP地址，如<a href="#it_90_51_000030__d1237e28">图1</a>所示。虚拟机完全独占与其绑定的弹性IP地址，不因为虚拟机的每次启动而发生改变。<div class="fignone" id="it_90_51_000030__d1237e28"><a name="it_90_51_000030__d1237e28"></a><a name="d1237e28"></a><span class="figcap"><b>图1 </b>弹性IP业务</span>
+
+<br><span><img src="../../07_fm/help/fig/fig_it_60_51_000010_6.png"></span></div>
+</div>
+<p>当与弹性IP地址绑定的虚拟机出现故障时，租户只需将弹性IP地址解绑定，并重新绑定到新的虚拟机上，可以保证业务的不间断性。如果租户有不再使用的弹性IP地址时，也可以对其进行释放。</p>
+<p>硬件路由器、软件路由器都可实现弹性IP地址的绑定功能。使用硬件路由器时，物理防火墙实现弹性IP地址的绑定功能，弹性IP地址来自于<span>ServiceCenter</span>所管理的公网IP地址池；使用软件路由器时，弹性IP地址来自于软件路由器所连接的外部网络。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">前提条件</h4><ul><li>已经在Local FusionManager上完成了硬件路由器或软件路由器等相关配置。详情请参考<span>《FusionManager V100R005C00 local管理员指南(服务器整合,top-local)》</span>中的<span class="menucascade">“<span class="uicontrol">资源配置</span> &gt; <span class="uicontrol">特性配置</span> &gt; <span class="uicontrol">弹性IP</span>”</span>。 </li><li>服务列表中已存在满足申请要求的弹性IP服务，如果不存在，需要管理员先创建对应的服务。</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle">申请流程</h4><p>可按照<a href="#it_90_51_000030__fig_01">图2</a>所示的流程申请弹性IP，任务说明如<a href="#it_90_51_000030__tab_02">表1</a>所示。</p>
+<div class="p"><div class="fignone" id="it_90_51_000030__fig_01"><a name="it_90_51_000030__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>图2 </b>申请流程</span>
+
+<br><span><img src="fig/fig_it_90_51_000030_01.png"></span><br>
+</div>
+</div>
+<div class="p">
+<div class="tablenoborder"><a name="it_90_51_000030__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_90_51_000030__tab_02" frame="border" border="1" rules="all"><caption><b>表1 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="17.88617886178862%" id="mcps1.3.4.4.1.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="52.4390243902439%" id="mcps1.3.4.4.1.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="29.67479674796748%" id="mcps1.3.4.4.1.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="17.88617886178862%" headers="mcps1.3.4.4.1.2.4.1.1 "><p>创建VPC</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="52.4390243902439%" headers="mcps1.3.4.4.1.2.4.1.2 "><p>VPC（Virtual Private Cloud）能够为用户提供安全、隔离的网络环境。在VPC中，用户可以定义与传统网络无差别的虚拟网络，用来部署虚拟机和应用实例。用户可使用共享VPC，也可创建自定义的VPC。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="29.67479674796748%" headers="mcps1.3.4.4.1.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.88617886178862%" headers="mcps1.3.4.4.1.2.4.1.1 "><p>申请路由器</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="52.4390243902439%" headers="mcps1.3.4.4.1.2.4.1.2 "><p>为VPC申请一个路由器，通过路由器可以在VPC中创建路由网络，并配置弹性IP业务。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="29.67479674796748%" headers="mcps1.3.4.4.1.2.4.1.3 "><p>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="uicontrol">“路由器”</span>。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.88617886178862%" headers="mcps1.3.4.4.1.2.4.1.1 "><p>创建路由网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="52.4390243902439%" headers="mcps1.3.4.4.1.2.4.1.2 "><p>只有路由网络中的虚拟机才可以通过路由器与弹性IP地址进行绑定。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="29.67479674796748%" headers="mcps1.3.4.4.1.2.4.1.3 "><p>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">网络</span> &gt; <span class="uicontrol">网络</span>”</span>。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.88617886178862%" headers="mcps1.3.4.4.1.2.4.1.1 "><p>VDC用户申请弹性IP服务 </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="52.4390243902439%" headers="mcps1.3.4.4.1.2.4.1.2 "><p>VDC用户根据需要选择相应服务申请弹性IP服务。 </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="29.67479674796748%" headers="mcps1.3.4.4.1.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">服务</span> &gt; <span class="uicontrol">服务目录</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.88617886178862%" headers="mcps1.3.4.4.1.2.4.1.1 "><p>VDC管理员审批弹性IP服务</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="52.4390243902439%" headers="mcps1.3.4.4.1.2.4.1.2 "><p>VDC管理员审批弹性IP服务申请，如果系统管理员创建服务时选择了不需要审批，则可跳过该步骤。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="29.67479674796748%" headers="mcps1.3.4.4.1.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">服务</span> &gt; <span class="uicontrol">待办审批</span>”</span></p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

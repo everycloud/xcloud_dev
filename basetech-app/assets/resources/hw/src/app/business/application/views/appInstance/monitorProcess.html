@@ -1,0 +1,67 @@
+<div class="row-fluid" style="min-height: 475px;">
+    <div class="span2">
+        <div class="legend"><span ng-bind-html="i18n.template_term_chooseVM_label"></span></div>
+        <ul class="nav nav-list" ng-show="vmData">
+            <div ng-repeat="vm in vmList">
+                <li ng-class="{'active':selectVm.id==vm.id}" ng-click="selectVmChange(vm.id)">
+                    <a class="clearfix">
+                        <div>
+                            <div ng-bind="vm.name4Ui" class="btn-link customInlineBlock fl" title="{{vm.name}}"></div>
+                            <div class="pull-right customRightAgoOffset" ng-show="selectVm.id==vm.id">
+                                <img src="../theme/default/images/gm/irm_topo_RightArrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </div>
+        </ul>
+        <div ng-show="!vmData">
+            <span ng-bind="i18n.perform_term_nullMonitorInfo_label"></span>
+        </div>
+    </div>
+    <div class="span2">
+        <div class="legend"><span ng-bind-html="i18n.app_term_chooseProcess_label"></span></div>
+        <ul class="nav nav-list" ng-show="processData">
+            <div ng-repeat="process in processList">
+                <li ng-class="{'active':selectProcess.id==process.id}" ng-click="selectProcessChange(process.id)">
+                    <a class="clearfix">
+                        <div>
+                            <div ng-bind="process.name4Ui" class="btn-link customInlineBlock fl" title="{{process.name}}"></div>
+                            <div class="pull-right customRightAgoOffset" ng-show="selectProcess.id==process.id">
+                                <img src="../theme/default/images/gm/irm_topo_RightArrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </div>
+        </ul>
+        <div ng-show="!processData">
+            <span ng-bind="i18n.perform_term_nullMonitorInfo_label"></span>
+        </div>
+    </div>
+    <div class="span8" ng-if="null!==selectProcess">
+        <div>
+            <div class="legend" ng-bind="selectProcess.name"></div>
+        </div>
+
+        <div>
+            <ul>
+                <li ng-repeat="index in indexs">
+                    <div ng-if="linePlotArray[index]!=null">
+                        <div>
+                            <span class="customPlotTitle" ng-bind="linePlotArray[index].plotTitle"></span>
+                            <span class="pull-right margin-right-beautifier">
+                                <a class="btn-link">
+                                    <img src="../theme/default/images/gm/irm_fm_compmgr.png" ng-click="configAlarm(linePlotArray[index])" id="linePlotArray[index].refreshId" title="">
+                                </a>
+                            </span>
+                        </div>
+                        <tiny-lineplot id="linePlotArray[index].id" xaxis="linePlotArray[index].xaxis" tips="linePlotArray[index].tips" grid="linePlotArray[index].grid" yaxis="linePlotArray[index].yaxis" data="linePlotArray[index].data" series="linePlotArray[index].series" width="linePlotArray[index].width"
+                        height="linePlotArray[index].height" legend="linePlotArray[index].legend" related-id="linePlotArray[index].relatedId">
+                        </tiny-lineplot>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

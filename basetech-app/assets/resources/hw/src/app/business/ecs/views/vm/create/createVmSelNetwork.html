@@ -1,0 +1,81 @@
+<div id="createVmspecInfo">
+    <div class="create-page-distance">
+        <div class="clearfix bottom20" ng-if="service.vm_support_user_define_config=='true'">
+            <tiny-radiogroup id="networkType.id" layout="networkType.layout" values="networkType.values" change="networkType.change()">
+            </tiny-radiogroup>
+            <span popover="{{i18n.vm_vm_create_para_netType_mean_tip}}" popover-trigger="mouseenter" popover-placement="right" class="small-icon small-icon-tips"></span>
+        </div>
+
+        <!--基础网络-->
+        <div ng-show="service.networkType=='basic'" id="ecsVmCreateNetworkBase">
+            <tiny-formfield>
+                <tiny-item label="basicAz.label" require="basicAz.require" labelcls="basicAz.class">
+                    <tiny-select id="basicAz.id" values="basicAz.data" width="basicAz.width" validate="basicAz.validate" height="200">
+                    </tiny-select>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <!--私有网络-->
+        <div ng-show="service.networkType=='private'" id="ecsVmCreateNetworkVpc">
+            <tiny-formfield labelwidth="vpc.labelWidth">
+                <tiny-item label="vpc.label" require="vpc.require" display="service.vm_support_user_define_config=='true' || service.from!='vms'">
+                    <tiny-select id="vpc.id" values="vpc.values" width="vpc.width" change="vpc.change()" validate="vpc.validate"  height="200">
+                    </tiny-select>
+                </tiny-item>
+                <tiny-item label="vpc.label" display="service.vm_support_user_define_config!='true' && service.from=='vms'">
+                    <span ng-bind="service.vpcName" class="left35"></span>
+                </tiny-item>
+            </tiny-formfield>
+
+            <div ng-if="!ICT">
+                <div ng-repeat="nic in nics" class="bottom10">
+                    <span style="color: red;">*</span>
+                    <span ng-bind="privateNetwork.label" class="ecs_vm_create_network_label"></span>
+                    <tiny-select id="privateNetwork.id  + $index" values="privateNetwork.data" width="privateNetwork.width" 
+                                 validate="privateNetwork.validate" change="privateNetwork.change($index)"  height="200"></tiny-select>
+
+                    <span ng-bind="privateIpv4.label" class="ecs_vm_create_ip_label"></span>
+                    <tiny-ip id="privateIpv4.id + $index" type="privateIpv4.type" value="privateIpv4.value" width="privateIpv4.width" extend-function="privateIpv4.extendFunction" validate="privateIpv4.validate"></tiny-ip>
+
+                    <span ng-bind="privateIpv6.label" class="ecs_vm_create_ip_label"></span>
+                    <tiny-textbox id="privateIpv6.id + $index" value="privateIpv6.value" width="privateIpv6.width" extend-function="privateIpv6.extendFunction" validate="privateIpv6.validate"></tiny-textbox>
+
+                    <img src="../theme/default/images/uploadify_cancel.png" title="{{delNic.text}}" ng-click="delNic.click($index)" class="btn-link left10" ng-show="nics.length>1"/>
+                </div>
+            </div>
+            <div ng-if="ICT">
+                <div class="inline-help bottom10"><span ng-bind="i18n.vpc_net_addICT_para_type_mean_tip"></span></div>
+                <div ng-repeat="nic in nics" class="bottom10">
+                    <span style="color: red;">*</span>
+                    <span ng-bind="privateNetwork.label" class="ecs_vm_create_network_label"></span>
+                    <tiny-select id="ictNetType.id + $index" values="ictNetType['values' + $index]" width="ictNetType.width" 
+                                 validate="privateNetwork.validate" change="ictNetType.change($index)"  height="200"></tiny-select>
+                    <tiny-select id="privateNetwork.id  + $index" values="privateNetwork['data' + $index]" width="privateNetwork.width" 
+                                 validate="privateNetwork.validate" change="privateNetwork.change($index)"  height="200"></tiny-select>
+
+                    <span ng-bind="privateIpv4.label" class="ecs_vm_create_ip_label"></span>
+                    <tiny-ip id="privateIpv4.id + $index" type="privateIpv4.type" value="privateIpv4.value" width="privateIpv4.width" extend-function="privateIpv4.extendFunction" validate="privateIpv4.validate"></tiny-ip>
+
+                    <span ng-bind="privateIpv6.label" class="ecs_vm_create_ip_label"></span>
+                    <tiny-textbox id="privateIpv6.id + $index" value="privateIpv6.value" width="privateIpv6.width" extend-function="privateIpv6.extendFunction" validate="privateIpv6.validate"></tiny-textbox>
+
+                    <img src="../theme/default/images/uploadify_cancel.png" title="{{delNic.text}}" ng-click="delNic.click($index)" class="btn-link left10" ng-show="nics.length>1"/>
+                </div>
+            </div>
+
+
+            <div class="fm-btn-top-large">
+                <tiny-button id="addNic.id" text="addNic.text" click="addNic.click()" disable="nics.length>=maxNicNum"></tiny-button>
+                <span popover="{{i18n.vm_vm_NIC_info_gateway_label}}" popover-trigger="mouseenter"
+                      popover-placement="right" class="small-icon small-icon-tips"></span>
+            </div>
+        </div>
+
+        <div class="fm-btn-top-large">
+            <tiny-button id="preBtn.id" text="preBtn.text"click="preBtn.click()"></tiny-button>
+            <tiny-button id="nextBtn.id" text="nextBtn.text" click="nextBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>

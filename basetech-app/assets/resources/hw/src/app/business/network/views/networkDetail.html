@@ -1,0 +1,190 @@
+<div class="container-fluid network-detail" ng-controller="network.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <div class="span4">
+            <div class="inner-legend"><span ng-bind="i18n.common_term_basicInfo_label"></span></div>
+            <tiny-formfield>
+                <tiny-item label="info.name.label">
+                    <div ng-if="!name.modifying">
+                        <div class="text-overflow network-detail-maxWidth" style="display: inline-block;">
+                            <span ng-bind="networkDetail.name" title="{{networkDetail.name}}"></span>
+                        </div>
+
+                        <span ng-show="canModifyNetName && hasNetworkOperateRight" class="btn-link" ng-click="name.clickModify()">
+                            <img src="../theme/default/images/gm/edit.gif">
+                        </span>
+                    </div>
+                    <div ng-if="name.modifying">
+                        <tiny-textbox id="name.textBoxId" value="networkDetail.name" validate="name.validate" tooltip="name.tooltip" blur="name.blur()" keypressfn="name.keypressfn" width="150"></tiny-textbox>
+                    </div>
+                </tiny-item>
+                <tiny-item label="info.description.label" display="!openstack">
+                    <div ng-if="!description.modifying">
+                        <div class="text-overflow network-detail-maxWidth" style="display: inline-block;">
+                            <span ng-bind="networkDetail.description" title="{{networkDetail.description}}"></span>
+                        </div>
+                        <span ng-show="hasNetworkOperateRight" class="btn-link" ng-click="description.clickModify()">
+                            <img src="../theme/default/images/gm/edit.gif">
+                        </span>
+                    </div>
+                    <div ng-if="description.modifying">
+                        <tiny-textbox id="description.textBoxId" value="networkDetail.description" blur="description.blur()" keypressfn="description.keypressfn" width="150"></tiny-textbox>
+                    </div>
+                </tiny-item>
+                <tiny-item label="info.type.label">
+                    <span ng-bind="networkDetail.netTypeUI"></span>
+                </tiny-item>
+                <tiny-item label="info.status.label">
+                    <span ng-bind="networkDetail.statusUI"></span>
+                </tiny-item>
+                <tiny-item label="info.vlan.label" display="!isICTVXLAN">
+                    <span ng-bind="networkDetail.vlan"></span>
+                </tiny-item>
+                <tiny-item label="info.vxlan.label" display="isICTVXLAN">
+                    <span ng-bind="networkDetail.vlan"></span>
+                </tiny-item>
+                <tiny-item label="info.phyNetwork.label" display="openstack&&!isICTVXLAN">
+                    <span ng-bind="networkDetail.physicalNetworkName"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="span4">
+            <div class="inner-legend">IPV4</div>
+            <tiny-formfield>
+                <tiny-item label="info.ipType.label">
+                    <span ng-bind="networkDetail.ipv4Subnet.allocTypeUI"></span>
+                </tiny-item>
+                <tiny-item label="info.subnetMask.label">
+                    <span ng-show="networkDetail.ipv4Subnet != null">
+                        <span ng-bind="networkDetail.ipv4Subnet.subnetAddr"></span>
+                        <span>/</span>
+                        <span ng-bind="networkDetail.ipv4Subnet.subnetPrefix"></span>
+                    </span>
+                </tiny-item>
+                <tiny-item label="info.gateway.label">
+                    <span ng-bind="networkDetail.ipv4Subnet.gateway"></span>
+                </tiny-item>
+                <tiny-item label="info.ipTotal.label" display="openstack">
+                    <span ng-bind="networkDetail.ipv4Subnet.ipTotal"></span>
+                </tiny-item>
+                <tiny-item label="info.availableIPRanges.label">
+                    <div ng-repeat="ipRanges in networkDetail.ipv4Subnet.availableIPRanges" style="margin-top: -9px">
+                        <div class="margin-beautifier">
+                            <span ng-bind="ipRanges.startIp"></span>
+                            <span>-</span>
+                            <span ng-bind="ipRanges.endIp"></span>
+                        </div>
+                    </div>
+                </tiny-item>
+                <tiny-item label="info.dhcpOption.label">
+                    <div ng-show="!openstack" class="bottom10">
+                        <span ng-bind="i18n.common_term_domainName_label"></span>:
+                        <span ng-bind="networkDetail.ipv4Subnet.dhcpOption.domainName"></span>
+                    </div>
+                    <div class="bottom10">
+                        <span ng-bind="i18n.common_term_activeDNS_label" class="color2"></span>:
+                        <div ng-bind="networkDetail.ipv4Subnet.dhcpOption.primaryDNS"></div>
+                    </div>
+                    <div class="bottom10">
+                        <span ng-bind="i18n.common_term_standbyDNS_label" class="color2"></span>:
+                        <div ng-bind="networkDetail.ipv4Subnet.dhcpOption.secondaryDNS"></div>
+                    </div>
+                    <div ng-show="!openstack" class="bottom10">
+                        <span ng-bind="i18n.common_term_activeWINS_label" class="color2"></span>:
+                        <div ng-bind="networkDetail.ipv4Subnet.dhcpOption.primaryWINS"></div>
+                    </div>
+                    <div ng-show="!openstack" class="bottom10">
+                        <span ng-bind="i18n.common_term_standbyWINS_label" class="color2"></span>:
+                        <div ng-bind="networkDetail.ipv4Subnet.dhcpOption.secondaryWINS"></div>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="span4">
+            <div class="inner-legend">IPV6</div>
+            <tiny-formfield>
+                <tiny-item label="info.ipType.label">
+                    <span ng-bind="networkDetail.ipv6Subnet.allocTypeUI"></span>
+                </tiny-item>
+                <tiny-item label="info.subnetMask.label">
+                    <span ng-show="networkDetail.ipv6Subnet != null">
+                        <span ng-bind="networkDetail.ipv6Subnet.subnetAddr"></span>
+                        <span>/</span>
+                        <span ng-bind="networkDetail.ipv6Subnet.subnetPrefix"></span>
+                    </span>
+                </tiny-item>
+                <tiny-item label="info.gateway.label">
+                    <span ng-bind="networkDetail.ipv6Subnet.gateway"></span>
+                </tiny-item>
+                <tiny-item label="info.ipTotal.label" display="openstack">
+                    <span ng-bind="networkDetail.ipv6Subnet.ipTotal"></span>
+                </tiny-item>
+                <tiny-item label="info.availableIPRanges.label">
+                    <div ng-repeat="ipRanges in networkDetail.ipv6Subnet.availableIPRanges">
+                        <div class="margin-beautifier">
+                            <span title="{{ipRanges.startIp}}" ng-bind="ipRanges.startIp"></span>
+                            <span>-</span>
+                            <span title="{{ipRanges.endIp}}" ng-bind="ipRanges.endIp"></span>
+                        </div>
+                    </div>
+                </tiny-item>
+                <tiny-item label="info.dhcpOption.label">
+                    <div ng-show="!openstack" class="bottom10">
+                        <span ng-bind="i18n.common_term_domainName_label"></span>:
+                        <span class="text-overflow network-detail-maxWidth" title="{{networkDetail.ipv6Subnet.dhcpOption.domainName}}" ng-bind="networkDetail.ipv6Subnet.dhcpOption.domainName"></span>
+                    </div>
+                    <div class="bottom10">
+                        <span ng-bind="i18n.common_term_activeDNS_label" class="color2"></span>:
+                        <div class="text-overflow network-detail-maxWidth" title="{{networkDetail.ipv6Subnet.dhcpOption.primaryDNS}}" ng-bind="networkDetail.ipv6Subnet.dhcpOption.primaryDNS"></div>
+                    </div>
+                    <div class="bottom10">
+                        <span ng-bind="i18n.common_term_standbyDNS_label" class="color2"></span>:
+                        <div class="text-overflow network-detail-maxWidth" title="{{networkDetail.ipv6Subnet.dhcpOption.secondaryDNS}}" ng-bind="networkDetail.ipv6Subnet.dhcpOption.secondaryDNS"></div>
+                    </div>
+                    <div ng-show="!openstack" class="bottom10">
+                        <span ng-bind="i18n.common_term_activeWINS_label" class="color2"></span>:
+                        <div class="text-overflow network-detail-maxWidth" title="{{networkDetail.ipv6Subnet.dhcpOption.primaryWINS}}" ng-bind="networkDetail.ipv6Subnet.dhcpOption.primaryWINS"></div>
+                    </div>
+                    <div ng-show="!openstack" class="bottom10">
+                        <span ng-bind="i18n.common_term_standbyWINS_label" class="color2"></span>:
+                        <div class="text-overflow network-detail-maxWidth" title="{{networkDetail.ipv6Subnet.dhcpOption.secondaryWINS}}" ng-bind="networkDetail.ipv6Subnet.dhcpOption.secondaryWINS"></div>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>
+
+<script>
+require(['app/business/network/controllers/networkDetail'],
+    function(networkDetailModel) {
+        var curView = undefined;
+        $(".network-detail").each(function() {
+
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+
+        //编译(编译前scope是父页面继承来的)
+        var scope = curView.scope();
+        var dep = ['ng', 'wcc', networkDetailModel.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", curView);
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile(curView)($rootScope);
+            $rootScope.$digest();
+        });
+
+        //查询详细信息 (编译后scope是新new出来的)
+        var networkId = scope.currentItem.networkID;
+        var cloudId = scope.currentItem.cloudInfraId;
+        var vpcId = scope.currentItem.vpcId;
+        var newScope = curView.scope();
+        newScope.queryDetail(networkId, cloudId, vpcId);
+    });
+</script>

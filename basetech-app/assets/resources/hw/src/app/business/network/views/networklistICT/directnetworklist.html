@@ -1,0 +1,29 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div>
+    <div class="content-right-box">
+        <div class="clearfix bottom10" ng-show="!vpcTypeShared && hasNetworkOperateRight">
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div title="{{i18n.common_term_help_label}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="networkTable.id" data="networkTable.data" columns="networkTable.columns" enable-pagination="networkTable.enablePagination" pagination-style="networkTable.paginationStyle" length-change="networkTable.lengthChange"
+                render-row="networkTable.renderRow" show-details="networkTable.showDetails" callback="networkTable.callback" change-select="networkTable.changeSelect"></tiny-table>
+            <div class="pull-right">
+                <tiny-select id="pageSize.id" values="pageSize.values" width="pageSize.width"
+                             change="pageSize.change()"></tiny-select>
+                <label class="margin-right-beautifier" ng-bind="i18n.common_term_currentPage_label"></label>
+                <label class="margin-right-beautifier" ng-bind="page.currentPage"></label>
+                <a ng-class="{tinyPagination_paginationPrevSpan: hasPrePage, tinyPagination_paginationPrevSpanDisabled: !hasPrePage}"
+                   title="{{i18n.common_term_previous_button}}" class="tinyPagination_tinybutton clear_both"  style="float:none; display: inline-block; position: relative; top: 8px;" ng-click="prePage()"></a>
+                <a ng-class="{tinyPagination_paginationNextSpan: hasNextPage,tinyPagination_paginationNextSpanDisabled: !hasNextPage}"
+                   title="{{i18n.common_term_nextPage_button}}" class="tinyPagination_tinybutton clear_both" style="float:none; display: inline-block; position: relative; top: 8px;" ng-click="nextPage()"></a>
+            </div>
+        </div>
+    </div>
+</div>

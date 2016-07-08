@@ -1,0 +1,194 @@
+<div class="content-right-box">
+    <div class="margin-erect-beautifier">
+        <tiny-button id="info.openBtn.id" text="info.openBtn.text" disable="info.openBtn.disable" ng-if="hasRouterOperateRight" display="isICT"
+                     click="info.openBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="info.releaseBtn.id" text="info.releaseBtn.text" disable="info.releaseBtn.disable" ng-if="hasRouterOperateRight"
+                     click="info.releaseBtn.click()"></tiny-button>
+        <div class="pull-right">
+            <a class="btn-link">
+                <div ng-click="refresh.click()" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div title="{{i18n.common_term_help_label}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+    </div>
+    <div class="outbox-padding">
+        <div class="row-fluid">
+            <div class="legend" ng-bind="i18n.common_term_basicInfo_label"></div>
+            <div class="row-fluid">
+                <div class="span4">
+                    <tiny-formfield>
+                        <tiny-item label="info.name">
+                            <span ng-bind="router.name"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4">
+                    <tiny-formfield>
+                        <tiny-item label="info.status">
+                            <span ng-bind="router.statusUI"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4">
+                    <tiny-formfield>
+                        <tiny-item label="info.ID">
+                            <span ng-bind="router.routerID"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span4" ng-if="!isICT">
+                    <tiny-formfield>
+                        <tiny-item label="info.type">
+                            <span ng-bind="router.routerTypeUI"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4" ng-if="isSoftRouter&&isICT">
+                    <tiny-formfield>
+                        <tiny-item label="info.ipAddressForSnat">
+                            <span ng-bind="router.ipAddressForSnat"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4" ng-if="!isICT">
+                    <tiny-formfield>
+                        <tiny-item label="info.supportVXLAN">
+                            <span ng-bind="router.supportVxlanFlag?i18n.common_term_yes_button:i18n.common_term_no_label"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4" ng-if="(isICT || (!isICT && router.externalNetworkID))&&isSoftRouter">
+                    <tiny-formfield>
+                        <tiny-item label="info.externalNetworkID">
+                            <span ng-bind="router.externalNetworkID" class="btn-link" ng-click="externalNetworkInfoView(router.externalNetworkID)"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4" ng-if="router.ipForRoutersCommunication">
+                    <tiny-formfield>
+                        <tiny-item label="info.vpcCommunicationIP">
+                            <span ng-bind="router.ipForRoutersCommunication"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span4">
+                    <tiny-formfield>
+                        <tiny-item label="info.externalNetworkName" display="showExternalNetworkInfo">
+                            <span ng-bind="externalNetworkInfo.name"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4">
+                    <tiny-formfield>
+                        <tiny-item label="info.extSubnetAddrAndSubnetPrefixIPV4" display="showExternalNetworkInfo">
+                            <span ng-bind="externalNetworkInfo.ipv4Subnet.subnetAddr"></span> / <span ng-bind="externalNetworkInfo.ipv4Subnet.subnetPrefix"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4">
+                    <tiny-formfield>
+                        <tiny-item label="info.externalNetworkGatewayIPV4" display="showExternalNetworkInfo">
+                            <span ng-bind="externalNetworkInfo.ipv4Subnet.gateway"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span4">
+                    <tiny-formfield>
+                        <tiny-item label="info.extSubnetAddrAndSubnetPrefixIPV6" display="showExternalNetworkInfo">
+                            <span ng-bind="externalNetworkInfo.ipv6Subnet.subnetAddr"></span> / <span ng-bind="externalNetworkInfo.ipv6Subnet.subnetPrefix"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span4">
+                    <tiny-formfield>
+                        <tiny-item label="info.externalNetworkGatewayIPV6" display="showExternalNetworkInfo">
+                            <span ng-bind="externalNetworkInfo.ipv6Subnet.gateway"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="outbox-padding">
+        <div class="row-fluid">
+            <div ng-if="!isICT">
+                <div class="legend" ng-bind="i18n.common_term_netCheck_button"></div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div id="router-ping-div">
+                            <tiny-formfield>
+                                <tiny-item label="info.targetAddr.label" require="info.targetAddr.require">
+                                    <tiny-ip id="info.targetAddr.id" type="info.targetAddr.type"
+                                             validate="info.targetAddr.validate" width="info.targetAddr.width"
+                                             extend-function="info.targetAddr.extendFunction"></tiny-ip>
+                                    <tiny-button id="info.checkBtn.id" text="info.checkBtn.text"
+                                                 disable="info.checkBtn.disable"
+                                                 click="info.checkBtn.click()"></tiny-button>
+                                </tiny-item>
+                            </tiny-formfield>
+                        </div>
+                        <div>
+                            <img id="vpc-router-detail-packageNum" class="btn btn-small btn-link"
+                                 ng-src="{{checkPingImage}}"
+                                 ng-click="triggerPackageDetail()">
+                        <span ng-show="showPackageSummary">
+                            <span class="margin-right-beautifier">{{i18n.common_term_packetNum_label}}:</span><span><span
+                                ng-bind="info.pingNum.value"></span>;/{{i18n.common_term_packetLength_label}}：<span ng-bind="info.pingSize.value"></span>{{i18n.common_term_byte_label}}</span>
+                        </span>
+                        </div>
+                        <div id="router-ping-package-param-div" class="top10">
+                            <tiny-formfield>
+                                <tiny-item label="info.pingNum.label" require="info.pingNum.require"
+                                           display="showPackageDetail">
+                                    <tiny-textbox id="info.pingNum.id" value="info.pingNum.value" tooltip="info.pingNum.tooltip"
+                                                  validate="info.pingNum.validate"></tiny-textbox>
+                                </tiny-item>
+                                <tiny-item label="info.pingSize.label" require="info.pingSize.require"
+                                           display="showPackageDetail">
+                                    <tiny-textbox id="info.pingSize.id" value="info.pingSize.value" tooltip="info.pingSize.tooltip"
+                                                  validate="info.pingSize.validate"></tiny-textbox>
+                                </tiny-item>
+                            </tiny-formfield>
+                        </div>
+                        <tiny-formfield>
+                            <tiny-item label="info.checkResult.label">
+                                <tiny-textbox value="info.pingResult" disable="info.resultDiv.disable" height="info.resultDiv.height"
+                                              width="info.resultDiv.width" type="info.resultDiv.type">
+                                </tiny-textbox>
+                            </tiny-item>
+                            <tiny-item class="fm-btn-top-small">
+                                <tiny-button id="info.refreshResultBtn.id" text="info.refreshResultBtn.text" ng-if="hasRouterOperateRight"
+                                             disable="!sessionID"
+                                             click="info.refreshResultBtn.click()"></tiny-button>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid" ng-if="isICT">
+                <div class="legend">
+                    <span class="margin-right-beautifier" ng-bind="i18n.vpc_term_routerInfo_label"></span>
+                    <tiny-button class="major-btn" id="info.routerAddBtn.id" text="info.routerAddBtn.text" ng-if="hasRouterOperateRight"
+                                 disable="info.routerAddBtn.disable"
+                                 click="info.routerAddBtn.click()"></tiny-button>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <tiny-table id="info.routerInfoTable.id" data="info.routerInfoTable.data"
+                                    columns="info.routerInfoTable.columns"
+                                    render-row="info.routerInfoTable.renderRow"
+                                    enable-pagination="false"></tiny-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<style>
+#createVlbConfigMonitor .tiny-checkbox {
+    height: 0!important;
+}
+</style>
+<div id="createVlbConfigMonitor" class="create-page-distance">
+    <div ng-if="isIT">
+        <div ng-if="service.httpMonitorConfigTable.length>0">
+            <div class="bottom10">HTTP:</div>
+            <div class="table-tiny-box-height">
+                <tiny-table id="info.httpMonitorConfigTable.id" data="service.httpMonitorConfigTable" columns="info.httpMonitorConfigTable.columns" enable-pagination="info.httpMonitorConfigTable.enablePagination" render-row="info.httpMonitorConfigTable.renderRow"></tiny-table>
+            </div>
+        </div>
+        <div ng-if="service.httpsMonitorConfigTable.length>0">
+            <div class="bottom10">HTTPS:</div>
+            <div class="table-tiny-box-height">
+                <tiny-table id="info.httpsMonitorConfigTable.id" data="service.httpsMonitorConfigTable" columns="info.httpsMonitorConfigTable.columns" enable-pagination="info.httpsMonitorConfigTable.enablePagination" render-row="info.httpsMonitorConfigTable.renderRow"></tiny-table>
+            </div>
+        </div>
+        <div ng-if="service.tcpMonitorConfigTable.length>0">
+            <div class="bottom10">TCP:</div>
+            <div class="table-tiny-box-height">
+                <tiny-table id="info.tcpMonitorConfigTable.id" data="service.tcpMonitorConfigTable" columns="info.tcpMonitorConfigTable.columns" enable-pagination="info.tcpMonitorConfigTable.enablePagination" render-row="info.tcpMonitorConfigTable.renderRow"></tiny-table>
+            </div>
+        </div>
+        <div class="fm-btn-top-large">
+            <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+            <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+    <div ng-if="!isIT">
+        <tiny-formfield>
+            <tiny-item label="info.protocol.label" require="info.protocol.require">
+                <tiny-select id="info.protocol.id" values="service.monitorProtocol" width="info.protocol.width" change="info.protocol.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="info.checkPath.label" require="info.checkPath.require" display="service.isHTTP">
+                <tiny-textbox id="info.checkPath.id" value="info.checkPath.value" width="info.checkPath.width" validate="info.checkPath.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="info.timeout.label" require="info.timeout.require">
+                <tiny-textbox id="info.timeout.id" value="info.timeout.value" width="info.timeout.width" validate="info.timeout.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="info.checkInterval.label" require="info.checkInterval.require">
+                <tiny-textbox id="info.checkInterval.id" value="info.checkInterval.value" width="info.checkInterval.width" validate="info.checkInterval.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="info.maxRoundRobin.label" require="info.maxRoundRobin.require">
+                <tiny-textbox id="info.maxRoundRobin.id" value="info.maxRoundRobin.value" width="info.maxRoundRobin.width" validate="info.maxRoundRobin.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="info.httpMethod.label" require="info.httpMethod.require" display="service.isHTTP">
+                <tiny-select id="info.httpMethod.id" values="info.httpMethod.value" width="info.httpMethod.width"></tiny-select>
+            </tiny-item>
+            <tiny-item label="info.httpCode.label" require="info.httpCode.require" display="service.isHTTP">
+                <tiny-textbox id="info.httpCode.id" value="info.httpCode.value" width="info.httpCode.width" validate="info.httpCode.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+                <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

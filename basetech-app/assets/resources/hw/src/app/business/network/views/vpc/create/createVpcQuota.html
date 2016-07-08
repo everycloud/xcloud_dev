@@ -1,0 +1,52 @@
+<div class="container-fluid createvpc-basic">
+    <div class="create-page-distance">
+        <div class="row-fluid" id="create-quota-window">
+        <tiny-formfield ng-if="quotaService.vpcNum">
+            <tiny-item label="info.vms.label" require="info.vms.require">
+                <tiny-textbox id="info.vms.id" value="quotaService.value.defaultValue.vMNum" width="info.vms.width" tooltip="info.vms.tooltip" tip-width="info.vms.tipWidth" tip-position="info.vms.tipPosition"  validate="info.vms.validate" extend-function="info.vms.extendFunction"></tiny-textbox>
+                <span class="inline-help" ng-bind="quotaService.tip.vMNum"></span>
+            </tiny-item>
+            <tiny-item label="info.cpu.label" require="info.cpu.require">
+                <tiny-textbox id="info.cpu.id" value="quotaService.value.defaultValue.vCPUNum" width="info.cpu.width" tooltip="info.cpu.tooltip" tip-width="info.cpu.tipWidth" validate="info.cpu.validate" extend-function="info.cpu.extendFunction"></tiny-textbox>
+                <span class="inline-help" ng-bind="quotaService.tip.vCPUNum"></span>
+            </tiny-item>
+            <tiny-item label="info.memory.label" require="info.memory.require">
+                <tiny-textbox id="info.memory.id" value="quotaService.value.defaultValue.memoryCapacity" width="info.memory.width" tooltip="info.memory.tooltip" tip-width="info.memory.tipWidth" validate="info.memory.validate" extend-function="info.memory.extendFunction"></tiny-textbox>
+                <span class="inline-help" ng-bind="quotaService.tip.memoryCapacity"></span>
+            </tiny-item>
+            <tiny-item label="info.storage.label" require="info.storage.require">
+                <tiny-textbox id="info.storage.id" value="quotaService.value.defaultValue.storageCapacity" width="info.storage.width" tooltip="info.storage.tooltip" tip-width="info.storage.tipWidth" validate="info.storage.validate" extend-function="info.storage.extendFunction"></tiny-textbox>
+                <span class="inline-help" ng-bind="quotaService.tip.storageCapacity"></span>
+            </tiny-item>
+            <tiny-item label="info.nets.label" require="info.nets.require">
+                <tiny-textbox id="info.nets.id" value="quotaService.value.defaultValue.routedNetworkNum" width="info.nets.width" tooltip="info.nets.tooltip" validate="info.nets.validate" extend-function="info.nets.extendFunction"></tiny-textbox>
+                <span class="inline-help" ng-bind="quotaService.tip.routedNetworkNum"></span>
+            </tiny-item>
+            <tiny-item label="info.eip.label" require="info.eip.require" display="!vmwareICT">
+                <tiny-textbox id="info.eip.id" value="quotaService.value.defaultValue.publicIpNum" width="info.eip.width" tooltip="info.eip.tooltip" validate="info.eip.validate" extend-function="info.eip.extendFunction"></tiny-textbox>
+                <span class="inline-help" ng-bind="quotaService.tip.publicIpNum"></span>
+            </tiny-item>
+            <tiny-item label="info.sg.label" require="info.sg.require" display="!vmwareICT">
+                <tiny-textbox id="info.sg.id" value="quotaService.value.defaultValue.securityGroupNum" width="info.sg.width" tooltip="info.sg.tooltip" validate="info.sg.validate" extend-function="info.sg.extendFunction"></tiny-textbox>
+                <span class="inline-help" ng-bind="quotaService.tip.securityGroupNum"></span>
+            </tiny-item>
+            <tiny-item label="">
+                <div class="create-btn-margin">
+                    <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+                    <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+        <tiny-formfield ng-if="!quotaService.vpcNum">
+            <div class="inline-help"><span ng-bind="i18n.vpc_vpc_add_info_numMax_valid"></span></div>
+            <tiny-item label="">
+                <div class="create-btn-margin">
+                    <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+                    <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<link href="../theme/default/css/gm/app.css" type="text/css" rel="stylesheet" />
+<div class="container-fluid" id="createByTemplateContentId">
+    <div class="tiny-step-boxset">
+        <div class="createpage-legend" ng-if="params.action !== 'modify'">{{i18n.service_term_addAppInstanceService_label}}</div>
+        <div class="createpage-legend" ng-if="params.action === 'modify'">{{i18n.service_term_modifyAppInstanceService_label}}</div>
+        <div style="margin-top: 25px; padding-bottom: 5px;margin-left: 10px;" class="clearfix">
+            <tiny-step id="service.step.id" values="service.step.values" width="service.step.width" jumpable="service.step.jumpable"></tiny-step>
+        </div>
+    </div>
+
+
+    <div>
+        <div ng-show="service.show.basicInfo">
+            <div ui-view="basicInfo"></div>
+        </div>
+        <div ng-show="service.show.chooseNetwork">
+            <div ui-view="chooseNet"></div>
+        </div>
+        <div ng-show="service.show.configApp">
+            <div ui-view="configApp"></div>
+        </div>
+        <div ng-show="service.show.configVlb">
+            <div ui-view="configVlb"></div>
+        </div>
+        <div ng-show="service.show.baseInfo">
+            <div ui-view="baseInfo"></div>
+        </div>
+        <div ng-show="service.show.confirmByTemplate">
+            <div ui-view="confirm"></div>
+        </div>
+    </div>
+</div>

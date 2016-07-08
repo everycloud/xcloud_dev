@@ -1,0 +1,29 @@
+<link href="../theme/default/css/gm/app.css" type="text/css" rel="stylesheet" />
+<div class="container-fluid" id="createByTemplateContentId">
+    <div class="tiny-step-boxset">
+        <div class="createpage-legend" ng-bind="i18n.app_term_createApp_button"></div>
+        <div style="margin-top: 25px; padding-bottom: 5px;margin-left: 10px;" class="clearfix">
+            <tiny-step id="service.step.id" values="service.step.values" width="service.step.width" jumpable="service.step.jumpable"></tiny-step>
+        </div>
+    </div>
+    <div>
+        <div ng-if="service.show.chooseTemplate">
+            <div ui-view="chooseTemplate"></div>
+        </div>
+        <div ng-if="service.show.basicInfo">
+            <div ui-view="baseInfo"></div>
+        </div>
+        <div ng-if="service.show.chooseNetwork">
+            <div ui-view="chooseNet"></div>
+        </div>
+        <div ng-if="service.show.configApp">
+            <div ui-view="configApp"></div>
+        </div>
+        <div ng-if="service.show.configVlb && params.resPoolFm">
+            <div ui-view="configVlb"></div>
+        </div>
+        <div ng-if="service.show.confirmByTemplate">
+            <div ui-view="confirm"></div>
+        </div>
+    </div>
+</div>

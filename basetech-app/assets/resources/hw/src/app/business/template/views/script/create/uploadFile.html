@@ -1,0 +1,22 @@
+<div ng-controller="uploadFileCtrl">
+    <div class="create-page-distance">
+        <label ng-if="uploadStatus == 'uploading'">{{ i18n.common_term_uploadGuage_label }}</label>
+        <label ng-if="uploadStatus == 'success'">{{ i18n.common_term_uploadSucceed_value }}</label>
+        <div ng-if="uploadStatus == 'failed'">
+            <div>
+                <span ng-bind="errorMsg"></span>
+            </div>
+        </div>
+        <div style="display: block; width: 560px;" class="clearfix">
+            <div class="progressbar-box" style="width: 500px;  height: 22px; border-radius: 11px;float:left;margin-right: 5px;">
+                <div class="progressbar-color" ng-style="{width:service.progress*5}" style=" height: 20px;"></div>
+            </div>
+            <div style="float:left;"><span ng-bind="service.progress"></span>%</div>
+        </div>
+        <div class="margin-top-beautifier">
+            <tiny-button id="info.okBtn.id" class="major-btn" text="info.okBtn.text" ng-show="uploadStatus != 'uploading'" click="info.okBtn.click()"></tiny-button>
+            <tiny-button ng-show="uploadStatus == 'uploading'" id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+
+</div>

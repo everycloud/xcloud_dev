@@ -1,0 +1,35 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="ecsVmsCls container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span ng-bind="i18n.common_term_shareVPC_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.vpc_vpc_view_explan_common_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="clearfix bottom10">
+            <div class="pull-right">
+                <div class="small-icon small-icon-menuicon" style="margin-top: 5px;"></div>
+                <tiny-filtersel id="searchLocation.id" values="searchLocation.values" width="searchLocation.width" change="searchLocation.change()">
+                </tiny-filtersel>
+
+                <a class="btn-link btn-link-padding">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                <div title="{{i18n.common_term_help_label}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="margin-top-beautifier">
+            <tiny-table id="vpcModel.id" data="vpcModel.data" columns="vpcModel.columns" pagination-style="vpcModel.paginationStyle" callback="vpcModel.callback" change-select="vpcModel.changeSelect" length-menu="vpcModel.lengthMenu" display-length="vpcModel.displayLength"
+            total-records="vpcModel.totalRecords" render-row="vpcModel.renderRow"></tiny-table>
+        </div>
+    </div>
+</div>

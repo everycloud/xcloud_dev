@@ -1,0 +1,27 @@
+<div ng-controller="app.createByOpenstack.selInstanceType.ctrl" id="app_createByOpenstack_selInstanceType">
+    <div>
+        <tiny-table id="instanceTypeTable.id" data="instanceTypeTable.data" columns="instanceTypeTable.columns" enable-pagination="instanceTypeTable.enablePagination" render-row="instanceTypeTable.renderRow" pagination-style="instanceTypeTable.paginationStyle"
+                    display-length="instanceTypeTable.displayLength" total-records="instanceTypeTable.totalRecords" callback="instanceTypeTable.callback" change-select="instanceTypeTable.changeSelect" length-menu="instanceTypeTable.lengthMenu">
+        </tiny-table>
+    </div>
+
+    <div class="customOkOuter2">
+        <tiny-button id="nextBtn.id" text="nextBtn.text" tooltip="nextBtn.tooltip" click="nextBtn.click()"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+require(['app/business/application/controllers/appInstance/createByOpenstack/selInstanceType'], function(selInstanceType) {
+    var dep = ['ng', 'wcc', selInstanceType.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#app_createByOpenstack_selInstanceType"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#app_createByOpenstack_selInstanceType"))($rootScope);
+        $rootScope.$digest();
+    });
+});
+</script>

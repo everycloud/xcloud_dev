@@ -1,0 +1,65 @@
+<div ng-controller="app.templates.createTemplate.ctrl" id="app-templateList-createTemplate-popId">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="templateName.label" require="templateName.require">
+                <tiny-textbox id="templateName.id" value="templateName.value" width="templateName.width" validate="templateName.validate" tooltip="templateName.tips" extend-function="templateName.extendFunction" disable="templateName.disabled"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="templateIcon.label" require="templateIcon.require">
+                <div>
+                    <input style="display: none" ng-model="templateIcon.icon" />
+                    <img ng-src='{{ templateIcon.icon }}' alt='../theme/default/images/edit.png' width='20px' height='20px' id="createTempCurImgId" />
+
+                    <div style="display: inline-block;padding-left: 3px;" class="dropdown">
+                        <a class="dropdown-toggle" id="dLabel" data-toggle="dropdown" ng-click="templateIcon.click()"  ng-bind="i18n.template_term_changeIcon_button"></a>
+                        <ul class="dropdown-menu imgBox" role="menu" aria-labelledby="dLabel" id="createTemplateLogoOptionId">
+                            <li class="imgItem" ng-repeat="img in templateIcon.imgs">
+                                <img ng-src="{{ img.src }}" ng-click="img.click()" width='30px' height='45px' />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </tiny-item>
+
+            <tiny-item label="templateDesc.label" require="templateDesc.require">
+                <tiny-textbox id="templateDesc.id" value="templateDesc.value" width="templateDesc.width" height="templateDesc.height" validate="templateDesc.validate" tooltip="templateDesc.tips"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="templateContent.label" require="templateContent.require">
+                <tiny-textbox id="templateContent.id" value="templateContent.value" width="templateContent.width" height="templateContent.height" type="templateContent.type" validate="templateContent.validate" error-msg="templateContent.errorMsg" readonly="templateContent.readonly"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div style="text-align: center;">
+        <tiny-button id="okBtn.id" text="okBtn.text" tooltip="okBtn.tooltip" click="okBtn.click()"></tiny-button>
+        <tiny-button id="checkBtn.id" text="checkBtn.text" tooltip="okBtn.tooltip" click="checkBtn.click()"></tiny-button>
+        <tiny-button id="closeBtn.id" text="closeBtn.text" tooltip="closeBtn.tooltip" click="closeBtn.click()"></tiny-button>
+    </div>
+</div>
+<style>
+.imgBox {
+    width: 310px;
+}
+.imgItem {
+    padding-left: 10px;
+    padding-right: 20px;
+    float: left;
+}
+</style>
+<script type="application/javascript">
+require(["sprintf",  'tiny-lib/jquery', 'tiny-lib/angular', "language/keyID",'app/business/application/controllers/template/createTemplateCtrl'],
+        function(sprintf, $, angular, keyIDI18n, createTemplateCtrl) {
+    var dependency = ['ng', 'wcc', createTemplateCtrl.name];
+    dependency.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#app-templateList-createTemplate-popId"));
+        }
+    ]);
+    var $injector = angular.injector(dependency);
+    $injector.invoke(function($compile, $rootScope) {
+        keyIDI18n.sprintf = sprintf.sprintf;
+        $rootScope.i18n = keyIDI18n;
+        $compile($("#app-templateList-createTemplate-popId"))($rootScope);
+        $rootScope.$digest();
+    });
+});
+</script>

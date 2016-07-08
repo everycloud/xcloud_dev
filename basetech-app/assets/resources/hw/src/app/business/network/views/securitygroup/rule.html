@@ -1,0 +1,36 @@
+<div class="container-fluid" id="manage-rule-basic" ng-controller="manageRuleCtrl">
+    <div>
+        <div class="form-inline clearfix">
+            <!--添加规则、删除规则-->
+            <div class="fl">
+                <tiny-button id="addBtn.id" text="addBtn.text" click="addBtn.click()" class="major-btn"></tiny-button>
+            </div>
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div id="refresh.id" title="{{refresh.tips}}" ng-click="refresh.click()" class="small-icon small-icon-refresh"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="ruleModel.id" data="ruleModel.datas" columns="ruleModel.columns" length-menu="ruleModel.lengthMenu" display-length="ruleModel.displayLength" total-records="ruleModel.totalRecords" render-row="ruleModel.renderRow" pagination-style="ruleModel.paginationStyle"
+            callback="ruleModel.callback" change-select="ruleModel.changeSelect">
+            </tiny-table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+require(["app/business/network/controllers/securitygroup/ruleCtrl"], function(ruleManageModule) {
+    var dep = ['ng', ruleManageModule.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#manage-rule-basic"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#manage-rule-basic"))($rootScope);
+        $rootScope.$digest();
+    });
+})
+</script>

@@ -1,0 +1,115 @@
+<div id="createUserDiv" class="alert-tip-first">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" value="name.value" type="name.type" tooltip="name.tips" validate="name.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="password.label" require="password.require">
+                <tiny-textbox id="password.id" value="password.value" type="password.type"  validate="password.validate" extend-function="password.extendFunction" tooltip="password.tips">
+                </tiny-textbox>
+            </tiny-item>
+            <tiny-item label="confirmPassword.label" require="confirmPassword.require">
+                <tiny-textbox id="confirmPassword.id" value="confirmPassword.value" tooltip="confirmPassword.tips" validate="confirmPassword.validate" extend-function="confirmPassword.extendFunction" type="confirmPassword.type"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+        <tiny-formfield>
+            <tiny-item label="roleModel.label" require="roleModel.require" class="left15">
+                <tiny-table id="roleModel.id" data="roleModel.datas" columns="roleModel.columns" enable-pagination="roleModel.pagination" render-row="roleModel.renderRow">
+                </tiny-table>
+                <div id="showRoleTableTip" style="display: none;" ng-bind="selectRoleLabel"></div>
+            </tiny-item>
+            <tiny-item label="phone.label" require="phone.require" display="!openstack">
+                <tiny-textbox id="phone.id" value="phone.value" readonly="phone.readonly" type="phone.type" tooltip="phone.tips" class="left15" validate="phone.validate" extend-function="phone.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="email.label" require="email.require">
+                <tiny-textbox id="email.id" value="email.value" readonly="email.readonly" type="email.type" class="left15"  validate="email.validate" extend-function="email.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="description.label" require="description.require">
+                <tiny-textbox id="description.id" value="description.value" readonly="description.readonly" validate="description.validate"
+                              width="description.width" height="description.height" type="description.type" class="left15"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+        <div id="showAccessControl" style="display: none;">
+            <tiny-checkbox id="accessControl.id" text="accessControl.text" height="accessControl.height" checked="accessControl.checked" change="accessControl.change()"></tiny-checkbox>
+            <tiny-formfield labelwidth="labelWidth" ng-show="accessControlDisplay">
+                <tiny-item label="labelModel.dateLabel">
+                    <tiny-datetime id="startDate.id" type="startDate.type" date-format="startDate.dateFormat"></tiny-datetime>
+                    <span>--</span>
+                    <tiny-datetime id="endDate.id" type="endDate.type" date-format="endDate.dateFormat"></tiny-datetime>
+                </tiny-item>
+                <tiny-item label="labelModel.timeLabel">
+                    <tiny-datetime id="startTime.id" type="startTime.type" time-format="startTime.timeFormat" default-time="startTime.defaultTime"></tiny-datetime>
+                    <span>--</span>
+                    <tiny-datetime id="endTime.id" type="endTime.type" time-format="endTime.timeFormat" default-time="endTime.defaultTime"></tiny-datetime>
+                </tiny-item>
+                <tiny-item label="ipAddressRadioGroup.label">
+                    <div style="height:30px">
+                        <tiny-radiogroup id="ipAddressRadioGroup.id" values="ipAddressRadioGroup.values" change="ipAddressRadioGroup.change()"></tiny-radiogroup>
+                    </div>
+                    <tiny-formfield labelwidth="labelWidth" ng-show="ipDisplayType === 'IP_ADDRESS'">
+                        <tiny-item label="ipAddress.label" require="ipAddress.require">
+                            <tiny-ip id="ipAddress.id" value="ipAddress.value"></tiny-ip>
+                        </tiny-item>
+                    </tiny-formfield>
+                    <tiny-formfield ng-show="ipDisplayType === 'IP_ADDRESS_SEG'">
+                        <tiny-item label="startIpAddress.label" require="startIpAddress.require">
+                            <tiny-ip id="startIpAddress.id" value="startIpAddress.value"></tiny-ip>
+                        </tiny-item>
+                        <tiny-item label="endIpAddress.label" require="endIpAddress.require">
+                            <tiny-ip id="endIpAddress.id" value="endIpAddress.value"></tiny-ip>
+                        </tiny-item>
+                    </tiny-formfield>
+                    <tiny-formfield ng-show="ipDisplayType === 'SUBNET'">
+                        <tiny-item label="subnetIpAddress.label" require="subnetIpAddress.require">
+                            <tiny-ip id="subnetIpAddress.id" value="subnetIpAddress.value"></tiny-ip>
+                        </tiny-item>
+                        <tiny-item label="subnetMask.label" require="subnetMask.require">
+                            <tiny-ip id="subnetMask.id" value="subnetMask.value"></tiny-ip>
+                        </tiny-item>
+                    </tiny-formfield>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <tiny-formfield labelwidth="labelWidth">
+            <tiny-item>
+                <tiny-button id="createBtn.id" text="createBtn.text" click="createBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+
+
+<script type="application/javascript">
+require(['app/business/tenantUser/controllers/user/createUserCtrl',
+        "tiny-widgets/Checkbox"
+    ],
+    function(createUserCtrl, Checkbox) {
+        $("#createUserDiv").attr("ng-controller", "userMgr.user.create.ctrl");
+        var dep = ['ng', 'wcc', createUserCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#createUserDiv"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#createUserDiv"))($rootScope);
+            $rootScope.$digest();
+        });
+
+        var tableId = "#selectRoleTblId";
+        var options = {
+            "id": "roleTableHeadCheckbox",
+            "checked": false,
+            "change": function() {
+                var isChecked = $("#" + options.id).widget().options.checked;
+                for (var i = 0; i < $(tableId).widget().options.data.length; i++) {
+                    $("#roleListCheckbox_" + i).widget().option("checked", isChecked);
+                }
+            }
+        };
+        var checkbox = new Checkbox(options);
+        $(tableId + " th:eq(0)").html(checkbox.getDom());
+    });
+</script>

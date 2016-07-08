@@ -1,0 +1,261 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Provisioning an Application Instance">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000032">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Provisioning an Application Instance</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Service Provisioning\nProvisioning an Application Instance");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100023.html\">Service Provisioning<\/a> > Provisioning an Application Instance<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000032"></a><a name="it_60_51_000032"></a>
+
+
+<h1 class="topictitle1">Provisioning an Application Instance</h1>
+<ul><li><a href="#it_60_51_000032__1.2.1.1">Description</a></li><li><a href="#it_60_51_000032__1.2.2.1">Provisioning Method</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_000032__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000032" class="sectiontitle2contents">Description</a></h4><p><span>An application instance is a collection of
+VMs and service software that provides specific services, for example,
+SQL Server, customer relationship management (CRM), and enterprise
+resource planning (ERP).</span></p>
+<p>Provisioning an application instance is a process of creating an
+application instance.</p>
+</div>
+
+<div class="section"><a name="it_60_51_000032__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000032" class="sectiontitle2contents">Provisioning Method</a></h4><p>You can
+provision application instances using a method shown in <a href="#it_60_51_000032__fig_01">Figure 1</a> based on the mapping scenario listed in <a href="#it_60_51_000032__tab_01">Table 1</a>. <a href="#it_60_51_000032__tab_02">Table 2</a> lists the involved
+tasks.</p>
+<div class="p"><div class="fignone" id="it_60_51_000032__fig_01"><a name="it_60_51_000032__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>Figure 1 </b>Provisioning method</span>
+
+<br><span><img src="fig/fig_it_60_51_000032_01.png"></span><br>
+</div>
+</div>
+<div class="p">
+<div class="tablenoborder"><a name="it_60_51_000032__tab_01"></a><a name="tab_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000032__tab_01" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Scenario</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="10.240963855421688%" id="mcps1.2.2.4.1.2.3.1.1"><p>Provisioning Mode</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="89.75903614457832%" id="mcps1.2.2.4.1.2.3.1.2"><p>Scenario</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="10.240963855421688%" headers="mcps1.2.2.4.1.2.3.1.1 "><p>1</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="89.75903614457832%" headers="mcps1.2.2.4.1.2.3.1.2 "><p><span id="it_60_51_000032__useTemplate"><a name="it_60_51_000032__useTemplate"></a><a name="useTemplate"></a>Create an application template based
+on the service requirements and use the template to provision an application
+instance. This mode applies to a newly-deployed FusionManager system.</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="10.240963855421688%" headers="mcps1.2.2.4.1.2.3.1.1 "><p>2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="89.75903614457832%" headers="mcps1.2.2.4.1.2.3.1.2 "><p><span id="it_60_51_000032__useVM"><a name="it_60_51_000032__useVM"></a><a name="useVM"></a>Associate multiple VMs to form an application
+instance. This mode applies to scenarios in which the VMs carrying
+the required services already exist in the system, or in which the
+required services only need a small number of VMs. Typically, an application
+template is only used to create a large number of VMs in batches.</span></p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<div class="p">
+<div class="tablenoborder"><a name="it_60_51_000032__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000032__tab_02" frame="border" border="1" rules="all"><caption><b>Table 2 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="6.463878326996199%" id="mcps1.2.2.5.1.2.5.1.1"><p>Provisioning Mode</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="18.631178707224336%" id="mcps1.2.2.5.1.2.5.1.2"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="55.13307984790875%" id="mcps1.2.2.5.1.2.5.1.3"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="19.771863117870726%" id="mcps1.2.2.5.1.2.5.1.4"><p>Web Client Navigation Path</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" width="6.463878326996199%" headers="mcps1.2.2.5.1.2.5.1.1 "><p>1</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="18.631178707224336%" headers="mcps1.2.2.5.1.2.5.1.2 "><p>Create an application template.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.13307984790875%" headers="mcps1.2.2.5.1.2.5.1.3 "><p><span>An application template is a service
+model that combines logical components, including VMs, software packages,
+scripts, and network resources, based on the configured relationship. </span></p>
+<p>You can create an application template or use an application
+template created by the system administrator. If you use an existing
+application template, skip this step.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="19.771863117870726%" headers="mcps1.2.2.5.1.2.5.1.4 ">Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Templates</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.5.1.2.5.1.1 "><p>Create an application instance.</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.5.1.2.5.1.2 "><p>Use the desired application template to create an application
+instance.</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.5.1.2.5.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" width="6.463878326996199%" headers="mcps1.2.2.5.1.2.5.1.1 "><p>2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="18.631178707224336%" headers="mcps1.2.2.5.1.2.5.1.2 "><p>Create VMs.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.13307984790875%" headers="mcps1.2.2.5.1.2.5.1.3 "><p>Create the required VMs. If the required VMs already exist
+in the system, skip this step.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="19.771863117870726%" headers="mcps1.2.2.5.1.2.5.1.4 ">Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.5.1.2.5.1.1 "><p>Create an application instance using the required VMs.</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.5.1.2.5.1.2 "><p>Associate the required VMs together to form an application
+instance.</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.5.1.2.5.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span>.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

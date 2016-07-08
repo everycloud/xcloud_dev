@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="create-page-distance" id="create-vpn-usernet-form">
+        <div ng-if="service.isModifyMode">
+            <tiny-formfield>
+                <tiny-item>
+                    <tiny-checkbox id="info.ikePwdChangeBox.id" text="info.ikePwdChangeBox.text" change="info.ikePwdChangeBox.change()" checked="canChangeSharePwd">
+                    </tiny-checkbox>
+                </tiny-item>
+            </tiny-formfield>
+            <tiny-formfield>
+                <tiny-item label="info.sharepwd.label" require="true">
+                    <tiny-textbox id="info.sharepwd.id" type="info.sharepwd.type" value="info.sharepwd.value" disable="!canChangeSharePwd" extend-function="info.sharepwd.extendFunction" validate="info.sharepwd.validate"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="info.certainpwd.label" require="true">
+                    <tiny-textbox id="info.certainpwd.id" type="info.certainpwd.type" value="info.certainpwd.value" disable="!canChangeSharePwd" extend-function="info.certainpwd.extendFunction" validate="info.certainpwd.validate"></tiny-textbox>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div ng-if="!service.isModifyMode">
+            <tiny-formfield>
+                <tiny-item label="info.sharepwd.label" require="true">
+                    <tiny-textbox id="info.sharepwd.id" type="info.sharepwd.type" value="info.sharepwd.value" disable="!canChangeSharePwd" extend-function="info.sharepwd.extendFunction" validate="info.sharepwd.validate"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="info.certainpwd.label" require="true">
+                    <tiny-textbox id="info.certainpwd.id" type="info.certainpwd.type" value="info.certainpwd.value" disable="!canChangeSharePwd" extend-function="info.certainpwd.extendFunction" validate="info.certainpwd.validate"></tiny-textbox>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <span class="createpage-title" ng-bind="i18n.vpn_term_userIPassign_label"></span>
+
+        <div ng-if="service.isModifyMode">
+            <tiny-formfield>
+                <tiny-item label="info.subnetIP.label" require="true">
+                    <tiny-ip id="info.subnetIP.id" value="service.l2tpInfo.subnetAddr" type="info.subnetIP.type" extend-function="info.subnetIP.extendFunction" validate="info.subnetIP.validate"></tiny-ip>
+                </tiny-item>
+                <tiny-item label="info.mark.label" require="true">
+                    <tiny-ip id="info.mark.id" value="service.l2tpInfo.subnetMask" type="info.mark.type" extend-function="info.mark.extendFunction" validate="info.mark.validate"></tiny-ip>
+                </tiny-item>
+            </tiny-formfield>
+            <tiny-formfield>
+                <tiny-item>
+                    <tiny-checkbox id="info.wayPwdChangeBox.id" text="info.wayPwdChangeBox.text" change="info.wayPwdChangeBox.change()" checked="canChangeWayPwd">
+                    </tiny-checkbox>
+                </tiny-item>
+            </tiny-formfield>
+            <tiny-formfield>
+                <tiny-item label="info.encryption.label" require="true">
+                    <tiny-textbox id="info.encryption.id" type="info.encryption.type" value="info.encryption.value" disable="!canChangeWayPwd" extend-function="info.encryption.extendFunction" validate="info.encryption.validate"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="info.sureEncryption.label" require="true">
+                    <tiny-textbox id="info.sureEncryption.id" type="info.sureEncryption.type" disable="!canChangeWayPwd" value="info.sureEncryption.value" extend-function="info.sureEncryption.extendFunction" validate="info.sureEncryption.validate"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="info.opt.label" class="fm-btn-top-small">
+                    <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+                    <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div ng-if="!service.isModifyMode">
+            <tiny-formfield>
+                <tiny-item label="info.subnetIP.label" require="true">
+                    <tiny-ip id="info.subnetIP.id" value="info.subnetIP.value" type="info.subnetIP.type" extend-function="info.subnetIP.extendFunction" validate="info.subnetIP.validate"></tiny-ip>
+                </tiny-item>
+                <tiny-item label="info.mark.label" require="true">
+                    <tiny-ip id="info.mark.id" value="info.mark.value" type="info.mark.type" extend-function="info.mark.extendFunction" validate="info.mark.validate"></tiny-ip>
+                </tiny-item>
+                <tiny-item label="info.encryption.label" require="true">
+                    <tiny-textbox id="info.encryption.id" type="info.encryption.type" value="info.encryption.value" extend-function="info.encryption.extendFunction" validate="info.encryption.validate"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="info.sureEncryption.label" require="true">
+                    <tiny-textbox id="info.sureEncryption.id" type="info.sureEncryption.type" value="info.sureEncryption.value" extend-function="info.sureEncryption.extendFunction" validate="info.sureEncryption.validate"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="info.opt.label">
+                    <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+                    <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>

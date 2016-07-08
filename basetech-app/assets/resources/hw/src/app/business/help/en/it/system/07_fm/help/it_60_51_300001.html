@@ -1,0 +1,199 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Application Instances">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_300001">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Application Instances</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Applications\nApplication Instances");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100020.html\">Applications<\/a> > Application Instances<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_300001"></a><a name="it_60_51_300001"></a>
+
+
+<h1 class="topictitle1">Application Instances</h1>
+<ul><li><a href="#it_60_51_300001__1.2.2.1">Creating an Application
+Instance</a></li><li><a href="#it_60_51_300001__1.2.3.1">Application Instance Power Management</a></li><li><a href="#it_60_51_300001__1.2.4.1">Modifying Application Instance Attributes</a></li><li><a href="#it_60_51_300001__1.2.5.1">Monitoring Processes of
+VMs in an Application Instance</a></li><li><a href="#it_60_51_300001__1.2.6.1">Deleting an Application
+Instance</a></li></ul>
+<div>
+<p><span id="it_60_51_300001__app_define"><a name="it_60_51_300001__app_define"></a><a name="app_define"></a>An application instance is a collection of
+VMs and service software that provides specific services, for example,
+SQL Server, customer relationship management (CRM), and enterprise
+resource planning (ERP).</span></p>
+
+<div class="section"><a name="it_60_51_300001__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300001" class="sectiontitle2contents">Creating an Application
+Instance</a></h4><div class="p">You can create an application instance
+using one of the following methods:<ol><li><p><strong>Create an application instance using an application template.</strong></p>
+<p>Provision an application instance using the application template
+configured for the desired service model based on the service plan.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span> and click <span class="uicontrol"><b>Create</b></span>.</p>
+</li><li><p><strong>Create a custom application instance.</strong></p>
+<p>Use existing
+VMs to create an application instance so that these VMs can be managed
+by the application instance.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span> and click <span class="uicontrol"><b>Create</b></span>.</p>
+</li></ol>
+</div>
+<p>To ensure VM security,
+the VM user must change the VM login password in the earliest time.</p>
+</div>
+
+<div class="section"><a name="it_60_51_300001__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300001" class="sectiontitle2contents">Application Instance Power Management</a></h4><p>Power management for an application instance includes start and
+stop the application instance. Essentially, stopping an application
+instance stops all VMs included in the application instance, and start
+the application instance starts all VMs in the application instance.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span>, locate the row that contains the target application
+instance, and select the desired operation to perform.</p>
+</div>
+
+<div class="section"><a name="it_60_51_300001__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300001" class="sectiontitle2contents">Modifying Application Instance Attributes</a></h4><p><strong>Modifying Application Instance Attributes</strong></p>
+<p>You can
+modify the name and description of an application instance as needed.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span>, locate the row that contains the target application
+template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Modify</b></span>.</p>
+<p><strong>Transferring the Application Instance Owner</strong></p>
+<p>Only the VDC administrator is allowed to transfer the application
+instance ownership to other tenants in the same VDC.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span>, locate the row that contains the target application
+template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Transfer</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_300001__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300001" class="sectiontitle2contents">Monitoring Processes of
+VMs in an Application Instance</a></h4><div class="p" id="it_60_51_300001__vmHQ"><a name="it_60_51_300001__vmHQ"></a><a name="vmHQ"></a>Based on the Hyperic
+HQ architecture, <span>FusionManager</span> supports monitoring of service VM processes with the following conditions
+met:<ol><li>A Proxy VM (PVM) is available in the virtual private cloud (VPC),
+and the network associated with the PVM VM is connected to the network
+carrying the service VM to be monitored.</li><li>The service VM has the Hyperic HQ software client installed and
+configured. For details about Hyperic HQ client configuration, see <a href="it_60_51_600026.html">Configuring the VM Process Monitoring Function</a>.</li></ol>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>If the administrator has restored or redeployed
+the PVM due to causes such as PVM faults, the Hyperic HQ clients deployed
+on VMs can be used only after being reconfigured using the IP address
+of the new PVM. For details, see <span class="wintitle"><b>FAQ-How Do I Update the
+Configurations?</b></span> in <a href="it_60_51_600026.html">Configuring the VM Process Monitoring Function</a>.</p>
+</div></div>
+</div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span>, click the name of the target application instance,
+navigate to <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Process</span></b></span>, and view the VM process monitoring
+information.</p>
+</div>
+
+<div class="section"><a name="it_60_51_300001__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300001" class="sectiontitle2contents">Deleting an Application
+Instance</a></h4><div class="p">If an application instance is not
+needed any more, you can delete it from the system. The deletion impact
+varies according to the application instance creation mode.<ul><li>If you delete an application instance that is created using an
+application template, all VMs included in the application instance
+and all disk data on the VMs will be deleted. Therefore, exercise
+caution when deleting such an application instance.</li><li>If you delete a custom application instance, the VMs included
+in the application instance will no be affected. The deletion only
+removes the application instance to which the VMs belong, and the
+VMs resume to their independent running status.</li></ul>
+</div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span>, locate the row that contains the target application
+instance, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

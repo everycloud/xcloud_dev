@@ -1,0 +1,58 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding pr">
+            <li>
+                <ul class="breadcrumb">
+                    <li><a ui-sref="network.manager.myVPClist" ng-bind="i18n.vpc_term_myVPC_label"></a> &gt; </li>
+                    <li><a ui-sref="network.vpcmanager.summary" ng-bind="vpcName"></a> &gt; </li>
+                    <li>{{i18n.common_term_overview_label}}</li>
+                </ul>
+            </li>
+            <li class="help-pa">
+                <div class="pull-right">
+                    <a class="btn-link">
+                        <div title="{{i18n.common_term_help_label}}" ng-click="help.click()"
+                             class="small-icon small-icon-help"></div>
+                    </a>
+                </div>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div style="text-align: center; overflow-x: auto;" class="bottom20" id="vpc-topo-cavers"></div>
+        <div class="outbox-padding" ng-if="ict">
+            <div class="pull-right" style="margin-top: 10px">
+                <a class="btn-link">
+                    <div title="{{i18n.common_term_fresh_button}}" ng-click="refresh()"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+            </div>
+            <div class="legend" ng-bind="i18n.common_term_resourceQuota_label"></div>
+            <div class="row-fluid" style="margin-top: 10px">
+                <div class="span6 thumbnails">
+                    <div id="vpc-quota-left"></div>
+                </div>
+                <div class="span6 thumbnails">
+                    <div id="vpc-quota-right"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="outbox-padding">
+            <div class="legend" ng-bind="i18n.resource_term_resourceStatistic_label"></div>
+            <div class="row-fluid" style="margin-top: 10px">
+                <div class="span6 thumbnails" ng-if="!vpcTypeShared && !ict">
+                    <h4 class="text-left two-title" ng-bind="i18n.vpc_term_netStatistic_label"></h4>
+                    <div id="network-vpcmanager-networks-cirque"></div>
+                </div>
+                <div class="span6 thumbnails">
+                    <h4 class="text-left two-title" ng-bind="i18n.eip_term_eip_label"></h4>
+                    <div id="network-vpcmanager-eip-cirque"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

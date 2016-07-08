@@ -1,0 +1,55 @@
+<style>
+    #bindvm-window .tiny-checkbox {
+        height: 0 !important;
+    }
+</style>
+<div class="row-fluid" id="bindvm-window" ng-controller="bindingVmWindowCtrl">
+    <div class="clearfix bottom10">
+        <ul>
+            <li class="pull-right">
+                <div class="pull-right">
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                    <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                    </tiny-searchbox>
+                </span>
+                </div>
+            </li>
+            <li class="pull-left"><tiny-formfield>
+                <tiny-item label="backendPortTextBox.label" require="backendPortTextBox.require">
+                    <tiny-textbox id="backendPortTextBox.id" value="backendPortTextBox.value" disable="backendPortTextBox.disable"
+                                  width="backendPortTextBox.width" validate="backendPortTextBox.validate"></tiny-textbox>
+                </tiny-item>
+            </tiny-formfield></li>
+        </ul>
+    </div>
+
+
+
+    <div class="top5">
+        <tiny-table id="bindVmTable.id" columns="bindVmTable.columns" data="bindVmTable.data" length-menu="bindVmTable.lengthMenu" pagination-style="bindVmTable.paginationStyle" render-row="bindVmTable.renderRow" display-length="bindVmTable.displayLength" total-records="bindVmTable.totalRecords"
+                    callback="bindVmTable.callback" change-select="bindVmTable.changeSelect">
+        </tiny-table>
+
+        <div class="fm-btn-top-large text-center">
+            <tiny-button id="info.okBtn.id" text="info.okBtn.text" click="info.okBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    require(["app/business/network/controllers/vlb/bindingVmIct"], function(bindVmWindowModule) {
+        var dep = ['ng', bindVmWindowModule.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#bindvm-window"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope, exception) {
+            $compile($("#bindvm-window"))($rootScope);
+            $rootScope.$digest();
+        });
+
+        $("#bindVmsTable").addClass("clearfix");
+    })
+</script>

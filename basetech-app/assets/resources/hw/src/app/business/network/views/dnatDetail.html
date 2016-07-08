@@ -1,0 +1,52 @@
+<div class="container-fluid dnat-detail" ng-controller="network.dnat.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <!--基本信息-->
+        <div class="span6" style="height: 80px">
+            <tiny-formfield>
+                <tiny-item label="startTime.label">
+                    <span ng-bind="startTime.value" title="{{startTime.value}}" class="textOverflow"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <div class="span6" style="height: 80px">
+            <tiny-formfield>
+                <tiny-item label="endTime.label">
+                    <span ng-bind="endTime.value" title="{{endTime.value}}" class="textOverflow"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>
+<script>
+    require(['app/business/network/controllers/dnatDetail'],
+            function(dnatDetail) {
+                var curView = undefined;
+                $(".dnat-detail").each(function() {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+                curView.attr("id", new Date().getMilliseconds());
+
+                //编译(编译前scope是父页面继承来的)
+                var scope = curView.scope();
+                var dnetData = scope.currentItem || {};
+                var dep = ['ng', 'wcc', dnatDetail.name];
+                dep.unshift(["$provide",
+                    function($provide) {
+                        $provide.value("$rootElement", curView);
+                    }
+                ]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function($compile, $rootScope) {
+                    $compile(curView)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                //查询详细信息 (编译后scope是新new出来的)
+                var newScope = curView.scope();
+                newScope.dnetData = dnetData;
+                newScope.init();
+            });
+</script>

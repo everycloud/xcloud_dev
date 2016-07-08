@@ -1,0 +1,38 @@
+<div ng-controller="app.create.configSoftware.associate.ctrl" id="app_create_configSoftware_associatePop">
+    <div id="app_create_configSoftware_associatePop_sel">
+        <div class="configSoftware_associate_input">
+            <tiny-formfield>
+                <tiny-item label="vm.label" require="vm.require">
+                    <tiny-select id="vm.id" values="vm.values" width="vm.width" class="margin-right-beautifier" change="vm.change()" validate='vm.validate'></tiny-select>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="configSoftware_associate_input">
+            <tiny-formfield>
+                <tiny-item label="nic.label" require="nic.require">
+                    <tiny-select id="nic.id" values="nic.values" width="nic.width" class="margin-right-beautifier" change="nic.change()" validate='nic.validate'></tiny-select>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+
+    <div class="fm-btn-top-small text-center">
+        <tiny-button id="nextBtn.id" text="nextBtn.text" tooltip="nextBtn.tooltip" click="nextBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+require(['app/business/ssp/controllers/plugin/app/create/configParamAssociate'], function(configParamAssociate) {
+    var dep = ['ng', 'wcc', configParamAssociate.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#app_create_configSoftware_associatePop"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#app_create_configSoftware_associatePop"))($rootScope);
+        $rootScope.$digest();
+    });
+});
+</script>

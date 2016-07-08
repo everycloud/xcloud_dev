@@ -1,0 +1,112 @@
+<div ng-controller="app.create.configSoftware.ctrl" class="app_create_configSoftware_configParam" id="app_create_configSoftware_popwin">
+    <div class="bottom20">
+        <li class="two-lead">
+            <p ng-bind-html="i18n.app_app_create_para_softCfg_mean_para_label"></p>
+        </li>
+    </div>
+    <div>
+        <div class="customAccordionSeparator">
+            <div ng-click="install.click()" class="customAccordionGm">
+                <img ng-src="{{'../theme/default/images/gm/open_'+install.open+'.png'}}">
+                <div class="customAccordionSpan">
+                    <span ng-bind-html="i18n.common_term_installCmd_label"></span>
+                </div>
+            </div>
+            <div ng-show="install.open" class="customAccordionContent">
+                <div ng-repeat="option in install.options" class="customFormItem">
+                    <tiny-formfield>
+                        <tiny-item label="option.label" require="option.require">
+                            <tiny-textbox id="option.id" value="option.value" width="240" validate='option.validate' change="configInputChange('install', option.name)"></tiny-textbox>
+                            <span class="customAssociateMargin">
+                                <tiny-button id="option.associate.id" text="option.associate.text" click="option.associate.click('install',option.name,option.id)"></tiny-button>
+                            </span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+
+        <div class="customAccordionSeparator">
+            <div ng-click="uninstall.click()" class="customAccordionGm">
+                <img ng-src="{{'../theme/default/images/gm/open_'+uninstall.open+'.png'}}">
+                <div class="customAccordionSpan">
+                    <span ng-bind-html="i18n.common_term_uninstallCmd_label"></span>
+                </div>
+            </div>
+            <div ng-show="uninstall.open" class="customAccordionContent">
+                <div ng-repeat="option in uninstall.options" class="customFormItem">
+                    <tiny-formfield>
+                        <tiny-item label="option.label" require="option.require">
+                            <tiny-textbox id="option.id" value="option.value" width="240" validate='option.validate' change="configInputChange('uninstall', option.name)"></tiny-textbox>
+                            <span class="customAssociateMargin">
+                                <tiny-button id="option.associate.id" text="option.associate.text" click="option.associate.click('uninstall',option.name)"></tiny-button>
+                            </span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+
+        <div class="customAccordionSeparator">
+            <div ng-click="start.click()" class="customAccordionGm">
+                <img ng-src="{{'../theme/default/images/gm/open_'+start.open+'.png'}}">
+                <div class="customAccordionSpan">
+                    <span ng-bind-html="i18n.common_term_startupCmd_label"></span>
+                </div>
+            </div>
+            <div ng-show="start.open" class="customAccordionContent">
+                <div ng-repeat="option in start.options" class="customFormItem">
+                    <tiny-formfield>
+                        <tiny-item label="option.label" require="option.require">
+                            <tiny-textbox id="option.id" value="option.value" width="240" validate='option.validate' change="configInputChange('start', option.name)"></tiny-textbox>
+                            <span class="customAssociateMargin">
+                                <tiny-button id="option.associate.id" text="option.associate.text" click="option.associate.click('start',option.name)"></tiny-button>
+                            </span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+
+        <div class="customAccordionSeparator">
+            <div ng-click="stop.click()" class="customAccordionGm">
+                <img ng-src="{{'../theme/default/images/gm/open_'+stop.open+'.png'}}">
+                <div class="customAccordionSpan">
+                    <span ng-bind-html="i18n.common_term_StopCmd_label"></span>
+                </div>
+            </div>
+            <div ng-show="stop.open" class="customAccordionContent">
+                <div ng-repeat="option in stop.options" class="customFormItem">
+                    <tiny-formfield>
+                        <tiny-item label="option.label" require="option.require">
+                            <tiny-textbox id="option.id" value="option.value" width="240" validate='option.validate' change="configInputChange('stop', option.name)"></tiny-textbox>
+                            <span class="customAssociateMargin">
+                                <tiny-button id="option.associate.id" text="option.associate.text" click="option.associate.click('stop',option.name)"></tiny-button>
+                            </span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 7px;">
+        <tiny-button id="ok.id" text="ok.text" click="ok.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancel.id" text="cancel.text" click="cancel.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+require(['app/business/application/controllers/appInstance/create/softwareConfigParam'], function(softwareConfigParam) {
+    var dep = ['ng', 'wcc', softwareConfigParam.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $(".app_create_configSoftware_configParam"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($(".app_create_configSoftware_configParam"))($rootScope);
+        $rootScope.$digest();
+    });
+});
+</script>

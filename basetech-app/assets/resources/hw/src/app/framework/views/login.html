@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11">
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11">
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="refresh" content="1500">
+<title>FusionManager</title>
+
+<script>
+    function gotoHome() {
+        window.location.hash = "#/home";
+    }
+</script>
+<script type="text/javascript" src="./FusionManager_files/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="./FusionManager_files/jquery-ui-1.8.5.min.js"></script>
+
+<script type="text/javascript" src="./FusionManager_files/config.js"></script>
+<script type="text/javascript" src="./FusionManager_files/common.js"></script>
+<script type="text/javascript" src="./FusionManager_files/login.js"></script>
+<script type="text/javascript" src="./FusionManager_files/language.js"></script>
+
+<script type="text/javascript">
+
+    if ('null' != 'null' && 'null' != 'null') {
+        window.top.location = "/SSOSvr/popframe.jsp?logoutflag=null&urlRex=&urlBack=";
+    }
+
+    //语言类型
+    var languageType = initCookie();
+    var cookieTime = '604800';
+
+    var strlocale = 'zh_CN';
+
+    if (strlocale == "zh_CN") {
+        setCookie('locale', 'zh_CN');
+        languageType = "zh_CN";
+    }
+    else {
+        setCookie('locale', 'en_US');
+        languageType = "en_US";
+    }
+
+    // 加载语言文件
+    switch (languageType) {
+        case "zh_CN":
+            document.write("<script type=\"text/javascript\" "
+                    + "src=\"res/zh_CN.js;SSOsession=006CBB9FABD4BD59B507A669174D0021 \"><\/script>");
+            break;
+        case "en_US":
+            document.write("<script type=\"text/javascript\" "
+                    + "src=\"res/en_US.js;SSOsession=006CBB9FABD4BD59B507A669174D0021 \"><\/script>");
+            document.write("<link rel=\"stylesheet\" " + " href=\"/SSOSvr/css/login_en.css;SSOsession=006CBB9FABD4BD59B507A669174D0021\" " + "type=\"text/css\" \/>"
+            );
+            break;
+        default:
+            document.write("<script type=\"text/javascript\" "
+                    + "src=\"res/en_US.js;SSOsession=006CBB9FABD4BD59B507A669174D0021 \"><\/script>");
+    }
+
+    var iebrowser_version = msieversion();
+    var ffbrowser_version = msffversion();
+
+    if ('null' != 'true' && 'null' == 'null' && '' == '1') {
+        if (!iebrowser_version) {
+            if (strlocale == "zh_CN") {
+                setTimeout("alert('浏览器版本过低或者浏览器模式不匹配，建议使用IE8及以上版本。并且保证文档（文本）模式、浏览器模式与浏览器版本一致。')", 500);
+            }
+            else {
+                setTimeout("alert('The browser version or mode is not supported. Use Internet Explorer 8 or later, and ensure that the document mode and browser mode versions are the same as the browser version.')", 500);
+            }
+        }
+
+        if (!ffbrowser_version) {
+            if (strlocale == "zh_CN") {
+                setTimeout("alert('建议使用“Firefox 8.0”及以上版本，推荐使用“Firefox 21.0”。')", 500);
+            }
+            else {
+                setTimeout("alert('Use Firefox 8.0 or later. Firefox 21.0 is recommended.')", 500);
+            }
+        }
+
+    }
+
+
+</script>
+<script type="text/javascript" src="./FusionManager_files/zh_CN.js"></script>
+<script type="text/javascript">
+    if (window.top.location != window.self.location) {
+        try {
+            window.top.location = "/SSOSvr/logout";
+
+        } catch (err) {
+            window.top.location = "/SSOSvr/logout";
+        }
+    }
+
+    function reRand() {
+        $("#randImg").removeAttr("src");
+        var url = "/SSOSvr/captcha?s=" + Math.random();
+        $("#randImg").attr("src", url);
+    }
+    function changeBorder(id) {
+        $("#" + id).css("border", "1px solid #f9cfa5");
+    }
+    function backBorder(id) {
+        $("#" + id).css("border", "1px solid #93adc4");
+    }
+
+    function changeSelBorder() {
+        $("select").css("border", "1px solid #f9cfa5");
+    }
+    function backSelBorder() {
+        $("select").css("border", "1px solid #93adc4");
+    }
+
+
+</script>
+<style type="text/css">
+    .errors {
+        border: 1px dotted #c0c0c0;
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 6px;
+        margin-left: 0px;
+        background: #f6f7f1 url(../theme/default/images/u12_original.png) no-repeat 1px 1px;
+        color: #8a2124;
+        padding-left: 18px;
+        width: 228px;
+        float: left;
+        background-color: rgb(255, 238, 221);
+        margin-top: 15px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .clearfix:before, .clearfix:after {
+        content: "";
+        display: table;
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    .clearfix {
+        zoom: 1;
+    }
+
+    ul, li, ol {
+        list-style: none;
+    }
+
+    img {
+        border: 0;
+    }
+
+    a:hover, a:focus {
+        color: #005580;
+        text-decoration: underline;
+    }
+
+    a:hover, a:active {
+        outline: 0px none;
+    }
+
+    input {
+        outline: 0;
+    }
+
+    body {
+        background-color: #f4f4f4;
+        font-family: "微软雅黑";
+        color: #333333;
+        font-size: 12px;
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    .login-head {
+        height: 180px;
+        width: 1280px;
+        margin: 0 auto;
+        line-height: 180px;
+        text-align: right;
+        background-color: #f4f4f4;
+    }
+
+    .login-logo {
+        float: left;
+        margin: 57px 0 0 5px;
+    }
+
+    .login-name {
+        float: left;
+        margin-top: 70px;
+    }
+
+    .login-body {
+        width: 1280px;
+        background: #f4f4f4 url(../theme/default/images/login_02.jpg) no-repeat 0 0;
+        margin: 0 auto;
+        position: relative;
+        min-height: 480px;
+        max-height: 600px;
+    }
+
+    .login-form {
+        width: 280px;
+        position: absolute;
+        top: 80px;
+        right: 120px;
+    }
+
+    .login-form .title {
+        font-size: 20px;
+        height: 30px;
+        line-height: 40px;
+    }
+
+    .login-form div {
+        margin-bottom: 20px;
+    }
+
+    .tiny-input-text {
+        font-size: 12px;
+        color: #989898;
+        border-radius: 4px;
+        box-shadow: 0px 1px 1px #ECECEC inset;
+        border: 1px solid #D3D3D3;
+        background: url(../theme/default/images/login-text_bg.png) no-repeat 0px 0px;
+        height: 28px;
+        line-height: 28px;
+        padding-left: 8px;
+    }
+
+    .form-name, .form-password {
+        width: 234px;
+    }
+
+    .form-code {
+        width: 180px;
+    }
+
+    .login-form img {
+        vertical-align: middle;
+    }
+
+    .login-footer {
+        height: 60px;
+        margin: 0 auto;
+        text-align: center;
+        color: #999999;
+        position: relative;
+        bottom: 0;
+        background: #484A4B;
+        padding-top: 10px;;
+    }
+
+    .footer-menu {
+        margin: 0 auto;
+        line-height: 36px;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    .footer-menu a {
+        color: #0691cc;
+        text-decoration: none;
+    }
+
+    .footer-menu li {
+        float: left;
+        margin-right: 28px;
+        display: inline;
+        color: #0691cc;
+    }
+
+    .footer-menu a:hover {
+        color: #999999;
+    }
+
+    .login-btn {
+        background: url(../theme/default/images/login-btn.jpg) no-repeat 0px 0px;
+        border: none;
+        cursor: pointer;
+        margin-left: -103px;
+        font-size: 0px;
+    }
+
+</style>
+</head>
+<body>
+<div style="background: #f4f4f4;margin: 0px -111px 0px -111px;position: relative;top: -66px;z-index: 12000;">
+    <div class="login-head">
+        <div class="login-logo">
+            <img src="../theme/default/images/login-product_logo.png">
+        </div>
+        <div class="login-name">
+            <img src="../theme/default/images/logo_01.png">
+        </div>
+        English
+    </div>
+    <div class="login-body" style="height:563px">
+        <div class="login-form">
+            <p class="title">FusionSphere 自助控制台</p>
+
+            <div class="iam_loginpage_form clearfix" style="width:300px">
+                <div>
+                    <div id="errorTd" style="height:25px">
+
+                    </div>
+                    <!-- 用户名 -->
+                    <div>
+                        <input class="tiny-input-text form-name" type="text" placeholder="admin" name="username"
+                               id="username" onfocus="changeBorder(&#39;username&#39;)"
+                               onblur="backBorder(&#39;username&#39;)" style="border: 1px solid rgb(147, 173, 196);">
+                    </div>
+                    <!-- 密码 -->
+                    <div>
+                        <input class="tiny-input-text form-password" placeholder="******" name="password" id="password"
+                               type="password" onfocus="changeBorder(&#39;password&#39;)"
+                               onblur="backBorder(&#39;password&#39;)" ondragstart="return false"
+                               onpaste="return false">
+                    </div>
+                    <!-- 验证码 -->
+                    <div id="verifyCode" class="clearfix iam_loginpage_form_box">
+                        <input name="j_captcha_parameter" id="j_captcha_parameter" class="tiny-input-text form-code fl"
+                               type="text" placeholder="1414" onfocus="changeBorder(&#39;j_captcha_parameter&#39;)"
+                               onblur="backBorder(&#39;j_captcha_parameter&#39;)">
+                        <img border="0" id="randImg" src="../theme/default/images/captcha.jpg"
+                             class="iam_loginpage_form_validate_pic fl" onclick="reRand()" style="margin: 0 5px;">
+                        <span><a onclick="reRand()">刷新</a></span>
+                    </div>
+                    <!-- 登录 -->
+                    <div id="submitDiv" class="iam_loginpage_form_btnbox " style="margin: 13px 0px 0px 102px;">
+
+                        <input type="hidden" name="lt" value="e1s1">
+                        <input type="hidden" name="_eventId" value="submit">
+                        <button id="submit" class="login-btn"
+                                style="width:253px;height:43px;" value="登录"
+                                onclick="gotoHome()"></button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login-footer">
+        <ul class="footer-menu clearfix">
+            <li><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></li>
+            <li><a href="http://i.youku.com/u/UMTIwMTI1NDQ0OA" target="_blank">视频教程</a></li>
+            <li><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html" target="_blank">知识论坛</a></li>
+            <li><a href="http://support.huawei.com/enterprise/news?idAbsPath=03_ROOT|03Second_0304|7919749&pid=7919749"
+                   target="_blank">产品公告</a></li>
+            <li>关于我们</li>
+        </ul>
+        <p>版权所有 © 华为技术有限公司 2012-2014。 保留一切权利。</p>
+    </div>
+    <input type="hidden" id="autologinHid" name="autologinHid" value="">
+
+    <input type="hidden" id="usernameHid" name="usernameHid" value="">
+    <input type="hidden" id="passwordHid" name="passwordHid" value="">
+    <input type="hidden" id="captchaImgHidden" value="/SSOSvr/captcha;SSOsession=006CBB9FABD4BD59B507A669174D0021">
+    <input type="hidden" id="captchaAjaxValidate"
+           value="/SSOSvr/captchaValidate;SSOsession=006CBB9FABD4BD59B507A669174D0021">
+    <input type="hidden" id="sessionTimeOut" value="521e26b8ad7fd0e444e68c8abd7d1e4a">
+    <script type="text/javascript">
+        $(function () {
+            var h = $(document.body).height() - 340;
+            $(".login-body").attr("style", "height:" + h + "px");
+            $(window).resize(function () {
+                var h = $(document.body).height() - 340;
+                $(".login-body").attr("style", "height:" + h + "px");
+            });
+        });
+
+        if ('zh_CN' == 'null') {
+            var errorMessage = getLocaleMsg("serviceError");
+            $("#errorTd").attr("innerHTML", '<div id="status" class="errors">' + errorMessage + '</div>');// 错误信息
+        }
+
+        if ('null' == 'true') {
+            //隐藏空白区域
+            $("#hide").css("display", "none");
+            if (strlocale == "en_US") {
+                $("#submitDiv").css("margin", "-2px 0 0 148px");
+            }
+            else {
+                $("#submitDiv").css("margin", "-2px 0 0 102px");
+            }
+        }
+        else {
+            //隐藏验证码
+            if (strlocale == "en_US") {
+                $("#submitDiv").css("margin", "13px 0 0 128px");
+            }
+            else {
+                $("#submitDiv").css("margin", "13px 0 0 102px");
+            }
+        }
+
+
+        switch (languageType) {
+            case "zh_CN":
+                var languageNew = "<a onclick = \"enReload()\">English</a>";
+                $("#language_boxes").attr("innerHTML", languageNew);
+                break;
+            case "en_US":
+                var languageNew = "<a onclick = \"zhReload()\">中文</a>";
+                $("#language_boxes").attr("innerHTML", languageNew);
+                break;
+            default:
+                document.write("<script type=\"text/javascript\" "
+                        + "src=\"res/en_US.js;SSOsession=006CBB9FABD4BD59B507A669174D0021 \"><\/script>");
+                document.write("<link rel=\"stylesheet\" " + " href=\"/SSOSvr/css/login_en.css;SSOsession=006CBB9FABD4BD59B507A669174D0021\" " + "type=\"text/css\" \/>");
+                var languageNew = "<a onclick = \"enReload()\">English</a>";
+                $("#language_boxes").attr("innerHTML", languageNew);
+        }
+
+        $("#service-footer").hide();
+    </script>
+
+</div>
+
+</body>
+</html>

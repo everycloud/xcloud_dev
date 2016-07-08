@@ -1,0 +1,62 @@
+<div ng-controller="basicCtrl" class="create-page-distance">
+    <div class="line-height22 color2">
+        <p ng-bind-html="i18n.template_script_batchRun_para_para_mean_label"></p>
+    </div>
+
+    <div>
+        <div class="row-fluid" id="batchInstallScriptBaseInfo">
+            <tiny-formfield>
+                <span class="createpage-title">{{i18n.template_term_scriptBasicInfo_label}}:</span>
+                <tiny-item label="info.name.label">
+                    <span ng-bind="scriptDetail.name"></span>
+                </tiny-item>
+                <tiny-item label="info.OSType.label">
+                    <span ng-bind="scriptDetail.osType"></span>
+                </tiny-item>
+                <tiny-item label="info.version.label">
+                    <span ng-bind="scriptDetail.version"></span>
+                </tiny-item>
+                <tiny-item label="info.desc.label">
+                    <span ng-bind="scriptDetail.description"></span>
+                </tiny-item>
+            </tiny-formfield>
+
+            <tiny-formfield>
+                <span class="createpage-title">{{i18n.common_term_customPara_label}}:</span>
+                <tiny-item label="info.installCmd.label">
+                    <div class="bottom10">
+                        <span>{{i18n.common_term_installCmd_label}}:</span>
+                        <span ng-bind="installCommand"></span>
+                    </div>
+                    <div style="width: 100%;">
+                        <!-- 自定义表格 -->
+                        <table class="complexTable" style="width: 700px;">
+                            <tr>
+                                <th style="width: 200px;">{{i18n.common_term_paraName_label}}</th>
+                                <th style="width: 500px;">{{i18n.common_term_paraValue_label}}</th>
+                            </tr>
+                            <tbody>
+                                <tr ng-if="scriptDetail.installCommand.length == 0" class="complexTable-empty-tr">
+                                    <td valign="top" colspan="3">No data available in table</td>
+                                </tr>
+                                <tr class="complexTable-tr" ng-repeat="params in scriptDetail.installCommand">
+                                    <td>
+                                        <span ng-bind="params.name"></span>
+                                    </td>
+                                    <td>
+                                        <fm-text value="params.value" valid="checkParam(params.value)" tip="i18n.sprintf(i18n.common_term_length_valid, 1, 256)" length="256" width="200"></fm-text>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+            <div class="fm-btn-top-small">
+                <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+            </div>
+        </div>
+    </div>
+
+</div>

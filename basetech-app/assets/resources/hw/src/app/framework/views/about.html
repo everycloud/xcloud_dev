@@ -1,0 +1,32 @@
+<div id="aboutDiv" class="line-height30">
+    <div>
+        <img src="../theme/default/images/product_logo.png"/>
+        <img ng-src="{{logo}}" />
+    </div>
+    <div class="top10">
+        <span ng-bind="versionLabel"></span>
+        <span ng-bind="name"></span>
+        <span ng-bind="version"></span>
+        <span ng-bind="licenseVersionText"></span>
+    </div>
+    <ul class="top10">
+        <li ng-repeat="p in copyright" ng-bind-html="p"></li>
+    </ul>
+    <p style="text-align:right;">
+        <a ng-href="{{website.url}}" target="website.target" ng-bind="website.text"></a>
+    </p>
+</div>
+<script type="text/javascript">
+    require(["app/framework/controllers/aboutModel"], function (aboutModel) {
+        var $aboutDiv = $("#aboutDiv").attr("ng-controller", "aboutCtrl");
+        var dep = ['ng', 'wcc', aboutModel.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", $aboutDiv);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile($aboutDiv)($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

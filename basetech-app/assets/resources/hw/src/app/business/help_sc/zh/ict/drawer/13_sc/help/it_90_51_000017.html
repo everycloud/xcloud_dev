@@ -1,0 +1,104 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="申请云主机(虚拟机)">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_90_51_000017">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>申请云主机(虚拟机)</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_90_51_000017"></a><a name="it_90_51_000017"></a>
+
+
+<h1 class="topictitle1">申请云主机(虚拟机)</h1>
+
+
+<div>
+<div class="section"><h4 class="sectiontitle">简介</h4><p>申请虚拟机是指用户按照一定的规格要求申请虚拟机实例，以便在虚拟机中运行应用程序，提供某种服务。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">前提条件</h4><ul><li>已在<span>FusionManager</span>上创建满足用户需求的虚拟机模版（即虚拟机镜像）和虚拟机规格。</li><li>服务列表中已存在满足申请要求的云主机服务，如果不存在，需要管理员先创建对应的服务。</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle">申请流程</h4><p>可按照<a href="#it_90_51_000017__fig_01">图1</a>所示的流程申请虚拟机，任务说明如<a href="#it_90_51_000017__tab_02">表1</a>所示。</p>
+<div class="p"><div class="fignone" id="it_90_51_000017__fig_01"><a name="it_90_51_000017__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>图1 </b>申请流程</span>
+
+<br><span><img src="fig/fig_it_90_51_000017_01.png"></span><br>
+</div>
+</div>
+<div class="p">
+<div class="tablenoborder"><a name="it_90_51_000017__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_90_51_000017__tab_02" frame="border" border="1" rules="all"><caption><b>表1 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="22.357723577235774%" id="mcps1.3.3.4.1.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="56.91056910569105%" id="mcps1.3.3.4.1.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="20.731707317073173%" id="mcps1.3.3.4.1.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="22.357723577235774%" headers="mcps1.3.3.4.1.2.4.1.1 "><p>创建VPC和网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="56.91056910569105%" headers="mcps1.3.3.4.1.2.4.1.2 "><p>VPC（Virtual Private Cloud）能够为用户提供安全、隔离的网络环境。在VPC中，用户可以定义与传统网络无差别的虚拟网络，用来部署虚拟机和应用实例。用户可使用共享VPC，也可创建自定义的VPC和网络，具体操作方法请参考<a href="../../07_fm/help/it_60_51_000030.html">创建VPC和网络</a>。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="20.731707317073173%" headers="mcps1.3.3.4.1.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.357723577235774%" headers="mcps1.3.3.4.1.2.4.1.1 "><p>VDC用户申请虚拟机服务 </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="56.91056910569105%" headers="mcps1.3.3.4.1.2.4.1.2 "><p>VDC用户根据需要选择相应模板申请虚拟机服务。 </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="20.731707317073173%" headers="mcps1.3.3.4.1.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">服务</span> &gt; <span class="uicontrol">服务目录</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.357723577235774%" headers="mcps1.3.3.4.1.2.4.1.1 "><p>VDC管理员审批虚拟机服务</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="56.91056910569105%" headers="mcps1.3.3.4.1.2.4.1.2 "><p>VDC管理员审批VDC用户的服务申请，如果系统管理员创建服务时选择了不需要审批，则可跳过该步骤。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="20.731707317073173%" headers="mcps1.3.3.4.1.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">服务</span> &gt; <span class="uicontrol">待办审批</span>”</span></p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="create-page-distance" id="create-basic-form">
+        <tiny-formfield>
+            <tiny-item label="info.name.label" require="info.name.require">
+                <tiny-textbox id="info.name.id" value="service.name" validate="info.name.validate"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="info.type.label" require="info.type.require" display="isIT">
+                <div>
+                    <tiny-radio id="vpnType0Radio" text='info.type.IPSec' name="info.radiogroup.name" checked="service.type!='1'" disable="service.isModifyMode || service.type=='1'" click="click('0')" height="27"></tiny-radio>
+                    <span class="inline-help line-height20" ng-bind="i18n.vpn_connect_add_para_type_mean_IPsec_label"></span>
+                    <div>
+                        <img ng-src="{{info.type.IPSecImage}}">
+                    </div>
+                </div>
+                <div class="top10">
+                    <tiny-radio id="vpnType1Radio" text='info.type.L2TP' name="info.radiogroup.name" checked="service.type=='1'" disable="service.isModifyMode || service.type=='0'" click="click('1')" height="27"></tiny-radio>
+                    <span class="inline-help line-height20" ng-bind="i18n.vpn_connect_add_para_type_mean_L2TP_label"></span>
+                    <div>
+                        <img ng-src="{{info.type.L2TPImage}}">
+                    </div>
+                </div>
+            </tiny-item>
+
+            <tiny-item display="!isIT">
+                <div>
+                    <span class="inline-help line-height20" ng-bind="i18n.vpn_connect_add_para_type_mean_IPsec_label"></span>
+                    <div>
+                        <img ng-src="{{info.type.IPSecImage}}">
+                    </div>
+                </div>
+            </tiny-item>
+            <tiny-item label="info.description.label">
+                <tiny-textbox id="info.description.id" value="service.description" validate="info.description.validate" width="info.description.width" height="info.description.height" type="info.description.type" />
+            </tiny-item>
+        </tiny-formfield>
+        <div ng-show="false">
+            <div style="margin-left: 75px">
+                <tiny-formfield>
+                    <tiny-item>
+                        <a class="btn-link margin-horizon-beautifier" ng-click="click()" style="margin-left: -85px;" ng-bind="i18n.common_term_advancedSet_label"></a>
+                        <div style="margin-left: -20px; margin-top: -23px;">
+                            <img src="{{advanceicon}}" ng-click="click()">
+                        </div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div id="dpdInfoDiv" ng-show="advanceshow">
+                <tiny-formfield>
+                    <tiny-item>
+                        <p class="createpage-title" ng-bind="i18n.vpn_term_DPDinfo_label"></p>
+                        <tiny-formfield>
+                            <tiny-item label="dpd.action.label" require="info.action.require">
+                                <tiny-select id="dpd.action.id" values="dpd.action.value" width="dpd.action.width"></tiny-select>
+                            </tiny-item>
+                            <tiny-item label="dpd.interval.label" require="info.interval.require">
+                                <tiny-textbox id="dpd.interval.id" value="service.dpd_interval" validate="dpd.interval.validate"></tiny-textbox>
+                            </tiny-item>
+                            <tiny-item label="dpd.timeout.label" require="dpd.timeout.require">
+                                <tiny-textbox id="dpd.timeout.id" value="service.dpd_timeout" validate="dpd.timeout.validate"></tiny-textbox>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+        <tiny-formfield>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

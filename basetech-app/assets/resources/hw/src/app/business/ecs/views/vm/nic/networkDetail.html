@@ -1,0 +1,128 @@
+<div id="networkDetialDiv" class="container-fluid">
+    <div class="row-fluid">
+        <div class="span6 innerbox-padding" style="padding: 0px 10px 10px;">
+            <div class="row-fluid">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_name_label}}:</div>
+                    <div ng-bind="detail.name" title="{{detail.name}}" class="textOverflow maxWidth180"></div>
+                </div>
+                <div class="span6 item_field" ng-if="supportWin=='true'">
+                    <div class="item_label">{{i18n.common_term_desc_label}}:</div>
+                    <div ng-bind="detail.description" title="{{detail.description}}" class="textOverflow maxWidth180"></div>
+                </div>
+            </div>
+            <div class="row-fluid margin-top-beautifier">
+                <div class="legend" ng-bind-html="i18n.common_term_IPv4_label"></div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_Subnet_label}}:</div>
+                    <div ng-bind="detail.ipv4ViewName"></div>
+                </div>
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_gateway_label}}:</div>
+                    <div ng-bind="detail.ipv4Subnet.gateway"></div>
+                </div>
+            </div>
+            <div class="row-fluid" ng-if="supportWin=='true'">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_domainName_label}}:</div>
+                    <div class="textOverflow maxWidth180" ng-bind="detail.ipv4Subnet.dhcpOption.domainName" title="{{detail.ipv4Subnet.dhcpOption.domainName}}"></div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_activeDNS_label}}:</div>
+                    <div ng-bind="detail.ipv4Subnet.dhcpOption.primaryDNS"></div>
+                </div>
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_standbyDNS_label}}:</div>
+                    <div ng-bind="detail.ipv4Subnet.dhcpOption.secondaryDNS"></div>
+                </div>
+            </div>
+            <div class="row-fluid" ng-if="supportWin=='true'">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_activeWINS_label}}</div>
+                    <div ng-bind="detail.ipv4Subnet.dhcpOption.primaryWINS"></div>
+                </div>
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_standbyWINS_label}}</div>
+                    <div ng-bind="detail.ipv4Subnet.dhcpOption.secondaryWINS"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span6 innerbox-padding" style="padding: 0px 10px 10px;">
+            <div class="row-fluid">
+                <div class="span4 item_field">
+                    <div class="item_label">VLAN:</div>
+                    <div ng-bind="detail.vlan"></div>
+                </div>
+                <div class="span4 item_field">
+                    <div class="item_label">{{i18n.vpc_term_netType_label}}:</div>
+                    <div ng-bind="detail.networkTypeView"></div>
+                </div>
+                <div class="span4 item_field">
+                    <div class="item_label">{{i18n.vpc_term_bond_label}}:</div>
+                    <div ng-bind="detail.totalBoundNics"></div>
+                </div>
+            </div>
+            <div class="row-fluid margin-top-beautifier">
+                <div class="legend" ng-bind-html="i18n.common_term_IPv6_label"></div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_Subnet_label}}:</div>
+                    <div class="textOverflow maxWidth180" title="{{detail.ipv6ViewName}}" ng-bind="detail.ipv6ViewName"></div>
+                </div>
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_gateway_label}}:</div>
+                    <div class="textOverflow maxWidth180" ng-bind="detail.ipv6Subnet.gateway" title="{{detail.ipv6Subnet.gateway}}"></div>
+                </div>
+            </div>
+            <div class="row-fluid" ng-if="supportWin=='true'">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_domainName_label}}:</div>
+                    <div class="textOverflow maxWidth180" ng-bind="detail.ipv6Subnet.dhcpOption.domainName" title="{{detail.ipv6Subnet.dhcpOption.domainName}}"></div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_activeDNS_label}}:</div>
+                    <div class="textOverflow maxWidth180" ng-bind="detail.ipv6Subnet.dhcpOption.primaryDNS" title="{{detail.ipv6Subnet.dhcpOption.primaryDNS}}"></div>
+                </div>
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_standbyDNS_label}}:</div>
+                    <div class="textOverflow maxWidth180" ng-bind="detail.ipv6Subnet.dhcpOption.secondaryDNS" title="{{detail.ipv6Subnet.dhcpOption.secondaryDNS}}"></div>
+                </div>
+            </div>
+            <div class="row-fluid" ng-if="supportWin=='true'">
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_activeWINS_label}}</div>
+                    <div class="textOverflow maxWidth180" ng-bind="detail.ipv6Subnet.dhcpOption.primaryWINS" title="{{detail.ipv6Subnet.dhcpOption.primaryWINS}}"></div>
+                </div>
+                <div class="span6 item_field">
+                    <div class="item_label">{{i18n.common_term_standbyWINS_label}}</div>
+                    <div class="textOverflow maxWidth180" ng-bind="detail.ipv6Subnet.dhcpOption.secondaryWINS" title="{{detail.ipv6Subnet.dhcpOption.secondaryWINS}}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+require(["app/business/ecs/controllers/vm/nic/networkDetailCtrl"], function (networkDetailCtrl) {
+    var rootElement = $("#networkDetialDiv");
+    rootElement.attr("ng-controller", "ecs.vm.nic.networkDetail.ctrl");
+    var dep = ['ng', 'wcc', networkDetailCtrl.name];
+    dep.unshift(["$provide", function ($provide) {
+        $provide.value("$rootElement", rootElement);
+    }]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function ($compile) {
+        var scope = rootElement.scope();
+        $compile(rootElement)(scope);
+        scope.$digest();
+    });
+});
+</script>

@@ -1,0 +1,37 @@
+<div class="alarm-export container-fluid" ng-controller="alarm.export.ctrl">
+    <div id="alarm-export-field" class="margin-top-beautifier alert-tip-first">
+        <tiny-formfield>
+            <tiny-item label="startIndex.label">
+                <tiny-textbox id="startIndex.id" value="startIndex.value" validate="startIndex.validate"
+                              extend-function="startIndex.extendFunction"
+                              width="startIndex.width"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="endIndex.label">
+                <tiny-textbox id="endIndex.id" value="endIndex.value" validate="endIndex.validate"
+                              extend-function="endIndex.extendFunction"
+                              width="endIndex.width"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="buttonGroup.label" require="buttonGroup.require" class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="saveBtn.id" text="saveBtn.text"
+                             tooltip="saveBtn.tooltip" click="saveBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                             tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/monitor/controllers/exportAlarmCtrl'],
+            function (exportAlarmCtrl) {
+                var dep = ['ng', 'wcc', exportAlarmCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $(".alarm-export"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile) {
+                    var scope = $(".alarm-export").scope();
+                    $compile($(".alarm-export"))(scope);
+                    scope.$digest();
+                });
+            });
+</script>

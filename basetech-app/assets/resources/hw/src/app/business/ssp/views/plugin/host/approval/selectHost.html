@@ -1,0 +1,36 @@
+<div class="ssp_apply_host_select_host" ng-controller="ssp.plugin.applyHost.selectHost.ctrl">
+    <div class="clearfix bottom10">
+        <div class="pull-right">
+            <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" maxlength="searchBox.maxLength" search="searchBox.search">
+            </tiny-searchbox>
+        </div>
+    </div>
+    <div class="clearfix">
+        <tiny-table id="hosts.id" columns="hosts.columns" data="hosts.data" pagination-style="hosts.paginationStyle"
+                    render-row="hosts.renderRow" length-menu="hosts.lengthMenu" display-length="hosts.displayLength"
+                    total-records="hosts.totalRecords" callback="hosts.callback" change-select="hosts.changeSelect">
+        </tiny-table>
+    </div>
+
+    <div class="text-center fm-btn-top-large">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+
+<script>
+require(['app/business/ssp/controllers/plugin/host/approval/selectHostCtrl'],
+    function(selectVmCtrl) {
+        var dep = ['ng', 'wcc', selectVmCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".ssp_apply_host_select_host"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".ssp_apply_host_select_host"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

@@ -1,0 +1,37 @@
+<div class="create-page-distance">
+    <div class="row-fluid">
+        <tiny-formfield>
+            <tiny-item label="info.name.label" require="info.name.require">
+                <span ng-bind="data.name"></span>
+            </tiny-item>
+            <tiny-item label="info.type.label" require="info.type.require">
+                <span ng-bind="triggerTypeUI"></span>
+            </tiny-item>
+            <tiny-item label="info.periodWeedDays.label" require="info.periodWeedDays.require" width="info.periodWeedDays.width" display="info.periodWeedDays.display">
+                <div ng-repeat="item in info.periodWeedDays.values">
+                    <span ng-bind="item.text"></span>&nbsp;
+                    <span ng-bind="item.time"></span>
+                </div>
+            </tiny-item>
+            <tiny-item label="info.triggerDate.label" require="info.triggerDate.require" display="info.triggerDate.display">
+                <span ng-bind="triggerDate.localDate"></span>
+            </tiny-item>
+            <tiny-item label="info.triggerTime.label" require="info.triggerTime.require" display="info.triggerTime.display">
+                <span ng-bind="data.dateAndTimeList[0].time"></span>
+            </tiny-item>
+            <tiny-item label="info.desc.label" require="info.desc.require">
+                <span ng-bind="data.description"></span>
+            </tiny-item>
+            <tiny-item label="info.innerPolicy.label" require="info.innerPolicy.require">
+                <tiny-table id="info.bindSelTable.id" data="data.policies" columns="info.bindSelTable.columns" enable-pagination="info.bindSelTable.enablePagination" render-row="info.bindSelTable.renderRow"></tiny-table>
+            </tiny-item>
+            <tiny-item>
+                <div class="fm-btn-top-small">
+                    <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+                    <tiny-button id="info.okBtn.id" text="info.okBtn.text" click="info.okBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

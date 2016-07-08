@@ -1,0 +1,43 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span ng-bind-html="i18n.server_term_server_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.server_server_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="clearfix">
+            <div class="fl" ng-if="deployMode!=='serviceCenter'">
+                <tiny-button id="applyBtn.id" text="applyBtn.text" tooltip="applyBtn.tooltip" click="applyBtn.click()" disabled="applyBtn.disable" class="major-btn"></tiny-button>
+            </div>
+
+            <div class="pull-right" style="margin-top: 2px;">
+                <tiny-filtersel id="searchAz.id" values="searchAz.values" width="searchAz.width" change="searchAz.change()">
+                </tiny-filtersel>
+                <span style="display: inline-block; vertical-align: middle;">
+                    <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                    </tiny-searchbox>
+                </span>
+                <a class="btn-link btn-link-padding">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div title="{{i18n.common_term_help_label}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="margin-top-beautifier">
+            <tiny-table id="hosts.id" caption="hosts.caption" columns="hosts.columns" data="hosts.data" columns-visibility="hosts.columnVisibility" enable-pagination="hosts.enablePagination" callback="hosts.callback" change-select="hosts.changeSelect" pagination-style="hosts.paginationStyle"
+                        render-row="hosts.renderRow" length-menu="hosts.lengthMenu" display-length="hosts.displayLength" total-records="hosts.totalRecords" columns-draggable="true" show-details="hosts.showDetails">
+
+            </tiny-table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="磁盘">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_300006">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>磁盘</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_300006"></a><a name="it_60_51_300006"></a>
+
+
+<h1 class="topictitle1">磁盘</h1>
+
+
+<div>
+<div class="section"><p>磁盘为虚拟机提供数据存储空间，它独立于虚拟机的生命周期而存在，可以与任意虚拟机绑定使用，实现虚拟机间数据的快速转移。</p>
+<p>同时还提供快照方式，为磁盘数据进行备份。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">创建磁盘</h4><p>创建一个独立磁盘，创建完成的磁盘可以绑定给虚拟机使用，以便增加虚拟机的存储空间。</p>
+</div>
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">分配磁盘</h4></div><div class="dropdowncontext"><p>将系统管理员分配过来的磁盘分配给指定租户。</p>
+<p>在磁盘所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">分配</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">更改磁盘属性</h4></div><div class="dropdowncontext"><p>磁盘创建后，可修改磁盘的名称。</p>
+<p>在磁盘所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">修改</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">将磁盘绑定虚拟机</h4></div><div class="dropdowncontext"><p>磁盘绑定至虚拟机上后，虚拟机的数据才能够存储在磁盘中。</p>
+<p>在磁盘所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">绑定虚拟机</span>”</span>。</p>
+<div class="p" id="it_60_51_300006__addToOS"><a name="it_60_51_300006__addToOS"></a><a name="addToOS"></a>磁盘绑定成功后，还需在虚拟机中将磁盘添加至操作系统中。<ul><li>若绑定的磁盘是新创建的磁盘，则需对新增磁盘进行格式化。具体操作方法<span>可在互联网或<a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a>中查找获取</span>。</li><li>若绑定的磁盘是已有数据的磁盘，且磁盘的盘符和虚拟机上的盘符相同，则需将磁盘由“脱机”设置为“联机”。</li></ul>
+</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">将磁盘解绑定虚拟机</h4></div><div class="dropdowncontext"><p>将绑定在虚拟机中的磁盘解绑定。</p>
+<div class="p">对运行中的虚拟机解绑定磁盘时，有如下约束：<ul><li><p>虚拟机已安装Tools，且Tools运行正常。</p>
+</li><li>不支持解绑定虚拟机上的系统盘。</li><li>不支持解绑定虚拟机上的裸设备映射类型的磁盘。</li><li>仅以下操作系统的虚拟机支持在运行时解绑定磁盘：<ul><li>Windows Server 2008 R2 Enterprise 64位</li><li>Red Hat Linux Enterprise 5.7/5.8/6.5 （32位或64位）</li><li>CentOS 5.7/5.8/6.5 （32位或64位）</li></ul>
+</li></ul>
+</div>
+<p>展开磁盘详情，在绑定的虚拟机所在行中，单击<span class="uicontrol">“解绑定”</span>。</p>
+</div></div></div>
+
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">删除磁盘</h4></div><div class="dropdowncontext"><p id="it_60_51_300006__delDisk_define"><a name="it_60_51_300006__delDisk_define"></a><a name="delDisk_define"></a>当磁盘不再使用时，删除磁盘，以释放虚拟资源。删除磁盘的同时，会同时删除所有磁盘数据，请谨慎操作。</p>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><span><strong>高危特性声明</strong>：该功能使用过程中可能触及最终用户数据，符合业界惯例，但仍须谨慎使用。</span></div></div>
+<div class="p">删除磁盘分为两种方式：<ul><li>普通删除：通过破坏磁盘的文件系统，使得磁盘数据无法再被访问，安全性较差。删除速度快，但存在通过残余信息恢复数据访问的可能。</li><li>安全删除：通过覆盖性擦写对磁盘对应的物理存储空间进行数据删除，避免数据被恢复，安全性高。删除速度较慢，且删除时会占用系统资源。</li></ul>
+</div>
+<p>在磁盘所在行中，单击<span class="menucascade">“<span class="uicontrol">删除</span>”</span>。</p>
+</div></div></div>
+
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

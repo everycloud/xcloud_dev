@@ -1,0 +1,264 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VMs">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_300004">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VMs</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Resources\nVMs");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100021.html\">Resources<\/a> > VMs<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_300004"></a><a name="it_60_51_300004"></a>
+
+
+
+
+<h1 class="topictitle1">VMs</h1>
+<ul><li><a href="#it_60_51_300004__1.2.2.1">Creating a VM</a></li><li><a href="#it_60_51_300004__1.2.3.1">Logging in to a VM Using Virtual Network
+Computing (VNC)</a></li><li><a href="#it_60_51_300004__1.2.4.1">VM Power Management</a></li><li><a href="#it_60_51_300004__1.2.5.1">Modifying Specifications</a></li><li><a href="#it_60_51_300004__1.2.6.1">Modifying Disk Capabilities</a></li><li><a href="#it_60_51_300004__1.2.7.1">Adjusting NICs</a></li><li><a href="#it_60_51_300004__1.2.8.1">Deleting a VM</a></li><li><a href="#it_60_51_300004__1.2.9.1">FAQ</a></li></ul>
+
+<div>
+<div class="section"><p id="it_60_51_300004__vm"><a name="it_60_51_300004__vm"></a><a name="vm"></a>A virtual machine (VM) is a software
+computer that functions like a physical computer, running an operating
+system (OS) and applications.</p>
+<p>A VM runs on a host and obtains
+CPUs, memory, graphics cards, universal serial bus (USB) devices,
+network resources, and storage access capabilities of the host. Multiple
+VMs can concurrently run on a server.</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">Creating a VM</a></h4><p>You can use a VM template to create a VM. During the creation
+process, you can adjust the VM attributes as needed. However, the
+adjusted attributes only apply to the newly created VM and will not
+change the attributes of the VM template.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span> and click <span class="uicontrol"><b>Create</b></span>.</p>
+<p>To ensure VM security,
+the VM user must change the VM login password in the earliest time.</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_300004__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">Logging in to a VM Using Virtual Network
+Computing (VNC)</a></h4><p>VNC is a remote terminal access tool. You
+can use VNC to remotely connect to a VM, view the VM operating page,
+and perform management and maintenance operations on it.</p>
+<p>However,
+if the VM operating system (OS) requires password input for login,
+you need to enter the correct OS username and password to access the
+VM operating page.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span> and click <span class="uicontrol"><b>VNC</b></span>.</p>
+<div class="p">Note the following points
+when you log in to a VM using VNC:<ul><li><span><strong>Declaration</strong>: This feature is a high-risk feature. Using this feature complies
+with industry practices. However, end user data may be required for
+implementing the feature. Exercise caution and obtain end user's consent
+when using this feature.</span>This
+operation involves VM user privacy. Ensure that your login complies
+with the local laws.</li><li><p><span id="it_60_51_300004__modifyPsw"><a name="it_60_51_300004__modifyPsw"></a><a name="modifyPsw"></a>To ensure VM security, the VM user must
+change the VM login password in the earliest time.</span></p>
+</li><li>If you, as an administrator, have logged in to a VM, the VM service
+VM will not be allowed to log in to the VM before you log out.</li><li>If you log in to a VM using VNC for the first time,
+you must set the IP address mapping between the local PC and the HAProxy
+in advance. For details, see <a href="it_60_51_600028.html">Setting Mapping Relationship Between haproxyIP and FusionSphere OpenStack Domain Name</a>.</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">VM Power Management</a></h4><p><span>Power management
+for a VM includes hibernate, start, stop, and restart the VM.</span> Stop or restart a VM can be performed in a safe or forcible manner.
+You are advised to use the safe manner. Forcibly stop or restart a
+VM only if the VM cannot be safely stopped or restarted due to an
+OS fault. Forcibly stopping or restarting a VM may damage the VM disks
+and cause data loss.</p>
+<p>Starting or stopping a large number of
+VMs increases host workload. If you need to start or stop a large
+number of VMs on a host, perform the start or stop operations in batches
+to prevent VM services on the host from being adversely affected.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>More</b></span>, and select the desired operation to perform.</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_300004__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">Modifying Specifications</a></h4><p>Adjust VM performance by modifying VM specifications, including
+the number of CPUs and the memory size.</p>
+<p>For details
+about requirements, see <a href="it_60_51_600030.html">VM Migration and Specification Modification Requirements</a>.</p>
+<p>The specifications
+of a VM can be modified only when the VM is in the <span class="parmvalue"><b>Stopped</b></span> or <span class="parmvalue"><b>Running</b></span> state. If a VM is running, it
+will be automatically stopped before its specifications are modified.
+After the VM specifications are modified, the VM automatically returns
+to the <span class="parmvalue"><b>Running</b></span> state.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, expand VM details, and click <span><img src="fig/fig_it_60_51_300004_01.png"></span> next
+to <span class="uicontrol"><b>CPU</b></span>.</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_300004__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">Modifying Disk Capabilities</a></h4><p><strong>Adding a Disk</strong></p>
+<p>Attach a disk to a VM to increase the
+storage space of the VM.</p>
+<p>If the disk type is IDE, you can attach
+the disk only when the VM is in the <span class="parmvalue"><b>Stopped</b></span> state.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, expand VM details, and click <span><img src="fig/fig_it_60_51_300004_02.png"></span> next
+to <span class="uicontrol"><b>Disk</b></span> to switch to the <span class="uicontrol"><b>Disk</b></span> page. Then click <span class="uicontrol"><b>Add</b></span>.</p>
+<div class="p">After attaching the disk to the VM, you also need to add the
+disk to the VM operating system (OS).<ul><li>If the attached disk is a newly created disk, format the disk. For the detailed operation procedure, <span>search from the
+Internet or <a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a>.</span></li><li>If the attached disk already contains data and the disk drive letter is the same as the disk drive letter on the VM, set the disk status from offline to online.</li></ul>
+</div>
+<p><strong>Detaching
+a Disk</strong></p>
+<p>Detach a disk from a VM to reduce the storage space
+of the VM.</p>
+<p>A disk can be detached only when the VM is in the <span class="parmvalue"><b>Stopped</b></span> state.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, expand VM details, and click <span><img src="fig/fig_it_60_51_300004_02.png"></span> next
+to <span class="uicontrol"><b>Disk</b></span> to switch to the <span class="uicontrol"><b>Disk</b></span> page. Locate the row that contains the target disk and click <span class="uicontrol"><b>Detach</b></span>.</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_300004__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">Adjusting NICs</a></h4><p><strong>Adding a NIC</strong></p>
+<p>Add one or more NICs to a VM so that
+the VM can use multiple NICs. </p>
+<p>If a VM has multiple NICs bound,
+only the gateway of one NIC among them is allowed to function as the
+default gateway of the VM. If all these NICs have gateways configured,
+you need to manually add a policy route on the VM.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, expand VM details, and click <span><img src="fig/fig_it_60_51_300004_02.png"></span> next
+to <span class="uicontrol"><b>NIC</b></span> to switch to the <span class="uicontrol"><b>NIC</b></span> page. Then click <span class="uicontrol"><b>Add</b></span>.</p>
+<p><strong>Adding a NIC to or Deleting a NIC from
+the Security Group</strong></p>
+<p>If the VPC to which a NIC belongs contains
+a security group, you can add the NIC to or delete it from the security
+group.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, expand VM details, and click <span><img src="fig/fig_it_60_51_300004_02.png"></span> next
+to <span class="uicontrol"><b>NIC</b></span> to switch to the <span class="uicontrol"><b>NIC</b></span> page. Locate the row that contains the target NIC and perform operations.</p>
+<p><strong>Deleting
+a NIC</strong></p>
+<p>Delete a NIC from a VM to release network resources. </p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, expand VM details, and click <span><img src="fig/fig_it_60_51_300004_02.png"></span> next
+to <span class="uicontrol"><b>NIC</b></span> to switch to the <span class="uicontrol"><b>NIC</b></span> page. Locate the row that contains the target NIC and click <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+
+
+
+
+
+
+<div class="section"><a name="it_60_51_300004__1.2.8.1"></a><a name="1.2.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">Deleting a VM</a></h4><p>If a VM is not needed any more, you can delete it to release VM
+resources. After a VM is deleted, all the data on the VM disks will
+also be deleted. Therefore, exercise caution when performing this
+operation.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.9.1"></a><a name="1.2.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">FAQ</a></h4><p><strong>Why is the VM performance under expectation and the VM lacking
+part of monitoring data when UVP VMTools is not installed?</strong></p>
+<p>UVP VMTools is a recommended component for VMs. Without UVP VMTools,
+the information monitoring and input/output (I/O) performance of a
+VM are adversely affected. However, UVP VMTools only applies to Huawei <span>FusionSphere
+OpenStack</span> hypervisor. For details about installing UVP VMTools on a VM, see
+FusionSphere document <i><cite><span>FusionSphere
+OpenStack</span> Image Creation Guide</cite></i>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

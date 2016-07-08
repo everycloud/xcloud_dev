@@ -1,0 +1,258 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="虚拟机">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_300004">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>虚拟机</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源\n虚拟机");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100021.html\">资源<\/a> > 虚拟机<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_300004"></a><a name="it_60_51_300004"></a>
+
+
+<h1 class="topictitle1">虚拟机</h1>
+<ul><li><a href="#it_60_51_300004__1.2.2.1">查询虚拟机初始密码</a></li><li><a href="#it_60_51_300004__1.2.3.1">使用VNC方式登录虚拟机</a></li><li><a href="#it_60_51_300004__1.2.4.1">虚拟机电源管理</a></li><li><a href="#it_60_51_300004__1.2.5.1">导出虚拟机列表</a></li><li><a href="#it_60_51_300004__1.2.6.1">监控虚拟机的进程</a></li><li><a href="#it_60_51_300004__1.2.7.1">调整磁盘</a></li><li><a href="#it_60_51_300004__1.2.8.1">调整网卡</a></li><li><a href="#it_60_51_300004__1.2.9.1">虚拟机快照管理</a></li><li><a href="#it_60_51_300004__1.2.10.1">转为模板</a></li><li><a href="#it_60_51_300004__1.2.11.1">修复虚拟机</a></li><li><a href="#it_60_51_300004__1.2.12.1">挂载光驱</a></li></ul>
+
+<div>
+<div class="section"><p id="it_60_51_300004__vm"><a name="it_60_51_300004__vm"></a><a name="vm"></a>虚拟机与物理计算机一样，是运行操作系统和应用程序的虚拟计算机。</p>
+<p>虚拟机运行在某个主机上，并从主机上获取所需的CPU、内存等计算资源，以及图形处理器、USB设备、网络连接和存储访问等能力。多台虚拟机可以同时运行在一台主机中。</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_300004__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">查询虚拟机初始密码</a></h4><p>若虚拟机属于<span>FusionCompute</span>虚拟化环境，且为随机密码时，可查看虚拟机操作系统的初始密码。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“初始密码”</span>后，单击<span class="uicontrol">“查看”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">使用VNC方式登录虚拟机</a></h4><p>VNC（Virtual
+Network Computer）是虚拟网络计算机的缩写，是一款远程控制工具。通过VNC方式，管理员能够连接并查看虚拟机的界面，便于进行虚拟机的管理和维护。</p>
+<p>查看虚拟机的界面并不代表能够登录虚拟机的操作系统，即使使用VNC登录虚拟机，也只是将虚拟机的当前画面显示出来。若虚拟机的操作系统设置有密码，仍然需要对应的用户名和密码才可登录虚拟机。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，勾选一个虚拟机，单击<span class="menucascade">“<span class="uicontrol">VNC登录</span>”</span>。</p>
+<div class="p">VNC登录虚拟机，需注意以下几点：<ul><li><span><strong>高危特性声明</strong>：该功能使用过程中可能触及最终用户数据，符合业界惯例，但仍须谨慎使用。</span>该操作将涉及虚拟机用户隐私，使用该功能时务必遵从当地适用的法律法规。</li><li><p><span id="it_60_51_300004__modifyPsw"><a name="it_60_51_300004__modifyPsw"></a><a name="modifyPsw"></a>为确保安全，请虚拟机用户及时修改虚拟机密码。</span></p>
+</li><li>通过VNC方式登录虚拟机时，虚拟机用户将无法登录该虚拟机。 </li></ul>
+</div>
+<p id="it_60_51_300004__VNC_fail_FAQ"><a name="it_60_51_300004__VNC_fail_FAQ"></a><a name="VNC_fail_FAQ"></a>若登录过程出现问题，请参考<a href="it_60_51_000025.html">VNC登录常见问题</a>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">虚拟机电源管理</a></h4><p><span>包括启动或唤醒、休眠、关闭、重启虚拟机</span>。其中关闭和重启有安全和强制两种方式，建议使用安全方式进行下电和重启。只有当虚拟机操作系统异常，无法安全关闭或重启时，才可强制关闭或重启，强制关闭或重启可能导致虚拟机磁盘数据受损。</p>
+<p>大量虚拟机同时启动或关闭时，会加重主机的负载。如果需同时对一个主机上的大量虚拟机执行启动或关闭操作，建议分批进行，避免对其他虚拟机的业务造成影响。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，虚拟机所在行，选择<span class="uicontrol">“更多”</span>中对应的操作。</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">导出虚拟机列表</a></h4><p>将当前所有虚拟机详细信息，导出到本地，并保存为*.xls文件，便于信息备份和统计。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">导出</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">监控虚拟机的进程</a></h4><div class="p">基于Hyperic HQ提供虚拟机的进程监控功能。前提条件如下：<ol><li>在VPC中部署服务，即需要具备PVM虚拟机，且PVM虚拟机关联的网络，需与虚拟机使用的网络互通。</li><li>在虚拟机中安装并配置Hyperic HQ软件客户端，具体操作请参考<a href="it_60_51_600026.html">如何配置虚拟机进程监控功能</a>。</li></ol>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>若管理员由于PVM虚拟机故障等原因修复或重新部署了PVM虚拟机，则虚拟机中的Hyperic HQ软件客户端需使用新的PVM虚拟机IP地址重新配置才可继续使用，具体操作请参考<a href="it_60_51_600026.html">如何配置虚拟机进程监控功能</a>中的<span class="wintitle">“FAQ-如何更新配置”</span>。</p>
+</div></div>
+</div>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，单击<span class="uicontrol">“查看监控详情”</span>，进入<span class="uicontrol">“监控”</span>界面<span class="uicontrol">“进程”</span>页签，查看虚拟机进程监控信息。</p>
+</div>
+
+
+
+
+
+<div class="section"><a name="it_60_51_300004__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">调整磁盘</a></h4><p><strong>增加磁盘</strong></p>
+<div class="p">通过为虚拟机绑定存储的方式扩大虚拟机的存储空间。<ul><li>将新创建磁盘绑定到虚拟机上。</li><li>将现有的空闲磁盘绑定到虚拟机上。</li></ul>
+</div>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态，且虚拟机所在主机未进入维护模式时，才可以增加磁盘。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“磁盘”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“磁盘”</span>界面，单击<span class="uicontrol">“添加”</span>。</p>
+<div class="p">磁盘绑定成功后，还需在虚拟机中将磁盘添加至操作系统中。<ul><li>若绑定的磁盘是新创建的磁盘，则需对新增磁盘进行格式化。具体操作方法<span>可在互联网或<a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a>中查找获取</span>。</li><li>若绑定的磁盘是已有数据的磁盘，且磁盘的盘符和虚拟机上的盘符相同，则需将磁盘由“脱机”设置为“联机”。</li></ul>
+</div>
+<p><strong>扩容磁盘容量</strong></p>
+<div class="p" id="it_60_51_300004__expand_define"><a name="it_60_51_300004__expand_define"></a><a name="expand_define"></a>当虚拟机磁盘容量不足时，可在已有磁盘容量的基础上，增加该磁盘的容量。但必须满足如下要求：<ul><li>磁盘使用的数据存储类型为虚拟化存储或FusionStorage。</li><li>磁盘不存在快照，若磁盘存在快照，则要提前删除快照。</li><li>磁盘不是链接克隆虚拟机的系统磁盘。</li><li><span>FusionCompute</span>虚拟化环境下的虚拟机的待扩容磁盘当前容量大于等于4GB。</li><li>磁盘所属的数据存储类型为NAS存储，且磁盘的配置模式为普通时，不支持在线增加磁盘容量。</li></ul>
+</div>
+<p id="it_60_51_300004__expand_status"><a name="it_60_51_300004__expand_status"></a><a name="expand_status"></a><span>FusionCompute</span>虚拟化环境的虚拟机在<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态，可以扩容磁盘。其他虚拟机处于<span class="parmvalue">“已停止”</span>状态才可以扩容磁盘。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“磁盘”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“磁盘”</span>界面，在磁盘所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">扩容</span>”</span>。</p>
+<div class="p" id="it_60_51_300004__expand_effect"><a name="it_60_51_300004__expand_effect"></a><a name="expand_effect"></a>使增加磁盘容量生效，还需进行以下操作：<ol><li>以下场景要重启虚拟机或关闭虚拟机后再启动虚拟机，其余场景，可直接生效。<div class="p">以下场景，需重启虚拟机：<ol type="a"><li>虚拟机的状态为<span class="parmvalue">“运行中”</span>。</li><li>磁盘所属的数据存储类型为虚拟化本地硬盘、虚拟化SAN存储或NAS存储。</li><li>操作系统不为以下操作系统的一种：<ul><li>Windows Server 2003</li><li>Windows Server 2008</li><li>Windows XP</li><li>Windows 7</li></ul>
+</li></ol>
+</div>
+<div class="p">以下场景，需停止后再启动虚拟机：<ol type="a"><li>虚拟机的状态为<span class="parmvalue">“运行中”</span>。</li><li>磁盘所属的数据存储类型为FusionStorage。</li></ol>
+</div>
+</li><li>由于新增的磁盘容量，在虚拟机操作系统中显示为未分配的磁盘分区，需要合并分区或创建新分区。具体操作方法<span>可在互联网或<a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a>中查找获取</span>。</li></ol>
+</div>
+<p><strong>将磁盘解绑定虚拟机</strong></p>
+<p>将绑定在虚拟机中的磁盘解绑定。</p>
+<div class="p">对运行中的虚拟机解绑定磁盘时，有如下约束：<ul><li><p>虚拟机已安装Tools，且Tools运行正常。</p>
+</li><li>不支持解绑定虚拟机上的系统盘。</li><li>不支持解绑定虚拟机上的裸设备映射类型的磁盘。</li><li>仅以下操作系统的虚拟机支持在运行时解绑定磁盘：<ul><li>Windows Server 2008 R2 Enterprise 64位</li><li>Red Hat Linux Enterprise 5.7/5.8/6.5 （32位或64位）</li><li>CentOS 5.7/5.8/6.5 （32位或64位）</li></ul>
+</li></ul>
+</div>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“磁盘”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“磁盘”</span>界面，在磁盘所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">解绑定</span>”</span>。</p>
+<p><strong>删除磁盘</strong></p>
+<p>当磁盘不再使用时，删除磁盘，以释放虚拟资源。删除磁盘的同时，会同时删除所有磁盘数据，请谨慎操作。</p>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><span><strong>高危特性声明</strong>：该功能使用过程中可能触及最终用户数据，符合业界惯例，但仍须谨慎使用。</span></div></div>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态，才可以删除磁盘。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“磁盘”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“磁盘”</span>界面，在磁盘所在行，单击<span class="uicontrol">“删除”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.8.1"></a><a name="1.2.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">调整网卡</a></h4><p><strong>添加网卡</strong></p>
+<p>为虚拟机添加网卡，实现虚拟机多网卡特性。</p>
+<div class="p">虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以添加网卡。虚拟机处于如下场景时，只有<span class="parmvalue">“已停止”</span>状态，才可以添加网卡。<ul><li>虚拟机为Windows 2000操作系统</li><li>虚拟机所在主机使用智能网卡</li></ul>
+</div>
+<div class="p">添加网卡有如下限制条件：  <ul><li>添加网卡前，需已添加MAC地址段或添加独立MAC地址。</li><li><span>FusionCompute</span>虚拟化环境的虚拟机每台最多配置12个网卡；VMware虚拟化环境的虚拟机每台最多配置8个网卡。</li><li>虚拟机所绑定的网卡中，只允许一个网卡的网关为虚拟机默认网关。若多个网卡均有网关，则需手动在虚拟机中配置策略路由。</li><li>虚拟机网卡不支持选择静态注入的网络。</li><li>在线添加网卡时，虚拟机需已安装Tools，且Tools运行正常。</li></ul>
+</div>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“网卡”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“网卡”</span>界面，单击<span class="uicontrol">“添加”</span>。</p>
+<p><strong>修改网卡属性</strong></p>
+<p>修改虚拟机网卡属性，调整虚拟机网卡所属网络。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态时，才可以修改网卡属性。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“网卡”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“网卡”</span>界面，网卡所在行，单击<span class="menucascade">“<span class="uicontrol">修改</span>”</span>。</p>
+<p><strong>配置浮动IP地址</strong></p>
+<p>为虚拟机网卡配置浮动IP地址，用于实现虚拟机的主备部署。浮动IP地址来源于网卡所在网络的私有IP地址，因此配置前需在网络中申请私有IP地址。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“网卡”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“网卡”</span>界面，网卡所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">配置浮动IP地址</span>”</span>。</p>
+<p><strong>加入与退出安全组</strong></p>
+<p>若网卡所属VPC中存在安全组，可将网卡加入或退出安全组。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“网卡”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“网卡”</span>界面，网卡所在行，选择对应操作。</p>
+<p><strong>删除网卡</strong></p>
+<p>将虚拟机不再使用的网卡删除，释放虚拟机所占用的网络资源。</p>
+<div class="p">虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以删除网卡。虚拟机处于如下场景时，只有<span class="parmvalue">“已停止”</span>状态，才可以删除网卡。<ul><li>虚拟机为Windows 2000操作系统</li><li>虚拟机所在主机使用智能网卡</li></ul>
+</div>
+<div class="p">删除网卡有如下限制条件：  <ul><li>在线删除网卡时，虚拟机需已安装Tools，且Tools运行正常。</li><li>虚拟机操作系统为Windows，且其所在主机使用智能网卡时，需按网卡编号顺序从后往前删除。如果删除编号顺序靠前的网卡，会导致该编号往后的网卡的配置信息错位，重新配置网卡后方能正常使用。
+ 例如，Windows虚拟机有3个网卡iNIC 1、iNIC 2和iNIC 3，离线删除iNIC 2后，iNIC 3的配置信息会变更为iNIC
+2的数据，需重新配置。</li></ul>
+</div>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“网卡”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“网卡”</span>界面，在网卡所在行，单击<span class="uicontrol">“删除”</span>。</p>
+<p>若虚拟机操作系统为Linux，则删除网卡后还需手动删除虚拟机中的网卡信息，具体操作方法请参见<a href="it_60_51_600024.html">如何删除Linux虚拟机的网卡信息</a>。</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_300004__1.2.9.1"></a><a name="1.2.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">虚拟机快照管理</a></h4><p>快照是对虚拟机磁盘某一时刻数据和状态的一种记录。用户可通过快照对虚拟机磁盘进行备份，以便能够使用快照将虚拟机数据恢复至快照创建时刻。</p>
+<p>创建快照时，当前磁盘被置为只读，系统自动在磁盘所在数据存储中创建增量磁盘，后续对该磁盘数据的编辑将保存在增量磁盘中，即增量磁盘表示磁盘当前状况和上次执行快照时的状况之间的差异。对该磁盘再次创建快照时，原磁盘和当前增量磁盘均被置为只读，系统会在数据存储中再创建一个增量磁盘。</p>
+<p><strong>创建快照</strong></p>
+<p>在虚拟机产生重大变更之前，可采用快照方式备份虚拟机数据，以便变更失败出现故障时，能够快速还原虚拟机数据。</p>
+<p>快照的创建和使用要求请参见<a href="it_60_51_600022.html">虚拟机快照使用要求</a>。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“快照”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“快照”</span>界面，单击<span class="uicontrol">“创建快照”</span>。</p>
+<p><strong>使用快照恢复虚拟机</strong></p>
+<p>在虚拟机故障或需要还原数据时，使用虚拟机已有的快照，将虚拟机的数据恢复至该快照创建时刻的状态。虚拟机当前数据会被覆盖，还原为与快照中保存的数据一致，请谨慎操作。</p>
+<p id="it_60_51_300004__restore"><a name="it_60_51_300004__restore"></a><a name="restore"></a>若虚拟机在创建快照后绑定了新磁盘，则在使用该快照还原虚拟机时，新磁盘会自动与虚拟机解绑定，可根据需要手动重新绑定。</p>
+<div class="p">若虚拟机的某个磁盘属性为<span class="parmvalue">“快照时不包含该磁盘”</span>，则使用快照还原虚拟机时，不对该磁盘的数据进行还原。<ul><li>如果快照后，该磁盘被解绑定且未绑定其他虚拟机，则快照恢复的虚拟机会重新绑定该磁盘，但磁盘数据不进行还原。</li><li>如果快照后，该磁盘被删除，则快照恢复的虚拟机上不存在该磁盘。</li></ul>
+</div>
+<p>虚拟机处于<span class="wintitle">“已停止”</span>或<span class="wintitle">“已休眠”</span>状态时，才可使用快照进行恢复。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“快照”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“快照”</span>界面，选择快照后，单击<span class="uicontrol">“恢复虚拟机”</span>。</p>
+<p><strong>删除快照</strong></p>
+<p>每台虚拟机最多可以创建32个快照，快照会占用磁盘所在的数据存储的空间，为避免存储资源不足，建议对快照数量进行控制，及时删除不需要的快照。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，展开虚拟机详情，在<span class="uicontrol">“快照”</span>后，单击<span><img src="fig/fig_it_60_51_300004_02.png"></span>进入<span class="uicontrol">“快照”</span>界面，选择快照后，单击<span class="uicontrol">“删除”</span>。</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_300004__1.2.10.1"></a><a name="1.2.10.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">转为模板</a></h4><p>将虚拟机转为虚拟机模板，虚拟机模板可以用来创建其他虚拟机。</p>
+<div class="p">虚拟机处于<span class="parmvalue">“已停止”</span>状态且需满足如下条件时，才可以转为模板：<ul><li>虚拟机未绑定共享磁盘。</li><li>虚拟机不存在快照。</li></ul>
+</div>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，虚拟机所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">转为模板</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.11.1"></a><a name="1.2.11.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">修复虚拟机</a></h4><p id="it_60_51_300004__restoreVM_define"><a name="it_60_51_300004__restoreVM_define"></a><a name="restoreVM_define"></a>当运行中的虚拟机出现故障，且无法通过VNC方式登录虚拟机时，可通过虚拟机模板修复该虚拟机的操作系统。在修复过程中，系统会按照模板重新创建虚拟机，并将新虚拟机的系统磁盘挂载到故障虚拟机上，故障虚拟机原有的系统磁盘将作为用户磁盘挂载在故障虚拟机上，原来存放在系统磁盘中的数据不会丢失。</p>
+<p>具体操作方法请参见<a href="it_60_51_600027.html">如何修复虚拟机</a>。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟机</span>”</span>界面，虚拟机所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">修复虚拟机</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_300004__1.2.12.1"></a><a name="1.2.12.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300004" class="sectiontitle2contents">挂载光驱</a></h4><p>将本地PC中的ISO文件或者光驱挂载至虚拟机中，即可将ISO或光驱中的文件拷贝至虚拟机中。具体操作方法请参考<a href="it_60_51_600018.html">挂载光驱</a>。</p>
+</div>
+
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div id="domainClusterDiv" class="container-fluid">
+    <div ng-show="inThisDomain">
+        <div class="clearfix bottom10" ng-if="domainId != 'domainParentId'">
+            <div class="fl">
+                <tiny-button id="createBtn.id" disable="createBtn.disable" text="createBtn.text"
+                             tooltip="createBtn.tooltip" icons-class="createBtn.iconsClass" click="createBtn.click()"
+                             class="major-btn"></tiny-button>
+                <tiny-button id="deleteBtn.id" disable="deleteBtn.disable" display="deleteBtn.display"
+                             text="deleteBtn.text" tooltip="deleteBtn.tooltip" icons-class="deleteBtn.iconsClass"
+                             click="deleteBtn.click()"></tiny-button>
+            </div>
+
+            <div class="pull-right line-height20">
+                <tiny-filtersel id="address.id" values="address.values" width="address.width" height="address.height"
+                                change="address.change()">
+                </tiny-filtersel>
+            </div>
+
+
+        </div>
+        <div>
+            <tiny-table id="clusterTable.id" caption="clusterTable.caption" data="clusterTable.data"
+                        columns="clusterTable.columns" enable-pagination="clusterTable.enablePagination"
+                        pagination-style="clusterTable.paginationStyle" length-change="clusterTable.lengthChange"
+                        length-menu="clusterTable.lengthMenu" display-length="clusterTable.displayLength"
+                        enable-filter="clusterTable.enableFilter" cur-page="clusterTable.curPage"
+                        total-records="clusterTable.totalRecords" hide-total-records="clusterTable.hideTotalRecords"
+                        callback="clusterTable.callback" render-row="clusterTable.renderRow"
+                        show-details="clusterTable.showDetails" change-select="clusterTable.changeSelect"
+                        columns-draggable="clusterTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+    <div ng-show="!rootNode && !inThisDomain" ng-bind="i18n.domain_term_userOutDomainUnctrlVM_label">
+    </div>
+</div>
+
+<style>
+    .tiny-checkboxIcon {
+        margin-top: 4px;
+    }
+</style>

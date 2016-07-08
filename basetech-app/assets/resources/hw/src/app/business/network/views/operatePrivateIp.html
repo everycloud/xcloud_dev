@@ -1,0 +1,33 @@
+<div class="row-fluid" id="operate-private-ip-window" ng-controller="operatePrivateIpWindowCtrl">
+    <tiny-formfield>
+        <tiny-item label="info.choice.label" require="info.choice.require" display="mode=='add'">
+            <tiny-radiogroup id="info.choice.id" change="info.choice.change()" values="info.choice.values"></tiny-radiogroup>
+        </tiny-item>
+        <tiny-item label="info.IP.label" require="info.IP.require" display="info.IP.display">
+            <tiny-ip id="info.IP.id" value="info.IP.value" type="info.IP.type" validate="info.IP.validate" disable="info.IP.disable" extend-function="info.IP.extendFunction"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="info.description.label" require="info.description.require">
+            <tiny-textbox id="info.description.id" value="info.description.value" width="info.description.width" height="info.description.height" type="info.description.type" validate="info.description.validate">
+            </tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="info.okBtn.id" text="info.okBtn.text" click="info.okBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="text/javascript">
+require(["app/business/network/controllers/operatePrivateIpModule"], function(operatePrivateIpModule) {
+    var dep = ['ng', operatePrivateIpModule.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#operate-private-ip-window"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#operate-private-ip-window"))($rootScope);
+        $rootScope.$digest();
+    });
+})
+</script>

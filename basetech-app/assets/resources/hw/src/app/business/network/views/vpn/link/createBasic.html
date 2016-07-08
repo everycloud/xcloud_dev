@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="create-page-distance" id="create-basic-form">
+        <tiny-formfield>
+            <tiny-item label="info.name.label" require="info.name.require">
+                <tiny-textbox id="info.name.id" value="service.name" validate="info.name.validate"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="info.type.label" require="info.type.require">
+                <div>
+                    <tiny-radio id="vpnType0Radio" text='info.radiogroup.IPSec' name="info.radiogroup.name" checked="service.type!='1'" disable="service.isModifyMode || service.type=='1'" click="click('0')" height="27"></tiny-radio>
+                    <span class="inline-help line-height20" ng-bind="i18n.vpn_connect_add_para_type_mean_IPsec_label"></span>
+                    <div>
+                        <img ng-src="{{info.radiogroup.IPSecImage}}">
+                    </div>
+                </div>
+                <div class="top10">
+                    <tiny-radio id="vpnType1Radio" text='info.radiogroup.L2TP' name="info.radiogroup.name" checked="service.type=='1'" disable="service.isModifyMode || service.type=='0'" click="click('1')" height="27"></tiny-radio>
+                    <span class="inline-help line-height20" ng-bind="i18n.vpn_connect_add_para_type_mean_L2TP_label"></span>
+                    <div>
+                        <img ng-src="{{info.radiogroup.L2TPImage}}">
+                    </div>
+                </div>
+            </tiny-item>
+            <tiny-item label="info.description.label">
+                <tiny-textbox id="info.description.id" value="service.description" validate="info.description.validate" width="info.description.width" height="info.description.height" type="info.description.type" />
+            </tiny-item>
+            <tiny-item label="info.opt.label" class="fm-btn-top-small">
+                <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

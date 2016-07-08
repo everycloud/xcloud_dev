@@ -1,0 +1,32 @@
+<div class="app_update_vm_node" ng-controller="app.instance.topo.updateVmNode.ctrl">
+    <div>
+        <div ng-bind="label.selectTemplate" class="bottom5"></div>
+        <tiny-table id="templates.id" columns="templates.columns" data="templates.data" class="clearfix" pagination-style="templates.paginationStyle" render-row="templates.renderRow" display-length="templates.displayLength" total-records="templates.totalRecords"
+        callback="templates.callback" change-select="templates.changeSelect">
+        </tiny-table>
+
+        <div class="fm-btn-top-large text-center">
+            <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" disable="okBtn.disable" class="major-btn"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>
+
+<script>
+require(['app/business/application/controllers/appInstance/updateVmNodeCtrl'],
+    function(ctrl) {
+        var dep = ['ng', 'wcc', ctrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".app_update_vm_node"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".app_update_vm_node"))($rootScope);
+            $rootScope.$digest();
+        });
+
+        $("#appTopoUpdateVmNodeTemplates").addClass("clearfix");
+    });
+</script>

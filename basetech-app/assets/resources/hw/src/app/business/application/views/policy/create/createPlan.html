@@ -1,0 +1,18 @@
+<div class="application-createPlan container-fluid">
+    <div class="row-fluid tiny-step-boxset">
+        <div class="createpage-legend" ng-if="params.action!='modify'" ng-bind="i18n.app_term_createTask_button"></div>
+        <div class="createpage-legend" ng-if="params.action=='modify'" ng-bind="i18n.app_term_modifyTask_button"></div>
+        <tiny-step id="service.step.id" values="service.step.values" width="service.step.width" jumpable="service.step.jumpable"></tiny-step>
+    </div>
+    <div>
+        <div ng-show="service.show == 'basic'">
+            <div ui-view="basic"></div>
+        </div>
+        <div ng-show="service.show == 'innerPolicy'">
+            <div ui-view="innerPolicy"></div>
+        </div>
+        <div ng-show="service.show == 'confirm'">
+            <div ui-view="confirm"></div>
+        </div>
+    </div>
+</div>

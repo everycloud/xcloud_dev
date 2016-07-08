@@ -1,0 +1,106 @@
+<div class="row-fluid create-page-distance">
+    <div>
+        <div>
+            <div class="createpage-title"><span ng-bind="i18n.common_term_basicInfo_label"></span></div>
+        </div>
+        <div class="confirmDivider"></div>
+        <div class="confirmContentMarginLeft" ng-if="isIT">
+            <tiny-formfield>
+                <tiny-item label="info.name.label" require="info.name.require">
+                    <span ng-bind="service.vlbName"></span>
+                </tiny-item>
+                <tiny-item label="info.maxSession.label" require="info.maxSession.require">
+                    <span ng-bind="service.maxSession"></span>
+                </tiny-item>
+                <tiny-item label="info.maxPut.label" require="info.maxPut.require">
+                    <span ng-bind="service.throughPut"></span>
+                </tiny-item>
+                <tiny-item label="info.lbType.label" require="info.lbType.require">
+                    <span ng-bind="service.workingMode.label"></span>
+                </tiny-item>
+                <tiny-item label="info.frontNet.label" require="info.frontNet.require">
+                    <span ng-bind="service.selectedFrontNetwork.name"></span>
+                </tiny-item>
+                <tiny-item label="info.backendNet.label" require="info.backendNet.require">
+                    <span ng-bind="service.selectedBackNetwork.name"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="confirmContentMarginLeft" ng-if="!isIT">
+            <tiny-formfield>
+                <tiny-item label="info.name.label" require="info.name.require">
+                    <span ng-bind="service.vlbName"></span>
+                </tiny-item>
+                <tiny-item label="info.maxSession.label" require="info.maxSession.require">
+                    <span ng-bind="service.maxSession"></span>
+                </tiny-item>
+                <tiny-item label="info.lbType.label" require="info.lbType.require">
+                    <span ng-bind="service.workingMode.label"></span>
+                </tiny-item>
+                <tiny-item label="info.frontNetType.label" require="info.frontNetType.require">
+                    <span ng-bind="service.frontNetType.name"></span>
+                </tiny-item>
+                <tiny-item label="info.frontNet.label" require="info.frontNet.require">
+                    <span ng-bind="service.selectedFrontNetwork.name"></span>
+                </tiny-item>
+                <tiny-item label="info.policyType.label" require="info.policyType.require" >
+                    <span ng-bind="service.policyType.name"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+    <div ng-if="!isIT">
+        <div>
+            <div class="createpage-title"><span ng-bind="i18n.sys_term_healthCheckup_label"></span></div>
+        </div>
+        <div class="confirmDivider"></div>
+        <div class="confirmContentMarginLeft">
+            <tiny-formfield>
+                <tiny-item label="info.protocol.label" require="info.protocol.require">
+                    <span ng-bind="service.protocol"></span>
+                </tiny-item>
+                <tiny-item label="info.checkPath.label" require="info.checkPath.require" display="service.isHTTP">
+                    <span ng-bind="service.checkPath"></span>
+                </tiny-item>
+                <tiny-item label="info.timeout.label" require="info.timeout.require">
+                    <span ng-bind="service.timeout"></span>
+                </tiny-item>
+                <tiny-item label="info.checkInterval.label" require="info.checkInterval.require">
+                    <span ng-bind="service.checkInterval"></span>
+                </tiny-item>
+                <tiny-item label="info.maxRoundRobin.label" require="info.maxRoundRobin.require">
+                    <span ng-bind="service.maxRoundRobin"></span>
+                </tiny-item>
+                <tiny-item label="info.httpMethod.label" require="info.httpMethod.require" display="service.isHTTP">
+                    <span ng-bind="service.httpMethod"></span>
+                </tiny-item>
+                <tiny-item label="info.httpCode.label" require="info.httpCode.require" display="service.isHTTP">
+                    <span ng-bind="service.httpCode"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="createpage-title none-line"><span ng-bind="i18n.lb_term_listen_label"></span></div>
+        </div>
+        <div class="confirmDivider"></div>
+        <div class="confirmContentMarginLeft">
+            <tiny-table id="info.monitorTable.id" data="service.monitors" columns="info.monitorTable.columns" enable-pagination="info.monitorTable.enablePagination" render-row="info.monitorTable.renderRow"></tiny-table>
+        </div>
+    </div>
+    <div class="top15">
+        <div>
+            <div class="createpage-title none-line"><span ng-bind="i18n.org_term_bondVM_button"></span></div>
+        </div>
+        <div class="confirmDivider"></div>
+        <div class="confirmContentMarginLeft">
+            <tiny-table id="info.bindVMTable.id" data="service.backPortsInfos" columns="info.bindVMTable.columns" enable-pagination="info.bindVMTable.enablePagination" render-row="info.bindVMTable.renderRow"></tiny-table>
+        </div>
+    </div>
+    <div class="fm-btn-top-smaller">
+        <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+        <tiny-button id="info.okBtn.id" text="info.okBtn.text" click="info.okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

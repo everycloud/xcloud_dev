@@ -1,0 +1,39 @@
+<div class="container-fluid" id="addRouteWindowICT" ng-controller="addRoute">
+    <div class="margin-left-beautifier">
+        <tiny-formfield>
+            <tiny-item label="info.subnetIP.label" require="info.subnetIP.require">
+                <tiny-ip id="info.subnetIP.id" value="info.subnetIP.value" type="info.subnetIP.type" validate="info.subnetIP.validate"></tiny-ip>
+            </tiny-item>
+            <tiny-item label="info.maskIP.label" require="info.maskIP.require">
+                <tiny-ip id="info.maskIP.id" value="info.maskIP.value" type="info.maskIP.type" validate="info.maskIP.validate"></tiny-ip>
+            </tiny-item>
+            <tiny-item label="info.nextIP.label" require="info.nextIP.require">
+                <tiny-ip id="info.nextIP.id" value="info.nextIP.value" type="info.nextIP.type" validate="info.nextIP.validate"></tiny-ip>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div>
+        <tiny-formfield>
+            <tiny-item>
+                <tiny-button id="info.okBtn.id" text="info.okBtn.text" disable="info.okBtn.disable" click="info.okBtn.click()"></tiny-button>
+                <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+require(['app/business/network/controllers/router/addRouteModule'],
+    function(addRouteModule) {
+        var dep = ['ng', 'wcc', addRouteModule.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#addRouteWindowICT"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#addRouteWindowICT"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

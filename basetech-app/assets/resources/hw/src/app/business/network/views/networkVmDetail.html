@@ -1,0 +1,38 @@
+<div class="row-fluid" id="network-vm-info-window" ng-controller="networkVmInfosWindowCtrl">
+    <div ng-if = "!openstack">
+        <tiny-table id="vmTable.id" columns="vmTable.columns" data="vmTable.data" pagination-style="vmTable.paginationStyle" render-row="vmTable.renderRow" display-length="vmTable.displayLength" total-records="vmTable.totalRecords" callback="vmTable.callback"
+                    change-select="vmTable.changeSelect" length-menu="vmTable.lengthMenu" show-details="vmTable.showDetails">
+        </tiny-table>
+    </div>
+    <div ng-if = "openstack">
+        <tiny-table id="vmTable.id" columns="vmTable.columns" data="vmTable.data" pagination-style="vmTable.paginationStyle" render-row="vmTable.renderRow" display-length="vmTable.displayLength" total-records="vmTable.totalRecords" callback="vmTable.callback"
+                    change-select="vmTable.changeSelect" show-details="vmTable.showDetails" enable-pagination="false" >
+        </tiny-table>
+        <div class="pull-right">
+            <tiny-select id="pageSize.id" values="pageSize.values" width="pageSize.width"
+                         change="pageSize.change()"></tiny-select>
+            <label class="margin-right-beautifier" ng-bind="i18n.common_term_currentPage_label"></label>
+            <label class="margin-right-beautifier" ng-bind="page.currentPage"></label>
+            <a ng-class="{tinyPagination_paginationPrevSpan: hasPrePage, tinyPagination_paginationPrevSpanDisabled: !hasPrePage}"
+               title="{{i18n.common_term_previous_button}}" class="tinyPagination_tinybutton clear_both"  style="float:none; display: inline-block; position: relative; top: 8px;" ng-click="prePage()"></a>
+            <a ng-class="{tinyPagination_paginationNextSpan: hasNextPage,tinyPagination_paginationNextSpanDisabled: !hasNextPage}"
+               title="{{i18n.common_term_nextPage_button}}" class="tinyPagination_tinybutton clear_both" style="float:none; display: inline-block; position: relative; top: 8px;" ng-click="nextPage()"></a>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+require(["app/business/network/controllers/networkVmDetail"], function(networkVmDetail) {
+    var dep = ['ng', networkVmDetail.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#network-vm-info-window"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#network-vm-info-window"))($rootScope);
+        $rootScope.$digest();
+    });
+})
+</script>

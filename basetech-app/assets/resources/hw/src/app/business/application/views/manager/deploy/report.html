@@ -1,0 +1,29 @@
+<div id="app_list_deployMgr_report" ng-controller="app.list.deployReport.ctrl" class="margin-top-beautifier">
+    <div ng-if="cloudType=='IT'">
+        <tiny-table id="reportTable.id" data="reportTable.data" columns="reportTable.columns" length-menu="reportTable.lengthMenu" enable-pagination="reportTable.enablePagination" render-row="reportTable.renderRow" pagination-style="reportTable.paginationStyle"
+        callback="reportTable.callback" change-select="reportTable.changeSelect" display-length="reportTable.displayLength" total-records="reportTable.totalRecords">
+        </tiny-table>
+    </div>
+    <div ng-if="cloudType!='IT'" id="appDeployReportIctTable">
+        <tiny-table id="reportTableICT.id" data="reportTableICT.data" columns="reportTableICT.columns" length-menu="reportTableICT.lengthMenu" enable-pagination="reportTableICT.enablePagination" render-row="reportTableICT.renderRow" pagination-style="reportTableICT.paginationStyle"
+        callback="reportTableICT.callback" change-select="reportTableICT.changeSelect" display-length="reportTableICT.displayLength" total-records="reportTableICT.totalRecords">
+        </tiny-table>
+    </div>
+</div>
+
+<script>
+require(['app/business/application/controllers/manager/deploy/reportCtrl'],
+    function(reportCtrl) {
+        var dep = ['ng', 'wcc', reportCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#app_list_deployMgr_report"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#app_list_deployMgr_report"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

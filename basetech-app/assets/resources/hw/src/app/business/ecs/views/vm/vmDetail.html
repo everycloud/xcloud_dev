@@ -1,0 +1,230 @@
+<div class="container-fluid vm-detail" ng-controller="ecs.vm.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <!--基本信息-->
+        <div class="span5" style="padding-bottom: 30px;">
+            <div class="inner-legend" ng-bind="i18n.common_term_basicInfo_label"></div>
+            <tiny-formfield>
+                <tiny-item label="name.label">
+                    <div ng-if="!name.modifying">
+                        <span ng-bind="vmDetail.name" title="{{vmDetail.name}}" class="textOverflow maxWidth200"></span>
+                        <span ng-if="hasVmBasicOperateRight" class="btn-link" ng-click="name.clickModify()">
+                            <img ng-src="../theme/default/images/edit.png">
+                        </span>
+                    </div>
+                    <div ng-if="name.modifying">
+                        <tiny-textbox id="name.textBoxId" validate="name.validate" blur="name.blur()" keypressfn="name.keypressfn" width="150"></tiny-textbox>
+                    </div>
+                </tiny-item>
+                <tiny-item label="id.label">
+                    <span ng-bind="vmDetail.id" title="{{vmDetail.id}}"></span>
+                </tiny-item>
+                <!--服务实例-->
+                <tiny-item label="serviceInstanceName.label" display = "isServiceCenter">
+                    <div >
+                        <a ng-bind="instanceName" title="{{i18n.common_term_search_button}} {{instanceName}}" class="btn-link"
+                           ng-click="jumpServiceInstancePage(instanceId)"></a>
+                    </div>
+                </tiny-item>
+                <tiny-item label="os.label" display="supportAddToDomain=='true'">
+                    <span ng-bind="vmDetail.osVersion" title="{{vmDetail.osVersion}}" class="textOverflow maxWidth200"></span>
+                </tiny-item>
+                <tiny-item label="domain.label" display="supportAddToDomain=='true' && !isServiceCenter">
+                    <span ng-bind="vmDetail.domainName"></span>
+                    <img ng-if="hasVmAdvanceOperateRight" class="btn-link" ng-click="domain.modify()" ng-src="../theme/default/images/edit.png">
+                </tiny-item>
+                <tiny-item label="bootType.label" display="isICT">
+                    <span ng-bind="vmDetail.bootType"></span>
+                </tiny-item>
+                <tiny-item label="image.label" display="isICT">
+                    <span ng-bind="vmDetail.imageId"></span>
+                </tiny-item>
+                <tiny-item label="createTime.label">
+                    <span ng-bind="vmDetail.createTime"></span>
+                </tiny-item>
+                <tiny-item label="initPw.label">
+                    <div ng-if="vmDetail.password">
+                        <a class="btn-link" ng-bind="i18n.common_term_check_button" ng-show="!showPass" ng-click="showPass = true"></a>
+                        <p ng-bind="vmDetail.password" ng-show="showPass"></p>
+                    </div>
+                    <div class="disabled" ng-if="!vmDetail.password">
+                        <span ng-bind="i18n.common_term_check_button"></span>
+                    </div>
+                </tiny-item>
+                <tiny-item label="description.label">
+                    <div ng-if="!description.modifying">
+                        <span ng-bind="vmDetail.description" title="{{vmDetail.description}}" class="textOverflow maxWidth200"></span>
+                        <span ng-if="hasVmBasicOperateRight" class="btn-link" ng-click="description.clickModify()">
+                            <img ng-src="../theme/default/images/edit.png">
+                        </span>
+                    </div>
+                    <div ng-if="description.modifying">
+                        <tiny-textbox id="description.textBoxId" validate="description.validate" width="150" blur="description.blur()" keypressfn="description.keypressfn"></tiny-textbox>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <!--硬件信息-->
+        <div ng-class="{true: 'span3', false: 'span2'}[langEn]">
+            <div class="inner-legend" ng-bind="i18n.vm_term_hardInfo_label"></div>
+            <tiny-formfield id="ecsVmDetailHwArea">
+                <tiny-item label="cpu.label">
+                    <span ng-bind="vmDetail.vmSpecInfo.cpuRebootCount"></span><span ng-bind="i18n.common_term_entry_label"></span>
+                    <span ng-bind="cpu.unEffective" ng-if="vmDetail.vmSpecInfo.cpuRebootCount!=vmDetail.vmSpecInfo.cpuCount"></span>
+                    <span ng-if="hasVmBasicOperateRight && deployMode!=='serviceCenter'">
+                        <img ng-if="cpu.enable" class="btn-link" ng-click="cpu.modify()" ng-src="../theme/default/images/edit.png">
+                        <img ng-if="!cpu.enable" ng-src="../theme/default/images/editDis.png">
+                    </span>
+                </tiny-item>
+                <tiny-item label="memory.label">
+                    <span ng-bind="vmDetail.vmSpecInfo.memoryRebootCount"></span><span ng-bind="i18n.common_term_MB_label"></span>
+                    <span ng-bind="cpu.unEffective" ng-if="vmDetail.vmSpecInfo.memoryRebootCount!=vmDetail.vmSpecInfo.memoryCount"></span>
+                    <span ng-if="hasVmBasicOperateRight && deployMode!=='serviceCenter'">
+                        <img ng-if="memory.enable" class="btn-link" ng-click="cpu.modify()" ng-src="../theme/default/images/edit.png">
+                        <img ng-if="!memory.enable" ng-src="../theme/default/images/editDis.png">
+                    </span>
+                </tiny-item>
+                <tiny-item label="disk.label">
+                    <span ng-bind="disk.diskCount"></span><span ng-bind="i18n.common_term_entryAndTotal_label"></span>
+                    <span ng-bind="disk.totalSize"></span>GB
+                    <img class="btn-link" ng-click="disk.view()" ng-src="../theme/default/images/gm/view.gif">
+                </tiny-item>
+                <tiny-item label="nic.label">
+                    <div>
+                        <span ng-bind="nic.nicCount"></span><span ng-bind="i18n.common_term_entry_label"></span>
+                        <img class="btn-link" ng-click="nic.view()" ng-src="../theme/default/images/gm/view.gif">
+                    </div>
+                </tiny-item>
+                <tiny-item label="snapshot.label" >
+                    <span ng-bind="snapshotCount"></span>
+                    <img class="btn-link" ng-click="snapshot.view()" ng-src="../theme/default/images/gm/view.gif">
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <!--监控信息-->
+        <div ng-class="{true: 'span4', false: 'span5'}[langEn]" ng-show="!Competition.isBaseOnVmware">
+            <div class="inner-legend" ng-bind="i18n.common_term_monitorInfo_label"></div>
+            <tiny-formfield>
+                <tiny-item label="alarm.label" display="showMonitor">
+                    <span class="btn-link alarm-zyl alarm-zyl01" ng-click="alarm.click('critical')" ng-bind="alarm.value.critical"></span>
+                    <span class="btn-link alarm-zyl alarm-zyl02" ng-click="alarm.click('major')" ng-bind="alarm.value.major"></span>
+                    <span class="btn-link alarm-zyl alarm-zyl03" ng-click="alarm.click('minor')" ng-bind="alarm.value.minor"></span>
+                    <span class="btn-link alarm-zyl alarm-zyl04" ng-click="alarm.click('warning')" ng-bind="alarm.value.warning"></span>
+                </tiny-item>
+                <tiny-item label="cpuUsage.label">
+                    <div ng-show="!cpuUsage.exception">
+                        <tiny-progressbar id="cpuUsage.id" value="monitor.cpuUsageRate" width="cpuUsage.width" height="cpuUsage.height" label-position='cpuUsage.position' color="cpuUsage.color"></tiny-progressbar>
+                    </div>
+                    <span ng-show="cpuUsage.exception">-</span>
+                </tiny-item>
+                <tiny-item label="memUsage.label">
+                    <div ng-show="!memUsage.exception">
+                        <tiny-progressbar id="memUsage.id" value="monitor.memUsageRate" width="memUsage.width" height="memUsage.height" label-position='memUsage.position' color="memUsage.color"></tiny-progressbar>
+                    </div>
+                    <span ng-show="memUsage.exception">-</span>
+                </tiny-item>
+                <tiny-item label="diskUsage.label">
+                    <div ng-show="!diskUsage.exception">
+                        <tiny-progressbar id="diskUsage.id" value="monitor.diskUsageRate" width="diskUsage.width" height="diskUsage.height" label-position='diskUsage.position' color="diskUsage.color"></tiny-progressbar>
+                    </div>
+                    <span ng-show="diskUsage.exception">-</span>
+                </tiny-item>
+            </tiny-formfield>
+
+            <!--中文样式-->
+            <div class="row-fluid" ng-if="!langEn">
+                <div class="span6">
+                    <tiny-formfield>
+                        <tiny-item label="netFlowIn.label">
+                            <span ng-bind="monitor.nicKByteIn"></span>
+                        </tiny-item>
+                        <tiny-item label="diskWrite.label">
+                            <span ng-bind="monitor.ioKByteIn"></span>
+                        </tiny-item>
+                        <tiny-item label="diskIoTick.labelWrite">
+                            <span ng-bind="monitor.diskIoWrite"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div class="span6">
+                    <tiny-formfield>
+                        <tiny-item label="netFlowOut.label">
+                            <span ng-bind="monitor.nicKByteOut"></span>
+                        </tiny-item>
+                        <tiny-item label="diskRead.label">
+                            <span ng-bind="monitor.ioKByteOut"></span>
+                        </tiny-item>
+                        <tiny-item label="diskIoTick.labelRead">
+                            <span ng-bind="monitor.diskIoRead"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+
+            <!--英文样式-->
+            <div class="row-fluid" ng-if="langEn">
+                <tiny-formfield>
+                    <tiny-item label="netFlowIn.label">
+                        <span ng-bind="monitor.nicKByteIn"></span>
+                    </tiny-item>
+                    <tiny-item label="netFlowOut.label">
+                        <span ng-bind="monitor.nicKByteOut"></span>
+                    </tiny-item>
+                    <tiny-item label="diskWrite.label">
+                        <span ng-bind="monitor.ioKByteIn"></span>
+                    </tiny-item>
+                    <tiny-item label="diskRead.label">
+                        <span ng-bind="monitor.ioKByteOut"></span>
+                    </tiny-item>
+                    <tiny-item label="diskIoTick.labelWrite">
+                        <span ng-bind="monitor.diskIoWrite"></span>
+                    </tiny-item>
+                    <tiny-item label="diskIoTick.labelRead">
+                        <span ng-bind="monitor.diskIoRead"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+
+            <div>
+                <span class="btn-link" ng-click="historyMonitor.view()" ng-bind="i18n.alarm_term_checkMonitorDetail_button"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+require(['app/business/ecs/controllers/vm/vmDetailModel'],
+    function(detailModel) {
+        var curView = undefined;
+        $(".vm-detail").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+
+        //编译(编译前scope是父页面继承来的)
+        var scope = curView.scope();
+        var currentItem = scope.currentItem || {};
+        var dep = ['ng', 'wcc', detailModel.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", curView);
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile(curView)($rootScope);
+            $rootScope.$digest();
+        });
+
+        //查询详细信息 (编译后scope是新new出来的)
+        var newScope = curView.scope();
+        newScope.vmId = currentItem.id;
+        newScope.vpcId = currentItem.vpcId;
+        newScope.cloudInfra = currentItem.cloudInfra || {};
+        newScope.init();
+    });
+</script>

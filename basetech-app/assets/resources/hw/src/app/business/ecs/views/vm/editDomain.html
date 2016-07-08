@@ -1,0 +1,27 @@
+<div class="ecs_vm_modify_domain" ng-controller="ecs.vm.modify.domain.ctrl">
+    <div>
+        <tiny-tree id="tree.id" setting="tree.setting" values="tree.values" width="tree.width" height="tree.height"></tiny-tree>
+    </div>
+
+    <div class="text-center fm-btn-top-large">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" disable="!curDomainId&&!oldDomainId" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+
+<script>
+require(['app/business/ecs/controllers/vm/editDomainCtrl'],
+    function(modifyDomainCtrl) {
+        var dep = ['ng', 'wcc', modifyDomainCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".ecs_vm_modify_domain"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".ecs_vm_modify_domain"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

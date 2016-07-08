@@ -1,0 +1,296 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VPNs">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000039">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VPNs</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Service Functions\nVPNs");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100024.html\">Service Functions<\/a> > VPNs<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000039"></a><a name="it_60_51_000039"></a>
+
+
+<h1 class="topictitle1">VPNs</h1>
+<ul><li><a href="#it_60_51_000039__1.2.1.1">Overview</a></li><li><a href="#it_60_51_000039__1.2.2.1">Principles</a></li><li><a href="#it_60_51_000039__1.2.3.1">Configuration Process</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_51_000039__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000039" class="sectiontitle2contents">Overview</a></h4><p>A virtual private
+network (VPN) provides an encrypted communication channel between
+remote users and their virtual private clouds (VPCs) so that the users
+can use VPC service resources directly through the VPN.</p>
+<p><span>FusionManager</span> supports two VPN protocols: Internet Protocol Security (IPSec)
+and Layer Two Tunneling Protocol (L2TP).</p>
+<ul><li>IPSec VPNs are used for communication between enterprise headquarters
+and branches by setting up an encrypted VPN tunnel between the VPN
+gateway and the remote user network gateway.</li><li>L2TP VPNs are used for enterprise employees on business trips
+to connect to the enterprise network over the Internet. Such connections
+are set up between the VPN clients and the VPN gateway.</li></ul>
+</div>
+
+<div class="section"><a name="it_60_51_000039__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000039" class="sectiontitle2contents">Principles</a></h4><p><strong>IPSec VPN</strong></p>
+<p>IPSec provides a method to build and manage a secure transmission
+tunnel, in which the transmitted data packets can be authenticated
+and encrypted to protect the data from being viewed by changed by
+unauthorized users.</p>
+<p><a href="#it_60_51_000039__d793e38">Figure 1</a> shows the
+networking of a typical IPSec VPN network. In this network, the VPN
+gateway and the remote network gateway both support IPSec, and the
+data transmitted between the two gateways is encrypted. The data transmitted
+between users and the remote network gateway and the data transmitted
+between VPN servers and the VPN gateway is not encrypted.</p>
+<div class="fignone" id="it_60_51_000039__d793e38"><a name="it_60_51_000039__d793e38"></a><a name="d793e38"></a><span class="figcap"><b>Figure 1 </b>IPSec VPN network</span>
+
+<br><span><img src="fig/fig_it_60_51_000013_01.png"></span></div>
+<p><strong>L2TP VPN</strong></p>
+<p>When an enterprise employee accesses a VPN
+server remotely, the VPN client initiates a tunnel setup request to
+the L2TP network server (LNS), then the LNS server assigns an IP address
+to the VPN client and establishes an L2TP over IPSec tunnel between
+the VPN client and the VPN gateway. <a href="#it_60_51_000039__d793e51">Figure 2</a> shows this process.</p>
+<div class="fignone" id="it_60_51_000039__d793e51"><a name="it_60_51_000039__d793e51"></a><a name="d793e51"></a><span class="figcap"><b>Figure 2 </b>L2TP VPN network</span>
+
+<br><span><img src="fig/fig_it_60_51_000013_02.png"></span></div>
+</div>
+
+<div class="section"><a name="it_60_51_000039__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000039" class="sectiontitle2contents">Configuration Process</a></h4><p><a href="#it_60_51_000039__fig_processVPN">Figure 3</a> shows the process for
+configuring the VPN service.</p>
+<div class="fignone" id="it_60_51_000039__fig_processVPN"><a name="it_60_51_000039__fig_processVPN"></a><a name="fig_processVPN"></a><span class="figcap"><b>Figure 3 </b>Configuration process</span>
+
+<br><span><img src="fig/fig_it_60_51_000039_01.png"></span></div>
+
+<div class="tablenoborder"><a name="it_60_51_000039__table_0212A7AE"></a><a name="table_0212A7AE"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000039__table_0212A7AE" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="28.238341968911918%" id="mcps1.2.3.4.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="41.19170984455958%" id="mcps1.2.3.4.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="30.569948186528496%" id="mcps1.2.3.4.2.4.1.3"><p>Web Client Navigation</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>Apply for a router.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p>Apply for a router for the VPC to support
+elastic IP address, network address translation (NAT), access control
+list (ACL), and virtual private network (VPN) services in the VPC.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and select <span class="uicontrol"><b>Routers</b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>Create a routed network.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_router"><a name="it_60_51_000039__p_router"></a><a name="p_router"></a><span>FusionManager</span> uses the VPN function provided by the firewall to set up a
+VPN tunnel between external networks and the routed network of a VPC,
+so that external network users can access VMs in the routed network
+over the VPN.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Network</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>Apply for
+public IP addresses.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p>Before using a public IP address, ensure that you have applied for
+the public IP address from the FusionManager public IP address pool
+for the VPC.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Public IP Address</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>Apply for an elastic IP address.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p>In the public IP address pool created on <span>FusionManager</span>, apply for a public IP address to function as an elastic IP
+address.</p>
+<p id="it_60_51_000039__p_eip"><a name="it_60_51_000039__p_eip"></a><a name="p_eip"></a>The VPN uses an elastic IP address as its gateway IP
+address.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Elastic IP Address</span></b></span>.</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>Create a VPN gateway.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_vpnGW"><a name="it_60_51_000039__p_vpnGW"></a><a name="p_vpnGW"></a>The VPN gateway provides routing functions
+for VPN channels on a VPC. </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">VPN</span></b> &gt; <b><span class="uicontrol">VPN Gateway</span></b></span>.</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>Create an IPSec VPN connection.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_ipsec"><a name="it_60_51_000039__p_ipsec"></a><a name="p_ipsec"></a>Connect the routed network with a remote user
+network using a IPSec VPN tunnel to allow users to access service
+resources in the VPC. </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">VPN</span></b> &gt; <b><span class="uicontrol">VPN Links</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>Create an L2TP VPN connection.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_l2tp"><a name="it_60_51_000039__p_l2tp"></a><a name="p_l2tp"></a>Create an L2TP VPN to allow users to access
+all the routed networks in a VPC from a VPN client. </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">VPN</span></b> &gt; <b><span class="uicontrol">VPN Links</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>Configure the VPN client.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_client"><a name="it_60_51_000039__p_client"></a><a name="p_client"></a>If the L2TP VPN is used, configure a VPN client
+on the remote PC or VM to allow the PC or VM to connect to the VPN
+gateway through the VPN client.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">The VPN client must be manually configured. For details, see <a href="it_60_51_600025.html">Configuring the VPN Client</a>.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

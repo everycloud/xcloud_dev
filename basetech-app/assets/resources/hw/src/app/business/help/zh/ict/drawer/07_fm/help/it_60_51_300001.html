@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="应用实例">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_300001">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>应用实例</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_300001"></a><a name="it_60_51_300001"></a>
+
+
+<h1 class="topictitle1">应用实例</h1>
+
+<div>
+<p><span id="it_60_51_300001__app_define"><a name="it_60_51_300001__app_define"></a><a name="app_define"></a>应用实例是提供某种业务的一组虚拟机及软件的集合，如SQL Server、CRM/ERP等应用。</span></p>
+
+<div class="section"><h4 class="sectiontitle">创建应用实例</h4><p>根据业务规划，选择服务模型对应的应用模板部署应用实例。</p>
+<p>为确保安全，请虚拟机用户及时修改虚拟机密码。</p>
+</div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">应用实例电源管理</h4></div><div class="dropdowncontext"><p>包括启动、停止应用实例。启动和停止应用实例，实质上是批量将应用实例中所包含的虚拟机启动或关闭。</p>
+<p>在应用实例旁，选择对应的操作。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">更改应用实例</h4></div><div class="dropdowncontext"><p><strong>修改应用实例</strong></p>
+<p>变更应用实例中的除名称、地域、VPC外的各项属性。</p>
+<p>在应用模板右侧，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">修改</span>”</span>。</p>
+<p><strong>过户应用实例</strong></p>
+<p>变更应用实例的所属用户。只有VDC的管理员可以将应用实例过户给VDC中的其他租户。</p>
+<p>在应用模板右侧，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">过户</span>”</span>。</p>
+</div></div></div>
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">删除应用实例</h4></div><div class="dropdowncontext"><p>当应用实例不再使用时，删除应用实例。应用实例中包含的虚拟机均会被删除，会同时删除虚拟机的所有磁盘数据，请谨慎操作。</p>
+<p>在应用实例旁，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">FAQ</h4></div><div class="dropdowncontext"><p><strong>为何使用应用模板创建应用实例时，无论使用的虚拟机规格的启动源如何设置，创建出的应用实例中的虚拟机均为从镜像启动？</strong></p>
+<div class="p"><span>虚拟机规格中启动源的设置仅在创建虚拟机时生效，使用应用模板创建应用实例时，应用实例中的虚拟机不受影响，默认为从镜像启动。</span>可通过如下方法，使得应用实例中的虚拟机启动方式得以改变：<ol><li>使用镜像和启动源为<span class="parmvalue">“从云硬盘启动”</span>的虚拟机规格，先创建一个虚拟机。</li><li>在<span>OpenStack</span>上，使用该虚拟机创建镜像。例如使用命令<b><span class="cmdname">nova image create</span></b>。</li><li>使用新生成的镜像创建应用实例。</li></ol>
+</div>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

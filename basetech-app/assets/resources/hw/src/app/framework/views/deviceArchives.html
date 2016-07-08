@@ -1,0 +1,25 @@
+<div id="deviceArchivesDiv">
+    <span ng-bind="i18n.sys_archives_get_desc_label"></span>
+    <div class="top10">
+        <span>{{archives.label}}</span>
+        <fm-button id="archives.btn.id"
+                     text="archives.btn.text"
+                     focused="archives.btn.focused"
+                     click="archives.btn.click"
+                     class="major-btn"></fm-button>
+    </div>
+</div>
+<script type="text/javascript">
+    require(["app/framework/controllers/deviceArchivesModel"], function (deviceArchivesModel) {
+        $("#deviceArchivesDiv").attr("ng-controller", "archivesCtrl");
+        var dep = ['ng', 'wcc', deviceArchivesModel.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", $("#deviceArchivesDiv"));
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile($("#deviceArchivesDiv"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

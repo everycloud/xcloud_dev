@@ -1,0 +1,37 @@
+<div class="row-fluid" id="modify-Monitor-window" ng-controller="modifyCtrl">
+    <tiny-formfield>
+        <tiny-item label="info.protocol.label" require="info.protocol.require">
+            <tiny-select id="info.protocol.id" values="info.protocol.value" width="info.protocol.width" change="info.protocol.change()"></tiny-select>
+            <span popover="{{info.protocol.tooltip}}" popover-trigger="mouseenter" popover-placement="bottom" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="info.servicePort.label" require="info.servicePort.require">
+            <tiny-textbox id="info.servicePort.id" value="info.servicePort.value" width="info.servicePort.width" tooltip="info.servicePort.tooltip" extend-function="info.servicePort.extendFunction" validate="info.servicePort.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.backendProtocol.label" require="info.backendProtocol.require">
+            <tiny-select id="info.backendProtocol.id" values="info.backendProtocol.value" change="info.backendProtocol.change()" width="info.backendProtocol.width"></tiny-select>
+            <span popover="{{info.backendProtocol.tooltip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="info.backendPort.label" require="info.backendPort.require">
+            <tiny-textbox id="info.backendPort.id" value="info.backendPort.value" tooltip="info.backendPort.tooltip" width="info.backendPort.width" validate="info.backendPort.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="info.okBtn.id" text="info.okBtn.text" click="info.okBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="text/javascript">
+require(["app/business/network/controllers/vlb/create/modifyMonitorWindowModule"], function(modifyMonitorWindowModule) {
+    var dep = ['ng', modifyMonitorWindowModule.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#modify-Monitor-window"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#modify-Monitor-window"))($rootScope);
+        $rootScope.$digest();
+    });
+})
+</script>

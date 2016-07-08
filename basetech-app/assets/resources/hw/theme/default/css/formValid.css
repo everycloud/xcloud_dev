@@ -1,0 +1,40 @@
+span .valid_imag{
+	width: 16px;
+	height: 16px;
+}
+
+div .valid_div {
+	display: inline-block;
+}
+span.valid_tip_error {
+	background-image: url(../images/unify_valid.png);
+	background-position: 0 0px;
+	width: 16px;
+	height: 16px;
+	padding-left: 16px;
+	margin-right: 5px;
+	background-repeat: no-repeat;
+}
+span.valid_text_error {
+	color: #333333;
+}
+span.valid_error {
+	background-image: url(../images/unify_valid.png);
+	background-position: 0 0px;
+	width: 16px;
+	height: 16px;
+	padding-left: 16px;
+	margin-left: 5px;
+}
+span.valid_success {
+	background-image: url(../images/unify_valid.png);
+	background-position: 0 -16px;
+	width: 16px;
+	height: 16px;
+	padding-left: 16px;
+	margin-left: 5px;
+}
+.valid_error_input {
+	background-color: #FFFFFF;
+	border: 1px solid #fc5043;
+}

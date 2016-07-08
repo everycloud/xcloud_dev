@@ -1,0 +1,23 @@
+.tiny-Lineplot, .tiny-Lineplot canvas{ padding: 0; margin: 0; vertical-align: top; }
+
+.legend table {
+	border-spacing: 5px;
+}
+
+.no_display_line{
+	color:#aaaaaa;
+}
+
+div.axisLabels{
+	font-size:12px;
+	color:red
+}
+
+table.legendCursor tr>td.legendColorBox{
+    vertical-align: middle;
+    cursor: pointer;
+}
+table.legendCursor tr>td.legendLabel{
+    vertical-align: middle;
+    cursor: default;
+}

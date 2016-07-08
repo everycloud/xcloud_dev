@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VLB">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400003">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VLB</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("VPC\nVLB");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100022.html\">VPC<\/a> > VLB<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_400003"></a><a name="it_60_51_400003"></a>
+
+
+<h1 class="topictitle1">VLB</h1>
+<ul><li><a href="#it_60_51_400003__1.2.2.1">创建VLB</a></li><li><a href="#it_60_51_400003__1.2.3.1">添加监视器</a></li><li><a href="#it_60_51_400003__1.2.4.1">删除监视器</a></li><li><a href="#it_60_51_400003__1.2.5.1">修改监视器配置</a></li><li><a href="#it_60_51_400003__1.2.6.1">绑定/解绑定虚拟机</a></li><li><a href="#it_60_51_400003__1.2.7.1">冻结VLB</a></li><li><a href="#it_60_51_400003__1.2.8.1">解冻VLB</a></li><li><a href="#it_60_51_400003__1.2.9.1">绑定弹性IP地址</a></li><li><a href="#it_60_51_400003__1.2.10.1">解绑定弹性IP地址</a></li><li><a href="#it_60_51_400003__1.2.11.1">删除VLB</a></li></ul>
+
+<div>
+<div class="section"><p>VLB用于为VPC内运行着相同业务的多个虚拟服务器提供负载均衡服务。</p>
+<div class="p">VLB分为硬件负载均衡和软件负载均衡两种类型。<a name="it_60_51_400003__ul_vlbtype"></a><a name="ul_vlbtype"></a><ul id="it_60_51_400003__ul_vlbtype"><li>硬件负载均衡：通过物理负载均衡设备上创建的负载均衡实例，提供负载均衡服务。</li><li>软件负载均衡：通过在<span>ServiceCenter</span>上创建的VSA虚拟机提供负载均衡服务。</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_400003__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">创建VLB</a></h4><p>在创建VLB之前需要系统管理员根据VLB的类型准备不同的资源。</p>
+<ul><li>在创建硬件负载均衡之前，要先在<span>ServiceCenter</span>上接入物理负载均衡设备。</li><li>在创建软件负载均衡之前，需要系统管理员创建VSA管理网络，并导入VSA虚拟机模板。</li></ul>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，单击<span class="uicontrol">“创建”</span>。</p>
+</div>
+
+
+
+
+
+<div class="section"><a name="it_60_51_400003__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">添加监视器</a></h4><p>当为多组提供不同业务的虚拟服务器提供负载均衡服务时，可在同一VLB上添加多个监视器，每个监视器用来关联一组提供相同服务的虚拟服务器。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，VLB所在行，单击<span class="uicontrol">“添加监视器”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400003__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">删除监视器</a></h4><p>删除VLB中不再使用的监视器。监视器删除后，VLB不再为该监视器上绑定的虚拟机提供负载均衡服务。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，在VLB所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除监视器</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400003__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">修改监视器配置</a></h4><p>修改监视器上的<span class="wintitle">“会话保持”</span>、<span class="wintitle">“健康检查”</span>和<span class="wintitle">“分配策略”</span>。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，在VLB所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">修改监视器配置</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400003__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">绑定/解绑定虚拟机</a></h4><p>为VLB绑定更多的虚拟机，或者删除VLB上绑定着的虚拟机。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，在VLB所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">绑定解绑定虚拟机</span>”</span>。</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_400003__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">冻结VLB</a></h4><p>冻结VLB可以暂时停止VLB提供的负载均衡服务，以便对VLB进行相关配置和维护操作。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，在VLB所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">冻结</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400003__1.2.8.1"></a><a name="1.2.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">解冻VLB</a></h4><p>解冻VLB，使冻结了的VLB恢复运行状态，继续提供负载均衡服务。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，在VLB所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">解冻</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400003__1.2.9.1"></a><a name="1.2.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">绑定弹性IP地址</a></h4><p>为VLB绑定弹性IP，即VLB的外部IP地址和弹性IP进行绑定，这样就可以通过弹性IP地址访问与VLB所关联的业务虚拟机。<span>在绑定弹性IP之前先要为VPC申请弹性IP地址。</span></p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，在VLB所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">绑定弹性IP地址</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400003__1.2.10.1"></a><a name="1.2.10.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">解绑定弹性IP地址</a></h4><p>解绑定弹性IP的VLB，将无法再向公网提供访问服务。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，在VLB所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">解绑定弹性IP地址</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400003__1.2.11.1"></a><a name="1.2.11.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400003" class="sectiontitle2contents">删除VLB</a></h4><p>删除不再使用的VLB。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“VLB”</span>界面</span>，在VLB所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除VLB</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

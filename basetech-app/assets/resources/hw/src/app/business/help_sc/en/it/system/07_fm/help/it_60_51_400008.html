@@ -1,0 +1,139 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="ACLs">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400008">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>ACLs</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("VPC\nACLs");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100022.html\">VPC<\/a> > ACLs<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_400008"></a><a name="it_60_51_400008"></a>
+
+
+<h1 class="topictitle1">ACLs</h1>
+<ul><li><a href="#it_60_51_400008__1.2.2.1">Adding an ACL Rule</a></li><li><a href="#it_60_51_400008__1.2.3.1">Deleting an ACL Rule</a></li></ul>
+
+<div>
+<div class="section"><p id="it_60_51_400008__acl_define"><a name="it_60_51_400008__acl_define"></a><a name="acl_define"></a>Access Control List (ACL) is an access security control method that allows permitted users to access only the specified network resources by controlling the data packets sent to or from a port.</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_400008__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400008" class="sectiontitle2contents">Adding an ACL Rule</a></h4><p>Add an ACL rule to a network in a VPC based on the service requirements. <span>An ACL takes effect based on its rules, which are classified into intra-domain rules and inter-domain rules.</span></p>
+<ul><li>Intra-domain rules allow communication between routed networks in the same virtual private cloud (VPC).</li><li>Inter-domain rules allow communication between VPC users and external networks using elastic IP addresses.</li></ul>
+<p><span>ServiceCenter</span> implements ACL
+control in both the traffic inbound and outbound directions. Therefore, ACL rules must be configured on both the inbound and outbound ports. For example, to allow external users to access the web server service of a VPC, you can set the ACL rule to permit
+access on both the inbound Transmission Control Protocol (TCP) port <span class="parmvalue"><b>80</b></span> and outbound TCP ports <span class="parmvalue"><b>1024</b></span> to <span class="parmvalue"><b>65535</b></span>.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My VPC</span></b></span>, select a VPC, choose <span class="menucascade"><b><span class="uicontrol">Security</span></b> &gt; <b><span class="uicontrol">ACLs</span></b></span></span>, <span>select <span class="wintitle"><b>IN</b></span> or <span class="wintitle"><b>OUT</b></span>, </span>and click <span class="uicontrol"><b>Add Rule</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_400008__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400008" class="sectiontitle2contents">Deleting an ACL Rule</a></h4><p>If an ACL rule is not needed any more, you can delete it from the system.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My VPC</span></b></span>, select a VPC, choose <span class="menucascade"><b><span class="uicontrol">Security</span></b> &gt; <b><span class="uicontrol">ACLs</span></b></span></span>, <span>select <span class="wintitle"><b>IN</b></span> or <span class="wintitle"><b>OUT</b></span>, </span>and click <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

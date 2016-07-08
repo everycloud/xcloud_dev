@@ -1,0 +1,86 @@
+<div class="container-fluid package-detail" ng-controller="template.package.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <!--基本信息-->
+        <div class="span6">
+            <tiny-formfield>
+                <tiny-item label="picture.label">
+                    <img src="{{packageDetail.picture}}" />
+                </tiny-item>
+                <tiny-item label="fileName.label">
+                    <span ng-bind="packageDetail.mainFilePath"></span>
+                </tiny-item>
+                <tiny-item label="path.label">
+                    <span ng-bind="packageDetail.destinationPath"></span>
+                </tiny-item>
+                <tiny-item label="version.label">
+                    <span ng-bind="packageDetail.version"></span>
+                </tiny-item>
+                <tiny-item label="annexName.label">
+                    <span ng-bind="packageDetail.attachmentPaths"></span>
+                </tiny-item>
+
+                <tiny-item label="description.label">
+                    <span ng-bind="packageDetail.description" class="autoWrap"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="span6">
+            <tiny-formfield>
+                <tiny-item label="fileSize.label" require="fileSize.require">
+                    <div class="over-flow-style" style="width: 200px;">
+                        <span ng-bind="packageDetail.fileSize" title="{{ packageDetail.fileSize }}"></span>
+                    </div>
+                </tiny-item>
+                <tiny-item label="installCommand.label">
+                    <span ng-bind="packageDetail.installCommand" class="autoWrap"></span>
+                </tiny-item>
+
+                <tiny-item label="unInstallCommand.label">
+                    <span ng-bind="packageDetail.unInstallCommand" class="autoWrap"></span>
+                </tiny-item>
+
+                <tiny-item label="startCommand.label">
+                    <span ng-bind="packageDetail.startCommand" class="autoWrap"></span>
+                </tiny-item>
+
+                <tiny-item label="stopCommand.label">
+                    <span ng-bind="packageDetail.stopCommand" class="autoWrap"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>
+<script>
+require(["sprintf",  'tiny-lib/jquery', 'tiny-lib/angular', "language/keyID",'app/business/template/controllers/packageDetailModel'],
+    function(sprintf, $, angular, keyIDI18n,packageDetailModel) {
+        var curView = undefined;
+        $(".package-detail").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+
+        //编译(编译前scope是父页面继承来的)
+        var scope = curView.scope();
+        var dep = ['ng', 'wcc', packageDetailModel.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", curView);
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            keyIDI18n.sprintf = sprintf.sprintf;
+            $rootScope.i18n = keyIDI18n;
+            $compile(curView)($rootScope);
+            $rootScope.$digest();
+        });
+
+        //查询详细信息 (编译后scope是新new出来的)
+        var currId = scope.currentItem.id;
+        var cloudInfraId = scope.currentItem.cloudInfraId;
+        var newScope = curView.scope();
+        newScope.queryDetail(currId, cloudInfraId);
+    });
+</script>

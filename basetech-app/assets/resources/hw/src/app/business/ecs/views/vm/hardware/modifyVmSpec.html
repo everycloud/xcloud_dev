@@ -1,0 +1,170 @@
+<div class="ecs_vm_detail_spec" ng-controller="ecs.vm.detail.modify.spec.ctrl">
+    <!-- IT单独修改CPU、内存 -->
+    <div class="row-fluid" ng-if="supportModifyConfig=='false'">
+        <div class="span6">
+            <span>{{i18n.vm_vm_modifyBefore_label}}:</span>
+            <div class="bottom20">
+                <tiny-formfield>
+                    <tiny-item label="cpu.label">
+                        <span ng-bind="oldCpu"></span>
+                    </tiny-item>
+                    <tiny-item label="memory.label">
+                        <span ng-bind="oldMemory"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+
+        <div class="span6">
+            <span>{{i18n.vm_vm_modifyAfter_label}}:</span>
+            <div id="ecsVmDetailSpecNewCpuMem">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <tiny-formfield>
+                            <tiny-item label="cpu.label">
+                                <tiny-select id="cpu.id" values="cpu.values" width="cpu.width" height="cpu.height" validate="cpu.validate" change="cpu.change()"></tiny-select>
+                            </tiny-item>
+                            <tiny-item label="memory.label2">
+                                <tiny-textbox id="memory.idMB" value="memory.valueMB" validate="memory.validateMB" extend-function="memory.extendFunction" width="memory.width" blur="memory.blur()" ng-show="memUnit.curValue=='MB'"></tiny-textbox>
+                                <tiny-textbox id="memory.idGB" value="memory.valueGB" validate="memory.validateGB" extend-function="memory.extendFunction" width="memory.width" blur="memory.blur()" ng-show="memUnit.curValue=='GB'"></tiny-textbox>
+                                <tiny-select id="memUnit.id" values="memUnit.values" width="memUnit.width" change="memUnit.change()"></tiny-select>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                    <div class="span6">
+                        <tiny-formfield>
+                            <tiny-item label="type.label"><span>{{type.value}}</span></tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ICT直接修改规格 -->
+    <div class="row-fluid" ng-if="supportModifyConfig=='true'">
+        <div class="span6">
+            <span>{{i18n.vm_vm_modifyBefore_label}}:</span>
+            <div class="left10 bottom20" ng-bind="oldConfigName"></div>
+            <span>{{i18n.vm_vm_modifyAfter_label}}:</span>
+            <div id="ecsVmDetailSpecNewConfig" class="left10">
+                <tiny-select id="newConfig.id" values="newConfig.values" width="newConfig.width" change="newConfig.change()" validate="newConfig.validate"></tiny-select>
+            </div>
+        </div>
+
+        <div class="span6">
+            <span>{{i18n.vm_vm_modifyAfter_label}}:</span>
+            <div class="left10">
+                <tiny-formfield>
+                    <tiny-item label="cpu.label" labelcls="cpu.class">
+                        <span ng-bind="newConfig.curValue.cpuCount"></span>
+                    </tiny-item>
+                    <tiny-item label="memory.label" labelcls="cpu.class">
+                        <span ng-bind="newConfig.curValue.memSize"></span>
+                    </tiny-item>
+                    <tiny-item label="disk.label" labelcls="cpu.class">
+                        <span ng-bind="newConfig.curValue.diskTotalSize"></span>
+                    </tiny-item>
+                    <tiny-item label="tempDisk.label">
+                        <span ng-bind="newConfig.curValue.tempDisk"></span>
+                    </tiny-item>
+                    <tiny-item label="swapSize.label">
+                        <span ng-bind="newConfig.curValue.swapSize"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <!-- 配额-->
+        <div class="create-outbox-right top10">
+            <div class="margin-bottom-beautifier create-outbox-right-title">{{i18n.common_term_quotaStauts_label}}:</div>
+            <div class="create-outbox-right-context" ng-if="supportModifyConfig=='false'">
+                <tiny-formfield class="form_item_no_padding">
+                    <tiny-item label="cpuQuotas.label" labelcls="quota.class">
+                        <div class="row-fluid" style="width: 550px;" ng-if="!quota.unlimited">
+                            <div class="pull-left top2">
+                                <tiny-progressbar id="cpuQuotas.id" label-position="quota.position" value="cpuQuotas.percent" height="quota.height"></tiny-progressbar>
+                            </div>
+                            <span class="margin-left-beautifier" ng-bind="cpuQuotas.used"></span>/
+                            <span ng-bind="quota.cpuTotal"></span>
+                        </div>
+                        <span ng-if="quota.unlimited" ng-bind-html="i18n.common_term_notLimit_value"></span>
+                    </tiny-item>
+
+                    <tiny-item label="memQuotas.label" labelcls="quota.class">
+                        <div class="row-fluid" style="width: 550px;" ng-if="!quota.unlimited">
+                            <div class="pull-left top2">
+                                <tiny-progressbar id="memQuotas.id" label-position="quota.position" value="memQuotas.percent" height="quota.height"></tiny-progressbar>
+                            </div>
+                            <span class="margin-left-beautifier" ng-bind="memQuotas.usedView"></span>GB/
+                            <span ng-bind="quota.memTotalView"></span>GB
+                        </div>
+                        <span ng-if="quota.unlimited" ng-bind-html="i18n.common_term_notLimit_value"></span>
+                    </tiny-item>
+
+                    <tiny-item label="storageQuotas.label" labelcls="quota.class">
+                        <div class="row-fluid" style="width: 550px;" ng-if="!quota.unlimited">
+                            <div class="pull-left top2">
+                                <tiny-progressbar id="storageQuotas.id" label-position="quota.position" value="storageQuotas.percent" height="quota.height"></tiny-progressbar>
+                            </div>
+                            <span class="margin-left-beautifier" ng-bind="quota.storageUsed"></span>GB/
+                            <span ng-bind="quota.storageTotal"></span>GB
+                        </div>
+                        <span ng-if="quota.unlimited" ng-bind-html="i18n.common_term_notLimit_value"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+
+            <div class="create-outbox-right-context" ng-if="supportModifyConfig=='true'">
+                <tiny-formfield class="form_item_no_padding">
+                    <tiny-item label="cpuQuotas.label" labelcls="quota.class">
+                        <div class="row-fluid" style="width: 550px;" ng-if="!cpuQuotas.unlimited">
+                            <div class="pull-left top2">
+                                <tiny-progressbar id="cpuQuotas.id" label-position="quota.position" value="cpuQuotas.percent" height="quota.height"></tiny-progressbar>
+                            </div>
+                            <span class="margin-left-beautifier" ng-bind="cpuQuotas.used"></span>/
+                            <span ng-bind="cpuQuotas.cpuTotal"></span>
+                        </div>
+                        <span ng-if="cpuQuotas.unlimited" ng-bind-html="i18n.common_term_notLimit_value"></span>
+                    </tiny-item>
+
+                    <tiny-item label="memQuotas.label" labelcls="quota.class">
+                        <div class="row-fluid" style="width: 550px;" ng-if="!memQuotas.unlimited">
+                            <div class="pull-left top2">
+                                <tiny-progressbar id="memQuotas.id" label-position="quota.position" value="memQuotas.percent" height="quota.height"></tiny-progressbar>
+                            </div>
+                            <span class="margin-left-beautifier" ng-bind="memQuotas.usedView"></span>MB/
+                            <span ng-bind="memQuotas.memTotal"></span>MB
+                        </div>
+                        <span ng-if="memQuotas.unlimited" ng-bind-html="i18n.common_term_notLimit_value"></span>
+                    </tiny-item>
+
+                </tiny-formfield>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center fm-btn-top-small">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" disable="okBtn.disable" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+
+<script>
+require(['app/business/ecs/controllers/vm/hardware/modifyVmSpecCtrl'],
+    function(modifyVmSpecCtrl) {
+        var dep = ['ng', 'wcc', modifyVmSpecCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".ecs_vm_detail_spec"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".ecs_vm_detail_spec"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

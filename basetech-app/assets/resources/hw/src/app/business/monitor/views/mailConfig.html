@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <tiny-formfield>
+        <tiny-item label="address.label" require="address.require">
+            <tiny-filtersel id="address.id" values="address.values" width="address.width" height="address.height" change="address.change()">
+            </tiny-filtersel>
+        </tiny-item>
+    </tiny-formfield>
+    <div class="form-inline clearfix">
+        <div class="fl">
+            <fm-button class="major-btn" id="createBtn.id" icons-class="icon-plus" text="createBtn.text" click="createBtn.click" ng-if="hasAlarmEmailOperateRight"></fm-button>
+        </div>
+        <div class="pull-right">
+            <a class="btn-link">
+                <div ng-click="refreshBtn.click()" id="refreshBtn.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+            </a>
+        </div>
+    </div>
+    <fm-dialog title="showWinTitle" width="900" height="820" show="showWin">
+        <div ng-show="showWin" ng-include src="'app/business/monitor/views/mailView.html'"></div>
+    </fm-dialog>
+    <fm-dialog title="showMailViewWinTitle" width="700" height="650" show="showMailViewWin">
+        <div ng-show="showMailViewWin" ng-include src="'app/business/monitor/views/mailAlarmView.html'"></div>
+    </fm-dialog>
+    <fm-dialog title="showUserViewWinTitle" width="700" height="650" show="showUserViewWin">
+        <div ng-show="showUserViewWin" ng-include src="'app/business/monitor/views/mailUserView.html'"></div>
+    </fm-dialog>
+    <div class="margin-top-beautifier">
+        <tiny-table id="dataGridViewTable.id" 
+                    data="dataGridViewTable.data" 
+                    columns="dataGridViewTable.columns"
+                    enable-pagination="dataGridViewTable.enablePagination" 
+                    render-row="dataGridViewTable.renderRow"
+                    columns-visibility="false" 
+                    columns-draggable="true"></tiny-table>
+    </div>
+</div>
+
+
+
+

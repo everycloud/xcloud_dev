@@ -1,0 +1,38 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <ul class="breadcrumb">
+                    <li><a ui-sref="network.manager.myVPClist" ng-bind="i18n.vpc_term_myVPC_label"></a> &gt; </li>
+                    <li><a ui-sref="network.vpcmanager.summary" ng-bind="vpcName"></a> &gt; </li>
+                    <li>{{i18n.nat_term_dnat_label}}</li>
+                    <li class="divider"></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div class="clearfix bottom10">
+            <div class="fl">
+                <tiny-button id="createBtn.id" text="createBtn.text" click="createBtn.click()" class="major-btn" ng-if="hasOperateDnatRight"></tiny-button>
+            </div>
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div title="{{i18n.common_term_help_label}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="dnatTable.id" data="dnatTable.data" columns="dnatTable.columns" pagination-style="dnatTable.paginationStyle" length-change="dnatTable.lengthChange" length-menu="dnatTable.lengthMenu" display-length="dnatTable.displayLength" enable-filter="dnatTable.enableFilter"
+            total-records="dnatTable.totalRecords" render-row="dnatTable.renderRow" columns-visibility="dnatTable.visibility" show-details="dnatTable.showDetails" callback="dnatTable.callback" change-select="dnatTable.changeSelect" enable-pagination="dnatTable.enablePagination"
+            columns-draggable="true"></tiny-table>
+        </div>
+    </div>
+
+</div>

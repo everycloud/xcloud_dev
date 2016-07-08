@@ -1,0 +1,143 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="我的VPC">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400017">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>我的VPC</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("VPC\n我的VPC");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100022.html\">VPC<\/a> > 我的VPC<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_400017"></a><a name="it_60_51_400017"></a>
+
+
+
+<h1 class="topictitle1">我的VPC</h1>
+<ul><li><a href="#it_60_51_400017__1.2.2.1">创建VPC</a></li><li><a href="#it_60_51_400017__1.2.3.1">修改配额</a></li><li><a href="#it_60_51_400017__1.2.4.1">修改VPC</a></li><li><a href="#it_60_51_400017__1.2.5.1">删除VPC</a></li></ul>
+
+<div>
+<div class="section"><p><span class="wintitle">“我的VPC”</span>是指VDC用户自行创建的VPC。</p>
+<p id="it_60_51_400017__p_vpcoverview"><a name="it_60_51_400017__p_vpcoverview"></a><a name="p_vpcoverview"></a>VPC能够为VDC提供安全、隔离的网络环境，您可以在VPC中自定义与传统网络无差别的虚拟网络，同时提供弹性IP、安全组等高级网络服务，以满足更多的业务部署要求。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400017__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400017" class="sectiontitle2contents">创建VPC</a></h4><p><span>ServiceCenter</span>提供了多种默认含有网络的VPC，在这几种VPC创建完成后，VPC中就有了已创建的网络，您仍可以在此基础上继续创建更多网络。在此类VPC的创建过程中，如果因为资源准备不足或配置错误导致网络创建失败，不影响VPC及其他网络的创建。</p>
+<p>自定义VPC，用于创建一个空的VPC，在VPC创建完成后，自定义创建网络以及其他网络资源。</p>
+<p>VPC相当于<span>FusionSphere OpenStack</span>中的<span class="parmname">“project”</span>。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，单击<span class="menucascade">“<span class="uicontrol">创建VPC</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400017__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400017" class="sectiontitle2contents">修改配额</a></h4><p>修改VPC可使用的各项资源的配额。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，在VPC所在行，单击<span class="uicontrol">“修改配额”</span>。</p>
+</div>
+
+<div class="section" id="it_60_51_400017__sec_modVPC"><a name="it_60_51_400017__sec_modVPC"></a><a name="sec_modVPC"></a><a name="it_60_51_400017__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400017" class="sectiontitle2contents">修改VPC</a></h4><p>修改VPC的名称和描述信息。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，在VPC所在行，单击<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">修改</span>”</span>。</p>
+</div>
+
+<div class="section" id="it_60_51_400017__sec_delVPC"><a name="it_60_51_400017__sec_delVPC"></a><a name="sec_delVPC"></a><a name="it_60_51_400017__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400017" class="sectiontitle2contents">删除VPC</a></h4><p>删除不再使用的VPC。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，在VPC所在行，单击<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

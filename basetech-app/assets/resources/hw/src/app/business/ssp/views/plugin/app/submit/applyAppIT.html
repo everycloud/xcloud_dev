@@ -1,0 +1,210 @@
+<link href="../theme/default/css/gm/app.css" type="text/css" rel="stylesheet" />
+<div id="applyApp" class="container-fluid">
+    <div class="top20">
+        <div class="media">
+            <a class="pull-left">
+                <img class="media-object btn-link servicesImg" ng-src="{{detail.serviceImageUrl}}" alt="">
+            </a>
+            <div class="media-body">
+                <div style="font-size: 16px;color: #000000;">
+                    <div style="line-height: 50px;"><b ng-bind="detail.name"></b>
+                    </div>
+                    <p ng-bind="detail.description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--基本信息-->
+    <div class="container-fluid top10" ng-if="detail.param.lock.locationLock === '1' || detail.param.lock.vpcLock === '1'">
+        <div id="sspApplyAppLocationArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyAppLocationArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont">{{i18n.common_term_location_label}}</h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyAppLocationInfo" class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="span5">
+                        <tiny-formfield>
+
+                            <tiny-item label="base.location.label" require="base.location.require" display="detail.param.lock.locationLock === '1'">
+
+                                <tiny-select id="base.location.id" values="base.location.values" width="base.location.width" change="base.location.change()">
+                                </tiny-select>
+
+                            </tiny-item>
+                            <tiny-item label="base.vpc.label" require="base.vpc.require" display="detail.param.lock.vpcLock === '1'">
+
+                                <tiny-select id="base.vpc.id" disable="base.vpc.disable" values="base.vpc.values" width="base.vpc.width" validate='base.vpc.validate' change="base.vpc.change()">
+                                </tiny-select>
+
+                            </tiny-item>
+
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--选择模板网络-->
+    <div class="container-fluid top10"  ng-if="(detail.param.lock.networkLock === '1' && templateNet.data.length > 0) || (detail.param.lock.commonParamsLock === '1' && commonParams.data.length > 0)">
+        <div id="sspApplyAppNetworkArea" class="product-info-section">
+            <div class="sprite-x s-heading expand" ng-click="clickAreaHeading('sspApplyAppNetworkArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.vm_term_chooseNet_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyAppNetwork" class="s-content">
+                <div class="row-fluid top10 left25">
+                    <div class="bottom10" ng-if="detail.param.lock.networkLock === '1' && templateNet.data.length > 0">
+                        <div class="clearfix">
+                            <div class="fl createpage-title tableOuterHeaderLabel none-line">{{i18n.vpc_term_net_label}}：</div>
+                        </div>
+                        <div class="horizontal_line"></div>
+                    </div>
+                    <div class="table-tiny-box-height clearfix" ng-if="detail.param.lock.networkLock === '1' && templateNet.data.length > 0">
+                        <tiny-table id="network.networkTable.id" data="templateNet.data" columns="network.networkTable.columns" length-menu="network.networkTable.lengthMenu" enable-pagination="network.networkTable.enablePagination" render-row="network.networkTable.renderRow" pagination-style="network.networkTable.paginationStyle">
+                        </tiny-table>
+                    </div>
+                    <div class="bottom10" ng-if="detail.param.lock.commonParamsLock === '1' && commonParams.data.length > 0">
+                        <div class="clearfix">
+                            <div class="fl createpage-title tableOuterHeaderLabel none-line">{{i18n.common_term_sharePara_label}}：</div>
+                        </div>
+                        <div class="horizontal_line"></div>
+                    </div>
+                    <div class="table-tiny-box-height" ng-if="detail.param.lock.commonParamsLock === '1' && commonParams.data.length > 0">
+                        <div class="table-tiny-box-height clearfix">
+                            <tiny-table id="network.commonParams.id" data="commonParams.data" columns="network.commonParams.columns" enable-pagination="network.commonParams.enablePagination" render-row="network.commonParams.renderRow" pagination-style="network.commonParams.paginationStyle" length-menu="network.commonParams.lengthMenu"></tiny-table>                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--配置应用参数-->
+    <div class="container-fluid top10" ng-if="(detail.param.lock.vmLock === '1' && confAppVmTemplates.data.length > 0) || (detail.param.lock.appLock === '1' && (confAppSoftPacks.data.length > 0 || confAppShells.data.length > 0))">
+        <div id="sspApplyAppConfigApp" class="product-info-section">
+            <div class="sprite-x s-heading expand" ng-click="clickAreaHeading('sspApplyAppConfigApp')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.app_term_setAppPara_button"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyAppConfigApp" class="s-content">
+                <div class="row-fluid top10 left25">
+                    <div class="bottom10" ng-if="detail.param.lock.vmLock === '1' && confAppVmTemplates.data.length > 0">
+                        <div class="clearfix">
+                            <div class="fl createpage-title tableOuterHeaderLabel none-line">{{i18n.template_term_vm_label}}：</div>
+                        </div>
+                        <div class="horizontal_line"></div>
+                    </div>
+                    <div class="table-tiny-box-height clearfix" ng-if="detail.param.lock.vmLock === '1' && confAppVmTemplates.data.length > 0">
+                        <tiny-table id="configApp.vmTable.id" data="confAppVmTemplates.data" columns="configApp.vmTable.columns" length-menu="configApp.vmTable.lengthMenu" enable-pagination="configApp.vmTable.enablePagination" render-row="configApp.vmTable.renderRow" pagination-style="configApp.vmTable.paginationStyle">
+                        </tiny-table>
+                    </div>
+
+                    <div  class="bottom10" ng-if="detail.param.lock.appLock === '1' && (confAppSoftPacks.data.length > 0 || confAppShells.data.length > 0)">
+                        <div class="clearfix">
+                            <div class="fl createpage-title tableOuterHeaderLabel none-line">{{i18n.template_term_softAndScript_label}}：</div>
+                        </div>
+                    </div>
+                    <div class="table-tiny-box-height clearfix" ng-if="detail.param.lock.appLock === '1' && confAppSoftPacks.data.length > 0">
+                        <tiny-table id="configApp.softwarePacks.id" data="confAppSoftPacks.data" columns="configApp.softwarePacks.columns" enable-pagination="configApp.softwarePacks.enablePagination" render-row="configApp.softwarePacks.renderRow" pagination-style="configApp.softwarePacks.paginationStyle"
+                                    length-menu="configApp.softwarePacks.lengthMenu">
+                        </tiny-table>
+                    </div>
+
+                    <div class="tableOuterHeaderLabel bottom10" ng-if="detail.param.lock.appLock === '1' && confAppShells.data.length > 0">
+                    </div>
+                    <div class="table-tiny-box-height clearfix" ng-if="detail.param.lock.appLock === '1' && confAppShells.data.length > 0">
+                        <tiny-table id="configApp.shells.id" data="confAppShells.data" columns="configApp.shells.columns" enable-pagination="configApp.shells.enablePagination" render-row="configApp.shells.renderRow" pagination-style="configApp.shells.paginationStyle" length-menu="configApp.shells.lengthMenu">
+                        </tiny-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid top10" ng-if="detail.param.lock.vlbLock === '1' && confVlbVmTemplates.data.length > 0">
+        <div id="sspApplyAppConfigVlb" class="product-info-section">
+            <div class="sprite-x s-heading expand" ng-click="clickAreaHeading('sspApplyAppConfigVlb')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.app_term_setVLB_button"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyAppConfigVlb" class="s-content">
+                <div class="row-fluid top10 left25">
+                    <div class="bottom10">
+                        <div class="clearfix">
+                            <div class="fl createpage-title tableOuterHeaderLabel none-line">VLB：</div>
+                        </div>
+                        <div class="horizontal_line"></div>
+                    </div>
+                    <div class="clearfix table-tiny-box-height">
+                        <tiny-table id="templateTable4Vlb.id" data="confVlbVmTemplates.data" columns="templateTable4Vlb.columns" enable-pagination="templateTable4Vlb.enablePagination" render-row="templateTable4Vlb.renderRow" pagination-style="templateTable4Vlb.paginationStyle"
+                                    length-menu="templateTable4Vlb.lengthMenu">
+                        </tiny-table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid top10">
+        <div id="sspApplyAppBasicArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyAppBasicArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_basicInfo_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyAppBaseInfo" class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="span5">
+                        <tiny-formfield>
+                            <tiny-item label="base.name.label" require="base.name.require">
+                                <tiny-textbox id="base.name.id" value="base.name.value" validate="base.name.validate" width="base.name.width"></tiny-textbox>
+                                <span ng-bind="appTempName"></span>
+                            </tiny-item>
+                            <tiny-item label="base.expireTime.label" require="base.expireTime.require" class="clearfix">
+                                <div class="fl">
+                                    <tiny-datetime id="base.expireTime.id" type="base.expireTime.type" min-date="base.expireTime.minDate"
+                                                   disable="base.expireTime.disable" show-clear="false" width="base.expireTime.width"
+                                                   date-format="base.expireTime.dateFormat" time-format="base.expireTime.timeFormat"
+                                                   default-date="base.expireTime.defaultDate" default-time="base.expireTime.defaultTime"></tiny-datetime>
+                                </div>
+                                <span class="fl" style="margin: 6px 0 0 10px;">
+                                    <tiny-checkbox id="base.neverExpire.id" checked="base.neverExpire.checked" change="base.neverExpire.change()" text="base.neverExpire.text"></tiny-checkbox>
+                                </span>
+                            </tiny-item>
+                            <tiny-item label="remark.label">
+                                <tiny-textbox id="remark.id" value="remark.value" type="remark.type" width="remark.width" height="remark.height" validate="remark.validate">
+                                </tiny-textbox>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="clear: left;" class="fm-btn-top-large">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>

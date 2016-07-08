@@ -1,0 +1,90 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Networks">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400005">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Networks</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_400005"></a><a name="it_60_51_400005"></a>
+
+
+
+<h1 class="topictitle1">Networks</h1>
+
+
+<div>
+<div class="section"><div class="p" id="it_60_51_400005__net_define"><a name="it_60_51_400005__net_define"></a><a name="net_define"></a><span>ServiceCenter</span> supports three types of networks in a virtual private cloud
+(VPC): direct network, internal network, and routed network.<ul><li>Direct network: <span>A direct
+network is discovered from the <span>FusionSphere
+OpenStack</span>, and it cannot be created.</span><div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>When creating
+VMs in a direct network, you are advised to configure security groups
+to isolate the VMs and implement VM access security control. </p>
+</div></div>
+</li><li>Internal network: An internal network is isolated from other networks
+and uses exclusive network resources. Therefore, you can deploy services
+that have high security requirements, for example, database server
+services, on an internal network to ensure high data security.</li><li>Routed network: A routed network provides flexible communication
+functions and supports various services. Routed networks in a VPC
+can communicate with each other or the Internet. </li></ul>
+</div>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>If you use virtual local
+area network (VLAN) or virtual extensible LAN (VXLAN) networks without
+configuring a subnet, you need to add a rule that permits pass of
+all packets to the default security group (named <span class="parmvalue"><b>default</b></span>). Otherwise, VMs in the same VLAN or VXLAN network cannot communicate
+with each other.</p>
+</div></div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Creating a Network</h4><p>Create a network in a
+VPC based on the service requirements.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Viewing Associated VMs</h4><p>View
+information about VMs associated with a VPC or direct network.</p>
+</div>
+
+
+<div class="section"><h4 class="sectiontitle">Modifying a Network</h4><p>Modify
+the settings of a VPC network.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Deleting a Network</h4><p>If a network is not needed
+any more, you can delete it from the system. Only networks that do
+not have any VMs associated with can be deleted.</p>
+</div>
+
+
+<div class="section"><h4 class="sectiontitle">Associating a Router with an Internal Network</h4><p>Associate a router to an internal network to make the internal
+network work as a routed network.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Disassociating the Router from a Routed Network</h4><p>Disassociate the router from a routed network to make the routed
+network change to an internal network. Consequently, all the advanced
+network functions available to the original routed network will not
+take effect for the internal network any more.</p>
+</div>
+
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

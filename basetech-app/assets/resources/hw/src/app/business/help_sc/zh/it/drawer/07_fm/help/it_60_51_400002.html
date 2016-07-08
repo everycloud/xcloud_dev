@@ -1,0 +1,55 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="路由器">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400002">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>路由器</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_400002"></a><a name="it_60_51_400002"></a>
+
+
+<h1 class="topictitle1">路由器</h1>
+
+
+<div>
+<div class="section"><div class="p" id="it_60_51_400002__route_define"><a name="it_60_51_400002__route_define"></a><a name="route_define"></a>在VPC中申请虚拟路由器，可以用来创建路由网络。同一个VPC下的路由网络之间是互通的，路由网络中的虚拟机可以使用弹性IP、DNAT、SNAT、ACL和VPN等高级网络功能。路由器分为以下两种类型：<ul><li>硬件路由器：硬件防火墙上提供路由功能的防火墙实例。</li><li>软件路由器：<span>ServiceCenter</span>中提供路由功能的系统服务虚拟机，即VFW虚拟机。</li></ul>
+</div>
+<div class="p" id="it_60_51_400002__route_support"><a name="it_60_51_400002__route_support"></a><a name="route_support"></a>硬件路由器和软件路由器分别支持的高级网络功能如下：<ul><li>硬件路由器支持弹性IP、NAT、ACL、应用层包过滤和VPN功能。</li><li>软件路由器支持弹性IP、NAT、ACL、VPN（IPSec类型）和VXLAN功能。</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">申请路由器</h4><p>一个VPC只能申请一个路由器。</p>
+<ul><li>在申请硬件路由器之前，需要系统管理员完成防火墙设备的接入和配置。</li><li>在申请软件路由器之前，需要系统管理员创建外部网络、VSA管理网络，以及导入VSA虚拟机模板。创建外部网络时要求外部网络的连接方式为子网（普通VLAN）、能够连接到Internet，子网要求IP分配方式为静态注入的IPv4网络，且该外部网络中不包含IPv6子网。如果要求软件路由器支持VXLAN功能，还需要系统管理员创建VTEP网络。</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle">释放路由器</h4><p>释放不再使用的路由器。如果路由器已有关联的网络，则不允许释放。</p>
+</div>
+
+
+
+
+<div class="section"><h4 class="sectiontitle">网络检测</h4><p>使用网络检测功能，可以检测路由器和其他网络地址的互通性。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

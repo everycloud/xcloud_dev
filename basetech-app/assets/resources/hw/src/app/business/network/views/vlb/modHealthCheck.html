@@ -1,0 +1,44 @@
+<div id="modHealthCheckWindow" class="create-page-distance" ng-controller="modHealthCheckCtrl">
+    <tiny-formfield>
+        <tiny-item label="info.protocol.label" require="info.protocol.require">
+            <tiny-select id="info.protocol.id" values="info.protocol.value" width="info.protocol.width" disable="true"></tiny-select>
+        </tiny-item>
+        <tiny-item label="info.checkPath.label" require="info.checkPath.require" display="isHTTP">
+            <tiny-textbox id="info.checkPath.id" value="healthCheckInfo.path" width="info.checkPath.width" validate="info.checkPath.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.timeout.label" require="info.timeout.require">
+            <tiny-textbox id="info.timeout.id" value="healthCheckInfo.responseTime" width="info.timeout.width" validate="info.timeout.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.checkInterval.label" require="info.checkInterval.require">
+            <tiny-textbox id="info.checkInterval.id" value="healthCheckInfo.checkInterval" width="info.checkInterval.width" validate="info.checkInterval.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.maxRoundRobin.label" require="info.maxRoundRobin.require">
+            <tiny-textbox id="info.maxRoundRobin.id" value="healthCheckInfo.unhealthyThreshold" width="info.maxRoundRobin.width" validate="info.maxRoundRobin.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.httpMethod.label" require="info.httpMethod.require" display="isHTTP">
+            <tiny-select id="info.httpMethod.id" values="info.httpMethod.value" width="info.httpMethod.width"></tiny-select>
+        </tiny-item>
+        <tiny-item label="info.httpCode.label" require="info.httpCode.require" display="isHTTP">
+            <tiny-textbox id="info.httpCode.id" value="healthCheckInfo.expectedCodes" width="info.httpCode.width" validate="info.httpCode.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="text/javascript">
+    require(["app/business/network/controllers/vlb/modHealthCheckModule"], function (modHealthModule) {
+        var dep = ['ng', modHealthModule.name];
+        dep.unshift(["$provide",
+            function ($provide) {
+                $provide.value("$rootElement", $("#modHealthCheckWindow"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile($("#modHealthCheckWindow"))($rootScope);
+            $rootScope.$digest();
+        });
+    })
+</script>

@@ -1,0 +1,25 @@
+<div class="create-page-distance">
+    <div>
+        <label ng-if="uploadStatus == 'uploading'">{{i18n.common_term_uploading_value}}:</label>
+        <label ng-if="uploadStatus == 'success'">{{i18n.common_term_uploadSucceed_value}}:</label>
+        <div ng-if="uploadStatus == 'failed'">
+            <label>{{i18n.common_term_uploadFail_value}}(
+                <span ng-bind="errorCode"></span>):</label>
+            <div>
+                <span ng-bind="errorMsg"></span>
+            </div>
+        </div>
+        <div style="display: block; width: 560px;" class="clearfix top10">
+            <div class="progressbar-box" style="width: 500px;  height: 22px; border-radius: 11px;float:left;margin-right: 5px;">
+                <div class="progressbar-color" style="width: {{ service.progress*5 }}px; height: 20px;"></div>
+            </div>
+            <div style="float:left;" class="progressbar-text">
+                <span ng-bind="service.progress"></span>%</div>
+        </div>
+    </div>
+
+    <div class="fm-btn-top-large">
+        <tiny-button ng-show="uploadStatus != 'uploading'" id="okBtn.id" disabled="okBtn.disabled" icons-class="okBtn.iconsClass" text="okBtn.text" tooltip="okBtn.tip" click="okBtn.success()" class="major-btn"></tiny-button>
+        <tiny-button ng-show="uploadStatus == 'uploading'" id="cancelBtn.id" disabled="cancelBtn.disabled" icons-class="cancelBtn.iconsClass" text="cancelBtn.text" tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+    </div>
+</div>

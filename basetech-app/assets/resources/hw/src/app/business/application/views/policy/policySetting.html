@@ -1,0 +1,54 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding pr">
+            <li>
+                <span ui-sref="application.manager.policy.plan" ng-bind-html="i18n.app_term_policySchedul_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.app_policy_view_explan_label"></p>
+
+            </li>
+            <li class="help-pa">
+                <div class="pull-right">
+                    <a class="btn-link">
+                        <div title="帮助信息" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                    </a>
+                </div>
+            </li>
+            <li class="divider">
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div style="margin-bottom: 2px;">
+            <tiny-formfield>
+                <tiny-item label="planVDCSel.label">
+                    <tiny-select id="planVDCSel.id" values="planVDCSel.values" width="planVDCSel.width" class="margin-right-beautifier" change="planVDCSel.change()">
+                    </tiny-select>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div id="myTabs" class="tiny-tabs-container">
+            <div class="tiny-tabs-titles">
+                <ul>
+                    <li ng-class="{tinyTabActive:$state.includes(plugin.openState)}" ng-repeat="plugin in plugins" ui-sref="{{plugin.openState}}">
+                        <a href="#" ng-bind="plugin.name"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tiny-tabs-content">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+    <script>
+    require(["tiny-widgets/Tabs"], function(Tabs) {
+        var tabs = new Tabs({
+            "id": "myTabs",
+            "setActiveClass": true
+        });
+    });
+    </script>
+</div>

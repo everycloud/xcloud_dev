@@ -1,0 +1,148 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="部署服务">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400004">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>部署服务</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("VPC\n部署服务");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100022.html\">VPC<\/a> > 部署服务<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_400004"></a><a name="it_60_51_400004"></a>
+
+
+
+<h1 class="topictitle1">部署服务</h1>
+<ul><li><a href="#it_60_51_400004__1.2.2.1">申请部署服务</a></li><li><a href="#it_60_51_400004__1.2.3.1">停止部署服务</a></li><li><a href="#it_60_51_400004__1.2.4.1">启动部署服务</a></li><li><a href="#it_60_51_400004__1.2.5.1">删除部署服务</a></li><li><a href="#it_60_51_400004__1.2.6.1">添加网络</a></li></ul>
+
+<div>
+<div class="section"><p>为VPC申请部署服务，可以使您灵活和便捷在VPC中进行业务部署。通过部署服务可以实现以下功能：</p>
+<ul><li>软件自动部署功能<ul><li>软件自动安装：使用应用模板发放应用实例时，若虚拟机模板中带有软件包模块，则可选择使用的软件包，应用软件会自动安装在对应的应用实例虚拟机中。</li><li>软件分发：选定应用软件包，并指定分发的目的虚拟机，可自动将该应用软件安装至虚拟机中。</li></ul>
+<ul><li>脚本自动执行：使用应用模板发放应用实例时，若虚拟机模板中带有脚本模块，则可选择使用的脚本，脚本在对应的应用实例虚拟机中自动执行。</li><li>脚本分发：选定脚本，并指定分发的目的虚拟机，可自动在虚拟机中执行该脚本。</li></ul>
+</li><li>基于Hyperic HQ的虚拟机进程监控功能</li></ul>
+</div>
+
+<div class="section"><a name="it_60_51_400004__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400004" class="sectiontitle2contents">申请部署服务</a></h4><p>申请部署服务时，系统使用PVM虚拟机模板，自动创建用于提供部署服务的系统服务虚拟机。在申请部署服务前，需要系统管理员创建VSA管理网络，并制作PVM虚拟机模板。</p>
+
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“部署服务”</span>界面</span>，单击<span class="uicontrol">“申请部署服务”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400004__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400004" class="sectiontitle2contents">停止部署服务</a></h4><p>如果暂时不使用部署服务，可以停止部署服务。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“部署服务”</span>界面</span>，单击<span class="uicontrol">“停止”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400004__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400004" class="sectiontitle2contents">启动部署服务</a></h4><p>部署服务为停止状态时，启动部署服务以继续使用软件自动安装和应用软件分发功能。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“部署服务”</span>界面</span>，单击<span class="uicontrol">“启动”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400004__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400004" class="sectiontitle2contents">删除部署服务</a></h4><p>删除部署服务后，在VPC中部署的虚拟机将不能再使用软件自动安装和应用软件分发功能。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“部署服务”</span>界面</span>，单击<span class="uicontrol">“删除”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400004__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400004" class="sectiontitle2contents">添加网络</a></h4><p>在部署服务的网络列表中添加新的网络，与该网络关联的虚拟机将可以使用部署服务。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，在<span class="uicontrol">“部署服务”</span>界面</span>，单击<span class="uicontrol">“添加网络”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

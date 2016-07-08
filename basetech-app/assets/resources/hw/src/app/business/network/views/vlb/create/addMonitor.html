@@ -1,0 +1,15 @@
+<div class="create-page-distance">
+    <div class="row-fluid bottom10">
+        <tiny-button id="info.createBtn.id" text="info.createBtn.text" disable="service.onlyAddListener && info.monitorTable.data.length>0" click="info.createBtn.click()" class="major-btn"></tiny-button>
+    </div>
+    <div>
+        <tiny-table id="info.monitorTable.id" data="info.monitorTable.data" columns="info.monitorTable.columns" enable-pagination="info.monitorTable.enablePagination" render-row="info.monitorTable.renderRow"></tiny-table>
+    </div>
+    <div class="fm-btn-top-large">
+        <span ng-show="!service.onlyAddListener">
+            <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+        </span>
+        <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" disable="info.monitorTable.data.length<1" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

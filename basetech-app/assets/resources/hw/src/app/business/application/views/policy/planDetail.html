@@ -1,0 +1,68 @@
+<div class="container-fluid plan-detail" ng-controller="application.plan.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <div>
+            <tiny-formfield>
+
+                <tiny-item label="info.name.label" require=" info.name.require">
+                    <span ng-bind="planDetail.name"></span>
+                </tiny-item>
+                <tiny-item label="info.triggerType.label" require=" info.triggerType.require">
+                    <span ng-bind="triggerType"></span>
+                </tiny-item>
+                <tiny-item label="info.triggerDate.label" display="info.triggerDate.display" require=" info.triggerDate.require">
+                    <span ng-bind="triggerDate"></span>
+                </tiny-item>
+                <tiny-item label="info.week.label" display="info.week.display" require=" info.week.require">
+
+                    <div ng-repeat="item in weeks">
+                        <span ng-bind="item.date">
+                        </span>
+                        <span ng-bind="item.time">
+                        </span>
+                    </div>
+                </tiny-item>
+                <tiny-item label="info.desc.label" require="info.desc.require">
+                    <span ng-bind="planDetail.description"></span>
+                </tiny-item>
+
+                <tiny-item label="info.policy.label" require=" info.policy.require">
+                    <div class="span6">
+                        <tiny-table id="info.bindTable.id" data="info.bindTable.data" columns="info.bindTable.columns" render-row="info.bindTable.renderRow" enable-pagination="info.bindTable.enablePagination"></tiny-table>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>
+<script>
+require(['app/business/application/controllers/policy/planDetailModel'],
+    function(detailModel) {
+        var curView = undefined;
+        $(".plan-detail").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+
+        //编译
+        var scope = curView.scope();
+        var dep = ['ng', 'wcc', detailModel.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", curView);
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile(curView)($rootScope);
+            $rootScope.$digest();
+        });
+
+        //查询详细信息
+        var currId = scope.currentItem.id;
+        var cloudInfraId = scope.currentItem.cloudInfraId
+        var newScope = curView.scope();
+        newScope.queryDetail(currId, cloudInfraId);
+    });
+</script>

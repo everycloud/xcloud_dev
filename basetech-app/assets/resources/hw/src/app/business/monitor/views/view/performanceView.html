@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span ng-bind-html="i18n.common_term_monitorView_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.perform_view_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="margin-erect-beautifier">
+            <label><span ng-bind-html="i18n.common_term_section_label"></span>:</label>
+            <tiny-filtersel id="address.id" values="address.values" width="address.width"
+                            class="margin-right-beautifier" height="address.height" change="address.change()">
+            </tiny-filtersel>
+            <span ng-show="user.cloudType === 'ICT'">
+            <label><span ng-bind-html="i18n.vpc_term_vpc_label"></span>:</label>
+            <tiny-filtersel id="vpcFilter.id" values="vpcFilter.values" width="vpcFilter.width"
+                            class="margin-right-beautifier"
+                            height="vpcFilter.height" change="vpcFilter.change()">
+            </tiny-filtersel>
+                </span>
+            <label><span ng-bind-html="i18n.common_term_objectType_label"></span>:</label>
+            <tiny-filtersel id="performanceSelObj.id" values="performanceSelObj.values" width="performanceSelObj.width"
+                            change="performanceSelObj.change()">
+            </tiny-filtersel>
+
+            <label>&nbsp;&nbsp;<span ng-bind-html="i18n.perform_term_topType_label"></span>:</label>
+            <tiny-filtersel id="performanceTopType.id" values="performanceTopType.values"
+                            width="performanceTopType.width" change="performanceTopType.change()">
+            </tiny-filtersel>
+            <tiny-filtersel id="performanceType.id" values="performanceType.values" width="performanceType.width"
+                            change="performanceType.change()">
+            </tiny-filtersel>
+
+            <span style="display: inline-block; vertical-align: middle;" class="fm-btn-left-large">
+                <tiny-button class="major-btn" id="searchBtn.id" text="searchBtn.text" click="searchBtn.click()"></tiny-button>
+            </span>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span6 outbox-padding">
+                <span class="legend" ng-bind-html="i18n.perform_term_CPUusageRate_label"></span>
+
+                <div id="columnchartDiv1">
+
+                </div>
+            </div>
+            <div class="span6 outbox-padding">
+                <span class="legend" ng-bind-html="i18n.perform_term_memUsageRate_label"></span>
+
+                <div id="columnchartDiv2">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span6 outbox-padding">
+                <span class="legend" ng-bind-html="i18n.common_term_netInRate_label"></span>
+
+                <div id="columnchartDiv3">
+
+                </div>
+            </div>
+            <div class="span6 outbox-padding">
+                <span class="legend" ng-bind-html="i18n.common_term_netOutRate_label"></span>
+
+                <div id="columnchartDiv4">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span6 outbox-padding">
+                <span class="legend" ng-bind-html="i18n.common_term_diskWriteSpeed_label"></span>
+
+                <div id="columnchartDiv5">
+
+                </div>
+            </div>
+            <div class="span6 outbox-padding">
+                <span class="legend" ng-bind-html="i18n.common_term_diskReadSpeed_label"></span>
+
+                <div id="columnchartDiv7">
+
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span6 outbox-padding">
+                <span class="legend" ng-bind-html="i18n.perform_term_diskUsageRate_label"></span>
+
+                <div id="columnchartDiv6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

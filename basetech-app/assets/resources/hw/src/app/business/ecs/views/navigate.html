@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span ng-bind-html="i18n.common_term_overview_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.resource_general_view_explan_user_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="row-fluid clearfix bottom10">
+        <div class="pull-right">
+            <div class="small-icon small-icon-menuicon" style="margin-top: 5px;"></div>
+            <tiny-filtersel id="searchLocation.id" values="searchLocation.values" width="searchLocation.width" default-label="searchLocation.dftLabel" change="searchLocation.change()">
+            </tiny-filtersel>
+            <tiny-filtersel id="searchVPC.id" values="searchVPC.values" width="searchVPC.width" display="openstack" default-label="searchVPC.dftLabel" change="searchVPC.change()">
+            </tiny-filtersel>
+            <a class="btn-link btn-link-padding">
+                <div id="refresh.id" title="{{i18n.common_term_fresh_button}}" ng-click="refresh.click()" class="small-icon small-icon-refresh"></div>
+            </a>
+        </div>
+        <div class="row-fluid clearfix bottom10"  ng-if="checkOpenStack">
+            <div class="pull-left" style="margin-left: 20px">
+                <tiny-button id="updateCloudPool.id" text="updateCloudPool.text" tooltip="updateCloudPool.tooltip" click="updateCloudPool.click()" disabled="updateCloudPool.disable" class="major-btn">
+                </tiny-button>
+                <span style="margin-left: 20px">{{lastUpdateTime.label}} {{lastUpdateCloudTime}}</span>
+                <span style="margin-left: 20px">{{lastUpdateStatus.label}} {{realTimeStatus}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="content-right-box">
+        <div class="row-fluid">
+            <div class="span6 outbox-padding">
+                <div class="legend" ng-bind-html="i18n.common_term_vm_label"></div>
+                <div id="ecsNavigateVmStatusInfo"></div>
+            </div>
+            <div class="span6 outbox-padding"  ng-if="hasDiskViewRight">
+                <div class="legend" ng-bind-html="i18n.common_term_disk_label"></div>
+                <div id="ecsNavigateDiskUseInfo"></div>
+            </div>
+        </div>
+        <div class="row-fluid outbox-padding">
+            <div class="legend bottom20" ng-bind-html="i18n.common_term_usefulLinks_label"></div>
+            <div class="row-fluid">
+                <div class="span4" ng-if="hasVmViewRight">
+                    <div class="span2 top5">
+                        <div id="ecsNaviVmAdmImg"></div>
+                    </div>
+                    <div class="span9">
+                        <div class="objAdmin" ng-bind-html="i18n.vm_term_VMmgr_label"></div>
+                        <div class="navigate-text" ng-bind-html="i18n.resource_general_vmMgr_desc_label"></div>
+                        <div>
+                            <span ng-if="hasVmCreateRight && deployMode!=='serviceCenter'"><a class="btn-link" ng-click="goCreateVm()" ng-bind-html="i18n.vm_term_createVM_button"></a> | </span>
+                            <a class="btn-link" ng-click="goVms()" ng-bind-html="i18n.vm_term_VMmgr_label"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4" ng-if="hasDiskViewRight">
+                    <div class="span2 top5">
+                        <div id="ecsNaviStorageAdmImg"></div>
+                    </div>
+                    <div class="span9">
+                        <div class="objAdmin" ng-bind-html="i18n.common_term_storageMgr_label"></div>
+                        <div ng-if="openstack">
+                            <div class="navigate-text" ng-bind-html="i18n.resource_general_storMgr_desc_label"></div>
+                        </div>
+                        <div ng-if="!openstack">
+                            <div class="navigate-text" ng-bind-html="i18n.resource_general_storMgr_desc_label"></div>
+                        </div>
+                        <div ng-if="openstack && deployMode != 'serviceCenter'">
+                            <a class="btn-link" ng-click="goDisks()" ng-bind-html="i18n.common_term_diskMgr_label"></a> | <a class="btn-link" ng-click="goDiskSnapshots()" ng-bind-html="i18n.common_term_diskSnapMgr_label"></a>
+                        </div>
+                        <div ng-if="!openstack || deployMode == 'serviceCenter'">
+                            <a class="btn-link" ng-click="goDisks()" ng-bind-html="i18n.common_term_diskMgr_label"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

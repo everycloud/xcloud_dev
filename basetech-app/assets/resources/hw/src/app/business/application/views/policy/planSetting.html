@@ -1,0 +1,20 @@
+<div id="policyPlan">
+    <div class="margin-bottom-beautifier clearfix">
+        <div class="fl">
+            <tiny-button id="createBtn.id" icons-class="icon-plus" text="createBtn.text" click="createBtn.click()" class="major-btn" ng-if="hasOperatePlanRight"></tiny-button>
+        </div>
+        <!--刷新、列选择、帮助-->
+        <div class="pull-right">
+            <a class="btn-link">
+                <div ng-click="refresh.click()" id="refresh.id" title="刷新" class="small-icon small-icon-refresh"></div>
+            </a>
+        </div>
+    </div>
+    <div>
+        <tiny-table id="planListTable.id" data="planListTable.data" columns="planListTable.columns" pagination-style="planListTable.paginationStyle" length-change="planListTable.lengthChange" length-menu="planListTable.lengthMenu" display-length="planListTable.displayLength"
+        enable-filter="planListTable.enableFilter" change-select="planListTable.changeSelect" callback="planListTable.callback" enable-pagination="planListTable.enablePagination" total-records="planListTable.totalRecords" show-details="planListTable.showDetails"
+        render-row="planListTable.renderRow" columns-visibility="false" columns-draggable="false"></tiny-table>
+    </div>
+    <br/>
+</div>
+

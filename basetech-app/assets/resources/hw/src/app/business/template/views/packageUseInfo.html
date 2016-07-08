@@ -1,0 +1,33 @@
+<div class="container-fluid" ng-controller="template.packageList.packageUseInfo.ctrl" id="template-packageList-packageUseInfo-popId">
+    <div>
+        <div id="packageTable" class="margin-top-beautifier">
+            <tiny-table id="packageTableList.id" data="packageTableList.data" columns="packageTableList.columns" pagination-style="packageTableList.paginationStyle" length-change="packageTableList.lengthChange" length-menu="packageTableList.lengthMenu" display-length="packageTableList.displayLength"
+            enable-filter="packageTableList.enableFilter" total-records="packageTableList.totalRecords" render-row="packageTableList.renderRow" columns-visibility="false" columns-draggable="false" callback="packageTableList.callback" change-select="packageTableList.changeSelect"></tiny-table>
+        </div>
+    </div>
+</div>
+
+<style>
+.tdHead {
+    text-align: right;
+    vertical-align: middle;
+    margin-left: 50px;
+}
+</style>
+<script type="application/javascript">
+require(['app/business/template/controllers/packageUserInfo'], function(packageUserInfo) {
+    var dependency = ['ng', 'wcc', packageUserInfo.name];
+    dependency.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#template-packageList-packageUseInfo-popId"));
+        }
+    ]);
+    var $injector = angular.injector(dependency);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#template-packageList-packageUseInfo-popId"))($rootScope);
+        $rootScope.$digest();
+
+    });
+
+});
+</script>

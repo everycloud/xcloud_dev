@@ -1,0 +1,106 @@
+<div class="container-fluid catalog-basic">
+    <div class="top20" id="changeHead">
+        <div class="media">
+            <a class="pull-left">
+                <img class="media-object btn-link servicesImg" ng-src="{{detail.serviceImageUrl}}" alt="">
+            </a>
+            <div class="media-body">
+                <div style="font-size: 16px;color: #000000;">
+                    <div style="line-height: 50px;"><b ng-bind="detail.name"></b>
+                    </div>
+                    <p ng-bind="detail.description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid top10">
+        <div id="sspApplyVDCBasicArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyVDCBasicArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_setBasicInfo_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyVDCBasicInfo" class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="applyVDC">
+                        <!--左侧区域-->
+                        <tiny-formfield labelWidth="formsLabelWidth">
+                            <tiny-item label="name.label" require="name.require">
+                                <tiny-textbox id="name.id" width="name.width" value="name.value" validate="name.validate"></tiny-textbox>
+                                <span ng-bind="appTempName"></span>
+                            </tiny-item>
+                            <tiny-item label="area.label" require="area.require" display="locationLock === '1'">
+                                <tiny-select mode="area.mode" width="area.width" id="area.id" values="area.values" validate="area.validate"></tiny-select>
+                            </tiny-item>
+                        </tiny-formfield>
+                        <tiny-formfield labelWidth="formsLabelWidth">
+                            <tiny-item label="time.label" require="time.require">
+                                <div class="fl">
+                                    <tiny-datetime id="time.id" type="time.type" min-date="time.minDate" disable="time.disable" show-clear="false" width="time.width"
+                                                   date-format="time.dateFormat" time-format="time.timeFormat"
+                                                   default-date="time.defaultDate" default-time="time.defaultTime"></tiny-datetime>
+                                </div>
+                                <span class="fl" style="margin: 6px 0 0 10px;">
+                                    <tiny-checkbox id="neverExpire.id" checked="neverExpire.checked" change="neverExpire.change()" text="neverExpire.text"></tiny-checkbox>
+                                </span>
+                            </tiny-item>
+                            <tiny-item label="description.label">
+                                <tiny-textbox id="description.id" value="description.value" width="description.width" height="description.height" type="description.type" validate="description.validate">
+                                </tiny-textbox>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid top10"  ng-if="lock == '1'">
+        <div id="sspApplyVDCSpecArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyVDCSpecArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_basicInfo_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyVDCSpecInfo" class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="applyVDC">
+                        <tiny-formfield labelWidth="formsLabelWidth">
+                            <tiny-item label="cpu.label" require="cpu.require">
+                                <tiny-textbox id="cpu.id" value="cpu.value" width="cpu.width" validate="cpu.validate"></tiny-textbox>
+                            </tiny-item>
+                            <tiny-item label="memory.label" require="memory.require">
+                                <tiny-textbox id="memory.id" value="memory.value" width="memory.width" validate="memory.validate"></tiny-textbox>
+                            </tiny-item>
+                            <tiny-item label="storage.label" require="storage.require">
+                                <tiny-textbox id="storage.id" value="storage.value" width="storage.width" validate="storage.validate"></tiny-textbox>
+                            </tiny-item>
+                            <tiny-item label="ip.label" require="ip.require">
+                                <tiny-textbox id="ip.id" value="ip.value" width="ip.width" validate="ip.validate"></tiny-textbox>
+                            </tiny-item>
+                            <tiny-item label="vpc.label" require="vpc.require">
+                                <tiny-textbox id="vpc.id" value="vpc.value" width="vpc.width" validate="vpc.validate"></tiny-textbox>
+                            </tiny-item>
+                            <tiny-item label="group.label" require="group.require">
+                                <tiny-textbox id="group.id" value="group.value" width="group.width" validate="group.validate"></tiny-textbox>
+                            </tiny-item>
+                            <tiny-item label="vm.label" require="vm.require">
+                                <tiny-textbox id="vm.id" value="vm.value" width="vm.width" validate="vm.validate"></tiny-textbox>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: left;" class="fm-btn-top-large">
+        <tiny-button id="confirmInfo.sureBtn.id" text="confirmInfo.sureBtn.text" click="confirmInfo.sureBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="confirmInfo.cancelBtn.id" text="confirmInfo.cancelBtn.text" click="confirmInfo.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

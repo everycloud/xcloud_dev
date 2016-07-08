@@ -1,0 +1,222 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="如何创建新的应用模板">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600011">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>如何创建新的应用模板</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n如何创建新的应用模板");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_faq_cp_01.html\">FAQ<\/a> > 如何创建新的应用模板<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600011"></a><a name="it_60_51_600011"></a>
+
+
+<h1 class="topictitle1">如何创建新的应用模板</h1>
+<ul><li><a href="#it_60_51_600011__1.2.1.1">操作场景</a></li><li><a href="#it_60_51_600011__1.2.2.1">前提条件</a></li><li><a href="#it_60_51_600011__1.2.3.1">操作步骤</a></li><li><a href="#it_60_51_600011__1.2.4.1">操作结果</a></li><li><a href="#it_60_51_600011__1.2.5.1">任务示例</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_51_600011__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600011" class="sectiontitle2contents">操作场景</a></h4>
+
+
+<div class="p"><p><span>应用模板是将虚拟机、软件包、脚本、网络等逻辑组件，按照特定的关系组合而成的业务模型。</span><span>实现批量创建虚拟机，一键式部署应用实例的功能。</span></p>
+<div class="p">该任务指导管理员在<span>ServiceCenter</span>中，使用设计面板创建一个全新的应用模板，任务流程如下。<ol><li>选择组成元素：从左侧列表中选择所需元素拖动至中间面板，如<a href="#it_60_51_600011__d1211e68">图1</a>中<span class="parmvalue">“1”</span>所示。</li><li>配置元素属性：选中面板中的图元，在右侧属性区域中配置该图元的属性，如<a href="#it_60_51_600011__d1211e68">图1</a>中<span class="parmvalue">“2、3”</span>所示。</li><li>配置关联关系：鼠标悬浮在虚拟机图元名称上，显示手型图标后，拖动至网络图元，表示虚拟机使用该网络，如<a href="#it_60_51_600011__d1211e68">图1</a>中<span class="parmvalue">“4”</span>所示。</li><li>保存应用模板：设计完成后，单击面板右上角的<span class="uicontrol">“校验”</span>，确认模板正确后，单击<span class="uicontrol">“保存”</span>。</li><li>发布应用模板：单击<span class="uicontrol">“返回”</span>，在应用模板列表中，单击<span class="uicontrol">“发布”</span>。</li></ol>
+模板成功发布后，租户在业务视图中，便可使用该应用模板部署应用实例。<div class="fignone" id="it_60_51_600011__d1211e68"><a name="it_60_51_600011__d1211e68"></a><a name="d1211e68"></a><span class="figcap"><b>图1 </b>创建应用模板</span>
+
+<br><span><img src="fig/fig_it_60_51_600005_01.png"></span><br>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600011__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600011" class="sectiontitle2contents">前提条件</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>已登录<span>ServiceCenter</span>，并进入<span class="menucascade">“<span class="uicontrol">应用</span> &gt; <span class="uicontrol">应用模板</span>”</span>界面。</li><li>已完成应用服务的模型规划。</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600011__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600011" class="sectiontitle2contents">操作步骤</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">进入设计面板</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>在<span class="wintitle">“应用模板”</span>界面，单击<span class="uicontrol">“创建”</span>。</span>
+<p>进入应用模板设计面板界面。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">选择组成元素</p>
+<div class="Steps-titled"><ol type="1" start="2"><li><span>根据已规划的应用服务模型，在左侧图元列表中，选择包含的组成元素，并将其拖动至中间面板区域中。</span>
+<p><p>其中，软件包和脚本图元，需要拖动至虚拟机图元之中。表示软件包或脚本在该虚拟机中安装或运行，根据图元拖入的顺序，先拖入的先安装或运行。软件包和脚本涉及软件自动部署功能的使用，更多信息请参考<a href="it_60_51_000041.html">软件自动部署</a>。</p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置元素属性</p>
+<div class="Steps-titled"><ol type="1" start="3"><li><span>单击面板空白处，配置应用模板信息。</span>
+<p>待配置的信息如下：<ul><li>名称</li><li>图标</li><li>描述</li><li>公共参数<p>公共参数可供参数旁有<span><img src="fig/fig_it_60_51_600005_06.png"></span>符号的参数引用。为一个变量，该变量在创建应用时配置具体的值。例如，<span class="parmname">“类型”</span>为<span class="uicontrol">“HostName”</span>的公共参数可以被虚拟机模板的<span class="uicontrol">“计算机名称”</span>参数引用。</p>
+</li><li>输出参数：输出名称、输出值、描述。<p>输出参数用于在创建完成应用后，向管理员输出应用的相关信息，例如应用名称等。</p>
+<div class="p" id="it_60_51_600011__d1211e192"><a name="it_60_51_600011__d1211e192"></a><a name="d1211e192"></a>输出值可以配置为固定值，也可以配置为变量和固定值的组合，例如，http://#Linux_1.DefaultNic#/discuz。如果需要使用变量，使用#分隔。<span>ServiceCenter</span>支持两个变量：<ul><li>虚拟机网卡IP，格式为<span class="parmname">“#虚拟机模板名称.网卡名#”</span>，其中，<ul><li>虚拟机模板名称：在创建虚拟机模板时定义的名称。例如，Linux_1。</li><li>网卡名：如果是默认网卡，则为DefaultNic；如果是自定义网卡，则为用户自定义的网卡名称。</li><li>示例：http://#Linux_1.DefaultNic#/discuz，则实际输出为“http://192.168.10.3/discuz”.</li></ul>
+</li><li>公共参数输出值，格式为“#Parameters.公共参数名#”，其中，<ul><li>“Parameters.”是固定标识，不输出。</li><li>公共参数名：用户自定义的公共参数名称，例如，Hostname。</li><li>示例：主机名，#Parameters.Hostname#，如果Hostname参数的取值为ComputerName_123，则实际输出为“主机名，ComputerName_123”。</li></ul>
+</li></ul>
+</div>
+</li></ul>
+</p>
+</li><li><span>单击网络图元，配置网络信息。</span>
+<p>待配置的信息为<span class="parmname">“名称”</span>、<span class="parmname">“描述”</span>。</p>
+</li><li><span>单击虚拟机图元，配置虚拟机信息。</span>
+<p>待配置的信息如下：<ul><li>操作系统类型</li><li>操作系统版本</li><li>名称</li><li>描述</li><li>计算机名称</li><li><div class="p">升级方式：<ul><li>自动：当系统推送虚拟化软件升级包时，虚拟机将自动安装。</li><li>手动：虚拟机操作系统是Windows时，当系统推送虚拟化软件升级包时，虚拟机将弹出提示，由用户决定是否安装；虚拟机操作系统是Linux时，不升级软件包。</li></ul>
+</div>
+</li><li><div class="p">基本块存储高级功能：<ul><li>不支持：虚拟机访问存储资源的性能较好。</li><li>支持：虚拟机访问存储资源的性能较差。</li></ul>
+</div>
+</li><li>网卡：虚拟机至少有一张网卡，系统默认网卡不能修改和删除。可单击<span><img src="fig/fig_it_60_51_600005_02.png"></span>添加网卡。</li><li>初始化命令</li><li>启动命令</li><li>停止命令</li></ul>
+</p>
+</li><li><span>若需配置虚拟机的伸缩组，则单击虚拟机图元右上角的<span><img src="fig/fig_it_60_51_600005_03.png"></span>，并配置应用策略信息。</span>
+<p><p><span>应用策略是指应用实例中伸缩组的资源调度策略，即组内策略。</span></p>
+<p><span>伸缩组是指将应用中某个虚拟机设置为一个伸缩组，使得伸缩组内虚拟机负荷较高时，系统可以自动为其添加、启动或唤醒虚拟机，以降低虚拟机负荷，提升应用实例的服务性能。同理，当伸缩组内虚拟机负荷较低时，系统可以自动减少虚拟机，释放相应的资源，在不改变应用实例的服务性能的情况下，达到资源的最大化利用。 </span></p>
+<div class="p">待配置的信息如下：<ul><li>名称</li><li>描述</li><li>最大虚拟机数：伸缩组内最多可创建的虚拟机数量。在该伸缩组内，允许扩容后的虚拟机的最大数量。 </li><li>最小虚拟机数：伸缩组内至少要创建的虚拟机数量。在该伸缩组内，允许减容后的虚拟机的最小数量。</li><li>最小运行虚拟机数：伸缩组内至少包含的<span class="parmvalue">“运行”</span>状态的虚拟机数量。</li><li>冷却时间（分钟）：在冷却时间内，所有的触发条件均不生效。冷却时间从系统上一次进行扩容或减容操作的开始时间算起。 </li><li>组内策略：可单击<span><img src="fig/fig_it_60_51_600005_02.png"></span>添加策略。<ul><li>统计周期（分钟）、连续（次）、条件配置：<p>在一个统计周期内，按照<span class="parmname">“条件配置”</span>中的要求对系统采集的数据进行统计。当统计的数值满足条件值时，次数累加1次，如果不满足条件，记录次数清零。当连续多次周期内统计的数值满足条件值时，且次数等于<span class="parmname">“连续（次）”</span>的值时，执行设置的动作。</p>
+<p>例如，统计周期为10分钟，连续为2次，条件配置为：CPU占有率、平均值、&gt;=、80%。系统对10分钟内采集的CPU占有率取平均值后为82%，此值大于条件配置中的80%，记录次数为1；在下一个统计周期中，采集的CPU占有率取平均值后为84%，累加次数为2。此时累加的次数等于连续的数值，执行设置的动作。</p>
+</li><li>动作类型：扩容或减容虚拟机，即满足触发条件时，根据配置的步长（台）数值，新增或者减少相应的虚拟机数量。扩容或减容的方式建议采用默认方式，为避免数据丢失，请谨慎选择删除方式。 </li><li>冷却时间(分钟)：在冷却时间内，所有的触发条件均不生效。冷却时间从系统上一次进行扩容或减容操作的开始时间算起。 </li><li>步长（台）：系统每次扩容或减容的虚拟机数量。系统随机在伸缩组中选择虚拟机进行扩容或减容。</li></ul>
+</li></ul>
+</div>
+</p>
+</li><li><span>单击软件或脚本图元，配置软件和脚本信息。</span>
+<p>待配置的信息为<span class="parmname">“名称”</span>、<span class="parmname">“描述”</span>、<span class="parmname">“版本”</span>。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置关联关系</p>
+<div class="Steps-titled"><ol type="1" start="8"><li><span>将鼠标悬浮在虚拟机图元名称上，显示手型图标后，拖动至网络图元。虚拟机图元和网络图元之间出现连接箭头，表示虚拟机使用该网络。</span>
+<p><p>若一个虚拟机图元需要连接多个网络图元，则虚拟机图元的网卡数量需要与所连接的网络图元个数相同。</p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">校验、保存并发布</p>
+<div class="Steps-titled"><ol type="1" start="9"><li><span>单击面板右上角的<span class="uicontrol">“校验”</span>，确认模板正确后，单击<span class="uicontrol">“保存”</span>。</span></li><li><span>单击<span class="uicontrol">“返回”</span>，在应用模板列表中，单击<span class="uicontrol">“发布”</span>。</span></li></ol></div>
+</div>
+</ul>
+
+</div>
+
+<div class="section"><a name="it_60_51_600011__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600011" class="sectiontitle2contents">操作结果</a></h4>
+
+
+<div class="p"><p>在应用模板列表中，新增的应用模板状态为<span class="parmvalue">“已发布”</span>，表示该应用模板可用于创建应用实例。</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600011__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600011" class="sectiontitle2contents">任务示例</a></h4>
+
+
+<div class="p"><p>如下示例，以创建一个简单的论坛为应用服务模型为例，例举一个应用模板。</p>
+<div class="p">论坛服务的要求如下：<ul><li>WEB服务器与外网互通，能为用户提供WEB访问</li><li>WEB服务器后端连接数据库，能够保存客户访问数据</li><li>数据库服务与外网隔离，只能够被WEB服务器访问</li></ul>
+根据要求，规划的应用服务模型如<a href="#it_60_51_600011__d1211e462">图2</a>所示。按照此模型，创建的应用模板如<a href="#it_60_51_600011__d1211e469">图3</a>所示。<div class="fignone" id="it_60_51_600011__d1211e462"><a name="it_60_51_600011__d1211e462"></a><a name="d1211e462"></a><span class="figcap"><b>图2 </b>论坛模型</span>
+
+<br><span><img src="fig/fig_it_60_51_600005_04.png"></span><br>
+</div>
+<div class="fignone" id="it_60_51_600011__d1211e469"><a name="it_60_51_600011__d1211e469"></a><a name="d1211e469"></a><span class="figcap"><b>图3 </b>应用模板</span>
+
+<br><span><img src="fig/fig_it_60_51_600005_05.png"></span><br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

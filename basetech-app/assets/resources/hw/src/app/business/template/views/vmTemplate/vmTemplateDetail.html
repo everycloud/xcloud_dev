@@ -1,0 +1,82 @@
+<div class="container-fluid vmTemplate-detail" ng-controller="template.vmTemplate.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <!--基本信息-->
+        <div>
+            <tiny-formfield>
+                <tiny-item label="vmTemplateDesc.label">
+                    <span ng-bind="vmTemplateDesc.value"></span>
+                </tiny-item>
+                <tiny-item label="spec.label">
+                </tiny-item>
+            </tiny-formfield>
+            <div class="clearfix">
+                <div class="span1">
+                    <span ng-bind="cpu.label" class="color2"></span>
+                    <div>
+                        <span ng-bind="cpu.value"></span>
+                        <span ng-bind="cpu.unit1"></span>
+                    </div>
+                </div>
+                <div class="span1">
+                    <span ng-bind="memory.label" class="color2"></span>
+                    <div>
+                        <span ng-bind="memory.value"></span>
+                        <span ng-bind="memory.unit2"></span>
+                    </div>
+                </div>
+                <div class="span10">
+                    <span ng-bind="disk.label" class="color2"></span>
+                    <div class="top5">
+                        <tiny-table id="diskListTable.id" data="diskListTable.data" columns="diskListTable.columns" enable-pagination="diskListTable.pagination">
+                        </tiny-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.len {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 40px;
+    color: #333333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+</style>
+<script>
+require(['app/business/template/controllers/vmTemplate/vmTemplateDetailModel', 'app/services/httpService'],
+    function(vmTemplateDetailModel, http) {
+        var curView = undefined;
+        $(".vmTemplate-detail").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+
+        //编译(编译前scope是父页面继承来的)
+        var scope = curView.scope();
+        var vmtId = scope.currentVMTId;
+        var cloudInfraId = scope.searchModel.cloudInfraId;
+        var dep = ['ng', 'wcc', vmTemplateDetailModel.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", curView);
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile(curView)($rootScope);
+            $rootScope.$digest();
+        });
+        // 3.查询初始化信息
+        var newScope = curView.scope();
+        newScope.queryDetail(vmtId, cloudInfraId);
+    });
+</script>

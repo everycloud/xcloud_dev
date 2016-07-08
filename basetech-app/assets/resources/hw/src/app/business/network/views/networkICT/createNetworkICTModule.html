@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row-fluid tiny-step-boxset clearfix">
+        <div class="createpage-legend"><span ng-bind="i18n.vpc_term_createNet_button"></span></div>
+        <tiny-step id="step.id" values="step.values1" width="step.width" jumpable="step.jumpable"></tiny-step>
+    </div>
+    <div>
+        <div ng-show="step.show == 'basicInfoICT'">
+            <div ui-view="basicInfo"></div>
+        </div>
+        <div ng-show="step.show == 'selectResICT'">
+            <div ui-view="selectRes"></div>
+        </div>
+        <div ng-show="step.show == 'subnetInfoICT'">
+            <div ui-view="subnetInfo"></div>
+        </div>
+        <div ng-show="step.show == 'directConfirmICT'">
+            <div ui-view="confirm"></div>
+        </div>
+    </div>
+</div>

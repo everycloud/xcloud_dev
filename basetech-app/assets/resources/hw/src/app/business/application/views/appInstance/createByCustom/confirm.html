@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="create-page-distance">
+        <div>
+            <tiny-formfield>
+                <tiny-item label="confirmInfo.nameLabel">
+                    <span>{{params.name}}</span>
+                </tiny-item>
+                <tiny-item label="confirmInfo.locationLabel">
+                    <span>{{params.location}}</span>
+                </tiny-item>
+                <tiny-item label="confirmInfo.descriptionLabel">
+                    <span>{{params.description}}</span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <div class="clearfix">
+            <span class="createpage-title none-line">{{i18n.app_term_associatedVM_label}}:</span>
+            <tiny-table id="confirmVmTable.id" columns="confirmVmTable.columns" data="confirmVmTable.data" pagination-style="confirmVmTable.paginationStyle" enable-pagination="false" render-row="confirmVmTable.renderRow" length-menu="confirmVmTable.lengthMenu">
+            </tiny-table>
+        </div>
+
+        <div class="fm-btn-top-large">
+            <tiny-button id="preBtn.id" text="preBtn.text" tooltip="preBtn.tooltip" click="preBtn.click()"></tiny-button>
+            <span ng-if="!service.isModify">
+                <tiny-button id="nextBtn.id" text="service.nextLabelCreate" tooltip="nextBtn.tooltip" click="nextBtn.click()" class="major-btn"></tiny-button>
+            </span>
+            <span ng-if="service.isModify">
+                <tiny-button id="nextBtn.id" text="service.nextLabelMod" tooltip="nextBtn.tooltip" click="nextBtn.click()" class="major-btn"></tiny-button>
+            </span>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+
+</div>

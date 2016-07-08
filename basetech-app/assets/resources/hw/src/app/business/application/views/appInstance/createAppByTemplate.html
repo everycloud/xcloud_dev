@@ -1,0 +1,22 @@
+<div class="container-fluid" id="createApp">
+    <div class="margin-top-beautifier">
+        <my-container></my-container>
+    </div>
+</div>
+<script type="application/javascript">
+require(['app/business/application/controllers/appInstance/create/createByTemplate'],
+    function(createAppByTempMod) {
+        var dependency = ['ng', 'wcc', createAppByTempMod.name];
+        dependency.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#createApp"));
+            }
+        ]);
+
+        var $injector = angular.injector(dependency);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#createApp"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

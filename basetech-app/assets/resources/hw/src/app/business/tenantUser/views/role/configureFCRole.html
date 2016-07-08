@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div id="configureFCRole" ng-controller="userMgr.role.configure.fcRole.ctrl">
+        <tiny-formfield>
+            <tiny-item label="roleType.label">
+                <tiny-radiogroup id="roleType.id" values="roleType.values" layout="roleType.layout" change="roleType.change()"></tiny-radiogroup>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button id="modifyBtn.id" text="modifyBtn.text" click="modifyBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+require(["app/business/tenantUser/controllers/role/configureFCRoleCtrl"], function(configureFCRoleCtrl) {
+    var $injector = angular.injector(["ng", configureFCRoleCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#configureFCRole"));
+        link($("#configureFCRole").scope());
+        $("#configureFCRole").scope().$digest();
+    });
+});
+</script>

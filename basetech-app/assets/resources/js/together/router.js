@@ -15,10 +15,10 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: "/view/dashboard/dashboard.html",
             data: { pageTitle: 'dashboard' }
         })
-        .state('teams', {
-            url: "/teams",
-            templateUrl: "/view/team/teams.html",
-            data: { pageTitle: '团队' }
+        .state('apps', {
+            url: "/apps",
+            templateUrl: "/view/apps/app_overview.html",
+            data: { pageTitle: '应用' }
         })
         .state('hostpool', {
             url: "/hostpool",

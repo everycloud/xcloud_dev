@@ -1,0 +1,390 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Applying for Your First Service">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_90_51_000098">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Applying for Your First Service</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Before You Start\nApplying for Your First Service");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_start_cp.html\">Before You Start<\/a> > Applying for Your First Service<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_90_51_000098"></a><a name="it_90_51_000098"></a>
+
+
+<h1 class="topictitle1">Applying for Your First Service</h1>
+<ul><li><a href="#it_90_51_000098__1.2.1.1">Background</a></li><li><a href="#it_90_51_000098__1.2.2.1">Prerequisites</a></li><li><a href="#it_90_51_000098__1.2.3.1">Operation Procedures</a></li></ul>
+<div>
+<div class="section"><a name="it_90_51_000098__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000098" class="sectiontitle2contents">Background</a></h4>
+
+
+<div class="p"><p>A service is a resource instance template that users can
+use. The ServiceCenter system currently supports virtual data center
+(VDC), cloud host (virtual
+machine), cloud hard disk, <span>dedicated server,
+elastic IP address, </span>and application services.</p>
+<p>This section uses the cloud hard disk application as an example
+to describe how to create, apply for, approve, and provision a service
+in ServiceCenter. This section is intended for you to have an overall
+understanding of the service provisioning process and tasks of each
+role in ServiceCenter.</p>
+</div>
+
+
+<div class="p"><p><strong>Process Introduction</strong></p>
+<p>After a resource pool
+is created using Local FusionManager, the administrator, VDC administrator,
+and VDC user can access, apply for, and approve resources using ServiceCenter
+to provision resources to VDC users.</p>
+<div class="p"><a href="#it_90_51_000098__fig_01">Figure 1</a> describes tasks of the administrator, VDC administrator and VDC
+users in ServiceCenter when VDC users need to apply for the cloud
+hard disk service.<div class="fignone" id="it_90_51_000098__fig_01"><a name="it_90_51_000098__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>Figure 1 </b>Service application process</span>
+
+<br><span><img src="fig/fig_it_90_51_000098_01.png"></span></div>
+</div>
+<p><strong>Service Introduction</strong></p>
+<div class="p">ServiceCenter provides the
+VDC, cloud host, cloud hard disk, <span>dedicated server, elastic
+IP address, </span>and application services for the administrator
+or VDC administrator to create related services. <a href="#it_90_51_000098__tab_01">Table 1</a> lists administrators and their rights to services.
+<div class="tablenoborder"><a name="it_90_51_000098__tab_01"></a><a name="tab_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_90_51_000098__tab_01" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Administrator and rights to services</caption>
+
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="19.700748129675812%" id="mcps1.2.1.3.5.3.2.5.1.1"><p>Service</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="14.463840399002493%" id="mcps1.2.1.3.5.3.2.5.1.2"><p>Created by</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="16.458852867830426%" id="mcps1.2.1.3.5.3.2.5.1.3"><p>Applied by</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="49.37655860349127%" id="mcps1.2.1.3.5.3.2.5.1.4"><p>Approved by</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="19.700748129675812%" headers="mcps1.2.1.3.5.3.2.5.1.1 "><p>VDC</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.463840399002493%" headers="mcps1.2.1.3.5.3.2.5.1.2 "><p>Administrator</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.458852867830426%" headers="mcps1.2.1.3.5.3.2.5.1.3 "><p>VDC administrator</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="49.37655860349127%" headers="mcps1.2.1.3.5.3.2.5.1.4 "><p>Administrator</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="19.700748129675812%" headers="mcps1.2.1.3.5.3.2.5.1.1 "><p>Cloud host<span>, dedicated server, elastic IP address,</span> and cloud hard disk</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.463840399002493%" headers="mcps1.2.1.3.5.3.2.5.1.2 "><p>Administrator</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.458852867830426%" headers="mcps1.2.1.3.5.3.2.5.1.3 "><p>VDC administrator/VDC user</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="49.37655860349127%" headers="mcps1.2.1.3.5.3.2.5.1.4 "><div class="p">VDC administrator<div class="note"><span class="notetitle"> NOTE: </span><div class="notebody">During the <span>cloud host, elastic IP address,
+and cloud hard disk </span>service creation, specify whether
+the service needs or does not need to be approved by the VDC administrator.</div></div>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="19.700748129675812%" headers="mcps1.2.1.3.5.3.2.5.1.1 "><p>Application</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.463840399002493%" headers="mcps1.2.1.3.5.3.2.5.1.2 "><p>VDC administrator</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.458852867830426%" headers="mcps1.2.1.3.5.3.2.5.1.3 "><p>VDC administrator/VDC user</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="49.37655860349127%" headers="mcps1.2.1.3.5.3.2.5.1.4 "><div class="p">VDC administrator<div class="note"><span class="notetitle"> NOTE: </span><div class="notebody">During the service creation, specify
+whether the service needs or does not need to be approved by the VDC
+administrator.</div></div>
+</div>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<p><strong>User Rights Introduction</strong></p>
+<div class="p">ServiceCenter
+provides a user management system in which users are assigned with
+different rights. This system involves the administrator, VDC administrator,
+and VDC users.<ul><li>The administrator is in charge of the cloud resource access and
+configuration, VDC resource management, service creation, and system
+configuration.</li><li>The VDC administrator is in charge of the service creation, service
+application approval, and VDC resource (such as VM) management.</li><li>Users are in charge of the application and management of VDC resources
+(such as VMs).</li></ul>
+The administrator, VDC administrator, and users complete different
+tasks to provision services together.</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_90_51_000098__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000098" class="sectiontitle2contents">Prerequisites</a></h4>
+
+
+<div class="p"><ul><li>The administrator account and password for logging in to ServiceCenter
+are obtained and ServiceCenter is logged in to using the administrator
+account.</li><li>The <span>FusionSphere
+OpenStack</span> has been installed
+and configured.</li></ul>
+ </div>
+
+</div>
+
+<div class="section"><a name="it_90_51_000098__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000098" class="sectiontitle2contents">Operation Procedures</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">Add resources to ServiceCenter.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li id="it_90_51_000098__area2"><a name="it_90_51_000098__area2"></a><a name="area2"></a><span>Add resources to ServiceCenter. For details,
+see <span><span class="menucascade"><b><span class="uicontrol">Initial Installation and
+Configuration</span></b> &gt; <b><span class="uicontrol">Adding Resources to ServiceCenter</span></b></span> in <span><i><cite><span>ServiceCenter V100R002C20 Software Installation
+Guide</span></cite></i></span></span>.</span></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Create the VDC service, cloud hard disk service, and VDC
+administrator.</p>
+<div class="Steps-titled"><ol type="1" start="2"><li><span>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b></span>.</span></li><li><span>Click <span><img src="fig/fig_it_90_51_000001_01.png"></span>.</span>
+<p>The <span class="wintitle"><b>Catalog Management</b></span> page is displayed.</p>
+</li><li><span>Click <span class="uicontrol"><b>Create Catalog</b></span>.</span>
+</li><li id="it_90_51_000098__catalog"><a name="it_90_51_000098__catalog"></a><a name="catalog"></a><span>Set the catalog name and description information,
+and click <span class="uicontrol"><b>OK</b></span>.</span>
+<p>Assume that the name of the created catalog is catalog.</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b> &gt; <b><span class="uicontrol"><i><span class="varname">catalog</span></i></span></b></span>.</span></li><li><span>Click <span class="uicontrol"><b>Create</b></span>.</span></li><li><span>Select the <span class="parmvalue"><b>Apply for VDC</b></span> template.</span>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Create VDC Service-Basic Info</b></span> page
+is displayed.</p>
+</li><li><span>Enter basic information about the VDC.</span>
+<p>Assume that the name of the the VDC to be created is <span class="parmvalue"><b>vdc_sz</b></span>.</p>
+<p><span class="parmname"><b>Services Catalog</b></span> is set to the directory
+created in <a href="#it_90_51_000098__catalog">5</a>.</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Resource Quotas</b></span> page is displayed.</p>
+</li><li><span>Select a resource quota setting mode:</span>
+<p><ul><li><span class="parmvalue"><b>Specify When Applying for Service</b></span>: set
+by an applicant when the applicant applies for the service.</li><li><span class="parmname"><b>Specify When Approving Application</b></span>: set by
+an administrator during resource approval based on user requirements.</li><li><span class="parmvalue"><b>Lock</b></span>: set by an administrator when the
+administrator creates the service.</li></ul>
+</p>
+<p>If you select <span class="uicontrol"><b>Lock</b></span>, configure VDC properties,
+such as the number of vCPUs.</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Region</b></span> page is displayed.</p>
+</li><li><span>Select a region setting mode.</span>
+<p><ul><li><span class="parmvalue"><b>Specify When Applying for Service</b></span>: set
+by an applicant when the applicant applies for the service.</li><li><span class="parmname"><b>Specify When Approving Application</b></span>: set by
+an administrator during resource approval based on user requirements.</li><li><span class="parmvalue"><b>Lock</b></span>: set by an administrator when the
+administrator creates the service.</li></ul>
+</p>
+<p>If you select <span class="uicontrol"><b>Lock</b></span>, configure a region.
+Select a region from the <span class="parmname"><b>Region</b></span> drop-down list
+box. The selected region must exist in <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>.</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Confirm Information</b></span> page is displayed.</p>
+</li><li><span>Click <span class="uicontrol"><b>Create</b></span>.</span>
+<p>The <span class="wintitle"><b>All Services</b></span> list is displayed. The
+VDC service is created successfully if it is displayed in the list.</p>
+</li><li><span>Click <span class="uicontrol"><b>Create</b></span> to create a cloud
+disk service.</span></li><li><span>Select <span class="uicontrol"><b>Apply for Disk</b></span> and select
+an approval type.</span>
+<p>Assume that <span class="parmname"><b>Approved by</b></span> is set to <span class="parmvalue"><b>VDC Administrator</b></span>.</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Create Block Storage Service-Location</b></span> page is displayed.</p>
+</li><li><span>Select a region setting mode.</span>
+<p><ul><li><span class="parmvalue"><b>Specify When Applying for Service</b></span>: set
+by an applicant when the applicant applies for the service.</li><li><span class="parmname"><b>Specify When Approving Application</b></span>: set by
+an administrator during resource approval based on user requirements.</li><li><span class="parmvalue"><b>Lock</b></span>: set by an administrator when the
+administrator creates the service.</li></ul>
+</p>
+<p>If you select <span class="uicontrol"><b>Lock</b></span>, configure a region
+and available zone. Select a region from the <span class="parmname"><b>Region</b></span> drop-down
+list box. The selected region must exist in <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>.</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Configure Storage</b></span> page is displayed.</p>
+</li><li><span>Configure cloud disk parameters, such as the storage
+capacity and type.</span></li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Basic Info</b></span> page is displayed.</p>
+</li><li><span>Configure the basic information about the cloud disk.</span>
+<p>Assume that <span class="parmname"><b>Name</b></span> is set to <span class="parmvalue"><b>disk</b></span>.</p>
+<p><span class="parmname"><b>Services Catalog</b></span> is set to the directory
+created in <a href="#it_90_51_000098__catalog">5</a>.</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Confirm Information</b></span> page is displayed.</p>
+</li><li><span>Ensure all the information is correct and click <span class="uicontrol"><b>Create</b></span>.</span>
+<p>The <span class="wintitle"><b>All Services</b></span> list is displayed. The
+cloud disk service is created successfully if it is displayed in the
+list.</p>
+</li><li><span>On the <span class="uicontrol"><b><i><span class="varname">catalog</span></i></b></span> page, click <span class="uicontrol"><b>Publish</b></span> in the <span class="uicontrol"><b><i><span class="varname">vdc_sz</span></i></b></span> and <span class="uicontrol"><b><i><span class="varname">disk</span></i></b></span> areas respectively.</span></li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">User</span></b> &gt; <b><span class="uicontrol">User Management</span></b></span>.</span>
+<p>The <span class="wintitle"><b>User Management</b></span> page is displayed.</p>
+</li><li><span>Click <span class="uicontrol"><b>Create User</b></span>.</span></li><li id="it_90_51_000098__vdcmanager"><a name="it_90_51_000098__vdcmanager"></a><a name="vdcmanager"></a><span>Set VDC administrator parameters as
+prompted.</span>
+<p>Focus on the setting of the following parameters:<ul><li>Set <span class="parmname"><b>Role Type</b></span> to <span class="parmvalue"><b>Service Management
+Roles</b></span>.</li><li>Set <span class="parmname"><b>Role</b></span> to <span class="parmvalue"><b>vdcServiceManager</b></span>.</li></ul>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Create</b></span>.</span>
+<p>When the system returns to the user list and the newly created
+user is displayed, the creation is successful.</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">The VDC administrator applies for a VDC service.</p>
+<div class="Steps-titled"><ol type="1" start="32"><li><span>Log out of the system, and select the tenant view to
+log in to the system as the user created in <a href="#it_90_51_000098__vdcmanager">30</a>.</span></li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b> &gt; <b><span class="uicontrol"><i><span class="varname">catalog</span></i></span></b></span>.</span></li><li><span>In the <span class="uicontrol"><b><i><span class="varname">vdc_sz</span></i></b></span> area, click <span class="uicontrol"><b>Apply For</b></span>.</span></li><li><span>Set parameters as prompted, and click <span class="uicontrol"><b>Submit</b></span>.</span></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">The administrator approves a VDC service.</p>
+<div class="Steps-titled"><ol type="1" start="36"><li><span>Log out of the system, and use the administrator account
+to log in to the ServiceCenter system.</span></li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">My Todo List</span></b></span>.</span></li><li><span>Confirm
+the application order information, including the order number and
+applicant, locate the row that contains the application order to be
+approved, and click <span class="uicontrol"><b>Approve</b></span> in the <span class="uicontrol"><b>Operation</b></span> column.</span></li><li><span>Approve the service application as prompted.</span>
+</li><li><span>Click <span class="uicontrol"><b>All Applications</b></span> to view
+the application status.</span>
+<p>When the status is <span class="uicontrol"><b>Succeeded</b></span>, the resource
+is successfully provisioned.</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">The VDC administrator creates a user.</p>
+<div class="Steps-titled"><ol type="1" start="41"><li><span>Log out of the system, and select the tenant view to
+log in to the system as the user created in <a href="#it_90_51_000098__vdcmanager">30</a>.</span></li><li><span>Click <span class="uicontrol"><b>Users</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>Create User</b></span>.</span></li><li id="it_90_51_000098__user"><a name="it_90_51_000098__user"></a><a name="user"></a><span>Set user parameters as prompted.</span>
+<p><p>Set <span class="parmname"><b>Role</b></span> to <span class="parmvalue"><b>serviceUser</b></span>.</p>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Create</b></span>.</span>
+<p>When the system returns to the user list and the newly created
+user is displayed, the creation is successful.</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Users submit service applications.</p>
+<div class="Steps-titled"><ol type="1" start="46"><li><span>Log out of the system, and select the tenant view to
+log in to the system as the user created in <a href="#it_90_51_000098__user">44</a>.</span></li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b> &gt; <b><span class="uicontrol"><i><span class="varname">catalog</span></i></span></b></span>.</span></li><li><span>In the <span class="uicontrol"><b><i><span class="varname">disk</span></i></b></span> area, click <span class="uicontrol"><b>Apply For</b></span>.</span></li><li><span>Set parameters as prompted.</span></li><li><span>Click <span class="uicontrol"><b>Submit</b></span>.</span></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">The VDC administrator approves an application.</p>
+<div class="Steps-titled"><ol type="1" start="51"><li><span>Log out of the system, and select the tenant view to log in to the system
+as the user created in <a href="#it_90_51_000098__vdcmanager">30</a>.</span>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">My Todo List</span></b></span>.</span></li><li><span>Confirm the application order information, including
+the order number and applicant, locate the row that contains the application
+order to be approved, and click <span class="uicontrol"><b>Approve</b></span> in
+the <span class="uicontrol"><b>Operation</b></span> column.</span></li><li><span>Approve the service application as prompted.</span>
+</li><li><span>Click <span class="uicontrol"><b>All Applications</b></span> to view
+the service provisioning status.</span>
+<p>When the status is <span class="uicontrol"><b>Succeeded</b></span>, the service
+is successfully provisioned. VDC users can use the cloud hard disk
+that is applied.</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

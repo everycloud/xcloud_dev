@@ -1,0 +1,69 @@
+<div class="ecs_storage_disk_info" ng-controller="ecs.storage.disk.info.ctrl">
+    <div class="innerbox-padding">
+        <div>
+            <tiny-formfield>
+                <tiny-item label="label.volumeId">
+                    <span ng-bind="volumeId"></span>
+                </tiny-item>
+                <tiny-item label="label.configType" display="isIT">
+                    <span ng-bind="configType"></span>
+                </tiny-item>
+                <tiny-item label="label.createTime">
+                    <span ng-bind="createTime"></span>
+                </tiny-item>
+                <!--服务实例-->
+                <tiny-item label="serviceInstanceName.label" display = "isServiceCenter">
+                    <div >
+                        <a ng-bind="instanceName" title="{{i18n.common_term_search_button}} {{hosts.name}}" class="btn-link"
+                           ng-click="jumpServiceInstancePage(hosts.id)"></a>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="inner-legend none-line"><span ng-bind-html="i18n.org_term_bondVMlist_label"></span></div>
+        <div style="width: 99.8%">
+            <tiny-table id="bindVms.id" columns="bindVms.columns" data="bindVms.data" render-row="bindVms.renderRow"
+                    columns-draggable="true" enable-pagination="bindVms.enablePagination"></tiny-table>
+        </div>
+    </div>
+</div>
+
+<script>
+require(['tiny-lib/jquery',
+        "app/business/ecs/controllers/storage/disk/diskInfoCtrl"
+    ],
+    function($, diskInfo) {
+        // 1.获取当前Dom
+        var curView = undefined;
+        $(".ecs_storage_disk_info").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+
+        // 2.编译(编译前scope是父页面继承来的)
+        var scope = curView.scope();
+        var modules = ["ng", "wcc", diskInfo.name];
+        modules.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".ecs_storage_disk_info"));
+            }
+        ]);
+        var $injector = angular.injector(modules);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile(curView)($rootScope);
+            $rootScope.$digest();
+        });
+
+        // 3.查询初始化信息
+        var newScope = curView.scope();
+        newScope.volumeId = scope.currentItem.id;
+        newScope.vpcId = scope.currentItem.vpcId;
+        newScope.cloudInfraId = scope.currentItem.cloudInfraId;
+        newScope.createTime = scope.currentItem.createTime;
+        newScope.disksDetail = scope.currentItem;
+        newScope.getBindVms();
+        newScope.init();
+    });
+</script>

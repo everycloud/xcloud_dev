@@ -1,0 +1,36 @@
+<div class="create-page-distance">
+    <div class="row-fluid">
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <div class="over-flow-style" style="width: 500px;">
+                    <span ng-bind="service.model.name" title="{{ service.model.name }}"></span>
+                </div>
+            </tiny-item>
+
+            <tiny-item label="logo.label" require="logo.require">
+                <img ng-src="{{'../theme/default/images/gm/appImage/'+service.model.curLogo}}" class='customHide' width='60px' height='76px'>
+            </tiny-item>
+
+            <tiny-item label="isoName.label" require="isoName.require">
+                <div class="over-flow-style" style="width: 500px;">
+                    <span ng-bind="service.model.templateName" title="{{service.model.templateName}}"></span>
+                </div>
+            </tiny-item>
+
+            <tiny-item label="description.label" require="description.require">
+                <div class="over-flow-style" style="width: 500px;">
+                    <span ng-bind="service.model.description" title="{{ service.model.description }}"></span>
+                </div>
+            </tiny-item>
+
+            <!-- 操作按钮 -->
+            <tiny-item label="buttonGroup.label" require="buttonGroup.require" class="fm-btn-top-small">
+                <tiny-button id="backBtn.id" disabled="backBtn.disabled" icons-class="backBtn.iconsClass" text="backBtn.text" tooltip="backBtn.tip" click="backBtn.back()"></tiny-button>
+                <tiny-button id="nextBtn.id" disabled="nextBtn.disabled" icons-class="nextBtn.iconsClass" text="nextBtn.text" tooltip="nextBtn.tip" click="nextBtn.next()" class="major-btn"></tiny-button>
+                <tiny-button id="cancelBtn.id" disabled="cancelBtn.disabled" icons-class="cancelBtn.iconsClass" text="cancelBtn.text" tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+            </tiny-item>
+
+        </tiny-formfield>
+    </div>
+
+</div>

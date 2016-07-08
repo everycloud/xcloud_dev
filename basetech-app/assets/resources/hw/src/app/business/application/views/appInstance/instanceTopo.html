@@ -1,0 +1,273 @@
+<div class="container-fluid">
+    <div>
+        <div class="crumbs">
+            <ul class="nav nav-list noPadding">
+                <li>
+                <li>
+                    <ul class="breadcrumb">
+                        <li><a class="btn-link" ui-sref="application.manager.instance" ng-bind="i18n.app_term_appInstance_label"></a> &gt; </li>
+                        <li><a class="btn-link" ui-sref="application.navigate.topo" ng-bind="appName"></a> &gt; </li>
+                        <li>{{i18n.sys_term_topo_label}}</li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+            </ul>
+        </div>
+
+        <div class="pull-right" style="margin-top: -45px;" ng-if="params.canViewTopo">
+            <tiny-button id="refreshBtn.id" text="refreshBtn.text" click="refreshBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="startBtn.id" text="startBtn.text" click="startBtn.click()" disable="startBtn.disable" class="major-btn" ng-if="hasOperateInstanRight"></tiny-button>
+            <tiny-button id="stopBtn.id" text="stopBtn.text" click="stopBtn.click()" disable="stopBtn.disable" class="major-btn" ng-if="hasOperateInstanRight"></tiny-button>
+            <tiny-button id="returnBtn.id" text="returnBtn.text" class="major-btn" click="returnBtn.click()"></tiny-button>
+        </div>
+    </div>
+
+    <div class="content-right-box" ng-if="!params.canViewTopo">
+        <div class="noTopoClass">
+            <span ng-bind="viewTopoTips"></span>
+        </div>
+    </div>
+    <div id="appTopoContainerDiv" class="content-right-box" ng-if="params.canViewTopo">
+        <div id="appTopoDiv" style="height: 100%; overflow-x: auto; cursor: pointer;"></div>
+        <div id="appTopoDetailDiv" style="margin-bottom: 0; position: fixed; bottom: 0px; display: none;z-index: 11; background:#f5f5f5; border:1px solid #e0e0e0;">
+            <button type="button" class="close row" ng-click="closeDetail()" style="position: relative;right: 18px;">×</button>
+            <div class="innerbox-padding" ng-if="currentNode.appNode" id="appTopoPopInfo-app">
+                <div class="legend" ng-bind-html="i18n.template_term_appInfo_label"></div>
+                <div class="line-height30">
+                    <tiny-formfield>
+                        <tiny-item label="applicationNode.name.label">
+                            <div ng-if="!applicationNode.name.modifying">
+                                <span ng-bind="appNodeJSON.appName" title="{{appNodeJSON.appName}}" class="textOverflow maxWidth200"></span>
+                                <span class="btn-link" ng-click="applicationNode.name.clickModify()">
+                                    <img ng-src="../theme/default/images/edit.png">
+                                </span>
+                            </div>
+                            <div ng-if="applicationNode.name.modifying">
+                                <tiny-textbox id="applicationNode.name.id" blur="applicationNode.name.blur()" keypressfn="applicationNode.name.keypressfn" width="150"></tiny-textbox>
+                            </div>
+                        </tiny-item>
+                        <tiny-item label="applicationNode.state.label">
+                            <span ng-bind="appNodeJSON.statusUI" title="{{appNodeJSON.statusUI}}" class="textOverflow maxWidth200"></span>
+                        </tiny-item>
+                        <tiny-item label="applicationNode.healthStatus.label">
+                            <span ng-bind="appNodeJSON.healthStatusUI" title="{{appNodeJSON.healthStatusUI}}" class="textOverflow maxWidth200"></span>
+                        </tiny-item>
+                        <tiny-item label="applicationNode.vpc.label">
+                            <span ng-bind="appNodeJSON.vpc" title="{{appNodeJSON.vpc}}" class="textOverflow maxWidth200"></span>
+                        </tiny-item>
+                        <tiny-item label="applicationNode.tag.label" ng-if="isIT">
+                            <span ng-bind="appNodeJSON.appTag" title="{{appNodeJSON.appTag}}" class="textOverflow maxWidth200"></span>
+                        </tiny-item>
+                        <tiny-item label="applicationNode.createUser.label">
+                            <span ng-bind="appNodeJSON.userName" title="{{appNodeJSON.userName}}" class="textOverflow maxWidth200"></span>
+                        </tiny-item>
+                        <tiny-item label="applicationNode.createTime.label">
+                            <span ng-bind="appNodeJSON.createBeginTime" title="{{appNodeJSON.createBeginTime}}" class="textOverflow maxWidth200"></span>
+                        </tiny-item>
+                        <tiny-item label="applicationNode.description.label">
+                            <div ng-if="!applicationNode.description.modifying">
+                                <span ng-bind="appNodeJSON.desc" title="{{appNodeJSON.desc}}" class="textOverflow maxWidth200"></span>
+                                <span class="btn-link" ng-click="applicationNode.description.clickModify()">
+                                    <img ng-src="../theme/default/images/edit.png">
+                                </span>
+                            </div>
+                            <div ng-if="applicationNode.description.modifying">
+                                <tiny-textbox id="applicationNode.description.id" blur="applicationNode.description.blur()" keypressfn="applicationNode.description.keypressfn" width="150"></tiny-textbox>
+                            </div>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+            <div class="innerbox-padding" ng-if="currentNode.netNode" id="appTopoPopInfo-network">
+                <div class="panel_title" ng-bind-html="i18n.common_term_netInfo_label"></div>
+                <div class="horizontal_line bottom10"></div>
+                <tiny-formfield>
+                    <tiny-item label="netNode.name.label">
+                        <span ng-bind="netNodeJSON.Name" title="{{netNodeJSON.Name}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.desc.label">
+                        <span ng-bind="netNodeJSON.Description" title="{{netNodeJSON.Description}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.type.label">
+                        <span ng-bind="netNodeJSON.NetworkType" title="{{netNodeJSON.NetworkType}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.vlan.label">
+                        <span ng-bind="netNodeJSON.VlanId" title="{{netNodeJSON.VlanId}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.dhcp.label">
+                        <span ng-bind="netNodeJSON.DhcpIsolation" title="{{netNodeJSON.DhcpIsolation}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.ipmacBind.label">
+                        <span ng-bind="netNodeJSON.IpMacBind" title="{{netNodeJSON.IpMacBind}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.ipDes.label">
+                        <span ng-bind="netNodeJSON.DhcpServerIPType" title="{{netNodeJSON.DhcpServerIPType}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.subnetIP.label">
+                        <span ng-bind="netNodeJSON.SubnetIp" title="{{netNodeJSON.SubnetIp}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.subnetMask.label">
+                        <span ng-bind="netNodeJSON.SubnetMask" title="{{netNodeJSON.SubnetMask}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="netNode.subnetGateway.label">
+                        <span ng-bind="netNodeJSON.SubnetGateway" title="{{netNodeJSON.SubnetGateway}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="innerbox-padding" ng-if="currentNode.vlbNode" id="appTopoPopInfo-lb">
+                <div class="panel_title" ng-bind-html="i18n.app_term_LBinfo_label"></div>
+                <div class="horizontal_line bottom10"></div>
+                <tiny-formfield>
+                    <tiny-item label="vlbNode.name.label">
+                        <span ng-bind="vlbNodeJSON.Name" title="{{vlbNodeJSON.Name}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="vlbNode.frontNet.label">
+                        <span ng-bind="vlbNodeJSON.FrontNetworkName" title="{{vlbNodeJSON.FrontNetworkName}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="vlbNode.backNet.label">
+                        <span ng-bind="vlbNodeJSON.BackEndNetworkName" title="{{vlbNodeJSON.BackEndNetworkName}}" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="vlbNode.protocol.label">
+                        <tiny-table id="vlbNode.protocol.id" data="vlbNodeJSON.Protocols" columns="vlbNode.protocol.columns" enable-pagination="false"></tiny-table>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="innerbox-padding" ng-if="currentNode.vmNode" id="appTopoPopInfo-vm">
+                <div class="row-fluid">
+                    <div class="span6 innerbox-padding" style="height: 220px">
+                        <div class="clearfix">
+                            <div class="panel_title fl">
+                                <span ng-bind-html="i18n.vm_term_VMbasicInfo_label"></span>
+                            </div>
+                            <div class="pull-right top10">
+                                <tiny-button id="vmNode.startBtn.id" text="vmNode.startBtn.text" disable="vmNodeJSON.supportStart" click="vmNode.startBtn.click()"></tiny-button>
+                                <tiny-button id="vmNode.stopBtn.id" text="vmNode.stopBtn.text" disable="vmNodeJSON.supportStop" click="vmNode.stopBtn.click()"></tiny-button>
+                                <tiny-button id="vmNode.rebootBtn.id" text="vmNode.rebootBtn.text" disable="vmNodeJSON.supportReboot" click="vmNode.rebootBtn.click()"></tiny-button>
+                                <tiny-button id="vmNode.updateBtn.id" text="vmNode.updateBtn.text" ng-if="user.cloudType==='IT'" click="vmNode.updateBtn.click()"></tiny-button>
+                            </div>
+                        </div>
+                        <div class="horizontal_line bottom10"></div>
+                        <tiny-formfield>
+                            <tiny-item label="vmNode.name.label">
+                                <a class='btn-link' ng-click='vmNode.goVmList()'>
+                                    <span ng-bind="vmNodeJSON.Name" title="{{vmNodeJSON.Name}}" class="textOverflow maxWidth200"></span>
+                                </a>
+                            </tiny-item>
+                            <tiny-item label="vmNode.ID.label">
+                                <span ng-bind="vmNodeJSON.Rid" title="{{vmNodeJSON.Rid}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="vmNode.status.label">
+                                <span ng-bind="vmNodeJSON.statusUI" title="{{vmNodeJSON.statusUI}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="vmNode.flag.label" display="isIT">
+                                <span ng-bind="vmNodeJSON.Tag" title="{{vmNodeJSON.Tag}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="vmNode.createTime.label">
+                                <span ng-bind="vmNodeJSON.CreateTime" title="{{vmNodeJSON.CreateTime}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="vmNode.domain.label" display="isIT">
+                                <span ng-bind="vmNodeJSON.DomainName" title="{{vmNodeJSON.DomainName}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="vmNode.desc.label">
+                                <span ng-bind="vmNodeJSON.Description" title="{{vmNodeJSON.Description}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                    <div class="span6 innerbox-padding" style="height: 220px" ng-show="isIT">
+                        <div class="panel_title bottom10">
+                            <span ng-bind-html="i18n.lb_term_vlbInfo_label"></span>
+                        </div>
+                        <div class="table-tiny-box-height clearfix">
+                            <tiny-table id="vmNode.vlbs.id" data="vmNodeJSON.Nics" columns="vmNode.vlbs.columns" render-row="vmNode.vlbs.renderRow" enable-pagination="false"></tiny-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="currentNode.sgNode" id="appTopoPopInfo-sg">
+                <div class="row-fluid">
+                    <div class="span6 innerbox-padding" style="height: 220px">
+                        <div class="clearfix">
+                            <div class="panel_title fl">
+                                <span ng-bind-html="i18n.app_term_flexGroupInfo_label"></span>
+                            </div>
+                            <div class="pull-right top10">
+                                <tiny-button id="sgNode.modBtn.id" text="sgNode.modBtn.text" click="sgNode.modBtn.click()"></tiny-button>
+                            </div>
+                        </div>
+                        <div class="horizontal_line bottom10"></div>
+                        <tiny-formfield>
+                            <tiny-item label="sgNode.name.label">
+                                <span ng-bind="sgNodeJSON.scalingGroupInfo.groupName" title="{{sgNodeJSON.scalingGroupInfo.groupName}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="sgNode.desc.label">
+                                <span ng-bind="sgNodeJSON.scalingGroupInfo.groupDesc" title="{{sgNodeJSON.scalingGroupInfo.groupDesc}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="sgNode.minVMS.label">
+                                <span ng-bind="sgNodeJSON.scalingGroupInfo.minSize" title="{{sgNodeJSON.scalingGroupInfo.minSize}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="sgNode.maxVMS.label">
+                                <span ng-bind="sgNodeJSON.scalingGroupInfo.maxSize" title="{{sgNodeJSON.scalingGroupInfo.maxSize}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="sgNode.coolTime.label">
+                                <span ng-bind="sgNodeJSON.scalingGroupInfo.coolDown" title="{{sgNodeJSON.scalingGroupInfo.coolDown}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                    <div class="span6 innerbox-padding" style="height: 220px">
+                        <div class="clearfix">
+                            <div class="panel_title fl">
+                                <span ng-bind-html="i18n.common_term_runningStatus_label"></span>
+                            </div>
+                            <div class="pull-right top10">
+                                <tiny-button id="sgNode.applyBtn.id" text="sgNode.applyBtn.text" click="sgNode.applyBtn.click()"></tiny-button>
+                            </div>
+                        </div>
+                        <div class="horizontal_line bottom10"></div>
+                        <tiny-formfield>
+                            <tiny-item label="sgNode.status.label">
+                                <span ng-bind="sgNodeJSON.scalingGroupInfo.scalingStatusUI" title="{{sgNodeJSON.scalingGroupInfo.scalingStatusUI}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="sgNode.totalVMS.label">
+                                <span ng-bind="sgNodeJSON.scalingGroupInfo.vmTotal" title="{{sgNodeJSON.scalingGroupInfo.vmTotal}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                            <tiny-item label="sgNode.runVMS.label">
+                                <span ng-bind="sgNodeJSON.scalingGroupInfo.vmRunning" title="{{sgNodeJSON.scalingGroupInfo.vmRunning}}" class="textOverflow maxWidth200"></span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6 innerbox-padding">
+                        <div class="clearfix bottom10">
+                            <div class="panel_title fl">
+                                <span ng-bind-html="i18n.app_term_intraPolicy_label"></span>
+                            </div>
+                            <div class="pull-right top10">
+                                <tiny-button id="sgNode.addPolicyBtn.id" text="sgNode.addPolicyBtn.text" click="sgNode.addPolicyBtn.click()"></tiny-button>
+                            </div>
+                        </div>
+                        <tiny-table id="sgNode.policys.id" data="sgNodeJSON.policiesUI" columns="sgNode.policys.columns" render-row="sgNode.policys.renderRow" enable-pagination="false"></tiny-table>
+                    </div>
+                    <div class="span6 innerbox-padding" ng-if="isIT">
+                        <div class="panel_title bottom10">
+                            <span ng-bind="i18n.app_term_timerScaling_label"></span>
+                        </div>
+                        <div class="table-tiny-box-height">
+                            <tiny-table id="sgNode.scheduleTimeInfo.id" data="sgNodeJSON.scheduleTimeInfosUI" columns="sgNode.scheduleTimeInfo.columns" render-row="sgNode.scheduleTimeInfo.renderRow" enable-pagination="false"></tiny-table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6 innerbox-padding" ng-if="isIT">
+                        <div class="panel_title bottom10">
+                            <span ng-bind-html="i18n.lb_term_vlb_label"></span>
+                        </div>
+                        <div class="table-tiny-box-height">
+                            <tiny-table id="sgNode.vlbs.id" data="sgNodeJSON.nicsUI" columns="sgNode.vlbs.columns" render-row="sgNode.vlbs.renderRow" enable-pagination="false"></tiny-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,256 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VPN">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000039">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VPN</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("业务功能的使用\nVPN");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100024.html\">业务功能的使用<\/a> > VPN<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000039"></a><a name="it_60_51_000039"></a>
+
+
+
+<h1 class="topictitle1">VPN</h1>
+<ul><li><a href="#it_60_51_000039__1.2.1.1">简介</a></li><li><a href="#it_60_51_000039__1.2.2.1">原理概述</a></li><li><a href="#it_60_51_000039__1.2.3.1">配置流程</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_51_000039__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000039" class="sectiontitle2contents">简介</a></h4><p>VPN业务用于在远端用户和VPC之间建立一条安全加密的通信隧道，使远端用户通过VPN访问VPC中的业务资源。</p>
+<p><span>FusionManager</span>支持创建IPSec和L2TP两种类型的VPN：</p>
+<ul><li>IPSec VPN用于分支机构和公司总部之间通信，为处于不同物理地域的企业提供了建立安全通信隧道的方式。</li><li>L2TP VPN用于企业出差人员远程经由Internet，通过VPN客户端与公司总部之间的网络连接。</li></ul>
+</div>
+
+<div class="section"><a name="it_60_51_000039__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000039" class="sectiontitle2contents">原理概述</a></h4><p><strong>IPSec VPN</strong></p>
+<p>IPSec提供了一种建立和管理安全隧道的方式，通过对要传输的数据报文提供认证和加密服务来防止数据在网络内或通过公网传输时被非法查看或篡改。</p>
+<p>网关到网关的组网方式是IPSec的典型组网，如<a href="#it_60_51_000039__d779e39">图1</a>所示。在此组网方式下，VPN网关和远端网关都支持IPSec，两个网关之间的连接是加密的。从用户到远端网关之间的连接，服务器和VPN网关之间的连接是未加密的。</p>
+<div class="fignone" id="it_60_51_000039__d779e39"><a name="it_60_51_000039__d779e39"></a><a name="d779e39"></a><span class="figcap"><b>图1 </b>IPSec VPN</span>
+
+<br><span><img src="fig/fig_it_60_51_000013_01.png"></span></div>
+<p><strong>L2TP
+VPN</strong></p>
+<p>L2TP VPN用于出差员工访问公司中的服务器，通过终端设备上安装的VPN客户端直接向LNS发起隧道连接请求，LNS为客户端分配IP地址，在VPN客户端和VPN网关之间建立起L2TP
+over IPSec的VPN隧道，如<a href="#it_60_51_000039__d779e52">图2</a>所示。</p>
+<div class="fignone" id="it_60_51_000039__d779e52"><a name="it_60_51_000039__d779e52"></a><a name="d779e52"></a><span class="figcap"><b>图2 </b> L2TP VPN</span>
+
+<br><span><img src="fig/fig_it_60_51_000013_02.png"></span></div>
+</div>
+
+<div class="section"><a name="it_60_51_000039__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000039" class="sectiontitle2contents">配置流程</a></h4><p>VPN功能的配置流程如<a href="#it_60_51_000039__fig_processVPN">图3</a>所示。</p>
+<div class="fignone" id="it_60_51_000039__fig_processVPN"><a name="it_60_51_000039__fig_processVPN"></a><a name="fig_processVPN"></a><span class="figcap"><b>图3 </b>VPN业务配置流程</span>
+
+<br><span><img src="fig/fig_it_60_51_000039_01.png"></span></div>
+
+<div class="tablenoborder"><a name="it_60_51_000039__table_0212A7AE"></a><a name="table_0212A7AE"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000039__table_0212A7AE" frame="border" border="1" rules="all"><caption><b>表1 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="28.238341968911918%" id="mcps1.2.3.4.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="41.19170984455958%" id="mcps1.2.3.4.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="30.569948186528496%" id="mcps1.2.3.4.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>申请路由器</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p>为VPC申请一个路由器，通过路由器可以在VPC中配置弹性IP、NAT、ACLs和VPN业务。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="uicontrol">“路由器”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>创建路由网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_router"><a name="it_60_51_000039__p_router"></a><a name="p_router"></a><span>FusionManager</span>通过防火墙设备上的VPN功能，实现在VPC外部的网络与路由网络之间建立VPN隧道，以VPN方式访问路由网络中的虚拟机。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">网络</span> &gt; <span class="uicontrol">网络</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>申请公网IP地址</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p>从<span>FusionManager</span>的资源池里申请VPC可以使用的公网IP地址。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">网络</span> &gt; <span class="uicontrol">公网IP地址</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>申请弹性IP地址</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p>在VPC的公网IP地址中，申请一个公网IP地址作为弹性IP地址使用。</p>
+<p id="it_60_51_000039__p_eip"><a name="it_60_51_000039__p_eip"></a><a name="p_eip"></a>弹性IP地址用于为VPN网关提供网关地址。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">网络</span> &gt; <span class="uicontrol">弹性IP地址</span>”</span>。</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>创建VPN网关</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_vpnGW"><a name="it_60_51_000039__p_vpnGW"></a><a name="p_vpnGW"></a>VPN网关为VPN隧道在VPC一端提供路由功能。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">VPN</span> &gt; <span class="uicontrol">VPN网关</span>”</span>。</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>创建VPN连接（IPSec）</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_ipsec"><a name="it_60_51_000039__p_ipsec"></a><a name="p_ipsec"></a>创建IPSec类型的VPN连接，将路由网络和用户所在的远端网络通过VPN隧道连接起来，用户可以通过VPN隧道访问VPC内的业务资源。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">VPN</span> &gt; <span class="uicontrol">VPN链接</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>创建VPN连接（L2TP）</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_l2tp"><a name="it_60_51_000039__p_l2tp"></a><a name="p_l2tp"></a>创建L2TP类型的VPN连接，使用户通过VPN客户端可以访问VPC内的所有路由网络。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">VPN</span> &gt; <span class="uicontrol">VPN链接</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.238341968911918%" headers="mcps1.2.3.4.2.4.1.1 "><p>配置VPN客户端</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.19170984455958%" headers="mcps1.2.3.4.2.4.1.2 "><p id="it_60_51_000039__p_client"><a name="it_60_51_000039__p_client"></a><a name="p_client"></a>使用L2TP类型的VPN时，要在远端的PC机或虚拟机上安装VPN客户端，以使用VPN客户端连接到VPN网关。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="30.569948186528496%" headers="mcps1.2.3.4.2.4.1.3 ">VPN客户端需要手动配置，具体请参考<a href="it_60_51_600025.html">配置VPN客户端</a>。</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

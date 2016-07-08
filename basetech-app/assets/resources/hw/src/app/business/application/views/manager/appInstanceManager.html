@@ -1,0 +1,129 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span ng-bind-html="i18n.app_term_appInstance_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.app_app_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div id="appListTopBtnGrp" class="clearfix">
+            <div class="fl" ng-if="deployMode!=='serviceCenter'">
+                <tiny-button id="createBtn.id" text="createBtn.text" tooltip="createBtn.tooltip" click="createBtn.click()" disabled="createBtn.disable" class="major-btn" ng-if="hasInstanceOperateRight">
+                </tiny-button>
+            </div>
+            <div class="pull-right" ng-class="{'customAppListAthMargin':hasInstanceOperateRight}">
+                <div class="small-icon small-icon-menuicon" style="margin-top: 5px;"></div>
+                <tiny-filtersel id="location.id" values="location.values" width="location.width" validate='location.validate' change="location.change()">
+                </tiny-filtersel>
+                <tiny-filtersel id="searchVpc.id" values="searchVpc.values" width="searchVpc.width" change="searchVpc.change()" ng-if="supportSelectVpc=='true'">
+                </tiny-filtersel>
+                <tiny-filtersel id="searchStatus.id" values="searchStatus.values" width="searchStatus.width" change="searchStatus.change()" display="searchStatus.display">
+                </tiny-filtersel>
+
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                    <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search" display="searchBox.display">
+                    </tiny-searchbox>
+                </span>
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{refresh.tips}}" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div title="{{help.tips}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="appListUl clearfix ">
+            <ul id="appListId" class="clearfix row-fluid">
+                <li ng-repeat="app in appList" class="span6 small-layout" style="margin-left: 0;">
+                    <div>
+                        <div class="small-layout-inner">
+                            <div class="clearfix">
+                                <img ng-src="{{app.picture}}" ng-click="view(app.id, app.vpcId,app.isVPCStack)" class="fl pointer" style="width:110px;">
+
+                                <div class="fl templateRightLayout">
+                                    <div class="clearfix">
+                                        <div class="small-layout-title pointer fl" ng-click="view(app.id, app.vpcId,app.isVPCStack)" title="{{app.name}}">
+                                            <span ng-bind="app.nameShorten"></span>
+                                        </div>
+                                    </div>
+                                    <div class="fl">
+                                        <tiny-formfield>
+                                            <tiny-item label="app.idLabel" title="{{app.id}}">
+                                                <span>{{app.id}}</span>
+                                            </tiny-item>
+                                                <tiny-item label="app.typeLabel">
+                                                    <span>{{app.type}}</span>
+                                                </tiny-item>
+                                            </tiny-formfield>
+                                        <div ng-if="isIT">
+                                            <tiny-formfield>
+                                                <tiny-item label="app.vpcLabel" title="{{app.vpcName}}">
+                                                    <span>{{app.vpcName}}</span>
+                                                </tiny-item>
+                                            </tiny-formfield>
+                                        </div>
+                                        <div ng-show="!app.canShowFail">
+                                            <tiny-formfield>
+                                                <tiny-item label="app.statusLabel">
+                                                    <span class="fl">{{app.status}}</span>
+                                                    <div class="appPercentBorder fl" ng-show="app.statusKey=='Creating' && isIT">
+                                                        <div class="appPercentSpan" id="ssp_exportpercent_span">{{app.progress}}</div>
+                                                        <div ng-style="{width:app.progress}" class="percentDIV" id="ssp_exportpercent_width"></div>
+                                                    </div>
+                                                </tiny-item>
+                                            </tiny-formfield>
+                                        </div>
+                                        </tiny-formfield>
+                                        <div class="clearfix">
+                                            <div ng-show="app.canShowFail" class="fl">
+                                                <tiny-formfield>
+                                                    <tiny-item label="app.statusLabel">
+                                                        <a href="javascript:void(0)" ng-click="showFailDetail(app.id)">{{app.status}}</a>
+                                                    </tiny-item>
+                                                </tiny-formfield>
+                                            </div>
+                                            <div class="fl left15" ng-show="isIT" ng-if="hasInstanceOperateRight&&(app.statusKey=='CreationFailed')||(app.statusKey=='RepaireFailed')">
+                                                <a href="javascript:void(0)" ng-click="repair(app.id, app.vpcId)">
+                                                    <div class="small-icon small-icon-repair"></div><span ng-bind="i18n.common_term_restore_button"></span></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="javascript:void(0)" ng-click="actOnApp(app.id, app.vpcId, 'Start')" ng-show="app.canStart===true" class="appListBottomA">
+                                                    <div class="small-icon small-icon-start"></div><span ng-bind="i18n.common_term_startup_button"></span></a>
+                                                <span ng-show="app.canStart===false" class="appListBottomA">
+                                                    <div class="imageDisabled small-icon small-icon-start"></div><span ng-bind="i18n.common_term_startup_button"></span></span>
+                                                <a href="javascript:void(0)" ng-click="actOnApp(app.id, app.vpcId, 'Stop')" ng-show="app.canStop===true" class="appListBottomA">
+                                                    <div class="small-icon small-icon-stopped"></div><span ng-bind="i18n.common_term_stop_button"></span></a>
+                                                <span ng-show="app.canStop===false" class="appListBottomA">
+                                                    <div class="imageDisabled small-icon small-icon-stopped" ></div><span ng-bind="i18n.common_term_stop_button"></span></span>
+                                                <tiny-menubutton class="major-btn" id="app.id" text="moreBtn.text" content="app.content" type="moreBtn.type" ng-if="hasInstanceOperateRight" click-callback="moreBtn.clickCallback"></tiny-menubutton>
+                                            </div>
+                                            <div class="appViewDetail">
+                                                <a href="javascript:void(0)" ng-click="viewDetail(app.id, app.vpcId, app.resPoolFm)" ng-bind="i18n.app_term_checkDeployDetail_button"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <div class="appListFooterPage clearfix small-layout-top">
+                <tiny-pagination id="appPagination.id" type="appPagination.type1" display="appPagination.display" hide-total-records="appPagination.hideTotalRecords" total-records="appPagination.totalRecords" prev-text="appPagination.prevText" next-text="appPagination.nextText"
+                hide-display-length="appPagination.hideDisplayLength" display-length="appPagination.displayLength" length-options="appPagination.options" cur-page="appPagination.curPage" callback="appPagination.callback" change-select="appPagination.changeSelect"></tiny-pagination>
+            </div>
+        </div>
+    </div>
+</div>

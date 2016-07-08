@@ -1,0 +1,32 @@
+<div class="ecs_vm_detail_disk_expend alert-tip-first" ng-controller="ecs.vm.detail.disk.extend.ctrl">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="size.label" require="size.require">
+                <tiny-textbox id="size.id" value="size.value" width="size.width" validate="size.validate" tooltip="size.tips"></tiny-textbox>
+            </tiny-item>
+            <tiny-item>
+                <div class="fm-btn-top-small">
+                    <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+
+<script>
+require(['app/business/ecs/controllers/vm/disk/expendVmDiskCtrl'],
+    function(modDiskCtrl) {
+        var dep = ['ng', 'wcc', modDiskCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".ecs_vm_detail_disk_expend"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".ecs_vm_detail_disk_expend"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

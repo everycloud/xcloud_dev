@@ -1,0 +1,23 @@
+<div id="createAppNetwork">
+    <div class="create-page-distance">
+        <div class="table-tiny-box-height clearfix">
+            <tiny-table id="info.networkTable.id" data="templateNet.data" columns="info.networkTable.columns" length-menu="info.networkTable.lengthMenu" enable-pagination="info.networkTable.enablePagination" render-row="info.networkTable.renderRow" pagination-style="info.networkTable.paginationStyle">
+            </tiny-table>
+        </div>
+
+        <div class="top15">
+            <div class="createpage-title none-line"><span ng-bind-html="i18n.common_term_sharePara_label"></span>：</div>
+        </div>
+        <div class="table-tiny-box-height clearfix">
+            <tiny-table id="info.commonParams.id" data="commonParams.data" columns="info.commonParams.columns" enable-pagination="info.commonParams.enablePagination" render-row="info.commonParams.renderRow" pagination-style="info.commonParams.paginationStyle" length-menu="info.commonParams.lengthMenu"></tiny-table>
+        </div>
+
+        <div class="fm-btn-top-large">
+            <tiny-button id="info.preBtn.id" text="info.preBtn.text" tooltip="info.preBtn.tooltip" click="info.preBtn.click()"></tiny-button>
+            <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" tooltip="info.nextBtn.tooltip" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" tooltip="info.cancelBtn.tooltip" click="info.cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+
+
+</div>

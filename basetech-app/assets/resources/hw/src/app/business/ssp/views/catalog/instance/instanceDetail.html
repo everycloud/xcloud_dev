@@ -1,0 +1,164 @@
+<div class="container-fluid service-apply-detail" ng-controller="ssp.catalog.instance.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+
+        <div class="row-fluid span4">
+            <div class="form-item">
+                <div class="inner-legend">
+                    <tiny-formfield>
+                        <tiny-item label="label.summary">
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div>
+                    <tiny-formfield>
+                        <tiny-item label="label.name">
+                            <div ng-if="!name.modifying">
+                                <span ng-bind="instanceDetail.data.name" title="{{instanceDetail.data.name}}" class="textOverflow maxWidth200"></span>
+                                <span ng-if="instanceDetail.data.status != 'expired'">
+                                    <span class="btn-link" ng-click="name.clickModify()">
+                                        <img ng-src="../theme/default/images/edit.png">
+                                    </span>
+                                </span>
+                                <span ng-if="instanceDetail.data.status == 'expired'">
+                                    <span class="btn-link">
+                                        <img ng-src="../theme/default/images/editDis.png">
+                                    </span>
+                                </span>
+                            </div>
+                            <div ng-if="name.modifying">
+                                <tiny-textbox id="name.textBoxId" validate="name.validate" blur="name.blur()" keypressfn="name.keypressfn" width="150"></tiny-textbox>
+                            </div>
+                        </tiny-item>
+
+                        <tiny-item label="label.createTime">
+                            <span ng-bind="instanceDetail.data.createTime"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid span4">
+            <div class="inner-legend">
+                <tiny-formfield>
+                    <tiny-item label="label.resource">
+                        <a class="btn-link">
+                            <div ng-click="refreshResources()" title="{{i18n.common_term_update_button}}" class="small-icon small-icon-refresh"></div>
+                        </a>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-repeat="resource in instanceDetail.data.resources">
+                <div style="height: 30px;">
+                    <div class="fl" style="width: 230px;">
+                        <div ng-if="resource.resourceType==='eip'">
+                            <span ng-bind="resource.vpcName"class="textOverflow" title="{{resource.vpcName}}" style="padding-right:5px; width: 100px;"></span>
+                            <span ng-bind="resource.resourceName" title="{{i18n.common_term_search_button}} {{resource.resourceName}}" class="textOverflow" style="width: 120px;"></span>
+                            <span ng-bind="resource.resourceTypeView" title="{{resource.resourceTypeView}}" class="textOverflow" style="width: 70px;padding-left: 10px;"></span>
+                        </div>
+                        <div ng-if="resource.resourceType!='eip'">
+                            <span ng-bind="resource.resourceId" title="{{i18n.common_term_search_button}} {{resource.resourceId}}" class="textOverflow" style="width: 100px;" ng-class="{'btn-link':resource.resourceUrl}"
+                                  ng-click="jump2ResourcePage(resource.resourceUrl, resource.resourceId, resource.resourceName, resource.metadata['cloudInfraId'], resource.metadata['vpcId'])"></span>
+                            <span ng-bind="resource.resourceName" title="{{resource.resourceName}}" class="textOverflow" style="margin-left: 10px;width: 60px;"></span>
+                            <span ng-bind="resource.resourceTypeView" title="{{resource.resourceTypeView}}" class="textOverflow" style="width: 50px;padding-left: 10px;"></span>
+                        </div>
+                    </div>
+                    <div class="fr right10">
+                        <!--ICT场景的磁盘 以及软件路由下的弹性IP 不支持变更-->
+                        <a ng-if="instanceDetail.data.status !== 'expired' && resource.modifyUrl && !(resource.resourceType==='disk' && isICT) && !(resource.resourceType==='eip' && resource.metadata['routerType']==='soft')"
+                            style="text-decoration: none;cursor: pointer;"  ng-bind="i18n.common_term_change_label"
+                            ng-click="changeResource(resource.modifyUrl, resource.id, resource.resourceId, resource.metadata['cloudInfraId'], resource.metadata['vpcId'])"></a>
+                        <span ng-if="(instanceDetail.data.status === 'expired' || !resource.modifyUrl || (resource.resourceType==='disk' && isICT)) && resource.resourceType !== 'vapp'"
+                              ng-bind="i18n.common_term_change_label"></span>
+                        <a style="text-decoration: none;cursor: pointer;" class="left10" ng-click="deleteResource(resource.id, resource.resourceType)" ng-bind="i18n.common_term_delete_button"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid span4">
+            <div class="form-item">
+                <div class="inner-legend">
+                    <tiny-formfield>
+                        <tiny-item label="label.apply">
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+                <div>
+                    <tiny-formfield>
+                        <tiny-item label="label.applyOrder" display="instanceDetail.applyOrder !== null">
+                            <a style="text-decoration: none;cursor: pointer;" ng-click="viewOrder(instanceDetail.applyOrder)">
+                                <span ng-bind="instanceDetail.applyOrder.orderId"></span>
+                            </a>
+                        </tiny-item>
+                        <tiny-item label="label.changeOrder" display="instanceDetail.changeOrder !== null">
+                            <a style="text-decoration: none;cursor: pointer;" ng-click="viewOrder(instanceDetail.changeOrder)">
+                                <span ng-bind="instanceDetail.changeOrder.orderId"></span>
+                            </a>
+                            <a ng-if="instanceDetail.allChangeOrder.length > 1" title="{{i18n.common_term_more_button}}"
+                               ng-click="showMoreOrder(changeOrderBoxId, $event)"
+                               class="btn-link left10" style="text-decoration: none;">...</a>
+                            <div >
+                                <div id="{{changeOrderBoxId}}" class="pop-box">
+                                    <div class="pop-title" ng-bind="i18n.service_term_allChangeWorkOrder_label"></div>
+                                    <ul>
+                                        <li ng-repeat="order in instanceDetail.allChangeOrder">
+                                            <a ng-bind="order.orderId" ng-click="viewOrder(order)"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </tiny-item>
+                        <tiny-item label="label.extendOrder" display="instanceDetail.extendOrder !== null">
+                            <a style="text-decoration: none;cursor: pointer;" ng-click="viewOrder(instanceDetail.extendOrder)">
+                                <span ng-bind="instanceDetail.extendOrder.orderId"></span>
+                            </a>
+                            <a ng-if="instanceDetail.allExtendOrder.length > 1" title="{{i18n.common_term_more_button}}"
+                               ng-click="showMoreOrder(extendOrderBoxId, $event)"
+                               class="btn-link left10" style="text-decoration: none;">...</a>
+                            <div >
+                                <div id="{{extendOrderBoxId}}" class="pop-box">
+                                    <div class="pop-title" ng-bind="i18n.service_term_allDelayWorkOrder_label"></div>
+                                    <ul>
+                                        <li ng-repeat="order in instanceDetail.allExtendOrder">
+                                            <a ng-bind="order.orderId" ng-click="viewOrder(order)"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+require(['app/business/ssp/controllers/catalog/instance/instanceDetailCtrl'],
+    function(catalogDetailModel) {
+        var curView = undefined;
+        $(".service-apply-detail").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+        //编译(编译前scope是父页面继承来的)
+        var scope = curView.scope();
+        var dep = ['ng', 'wcc', catalogDetailModel.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", curView);
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile(curView)($rootScope);
+            $rootScope.$digest();
+        });
+        //查询详细信息 (编译后scope是新new出来的)
+        var id = scope.currentItem.id;
+        var newScope = curView.scope();
+        newScope.init(id);
+    });
+</script>

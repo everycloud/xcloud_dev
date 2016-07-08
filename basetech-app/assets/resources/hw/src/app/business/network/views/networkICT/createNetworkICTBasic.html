@@ -1,0 +1,26 @@
+    <div class="create-page-distance">
+        <tiny-formfield>
+            <tiny-item label="baseInfo.name.label" require="baseInfo.name.require">
+                <tiny-textbox id="baseInfo.name.id" validate="baseInfo.name.validate" value="data.name" tooltip="baseInfo.name.tooltip" tip-position="baseInfo.name.tipPosition"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="baseInfo.type.label" require="baseInfo.type.require">
+                <div ng-if="!data.routed">
+                    <tiny-radio text='baseInfo.radiogroup.inner' name="baseInfo.radiogroup.name" checked='true' disable="isModifyMode" click="click('inner')" height="27"></tiny-radio>
+                    <div class=" inline-help"><span ng-bind="i18n.vpc_net_add_para_type_mean_inner_label"></span></div>
+                    <tiny-radio text='baseInfo.radiogroup.router' name="baseInfo.radiogroup.name" click="click('router')" height="27" disable="baseInfo.radiogroup.disable || isModifyMode"></tiny-radio>
+                    <div class=" inline-help" id="routerDiv"><span ng-bind="i18n.vpc_net_add_para_type_mean_router_label"></span></div>
+                </div>
+                <div ng-if="data.routed">
+                    <tiny-radio text='baseInfo.radiogroup.inner' name="baseInfo.radiogroup.name" disable="isModifyMode" height="27"></tiny-radio>
+                    <div class=" inline-help"><span ng-bind="i18n.vpc_net_add_para_type_mean_inner_label"></span></div>
+                    <tiny-radio text='baseInfo.radiogroup.router' name="baseInfo.radiogroup.name"  checked="true" height="27" disable="baseInfo.radiogroup.disable || isModifyMode"></tiny-radio>
+                    <div class=" inline-help"><span ng-bind="i18n.vpc_net_add_para_type_mean_router_label"></span></div>
+                </div>
+
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="baseInfo.nextBtn.id" text="baseInfo.nextBtn.text" click="baseInfo.nextBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="baseInfo.cancelBtn.id" text="baseInfo.cancelBtn.text" click="baseInfo.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

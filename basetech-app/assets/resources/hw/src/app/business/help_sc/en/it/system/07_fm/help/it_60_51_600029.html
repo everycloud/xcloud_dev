@@ -1,0 +1,266 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Installing the Antivirus Software Client Driver">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600029">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Installing the Antivirus Software Client Driver</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nInstalling the Antivirus Software Client Driver");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_faq_cp_01.html\">FAQ<\/a> > Installing the Antivirus Software Client Driver<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600029"></a><a name="it_60_51_600029"></a>
+
+
+<h1 class="topictitle1">Installing the Antivirus Software Client Driver</h1>
+<ul><li><a href="#it_60_51_600029__1.2.1.1">Antivirus Virtualization Function</a></li><li><a href="#it_60_51_600029__1.2.2.1">Deployment Plan</a></li><li><a href="#it_60_51_600029__1.2.3.1">Restrictions</a></li><li><a href="#it_60_51_600029__1.2.4.1">Impacts</a></li><li><a href="#it_60_51_600029__1.2.5.1">Prerequisites</a></li><li><a href="#it_60_51_600029__1.2.6.1">Installing the Antivirus Software Client
+Driver</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600029__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600029" class="sectiontitle2contents">Antivirus Virtualization Function</a></h4> <p><span>FusionCompute</span> provides
+Applications Programming Interfaces (APIs) to support the antivirus
+virtualization function for users. The antivirus vendors develop and
+integrate their antivirus engines and antivirus databases based on
+the APIs, jointly delivering the antivirus function for this virtualization
+platform.</p>
+ <p>After a secure service VM (SVM, <a href="#it_60_51_600029__d1400e38">Note 1</a>) is deployed on a host, and the antivirus driver is
+installed on other VMs on the host, called secure user VMs (GVMs, <a href="#it_60_51_600029__d1400e40">Note 2</a>), the secure user VMs can use the antivirus
+services, including virus scanning, removal, and real-time monitoring
+(<a href="#it_60_51_600029__d1400e45">Note 3</a>).</p>
+ <p>Compared with the traditional
+antivirus function, the antivirus virtualization function on <span>FusionCompute</span> requires no
+complete antivirus software for user VMs, and requires only a few
+computing resources on user VMs for the antivirus driver, leaving
+sufficient storage and computing resources for user VMs. </p>
+<p>In
+the mean time, the antivirus virtualization function on <span>FusionCompute</span> provides higher
+performance because the system uses host physical memory swapping
+to scan, monitor, and remove viruses, and does not require network
+resources on user VMs.</p>
+<p id="it_60_51_600029__d1400e38"><a name="it_60_51_600029__d1400e38"></a><a name="d1400e38"></a>Note 1: The secure service
+VM is provided by the antivirus vendor.</p>
+<p id="it_60_51_600029__d1400e40"><a name="it_60_51_600029__d1400e40"></a><a name="d1400e40"></a>Note 2: Only
+certain Windows VMs can be set to secure user VMs. For details about
+the supported operating systems (OSs), see <span>the following
+restrictions</span>. Antivirus software drivers installed on secure user VMs must be
+provided by Huawei.</p>
+<p id="it_60_51_600029__d1400e45"><a name="it_60_51_600029__d1400e45"></a><a name="d1400e45"></a>Note 3: The antivirus services
+and performance are determined by the antivirus engine provided by
+the antivirus vendor.</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_600029__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600029" class="sectiontitle2contents">Deployment Plan</a></h4><div class="p"><a href="#it_60_51_600029__d1400e54">Figure 1</a> shows the deployment plan of the antivirus system. <div class="fignone" id="it_60_51_600029__d1400e54"><a name="it_60_51_600029__d1400e54"></a><a name="d1400e54"></a><span class="figcap"><b>Figure 1 </b>Deployment plan of the antivirus system</span>
+
+<br><span><img src="../../05_fc/vm_prov/fig/fig_it_58_45_500001_01.png"></span></div>
+</div>
+<div class="p">The deployment principles are as follows:<ul><li>Multiple secure user VMs can be deployed on one host.</li><li>Only one secure service VM can be deployed on one host to provide
+antivirus services for secure user VMs on the host.</li><li>An antivirus management center is required to manage all secure
+service VMs, configure antivirus policies, and issue virus scan tasks.<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">Different antivirus vendors provide different antivirus
+software. All antivirus software in this document is called <span class="uicontrol"><b>antivirus management center</b></span>.</div></div>
+</li><li>The antivirus management center must be connected to secure service
+VMs over the network.</li></ul>
+</div>
+</div>
+
+<div class="section" id="it_60_51_600029__restrict"><a name="it_60_51_600029__restrict"></a><a name="restrict"></a><a name="it_60_51_600029__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600029" class="sectiontitle2contents">Restrictions</a></h4> <div class="p">The <span>FusionCompute</span> antivirus virtualization
+function has the following restrictions on the system:<ul><li>Only one secure service VM can be deployed on one host.</li><li>The function only apply to the VMs running the following OSs:<ul><li>Windows 7 (32-bit)</li><li>Windows Server 2003 (32-bit)</li></ul>
+</li><li><p id="it_60_51_600029__d1400e107"><a name="it_60_51_600029__d1400e107"></a><a name="d1400e107"></a>The Tools version for a secure user VM must be 1.3.10
+or later.</p>
+</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_600029__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600029" class="sectiontitle2contents">Impacts</a></h4> <p>The <span>FusionCompute</span> antivirus virtualization
+function and Graphics Processing Unit (GPU) sharing function cannot
+be enabled on a host at the same time. However, the GPU passthrough
+or virtualization function can be used when antivirus virtualization
+is enabled on the same host.</p>
+<div class="p">The <span>FusionCompute</span> antivirus virtualization
+function has the following restrictions on secure service VMs:<ul><li>Memory snapshots cannot be taken for secure service VMs.</li><li>Secure service VMs cannot be stopped or hibernated, because they
+must provide real-time services.</li><li>A secure service VM cannot be automatically migrated from a host
+due to dynamic resource scheduling or a host failure, because it is
+bound to the host.</li></ul>
+</div>
+<div class="p">The <span>FusionCompute</span> antivirus virtualization function has the following restrictions
+on secure user VMs:<ul><li>Memory snapshots cannot be taken for secure user VMs.</li><li><p>A secure user VM must be migrated to a host that has a secure
+service VM deployed due to dynamic resource scheduling or a host failure,
+because secure user VMs use antivirus functions provided by a secure
+service VM.</p>
+<p>Therefore, each host in a cluster must have the
+antivirus virtualization function enabled and a secure service VM
+deployed.</p>
+</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_600029__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600029" class="sectiontitle2contents">Prerequisites</a></h4><div class="p"><ul><li>You have logged in to <span>ServiceCenter</span>.</li><li>You have planned the IP addresses for the secure service VMs to
+connect to the antivirus management center.</li><li>You
+have finished related configuration on local FusionManager. For details,
+see <span class="menucascade"><b><span class="uicontrol">FAQ</span></b> &gt; <b><span class="uicontrol">VM Management</span></b> &gt; <b><span class="uicontrol">Installing the Antivirus Software Client Driver</span></b></span> in <i><cite>FusionManager V100R005C00 Local Administrator
+Guide (Server Consolidation,top-local)</cite></i>.</li><li><div class="p">You have obtained required software listed in <a href="#it_60_51_600029__d1413e51">Table 1</a>.
+<div class="tablenoborder"><a name="it_60_51_600029__d1413e51"></a><a name="d1413e51"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600029__d1413e51" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Required software</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="36.5%" id="mcps1.2.5.2.1.4.1.2.2.3.1.1"><p>Software</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="63.5%" id="mcps1.2.5.2.1.4.1.2.2.3.1.2"><p>How to Obtain</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="36.5%" headers="mcps1.2.5.2.1.4.1.2.2.3.1.1 "><p>Antivirus management center software</p>
+</td>
+
+<td class="cellrowborder" rowspan="2" valign="top" width="63.5%" headers="mcps1.2.5.2.1.4.1.2.2.3.1.2 "><p>Purchase the software, license,
+and product documents from an antivirus vendor.</p>
+<p>The system supports the antivirus software provided
+by Trend Micro. For details about how to obtain the software, license,
+and product documents, visit <a href="http://www.trendmicro.com" target="_blank">http://www.trendmicro.com</a> and contact customer service.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.4.1.2.2.3.1.1 "><p>Secure service VM template</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="36.5%" headers="mcps1.2.5.2.1.4.1.2.2.3.1.1 "><p>FusionCompute V100R005C00SPC100_GuestOSDrivers.zip</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="63.5%" headers="mcps1.2.5.2.1.4.1.2.2.3.1.2 "><p>For an enterprise: <span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">IT</span></b> &gt; <b><span class="uicontrol">FusionCloud</span></b> &gt; <b><span class="uicontrol">FusionSphere</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span></p>
+<p>For a carrier: <span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Carrier Software &amp; Core Network </span></b> &gt; <b><span class="uicontrol">Carrier Cloud Computing</span></b> &gt; <b><span class="uicontrol">IT Cloud Infrastructure
+Solution</span></b> &gt; <b><span class="uicontrol">Cloud OS</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span></p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</li></ul>
+</div>
+</div>
+
+
+<div class="section" id="it_60_51_600029__install"><a name="it_60_51_600029__install"></a><a name="install"></a><a name="it_60_51_600029__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600029" class="sectiontitle2contents">Installing the Antivirus Software Client
+Driver</a></h4><div class="p">Install the antivirus software client driver on a
+secure user VM.<ol><li>Log in to the VM using Virtual Network Computing (VNC) and mount
+a CD/DVD-ROM drive or ISO file to the VM.<p><span class="filepath"><b>FusionCompute V100R005C00SPC100_GuestOS.iso</b></span> is the required ISO file to be mounted.</p>
+</li><li>In the VNC window, choose <span class="menucascade"><b><span class="uicontrol">Start</span></b> &gt; <b><span class="uicontrol">Computer</span></b></span>, and double-click the
+icon of the VM CD/DVD-ROM drive.<p>The directory that contains the
+installation program of the antivirus driver is displayed.</p>
+</li><li>In the <span class="filepath"><b>gvmPciDriver</b></span> directory, double-click
+the antivirus driver installation program and install the antivirus
+driver as prompted.<p>The VM must be restarted after the driver is
+successfully installed.</p>
+</li><li>Unmount the CD/DVD-ROM drive or ISO file.</li></ol>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>
