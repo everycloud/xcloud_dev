@@ -15,11 +15,6 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: "/view/dashboard/dashboard.html",
             data: { pageTitle: 'dashboard' }
         })
-        .state('apps', {
-            url: "/apps",
-            templateUrl: "/view/apps/app_overview.html",
-            data: { pageTitle: '应用' }
-        })
         .state('hostpool', {
             url: "/hostpool",
             templateUrl: "/view/hostpool/hostpool_manage.html",
