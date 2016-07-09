@@ -17,7 +17,7 @@
                                 </div>
                                 <table st-table="defects" st-safe-src="defectsWatch" class="simple-table table table-striped table-hover">
                                     <thead>
-                                    <tr>
+                                    <tr> 
                                         <th style="width:60px" st-sort="id" st-sort-default="reverse">ID</th>
                                         <th st-sort="name">名字</th>
                                         <th st-sort="os">操作系统</th>
@@ -32,6 +32,9 @@
                                     </thead>
                                     <tbody>
                                     <tr ng-repeat="host in hosts">
+                                        <td width="30px" align="left">
+                                              <input name="chkAll" type="checkbox" value="checkbox" ng-click="CheckAll(this)" />
+                                        </td>
                                         <td>{{host.id}}</td>
                                         <td>{{host.name}}</td>
                                         <td>{{host.os}}</td>
@@ -42,6 +45,7 @@
                                         <td>{{host.username}}</td>
                                         <td>{{host.allocated}}</td>
                                         <td>{{host.alive}}</td>
+                                        <td class="btn btn-danger" ng-click="delHost(host.id)"><i class="fa fa-times"></i>删除</td>
                                     </tr>
                                     </tbody>
                                     <tfoot>

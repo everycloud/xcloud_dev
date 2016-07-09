@@ -3,7 +3,6 @@ package com.example.basetech.app.service.impl;
 import com.example.basetech.app.dal.HostPoolDAO;
 import com.example.basetech.app.dal.TeamDAO;
 import com.example.basetech.app.model.HostPool;
-import com.example.basetech.app.model.Sample;
 import com.example.basetech.app.service.HostPoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,4 +40,9 @@ public class HostPoolServiceImpl implements HostPoolService {
     public HostPool getById(long id) {
         return hostPoolDAO.selectById(id);
     }
+
+	@Override
+	public void deleteById(long id) {
+		hostPoolDAO.deleteById(id);
+	}
 }

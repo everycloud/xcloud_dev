@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -32,4 +33,12 @@ public class HostPoolAPI {
         long id = hostPoolService.insert(form.getHostPool());
         return new APIResult<HostPool>(hostPoolService.getById(id));
     }
+    
+    @RequestMapping(value = "/api/host/delete/{hostid}", method = RequestMethod.DELETE)
+    public APIResult<String> delete(HttpServletRequest request, @PathVariable int hostid){
+        System.out.print(hostid);
+        hostPoolService.deleteById(hostid);
+        return new APIResult<String>();
+    }
+    
 }

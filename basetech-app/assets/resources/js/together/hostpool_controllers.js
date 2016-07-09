@@ -6,6 +6,10 @@ function hostpoolCtrl($scope, hostpool){
     $scope.addHost = function(){
         hostpool.create();
     }
+    $scope.delHost = function(hostid){
+        hostpool.doDelete(hostid);
+    }
+
 }
 
 function newHostCtrl($scope, hostpool, $modalInstance){
@@ -23,6 +27,7 @@ function newHostCtrl($scope, hostpool, $modalInstance){
     };
 }
 
+ 
 angular
     .module('together')
     .controller('HostpoolCtrl', hostpoolCtrl)

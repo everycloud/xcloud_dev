@@ -1,5 +1,5 @@
 /**
- *  将list转化为map，id为key
+ *  灏唋ist杞寲涓簃ap锛宨d涓簁ey
  */
 function list2Map(list) {
     var map = {};
@@ -36,11 +36,11 @@ function postData(api, data, $modal, $modalInstance, $state, $http, handler) {
                     $state.reload();
                 }
             } else {
-                alert("出错了!", "详情：" + dataFromServer.errorMessage, $modal);
+                alert("鍑洪敊浜�!", "璇︽儏锛�" + dataFromServer.errorMessage, $modal);
             }
         })
         .error(function(data, status, headers, config) {
-            alert("出错了！", "Submitting form failed!", $modal);
+            alert("鍑洪敊浜嗭紒", "Submitting form failed!", $modal);
         });
 }
 
@@ -55,8 +55,12 @@ function hostpool($http, $modal, $state) {
             modalOpen("/view/hostpool/new_host.html", newHostCtrl, null, $modal, "md");
         },
         doCreate: function($modalInstance, data) {
-            postData("/api/host/new", data, $modal, $modalInstance, $state, $http);
+            ("/api/host/new", data, $modal, $modalInstance, $state, $http);
         },
+        doDelete: function(hostid) {
+            alert(hostid); 
+            $http.delete("/api/host/delete/" + hostid);
+        }
     };
 }
 
