@@ -1,5 +1,5 @@
 /**
- *  灏唋ist杞寲涓簃ap锛宨d涓簁ey
+ *  将list转化为map，id为key
  */
 function list2Map(list) {
     var map = {};
@@ -36,11 +36,11 @@ function postData(api, data, $modal, $modalInstance, $state, $http, handler) {
                     $state.reload();
                 }
             } else {
-                alert("鍑洪敊浜�!", "璇︽儏锛�" + dataFromServer.errorMessage, $modal);
+                alert("出错了!", "详情：" + dataFromServer.errorMessage, $modal);
             }
         })
         .error(function(data, status, headers, config) {
-            alert("鍑洪敊浜嗭紒", "Submitting form failed!", $modal);
+            alert("出错了!", "Submitting form failed!", $modal);
         });
 }
 
