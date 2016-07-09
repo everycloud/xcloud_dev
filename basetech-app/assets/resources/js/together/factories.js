@@ -58,7 +58,6 @@ function hostpool($http, $modal, $state) {
             ("/api/host/new", data, $modal, $modalInstance, $state, $http);
         },
         doDelete: function(hostid) {
-            alert(hostid); 
             $http.delete("/api/host/delete/" + hostid);
         }
     };
