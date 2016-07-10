@@ -13,4 +13,4 @@ function AppsCtrl($scope, apps){
 
 angular
     .module('together')
-    .controller('HostpoolCtrl', AppsCtrl)
+    .controller('AppsCtrl', AppsCtrl)

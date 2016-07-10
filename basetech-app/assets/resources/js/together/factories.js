@@ -55,7 +55,7 @@ function hostpool($http, $modal, $state) {
             modalOpen("/view/hostpool/new_host.html", newHostCtrl, null, $modal, "md");
         },
         doCreate: function($modalInstance, data) {
-            ("/api/host/new", data, $modal, $modalInstance, $state, $http);
+            postData("/api/host/new", data, $modal, $modalInstance, $state, $http);
         },
         doDelete: function(hostid) {
             $http.delete("/api/host/delete/" + hostid);
