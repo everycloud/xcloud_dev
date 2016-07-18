@@ -1,6 +1,0 @@
-<ul ng-controller="servicePage.ctrl">
-    <li ng-include src="url.notifyUrl" ng-if="isServiceCenter && right.approval"></li>
-    <li ng-include src="url.topoUrl" ng-if="right.cloudInfras"></li>
-    <li ng-include src="url.systemActivenessUrl" ng-if="right.cloudInfras || right.resourceStatistic || right.vdc"></li>
-</ul>
-
