@@ -2,8 +2,8 @@
  * 定义的整体框架的 路由地址
  */
 define(["tiny-lib/angular",
-    "app/framework/directive/directiveFM",
-    "ui-router/angular-ui-router"], function (angular, directiveFM, router) {
+  //  "app/framework/directive/directiveFM",
+    "ui-router/angular-ui-router"], function (angular, router) {
     "use strict";
 
     var serviceConfigs = ["$stateProvider", "$urlRouterProvider", "$controllerProvider", function ($stateProvider, $urlRouterProvider, $controllerProvider) {
@@ -35,7 +35,8 @@ define(["tiny-lib/angular",
 
     }];
 
-    var frameworkConfig = angular.module("frm", ["ui.router", directiveFM.name]);
+    //var frameworkConfig = angular.module("frm", ["ui.router", directiveFM.name]);
+    var frameworkConfig = angular.module("frm", ["ui.router"]);
     frameworkConfig.config(serviceConfigs);
     return frameworkConfig;
 });

@@ -1,0 +1,63 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-12">
+            <h2>host管理<a class="btn btn-primary" ng-click="addHost()" style="float:right;"><i class="fa fa-plus-square"></i> 添加host</a></h2>
+        </div>
+    </div>
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="panel-body">
+            <div class="panel-group">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <div class="st-container">
+
+                                <div class="st-toolbar">
+                                    <input st-search placeholder="search in the table" class="st-search-input input-sm form-control" type="search" />
+                                </div>
+                                <table st-table="defects" st-safe-src="defectsWatch" class="simple-table table table-striped table-hover">
+                                    <thead>
+                                    <tr> 
+                                        <th style="width:60px" st-sort="id" st-sort-default="reverse">ID</th>
+                                        <th st-sort="name">名字</th>
+                                        <th st-sort="os">操作系统</th>
+                                        <th st-sort="ip">ip</th>
+                                        <th st-sort="port">端口号</th>
+                                        <th st-sort="protocol">协议</th>
+                                        <th st-sort="credent">认证类型</th>
+                                        <th st-sort="username">用户名</th>
+                                        <th st-sort="allocated">是否已分配</th>
+                                        <th st-sort="alive">状态</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="host in hosts">
+                                        <td>{{host.id}}</td>
+                                        <td>{{host.name}}</td>
+                                        <td>{{host.os}}</td>
+                                        <td>{{host.ip}}</td>
+                                        <td>{{host.port}}</td>
+                                        <td>{{host.protocol}}</td>
+                                        <td>{{host.credent}}</td>
+                                        <td>{{host.username}}</td>
+                                        <td>{{host.allocated}}</td>
+                                        <td>{{host.alive}}</td>
+                                        <td class="btn btn-danger" ng-click="delHost(host.id)"><i class="fa fa-times"></i>删除</td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="9" class="text-center">
+                                            <div st-pagination st-items-by-page="10" st-displayed-pages="10"></div>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

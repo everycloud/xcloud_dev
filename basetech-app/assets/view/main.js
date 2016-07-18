@@ -154,7 +154,6 @@ require([
     'tiny-lib/angular',
     "app/framework/framework",
     "tiny-lib/underscore",
-    "language/keyID"
 ], function (sprintf, $, angular, app, _, keyIDI18n) {
 	
 	console.log("enter--------------");
@@ -163,15 +162,9 @@ require([
     window.mxLoadStylesheets = false;
     window.IMAGE_PATH = "app/business/application/controllers/template/designer/images";
     window.STYLE_PATH = "app/business/application/controllers/template/designer/styles";
-    keyIDI18n.sprintf = sprintf.sprintf;
     
     var injector = angular.bootstrap($("html"), [app.name]);
     var state = injector.get("$state");
     rootScope = injector.get("$rootScope");
-    rootScope.urlParams = {
-        "lang": window.urlParams.lang
-    };
-    keyIDI18n.sprintf = sprintf.sprintf;
-    rootScope.i18n = keyIDI18n;
    
 });
