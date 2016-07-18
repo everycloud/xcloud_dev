@@ -1,0 +1,108 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="导入VSA模板">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_56_c10121">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>导入VSA模板</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_56_c10121"></a><a name="it_60_56_c10121"></a>
+
+
+<h1 class="topictitle1">导入VSA模板</h1>
+
+<div>
+<div class="section"><h4 class="sectiontitle">操作场景</h4>
+
+
+<div class="p"><p>当需要为VPC申请软件类型的虚拟防火墙、创建内部IP地址分配方式的网络，或创建类型为软件负载均衡的VLB时，要求管理员将VSA虚拟机模板导入<span>FusionManager</span>，以便系统能够自动使用该模板创建VSA虚拟机，VSA虚拟机能够提供上述所需功能。用户不需要使用该模板进行虚拟机的创建。</p>
+<p>将VSA虚拟机模板导入<span>FusionManager</span>系统，过程如下：</p>
+<div class="p" id="it_60_56_c10121__process"><a name="it_60_56_c10121__process"></a><a name="process"></a><ol><li>在虚拟化环境中，导入模板。</li><li>在<span>FusionManager</span>中，发现虚拟化环境中的模板。</li><li>在<span>FusionManager</span>中，修改模板类型。</li></ol>
+该指导以<span>FusionCompute</span>虚拟化环境的模板为例，描述如何将模板导入<span>FusionManager</span>系统。</div>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">前提条件</h4>
+
+
+<div class="p"><a name="it_60_56_c10121__condition"></a><a name="condition"></a><ul id="it_60_56_c10121__condition"><li>已获取登录<span>FusionCompute</span>的用户名与密码。</li><li>已获取登录<span>FusionManager</span>的系统管理员用户名与密码。</li><li><p>已获取VSA模板文件<span class="filepath">“FusionCompute V100R005C00SPC200_VSA.zip”</span>。</p>
+<div class="p">获取路径如下：<ul><li><p>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise </span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+</li><li><p>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud
+OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+</li></ul>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">获取到软件包后建议先执行软件包校验的操作，具体操作请参见<a href="../soft_inst/it_60_23_000021.html">校验软件包</a>。</div></div>
+</div>
+</li></ul>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">操作步骤</h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">在虚拟化环境中创建VSA虚拟机</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>在本地PC解压缩<span class="filepath">“FusionCompute V100R005C00SPC200_VSA.zip”</span>。</span>
+<p>解压后获得以下文件：<ul><li><span class="filepath">“FusionCompute_V100R005C00SPC200_VSA.ovf”</span></li><li><span class="filepath">“FusionCompute_V100R005C00SPC200_VSA-1.vhd”</span></li></ul>
+</p>
+</li><li id="it_60_56_c10121__GE_VM"><a name="it_60_56_c10121__GE_VM"></a><a name="GE_VM"></a><span>登录<span>FusionCompute</span>，单击<span class="menucascade">“<span class="uicontrol">虚拟机和模板</span>”</span>。</span>
+<p>进入<span class="wintitle">“虚拟机和模板”</span>页面。</p>
+</li><li><span>单击<span class="uicontrol">“导入模板”</span>。</span>
+<p>进入<span class="wintitle">“导入模板”</span>页面。</p>
+</li><li><span>选择<span class="uicontrol">“从共享目录导入”</span>，单击<span class="uicontrol">“下一步”</span>。</span>
+<p>进入<span class="wintitle">“模板导入”</span>页面。</p>
+</li><li><span>设置模板导入信息。</span>
+<p><ul><li><span>模板文件</span>：选择<span class="filepath">“FusionCompute_V100R005C00SPC200_VSA.ovf”</span>。</li><li><span>模板文件共享路径</span>：<span>填写格式为<span class="filepath">“\\<i><span class="varname">共享服务器的IP地址</span></i>\<i><span class="varname">模板文件所在文件夹的名称</span></i>”</span>。</span></li><li><span>用户名和密码</span>：<ul><li><span>当本地PC或远程服务器需要使用密码登录时，需填写登录的用户名和密码。仅当共享服务器为Windows
+XP SP1操作系统时，支持无密码模式，其余操作系统的用户均需使用密码。</span></li><li><span>若多个域中包含同一个用户，则输入用户名时需添加域名。例如，输入用户名为<span class="parmvalue">“Domain\w00123456”</span>。</span></li></ul>
+</li></ul>
+</p>
+</li><li><span>单击<span class="uicontrol">“下一步”</span>。</span>
+<p>进入<span class="wintitle">“虚拟机设置”</span>界面。</p>
+</li><li><span>在创建位置中选择管理集群。</span></li><li><span>设置磁盘的数据存储和配置模式，并选择<span class="uicontrol">“持久化”</span>。</span>
+<p>建议将VSA创建在共享存储设备上。否则，同时在多个集群部署VSA虚拟机时，可能会导致失败。</p>
+</li><li><span>单击<span class="uicontrol">“下一步”</span>。</span>
+<p>进入<span class="wintitle">“虚拟机属性规格”</span>界面。</p>
+</li><li><span>输入VSA虚拟机模板的名称。</span></li><li><span>保持其他选项为默认值，单击<span class="uicontrol">“下一步”</span>。</span>
+<p>进入<span class="uicontrol">“信息确认”</span>页面。</p>
+</li><li><span>单击<span class="uicontrol">“创建”</span>，开始导入VSA虚拟机模板。</span>
+<p><div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">当模板所在本地PC为Windows
+7操作系统时，由于操作系统的设置，可能会导致<span class="parmvalue">“CNA连接共享目录失败”</span>错误，可通过以下方法解决：<ol type="a"><li>在本地PC的操作系统界面，单击<span class="uicontrol">“开始”</span>，在下方搜索栏中输入<span class="userinput"><b>regedit</b></span>，按<span class="uicontrol">“Enter”</span>。</li><li>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SYSTEM</span> &gt; <span class="uicontrol">CurrentControlSet</span> &gt; <span class="uicontrol">Control</span> &gt; <span class="uicontrol">Session Manager</span> &gt; <span class="uicontrol">Memory Management</span>”</span>，将<span class="parmname">“LargeSystemCache”</span>的值修改为<span class="parmvalue">“1”</span>。</li><li>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SYSTEM</span> &gt; <span class="uicontrol">CurrentControlSet</span> &gt; <span class="uicontrol">Services</span> &gt; <span class="uicontrol">LanmanServer</span> &gt; <span class="uicontrol">Parameters</span>”</span>，将<span class="parmname">“Size”</span>的值修改为<span class="parmvalue">“3”</span>。</li><li>重启本地PC，重新使用模板导入虚拟机。</li></ol>
+</div></div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">在<span>FusionManager</span>中发现VSA模板</p>
+<a name="it_60_56_c10121__discover"></a><a name="discover"></a><div class="Steps-titled"><ol type="1" start="13" id="it_60_56_c10121__discover"><li><span>以系统管理员帐户登录<span>FusionManager</span>，选择<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">虚拟机模板</span>”</span>。</span>
+<p>进入<span class="wintitle">“虚拟机模板”</span>页面。</p>
+</li><li><span>单击<span class="uicontrol">“发现”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>选择导入模板的虚拟化环境，并单击<span class="uicontrol">“发现”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>进入<span class="wintitle">“任务中心”</span>页面，查看任务进度。发现成功后，在<span class="wintitle">“虚拟机模板”</span>页面显示新增的模板信息。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">将VSA模板的类型修改为<span class="parmvalue">“VSA模板”</span></p>
+<div class="Steps-titled"><ol type="1" start="17"><li><span>在发现的VSA模板所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">修改虚拟机模板基本信息</span>”</span>。</span>
+<p>弹出<span class="wintitle">“修改虚拟机模板基本信息”</span>对话框。</p>
+</li><li><span>将<span class="parmname">“类型”</span>选择为<span class="parmvalue">“VSA模板”</span>，并单击<span class="uicontrol">“完成”</span>。</span></li><li><span>若<span>FusionManager</span>系统中接入了多个虚拟化环境，则按照如上方法，导入所有虚拟化环境的VSA模板。</span></li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

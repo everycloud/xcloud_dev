@@ -1,0 +1,61 @@
+<div fm-help help="'drawer_device_san'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs" ng-show="!zoneId">
+        <ul class="nav nav-list noPadding">
+            <li><span>SAN</span></li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.device_san_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <tiny-button id="addSanDeviceModel.id" ng-show="right.hasDeviceOperateRight" text="addSanDeviceModel.text"
+                         click="addSanDeviceModel.click()" class="major-btn">
+            </tiny-button>
+
+            <!--刷新、列选择、帮助-->
+            <div class="pull-right">
+                <tiny-filtersel ng-show="cloudType == 'FUSIONSPHERE'&&!zoneId" id="zoneFilter.id"
+                                values="zoneFilter.values"
+                                width="zoneFilter.width"
+                                default-label="zoneFilter.dftLabel" change="zoneFilter.change()">
+                </tiny-filtersel>
+                <tiny-filtersel id="statusFilter.id" values="statusFilter.values"
+                                width="statusFilter.width"
+                                change="statusFilter.change()">
+                </tiny-filtersel>
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                                suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                                suggest="searchBox.suggest" search="searchBox.search">
+                </tiny-searchbox>
+              </span>
+                <a class="btn-link">
+                    <div ng-click="operate.querySans()" id="refreshSan" title="{{i18n.common_term_fresh_button}}"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div id="deviceSanTable">
+            <tiny-table id="sanTableModel.id" data="sanTableModel.data"
+                        columns="sanTableModel.columns"
+                        enable-pagination="sanTableModel.enablePagination"
+                        pagination-style="sanTableModel.paginationStyle"
+                        length-change="sanTableModel.lengthChange" length-menu="sanTableModel.lengthMenu"
+                        display-length="sanTableModel.displayLength" cur-page="sanTableModel.curPage"
+                        total-records="sanTableModel.totalRecords"
+                        request-config="sanTableModel.requestConfig" column-sorting="sanTableModel.columnSorting"
+                        columns-draggable="sanTableModel.columnsDraggable"
+                        hide-total-records="sanTableModel.hideTotalRecords"
+                        total-records="sanTableModel.totalRecords" render-row="sanTableModel.renderRow"
+                        callback="sanTableModel.callback" change-select="sanTableModel.changeSelect"
+                        columns-visibility="sanTableModel.columnsVisibility"
+                        show-details="sanTableModel.showDetails"></tiny-table>
+        </div>
+    </div>
+</div>

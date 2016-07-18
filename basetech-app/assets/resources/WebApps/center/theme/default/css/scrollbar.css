@@ -1,0 +1,44 @@
+.tiny-scrollbar {
+    position: absolute;
+}
+
+.tiny-scrollbar-skewer-y {
+    position: relative;
+    width: 14px;
+}
+
+.tiny-scrollbar-slider-y {
+    position: relative;
+    background: url(../images/scrollbar_merger.png) 0 -1px no-repeat;
+    width: 10px;
+    height: 60px;
+    left: -6px;
+    cursor:pointer;
+    z-index: 100;
+}
+
+.tiny-scrollbar-skewer-x {
+    position: relative;
+    height: 14px;
+}
+
+.tiny-scrollbar-slider-x {
+    position: relative;
+    background: url(../images/scrollbar_merger.png) -1px -90px no-repeat;
+    width: 60px;
+    height: 10px;
+    top: -6px;
+    cursor:pointer;
+    z-index: 100;
+}
+
+.tiny-scrollbar-overview {
+    position: absolute;
+    word-break:keep-all;
+    white-space:nowrap;
+    width:100%;
+}
+.tiny-scrollbar-viewport {
+    overflow: hidden;
+    position: relative;
+}

@@ -1,0 +1,42 @@
+<div fm-layout layout="leftTree.layout" id="leftBar">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <li>
+                    <div class="tiny-layout-title">
+                        <div class="row-fluid nosidedown-txt">
+                            <div class="span4">
+                                <div class="title-icon {{layout_icon_choose}}">
+                                    <img ng-src="{{icon}}" ng-if="icon && !isTenant">
+                                </div>
+                            </div>
+                            <div class="span8">
+                                <p class="title-text" ng-bind="leftTree.text" ng-class="{'title-text-two':leftTree.lineBreak}" title="{{leftTree.text}}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li ng-repeat="branch in leftTree.children" ng-if="!branch.hide && !branch.onlyHeader">
+                    <div class="tiny-layout-head"
+                         ui-sref="{{branch.state}}"
+                         ng-if="branch.children && branch.children.length"
+                         ng-bind="branch.text"></div>
+                    <a ui-sref="{{branch.state}}"
+                       ng-bind="branch.text"
+                       ng-if="!branch.hide && !(branch.children && branch.children.length)"></a>
+                    <ul ng-if="branch.children && branch.children.length" class="sideMenu_two">
+                        <li ng-repeat="leaf in branch.children" ng-if="!leaf.hide && !leaf.onlyHeader">
+                            <a ui-sref="{{leaf.state}}"
+                               ng-bind="leaf.text"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view id="view-content">
+            </div>
+        </div>
+    </div>
+</div>
+

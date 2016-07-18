@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div id="createCustomReport" ng-controller="report.createCustomReport.ctrl" class="alert-tip-first">
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" value="name.value" tooltip="name.tooltip" validate="name.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="objType.label" require="objType.require">
+                <tiny-select id="objType.id" values="objType.values" width="objType.width" change="objType.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="metrics.label" require="metrics.require">
+                <tiny-checkboxgroup id="metrics.id" values="metrics.values" layout="metrics.layout" all-select="metrics.allSelect" change="metrics.change()"></tiny-checkboxgroup>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="saveBtn.id" text="saveBtn.text" display="saveBtn.display" click="saveBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+require(["app/business/monitor/controllers/report/createCustomReportCtrl"], function(createCustomReportCtrl) {
+    var $injector = angular.injector(["ng", createCustomReportCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#createCustomReport"));
+        link($("#createCustomReport").scope());
+        $("#createCustomReport").scope().$digest();
+    });
+});
+</script>

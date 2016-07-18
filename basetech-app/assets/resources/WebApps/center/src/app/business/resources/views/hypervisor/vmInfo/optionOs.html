@@ -1,0 +1,25 @@
+<div id="optionOsDiv">
+    <div class="legend">{{i18n.common_term_OS_label}}</div>
+    <p class="bottom10 color2">{{i18n.vm_vm_OS_desc_label}}</p>
+    <tiny-formfield>
+        <tiny-item label="osTypeSelector.label">
+            <tiny-select id="osTypeSelector.id" values="osTypeSelector.values"
+                         width="osTypeSelector.width" change="osTypeSelector.change()"></tiny-select>
+        </tiny-item>
+        <tiny-item label="osVersionSelector.label">
+            <tiny-select id="osVersionSelector.id" values="osVersionSelector.values"
+                         width="osVersionSelector.width" change="osVersionSelector.change()"
+                         height="osVersionSelector.height"></tiny-select>
+        </tiny-item>
+        <tiny-item display="isOther">
+            <tiny-textbox id="osVersionTextbox.id" value="osVersionTextbox.value" width="osVersionTextbox.width"
+                          validate="osVersionTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item>
+            <div class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="osOkButton.id" text="osOkButton.text" click="osOkButton.click()"
+                             ng-if="operable"></tiny-button>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>

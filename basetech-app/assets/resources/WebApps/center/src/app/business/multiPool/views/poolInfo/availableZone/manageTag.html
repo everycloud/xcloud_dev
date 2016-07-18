@@ -1,0 +1,31 @@
+<div id="manageAzTagDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-button id="addTagButton.id" text="addTagButton.text" click="addTagButton.click()" class="major-btn"></tiny-button>
+        </tiny-item>
+        <tiny-item>
+            <div class="table-tiny-box-height">
+                <tiny-table id="tagTable.id" data="tagTable.data"
+                            columns='tagTable.columns' render-row="tagTable.renderRow"
+                            enable-pagination="tagTable.enablePagination"></tiny-table>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/multiPool/controllers/poolInfo/availableZone/manageTagCtrl'],
+            function (manageTagCtrl) {
+                var rootElement = $("#manageAzTagDiv");
+                rootElement.attr("ng-controller", "multiPool.availableZone.manageTag.ctrl");
+                var dep = ['ng', 'wcc', manageTagCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+                $("#manageAzTagDiv").scope().getTagsGroup();
+            });
+</script>

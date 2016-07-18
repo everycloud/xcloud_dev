@@ -1,0 +1,156 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="如何将裸设备映射的磁盘，从虚拟机解绑定后，再绑定给物理服务器">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_400012">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>如何将裸设备映射的磁盘，从虚拟机解绑定后，再绑定给物理服务器</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n虚拟机管理\n如何将裸设备映射的磁盘，从虚拟机解绑定后，再绑定给物理服务器");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../../07_fm/father_node/it_60_99_100032.html\">虚拟机管理<\/a> > 如何将裸设备映射的磁盘，从虚拟机解绑定后，再绑定给物理服务器<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_400012"></a><a name="it_58_45_400012"></a>
+
+
+<h1 class="topictitle1">如何将裸设备映射的磁盘，从虚拟机解绑定后，再绑定给物理服务器</h1>
+<ul><li><a href="#it_58_45_400012__1.2.1">操作场景</a></li><li><a href="#it_58_45_400012__1.2.2">操作步骤</a></li></ul>
+<div>
+<div class="Section"><a name="it_58_45_400012__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_58_45_400012" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>将SAN存储的LUN作为磁盘绑定给虚拟机后，解绑定该磁盘，再将LUN绑定给物理服务器。</p>
+</div></div>
+
+<div class="Section"><a name="it_58_45_400012__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_58_45_400012" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle"></p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>解绑定磁盘。</span>
+<p>解绑定磁盘后，不能删除裸设备映射的磁盘和数据存储，否则LUN中的数据会丢失。</p>
+</li><li><span>在物理服务器上，执行以下命令，查看该服务器能访问的存储设备。</span>
+<p><b><span class="cmdname">ll /dev/disk/by-id/</span></b></p>
+<p>回显如下类似信息，其中<span class="parmvalue">“scsi-360022a110005022b31fba15d00000036”</span>为该存储设备的名称，<span class="parmvalue">“dm-0”</span>为对应的文件系统的名称。<div class="p"><pre class="screen">...
+lrwxrwxrwx 1 root root 10 Dec  9 10:11 <strong>scsi-360022a110005022b31fba15d00000036</strong> -&gt;                                             ../../<strong>dm-0</strong>
+...</pre>
+</div>
+</p>
+</li><li><span>执行以下命令，查看该存储设备的分区？</span>
+<p><p><b><span class="cmdname">file -s /dev/</span></b><i><span class="varname">文件系统名称</span></i></p>
+<p>例如：<b><span class="cmdname">file -s /dev/dm-0</span></b></p>
+<div class="p">回显如下类似信息。<pre class="screen">/dev/dm-0: x86 boot sector; partition 1; ID=0x83, starthead 1, startsector 63, 838849977 sectors</pre>
+</div>
+</p>
+</li><li id="it_58_45_400012__add"><a name="it_58_45_400012__add"></a><a name="add"></a><span>执行以下命令，添加设备分区。</span>
+<p><p><b><span class="cmdname">kpartx -a /dev/</span></b><i><span class="varname">文件系统名称</span></i></p>
+<p>例如：<b><span class="cmdname">kpartx -a /dev/dm-0</span></b></p>
+</p>
+</li><li><span>执行以下命令，查看设备分区。</span>
+<p><p><b><span class="cmdname">kpartx -l /dev/</span></b><i><span class="varname">文件系统名称</span></i></p>
+<p>例如：<b><span class="cmdname">kpartx -l /dev/dm-0</span></b></p>
+<div class="p">回显如下类似信息，其中<span class="parmvalue">“360022a1100092627004d04ed00000014p1”</span>为设备分区号。<pre class="screen"><strong>360022a1100092627004d04ed00000014p1</strong> : 0 838849977 /dev/dm-0 63</pre>
+</div>
+</p>
+</li><li id="it_58_45_400012__mount"><a name="it_58_45_400012__mount"></a><a name="mount"></a><span>执行以下命令，将分区绑定到物理服务器。</span>
+<p><p><b><span class="cmdname">mount /dev/mapper/</span></b><i><span class="varname">设备分区号</span></i><i><span class="varname"> 绑定目录</span></i></p>
+<p>例如：<b><span class="cmdname">mount /dev/mapper/</span></b><i><span class="varname">360022a1100092627004d04ed00000014p1</span></i><i><span class="varname"> /mnt/sample</span></i></p>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

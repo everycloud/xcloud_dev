@@ -1,0 +1,240 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="在Windows系统中安装智能网卡驱动">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_200051">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>在Windows系统中安装智能网卡驱动</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n智能网卡驱动管理\n在Windows系统中安装智能网卡驱动");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"it_58_45_200048.html\">智能网卡驱动管理<\/a> > 在Windows系统中安装智能网卡驱动<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_200051"></a><a name="it_58_45_200051"></a>
+
+
+<h1 class="topictitle1">在Windows系统中安装智能网卡驱动</h1>
+<ul><li><a href="#it_58_45_200051__1.2.1">操作场景</a></li><li><a href="#it_58_45_200051__1.2.2">必备事项</a></li><li><a href="#it_58_45_200051__1.2.3">操作步骤</a></li></ul>
+<div>
+<div class="Section"><a name="it_58_45_200051__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_58_45_200051" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>当主机使用智能网卡时，运行在该主机上的虚拟机必须安装智能网卡驱动，否则虚拟机的网卡不可见，导致虚拟机网络不通。</p>
+<p>当有一台主机使用了智能网卡时，建议所有虚拟机都安装智能网卡驱动，避免虚拟机迁移至使用智能网卡的主机时，出现网络故障。</p>
+<p>部分虚拟机操作系统不支持iNIC智能网卡，具体信息请参见<a href="../../07_fm/desc_product/it_60_03_000054.html">操作系统兼容性列表</a>。不建议将使用这些操作系统的虚拟机部署在使用智能网卡的主机上。</p>
+</div></div>
+
+<div class="Section" id="it_58_45_200051__inic_acond"><a name="it_58_45_200051__inic_acond"></a><a name="inic_acond"></a><a name="it_58_45_200051__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_58_45_200051" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">前提条件</p></span><ul><li>已登录<span>FusionManager</span>。</li><li><p>虚拟机的状态为<span class="parmvalue">“运行中”</span>。</p>
+</li><li><p>虚拟机已安装Tools，且Tools运行正常。</p>
+</li><li>已获取智能网卡驱动所在的ISO文件。<p>软件包名称为<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOSDrivers.zip”</span>，解压缩后的ISO文件名称为<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOS.iso”</span>。</p>
+<div class="p">软件包下载路径：<ul><li>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise</span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></li><li>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">FusionCompute
+V100R005</span> &gt; <span class="uicontrol">FusionCompute V100R005C00SPC100</span>”</span></li></ul>
+</div>
+<div class="note" id="it_58_45_200051__check"><a name="it_58_45_200051__check"></a><a name="check"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">获取到软件包后建议先执行软件包校验的操作，具体操作请参见<a href="../../07_fm/soft_inst/it_60_23_000021.html">校验软件包</a>。</div></div>
+</li></ul>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200051__1.2.3"></a><a name="1.2.3"></a><h2 class="sectiontitle"><a href="#it_58_45_200051" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody">
+<ul><a name="it_58_45_200051__inic_config"></a><a name="inic_config"></a><div class="HandlingTitled" id="it_58_45_200051__inic_config"><p class="sectiontitle">判断是否需要安装智能网卡</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>在<span>FusionManager</span>界面，在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">设备</span> &gt; <span class="uicontrol">服务器</span>”</span>中选择主机。</span></li><li><span>在<span class="wintitle">“硬件”</span>页面，单击<span class="uicontrol">“网卡”</span>。</span>
+<p><p>查看网卡的<span class="parmname">“型号”</span>。</p>
+<p>根据型号辨识网卡是否为智能网卡。</p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">安装智能网卡驱动</p>
+<a name="it_58_45_200051__win_inic"></a><a name="win_inic"></a><div class="Steps-titled"><ol type="1" start="3" id="it_58_45_200051__win_inic"><li id="it_58_45_200051__windows"><a name="it_58_45_200051__windows"></a><a name="windows"></a><span>使用VNC方式登录虚拟机，并挂载光驱。</span>
+<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOS.iso”</span>。</p>
+</li><li><span>在VNC登录窗口的虚拟机操作系统界面，选择<span class="menucascade">“<span class="uicontrol">开始</span> &gt; <span class="uicontrol">计算机</span>”</span>，双击虚拟光驱图标。</span>
+<p>打开存放智能网卡驱动安装程序的目录。</p>
+</li><li><span>在<span class="filepath">“iNICDriver/windows”</span>文件夹内，双击智能网卡驱动的安装程序，根据页面提示完成智能网卡驱动的安装。</span>
+<p>操作系统和智能网卡驱动的对应关系如<a href="#it_58_45_200051__tb_inic">表1</a>所示。
+<div class="tablenoborder"><a name="it_58_45_200051__tb_inic"></a><a name="tb_inic"></a><table cellpadding="4" cellspacing="0" summary="" id="it_58_45_200051__tb_inic" frame="border" border="1" rules="all"><caption><b>表1 </b>操作系统和智能网卡驱动的对应关系</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="35.36585365853659%" id="mcps1.2.3.1.2.2.3.2.2.2.3.1.1"><p>操作系统</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="64.63414634146342%" id="mcps1.2.3.1.2.2.3.2.2.2.3.1.2"><p>智能网卡驱动</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="35.36585365853659%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.1 "><p>Windows 2000</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.63414634146342%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.2 "><p>iNIC_Installer_Win2000_x.x.x.xx.exe</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="35.36585365853659%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.1 "><p>Windows XP</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.63414634146342%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.2 "><p>iNIC_Installer_XP_x.x.x.xx.exe</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="35.36585365853659%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.1 "><p>Windows Server 2003</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.63414634146342%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.2 "><p>iNIC_Installer_Win2003_x.x.x.xx.exe</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="35.36585365853659%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.1 "><p>Windows Server 2008</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.63414634146342%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.2 "><p>iNIC_Installer_WinVista2008_x.x.x.xx.exe</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="35.36585365853659%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.1 "><p>Windows Server 2008 R2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.63414634146342%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.2 "><p>iNIC_Installer_Win2008r2_x.x.x.xx.exe</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="35.36585365853659%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.1 "><p>Windows 7</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.63414634146342%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.2 "><p>iNIC_Installer_Win7_x.x.x.xx.exe</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="35.36585365853659%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.1 "><p>Windows 8</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.63414634146342%" headers="mcps1.2.3.1.2.2.3.2.2.2.3.1.2 "><p>iNIC_Installer_Win8_x.x.x.xx.exe</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</p>
+</li><li id="it_58_45_200051__unmout_iniciso"><a name="it_58_45_200051__unmout_iniciso"></a><a name="unmout_iniciso"></a><span>卸载光驱。</span></li></ol></div>
+</div>
+</ul>
+
+</div></div>
+
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

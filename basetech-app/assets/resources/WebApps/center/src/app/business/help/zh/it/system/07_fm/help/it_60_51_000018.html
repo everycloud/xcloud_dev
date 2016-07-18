@@ -1,0 +1,858 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="软件自动部署">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000018">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>软件自动部署</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源配置\n特性配置\n软件自动部署");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100012.html\">资源配置<\/a> > <a href=\"../father_node/it_60_99_100013.html\">特性配置<\/a> > 软件自动部署<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000018"></a><a name="it_60_51_000018"></a>
+
+
+<h1 class="topictitle1">软件自动部署</h1>
+<ul><li><a href="#it_60_51_000018__1.2.1.1">简介</a></li><li><a href="#it_60_51_000018__1.2.2.1">技能要求</a></li><li><a href="#it_60_51_000018__1.2.3.1">安全声明</a></li><li><a href="#it_60_51_000018__1.2.4.1">原理概述</a></li><li><a href="#it_60_51_000018__1.2.5.1">注意事项</a></li><li><a href="#it_60_51_000018__1.2.6.1">需要准备的软件</a></li><li><a href="#it_60_51_000018__1.2.7.1">功能配置流程</a></li></ul>
+<div>
+<div class="section" id="it_60_51_000018__preview"><a name="it_60_51_000018__preview"></a><a name="preview"></a><a name="it_60_51_000018__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000018" class="sectiontitle2contents">简介</a></h4><div class="p"><span>FusionManager</span>提供软件自动部署功能，该功能帮助用户将应用软件或脚本快速批量的部署到虚拟机中。<ul><li>软件自动安装：使用应用模板发放应用实例时，若虚拟机模板中带有软件包模块，则可选择使用的软件包，应用软件会自动安装在对应的应用实例虚拟机中。</li><li>软件分发：选定应用软件包，并指定分发的目的虚拟机，可自动将该应用软件安装至虚拟机中。</li></ul>
+<ul><li>脚本自动执行：使用应用模板发放应用实例时，若虚拟机模板中带有脚本模块，则可选择使用的脚本，脚本在对应的应用实例虚拟机中自动执行。</li><li>脚本分发：选定脚本，并指定分发的目的虚拟机，可自动在虚拟机中执行该脚本。</li></ul>
+</div>
+</div>
+
+<div class="section" id="it_60_51_000018__tech"><a name="it_60_51_000018__tech"></a><a name="tech"></a><a name="it_60_51_000018__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000018" class="sectiontitle2contents">技能要求</a></h4><p>由于软件自动部署功能所使用的软件包中的命令和脚本，均需要用户自行根据软件进行设计和编写，因此，在了解软件的同时，还需要具备代码编写能力。</p>
+</div>
+
+<div class="section" id="it_60_51_000018__claim"><a name="it_60_51_000018__claim"></a><a name="claim"></a><a name="it_60_51_000018__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000018" class="sectiontitle2contents">安全声明</a></h4><p>请您务必仔细阅读并透彻理解本声明。</p>
+<p>软件自动部署功能是依赖Puppet软件完成的。请您自行评估Puppet软件的产品质量和安全风险等因素之后，决定是否使用这些功能。</p>
+<p>对于这些软件出现的问题，华为可以协助您进行定位，除此之外华为没有义务提供任何形式的支持。因此引起的售后服务问题，华为亦不提供任何性质的保证，由这些软件带来的安全风险华为不承担任何责任。</p>
+<p>您可以选择不使用这些功能，但如果您使用这些功能，您的使用行为将被视为对本声明全部内容的认可。</p>
+</div>
+
+<div class="section" id="it_60_51_000018__theory"><a name="it_60_51_000018__theory"></a><a name="theory"></a><a name="it_60_51_000018__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000018" class="sectiontitle2contents">原理概述</a></h4><div class="p">如<a href="#it_60_51_000018__fig_01">图1</a>所示，通过VSA管理网络中的系统服务虚拟机——PVM虚拟机，将位于管理网络的<span>FusionManager</span>节点中的应用软件安装包或脚本推送到业务网络的虚拟机中，并由虚拟机中的Puppet Client软件，根据应用软件安装包中的安装与配置命令或脚本执行命令，自动在虚拟机中安装应用软件或执行脚本。<div class="fignone" id="it_60_51_000018__fig_01"><a name="it_60_51_000018__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>图1 </b>功能原理示意图</span>
+
+<br><span><img src="fig/fig_it_60_51_000018_01.png"></span><br>
+</div>
+</div>
+</div>
+
+<div class="section" id="it_60_51_000018__notice"><a name="it_60_51_000018__notice"></a><a name="notice"></a><a name="it_60_51_000018__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000018" class="sectiontitle2contents">注意事项</a></h4><div class="p"><ul><li>仅支持满足如下条件的软件和脚本：<ul><li>软件支持静默安装，即安装时无需人工干预、安装过程无需重启虚拟机的软件。</li><li>软件或脚本在安装或执行结束后，必须有返回值。返回值为0表示安装或执行成功，其他值表示失败。</li><li>软件或脚本在安装或执行过程中，若需打印日志，请勿直接打印到控制台，应重定向到日志文件中进行打印。以免控制台信息输出过多，导致无法正确输出返回值，造成系统误判。</li><li>软件安装配置成功后，能够随操作系统自动启动。</li></ul>
+</li><li>仅适用于如下虚拟机：<ul><li><span>FusionCompute</span>和VMware虚拟化环境中的虚拟机。</li><li>网络为非VLAN连接类型，且网络内无DNS服务。</li><li>虚拟机操作系统为如<a href="#it_60_51_000018__tbl_02">表1</a>所示类型版本。
+<div class="tablenoborder"><a name="it_60_51_000018__tbl_02"></a><a name="tbl_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000018__tbl_02" frame="border" border="1" rules="all"><caption><b>表1 </b>支持软件自动部署的操作系统列表</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="7.333333333333335%" id="mcps1.2.5.2.1.2.1.3.2.2.7.1.1"><p>类型</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="17.6%" id="mcps1.2.5.2.1.2.1.3.2.2.7.1.2"><p>操作系统</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="29.600000000000005%" id="mcps1.2.5.2.1.2.1.3.2.2.7.1.3"><p>系统版本</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="11.866666666666669%" id="mcps1.2.5.2.1.2.1.3.2.2.7.1.4"><p>位数</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="17.46666666666667%" id="mcps1.2.5.2.1.2.1.3.2.2.7.1.5"><p>支持创建应用时软件自动安装和脚本自动执行</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="16.133333333333336%" id="mcps1.2.5.2.1.2.1.3.2.2.7.1.6"><p>支持软件分发和脚本分发</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" rowspan="15" valign="top" width="7.333333333333335%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Windows</p>
+</td>
+
+<td class="cellrowborder" rowspan="5" valign="top" width="17.6%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>Windows Server 2008</p>
+</td>
+
+<td class="cellrowborder" rowspan="2" valign="top" width="29.600000000000005%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>Standard</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="11.866666666666669%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="17.46666666666667%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.5 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.133333333333336%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.6 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>R2 Enterprise</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>R2 Standard</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Windows Server 2003</p>
+</td>
+
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>Windows Server 2003 R2 Enterprise</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.5 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="6" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Windows 7</p>
+</td>
+
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>Professional</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.5 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Home Premium</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Home Basic</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Windows XP</p>
+</td>
+
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>Professional</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.5 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>否</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="12" valign="top" width="7.333333333333335%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 ">Linux</td>
+
+<td class="cellrowborder" rowspan="6" valign="top" width="17.6%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>Novell SUSE Linux</p>
+</td>
+
+<td class="cellrowborder" rowspan="2" valign="top" width="29.600000000000005%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>Enterprise Server 11 SP0</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="11.866666666666669%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="17.46666666666667%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.5 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.133333333333336%" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.6 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Enterprise Server 11 SP1</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Enterprise Server 11 SP2</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Redhat Linux</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>Enterprise 5.5</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.5 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>Enterprise 6.2</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="4" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>CentOS</p>
+</td>
+
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>5.6</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.5 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>6.3</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>32位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.4 "><p>是</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.1 "><p>64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.2.1.3.2.2.7.1.3 "><p>是</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</li></ul>
+</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_000018__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000018" class="sectiontitle2contents">需要准备的软件</a></h4><div class="p">执行该任务前，需要获取如<a href="#it_60_51_000018__tbl_01">表2</a>所示的软件。
+<div class="tablenoborder"><a name="it_60_51_000018__tbl_01"></a><a name="tbl_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000018__tbl_01" frame="border" border="1" rules="all"><caption><b>表2 </b>所需软件</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="21.004566210045663%" id="mcps1.2.6.2.2.2.5.1.1"><p>名称</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="21.004566210045663%" id="mcps1.2.6.2.2.2.5.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="7.077625570776255%" id="mcps1.2.6.2.2.2.5.1.3"><p>是否可选</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="50.91324200913242%" id="mcps1.2.6.2.2.2.5.1.4"><p>获取方式</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><p>PVM-AutoInstall.iso</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><p>PVM虚拟机模板软件配置文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p>在如下路径下载<span class="filepath">“FusionManager V100R005C00SPC200_tool.zip”</span>后解压缩。</p>
+<ul><li><p>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise </span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionManager</span> &gt; <span class="uicontrol">V100R005C00SPC200</span>”</span></p>
+</li><li><p>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud
+OS</span> &gt; <span class="uicontrol">FusionManager</span> &gt; <span class="uicontrol">V100R005C00SPC200</span>”</span></p>
+</li></ul>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><p>虚拟机操作系统镜像文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><p>操作系统版本要求为Novell SUSE Linux Enterprise Server 11 SP1 64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p>自行准备</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><p>FusionCompute V100R005C00SPC200_GuestOS.iso</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><div class="p">包含了Tools和智能网卡驱动。<ul><li>Tools：<span>虚拟机的驱动程序。安装Tools后，才能实现对虚拟机的监控、迁移和其他虚拟机的高级功能，如安全关闭虚拟机、休眠虚拟机、在线调整CPU规格、对虚拟机创建快照等。</span>制作<span>FusionCompute</span>虚拟化环境中的虚拟机模板时必须安装的软件。</li><li>智能网卡驱动：如果主机使用了智能网卡，在制作虚拟机模板时需要安装智能网卡驱动。</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p>在如下路径下载<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOSDrivers.zip”</span>后解压缩。</p>
+<p>企业用户：</p>
+<p><span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise</span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+<p>运营商用户：</p>
+<p><span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">FusionCompute
+V100R005</span> &gt; <span class="uicontrol">FusionCompute V100R005C00SPC100</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><p>ISO文件制作工具</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><p>将功能所需的安装文件制作成为ISO文件，以便通过挂载光驱的方式，将安装文件拷贝至虚拟机中。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p>目前业界已有多款优秀的ISO镜像制作工具，如UltraISO、ISOMaker等，使用这些工具能够轻松将各类文件打包制作成为ISO文件。可通过互联网或<span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span>获取更多信息。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><p>jre安装文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><div class="p">安装文件要求如下：<ul><li>7.0版本及以上</li><li>适用于Linux 64位操作系统</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p><a href="http://www.java.com/en/download/manual.jsp" target="_blank">http://www.java.com/en/download/manual.jsp</a></p>
+<p>例如，安装文件为<span class="parmvalue">“jre-8u25-linux-x64.gz”</span>。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><p>tomcat安装文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><div class="p">安装文件要求如下：<ul><li>7.0版本及以上</li><li>适用于Linux 64位操作系统</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p><a href="http://tomcat.apache.org/download-70.cgi" target="_blank">http://tomcat.apache.org/download-70.cgi</a></p>
+<p>例如，安装文件为<span class="parmvalue">“apache-tomcat-7.0.56.tar.gz”</span>。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><p>Puppet软件服务端和客户端安装文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><div class="p" id="it_60_51_000018__installsoft"><a name="it_60_51_000018__installsoft"></a><a name="installsoft"></a>安装文件要求如下：<ul><li>2.7.12版本及以上</li><li>服务端与客户端软件版本配套或兼容</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><ul><li>Windows操作系统：<p><a href="https://downloads.puppetlabs.com/windows/" target="_blank">https://downloads.puppetlabs.com/windows/</a></p>
+<p>例如，安装文件为<span class="parmvalue">“puppet-2.7.12.msi”</span>。</p>
+</li><li>Linux操作系统：<p><a href="https://rubygems.org" target="_blank">https://rubygems.org</a></p>
+<p>例如，依赖软件包为<span class="parmvalue">“facter-2.2.0.gem”</span>，安装文件为<span class="parmvalue">“puppet-2.7.12.gem”</span>。</p>
+</li></ul>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><p>安装*.gem文件使用的工具</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><div class="p">包含如下工具，建议使用1.8.7版本及以上：<ul><li>ruby</li><li>ruby-devel</li><li>rubygems</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p>自行准备</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><ul><li>puppetclient_linux.iso</li><li>puppetclient_windows.iso</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><p><span>FusionManager</span>软件自动部署的客户端软件的配置文件，在安装软件后，需使用此文件进行配置。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p>在如下路径下载<span class="filepath">“FusionManager V100R005C00SPC200_tool.zip”</span>后解压缩。</p>
+<p>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise </span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionManager</span> &gt; <span class="uicontrol">V100R005C00SPC200</span>”</span></p>
+<p>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud
+OS</span> &gt; <span class="uicontrol">FusionManager</span> &gt; <span class="uicontrol">V100R005C00SPC200</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.1 "><ul><li><p>应用软件安装包</p>
+</li><li><p>脚本</p>
+</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.6.2.2.2.5.1.2 "><ul><li><p>应用软件的安装包及其安装与配置命令</p>
+</li><li><p>脚本文件</p>
+</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.6.2.2.2.5.1.3 "><p>可选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.6.2.2.2.5.1.4 "><p>根据业务需要，用户自行准备。</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">获取到软件包后建议先执行软件包校验的操作，具体操作请参见<a href="../soft_inst/it_60_23_000021.html">校验软件包</a>。</div></div>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_000018__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000018" class="sectiontitle2contents">功能配置流程</a></h4><div class="p">根据如<a href="#it_60_51_000018__fig_02">图2</a>所示流程，完成软件自动部署功能的资源配置。流程中所示任务说明如<a href="#it_60_51_000018__tab_02">表3</a>所示。<div class="fignone" id="it_60_51_000018__fig_02"><a name="it_60_51_000018__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>图2 </b>业务配置</span>
+
+<br><span><img src="fig/fig_it_60_51_000018_02.png"></span></div>
+</div>
+<div class="p">
+<div class="tablenoborder"><a name="it_60_51_000018__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000018__tab_02" frame="border" border="1" rules="all"><caption><b>表3 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="19.333333333333332%" id="mcps1.2.7.3.1.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="42%" id="mcps1.2.7.3.1.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="38.666666666666664%" id="mcps1.2.7.3.1.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="19.333333333333332%" headers="mcps1.2.7.3.1.2.4.1.1 "><p>添加VSA管理网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="42%" headers="mcps1.2.7.3.1.2.4.1.2 "><p>VSA管理网络为基础网络配置，用来为系统服务虚拟机提供管理平面网络资源。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="38.666666666666664%" headers="mcps1.2.7.3.1.2.4.1.3 "><p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，进入<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">VSA网络</span>”</span>界面</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="19.333333333333332%" headers="mcps1.2.7.3.1.2.4.1.1 "><p>制作PVM虚拟机模板</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="42%" headers="mcps1.2.7.3.1.2.4.1.2 "><p>系统服务虚拟机是使用虚拟机模板由系统自动创建的。若需使用PVM虚拟机，则需先制作PVM虚拟机模板。具体操作方法请参考<a href="it_60_56_c10122.html">制作PVM模板</a>。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="38.666666666666664%" headers="mcps1.2.7.3.1.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">虚拟机模板</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="19.333333333333332%" headers="mcps1.2.7.3.1.2.4.1.1 "><p>给虚拟机模板安装Puppet Client软件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="42%" headers="mcps1.2.7.3.1.2.4.1.2 "><p>虚拟机中必须安装Puppet Client软件，才能使用软件自动部署功能。因此，要在虚拟机模板中安装该软件，这样，通过虚拟机模板创建出的虚拟机才会包含该软件。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="38.666666666666664%" headers="mcps1.2.7.3.1.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">虚拟机模板</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="19.333333333333332%" headers="mcps1.2.7.3.1.2.4.1.1 "><p>添加应用软件安装包和脚本</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="42%" headers="mcps1.2.7.3.1.2.4.1.2 "><p>根据业务需要选择要推送安装或执行的应用软件包或脚本。</p>
+<p>租户也可以添加应用软件安装包和脚本。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="38.666666666666664%" headers="mcps1.2.7.3.1.2.4.1.3 "><ul><li><p><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">软件包</span>”</span></p>
+</li><li><p><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">脚本</span>”</span></p>
+</li></ul>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><div class="p">若使用软件自动部署功能，后续在创建应用模板时，需注意：<ul><li><p id="it_60_51_000018__addSoft"><a name="it_60_51_000018__addSoft"></a><a name="addSoft"></a>在应用模板中，需将软件包或脚本图元，拖入虚拟机图元中，并配置相关参数。</p>
+</li><li><p id="it_60_51_000018__noSoft"><a name="it_60_51_000018__noSoft"></a><a name="noSoft"></a>若虚拟机图元的操作系统，是<span class="wintitle">“注意事项”</span>中列表所示的<span class="parmname">“支持创建应用时软件自动安装和脚本自动执行”</span>为<span class="parmvalue">“否”</span>的操作系统，则请勿添加软件包或脚本图元。</p>
+</li></ul>
+</div>
+</div></div>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

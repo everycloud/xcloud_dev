@@ -1,0 +1,193 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<tocdata>
+<book name="从这里开始" url="07_fm/father_node/it_60_99_start.html" >
+  <item name="客户端要求" url="07_fm/help/it_60_51_000001.html" />
+  <item name="浏览器配置" url="07_fm/help/it_60_51_000002.html" />
+  <item name="登录和注销" url="07_fm/help/it_60_51_000003.html" />
+  <item name="系统设定" url="07_fm/help/it_60_51_000004.html" />
+  <item name="个性化设定" url="07_fm/help/it_60_51_000005.html" />
+  <item name="界面简介" url="07_fm/help/it_60_51_000006.html" />
+</book>
+<item name="第一部分 资源准备" url="07_fm/help/it_60_51_000007.html" />
+<book name="资源配置" url="07_fm/father_node/it_60_99_100012.html" >
+  <item name="资源池配置" url="07_fm/help/it_60_51_000008.html" />
+  <item name="模板与规格配置" url="07_fm/help/it_60_51_000016.html" />
+  <item name="云资源池的接入与分配" url="07_fm/help/it_60_51_000042.html" />
+  <book name="特性配置" url="07_fm/father_node/it_60_99_100013.html" >
+    <item name="配置简介" url="07_fm/help/it_60_51_000045.html" />
+    <item name="VXLAN" url="07_fm/help/it_60_51_000009.html" />
+    <item name="弹性IP" url="07_fm/help/it_60_51_000010.html" />
+    <item name="NAT" url="07_fm/help/it_60_51_000011.html" />
+    <item name="ACL" url="07_fm/help/it_60_51_000012.html" />
+    <item name="应用层包过滤" url="07_fm/help/it_60_51_000044.html" />
+    <item name="VPN" url="07_fm/help/it_60_51_000013.html" />
+    <item name="负载均衡" url="07_fm/help/it_60_51_000014.html" />
+    <item name="软件自动部署" url="07_fm/help/it_60_51_000018.html" />
+  </book>
+</book>
+<item name="第二部分 日常管理" url="07_fm/help/it_60_51_100001.html" />
+<book name="服务管理" url="07_fm/father_node/it_60_99_100030.html" >
+  <item name="云资源池" url="07_fm/help/it_60_51_100041.html" />
+  <item name="标签管理" url="07_fm/help/it_60_51_100042.html" />
+  <item name="应用模板" url="07_fm/help/it_60_51_100032.html" />
+</book>
+<book name="资源管理" url="07_fm/father_node/it_60_99_100001.html" >
+  <book name="设备管理" url="07_fm/father_node/it_60_99_100002.html" >
+    <item name="设备管理简介" url="07_fm/help/it_60_51_000021.html" />
+    <item name="适配包管理" url="07_fm/help/it_60_51_100011.html" />
+    <item name="批量接入物理设备" url="07_fm/help/it_60_51_100012.html" />
+    <item name="服务器" url="07_fm/help/it_60_51_100002.html" />
+    <item name="机框" url="07_fm/help/it_60_51_100003.html" />
+    <item name="交换机" url="07_fm/help/it_60_51_100004.html" />
+    <item name="防火墙" url="07_fm/help/it_60_51_100005.html" />
+    <item name="负载均衡器" url="07_fm/help/it_60_51_100006.html" />
+    <item name="SAN" url="07_fm/help/it_60_51_100007.html" />
+    <item name="FusionStorage" url="07_fm/help/it_60_51_100008.html" />
+    <item name="机房" url="07_fm/help/it_60_51_100009.html" />
+    <item name="机柜" url="07_fm/help/it_60_51_100010.html" />
+  </book>
+  <book name="虚拟化资源管理" url="07_fm/father_node/it_60_99_100003.html" >
+    <item name="虚拟化资源管理简介" url="07_fm/help/it_60_51_000022.html" />
+    <item name="虚拟化环境" url="07_fm/help/it_60_51_100013.html" />
+    <book name="资源集群管理" url="07_fm/father_node/it_60_99_100034.html" >
+      <item name="资源集群" url="07_fm/help/it_60_51_100014.html" />
+      <item name="高级属性" url="07_fm/help/it_60_51_100048.html" />
+      <item name="主机" url="07_fm/help/it_60_51_100051.html" />
+      <item name="存储" url="07_fm/help/it_60_51_100052.html" />
+      <item name="虚拟机" url="07_fm/help/it_60_51_100053.html" />
+      <item name="虚拟机-概要" url="07_fm/help/it_60_51_100044.html" />
+      <item name="虚拟机-硬件" url="07_fm/help/it_60_51_100045.html" />
+      <item name="虚拟机-选项" url="07_fm/help/it_60_51_100046.html" />
+      <item name="虚拟机-快照" url="07_fm/help/it_60_51_100047.html" />
+      <item name="设备资源" url="07_fm/help/it_60_51_100049.html" />
+      <item name="资源调度" url="07_fm/help/it_60_51_100050.html" />
+    </book>
+  </book>
+  <book name="资源池管理" url="07_fm/father_node/it_60_99_100004.html" >
+    <item name="资源池管理简介" url="07_fm/help/it_60_51_000023.html" />
+    <book name="资源分区" url="07_fm/father_node/it_60_99_100005.html" >
+      <item name="资源分区" url="07_fm/help/it_60_51_100037.html" />
+      <item name="可用分区" url="07_fm/help/it_60_51_100018.html" />
+      <item name="计算资源池" url="07_fm/help/it_60_51_100019.html" />
+      <item name="存储资源池" url="07_fm/help/it_60_51_100020.html" />
+      <item name="DVS" url="07_fm/help/it_60_51_100022.html" />
+      <item name="VLAN池" url="07_fm/help/it_60_51_100023.html" />
+      <item name="外部网络" url="07_fm/help/it_60_51_100024.html" />
+      <item name="公网IP地址池" url="07_fm/help/it_60_51_100025.html" />
+      <item name="VSA网络" url="07_fm/help/it_60_51_100026.html" />
+      <item name="虚拟防火墙" url="07_fm/help/it_60_51_100027.html" />
+      <item name="VLB" url="07_fm/help/it_60_51_100028.html" />
+      <item name="系统服务虚拟机" url="07_fm/help/it_60_51_100029.html" />
+    </book>
+  </book>
+  <book name="模板与规格管理" url="07_fm/father_node/it_60_99_100006.html" >
+    <item name="模板与规格管理简介" url="07_fm/help/it_60_51_000024.html" />
+    <item name="虚拟机模板" url="07_fm/help/it_60_51_100030.html" />
+    <item name="软件包" url="07_fm/help/it_60_51_100033.html" />
+    <item name="脚本" url="07_fm/help/it_60_51_100034.html" />
+    <item name="虚拟机规格" url="07_fm/help/it_60_51_100035.html" />
+  </book>
+</book>
+<book name="VDC管理" url="07_fm/father_node/it_60_99_100019.html" >
+  <item name="VDC" url="07_fm/help/it_60_51_200001.html" />
+  <item name="VPC规格" url="07_fm/help/it_60_51_100036.html" />
+  <item name="代管授权" url="07_fm/help/it_60_51_400027.html" />
+  <item name="IP带宽规格" url="07_fm/help/it_60_51_100038.html" />
+  <item name="虚拟机" url="07_fm/help/it_60_51_100015.html" />
+  <item name="磁盘" url="07_fm/help/it_60_51_100016.html" />
+  <item name="VPC" url="07_fm/help/it_60_51_400011.html" />
+  <item name="网络" url="07_fm/help/it_60_51_400012.html" />
+  <item name="路由器" url="07_fm/help/it_60_51_400015.html" />
+  <item name="弹性IP地址" url="07_fm/help/it_60_51_400013.html" />
+  <item name="DNAT" url="07_fm/help/it_60_51_400014.html" />
+  <item name="安全组" url="07_fm/help/it_60_51_400016.html" />
+  <item name="ACLs" url="07_fm/help/it_60_51_400020.html" />
+  <item name="应用层包过滤" url="07_fm/help/it_60_51_400023.html" />
+  <item name="VPN网关" url="07_fm/help/it_60_51_400021.html" />
+  <item name="VPN链接" url="07_fm/help/it_60_51_400024.html" />
+</book>
+<book name="用户管理" url="07_fm/father_node/it_60_99_100007.html" >
+  <item name="用户" url="07_fm/help/it_60_51_200002.html" />
+  <item name="角色" url="07_fm/help/it_60_51_200003.html" />
+  <item name="分域" url="07_fm/help/it_60_51_200004.html" />
+  <item name="密码策略" url="07_fm/help/it_60_51_200005.html" />
+</book>
+<item name="第三部分 系统维护" url="07_fm/help/it_60_51_000043.html" />
+<book name="监控" url="07_fm/father_node/it_60_99_100008.html" >
+  <item name="监控简介" url="07_fm/help/it_60_51_000019.html" />
+  <book name="告警监控" url="07_fm/father_node/it_60_99_100009.html" >
+    <item name="告警列表" url="07_fm/help/it_60_51_500001.html" />
+    <item name="告警设置" url="07_fm/help/it_60_51_500002.html" />
+    <item name="告警统计" url="07_fm/help/it_60_51_500003.html" />
+  </book>
+  <book name="性能监控" url="07_fm/father_node/it_60_99_100010.html" >
+    <item name="监控视图" url="07_fm/help/it_60_51_500004.html" />
+  </book>
+  <book name="报表" url="07_fm/father_node/it_60_99_100011.html" >
+    <item name="系统报表" url="07_fm/help/it_60_51_500007.html" />
+    <item name="自定义报表" url="07_fm/help/it_60_51_500008.html" />
+  </book>
+</book>
+<book name="系统" url="07_fm/father_node/it_60_99_100015.html" >
+  <item name="系统配置" url="07_fm/help/it_60_51_500009.html" />
+  <item name="任务与日志" url="07_fm/help/it_60_51_500016.html" />
+</book>
+<book name="FAQ" url="07_fm/father_node/it_60_99_faq.html" >
+  <item name="校验软件包" url="07_fm/soft_inst/it_60_23_000021.html" />
+  <item name="如何接入防火墙设备" url="07_fm/help/it_60_51_600012.html" />
+  <item name="如何配置防火墙资源文件" url="07_fm/help/it_60_51_600001.html" />
+  <item name="如何配置交换机组播功能" url="07_fm/help/it_60_51_600002.html" />
+  <item name="如何在物理防火墙中创建虚拟防火墙" url="07_fm/help/it_60_51_600003.html" />
+  <item name="在交换机上配置VLAN聚合" url="07_fm/help/it_60_51_600016.html" />
+  <item name="在交换机上配置IPv6转发功能" url="07_fm/help/it_60_51_600023.html" />
+  <item name="配置DHCP服务器的网络信息" url="07_fm/help/it_60_51_600017.html" />
+  <item name="如何创建新的虚拟机模板(Windows)" url="07_fm/help/it_60_51_600004.html" />
+  <item name="如何创建新的虚拟机模板(Linux)" url="07_fm/help/it_60_51_600010.html" />
+  <item name="导入VSA模板" url="07_fm/help/it_60_56_c10121.html" />
+  <item name="制作PVM模板" url="07_fm/help/it_60_56_c10122.html" />
+  <item name="如何创建新的应用模板" url="07_fm/help/it_60_51_600005.html" />
+  <item name="如何扩大脚本和软件包的存储空间" url="07_fm/help/it_60_51_600007.html" />
+  <item name="配置CommVault虚拟机备份服务器" url="07_fm/help/it_60_51_600009.html" />
+  <item name="修改共享VPC的默认网络配置" url="07_fm/help/it_60_51_600031.html" />
+  <item name="配置公网IP地址复用为DNAT和SNAT" url="07_fm/help/it_60_51_600033.html" />
+  <item name="安装及配置VPN（Windows）" url="07_fm/soft_inst/it_60_23_000022.html" />
+  <book name="虚拟机管理" url="07_fm/father_node/it_60_99_100032.html" >
+    <item name="挂载光驱" url="07_fm/help/it_60_51_600018.html" />
+    <item name="替换虚拟机的内核文件" url="05_fc/vm_prov/it_58_45_000005.html" />
+    <item name="配置虚拟机的SID" url="05_fc/vm_prov/it_58_45_200037.html" />
+    <item name="配置虚拟机规格属性（Windows）" url="05_fc/vm_prov/it_58_45_200038.html" />
+    <item name="配置Linux虚拟机网络属性" url="05_fc/vm_prov/it_58_45_200040.html" />
+    <item name="VNC登录常见问题" url="07_fm/help/it_60_51_000025.html" />
+    <item name="虚拟机迁移要求" url="05_fc/vm_prov/it_58_45_200041.html" />
+    <item name="如何修复虚拟机" url="07_fm/help/it_60_51_600019.html" />
+    <item name="如何调整虚拟机的CPU规格" url="07_fm/help/it_60_51_600020.html" />
+    <item name="如何删除Linux虚拟机的网卡信息" url="07_fm/help/it_60_51_600024.html" />
+    <item name="如何设置虚拟机热插拔策略" url="07_fm/help/it_60_51_600021.html" />
+    <item name="虚拟机快照使用要求" url="07_fm/help/it_60_51_600022.html" />
+    <item name="虚拟化防病毒管理" url="07_fm/help/it_60_51_600029.html" />
+    <item name="如何将裸设备映射的磁盘，从虚拟机解绑定后，再绑定给物理服务器" url="05_fc/vm_prov/it_58_45_400012.html" />
+  </book>
+  <book name="Tools管理" url="05_fc/vm_prov/it_58_45_200028.html" >
+    <item name="简介" url="05_fc/vm_prov/it_58_45_200029.html" />
+    <item name="在Windows系统中安装Tools" url="05_fc/vm_prov/it_58_45_200031.html" />
+    <item name="在Linux系统中安装Tools" url="05_fc/vm_prov/it_58_45_200032.html" />
+    <item name="在Windows系统中卸载Tools" url="05_fc/vm_prov/it_58_45_200034.html" />
+    <item name="在Linux系统中卸载Tools" url="05_fc/vm_prov/it_58_45_200035.html" />
+    <item name="升级Tools" url="05_fc/vm_prov/it_58_45_200036.html" />
+  </book>
+  <book name="智能网卡驱动管理" url="05_fc/vm_prov/it_58_45_200048.html" >
+    <item name="简介" url="05_fc/vm_prov/it_58_45_200049.html" />
+    <item name="在Windows系统中安装智能网卡驱动" url="05_fc/vm_prov/it_58_45_200051.html" />
+    <item name="在Linux系统中安装智能网卡驱动" url="05_fc/vm_prov/it_58_45_200052.html" />
+    <item name="在Windows系统中卸载智能网卡驱动" url="05_fc/vm_prov/it_58_45_200054.html" />
+    <item name="在Linux系统中卸载智能网卡驱动" url="05_fc/vm_prov/it_58_45_200055.html" />
+    <item name="升级智能网卡驱动" url="05_fc/vm_prov/it_58_45_200056.html" />
+  </book>
+  <book name="Puppet Client管理" url="07_fm/father_node/it_60_99_100031.html" >
+    <item name="简介" url="07_fm/help/it_60_51_600013.html" />
+    <item name="在Windows系统中安装Puppet Client" url="07_fm/help/it_60_51_600014.html" />
+    <item name="在Linux系统中安装Puppet Client" url="07_fm/help/it_60_51_600015.html" />
+  </book>
+</book>
+
+</tocdata>

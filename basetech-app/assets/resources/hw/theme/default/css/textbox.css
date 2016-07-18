@@ -1,0 +1,18 @@
+.tiny-input-text {
+	border-radius: 4px;
+	box-shadow: 1px 1px 1px #fff,inset 1px 1px 1px rgba(0,0,0,0.1);
+	border: 1px solid #d3d3d3;
+	height: 20px;
+	line-height: 20px;
+	color: #666666;
+	padding: 2px 8px;
+	vertical-align:middle;
+	outline: none;
+}
+.tiny-input-text-disabled{
+	background-color: #ededed;
+	color: #999;
+}
+.tiny-input-text:focus{
+	border: 1px solid #53b8eb;
+}

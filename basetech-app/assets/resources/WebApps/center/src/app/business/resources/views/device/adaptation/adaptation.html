@@ -1,0 +1,51 @@
+<div fm-help help="'drawer_device_adaptor'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="i18n.device_term_adaptorManage_label">适配包管理</span></li>
+            <li class="two-lead">
+                <p ng-bind-html="device_adap_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <fm-button id="installAdptModel.id"
+                         text="installAdptModel.text"
+                         click="installAdptModel.click"
+                         disable="installAdptModel.disable"
+                         class="major-btn fl"
+                         ng-if="hasDeviceOperateRight">
+            </fm-button>
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="operator.adaptationList()"
+                         id="adaptionRefresh"
+                         title="{{i18n.common_term_fresh_button}}"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link"href="javascript:void 0;">
+                    <div title="{{i18n.common_term_help_label}}"
+                         ng-click="show.help=true"
+                         class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div id="deviceSanTable">
+            <tiny-table id="adptPkgTable.id" data="adptPkgTable.data"
+                        columns="adptPkgTable.columns"
+                        enable-pagination="adptPkgTable.enablePagination"
+                        pagination-style="adptPkgTable.paginationStyle"
+                        length-change="adptPkgTable.lengthChange" length-menu="adptPkgTable.lengthMenu"
+                        display-length="adptPkgTable.displayLength" cur-page="adptPkgTable.curPage"
+                        total-records="adptPkgTable.totalRecords"
+                        request-config="adptPkgTable.requestConfig"
+                        columns-draggable="adptPkgTable.columnsDraggable"
+                        hide-total-records="adptPkgTable.hideTotalRecords"
+                        total-records="adptPkgTable.data.length" render-row="adptPkgTable.renderRow"
+                        columns-visibility="adptPkgTable.columnsVisibility"
+                        show-details="adptPkgTable.showDetails"></tiny-table>
+        </div>
+    </div>
+</div>

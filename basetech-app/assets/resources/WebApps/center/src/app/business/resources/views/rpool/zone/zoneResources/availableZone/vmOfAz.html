@@ -1,0 +1,24 @@
+<div id="vmOfAzDiv">
+        <tiny-table id="vmTable.id" data="vmTable.data" length-change="vmTable.lengthChange" cur-page="vmTable.curPage"
+                    pagination-style="vmTable.paginationStyle" columns='vmTable.columns' render-row="vmTable.renderRow"
+                    length-menu="vmTable.lengthMenu" enable-pagination="vmTable.enablePagination" callback="vmTable.callback"
+                    change-select="vmTable.changeSelect" columns-visibility="vmTable.columnsVisibility"
+                    total-records="vmTable.totalRecords" display-length="vmTable.displayLength"
+                    columns-draggable="vmTable.columnsDraggable"></tiny-table>
+</div>
+<script type="application/javascript">
+    require([ 'app/business/resources/controllers/rpool/zone/zoneResources/availableZone/vmOfAzCtrl'],
+            function (vmOfAzCtrl) {
+                var rootElement = $("#vmOfAzDiv");
+                rootElement.attr("ng-controller", "resources.zone.vmOfAz.ctrl");
+                var dep = ['ng', 'wcc', vmOfAzCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

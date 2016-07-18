@@ -1,0 +1,99 @@
+<div class="template-software-detail container-fluid" ng-controller="template.software.softwareDetail.ctrl">
+    <div>
+        <div class="row-fluid innerbox-padding">
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="file.label" require="file.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                            <span ng-bind="file.value" title="{{ file.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="attachment.label" require="attachment.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                            <span ng-bind="attachment.value" title="{{ attachment.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="path.label" require="path.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                            <span ng-bind="path.value" title="{{ path.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="picture.label" require="picture.require">
+                        <img ng-src='{{ picture.value }}' width="20px" height="20px"/>
+                    </tiny-item>
+                    <tiny-item label="description.label" require="description.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                            <span ng-bind="description.value" title="{{ description.value }}"></span>
+                        </div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span1"></div>
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="fileSize.label" require="fileSize.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                            <span ng-bind="fileSize.value" title="{{ fileSize.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="installCmd.label" require="installCmd.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                            <span ng-bind="installCmd.value" title="{{ installCmd.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="unInstallCmd.label" require="unInstallCmd.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                        <span ng-bind="unInstallCmd.value" title="{{ unInstallCmd.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="startCmd.label" require="startCmd.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                        <span ng-bind="startCmd.value" title="{{ startCmd.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="stopCmd.label" require="stopCmd.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                        <span ng-bind="stopCmd.value" title="{{ stopCmd.value }}"></span>
+                        </div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/templateSpec/template/software/softwareDetailCtrl',
+        'app/business/resources/controllers/constants'],
+            function ($, softwareDetailCtrl, constants) {
+
+                // 1.获取当前Dom
+                var curView = undefined;
+                $(".template-software-detail").each(function () {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+
+                curView.attr("id", new Date().getMilliseconds());
+
+                // 2.编译
+                var scope = curView.scope();
+
+                var modules = ["wcc",softwareDetailCtrl.name];
+                modules.unshift(["$provide", function($provide) {
+                    $provide.value("$rootElement", curView);
+                }]);
+                modules.unshift("ng");
+                var $injector = angular.injector(modules);
+                $injector.invoke(["$compile", function ($compile) {
+                    $compile(curView)(scope);
+                    scope.$digest();
+                }]);
+
+                // 3.初始化scope
+                var curScope = curView.scope();
+                curScope.queryDetail(scope.currentItem.id);
+            });
+</script>

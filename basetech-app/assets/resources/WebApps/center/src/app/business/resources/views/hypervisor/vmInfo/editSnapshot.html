@@ -1,0 +1,34 @@
+<div id="editSnapshotDiv">
+    <tiny-formfield>
+        <tiny-item label="nameTextbox.label" require="nameTextbox.require">
+            <tiny-textbox id="nameTextbox.id" value="nameTextbox.value"
+                          validate="nameTextbox.validate" tooltip="nameTextbox.tooltip"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="descTextbox.label">
+            <tiny-textbox id="descTextbox.id" value="descTextbox.value"
+                          validate="descTextbox.validate" type="descTextbox.type" width="descTextbox.width"
+                          height ="descTextbox.height"></tiny-textbox>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/vmInfo/editSnapshotCtrl'],
+            function (editSnapshotCtrl) {
+                var rootElement = $("#editSnapshotDiv");
+                rootElement.attr("ng-controller", "resources.vmInfo.editSnapshot.ctrl");
+                var dep = ['ng', 'wcc', editSnapshotCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

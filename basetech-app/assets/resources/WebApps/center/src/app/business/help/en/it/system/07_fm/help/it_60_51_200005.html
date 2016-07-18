@@ -1,0 +1,369 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Password Policy">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_200005">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Password Policy</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("User Management\nPassword Policy");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100007.html\">User Management<\/a> > Password Policy<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_200005"></a><a name="it_60_51_200005"></a>
+
+
+<h1 class="topictitle1">Password Policy</h1>
+
+<div>
+<div class="section"><p><span>FusionManager</span> supports password policy customization. If the default password
+policy cannot meet your particular requirements, you can configure
+a custom password policy. After the new password policy is configured,
+the passwords configured for all users created in the system must
+comply with this password policy.</p>
+ <div class="p"><a href="#it_60_51_200005__table_0230CE71">Table 1</a> describes the password policies in
+the system.
+<div class="tablenoborder"><a name="it_60_51_200005__table_0230CE71"></a><a name="table_0230CE71"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_200005__table_0230CE71" frame="border" border="1" rules="all"><caption><b>Table 1 </b><span>FusionManager</span> Password policy</caption>
+
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="25%" id="mcps1.2.1.2.2.2.5.1.1"><p>Parameter</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="25%" id="mcps1.2.1.2.2.2.5.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="25%" id="mcps1.2.1.2.2.2.5.1.3"><p>Modifiable</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="25%" id="mcps1.2.1.2.2.2.5.1.4"><p>Example Value</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Minimum Number of Characters</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the minimum password length.</p>
+<p>Value range:
+an integer ranging from 8 to 32.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>8</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Maximum Number of Characters</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the maximum password length.</p>
+<p>Value range:
+an integer ranging from 8 to 32.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>32</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Special Characters Required</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies whether special characters are required.</p>
+<ul><li><span class="parmvalue"><b>Yes</b></span>: The password must contain special
+characters.</li><li><span class="parmvalue"><b>No</b></span>: The password can contain special characters.</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>Yes</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Allows Username or Reserve Username</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><div class="p">Specifies whether the username or reserve username can be
+contained.<ul><li><span class="parmvalue"><b>Yes</b></span>: The password is allowed to contain
+the username or reversed username.</li><li><span class="parmvalue"><b>No</b></span>: The password is not allowed to contain
+the username or reversed username.</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>No</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Number of Repetitions</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the number of previous passwords that cannot be
+repeated.</p>
+<p>Value range: an integer ranging from 3 to 32.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>5</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Password Validity Period (days)</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the number of days during which the password is
+valid.</p>
+<p>Value range: an integer ranging from 0 to 999 (0 indicates
+that the password is always valid.)</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>90</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Change Password upon Rest or First Login</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies whether to require users to change their passwords
+after logging in to the system for the first time or after their passwords
+were just reset.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>Yes</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Password Change Interval</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the shortest interval between each password change.</p>
+<p>Value range: an integer ranging from 0 to 9999 (0 indicates that
+a password can be changed immediately after it is set.)</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>5</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Advance Warning Before Password Expires (days)</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the number of days of warning before a password
+expires. </p>
+<p>Value range: an integer ranging from 0 to 15 (0 indicates
+that no warning will be generated.)</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>7</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Allowed Incorrect Inputs</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the number of incorrect password attempts in a
+specified period of time before the account is locked.</p>
+<p>Value
+range: an integer ranging from 3 to 30.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>5</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>Period (min)</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the period of time (in minutes) after which the
+account is locked if the number of allowed incorrect password attempts
+reaches the specified threshold. </p>
+<p>Value range: an integer ranging
+from 3 to 30.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>5</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.1 "><p>User Lock Period (min)</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.2 "><p>Specifies the period of time (in minutes) in which the account
+is locked due to incorrect inputs. When period elapses, this account
+will be unlocked automatically.</p>
+<p>Value range: an integer ranging
+from 10 to 120.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.3 "><p>Yes</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.2.1.2.2.2.5.1.4 "><p>10</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">User</span></b> &gt; <b><span class="uicontrol">Password Policies</span></b></span> and configure
+the required settings.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<div id="scriptUsageWindow" class="margin-top-beautifier" ng-controller="template.script.usage.ctrl">
+    <div style="height: 280px;" class="margin-top-beautifier">
+        <tiny-table id="applicationTable.id" caption="applicationTable.caption" data="applicationTable.data"
+                    columns="applicationTable.columns"
+                    enable-pagination="applicationTable.enablePagination"
+                    pagination-style="applicationTable.paginationStyle" length-change="applicationTable.lengthChange"
+                    length-menu="applicationTable.lengthMenu" display-length="applicationTable.displayLength"
+                    enable-filter="applicationTable.enableFilter"
+                    cur-page="applicationTable.curPage" total-records="applicationTable.totalRecords"
+                    hide-total-records="applicationTable.hideTotalRecords"
+                    callback="applicationTable.callback" render-row="applicationTable.renderRow" change-select="applicationTable.changeSelect"
+                    show-details="applicationTable.showDetails" columns-visibility="applicationTable.columnVisibility"
+                    columns-draggable="applicationTable.columnsDraggable"></tiny-table>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/templateSpec/template/script/scriptUsageCtrl'],
+            function ($, scriptUsageCtrl) {
+                var dep = ['ng', 'wcc', scriptUsageCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#scriptUsageWindow"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile) {
+                    var scope = $("#scriptUsageWindow").scope();
+                    $compile($("#scriptUsageWindow"))(scope);
+                    scope.$digest();
+                });
+            });
+</script>

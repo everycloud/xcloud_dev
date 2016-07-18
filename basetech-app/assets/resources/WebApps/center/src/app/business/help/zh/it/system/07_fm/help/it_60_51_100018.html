@@ -1,0 +1,138 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="可用分区">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100018">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>可用分区</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\n资源池管理\n资源分区\n可用分区");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100004.html\">资源池管理<\/a> > <a href=\"../father_node/it_60_99_100005.html\">资源分区<\/a> > 可用分区<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100018"></a><a name="it_60_51_100018"></a>
+
+
+<h1 class="topictitle1">可用分区</h1>
+<ul><li><a href="#it_60_51_100018__1.2.3.1">管理资源集群</a></li><li><a href="#it_60_51_100018__1.2.4.1">管理标签</a></li><li><a href="#it_60_51_100018__1.2.5.1">删除可用分区</a></li></ul>
+<div>
+<div class="p" id="it_60_51_100018__az_define"><a name="it_60_51_100018__az_define"></a><a name="az_define"></a>可用分区是物理资源（计算、存储、网络）的逻辑分区，是面向用户的资源的集合，其物理网络是二层互通的。一般按照如下原则，将资源分区中的资源集群划分在同一可用分区。在发放业务时，可根据需要选择使用的可用分区。<ul><li>一个可用分区中的所有资源集群必须来源于一个虚拟化环境。</li><li>一个可用分区中的所有资源集群使用的存储必须是相同的。</li><li>一个可用分区中的所有资源集群使用的DVS必须相同。</li></ul>
+</div>
+
+
+
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="uicontrol">“可用分区”</span>界面</span>中，单击<span class="uicontrol">“创建”</span>。</p>
+
+<div class="section"><a name="it_60_51_100018__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100018" class="sectiontitle2contents">管理资源集群</a></h4><p>可用分区创建后，能够调整可用分区中包含的资源集群。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="uicontrol">“可用分区”</span>界面</span>，可用分区所在行中，单击<span class="menucascade">“<span class="uicontrol">集群管理</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100018__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100018" class="sectiontitle2contents">管理标签</a></h4><p>可用分区创建后，能够调整可用分区的标签。标签用于标记资源的某些特定属性，便于使用时进行选择和区分。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="uicontrol">“可用分区”</span>界面</span>，可用分区所在行中，单击<span class="menucascade">“<span class="uicontrol">标签管理</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100018__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100018" class="sectiontitle2contents">删除可用分区</a></h4><p>当可用分区不再使用时，删除可用分区。已关联资源集群的可用分区，不允许删除。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="uicontrol">“可用分区”</span>界面</span>，可用分区所在行中，单击<span class="menucascade">“<span class="uicontrol">删除</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<div>
+    <div id="registSoftwareCmdConfig" class="create-page-distance">
+        <tiny-formfield>
+            <tiny-item label="addAttachment.label" require="addAttachment.require">
+                <!-- 点击添加组件 -->
+                <img src='../theme/default/images/addAttachment.png' alt='../theme/default/images/addAttachment.png'
+                     style="cursor: pointer"
+                     width='16px' height='16px' ng-click="addAttachment.addAttachment()"/>
+
+                <div id="attachmentSelect"></div>
+                <div ng-if="action === 'modify'">
+                    <span ng-bind="service.model.attachmentPaths"></span>
+                    <div ng-repeat="attachment in addAttachment.files">
+                        <div>
+                            <div style="display:inline-block;margin-top: 8px;">
+                                <span ng-bind="attachment"></span>
+                            </div>
+                            <img src="../theme/default/images/delete.png" alt="../theme/default/images/delete.png"
+                                 style="cursor: pointer;margin-left: 6px;"
+                                 width="16px" height="16px" ng-click="addAttachment.delete($index)"/>
+                        </div>
+                    </div>
+                </div>
+            </tiny-item>
+            <tiny-item label="attachmentPassword.label" require="attachmentPassword.require" display="attachmentPassword.display">
+                <tiny-textbox id="attachmentPassword.id" value="model.defaultPassWord" validate="attachmentPassword.validate" type="attachmentPassword.type"
+                              width="attachmentPassword.width"></tiny-textbox>
+                <span popover="{{i18n.template_software_add_para_psw_mean_tip}}" popover-trigger="mouseenter"
+                      class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="attachmentPasswordConfirm.label" require="attachmentPasswordConfirm.require" display="attachmentPasswordConfirm.display">
+                <tiny-textbox id="attachmentPasswordConfirm.id" value="model.value" validate="attachmentPasswordConfirm.validate" type="attachmentPasswordConfirm.type"
+                              width="attachmentPasswordConfirm.width" extend-function="attachmentPasswordConfirm.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="destinationPath.label" require="destinationPath.require">
+                <tiny-textbox id="destinationPath.id" value="service.model.destinationPath" validate="destinationPath.validate" focused="destinationPath.focused"
+                              width="destinationPath.width" extend-function="destinationPath.extendFunction" tooltip="destinationPath.tooltip"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="installCommand.label" require="installCommand.require">
+                <tiny-textbox id="installCommand.id" value="service.model.installCommand" readonly="installCommand.readonly"
+                              validate="installCommand.validate" focused="installCommand.focused"
+                              width="installCommand.width" extend-function="installCommand.extendFunction" tooltip="installCommand.tooltip"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="unInstallCommand.label" require="unInstallCommand.require">
+                <tiny-textbox id="unInstallCommand.id" value="service.model.unInstallCommand" readonly="unInstallCommand.readonly"
+                              validate="unInstallCommand.validate" focused="unInstallCommand.focused"
+                              width="unInstallCommand.width" extend-function="unInstallCommand.extendFunction" tooltip="unInstallCommand.tooltip"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="startCommand.label" require="startCommand.require">
+                <tiny-textbox id="startCommand.id" value="service.model.startCommand" readonly="startCommand.readonly"
+                              validate="startCommand.validate" focused="startCommand.focused"
+                              width="startCommand.width" extend-function="startCommand.extendFunction" tooltip="startCommand.tooltip"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="stopCommand.label" require="stopCommand.require">
+                <tiny-textbox id="stopCommand.id" value="service.model.stopCommand" readonly="stopCommand.readonly"
+                              validate="stopCommand.validate" focused="stopCommand.focused"
+                              width="stopCommand.width" extend-function="stopCommand.extendFunction" tooltip="stopCommand.tooltip"></tiny-textbox>
+            </tiny-item>
+
+            <!-- 操作按钮 -->
+            <tiny-item label="buttonGroup.label" require="buttonGroup.require">
+                <div class="margin-top-beautifier">
+                    <tiny-button id="backBtn.id" disable="backBtn.disabled" icons-class="backBtn.iconsClass"
+                                 text="backBtn.text"
+                                 tooltip="backBtn.tip" click="backBtn.back()"></tiny-button>
+                    <tiny-button id="nextBtn.id" disable="nextBtn.disabled" icons-class="nextBtn.iconsClass"
+                                 text="nextBtn.text"
+                                 tooltip="nextBtn.tip" click="nextBtn.next()" class="major-btn"></tiny-button>
+                    <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                                 text="cancelBtn.text"
+                                 tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+                </div>
+            </tiny-item>
+
+        </tiny-formfield>
+    </div>
+</div>

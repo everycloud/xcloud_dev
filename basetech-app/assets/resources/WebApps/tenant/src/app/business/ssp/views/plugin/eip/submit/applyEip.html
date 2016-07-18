@@ -1,0 +1,135 @@
+<div class="container-fluid catalog-basic">
+    <div class="top20">
+        <div class="media">
+            <a class="pull-left">
+                <img class="media-object btn-link servicesImg" ng-src="{{detail.serviceImageUrl}}" alt="">
+            </a>
+            <div class="media-body">
+                <div style="font-size: 16px;color: #000000;">
+                    <div style="line-height: 50px;"><b ng-bind="detail.name"></b>
+                    </div>
+                    <p ng-bind="detail.description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 位置信息 -->
+    <div class="container-fluid top10" ng-if="detail.param.cloudInfra.lock!=='2'">
+        <div id="sspApplyDiskLocationArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyDiskLocationArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_location_label"></h5>
+                <div class="product-info-section-subtitle">
+                    <span ng-bind="cloudInfra.region"></span> |
+                    <span ng-bind="vpc.curr.name"></span>
+                </div>
+            </div>
+            <div class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="span5">
+                        <tiny-formfield>
+                            <tiny-item label="location.label" require="location.require">
+                                <tiny-select id="location.id" values="location.values" width="location.width" change="location.change()" validate="location.validate"></tiny-select>
+                            </tiny-item>
+                            <tiny-item label="vpc.label" require="vpc.require">
+                                <tiny-select id="vpc.id" values="vpc.values" width="vpc.width" change="vpc.change()" validate="vpc.validate"></tiny-select>
+                            </tiny-item>
+                        </tiny-formfield>
+                        <div style="color: red;" ng-show="!hasRouter" ng-bind="noRouterTips"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--弹性IP规格-->
+    <div class="container-fluid top10" ng-if="isHardRouter">
+        <div id="sspApplyEipConfigArea" class="product-info-section">
+            <div class="sprite-x s-heading expand" ng-click="clickAreaHeading('sspApplyEipConfigArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_spec_label"></h5>
+                <div class="product-info-section-subtitle">
+                    <span>{{ipBandWidthTemplate.label}}</span><span ng-bind="selIPBWTemplate.name"></span>&nbsp;
+                    <span>{{publicNetPool.label}}</span><span ng-bind="selPublicNetPoolName"></span>
+                </div>
+            </div>
+            <div class="s-content">
+                <div class="row-fluid create-outbox left25">
+                    <div class="left11" id="serviceApplyEipConfig">
+                        <div class="top10">
+                            <div class="pull-right">
+                                <span style="display: inline-block; vertical-align: middle;">
+                                    <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                                    </tiny-searchbox>
+                                </span>
+                            </div>
+                            <div class="clear_both">
+                                <tiny-formfield>
+                                    <tiny-item label="ipBandWidthTemplate.label" require="ipBandWidthTemplate.require">
+                                        <tiny-table id="ipBandWidthTable.id" data="ipBandWidthTable.data" columns="ipBandWidthTable.columns " display-length="ipBandWidthTable.displayLength" total-records="ipBandWidthTable.totalRecords" render-row="ipBandWidthTable.renderRow" pagination-style="ipBandWidthTable.paginationStyle"
+                                                    length-menu="ipBandWidthTable.lengthMenu" callback="ipBandWidthTable.callback" change-select="ipBandWidthTable.changeSelect">
+                                        </tiny-table>
+                                    </tiny-item>
+                                    <tiny-item label="publicNetPool.label" require="publicNetPool.require">
+                                        <tiny-select id="publicNetPool.id" values="publicNetPool.values" width="publicNetPool.width" height="publicNetPool.height" change="publicNetPool.change()">
+                                        </tiny-select>
+                                    </tiny-item>
+                                </tiny-formfield>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 基本信息 -->
+    <div class="container-fluid top10">
+        <div id="sspApplyEipBasicArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyEipBasicArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_basicInfo_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyEipBaseInfo" class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="span5">
+                        <tiny-formfield>
+                            <tiny-item label="base.eipNum.label" require="base.eipNum.require">
+                                <tiny-spinner id="base.eipNum.id" value="base.eipNum.value" min="base.eipNum.min" max="base.eipNum.max" step="base.eipNum.step" width="base.eipNum.width"></tiny-spinner>
+                            </tiny-item>
+                            <tiny-item label="base.remark.label">
+                                <tiny-textbox id="base.remark.id" value="base.remark.value" type="base.remark.type" width="base.remark.width" height="base.remark.height" validate="base.remark.validate">
+                                </tiny-textbox>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                    <div class="span6">
+                        <tiny-formfield>
+                            <tiny-item label="base.expireTime.label" require="base.expireTime.require" class="clearfix">
+                                <div class="fl">
+                                    <tiny-datetime id="base.expireTime.id" type="base.expireTime.type" min-date="base.expireTime.minDate"
+                                                   disable="base.expireTime.disable" show-clear="false" width="base.expireTime.width"
+                                                   date-format="base.expireTime.dateFormat" time-format="base.expireTime.timeFormat"
+                                                   default-date="base.expireTime.defaultDate" default-time="base.expireTime.defaultTime"></tiny-datetime>
+                                </div>
+                                <span class="fl line-height25" style="margin: 6px 0 0 10px;">
+                                    <tiny-checkbox id="base.neverExpire.id" checked="base.neverExpire.checked" change="base.neverExpire.change()" text="base.neverExpire.text"></tiny-checkbox>
+                                </span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: left;" class="fm-btn-top-large">
+        <tiny-button id="okBtn.id" text="okBtn.text" disable="okBtn.disable" click="okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+
+</div>

@@ -1,0 +1,17 @@
+.content-right-box{
+	margin-left:20px;
+}
+
+.nav > li > a.btn-link:hover{
+	backgroud: none!important;
+}
+
+.content-right-box{
+	margin-left:20px;
+}
+
+.crumbs {padding:10px 0 0 0;margin-left:20px;}
+.crumbs .nav-list li span{color: #999999;font-size: 20px;height:30px;line-height: 30px;}
+.crumbs {margin-left:0px !important;}
+.crumbs .nav-list li span{font-size: 12px !important;}
+.crumbs .two-lead{padding: 0px 10px 0 0px;font-size: 12px;line-height: 20px;color: #999999;}

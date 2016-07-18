@@ -1,0 +1,86 @@
+<link rel="stylesheet" type="text/css" href="../theme/default/css/scrollbar.css"/>
+<div id="addFirewallParamSettingDiv">
+    <tiny-formfield>
+        <tiny-item label="paramSetting.version.label" require="paramSetting.version.require">
+            <tiny-select id="paramSetting.version.id" values="paramSetting.version.values"
+                         width="formfieldWidth" change="paramSetting.version.change()"></tiny-select>
+             <span popover="{{i18n.device_all_connect_para_snmp_mean_tip}}" popover-trigger="mouseenter"
+                   class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="paramSetting.snmpPort.label" require="paramSetting.snmpPort.require">
+            <tiny-textbox id="paramSetting.snmpPort.id" value="paramSetting.snmpPort.value" width="formfieldWidth"
+                          validate="paramSetting.snmpPort.validate" type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="paramSetting.timeout.label" require="paramSetting.timeout.require">
+            <tiny-textbox id="paramSetting.timeout.id" value="paramSetting.timeout.value" width="formfieldWidth"
+                          validate="paramSetting.timeout.validate" type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="paramSetting.readCommunity.label" require="paramSetting.readCommunity.require"
+                   display="!isSnmpV3">
+            <tiny-textbox id="paramSetting.readCommunity.id" value="paramSetting.readCommunity.value"
+                          width="formfieldWidth"
+                          validate="paramSetting.readCommunity.validate" type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="paramSetting.writeCommunity.label" require="paramSetting.writeCommunity.require"
+                   display="!isSnmpV3">
+            <tiny-textbox id="paramSetting.writeCommunity.id" value="paramSetting.writeCommunity.value"
+                          width="formfieldWidth"
+                          validate="paramSetting.writeCommunity.validate" type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="paramSetting.security.label" require="paramSetting.security.require" display="isSnmpV3">
+            <tiny-textbox id="paramSetting.security.id" value="paramSetting.security.value" width="formfieldWidth"
+                          validate="paramSetting.security.validate" type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="paramSetting.authProtocol.label" require="paramSetting.authProtocol.require"
+                   display="isSnmpV3">
+            <tiny-select id="paramSetting.authProtocol.id" values="paramSetting.authProtocol.values"
+                         validate="paramSetting.authProtocol.validate"
+                         width="formfieldWidth"></tiny-select>
+            <span popover="{{paramSetting.authProtocol.tooltip}}" popover-trigger="mouseenter"
+                  class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="paramSetting.authPassword.label"
+                   require="paramSetting.authPassword.require" display="isSnmpV3">
+            <tiny-textbox id="paramSetting.authPassword.id" value="paramSetting.authPassword.value"
+                          validate="paramSetting.authPassword.validate" width="formfieldWidth"
+                          type="paramSetting.authPassword.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="paramSetting.authPasswordConfirm.label"
+                   require="paramSetting.authPasswordConfirm.require" display="isSnmpV3">
+            <tiny-textbox id="paramSetting.authPasswordConfirm.id" width="formfieldWidth"
+                          value="paramSetting.authPasswordConfirm.value"
+                          extend-function="paramSetting.authPasswordConfirm.extendFunction"
+                          validate="paramSetting.authPasswordConfirm.validate"
+                          type="paramSetting.authPasswordConfirm.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="paramSetting.encrptProtocol.label" require="paramSetting.encrptProtocol.require"
+                   display="isSnmpV3">
+            <tiny-select id="paramSetting.encrptProtocol.id" values="paramSetting.encrptProtocol.values"
+                         width="formfieldWidth"></tiny-select>
+            <span popover="{{paramSetting.encrptProtocol.tooltip}}" popover-trigger="mouseenter"
+                  class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="paramSetting.encrptPassword.label"
+                   require="paramSetting.encrptPassword.require" display="isSnmpV3">
+            <tiny-textbox id="paramSetting.encrptPassword.id" value="paramSetting.encrptPassword.value"
+                          validate="paramSetting.encrptPassword.validate" width="formfieldWidth"
+                          type="paramSetting.encrptPassword.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="paramSetting.encrptPasswordConfirm.label"
+                   require="paramSetting.encrptPasswordConfirm.require" display="isSnmpV3">
+            <tiny-textbox id="paramSetting.encrptPasswordConfirm.id" width="formfieldWidth"
+                          value="paramSetting.encrptPasswordConfirm.value"
+                          extend-function="paramSetting.encrptPasswordConfirm.extendFunction"
+                          validate="paramSetting.encrptPasswordConfirm.validate"
+                          type="paramSetting.encrptPasswordConfirm.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="paramSetting.preBtn.id" text="paramSetting.preBtn.text"
+                         click="paramSetting.preBtn.click()"></tiny-button>
+            <tiny-button class="major-btn" id="paramSetting.nextBtn.id" text="paramSetting.nextBtn.text"
+                         click="paramSetting.nextBtn.click()"></tiny-button>
+            <tiny-button id="paramSetting.cancelBtn.id" text="paramSetting.cancelBtn.text"
+                         click="paramSetting.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

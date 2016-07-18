@@ -1,0 +1,150 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="外部网络">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100024">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>外部网络</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\nOpenStack资源管理\nOpenStack实例\n外部网络");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100028.html\">OpenStack资源管理<\/a> > <a href=\"../father_node/it_60_99_100029.html\">OpenStack实例<\/a> > 外部网络<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100024"></a><a name="it_60_51_100024"></a>
+
+
+<h1 class="topictitle1">外部网络</h1>
+<ul><li><a href="#it_60_51_100024__1.2.2.1">创建外部网络</a></li><li><a href="#it_60_51_100024__1.2.3.1">修改外部网络</a></li><li><a href="#it_60_51_100024__1.2.4.1">删除外部网络</a></li><li><a href="#it_60_51_100024__1.2.5.1">创建子网</a></li><li><a href="#it_60_51_100024__1.2.6.1">修改子网</a></li><li><a href="#it_60_51_100024__1.2.7.1">删除子网</a></li></ul>
+
+<div>
+<p id="it_60_51_100024__internet_define"><a name="it_60_51_100024__internet_define"></a><a name="internet_define"></a>外部网络是指用户已有的网络，相对于VPC中的网络，称之为外部网络。将外部网络资源添加至<span>FusionManager</span>中，便可用于发放虚拟机和创建VPC中的直连网络。<span>同时能够作为弹性IP等业务所需的弹性IP地址池。</span></p>
+
+
+<div class="section"><a name="it_60_51_100024__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">创建外部网络</a></h4><p>创建外部网络前，要求已在交换机上配置用于创建外部网络的VLAN或子网，且已经将使用的VLAN添加到VLAN池中。</p>
+<div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/icon-notice.gif"> 注意： </span><div class="noticebody"><p><span>FusionManager</span>上创建的外部网络会默认共享给所有使用当前OpenStack实例的VDC，VDC用户可以通过安全组对外部网络中的虚拟机配置隔离规则，但是仍可能存在安全隐患，建议在高安全要求的场景下谨慎使用。</p>
+</div></div>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">OpenStack实例</span>”</span>界面，选择一个OpenStack实例，在<span class="uicontrol">“外部网络”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">创建外部网络</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100024__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">修改外部网络</a></h4><p>修改外部网络的信息。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">OpenStack实例</span>”</span>界面，选择一个OpenStack实例，在<span class="uicontrol">“外部网络”</span>界面</span>，外部网络所在行中，单击<span class="menucascade">“<span class="uicontrol">修改</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100024__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">删除外部网络</a></h4><p>当外部网络不再使用时，删除外部网络。已被VDC使用的外部网络，不允许删除。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">OpenStack实例</span>”</span>界面，选择一个OpenStack实例，在<span class="uicontrol">“外部网络”</span>界面</span>，外部网络所在行中，单击<span class="menucascade">“<span class="uicontrol">删除</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100024__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">创建子网</a></h4><p>为新创建的外部网络配置子网IP地址。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">OpenStack实例</span>”</span>界面，选择一个OpenStack实例，在<span class="uicontrol">“外部网络”</span>界面</span>，外部网络所在行中，单击<span class="uicontrol">“创建子网”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100024__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">修改子网</a></h4><p>修改外部网络的子网信息。</p>
+<p>在待修改子网的外部网络所在行，单击<span><img src="fig/fig_it_60_51_500016_01.png"></span>，在子网所在行，单击<span class="uicontrol">“修改”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100024__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">删除子网</a></h4><p>删除外部网络的子网。</p>
+<p>在待删除子网的外部网络所在行，单击<span><img src="fig/fig_it_60_51_500016_01.png"></span>，在子网所在行，单击<span class="uicontrol">“删除”</span>。</p>
+</div>
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<div id="addFusionStorageDiv" class="alert-tip-first">
+    <tiny-formfield>
+        <tiny-item label="name.label" require="name.require">
+            <tiny-textbox id="name.id" value="name.value" type="input"
+                          position="rights" width="name.width"
+                          validate="name.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="typeSelector.label" require="typeSelector.require" display="openstack">
+            <tiny-select id="typeSelector.id" values="typeSelector.values" width="typeSelector.width"
+                         change="typeSelector.change()"
+                         validate="typeSelector.validate"
+                         default-selectid="typeSelector.defaultSelectid"></tiny-select>
+        </tiny-item>
+        <tiny-item label="domainNameTextbox.label" require="domainNameTextbox.require"
+                   display="!isIpAccessType && openstack">
+            <tiny-textbox id="domainNameTextbox.id" value="domainNameTextbox.value"
+                          width="domainNameTextbox.width"
+                          validate="domainNameTextbox.validate"></tiny-textbox>
+            <span popover="{{i18n.device_fs_add_para_domain_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="floatingIp.label" require="floatingIp.require" display="isIpAccessType">
+            <tiny-ip id="floatingIp.id" value="floatingIp.value" type="floatingIp.type"
+                     validate="floatingIp.validate" width="floatingIp.width"></tiny-ip>
+            <span popover="{{i18n.device_fs_add_para_ip_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="port.label" require="port.require">
+            <tiny-textbox id="port.id" value="port.value" type="input"
+                          validate="port.validate" width="port.width"></tiny-textbox>
+            <span popover="{{portTips}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="username.label" require="username.require">
+            <tiny-textbox id="username.id" value="username.value"
+                          disable="username.disable"
+                          width="username.width"
+                          type="input" validate="username.validate"></tiny-textbox>
+            <span popover="{{i18n.device_fs_add_para_user_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="password.label" require="password.require">
+            <tiny-textbox id="password.id" value="password.value"
+                          width="password.width"
+                          disable="password.disable" extend-function="password.extendFunction"
+                          type="password.type" validate="password.validate"></tiny-textbox>
+            <span popover="{{i18n.device_fs_add_para_psw_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="passwordConfirm.label"
+                   require="passwordConfirm.require">
+            <tiny-textbox id="passwordConfirm.id"
+                          disable="passwordConfirm.disable"
+                          value="passwordConfirm.value"
+                          extend-function="passwordConfirm.extendFunction"
+                          type="passwordConfirm.type"
+                          width="passwordConfirm.width"
+                          validate="passwordConfirm.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button class="major-btn" id="okBtn.id" text="okBtn.text"
+                         click="okBtn.click()"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                         click="cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/device/fusionStorage/addFs/addFsCtrl'],
+            function (addFsCtrl) {
+                $("#addFusionStorageDiv").attr("ng-controller", "addFsCtrl");
+                var dep = ['ng', 'wcc', addFsCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#addFusionStorageDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    var dom = $("#addFusionStorageDiv");
+                    $compile(dom)(dom.scope());
+                    dom.scope().$digest();
+                });
+            });
+</script>
+
+

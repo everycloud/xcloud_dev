@@ -1,0 +1,225 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Device Management Overview">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000021">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Device Management Overview</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_000021"></a><a name="it_60_51_000021"></a>
+
+
+<h1 class="topictitle1">Device Management Overview</h1>
+
+<div>
+<div class="section"><h4 class="sectiontitle">Overview</h4><p><span>FusionManager</span> manages hardware devices, virtualized resources, and applications in a cloud system. After installing the <span>FusionManager</span> software, you need to add all the devices to the <span>FusionManager</span> system so that <span>FusionManager</span> can:</p>
+</div>
+
+<div class="section"><div class="p">To manage devices added to FusionManager, navigate to <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b></span> on the FusionManager web client, as shown in <a href="#it_60_51_000021__fig_01">Figure 1</a>.<div class="fignone" id="it_60_51_000021__fig_01"><a name="it_60_51_000021__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>Figure 1 </b>Device management</span>
+
+
+<br><span><img src="fig/fig_it_60_51_000021_01_ict.png"></span><br>
+</div>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Safety Statement</h4><div class="p" id="it_60_51_000021__claim"><a name="it_60_51_000021__claim"></a><a name="claim"></a>As a client to connect to third-party devices, <span>FusionManager</span> supports a wide range of communication protocols, including SNMP, IPMI, TLV,
+SMI-S, SSH, HTTP, and HTTPS. In practice, use the protocol that the connected third-party device supports. The guidelines for selecting a recommended protocol are as follows:<ul><li>SNMPv1, SNMPv2c, and HTTP are known insecure protocols. You are advised to use the more secure SNMPv3 or HTTPS protocol.</li><li>SNMPv3 supports HMACMD5 and HMACSHA algorithms, which, however, are insecure algorithms. You are advised to use the more secure HMACSHA algorithm.</li><li><span>FusionManager</span> supports AES (AES128) and DES data encryption algorithms. You are advised to use the more secure AES (AES128) algorithm.</li></ul>
+If the connected third-party device only supports an insecure protocol or algorithm, the configuration guidelines are as follow:<ul><li>If the device does not have high requirements for security, add the device as normal.</li><li>If the device has high requirements for security, for example, it requires to use SNMPv3, contact <a href="../../00_cbb/library/it_technical_support.html">technical support</a>.</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Device Adding Process</h4><div class="p">Complete the tasks shown in <a href="#it_60_51_000021__fig_02">Figure 2</a>. <a href="#it_60_51_000021__tab_02">Table 1</a> describes the involved tasks.<div class="fignone" id="it_60_51_000021__fig_02"><a name="it_60_51_000021__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>Figure 2 </b>Device adding process</span>
+
+
+<br><span><img src="fig/fig_it_60_51_000021_02_ict.png"></span><br>
+</div>
+</div>
+<div class="p">
+<div class="tablenoborder"><a name="it_60_51_000021__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000021__tab_02" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="15%" id="mcps1.2.4.3.1.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="44.333333333333336%" id="mcps1.2.4.3.1.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="40.666666666666664%" id="mcps1.2.4.3.1.2.4.1.3"><p>Web Client Navigation Path</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.2.4.3.1.2.4.1.1 "><p>Install an adaptation package.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.2.4.3.1.2.4.1.2 "><p>Check
+the supported physical device models in the compatibility list of
+the product documentation and determine whether to install the adaptation
+package.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.2.4.3.1.2.4.1.3 "><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Adaptation Package</span></b></span>.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.2.4.3.1.2.4.1.1 "><p>Add devices to FusionManager in batches.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.2.4.3.1.2.4.1.2 "><p>Import the physical device information table so that all devices listed in the table can be added to FusionManager at a time.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.2.4.3.1.2.4.1.3 "><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Batch Add Physical Devices</span></b></span>.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.2.4.3.1.2.4.1.1 "><p>Add physical devices one by one.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.2.4.3.1.2.4.1.2 "><p>Add only one physical device to FusionManager at a time.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.2.4.3.1.2.4.1.3 "><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b></span>.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.2.4.3.1.2.4.1.1 "><p>Modify device configurations.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.2.4.3.1.2.4.1.2 "><p><span id="it_60_51_000021__config"><a name="it_60_51_000021__config"></a><a name="config"></a>The configurations of some models of physical devices must be modified after the devices are added to FusionManager, so that the device monitoring and alarm information can be reported to FusionManager.</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.2.4.3.1.2.4.1.3 "><p>Modify the configurations on the target device. For details, see <a href="#it_60_51_000021__tab_03">Table 2</a>.</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Device Configuration Requirements</h4><p><span>The configurations of some models of physical devices must be modified after the devices are added to FusionManager, so that the device monitoring and alarm information can be reported to FusionManager.</span></p>
+<div class="p"><a href="#it_60_51_000021__tab_03">Table 2</a> describes the configuration modification requirements.
+<div class="tablenoborder"><a name="it_60_51_000021__tab_03"></a><a name="tab_03"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000021__tab_03" frame="border" border="1" rules="all"><caption><b>Table 2 </b>Configuration modification requirements</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="19.705882352941178%" id="mcps1.2.5.3.2.2.3.1.1"><p>Device Model</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="80.29411764705883%" id="mcps1.2.5.3.2.2.3.1.2"><p>Configuration Requirement</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="19.705882352941178%" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal XH320 V2</p>
+</td>
+
+<td class="cellrowborder" rowspan="6" valign="top" width="80.29411764705883%" headers="mcps1.2.5.3.2.2.3.1.2 "><div class="p">The alarm reporting function is enabled in the server Baseboard Management Controller (BMC) system, and the alarm reporting settings meet the following requirements:<ul><li>The reporting destination IP address is set to the <span>FusionManager</span> management IP address (or the <span>FusionManager</span> floating IP address
+if <span>FusionManager</span> is deployed in active/standby mode).</li><li>The reporting port is <span class="parmvalue"><b>10162</b></span>.</li><li>The SNMP Trap version is <span class="parmvalue"><b>V1</b></span>.</li></ul>
+<div class="note"><span class="notetitle"> NOTE: </span><div class="notebody"><div class="p">These servers support only SNMP TrapV1, which provides low security.<ul><li>If the system does not pose high requirements for security, add the servers based on the preceding requirements.</li><li>If the system poses high requirements for security, contact <a href="../../00_cbb/library/it_technical_support.html">Technical support</a> to add the servers using SNMP Trap V3.</li></ul>
+</div>
+</div></div>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal XH310 V2</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal XH311 V2</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal XH620</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal RH2285</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal XH621 V2</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="19.705882352941178%" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal RH2285 V2</p>
+</td>
+
+<td class="cellrowborder" rowspan="4" valign="top" width="80.29411764705883%" headers="mcps1.2.5.3.2.2.3.1.2 "><div class="p">The alarm reporting function is enabled in the server Baseboard Management Controller (BMC) system, and the alarm reporting settings meet the following requirements:<ul><li>The reporting destination IP address is set to the <span>FusionManager</span> management IP address (or the <span>FusionManager</span> floating IP address
+if <span>FusionManager</span> is deployed in active/standby mode).</li><li>The reporting port is <span class="parmvalue"><b>10162</b></span>.</li><li>The SNMP Trap version settings must be the same as that configured on <span>FusionManager</span>.</li></ul>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal RH2285H V2</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal RH2288 V2</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.3.2.2.3.1.1 "><p>Huawei Tecal RH2288H V2</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

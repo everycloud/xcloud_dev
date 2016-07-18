@@ -1,0 +1,400 @@
+<div class="container-fluid">
+    <div class="top20">
+        <div class="media">
+            <a class="pull-left">
+                <img class="media-object btn-link servicesImg" ng-src="{{detail.serviceImageUrl}}" alt="">
+            </a>
+            <div class="media-body">
+                <div style="font-size: 16px;color: #000000;">
+                    <div style="line-height: 50px;"><b ng-bind="detail.name"></b>
+                    </div>
+                    <p ng-bind="detail.description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--位置信息-->
+    <div class="container-fluid top10" ng-if="detail.param.cloudInfra.lock === '1'">
+        <div id="sspApplyVmLocationArea" class="product-info-section">
+            <div class="sprite-x s-heading expand" ng-click="clickAreaHeading('sspApplyVmLocationArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_location_label"></h5>
+                <div class="product-info-section-subtitle">
+                    <span ng-bind="cloudInfra.region"></span>
+                    <span ng-if="base.az.curr.label">
+                         | <span ng-bind="base.az.curr.label"></span>
+                    </span>&nbsp;
+                </div>
+            </div>
+            <div class="s-content">
+                <div class="row-fluid top10 left25">
+                    <tiny-formfield>
+                        <tiny-item label="base.location.label" require="base.location.require">
+                            <tiny-select id="base.location.id" values="base.location.values" width="base.location.width" change="base.location.change()" validate="base.location.validate"></tiny-select>
+                        </tiny-item>
+                        <tiny-item label="base.az.label" require="base.az.require">
+                            <tiny-select id="base.az.id" values="base.az.values" width="base.az.width" change="base.az.change()" validate="base.az.validate"></tiny-select>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--选择模板-->
+    <div class="container-fluid top10" ng-if="detail.param.vmTemplate.lock != 2">
+        <div id="sspApplyVmTemplateArea" class="product-info-section">
+            <div class="sprite-x s-heading expand" ng-click="clickAreaHeading('sspApplyVmTemplateArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.vm_term_chooseTemplate_label"></h5>
+                <div class="product-info-section-subtitle">
+                    <span ng-bind="template.curValue.vmtName" class="right20"></span>{{i18n.common_term_version_label}}:
+                    <span ng-bind="template.curValue.osVersion"></span>
+                </div>
+            </div>
+            <div class="s-content">
+                <!--申请时输入模板-->
+                <div class="serviceApplyEcsTempList clearfix row-fluid" ng-if="detail.param.vmTemplate.lock == 1">
+                    <div ng-repeat="temp in template.values" class="row-fluid accordion-toggle service_apply_ecs_template_bk_color span6" ng-click="template.select(temp.vmtId)" data-value="{{temp.vmtId}}"
+                         style="min-height: 90px;margin-left: 0;">
+                        <div class="media">
+                            <a class="pull-left">
+                                <img class="media-object" ng-src="{{temp.picture}}" alt="">
+                            </a>
+
+                            <div class="media-body">
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <span>{{temp.vmtName}}</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 text-overflow">
+                                        {{i18n.common_term_OS_label}}: {{temp.osType}}
+                                    </div>
+                                    <div class="span7 text-overflow" title="{{temp.osVersion}}">
+                                        {{i18n.common_term_version_label}}: {{temp.osVersion}}
+                                    </div>
+                                    <div class="span3 text-overflow">
+                                        {{i18n.common_term_type_label}}: {{temp.type}}
+                                    </div>
+                                </div>
+
+                                <div class="row-fluid" ng-if="ICT">
+                                    <div class="span2 text-overflow">
+                                        {{i18n.common_term_memMinMB_label}}: {{temp.minRam}}
+                                    </div>
+                                    <div class="span7 text-overflow">
+                                        {{i18n.common_term_diskMinGB_label}}: {{temp.minDisk}}
+                                    </div>
+                                    <div class="span3 text-overflow">
+                                    </div>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="text-overflow" title="{{temp.description}}">
+                                        {{i18n.common_term_desc_label}}: {{temp.description}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--锁定模板-->
+                <div class="left25" ng-if="detail.param.vmTemplate.lock == 0">
+                    <tiny-formfield>
+                        <tiny-item label="template.nameLabel">
+                            <span ng-bind="template.curValue.name"></span>
+                        </tiny-item>
+                        <tiny-item label="template.osLabel">
+                            <span ng-bind="template.curValue.osOption.osType"></span>
+                        </tiny-item>
+                        <tiny-item label="template.osVersionLabel">
+                            <span ng-bind="template.curValue.osOption.osVersion"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--虚拟机规格-->
+    <div class="container-fluid top10" ng-if="detail.param.vmSpec.flavor.lock == 0 || detail.param.vmSpec.flavor.lock == 1 || detail.param.vmSpec.spec.cpu.lock == 0 || detail.param.vmSpec.spec.cpu.lock == 1">
+        <div id="sspApplyVmConfigArea" class="product-info-section">
+            <div class="sprite-x s-heading expand" ng-click="clickAreaHeading('sspApplyVmConfigArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont">{{i18n.vm_term_chooseSpec_label}}</h5>
+                <div class="product-info-section-subtitle">
+                    <div ng-if="config.configType.selected === 'system'">
+                        <span ng-bind="config.configTem.detail.name" class="right20"></span>{{i18n.common_term_detail_label}}:
+                        <span ng-bind="config.configTem.detail.cpuCount"></span>{{i18n.common_term_vCPU_label}} |
+                        <span ng-bind="config.configTem.detail.memSize"></span>MB {{i18n.common_term_memory_label}} |
+                        <span ng-bind="config.configTem.detail.diskTotalSize"></span>GB {{i18n.common_term_disk_label}}
+                    </div>
+                    <div ng-if="config.configType.selected === 'userDef'">
+                        <span ng-bind="config.userDef.cpu"></span>{{i18n.common_term_vCPU_label}} |
+                        <span ng-bind="config.userDef.mem"></span>MB {{i18n.common_term_memory_label}}
+                        <span ng-if="config.sla.curr"> | SLA: {{config.sla.curr}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="s-content">
+                <div class="row-fluid create-outbox left25">
+                    <div class="left11" id="serviceApplyEcsConfig">
+                        <div class="clearfix top10" ng-if="false">
+                            <tiny-radiogroup id="config.configType.id" layout="config.configType.layout" values="config.configType.values" change="config.configType.change()">
+                            </tiny-radiogroup>
+                        </div>
+
+                        <!--申请时输入规格-->
+                        <div class="top10" ng-if="detail.param.vmSpec.flavor.lock == 1 || detail.param.vmSpec.spec.cpu.lock == 1 || detail.param.vmSpec.spec.memory.lock == 1">
+                            <!--系统规格标签页-->
+                            <div ng-show="config.configType.selected==='system'" id="serviceApplyEcsSysConfig">
+                                <div class="row-fluid">
+                                    <div class="span3">
+                                        <tiny-select id="config.configTem.id" values="config.configTem.values" width="config.configTem.width" height="config.configTem.height" change="config.configTem.change()" validate="config.configTem.validate">
+                                        </tiny-select>
+                                    </div>
+                                    <div class="span2">
+                                        <div class="top2">
+                                            <tiny-formfield>
+                                                <tiny-item label="config.cpuNum.label2">
+                                                    <span ng-bind="config.configTem.detail.cpuCount"></span>
+                                                </tiny-item>
+                                                <tiny-item label="config.memory.label2">
+                                                    <span ng-bind="config.configTem.detail.memSize"></span>
+                                                </tiny-item>
+                                                <tiny-item label="config.disk.label2">
+                                                    <span ng-bind="config.configTem.detail.diskTotalSize"></span>
+                                                </tiny-item>
+                                            </tiny-formfield>
+                                        </div>
+                                    </div>
+                                    <div class="span4">
+                                        <tiny-formfield>
+                                            <tiny-item label="config.ictSla.label">
+                                                <div class="top5">
+                                                    <tiny-table id="config.ictSla.id" columns="config.ictSla.columns" data="config.configTem.detail.slaLabels"
+                                                                render-row="config.ictSla.renderRow" enable-pagination="false"></tiny-table>
+                                                </div>
+                                            </tiny-item>
+                                        </tiny-formfield>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--自定义规格标签页-->
+                            <div ng-show="config.configType.selected==='userDef'" id="serviceApplyEcsUserConfig">
+                                <div>
+                                    <div ng-bind="config.cpuNum.label"></div>
+                                    <div>
+                                        <div class="options createvm-cpu">
+                                            <div class="types-options cpu-options selected" data-value="1">1{{i18n.common_term_core_label}}</div>
+                                            <div class="types-options cpu-options" data-value="2">2{{i18n.common_term_core_label}}</div>
+                                            <div class="types-options cpu-options" data-value="4">4{{i18n.common_term_core_label}}</div>
+                                            <div class="types-options cpu-options" data-value="6">6{{i18n.common_term_core_label}}</div>
+                                            <div class="types-options cpu-options" data-value="8">8{{i18n.common_term_core_label}}</div>
+                                            <div class="types-options cpu-options" self-defined data-value="">{{i18n.common_term_custom_label}}</div>
+                                            <div class="input-tip">1～64</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="top10 bottom10">
+                                    <div ng-bind="config.memory.label"></div>
+                                    <div>
+                                        <div class="options createvm-memory">
+                                            <div class="types-options memory-options selected" data-value="512">512MB</div>
+                                            <div class="types-options memory-options" data-value="1024">1G</div>
+                                            <div class="types-options memory-options" data-value="2048">2G</div>
+                                            <div class="types-options memory-options" data-value="4096">4G</div>
+                                            <div class="types-options memory-options" data-value="8192">8G</div>
+                                            <div class="types-options memory-options" self-defined data-value="">{{i18n.common_term_custom_label}}</div>
+                                            <div class="input-tip">1～1024</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="custom-instance-types" ng-if="supportUserDefineConfig">
+                                    <div class="form-item">
+                                        <div>SLA:</div>
+                                        <div class="types createvm-types">
+                                            <div ng-repeat="sla in config.sla.values" class="types-item" data-value="{{sla}}">
+                                                <div class="inner" ng-style="getSlaStyle($index)"><i class="icon-white"></i>
+                                                </div>
+                                                <div class="type-name" ng-bind="sla" title="{{sla}}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--锁定规格-->
+                        <div ng-if="detail.param.vmSpec.flavor.lock == 0 || detail.param.vmSpec.spec.cpu.lock == 0 || detail.param.vmSpec.spec.memory.lock == 0">
+                            <div ng-show="config.configType.selected==='system'" class="row-fluid">
+                                <div class="span2">
+                                    <tiny-formfield>
+                                        <tiny-item label="config.configTem.label">
+                                            <span ng-bind="config.configTem.detail.name"></span>
+                                        </tiny-item>
+                                        <tiny-item label="config.cpuNum.label">
+                                            <span ng-bind="config.configTem.detail.cpuCount"></span>vCPU
+                                        </tiny-item>
+                                        <tiny-item label="config.memory.label">
+                                            <span ng-bind="config.configTem.detail.memSize"></span>MB
+                                        </tiny-item>
+                                        <tiny-item label="config.disk.label">
+                                            <span ng-bind="config.configTem.detail.diskTotalSize"></span>GB
+                                        </tiny-item>
+                                    </tiny-formfield>
+                                </div>
+                                <div class="span4">
+                                    <tiny-formfield>
+                                        <tiny-item label="config.ictSla.label">
+                                            <div class="top5">
+                                                <tiny-table id="config.ictSla.id" columns="config.ictSla.columns" data="config.configTem.detail.slaLabels"
+                                                            render-row="config.ictSla.renderRow" enable-pagination="false"></tiny-table>
+                                            </div>
+                                        </tiny-item>
+                                    </tiny-formfield>
+                                </div>
+                            </div>
+                            <div ng-show="config.configType.selected==='userDef'">
+                                <tiny-formfield>
+                                    <tiny-item label="config.cpuNum.label">
+                                        <span ng-bind="config.userDef.cpu"></span>{{i18n.common_term_vCPU_label}}
+                                    </tiny-item>
+                                    <tiny-item label="config.memory.label">
+                                        <span ng-bind="config.userDef.mem"></span>MB
+                                    </tiny-item>
+                                    <tiny-item label="config.sla.label">
+                                        <span ng-bind="config.sla.curr"></span>
+                                    </tiny-item>
+                                </tiny-formfield>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--选择网络-->
+    <div class="container-fluid top10" ng-if="detail.param.vmNetwork.nics && detail.param.vmNetwork.nics[0].lock == 1">
+        <div id="sspApplyVmNetworkArea" class="product-info-section">
+            <div class="sprite-x s-heading expand" ng-click="clickAreaHeading('sspApplyVmNetworkArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.vm_term_chooseNet_label"></h5>
+                <div class="product-info-section-subtitle">
+                    <div ng-if="network.networkType.selected === 'basic'">
+                        <span ng-bind="network.basicNetwork.curLabel"></span>&nbsp;
+                    </div>
+                    <div ng-if="network.networkType.selected === 'private'">
+                        <span ng-bind="network.privateNetwork.curLabel"></span>
+                        <span ng-if="network.nics.length > 1">...</span>&nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="s-content">
+                <div class="row-fluid left25">
+                    <div class="clearfix top10" ng-if="supportUserDefineConfig">
+                        <tiny-radiogroup id="network.networkType.id" layout="network.networkType.layout" values="network.networkType.values" change="network.networkType.change()">
+                        </tiny-radiogroup>
+                    </div>
+
+                    <!--基础网络-->
+                    <div ng-show="network.networkType.selected==='basic'" id="serviceApplyEcsNetworkBase" class="top20">
+                        <tiny-formfield>
+                            <tiny-item label="network.basicNetwork.label" require="network.basicNetwork.require" labelcls="network.basicNetwork.class">
+                                <tiny-select id="network.basicNetwork.id" values="network.basicNetwork.data" width="network.basicNetwork.width" validate="network.basicNetwork.validate" change="network.basicNetwork.change()">
+                                </tiny-select>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+
+                    <!--私有网络-->
+                    <div ng-show="network.networkType.selected==='private'" id="serviceApplyEcsNetworkVpc" class="top20">
+                        <div class="row-fluid">
+                            <tiny-formfield>
+                                <tiny-item label="network.vpc.label" require="network.vpc.require" labelcls="network.vpc.class">
+                                    <tiny-select id="network.vpc.id" values="network.vpc.values" width="network.vpc.width" change="network.vpc.change()" validate="network.vpc.validate">
+                                    </tiny-select>
+                                </tiny-item>
+                            </tiny-formfield>
+
+                            <div ng-repeat="nic in network.nics" class="bottom10">
+                                <span style="color: red;">*</span>
+                                <span ng-bind="network.privateNetwork.label" class="ssp_vm_network_label"></span>
+                                <tiny-select id="network.privateNetwork.id  + $index" values="network.privateNetwork.data" width="network.privateNetwork.width" height="network.privateNetwork.height" validate="network.privateNetwork.validate" change="network.privateNetwork.change($index)"></tiny-select>
+
+                                <span ng-bind="network.privateIpv4.label" class="ssp_vm_ip_label"></span>
+                                <tiny-ip id="network.privateIpv4.id + $index" type="network.privateIpv4.type" value="network.privateIpv4.value" width="network.privateIpv4.width" extend-function="network.privateIpv4.extendFunction" validate="network.privateIpv4.validate"></tiny-ip>
+
+                                <span ng-bind="network.privateIpv6.label" class="ssp_vm_ip_label"></span>
+                                <tiny-textbox id="network.privateIpv6.id + $index" value="network.privateIpv6.value" width="network.privateIpv6.width" extend-function="network.privateIpv6.extendFunction" validate="network.privateIpv6.validate"></tiny-textbox>
+
+                                <img src="../theme/default/images/uploadify_cancel.png" title="{{network.delNic.text}}" ng-click="network.delNic.click($index)" class="btn-link left10" ng-show="network.nics.length>1"/>
+                            </div>
+                        </div>
+
+                        <div class="fm-btn-top-small bottom10">
+                            <tiny-button id="network.addNic.id" text="network.addNic.text" click="network.addNic.click()" disable="network.nics.length>7"></tiny-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--基本信息-->
+    <div class="container-fluid top10">
+        <div id="sspApplyVmBasicArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyVmBasicArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_basicInfo_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="span5">
+                        <tiny-formfield>
+                            <tiny-item label="base.vmNum.label" require="base.vmNum.require">
+                                <tiny-spinner id="base.vmNum.id" value="base.vmNum.value" min="base.vmNum.min" max="base.vmNum.max" step="base.vmNum.step" width="base.vmNum.width" change="base.vmNum.change()"></tiny-spinner>
+                            </tiny-item>
+                            <tiny-item label="base.expireTime.label" require="base.expireTime.require" class="clearfix">
+                                <div class="fl">
+                                    <tiny-datetime id="base.expireTime.id" type="base.expireTime.type" min-date="base.expireTime.minDate"
+                                                   disable="base.expireTime.disable" show-clear="false" width="base.expireTime.width"
+                                                   date-format="base.expireTime.dateFormat" time-format="base.expireTime.timeFormat"
+                                                   default-date="base.expireTime.defaultDate" default-time="base.expireTime.defaultTime"></tiny-datetime>
+                                </div>
+                                <span class="fl line-height25" style="margin: 6px 0 0 10px;">
+                                    <tiny-checkbox id="base.neverExpire.id" checked="base.neverExpire.checked" change="base.neverExpire.change()" text="base.neverExpire.text"></tiny-checkbox>
+                                </span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                    <div class="span6">
+                        <tiny-formfield>
+                            <tiny-item label="base.name.label">
+                                <tiny-textbox id="base.name.id" value="base.name.value" extend-function="base.name.extendFunction" validate="base.name.validate" width="base.name.width"></tiny-textbox>
+                            </tiny-item>
+                            <tiny-item label="remark.label">
+                                <tiny-textbox id="remark.id" value="remark.value" type="remark.type" width="remark.width" height="remark.height" validate="remark.validate">
+                                </tiny-textbox>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: left;" class="fm-btn-top-large">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>

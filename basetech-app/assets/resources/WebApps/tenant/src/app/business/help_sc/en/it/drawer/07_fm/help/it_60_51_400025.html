@@ -1,0 +1,55 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VPN Connections">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400025">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>VPN Connections</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_400025"></a><a name="it_60_51_400025"></a>
+
+
+<h1 class="topictitle1">VPN Connections</h1>
+
+
+<div>
+<div class="section"><p id="it_60_51_400025__vpn_define"><a name="it_60_51_400025__vpn_define"></a><a name="vpn_define"></a>Virtual private network (VPN) connections are used to connect routed networks in a virtual private cloud (VPC) to user networks using VPN tunnels, which allow users to access service resources in the VPC.</p>
+<div class="p" id="it_60_51_400025__vpn_cat"><a name="it_60_51_400025__vpn_cat"></a><a name="vpn_cat"></a><span>ServiceCenter</span> supports
+two types of VPNs: IP Security Protocol (IPSec) and Layer 2 Tunneling Protocol (L2TP).<ul><li>IPSec VPN: commonly used for communication between enterprise headquarters and branches by setting up an encrypted VPN tunnel between the VPN gateway and the remote user network gateway.</li><li>L2TP VPN: commonly used for enterprise employees on business trips to connect to the enterprise network over the Internet. Such connections are set up between the VPN clients and the VPN gateway.</li></ul>
+</div>
+<div class="p" id="it_60_51_400025__vpn_limit"><a name="it_60_51_400025__vpn_limit"></a><a name="vpn_limit"></a>Hardware routers support both IPSec and L2TP VPNs. Software routers only supports IPSec VPNs.<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">IPSec VPN connections in different VPCs cannot be configured with the same peer IP address. Therefore,
+you need to configure multiple IP addresses for the peer device to communicate with IPSec VPN connections in different VPCs.</div></div>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Creating a VPN Connection</h4><div class="p">Before creating a VPN connection, ensure that the following conditions are met:<ul><li>You have created a routed network in the VPC.</li><li>The remote user network is connected to the virtual router in the VPC.</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Modifying a VPN Connection</h4><p>Modify the settings of a VPN connection.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Deleting a VPN Connection</h4><p>If a VPN connection is not needed any more, you can delete it from the system.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

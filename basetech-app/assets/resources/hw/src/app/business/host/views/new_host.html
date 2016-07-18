@@ -1,0 +1,69 @@
+<div class="modal-header">
+    <h5>新增host</h5>
+</div>
+<div class="modal-body">
+    <form name="newHostForm" novalidate>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>名字</label>
+                    <input type="text" placeholder="输入名字" class="form-control" style="width:320px" name="name" ng-model="form.hostPool.name" tabindex="1" required>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal">操作系统</label>
+                    <div class="input-group">
+                        <select chosen data-placeholder="选择操作系统" id="os" class="chosen-select" width="320" tabindex="2" name="os" ng-model="form.hostPool.os" required>
+                            <option value="linux">linux</option>
+                            <option value="windows">windows</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>ip</label>
+                    <input type="text" placeholder="输入ip" class="form-control" style="width:320px" name="name" ng-model="form.hostPool.ip" tabindex="3" required>
+                </div>
+                <div class="form-group">
+                    <label>端口号</label>
+                    <input type="text" placeholder="输入端口号" class="form-control" style="width:320px" name="name" ng-model="form.hostPool.port" tabindex="4" required>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal">协议</label>
+                    <div class="input-group">
+                        <select chosen data-placeholder="选择协议" id="protocol" class="chosen-select" width="320" tabindex="5" name="protocol" ng-model="form.hostPool.protocol" required>
+                            <option value="ssh">ssh</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal">认证方式</label>
+                    <div class="input-group">
+                        <select chosen data-placeholder="选择认证方式" id="credent" class="chosen-select" width="320" tabindex="6" name="credent" ng-model="form.hostPool.credent" required>
+                            <option value="key">密钥</option>
+                            <option value="password">密码</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" placeholder="输入用户名" class="form-control" style="width:320px" name="username" ng-model="form.hostPool.username" tabindex="7">
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="text" placeholder="输入密码" class="form-control" style="width:320px" name="password" ng-model="form.hostPool.password" tabindex="8">
+                </div>
+        </div>
+        <!--end of col-sm-6-->
+
+        <!--end of row-->
+        <div class="hr-line-dashed"></div>
+        <div class="row">
+            <div class="col-lg-11">
+                <button class="btn btn-primary" ng-click="save()" name="submit" tabindex="10"><strong>新建</strong>
+                </button>
+                <button class="btn btn-white" ng-click="cancel()" tabindex="10"><strong>取消</strong>
+                </button>
+            </div>
+        </div>
+        <!--end of row-->
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-bind="i18n.vpc_term_createVPC_button"></div>
+        <tiny-step id="service.step.id" values="service.step.values" width="service.step.width" jumpable="service.step.jumpable"></tiny-step>
+    </div>
+    <div>
+        <div ng-show="service.show == 'basicInfo'">
+            <div ui-view="basicInfo"></div>
+        </div>
+        <div ng-show="service.show == 'vpcQuota'">
+            <div ui-view="vpcQuota"></div>
+        </div>
+        <div ng-show="service.show == 'vpcType'">
+            <div ui-view="vpcType"></div>
+        </div>
+        <div ng-show="service.show == 'networkInfo'">
+            <div ui-view="networkInfo"></div>
+        </div>
+        <div ng-show="service.show == 'confirm'">
+            <div ui-view="confirm"></div>
+        </div>
+    </div>
+</div>

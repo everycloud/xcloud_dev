@@ -1,0 +1,208 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Configuring the Multicast Function on Switches">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600002">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Configuring the Multicast Function on Switches</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nConfiguring the Multicast Function on Switches");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > Configuring the Multicast Function on Switches<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600002"></a><a name="it_60_51_600002"></a>
+
+
+
+<h1 class="topictitle1">Configuring the Multicast Function on Switches</h1>
+<ul><li><a href="#it_60_51_600002__1.2.1.1">Conditions</a></li><li><a href="#it_60_51_600002__1.2.2.1">Background</a></li><li><a href="#it_60_51_600002__1.2.3.1">Procedure</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600002__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600002" class="sectiontitle2contents">Conditions</a></h4>
+
+
+<div class="p"><ul><li>You have logged in to the switches using the emulation program.</li><li>The virtual tunnel end point (VTEP) network VLANs have been configured
+on switches and the VLANIF interfaces (VLANIFs) have been configured
+on the aggregation switch. VTEP networks include the VTEP network
+of the <span>FusionCompute</span> uplink and the VTEP network added on <span>FusionManager</span>.</li></ul>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600002__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600002" class="sectiontitle2contents">Background</a></h4>
+
+
+<div class="p"><div class="p">Before using the virtual extensible LAN (VXLAN), configure
+the multicast function on switches and enable the multicast forwarding
+function for the layer 3 network.<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>This section
+uses Huawei S5300 V100R005 as an example to create and configure a
+switch. For details about other switches, see the corresponding product
+documentation. If any switch-related commands or parameters are different
+from those provided in the switch product documentation, the command
+or parameter provided in the switch product documentation shall prevail.</p>
+<p>To run multicast
+services, switch IGMP listening and the device querier must be enabled
+for the multicast tunnel. These functions can be enabled in the switch
+shell. For details, see the switch configuration guide. </p>
+</div></div>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600002__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600002" class="sectiontitle2contents">Procedure</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">Enable the layer-3 multicast forwarding function on the
+switch.</p>
+<p>The layer-3 multicast forwarding function must be configured
+on the aggregation switch. Enable this function for the VTEP network
+of the uplinks configured on the <span>FusionCompute</span> and for VTEP networks added to the <span>FusionManager</span>.</p><div class="Steps-titled"><ol type="1" start="1"><li id="it_60_51_600002__three"><a name="it_60_51_600002__three"></a><a name="three"></a><span>Run the following command to switch to the
+system view:</span>
+<p>&lt;Quidway&gt; <b><span class="cmdname">system-view</span></b></p>
+</li><li><span>Run the following command to enable the layer-3 multicast
+forwarding switch:</span>
+<p>[Quidway] <b><span class="cmdname">multicast routing-enable</span></b></p>
+</li><li id="it_60_51_600002__login_three"><a name="it_60_51_600002__login_three"></a><a name="login_three"></a><span>Run the following command to access
+the VLANIF interface of the VTEP network of the DVS uplinks:</span>
+<p>[Quidway] <b><span class="cmdname">interface Vlanif </span></b><i><span class="varname">VLAN
+ID</span></i></p>
+<p>For example, run the following command to access VALNIF interface
+431:</p>
+<p>[Quidway] <b><span class="cmdname">interface Vlanif 431</span></b></p>
+</li><li><span>Run the following commands to enable the layer-3 multicast
+forwarding function of the related VLANIF interface:</span>
+<p>[Quidway-vlanif431] <b><span class="cmdname">pim dm</span></b></p>
+<p>[Quidway-vlanif431] <b><span class="cmdname">igmp enable</span></b></p>
+</li><li id="it_60_51_600002__out_three"><a name="it_60_51_600002__out_three"></a><a name="out_three"></a><span>Run the following command to exit the
+VLANIF interface view:</span>
+<p>[Quidway-vlanif431] <b><span class="cmdname">q</span></b></p>
+</li><li><span>Enable the layer-3 multicast forwarding function for
+the VLANIF interface of the VTEP network added to the <span>FusionManager</span>. For details, see <a href="#it_60_51_600002__login_three">3</a> to <a href="#it_60_51_600002__out_three">5</a>.</span></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Enable the IGMP-SNOOPING function on the switches.</p>
+<p>IGMP-SNOOPING must be enabled on the aggregation switch and
+access switches are configured. If multiple access switches are deployed
+to connect the host and the aggregation switch, enable IGMP-SNOOPING
+on all the access switches.</p><div class="Steps-titled"><ol type="1" start="7"><li><span>Run the following command to enable the IGMP-SNOOPING
+switch:</span>
+<p>[Quidway] <b><span class="cmdname">igmp-snooping enable</span></b></p>
+</li><li id="it_60_51_600002__login"><a name="it_60_51_600002__login"></a><a name="login"></a><span>Run the following command to access the VLAN
+related to the VTEP network of the DVS uplinks:</span>
+<p>[Quidway] <b><span class="cmdname">vlan </span></b><i><span class="varname">VLAN ID</span></i></p>
+<p>For example, run the following command to access VLAN 431 that
+is configured for the VTEP network of the DVS uplinks configured on
+the <span>FusionCompute</span>:</p>
+<p>[Quidway] <b><span class="cmdname">vlan 431</span></b></p>
+</li><li><span>Run the following command to enable IGMP-SNOOPING for
+the related VLAN:</span>
+<p>[Quidway-vlan431] <b><span class="cmdname">igmp-snooping enable</span></b></p>
+</li><li id="it_60_51_600002__out"><a name="it_60_51_600002__out"></a><a name="out"></a><span>Run the following command to exit the VLAN
+view:</span>
+<p>[Quidway-vlan431] <b><span class="cmdname">q</span></b></p>
+</li><li><span>Enable IGMP-SNOOPING for the VLAN of the VTEP network
+configured on the <span>FusionManager</span>. For details, see <a href="#it_60_51_600002__login">8</a> to <a href="#it_60_51_600002__out">10</a>.</span></li><li><span>Run the following command to exit the system view:</span>
+<p>[Quidway] <b><span class="cmdname">q</span></b></p>
+</li><li><span>Run the following command to exit the switch:</span>
+<p>&lt;Quidway&gt; <b><span class="cmdname">q</span></b></p>
+<p>No further action is required.</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

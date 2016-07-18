@@ -1,0 +1,138 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="FusionStorage">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100008">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>FusionStorage</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Resource Management\nDevice Management\nFusionStorage");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">Resource Management<\/a> > <a href=\"../father_node/it_60_99_100002.html\">Device Management<\/a> > FusionStorage<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100008"></a><a name="it_60_51_100008"></a>
+
+
+<h1 class="topictitle1"><span>FusionStorage</span></h1>
+<ul><li><a href="#it_60_51_100008__1.2.2.1">Adding FusionStorage to FusionManager</a></li><li><a href="#it_60_51_100008__1.2.3.1">Deleting a FusionStorage</a></li></ul>
+<div>
+<div class="section"><p><span>FusionStorage</span> is Huawei's proprietary distributed storage software that can
+be deployed on servers to integrate computing and storage resources.
+If deployed on a general x86 server, FusionStorage virtualizes all
+the local hard disks on the server into a virtual storage pool to
+provide block storage functions.</p>
+<p><span>FusionStorage</span> needs to be added to <span>FusionManager</span> only when <span>FusionStorage</span> is required in the cloud system. After being added to <span>FusionManager</span>, <span>FusionManager</span> can monitor the running conditions of <span>FusionStorage</span> and receive alarms reported from <span>FusionStorage</span>.</p>
+<p>For more information about <span>FusionStorage</span>, see the <span>FusionStorage</span> documentation, which can be obtained at <span><a href="http://support.huawei.com/enterprise/productsupport?lang=en&amp;idAbsPath=7919749|7919788&amp;pid=7919788#idAbsPath=7919749|7919788&amp;ot=clk&amp;pid=7919788&amp;t=142&amp;type=402-00025350" target="_blank">Documentation</a></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100008__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100008" class="sectiontitle2contents">Adding <span>FusionStorage</span> to <span>FusionManager</span></a></h4><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Storage Devices</span></b> &gt; <b><span class="uicontrol">FusionStorage</span></b></span> and click <span class="uicontrol"><b>Add FusionStorage</b></span>.</p>
+<p>The user account used to add <span>FusionStorage</span> to <span>FusionManager</span> is <span class="parmvalue"><b>gmadmin</b></span>, and its default password
+is <span class="parmvalue"><b>gmHuawei@123</b></span>.</p>
+<p>After <span>FusionStorage</span> is successfully added to <span>FusionManager</span>, the <span>FusionStorage</span> information is displayed on the <span class="wintitle"><b>FusionStorage</b></span> page.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100008__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100008" class="sectiontitle2contents">Deleting a <span>FusionStorage</span></a></h4><p>Delete the <span>FusionStorage</span> that is no longer used. After the <span>FusionStorage</span> is deleted, it is no longer managed and monitored by the <span>FusionManager</span> system but its resources can be still used.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Storage Devices</span></b> &gt; <b><span class="uicontrol">FusionStorage</span></b></span>, locate the row that contains the target <span>FusionStorage</span>, and click <span class="menucascade"><b><span class="uicontrol">Delete</span></b></span>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

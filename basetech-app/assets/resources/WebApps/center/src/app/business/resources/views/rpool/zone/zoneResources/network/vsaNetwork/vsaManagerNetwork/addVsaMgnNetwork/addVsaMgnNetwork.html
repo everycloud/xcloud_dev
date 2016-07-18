@@ -1,0 +1,29 @@
+<style>
+    .navigation {
+        margin-top: 70px
+    }
+</style>
+<div id="addVsaMgnNetworkDiv" class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div ng-show="action=='add'" class="createpage-legend">{{i18n.resource_term_createVSAnet_button}}</div>
+        <div ng-show="action=='edit'" class="createpage-legend">{{i18n.resource_term_modifyVSAnet_button}}</div>
+        <tiny-step id="service.addVsaMgnNetworkStep.id" values="service.addVsaMgnNetworkStep.values"
+                   width="service.addVsaMgnNetworkStep.width"
+                   jumpable="service.addVsaMgnNetworkStep.jumpable"></tiny-step>
+    </div>
+
+    <div class="create-page-distance">
+        <div ng-show="service.showPage == 'baseInfo'">
+            <div ui-view="baseInfo"></div>
+        </div>
+        <div ng-show="service.showPage == 'resourceChoice'">
+            <div ui-view="resourceChoice"></div>
+        </div>
+        <div ng-show="service.showPage == 'netExportLimit'">
+            <div ui-view="netExportLimit"></div>
+        </div>
+        <div ng-show="service.showPage == 'confirmInfo'">
+            <div ui-view="confirmInfo"></div>
+        </div>
+    </div>
+</div>

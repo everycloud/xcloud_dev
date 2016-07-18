@@ -1,0 +1,194 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Storage Resource Pools">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100020">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Storage Resource Pools</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100020"></a><a name="it_60_51_100020"></a>
+
+
+<h1 class="topictitle1">Storage Resource Pools</h1>
+
+<div>
+<p>A storage resource pool is a collection of storage resources to
+be allocated to VMs or application instances in the <span>FusionManager</span> system.</p>
+
+<p>Storage resources in a storage cluster that is added to <span>FusionManager</span> can be used for service provisioning only after the resource cluster
+is associated with a resource zone in <span>FusionManager</span>.</p>
+
+<div class="p">Storage resources are not required to be independently associated
+with a resource zone, because storage resources in a resource cluster
+can be included in a <span>FusionManager</span> resource zone when the resource cluster is associated with the resource
+zone on the <span class="wintitle"><b>Computing Resource Pools</b></span> page. The
+included storage resources after association are displayed on the <span class="wintitle"><b>Storage Resource Pools</b></span> page. Storage resources can be
+classified into the following types"<ul><li>Primary storage: Data stores in a resource cluster associated
+with a resource zone are primary storage resources.</li><li>Secondary storage: The primary storage resources associated with
+all hosts are identified as secondary storage resources, which are
+mainly used to store VM templates for creating VMs across clusters.</li><li>Disaster recovery (DR) storage group: <span id="it_60_51_100020__vr"><a name="it_60_51_100020__vr"></a><a name="vr"></a>DR storage groups
+take effect only when the UltraVR product is used in the system. For
+the usage of DR storage groups, see the UltraVR Product Documentation.</span></li></ul>
+</div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Adding Secondary Storage Resources
+to FusionManager</h4></div><div class="dropdowncontext"><p>The primary storage resources associated
+with all hosts are identified as secondary storage resources. The
+system stores created VM templates preferentially in secondary storage
+resources to facilitate cross-cluster VM creation.</p>
+<p>On the <span class="uicontrol"><b>Secondary Storage</b></span> page, click <span class="uicontrol"><b>Add</b></span>.</p>
+<p>After a primary storage device is added to
+FusionManager as a secondary resource device, the storage device information
+is switched to the <span class="uicontrol"><b>Secondary Storage</b></span> page from
+the <span class="uicontrol"><b>Primary Storage</b></span> page.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Changing the Storage SLA</h4></div><div class="dropdowncontext"><p>The storage SLA is configured during resource cluster association.
+You can also change another storage SLA when using the data store
+after cluster association. This function allows flexible use the storage
+resources in the system.</p>
+<p>Locate the row that contains the target
+storage on the <span class="uicontrol"><b>Primary Storage</b></span> page and click <span class="uicontrol"><b>Modify</b></span>. Alternatively, locate the row that contains the
+target storage on the <span class="uicontrol"><b>Secondary Storage</b></span> page,
+click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Modify Storage
+SLA</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Setting a Storage Device to Maintenance
+Mode</h4></div><div class="dropdowncontext"><p>If a storage device is set to maintenance mode, the
+storage device is isolated from the entire system and is not available
+for creating VMs and disks on it. However, the VMs or disks that are
+already running on the storage device will not be affected.</p>
+<p>Locate the row that contains
+the target storage on the <span class="uicontrol"><b>Primary Storage</b></span> page
+and click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Enter
+Maintenance Mode</b></span>. Alternatively, locate the row that contains
+the target storage on the <span class="uicontrol"><b>Secondary Storage</b></span> page, click <span class="uicontrol"><b>Enter Maintenance Mode</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Migrating Disks in a Data Store to
+Another Data Store</h4></div><div class="dropdowncontext"><p>Migrate the disks in a data store to
+another data store.</p>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><span><strong>Declaration</strong>: This feature is a high-risk feature. Using this feature complies
+with industry practices. However, end user data may be required for
+implementing the feature. Exercise caution and obtain end user's consent
+when using this feature.</span><p>Migrating
+disks from one data store to another improves system disk availability.
+If the end user data is involved, obtain end user's consent before
+you migrate the disks.</p>
+</div></div>
+<p>Locate the row that contains the target data
+store, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Migrate
+Disk</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Exporting the Data Store List</h4></div><div class="dropdowncontext"><p>To facilitate data backup or statistical analysis, you can export
+the detailed information about all the current data stores to the
+local PC in an <span class="filepath"><b>.xls</b></span> file.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Deleting a Secondary Storage Resource</h4></div><div class="dropdowncontext"><p>Adding or deleting a secondary storage device is only an identification
+change for a primary storage device. Deleting a secondary storage
+device only removes the secondary storage identity of a primary storage
+device, and data stored in the primary storage device will not be
+deleted.</p>
+<p>On the <span class="uicontrol"><b>Secondary Storage</b></span> page, locate the row that contains the target storage device, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Delete</b></span>.</p>
+<p>After a secondary resource device is deleted, the primary storage
+information is switched to the <span class="uicontrol"><b>Primary Storage</b></span> page from the <span class="uicontrol"><b>Secondary Storage</b></span> page.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Creating a Disk</h4></div><div class="dropdowncontext"><p>Create a
+disk and attach it to a VM to increase the storage space of the VM.</p>
+<p>Click the storage name to view storage details.
+On the <span class="wintitle"><b>Disk</b></span> page, click <span class="uicontrol"><b>Create</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Attaching a Disk to a VM</h4></div><div class="dropdowncontext"><p>A disk can store the data of a VM only after being attached to the
+VM.</p>
+<p>Click the storage name to view storage details. On the <span class="wintitle"><b>Disk</b></span> page, locate the row that contains the target disk
+and click <span class="uicontrol"><b>	 Bind VM</b></span>.</p>
+<div class="p" id="it_60_51_100020__addToOS"><a name="it_60_51_100020__addToOS"></a><a name="addToOS"></a>After
+attaching the disk to the VM, you also need to add the disk to the
+VM operating system (OS).<ul><li>If the attached disk is a newly created disk, format the disk.
+For the detailed operation procedure, <span>search from the
+Internet or <a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a>.</span></li><li>If the attached disk already contains data and the disk drive
+letter is the same as the disk drive letter on the VM, set the disk
+status from offline to online.</li></ul>
+</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Detaching a Disk from a VM</h4></div><div class="dropdowncontext"><p>Detach a disk from its attached VM.</p>
+<div class="p">To detach a disk from
+a running VM, note the following restrictions:<ul><li><p>The VM has the Tools run properly on it.</p>
+</li><li>The system disk cannot be detached.</li><li>A raw device mapped (RDM) disk cannot be detached.</li><li>Only VMs running the following operating systems (OSs) supports
+disk detaching when the VMs are running:<ul><li>Windows Server 2008 R2 Enterprise 64鈥揵it</li><li>Red Hat Linux Enterprise 5.7/5.8/6.5 (32-/64-bit)</li><li>CentOS 5.7/5.8/6.5 (32-/64-bit)</li></ul>
+</li></ul>
+</div>
+<p>Click the storage name to view storage
+details. On the <span class="wintitle"><b>Disk</b></span> page, Expand the disk details
+area, locate the row that contains the target VM, and click <span class="uicontrol"><b>Unbind</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Allocating a Disk</h4></div><div class="dropdowncontext"><p>Allocate a disk to the VDC administrator of the specified
+VPC. Then, inform the VDC administrator of allocating the disk to
+the specified user at the earliest time. If a disk has been attached
+to a VM, the disk cannot be independently allocated to a user. Instead,
+you can allocate the entire VM to the user.</p>
+<p>Click the storage
+name to view storage details. On the <span class="wintitle"><b>Disk</b></span> page,
+select the target disk and click <span class="uicontrol"><b>Allocate</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Deleting a Disk</h4></div><div class="dropdowncontext"><p id="it_60_51_100020__delDisk_define"><a name="it_60_51_100020__delDisk_define"></a><a name="delDisk_define"></a>If a disk is not needed any more, you can delete
+it from the system to release storage resources. After a disk is deleted,
+all the data on the disk will also be deleted. Therefore, exercise
+caution when performing this operation.</p>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><span><strong>Declaration</strong>: This feature is a high-risk feature. Using this feature complies
+with industry practices. However, end user data may be required for
+implementing the feature. Exercise caution and obtain end user's consent
+when using this feature.</span></div></div>
+<div class="p">A disk can be deleted in two modes:<ul><li>Ordinarily delete: This mode destroys the file system of the disk
+so that the data in the disk is not allowed to be retrieved. This
+mode features rapid deletion but the disk data may be restored using
+the residual data. Therefore, data security in this deletion mode
+is poor.</li><li>Safely delete: This mode deletes disk data by overwriting the
+data. The overwritten data cannot be restored, and therefore this
+deletion mode features highest data security. However, the deletion
+speed in this mode is slow, and the deletion consumes system resources.</li></ul>
+</div>
+<p>Click the storage name to view storage details.
+On the <span class="wintitle"><b>Disk</b></span> page, locate the row that contains
+the target disk, click <span class="uicontrol"><b>More</b></span>, and select the
+required operation.</p>
+</div></div></div>
+
+<div class="section"><h4 class="sectiontitle">FAQ</h4><p><strong>How to Attach a Raw Device Mapped
+Disk That Has Been Detached from a VM to a Physical Server</strong></p>
+<div class="p">If the disk to be detached is a raw device mapped
+disk and the logical unit number (LUN) the disk uses is to be attached
+to a physical server, adhere to the following precautions:<ul><li>Do not delete the raw device mapped disk and the data store.</li><li>Add a device partition before attaching the LUN to a physical
+server.</li></ul>
+For details, see <a href="../../05_fc/vm_prov/it_58_45_400012.html">How to Attach a Raw Device Mapped Disk That Has Been Detached from a VM to a Physical Server</a>.</div>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

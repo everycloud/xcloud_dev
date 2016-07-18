@@ -1,0 +1,126 @@
+<link rel="stylesheet" type="text/css" href="../theme/default/css/scrollbar.css"/>
+<div id="addRackParamSetting">
+    <div>
+        <span class="createpage-title">{{i18n.device_term_SNMPimportPara_label}}</span>
+        <tiny-formfield>
+            <tiny-item label="paramInfo.version.label" require="paramInfo.version.require">
+                <tiny-select id="paramInfo.version.id" values="paramInfo.version.values"
+                             width="formfieldWidth" validate="paramInfo.version.validate"></tiny-select>
+            </tiny-item>
+            <tiny-item display="trapProtocol.length != 0" label="paramInfo.trapProtocol.label"
+                       require="paramInfo.trapProtocol.require">
+                <tiny-select id="paramInfo.trapProtocol.id" values="paramInfo.trapProtocol.values"
+                             width="formfieldWidth"
+                             validate="paramInfo.trapProtocol.validate"></tiny-select>
+                  <span popover="{{i18n.device_all_connect_para_snmp_mean_tip}}" popover-trigger="mouseenter"
+                        class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.mmIp.label" require="paramInfo.mmIp.require">
+                <tiny-ip id="paramInfo.mmIp.id" type="paramInfo.mmIp.type" width="formfieldWidth"
+                         validate="paramInfo.mmIp.validate"></tiny-ip>
+                 <span popover="{{i18n.device_blade_connect_para_MMipImport_mean_tip}}" popover-trigger="mouseenter"
+                       class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.port.label" require="paramInfo.port.require">
+                <tiny-textbox id="paramInfo.port.id" value="paramInfo.port.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.port.validate"></tiny-textbox>
+                 <span popover="{{i18n.device_blade_connect_para_port_mean_tip}}" popover-trigger="mouseenter"
+                       class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.timeout.label" require="paramInfo.timeout.require">
+                <tiny-textbox id="paramInfo.timeout.id" value="paramInfo.timeout.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.timeout.validate"></tiny-textbox>
+                  <span popover="{{i18n.device_blade_connect_para_retryTime_mean_tip}}" popover-trigger="mouseenter"
+                        class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.retries.label" require="paramInfo.retries.require">
+                <tiny-textbox id="paramInfo.retries.id" value="paramInfo.retries.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.retries.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.mmAIp.label" require="paramInfo.mmAIp.require">
+                <tiny-ip id="paramInfo.mmAIp.id" type="paramInfo.mmAIp.type" width="formfieldWidth"
+                         validate="paramInfo.mmAIp.validate"></tiny-ip>
+                 <span popover="{{i18n.device_blade_connect_para_MMAip_mean_tip}}" popover-trigger="mouseenter"
+                       class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.mmBIp.label" require="paramInfo.mmBIp.require">
+                <tiny-ip id="paramInfo.mmBIp.id" type="paramInfo.mmBIp.type" width="formfieldWidth"
+                         validate="paramInfo.mmBIp.validate"></tiny-ip>
+            </tiny-item>
+            <tiny-item label="paramInfo.readCommunity.label" require="paramInfo.readCommunity.require"
+                       display="!isSnmpV3">
+                <tiny-textbox id="paramInfo.readCommunity.id" value="paramInfo.readCommunity.value"
+                              width="formfieldWidth"
+                              validate="paramInfo.readCommunity.validate" type="input"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.writeCommunity.label" require="paramInfo.writeCommunity.require"
+                       display="!isSnmpV3">
+                <tiny-textbox id="paramInfo.writeCommunity.id" value="paramInfo.writeCommunity.value"
+                              width="formfieldWidth"
+                              validate="paramInfo.writeCommunity.validate" type="input"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div ng-show="isSnmpV3">
+        <span class="createpage-title">{{i18n.common_term_advancedSet_label}}</span>
+        <tiny-formfield>
+            <tiny-item label="paramInfo.security.label" require="paramInfo.security.require">
+                <tiny-textbox id="paramInfo.security.id" value="paramInfo.security.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.security.validate"></tiny-textbox>
+                   <span popover="{{i18n.device_blade_connect_para_secuUserName_mean_tip}}" popover-trigger="mouseenter"
+                         class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.authProtocol.label" require="paramInfo.authProtocol.require">
+                <tiny-select id="paramInfo.authProtocol.id" values="paramInfo.authProtocol.values"
+                             width="formfieldWidth"
+                             validate="paramInfo.authProtocol.validate"></tiny-select>
+                 <span popover="{{paramInfo.authProtocol.tooltip}}" popover-trigger="mouseenter"
+                       class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.authPassword.label"
+                       require="paramInfo.authPassword.require">
+                <tiny-textbox id="paramInfo.authPassword.id" value="paramInfo.authPassword.value"
+                              type="paramInfo.authPassword.type" width="formfieldWidth"
+                              validate="paramInfo.authPassword.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.authPasswordConfirm.label"
+                       require="paramInfo.authPasswordConfirm.require">
+                <tiny-textbox id="paramInfo.authPasswordConfirm.id" width="formfieldWidth"
+                              value="paramInfo.authPasswordConfirm.value"
+                              extend-function="paramInfo.authPasswordConfirm.extendFunction"
+                              validate="paramInfo.authPasswordConfirm.validate"
+                              type="paramInfo.authPasswordConfirm.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.encrptProtocol.label" require="paramInfo.encrptProtocol.require">
+                <tiny-select id="paramInfo.encrptProtocol.id" values="paramInfo.encrptProtocol.values"
+                             width="formfieldWidth"
+                             validate="paramInfo.encrptProtocol.validate"></tiny-select>
+                <span popover="{{paramInfo.encrptProtocol.tooltip}}" popover-trigger="mouseenter"
+                      class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.encrptPassword.label"
+                       require="paramInfo.encrptPassword.require">
+                <tiny-textbox id="paramInfo.encrptPassword.id" value="paramInfo.encrptPassword.value"
+                              type="paramInfo.encrptPassword.type" width="formfieldWidth"
+                              validate="paramInfo.encrptPassword.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.encrptPasswordConfirm.label"
+                       require="paramInfo.encrptPasswordConfirm.require">
+                <tiny-textbox id="paramInfo.encrptPasswordConfirm.id" width="formfieldWidth"
+                              value="paramInfo.encrptPasswordConfirm.value"
+                              type="paramInfo.encrptPasswordConfirm.type"
+                              extend-function="paramInfo.encrptPasswordConfirm.extendFunction"
+                              validate="paramInfo.encrptPasswordConfirm.validate"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+
+    <div class="fm-btn-top-smaller">
+        <tiny-button id="paramInfo.preBtn.id" text="paramInfo.preBtn.text"
+                     click="paramInfo.preBtn.click()"></tiny-button>
+        <tiny-button class="major-btn" id="paramInfo.nextBtn.id" text="paramInfo.nextBtn.text"
+                     click="paramInfo.nextBtn.click()"></tiny-button>
+        <tiny-button id="paramInfo.cancelBtn.id" text="paramInfo.cancelBtn.text"
+                     click="paramInfo.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

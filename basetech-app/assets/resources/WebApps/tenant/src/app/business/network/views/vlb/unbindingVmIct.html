@@ -1,0 +1,24 @@
+<div class="row-fluid" id="unbindvm-window" ng-controller="unbindVmWindowCtrl">
+    <div class="top5">
+        <tiny-table id="bindVmTable.id" columns="bindVmTable.columns" data="bindVmTable.data" enable-pagination="false" length-menu="bindVmTable.lengthMenu" pagination-style="bindVmTable.paginationStyle" render-row="bindVmTable.renderRow" display-length="bindVmTable.displayLength" total-records="bindVmTable.totalRecords"
+                    callback="bindVmTable.callback" change-select="bindVmTable.changeSelect">
+        </tiny-table>
+    </div>
+</div>
+<script type="text/javascript">
+    require(["app/business/network/controllers/vlb/unbindingVmIct"], function(unbindingVmIct) {
+        var dep = ['ng', unbindingVmIct.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#unbindvm-window"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope, exception) {
+            $compile($("#unbindvm-window"))($rootScope);
+            $rootScope.$digest();
+        });
+
+        $("#bindVmsTable").addClass("clearfix");
+    })
+</script>

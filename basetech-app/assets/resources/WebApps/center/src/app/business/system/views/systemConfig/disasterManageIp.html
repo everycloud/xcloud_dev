@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="i18n.resource_term_disasterMgtIP_label"></span></li>
+            <li class="two-lead"></li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <tiny-formfield>
+            <tiny-item label="ipItem.label">
+                <div ng-show="!ipItem.modifying">
+                    <span id="disasterManageIpSpan">
+                        <a ng-if="!isIe" href="javascript:void(0)" ng-click="gotoUltravr()" ng-bind="ipItem.value"></a>
+                        <a ng-if="isIe" href="{{href}}" ng-bind="ipItem.value" target="_blank"></a>
+                    </span>
+                    <span class="btn-link" ng-click="ipItem.clickModify()" ng-if="operable"><img src="../theme/default/images/gm/edit.gif"/></span>
+                </div>
+                <div ng-show="ipItem.modifying">
+                    <tiny-ip id="ipItem.id" value="ipItem.value"></tiny-ip>
+                    <a href="javascript:void(0)" ng-click="ipItem.saveModify()" ng-bind="i18n.common_term_save_label"></a>
+                    <a href="javascript:void(0)" ng-click="ipItem.cancelModify()" ng-bind="i18n.common_term_cancle_button"></a>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

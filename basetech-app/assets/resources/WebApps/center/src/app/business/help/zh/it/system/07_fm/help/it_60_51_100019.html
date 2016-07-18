@@ -1,0 +1,138 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="计算资源池">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100019">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>计算资源池</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\n资源池管理\n资源分区\n计算资源池");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100004.html\">资源池管理<\/a> > <a href=\"../father_node/it_60_99_100005.html\">资源分区<\/a> > 计算资源池<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100019"></a><a name="it_60_51_100019"></a>
+
+
+<h1 class="topictitle1">计算资源池</h1>
+<ul><li><a href="#it_60_51_100019__1.2.3.1">关联资源集群</a></li><li><a href="#it_60_51_100019__1.2.4.1">解关联资源集群</a></li><li><a href="#it_60_51_100019__1.2.5.1">标签管理</a></li></ul>
+<div>
+<p>计算资源池是<span>FusionManager</span>用于虚拟机或应用实例发放的计算资源的集合。</p>
+
+<p>这些资源由资源集群提供，接入的虚拟化环境中的资源集群，只有关联到资源分区中，其计算资源才能够被<span>FusionManager</span>用于业务发放。</p>
+
+<div class="section"><a name="it_60_51_100019__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100019" class="sectiontitle2contents">关联资源集群</a></h4><p id="it_60_51_100019__cluster_function"><a name="it_60_51_100019__cluster_function"></a><a name="cluster_function"></a>将虚拟化环境中的资源集群关联至资源分区，为业务发放提供计算资源。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="uicontrol">“计算资源池”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">关联资源集群</span>”</span>。</p>
+<p>关联资源集群后，资源集群中所包含的计算资源和存储资源都会纳入<span>FusionManager</span>资源分区中，分别显示在<span class="wintitle">“计算资源池”</span>和<span class="wintitle">“存储资源池”</span>界面。这些资源是以资源集群为单元关联至资源分区的，若虚拟化环境中的某些资源未包含在其资源集群中，则无法被纳入<span>FusionManager</span>的资源池。</p>
+<p>在关联过程中，为资源集群中的存储配置存储SLA，是指根据该存储使用的存储设备，为该存储设置一个存储SLA标识。在创建虚拟机和磁盘时，可根据设置的存储SLA，选择匹配的存储进行创建。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100019__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100019" class="sectiontitle2contents">解关联资源集群</a></h4><p>当需要调整资源集群所属的资源分区或需要从资源分区中删除资源集群时，解除资源集群和资源分区的关联关系。资源集群中的资源已被使用时，如VDC分配或虚拟机创建，不允许删除。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="uicontrol">“计算资源池”</span>界面</span>，资源集群所在行中，单击<span class="menucascade">“<span class="uicontrol">解关联</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100019__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100019" class="sectiontitle2contents">标签管理</a></h4><p>定义标签后，租户可以将虚拟机创建在相应标签的资源中。例如，集群A的资源充裕，可靠性高，我们将集群打上“SLA为GOLD”的标签，这时，租户就可以将虚拟机创建在GOLD标签的资源上，从而保证了该虚拟机的性能。</p>
+<p>标签选项来源于<span class="menucascade">“<span class="uicontrol">服务</span> &gt; <span class="uicontrol">标签管理</span>”</span>中定义的标签。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="uicontrol">“计算资源池”</span>界面</span>，资源集群所在行中，单击<span class="menucascade">“<span class="uicontrol">标签管理</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

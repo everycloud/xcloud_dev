@@ -1,0 +1,35 @@
+<div id="clusterOfAzDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-button class="major-btn" id="addClusterButton.id" text="addClusterButton.text"
+                         click="addClusterButton.click()" ng-if="operable"></tiny-button>
+        </tiny-item>
+        <tiny-item>
+            <div style="width: 700px">
+                <tiny-table id="clusterTable.id" data="clusterTable.data"
+                            columns-draggable="clusterTable.columnsDraggable" cur-page="clusterTable.curPage"
+                            pagination-style="clusterTable.paginationStyle" total-records="clusterTable.totalRecords"
+                            columns='clusterTable.columns' render-row="clusterTable.renderRow"
+                            display-length="clusterTable.displayLength" length-change="clusterTable.lengthChange"
+                            enable-pagination="clusterTable.enablePagination" change-select="clusterTable.changeSelect"
+                            length-menu="clusterTable.lengthMenu" callback="clusterTable.callback"></tiny-table>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["tiny-widgets/Checkbox", 'app/business/resources/controllers/rpool/zone/zoneResources/availableZone/clusterOfAzCtrl'],
+            function (Checkbox, clusterOfAzCtrl) {
+                var rootElement = $("#clusterOfAzDiv");
+                rootElement.attr("ng-controller", "resources.zone.clusterOfAz.ctrl");
+                var dep = ['ng', 'wcc', clusterOfAzCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

@@ -1,0 +1,18 @@
+<style>
+    #addFirewallContent {
+
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="../theme/default/css/scrollbar.css"/>
+<div class="box_padding">
+    <div id="addFirewallStep" class="tiny-step-boxset clearfix">
+        <div class="createpage-legend">{{i18n.device_term_connectFW_button}}</div>
+        <tiny-step id="addFirewallStep.id" jumpable="addFirewallStep.jumpable"
+                   values="addFirewallStep.values" width="addFirewallStep.width"></tiny-step>
+    </div>
+    <div id="addFirewallContent" class="content create-page-distance">
+        <div ng-include="addFirewallStep1.url" ng-show="showBasicInfoPage"></div>
+        <div ng-include="addFirewallStep2.url" ng-show="showParamSettingPage"></div>
+        <div ng-include="addFirewallStep3.url" ng-show="showConfirmInfoPage"></div>
+    </div>
+</div>

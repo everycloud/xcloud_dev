@@ -1,0 +1,386 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="替换虚拟机的内核文件">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_000005">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>替换虚拟机的内核文件</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n虚拟机管理\n替换虚拟机的内核文件");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../../07_fm/father_node/it_60_99_100032.html\">虚拟机管理<\/a> > 替换虚拟机的内核文件<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_000005"></a><a name="it_58_45_000005"></a>
+
+
+<h1 class="topictitle1">替换虚拟机的内核文件</h1>
+<ul><li><a href="#it_58_45_000005__1.3.1">操作场景</a></li><li><a href="#it_58_45_000005__1.3.2">必备事项</a></li><li><a href="#it_58_45_000005__1.3.3">操作步骤</a></li></ul>
+
+<div>
+<div class="Section"><a name="it_58_45_000005__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#it_58_45_000005" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>以下Linux操作系统的虚拟机，在安装Tools前，需要替换虚拟机的内核文件。</p>
+<div class="p"><div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/icon-notice.gif"> 注意： </span><div class="noticebody">华为提醒您：华为仅能确保更新了华为所提供的替换内核后的Linux商业操作系统在华为虚拟化平台上的正常运行。在您使用华为提供的替换内核过程中，由该内核所导致的虚拟机系统的任何问题以及所产生的任何损失，华为均不承担任何责任。具体内容请参见如下声明。</div></div>
+</div>
+<p><strong>声明</strong></p>
+<p><strong>华为提醒您：若您使用的Linux操作系统为以下所列版本，请您务必仔细阅读并透彻理解本声明。您可以选择不使用华为提供的替换内核，但如果您使用华为提供的替换内核，您的使用行为将被视为对本声明全部内容的认可。</strong></p>
+<div class="p">鉴于第三方厂商提供的某些Linux版本商用操作系统的原厂内核功能不健全，若您使用的Linux操作系统为以下所列版本，请务必将您所使用的操作系统升级至最新版本，以确保其在华为虚拟化平台上的正常运行：<a name="it_58_45_000005__change_core"></a><a name="change_core"></a><ul id="it_58_45_000005__change_core"><li>Red Hat Linux Enterprise 4.7 32bit/64bit</li><li>Red Hat Linux Enterprise 6.0 32bit/64bit</li><li>CentOS 4.7 32bit/64bit</li><li>CentOS 6.0 32bit/64bit</li><li>Ubuntu desktop 10.04 64bit</li><li>Fedora 12 32bit</li></ul>
+</div>
+<p>若您出于自身原因或其它客观原因，无法将所使用的以上Linux商业操作系统升级至最新版本，华为建议您将系统的原厂内核替换为华为免费提供的替换内核，但是否替换完全由您决定。</p>
+<p>华为仅能确保更新了华为所提供的替换内核后的Linux商业操作系统在华为虚拟化平台上的正常运行。由此引发的兼容性问题，华为可以协助您定位问题，除此以外华为没有义务提供任何形式的支持。因此引起的操作系统的售后服务问题，包括该Linux商业操作系统的提供商是否继续为您提供售后技术支持与维护，华为亦不提供任何性质的保证。在您使用华为提供的替换内核过程中，由该内核所导致的虚拟机系统的任何问题以及所产生的任何损失，华为均不承担任何责任。</p>
+
+<div class="tablenoborder"><a name="it_58_45_000005__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_58_45_000005__tab_02" frame="border" border="1" rules="all"><caption><b>表1 </b>需替换内核文件的操作系统列表</caption>
+
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="22.421524663677133%" id="mcps1.3.1.8.2.5.1.1"><p>操作系统</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="16.143497757847534%" id="mcps1.3.1.8.2.5.1.2"><p>CPU数量和内存大小</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.18385650224215%" id="mcps1.3.1.8.2.5.1.3"><p>替换的内核文件</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="28.251121076233183%" id="mcps1.3.1.8.2.5.1.4"><p>内核文件所在压缩包名称</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" rowspan="3" valign="top" width="22.421524663677133%" headers="mcps1.3.1.8.2.5.1.1 "><div class="p"><ul><li>Red Hat Enterprise Linux 4.7 32位</li><li>CentOS 4.7 32位</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.143497757847534%" headers="mcps1.3.1.8.2.5.1.2 "><p>CPU数量：单核</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.18385650224215%" headers="mcps1.3.1.8.2.5.1.3 "><div class="p"><ul><li>kernel-2.6.9-78.EL.i686.rpm</li><li>kernel-devel-2.6.9-78.EL.i686.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.251121076233183%" headers="mcps1.3.1.8.2.5.1.4 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>CPU数量：多核</li><li>内存：小于等于4GB</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.2 "><div class="p"><ul><li>kernel-smp-2.6.9-78.EL.i686.rpm</li><li>kernel-smp-devel-2.6.9-78.EL.i686.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.3 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>CPU数量：多核</li><li>内存：大于4GB</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.2 "><div class="p"><ul><li>kernel-hugemem-2.6.9-78.EL.i686.rpm</li><li>kernel-hugemem-devel-2.6.9-78.EL.i686.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.3 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="3" valign="top" width="22.421524663677133%" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>Red Hat Enterprise Linux 4.7 64位</li><li>CentOS 4.7 64位</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.143497757847534%" headers="mcps1.3.1.8.2.5.1.2 "><p>CPU数量：单核</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.18385650224215%" headers="mcps1.3.1.8.2.5.1.3 "><div class="p"><ul><li>kernel-2.6.9-78.EL.x86_64.rpm</li><li>kernel-devel-2.6.9-78.EL.x86_64.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.251121076233183%" headers="mcps1.3.1.8.2.5.1.4 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>CPU数量：多核</li><li>内存：小于等于4GB</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.2 "><div class="p"><ul><li>kernel-smp-2.6.9-78.EL.x86_64.rpm</li><li>kernel-smp-devel-2.6.9-78.EL.x86_64.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.3 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>CPU数量：多核</li><li>内存：大于4GB</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.2 "><div class="p"><ul><li>kernel-largesmp-2.6.9-78.EL.x86_64.rpm</li><li>kernel-largesmp-devel-2.6.9-78.EL.x86_64.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.3 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.421524663677133%" headers="mcps1.3.1.8.2.5.1.1 "><div class="p"><ul><li>Red Hat Enterprise Linux 6.0 32位</li><li>CentOS 6.0 32位</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.143497757847534%" headers="mcps1.3.1.8.2.5.1.2 "><p>-</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.18385650224215%" headers="mcps1.3.1.8.2.5.1.3 "><div class="p"><ul><li>kernel-2.6.32-71.el6.i686.rpm</li><li>kernel-devel-2.6.32-71.el6.i686.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.251121076233183%" headers="mcps1.3.1.8.2.5.1.4 "><p>kernel_patch-redhat_enterprise_linux_6.0.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.421524663677133%" headers="mcps1.3.1.8.2.5.1.1 "><div class="p"><ul><li>Red Hat Enterprise Linux 6.0 64位</li><li>CentOS 6.0 64位</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.143497757847534%" headers="mcps1.3.1.8.2.5.1.2 "><p>-</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.18385650224215%" headers="mcps1.3.1.8.2.5.1.3 "><div class="p"><ul><li>kernel-2.6.32-71.el6.x86_64.rpm</li><li>kernel-devel-2.6.32-71.el6.x86_64.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.251121076233183%" headers="mcps1.3.1.8.2.5.1.4 "><p>kernel_patch-redhat_enterprise_linux_6.0.tar.gz</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_000005__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#it_58_45_000005" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">前提条件</p></span><div class="p"><ul><li>虚拟机已安装操作系统。</li><li>已获取内核文件所在的ISO文件。<p>软件包名称为<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOSDrivers.zip”</span>，解压缩后的ISO文件名称为<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOS.iso”</span>。</p>
+<div class="p">软件包下载路径：<ul><li>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise</span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></li><li>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">FusionCompute
+V100R005</span> &gt; <span class="uicontrol">FusionCompute V100R005C00SPC100</span>”</span></li></ul>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">获取到软件包后建议先执行软件包校验的操作，具体操作请参见<a href="../../07_fm/soft_inst/it_60_23_000021.html">校验软件包</a>。</div></div>
+</li></ul>
+</div>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_000005__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#it_58_45_000005" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle">挂载光驱</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>使用<span class="parmvalue">“root”</span>用户登录虚拟机，进入操作系统界面。</span></li><li>
+<span>挂载光驱。</span>
+<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOS.iso”</span>。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">替换内核文件</p>
+<div class="Steps-titled"><ol type="1" start="3"><li><span>在VNC登录窗口的虚拟机操作系统界面，右键单击桌面，在弹出的快捷菜单中选择<span class="uicontrol">“在终端中打开”</span>。</span>
+<p>进入命令行模式。</p>
+</li><li><span>执行以下命令，创建<span class="filepath">“xvdd”</span>目录。</span>
+<p><b><span class="cmdname">mkdir
+xvdd</span></b></p></li><li><span id="it_58_45_000005__d47e92"><a name="it_58_45_000005__d47e92"></a><a name="d47e92"></a>执行以下命令，挂载虚拟机光驱。</span>
+<p><p><b><span class="cmdname">mount</span></b><i><span class="varname"> 挂载路径</span></i><b><span class="cmdname"> xvdd</span></b></p>
+<p>例如：<b><span class="cmdname">mount /dev/sr0 xvdd</span></b></p>
+</p>
+<p>根据Linux操作系统版本不同，挂载路径不同，如<a href="#it_58_45_000005__d47e112">表2</a>所示。
+<div class="tablenoborder"><a name="it_58_45_000005__d47e112"></a><a name="d47e112"></a><table cellpadding="4" cellspacing="0" summary="" id="it_58_45_000005__d47e112" frame="border" border="1" rules="all"><caption><b>表2 </b>Linux版本与挂载路径的对应关系</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="44.481605351170565%" id="mcps1.3.3.1.2.2.3.3.2.2.4.1.1"><p>Linux版本</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="27.759197324414714%" id="mcps1.3.3.1.2.2.3.3.2.2.4.1.2"><p>支持的光驱类型</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="27.759197324414714%" id="mcps1.3.3.1.2.2.3.3.2.2.4.1.3"><p>挂载路径</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="44.481605351170565%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.1 "><div class="p"><ul><li>CentOS 5.8及以下版本</li><li>Red Hat Enterprise Linux 5.8及以下版本</li><li>Oracle Linux Server release 5.7</li><li>SUSE Linux Enterprise Server 10</li><li>中标5.4</li><li>Red Flag Asianux Server 3</li><li>DOPRA ICTOM V002R003 EIMP</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.759197324414714%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.2 "><p>ISO文件和光驱设备</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.759197324414714%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.3 "><p>/dev/hdd</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="44.481605351170565%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.1 "><div class="p"><ul><li>CentOS 6.0及以上</li><li>Red Hat Enterprise Linux 6.0及以上</li><li>Oracle Linux Server release 6.1</li><li>SUSE Linux Enterprise Server 11及以上</li><li>openSUSE 11.3</li><li>Debian GNU/Linux</li><li>Ubuntu 8.04及以上</li><li>Fedora 9及以上</li><li>Red Flag Asianux Server 4</li><li>DOPRA ICTOM V002R003 IMAOS</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.759197324414714%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.2 "><p>ISO文件和光驱设备</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.759197324414714%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.3 "><p>/dev/sr0</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">当虚拟化环境是VMware时，请根据实际使用的操作系统版本，参考对应的官方产品文档修改挂载光驱路径。</div></div>
+</p>
+</li><li><span>执行以下命令，进入内核包所在目录。</span>
+<p><p><b><span class="cmdname">cd xvdd/pvDriver/kernel\ patch</span></b></p>
+</p>
+</li><li><span>执行以下命令，查看内核文件名。</span>
+<p><b><span class="cmdname">ls</span></b></p>
+</li><li><span>执行以下命令，将需替换的内核文件拷贝到root文件夹路径下。</span>
+<p><p><b><span class="cmdname">cp</span></b><i><span class="varname"> 内核文件名称</span></i><b><span class="cmdname"> /root</span></b></p>
+<p>例如：<b><span class="cmdname">cp kernel_patch-redhat_enterprise_linux_4.7.tar.gz
+/root</span></b></p>
+</p>
+</li><li><span>执行以下命令，解压缩内核文件压缩包。</span>
+<p><p><b><span class="cmdname">cd /root</span></b></p>
+<p><b><span class="cmdname">tar -xzf</span></b><i><span class="varname"> 压缩包名称</span></i></p>
+<p>例如：<b><span class="cmdname">tar -xzf kernel_patch-redhat_enterprise_linux_4.7.tar.gz</span></b></p>
+</p>
+</li><li><span>执行如下命令，替换内核文件。</span>
+<p><p><b><span class="cmdname">rpm -ivh --force --nodeps</span></b><i><span class="varname"> 内核文件名称</span></i></p>
+<p>例如：</p>
+<p><b><span class="cmdname">rpm -ivh --force --nodeps kernel-2.6.9-78.EL.i686.rpm</span></b></p>
+<p><b><span class="cmdname">rpm -ivh --force --nodeps kernel-devel-2.6.9-78.EL.i686.rpm</span></b></p>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>覆盖安装过程中可能输出警告信息，忽略即可。</p>
+</div></div>
+</p>
+</li><li id="it_58_45_000005__reboot"><a name="it_58_45_000005__reboot"></a><a name="reboot"></a><span id="it_58_45_000005__cmd_reboot"><a name="it_58_45_000005__cmd_reboot"></a><a name="cmd_reboot"></a>执行以下命令，重启操作系统，使新内核生效。</span>
+<p><b><span class="cmdname">reboot</span></b></p>
+<p>该任务结束。</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<div id="set_environment_mac_div">
+    <p class="color2" ng-bind-html="virtual_hyper_addMAC_desc_label">
+    </p>
+
+    <div>
+        <div class="panel_title" ng-bind="i18n.virtual_term_hyperMAC_label"></div>
+        <div class="horizontal_line bottom5"></div>
+        <tiny-button id="addMacSegmentButton.id" text="addMacSegmentButton.text"
+                     click="addMacSegmentButton.click()" class="major-btn"></tiny-button>
+        <div class="top10">
+            <tiny-table id="macSegmentTable.id" data="macSegmentTable.data" columnsDraggable="macSegmentTable.columns-draggable"
+                        columns='macSegmentTable.columns' render-row="macSegmentTable.renderRow"
+                        enable-pagination="macSegmentTable.enablePagination"></tiny-table>
+        </div>
+    </div>
+    <div class="clear_both">
+        <div class="panel_title" ng-bind="i18n.virtual_term_hyperMACIndependent_label"></div>
+        <div class="horizontal_line bottom5"></div>
+        <tiny-button id="addSingleMacButton.id" text="addSingleMacButton.text"
+                     click="addSingleMacButton.click()" class="major-btn"></tiny-button>
+        <div class="top10">
+            <tiny-table id="singleMacTable.id" data="singleMacTable.data" columnsDraggable="singleMacTable.columns-draggable"
+                        columns='singleMacTable.columns' render-row="singleMacTable.renderRow"
+                        enable-pagination="singleMacTable.enablePagination"></tiny-table>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/environment/setMacCtrl"], function (setMacCtrl) {
+        $("#set_environment_mac_div").attr("ng-controller", "resources.hypervisor.setMac.ctrl");
+        var dep = ['ng', 'wcc', setMacCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", $("#set_environment_mac_div"));
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile) {
+            var scope = $("#set_environment_mac_div").scope();
+            $compile($("#set_environment_mac_div"))(scope);
+            scope.$digest();
+        });
+    });
+</script>

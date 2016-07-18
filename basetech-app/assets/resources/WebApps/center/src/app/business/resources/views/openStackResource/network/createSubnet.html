@@ -1,0 +1,58 @@
+<fm-valid valid="valid.subnetCheck">
+    <tiny-formfield>
+        <tiny-item label="subnetForm.label.ipVersion" require="true">
+            <fm-radio id="subnetPara.ipVersion.id" name="subnetPara.ipVersion.name" option="subnetForm.ipVersion" change="event.ipTypeChange"></fm-radio>
+        </tiny-item>
+        <tiny-item display="(subnetPara.ipVersion.id == '4')">
+            <tiny-checkbox id="enableDhcpCheckbox.id" text="enableDhcpCheckbox.text" checked="enableDhcpCheckbox.checked"
+            change="enableDhcpCheckbox.change()" height="27">
+            </tiny-checkbox>
+            <div class="inline-help"><span ng-bind="i18n.vpc_net_addICT_para_allocationIP_mean_innerDHCP_label"></span></div>
+        </tiny-item>
+        <tiny-item label="subnetForm.label.name" require="false">
+            <fm-text value="subnetPara.name" require="false"></fm-text>
+        </tiny-item>
+        <tiny-item label="subnetForm.label.ip" require="true">
+            <fm-ipv4 value="subnetPara.ip" ng-show="(subnetPara.ipVersion.id == '4')" valid="subnetForm.subnetCheckFormat(
+						lib.string2ip(subnetPara.ip),
+						lib.string2ip(subnetPara.mask),
+						lib.string2ip(subnetPara.gateWay))"></fm-ipv4>
+            <fm-ipv6 value="subnetPara.ip" ng-show="(subnetPara.ipVersion.id == '6')"></fm-ipv6>
+        </tiny-item>
+        <tiny-item label="subnetForm.label.mask" require="true">
+            <fm-ipv4 value="subnetPara.mask" ng-show="(subnetPara.ipVersion.id == '4')" valid="lib.checkMask(subnetPara.mask)"></fm-ipv4>
+            <fm-digit value="subnetPara.subnetPrefix" ng-show="(subnetPara.ipVersion.id == '6')" min="0" max="128"></fm-digit>
+        </tiny-item>
+        <tiny-item label="subnetForm.label.gateWay" require="true">
+            <fm-ipv4 value="subnetPara.gateWay" ng-show="(subnetPara.ipVersion.id == '4')" valid="subnetForm.gateCheck(
+						lib.string2ip(subnetPara.ip),
+						lib.string2ip(subnetPara.mask),
+						lib.string2ip(subnetPara.gateWay))"></fm-ipv4>
+            <fm-ipv6 value="subnetPara.gateWay" ng-show="(subnetPara.ipVersion.id == '6')"></fm-ipv6>
+        </tiny-item>
+        <tiny-item label="subnetForm.label.ipPools" require="false" display="subnetPara.enableDhcp && (subnetPara.ipVersion.id == '4')">
+            <div ng-repeat="ipPool in subnetPara.ipPools">
+                <fm-ipv4 value="ipPool.start" require="false" ng-show="(subnetPara.ipVersion.id == '4')"></fm-ipv4>
+                <fm-ipv6 value="ipPool.start" require="false" ng-show="(subnetPara.ipVersion.id == '6')"></fm-ipv6>
+                <span>-</span>
+                <fm-ipv4 value="ipPool.end" require="false" ng-show="(subnetPara.ipVersion.id == '4')"
+                         valid="subnetForm.subnetCheck(lib.string2ip(ipPool.start),lib.string2ip(ipPool.end))"></fm-ipv4>
+                <fm-ipv6 value="ipPool.end" require="false" ng-show="(subnetPara.ipVersion.id == '6')"></fm-ipv6>
+                <a ng-show="$index < 31" ng-click="event.addIpPool()">{{i18n.common_term_add_button}}</a>
+                <a ng-show="$index != 0" ng-click="event.deleteIpPool($index)">{{i18n.common_term_delete_button}}</a>
+            </div>
+        </tiny-item>
+        <tiny-item label="subnetForm.label.firstDNS" require="false" display="subnetPara.enableDhcp && (subnetPara.ipVersion.id == '4')">
+            <fm-ipv4 value="subnetPara.firstDNS" require="false" ng-show="(subnetPara.ipVersion.id == '4')"></fm-ipv4>
+            <fm-ipv6 value="subnetPara.firstDNS" require="false" ng-show="(subnetPara.ipVersion.id == '6')"></fm-ipv6>
+        </tiny-item>
+        <tiny-item label="subnetForm.label.secondDNS" require="false" display="subnetPara.enableDhcp && (subnetPara.ipVersion.id == '4')">
+            <fm-ipv4 value="subnetPara.secondDNS" require="false" ng-show="(subnetPara.ipVersion.id == '4')"></fm-ipv4>
+            <fm-ipv6 value="subnetPara.secondDNS" require="false" ng-show="(subnetPara.ipVersion.id == '6')"></fm-ipv6>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <fm-button text="subnetForm.label.create" class='fm-valid major-btn' click="createSubnet"></fm-button>
+            <fm-button text="subnetForm.label.cancel" class='fm-valid-clear' click="cancelSubnet"></fm-button>
+        </tiny-item>
+    </tiny-formfield>
+</fm-valid>

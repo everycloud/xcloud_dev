@@ -1,0 +1,101 @@
+<div id="modifyView">
+    {{currentItem.metricDesc}}
+    <table width="650px">
+
+        <tr height="40px">
+            <td width="100px">
+                <tiny-checkbox text='criticalChkCtrl.text' id='criticalChkCtrl.id' checked='criticalChkCtrl.checked' change='criticalChkCtrl.change()'></tiny-checkbox>
+            </td>
+            <td width="200px">
+                <tiny-textbox id="criticalTxtCtrl.id" value="criticalTxtCtrl.value" disable="criticalTxtCtrl.disable" type="criticalTxtCtrl.type"></tiny-textbox>
+            </td>
+            <td width="350px">
+                <tiny-textbox id="criticalValueTxtCtrl.id"
+                              value="criticalValueTxtCtrl.value"
+                              disable="criticalValueTxtCtrl.disable"
+                              type="criticalValueTxtCtrl.type"
+                              tooltip="criticalValueTxtCtrl.tooltip"
+                              extend-function="criticalValueTxtCtrl.extendFunction"
+                              validate="criticalValueTxtCtrl.validate"></tiny-textbox>
+                {{currentItem.unit}}
+            </td>
+        </tr>
+
+        <tr height="40px">
+            <td>
+                <tiny-checkbox text='majorChkCtrl.text' id='majorChkCtrl.id' checked='majorChkCtrl.checked' change='majorChkCtrl.change()'></tiny-checkbox>
+            </td>
+            <td>
+                <tiny-textbox id="majorTxtCtrl.id" value="majorTxtCtrl.value" disable="majorTxtCtrl.disable" type="majorTxtCtrl.type"></tiny-textbox>
+            </td>
+            <td>
+                <tiny-textbox id="majorValueTxtCtrl.id"
+                              value="majorValueTxtCtrl.value"
+                              disable="majorValueTxtCtrl.disable"
+                              type="majorValueTxtCtrl.type"
+                              tooltip="majorValueTxtCtrl.tooltip"
+                              extend-function="majorValueTxtCtrl.extendFunction"
+                              validate="majorValueTxtCtrl.validate"></tiny-textbox>
+                {{currentItem.unit}}
+            </td>
+        </tr>
+
+        <tr height="40px">
+            <td>
+                <tiny-checkbox text='minorChkCtrl.text' id='minorChkCtrl.id' checked='minorChkCtrl.checked' change='minorChkCtrl.change()'></tiny-checkbox>
+            </td>
+            <td>
+                <tiny-textbox id="minorTxtCtrl.id" value="minorTxtCtrl.value" disable="minorTxtCtrl.disable" type="minorTxtCtrl.type"></tiny-textbox>
+            </td>
+            <td>
+                <tiny-textbox id="minorValueTxtCtrl.id"
+                              value="minorValueTxtCtrl.value"
+                              disable="minorValueTxtCtrl.disable"
+                              type="minorValueTxtCtrl.type"
+                              tooltip="minorValueTxtCtrl.tooltip"
+                              extend-function="minorValueTxtCtrl.extendFunction"
+                              validate="minorValueTxtCtrl.validate"></tiny-textbox>
+                {{currentItem.unit}}
+            </td>
+        </tr>
+
+        <tr height="40px">
+            <td>
+                <tiny-checkbox text='warningChkCtrl.text' id='warningChkCtrl.id' checked='warningChkCtrl.checked' change='warningChkCtrl.change()'></tiny-checkbox>
+            </td>
+            <td>
+                <tiny-textbox id="warningTxtCtrl.id" value="warningTxtCtrl.value" disable="warningTxtCtrl.disable" type="warningTxtCtrl.type"></tiny-textbox>
+            </td>
+            <td>
+                <tiny-textbox id="warningValueTxtCtrl.id"
+                              value="warningValueTxtCtrl.value"
+                              disable="warningValueTxtCtrl.disable"
+                              type="warningValueTxtCtrl.type"
+                              tooltip="warningValueTxtCtrl.tooltip"
+                              extend-function="warningValueTxtCtrl.extendFunction"
+                              validate="warningValueTxtCtrl.validate"></tiny-textbox>
+                {{currentItem.unit}}
+            </td>
+        </tr>
+        <tr height="40px" ng-show="currentItem.compType != 'OpenStack'">
+            <td>{{i18n.common_term_offset_label}}:</td>
+            <td>
+                <tiny-textbox id="eviValueTxtCtrl.id" value="eviValueTxtCtrl.value" disable="eviValueTxtCtrl.disable" type="eviValueTxtCtrl.type"></tiny-textbox>
+            </td>
+            <td>
+                <tiny-textbox id="eviValueValueTxtCtrl.id" value="eviValueValueTxtCtrl.value" disable="eviValueValueTxtCtrl.disable" type="eviValueValueTxtCtrl.type" tooltip="eviValueValueTxtCtrl.tooltip" validate="eviValueValueTxtCtrl.validate"></tiny-textbox>
+                {{currentItem.unit}}
+            </td>
+        </tr>
+    </table>
+
+
+    <tiny-formfield>
+        <tiny-item>
+            <div class="fm-btn-top-small">
+                <fm-button class="major-btn" id="saveBtn.id" text="saveBtn.text" click="saveBtn.click"></fm-button>
+                <fm-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click"></fm-button>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>

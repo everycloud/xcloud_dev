@@ -1,0 +1,58 @@
+<div fm-help help="'drawer_device_import'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="i18n.device_term_connectBatch_label"></span></li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.device_batch_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="outbox-padding content-right-box padding-top10">
+        <div class="bottom10 clearfix">
+            <a class="fl"
+               href="javascript:void 0;"
+               ng-bind="downloadModel.text"
+               ng-click="downloadModel.handler()"></a>
+            <a class="btn-link fr" href="javascript:void 0;">
+                <div title="{{i18n.common_term_help_label}}" ng-click="show.help=true"
+                     class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+        <p class="bottom10" ng-bind-html="i18n.device_batch_connect_desc_label"></p>
+
+        <div class="clearfix" ng-if="hasDeviceOperateRight && uploadModel.display">
+            <span class="fl"><span ng-bind="i18n.common_term_importTemplate_button"></span>:</span>
+            <tiny-fileupload id="uploadModel.id"
+                             class="fl left10"
+                             file-obj-name="uploadModel.fileObjName"
+                             action="uploadModel.action"
+                             file-type="uploadModel.fileType"
+                             select-error="uploadModel.selectError"
+                             select="uploadModel.select"
+                             max-size="uploadModel.maxSize"
+                             after-submit="uploadModel.afterSubmit"
+                             complete="uploadModel.complete"></tiny-fileupload>
+        </div>
+        <ul ng-if="statisticsTable.data && statisticsTable.data.length" class="">
+            <li class="top10">
+                <span ng-bind="i18n.common_term_importProcess_button"></span>:
+                <tiny-progressbar id="progress.id" style="position:relative;top:5px;"
+                                  width="progress.width"
+                                  value="progress.value"></tiny-progressbar>
+            </li>
+            <li ng-bind="statisticsTable.legend" class="top10"></li>
+            <li class="top10">
+                <tiny-table enable-pagination="false"
+                            id="statisticsTable.id"
+                            data="statisticsTable.data"
+                            columns="statisticsTable.columns"></tiny-table>
+            </li>
+            <li class="top10">
+                <a ng-bind="report.text" ng-if="report.display" href="javascript:void 0;" ng-click="report.handler()"></a>
+            </li>
+        </ul>
+
+    </div>
+</div>

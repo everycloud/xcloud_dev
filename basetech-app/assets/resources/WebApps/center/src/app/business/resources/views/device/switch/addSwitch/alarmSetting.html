@@ -1,0 +1,82 @@
+<div id="addSwitchAlarmDiv">
+    <tiny-formfield>
+        <tiny-item label="snmpParamInfo.snmpVersion.label" require="snmpParamInfo.snmpVersion.require">
+            <tiny-select id="snmpParamInfo.snmpVersion.id" values="snmpParamInfo.snmpVersion.values"
+                         validate="snmpParamInfo.snmpVersion.validate" change="snmpParamInfo.snmpVersion.change()"
+                         width="formfieldWidth"></tiny-select>
+               <span popover="{{i18n.device_all_connect_para_snmp_mean_tip}}" popover-trigger="mouseenter"
+                     class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpPort.label"
+                   require="snmpParamInfo.snmpPort.require">
+            <tiny-textbox id="snmpParamInfo.snmpPort.id" value="snmpParamInfo.snmpPort.value" width="formfieldWidth"
+                          type="input" validate="snmpParamInfo.snmpPort.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpTimeout.label"
+                   require="snmpParamInfo.snmpTimeout.require">
+            <tiny-textbox id="snmpParamInfo.snmpTimeout.id" value="snmpParamInfo.snmpTimeout.value"
+                          width="formfieldWidth"
+                          type="input" validate="snmpParamInfo.snmpTimeout.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpRetries.label"
+                   require="snmpParamInfo.snmpRetries.require">
+            <tiny-textbox id="snmpParamInfo.snmpRetries.id" value="snmpParamInfo.snmpRetries.value"
+                          width="formfieldWidth"
+                          type="input" validate="snmpParamInfo.snmpRetries.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpSecurity.label"
+                   require="snmpParamInfo.snmpSecurity.require">
+            <tiny-textbox id="snmpParamInfo.snmpSecurity.id" value="snmpParamInfo.snmpSecurity.value"
+                          width="formfieldWidth"
+                          validate="snmpParamInfo.snmpSecurity.validate" type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpAuthProtocol.label"
+                   require="snmpParamInfo.snmpAuthProtocol.require">
+            <tiny-select id="snmpParamInfo.snmpAuthProtocol.id" values="snmpParamInfo.snmpAuthProtocol.values"
+                         validate="snmpParamInfo.snmpAuthProtocol.validate"
+                         width="formfieldWidth"></tiny-select>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpAuthPassword.label"
+                   require="snmpParamInfo.snmpAuthPassword.require">
+            <tiny-textbox id="snmpParamInfo.snmpAuthPassword.id" value="snmpParamInfo.snmpAuthPassword.value"
+                          validate="snmpParamInfo.snmpAuthPassword.validate" width="formfieldWidth"
+                          type="snmpParamInfo.snmpAuthPassword.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpAuthPwdConfirm.label"
+                   require="snmpParamInfo.snmpAuthPwdConfirm.require">
+            <tiny-textbox id="snmpParamInfo.snmpAuthPwdConfirm.id" width="formfieldWidth"
+                          value="snmpParamInfo.snmpAuthPwdConfirm.value"
+                          type="snmpParamInfo.snmpAuthPwdConfirm.type"
+                          extend-function="snmpParamInfo.snmpAuthPwdConfirm.extendFunction"
+                          validate="snmpParamInfo.snmpAuthPwdConfirm.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpEncrptProtocol.label"
+                   require="snmpParamInfo.snmpEncrptProtocol.require">
+            <tiny-select id="snmpParamInfo.snmpEncrptProtocol.id" values="snmpParamInfo.snmpEncrptProtocol.values"
+                         width="formfieldWidth"
+                         validate="snmpParamInfo.snmpEncrptProtocol.validate"></tiny-select>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpEncrptPassword.label"
+                   require="snmpParamInfo.snmpEncrptPassword.require">
+            <tiny-textbox id="snmpParamInfo.snmpEncrptPassword.id" value="snmpParamInfo.snmpEncrptPassword.value"
+                          validate="snmpParamInfo.snmpEncrptPassword.validate" width="formfieldWidth"
+                          type="snmpParamInfo.snmpEncrptPassword.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item display="isTrapSNMPv3" label="snmpParamInfo.snmpEncrptPwdConfirm.label"
+                   require="snmpParamInfo.snmpEncrptPwdConfirm.require">
+            <tiny-textbox id="snmpParamInfo.snmpEncrptPwdConfirm.id" width="formfieldWidth"
+                          value="snmpParamInfo.snmpEncrptPwdConfirm.value"
+                          type="snmpParamInfo.snmpEncrptPwdConfirm.type"
+                          extend-function="snmpParamInfo.snmpEncrptPwdConfirm.extendFunction"
+                          validate="snmpParamInfo.snmpEncrptPwdConfirm.validate"></tiny-textbox>
+        </tiny-item>
+    </tiny-formfield>
+    <div class="fm-btn-top-small">
+        <tiny-button id="snmpParamInfo.preBtn.id" text="snmpParamInfo.preBtn.text"
+                     click="snmpParamInfo.preBtn.click()"></tiny-button>
+        <tiny-button class="major-btn" id="snmpParamInfo.nextBtn.id" text="snmpParamInfo.nextBtn.text"
+                     click="snmpParamInfo.nextBtn.click()"></tiny-button>
+        <tiny-button id="snmpParamInfo.cancelBtn.id" text="snmpParamInfo.cancelBtn.text"
+                     click="snmpParamInfo.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div id="hypervisorInfoDiv">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <div class="tiny-layout-title">
+                    <div class="row-fluid nosidedown-txt">
+                        <div class="span4">
+                            <div class="title-icon">
+                                <img src="../theme/default/images/virtual-cluster.png">
+                            </div>
+                        </div>
+                        <div class="span8">
+                            <p class="title-text" id="hypervisorInfoNameDiv">{{i18n.virtual_term_hypervisor_label}}:{{hypervisorName}}</p>
+                        </div>
+                    </div>
+                </div>
+                <li ng-show="privilege['common_term_check_button']">
+                    <a ui-sref="resources.hypervisorInfo.vm">{{i18n.common_term_vms_label||'虚拟机'}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

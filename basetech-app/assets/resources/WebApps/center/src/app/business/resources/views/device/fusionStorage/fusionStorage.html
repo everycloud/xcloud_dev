@@ -1,0 +1,43 @@
+<div fm-help help="'drawer_device_fs'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{i18n.device_term_FusionStorage_label}}</span></li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.device_fs_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <tiny-button id="addFsDeviceModel.id" ng-show="right.hasFsOperateRight" text="addFsDeviceModel.text"
+                         click="addFsDeviceModel.click()" class="major-btn">
+            </tiny-button>
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="operate.queryFusionStorage()" id="fusionStorageRefresh"
+                         title="i18n.common_term_fresh_button" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="fsTableModel.id" data="fsTableModel.data"
+                        columns="fsTableModel.columns"
+                        enable-pagination="fsTableModel.enablePagination"
+                        pagination-style="fsTableModel.paginationStyle"
+                        length-change="fsTableModel.lengthChange" length-menu="fsTableModel.lengthMenu"
+                        display-length="fsTableModel.displayLength" cur-page="fsTableModel.curPage"
+                        total-records="fsTableModel.totalRecords"
+                        request-config="fsTableModel.requestConfig"
+                        columns-draggable="fsTableModel.columnsDraggable"
+                        hide-total-records="fsTableModel.hideTotalRecords"
+                        total-records="fsTableModel.data.length" render-row="fsTableModel.renderRow"
+                        columns-visibility="fsTableModel.columnsVisibility"
+                        show-details="fsTableModel.showDetails"></tiny-table>
+        </div>
+    </div>
+</div>

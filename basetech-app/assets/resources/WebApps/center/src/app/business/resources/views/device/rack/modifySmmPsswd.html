@@ -1,0 +1,40 @@
+<div id="modifySmmPsswdDiv">
+    <tiny-formfield>
+        <tiny-item ng-bind="rackName" label="rackNameItem.label">
+        </tiny-item>
+        <tiny-item ng-bind="username" label="usernameItem.label">
+        </tiny-item>
+        <tiny-item label="originalPsswd.label" require="originalPsswd.require">
+            <tiny-textbox id="originalPsswd.id" value="originalPsswd.value"
+                          type="originalPsswd.type" validate="originalPsswd.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="newPsswd.label" require="newPsswd.require">
+            <tiny-textbox id="newPsswd.id" value="newPsswd.value"
+                          type="newPsswd.type" validate="newPsswd.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="confirmNewPsswd.label" require="confirmNewPsswd.require">
+            <tiny-textbox id="confirmNewPsswd.id" value="confirmNewPsswd.value"
+                          type="confirmNewPsswd.type" extend-function="confirmNewPsswd.extendFunction"
+                          validate="confirmNewPsswd.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button class="major-btn" id="okBtn.id" text="okBtn.text" click="okBtn.click()"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/device/rack/modifySmmPsswdCtrl'],
+            function (modifySmmPsswdCtrl) {
+                $("#modifySmmPsswdDiv").attr("ng-controller", "modifySmmPsswdCtrl");
+                var dep = ['ng', 'wcc', modifySmmPsswdCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#modifySmmPsswdDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#modifySmmPsswdDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

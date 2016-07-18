@@ -1,0 +1,69 @@
+<div id="createDhcpServerDiv">
+    <div class="inline-help line-height30">{{i18n.resource_exter_addDHCPserver_desc_label}}</div>
+    <tiny-formfield>
+        <tiny-item label="model.label" require="model.require" style="width:660px;">
+            <tiny-table id="dvsTable.id" data="dvsTable.data"
+                        columns="dvsTable.columns"  columns-draggable="dvsTable.columnsDraggable"
+                        enable-pagination="dvsTable.enablePagination"
+                        pagination-style="dvsTable.paginationStyle"
+                        length-change="dvsTable.lengthChange" length-menu="dvsTable.lengthMenu"
+                        display-length="dvsTable.displayLength" cur-page="dvsTable.curPage"
+                        total-records="dvsTable.totalRecords"
+                        request-config="dvsTable.requestConfig"
+                        hide-total-records="dvsTable.hideTotalRecords"
+                        render-row="dvsTable.renderRow" change-select="dvsTable.changeSelect"
+                        callback="dvsTable.callback">
+            </tiny-table>
+        </tiny-item>
+        <tiny-item label="vlan.label" require="vlan.require">
+            <tiny-textbox id="vlan.id" width="vlan.width" type="vlan.type" extend-function="vlan.extendFunction"
+                          validate="vlan.validate"></tiny-textbox>
+            <div class="top10 color2">{{i18n.common_term_enterOrSelect_label}}</div>
+        </tiny-item>
+        <tiny-item>
+            <tiny-table id="vlanTable.id" data="vlanTable.data"
+                        columns="vlanTable.columns"
+                        enable-pagination="vlanTable.enablePagination"
+                        request-config="vlanTable.requestConfig"
+                        hide-total-records="vlanTable.hideTotalRecords"
+                        render-row="vlanTable.renderRow">
+            </tiny-table>
+        </tiny-item>
+        <tiny-item label="dhcpIp.label" require="dhcpIp.require">
+            <tiny-ip id="dhcpIp.id" type="dhcpIp.type" width="dhcpIp.width"
+                     disable="dhcpIp.disable" extend-function="dhcpIp.extendFunction"
+                     validate="dhcpIp.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="subnetMask.label" require="subnetMask.require">
+            <tiny-ip id="subnetMask.id" type="subnetMask.type" width="subnetMask.width"
+                     disable="subnetMask.disable" extend-function="subnetMask.extendFunction"
+                     validate="subnetMask.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="gateway.label" require="gateway.require">
+            <tiny-ip id="gateway.id" type="gateway.type" width="gateway.width"
+                     disable="gateway.disable" extend-function="gateway.extendFunction"
+                     validate="gateway.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button class="major-btn" id="okBtn.id" text="okBtn.text"
+                         click="okBtn.click()" disable="okBtn.disable"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                         click="cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/rpool/zone/zoneResources/network/extNetwork/createDhcpServerCtrl'],
+            function (createDhcpServerCtrl) {
+                $("#createDhcpServerDiv").attr("ng-controller", "createDhcpServerCtrl");
+                var dep = ['ng', 'wcc', createDhcpServerCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#createDhcpServerDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#createDhcpServerDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

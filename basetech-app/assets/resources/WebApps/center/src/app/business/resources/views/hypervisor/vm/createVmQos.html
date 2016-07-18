@@ -1,0 +1,83 @@
+<div id="configQosDiv">
+    <div id="cpuConfig">
+        <div class="legend" ng-bind="i18n.vm_term_CPUcontrol_label"></div>
+        <tiny-formfield>
+            <tiny-item label="cpuLimitSpinner.label">
+                <div style="display: inline-block">
+                    <tiny-spinner id="cpuLimitSpinner.id" value="cpuLimitSpinner.value" max="cpuLimitSpinner.max"
+                                  min="cpuLimitSpinner.min" change="cpuLimitSpinner.change()"
+                                  width="135"></tiny-spinner>
+                </div>
+                <span popover="{{i18n.vm_vm_create_para_QoS_mean_limit_tip}}" popover-trigger="mouseenter"
+                      popover-placement="right" class="small-icon small-icon-tips" style="margin-top: -20px;"></span>
+            </tiny-item>
+            <tiny-item label="cpuReserveSpinner.label">
+                <div style="display: inline-block">
+                    <tiny-spinner id="cpuReserveSpinner.id" value="cpuReserveSpinner.value" max="cpuReserveSpinner.max"
+                                  min="cpuReserveSpinner.min" width="135"></tiny-spinner>
+                </div>
+                <span popover="{{i18n.vm_vm_create_para_QoS_mean_reserved_tip}}" popover-trigger="mouseenter"
+                      popover-placement="right" class="small-icon small-icon-tips" style="margin-top: -20px;"></span>
+            </tiny-item>
+            <tiny-item label="cpuWeightSelector.label" class="qosWeight">
+                <tiny-select id="cpuWeightSelector.id" values="cpuWeightSelector.values" width="cpuWeightSelector.width"
+                             change="cpuWeightSelector.change()"
+                             default-selectid="cpuWeightSelector.defaultSelectedId"></tiny-select>
+                <tiny-textbox id="cpuWeightTextbox.id" value="cpuWeightTextbox.value" change="cpuWeightTextbox.change()"
+                              validate="cpuWeightTextbox.validate"></tiny-textbox>
+                <span popover="{{i18n.vm_vm_create_para_QoS_mean_qouta_tip}}" popover-trigger="mouseenter"
+                      popover-placement="right" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div id="memoryConfig">
+        <div class="legend" ng-bind="i18n.vm_term_memControl_label"></div>
+        <tiny-formfield>
+            <tiny-item label="memoryReserveSpinner.label">
+                <div style="display: inline-block">
+                    <tiny-spinner id="memoryReserveSpinner.id" value="memoryReserveSpinner.value"
+                                  max="memoryReserveSpinner.max" min="memoryReserveSpinner.min"
+                                  width="135"></tiny-spinner>
+                </div>
+            <span popover="{{i18n.vm_vm_create_para_QoS_mean_reserved_tip}}" popover-trigger="mouseenter"
+                  popover-placement="right" class="small-icon small-icon-tips" style="margin-top: -20px;"></span>
+            </tiny-item>
+            <tiny-item label="memoryWeightSelector.label" class="qosWeight">
+                <tiny-select id="memoryWeightSelector.id" values="memoryWeightSelector.values"
+                             width="memoryWeightSelector.width" change="memoryWeightSelector.change()"
+                             default-selectid="memoryWeightSelector.defaultSelectedId"></tiny-select>
+                <tiny-textbox id="memoryWeightTextbox.id" value="memoryWeightTextbox.value"
+                              change="memoryWeightTextbox.change()"
+                              validate="memoryWeightTextbox.validate"></tiny-textbox>
+            <span popover="{{i18n.vm_vm_create_para_QoS_mean_qouta_tip}}" popover-trigger="mouseenter"
+                  popover-placement="right" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="okButton.id" text="okButton.text"
+                             click="okButton.click()"></tiny-button>
+                <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<style>
+    .qosWeight .popover {
+        max-width: 400px;
+    }
+</style>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/vm/createVmQosCtrl'],
+            function (createVmQosCtrl) {
+                var rootElement = $("#configQosDiv");
+                rootElement.attr("ng-controller", "resources.vm.configQos.ctrl");
+                var dep = ['ng', 'wcc', createVmQosCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

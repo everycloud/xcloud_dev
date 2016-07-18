@@ -1,0 +1,23 @@
+<div id="hardwareNicDiv">
+    <div class="outbox-padding">
+    <div class="legend1" ng-bind="i18n.common_term_NIC_label"></div>
+    <div class="horizontal_line"></div>
+    <div class="blank_10"></div>
+    <div class="fr">
+        <a class="btn-link">
+            <div ng-click="refresh()" class="small-icon small-icon-refresh"></div>
+        </a>
+    </div>
+    <div class="blank_10 clear_both"></div>
+    <di class="clear_both" ng-show="!competition.isBaseOnVmware">
+        <tiny-table id="nicTable.id" data="nicTable.data" columns='nicTable.columns'
+                    render-row="nicTable.renderRow" callback="nicTable.callback"
+                    enable-pagination="nicTable.enablePagination"></tiny-table>
+    </di>
+    <di class="clear_both" ng-show="competition.isBaseOnVmware">
+        <tiny-table id="novaNicTable.id" data="novaNicTable.data" columns='novaNicTable.columns'
+                    render-row="novaNicTable.renderRow" callback="novaNicTable.callback"
+                    enable-pagination="novaNicTable.enablePagination"></tiny-table>
+    </di>
+    </div>
+</div>

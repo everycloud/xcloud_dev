@@ -1,0 +1,180 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VSA Network">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100026">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VSA Network</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Resource Management\nResource Pool Management\nResource Zones\nVSA Network");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">Resource Management<\/a> > <a href=\"../father_node/it_60_99_100004.html\">Resource Pool Management<\/a> > <a href=\"../father_node/it_60_99_100005.html\">Resource Zones<\/a> > VSA Network<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100026"></a><a name="it_60_51_100026"></a>
+
+
+
+<h1 class="topictitle1">VSA Network</h1>
+<ul><li><a href="#it_60_51_100026__1.2.3.1">Creating a VSA Management Network</a></li><li><a href="#it_60_51_100026__1.2.4.1">Deleting a VSA Management Network</a></li><li><a href="#it_60_51_100026__1.2.5.1">Creating a VXLAN Tunnel Endpoint (VTEP)
+Network</a></li><li><a href="#it_60_51_100026__1.2.6.1">Modifying Attributes of a VTEP Network</a></li><li><a href="#it_60_51_100026__1.2.7.1">Deleting a VTEP Network</a></li></ul>
+<div>
+<p id="it_60_51_100026__vsa_define"><a name="it_60_51_100026__vsa_define"></a><a name="vsa_define"></a>A Virtual Service Appliance (VSA) management network,
+which provides management network resources for system service VMs,
+is a basic network configuration required by FusionManager.</p>
+
+<p>System service VMs are automatically created by FusionManager to
+provide system services. For more information about system service
+VMs, see <a href="it_60_51_100029.html">System Service VMs</a>.</p>
+
+<div class="section"><a name="it_60_51_100026__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100026" class="sectiontitle2contents">Creating a VSA Management Network</a></h4><div class="p">Before creating a VSA management network, ensure that you have
+configured the required virtual local area network (VLAN) and gateway
+on the switch and have added the VLAN to the distributed virtual switch
+(DVS) created on the <span>FusionCompute</span> hypervisor. This VLAN cannot be added to the VLAN pool set on <span>FusionManager</span>.<ul><li>If the network resources are insufficient and the VLAN ID of the <span>FusionManager</span> node is not 0, the <span>FusionManager</span> node VLAN and subnets can be shared with the VSA management network,
+but the VSA management network cannot use the IP address segments
+set for the <span>FusionManager</span> node.</li><li>To use new VLAN and subnet resources for the VSA management network,
+configure the following settings on the switch:<ol><li>Configure the aggregation switch and all the access switches to
+allow pass of the packets from the VSA management network VLAN.</li><li>Configure the VSA management network subnet and gateway on the
+aggregation switch.</li><li>Add a route between the VSA management network gateway and the <span>FusionManager</span> management plane gateway, if these two gateways are in different
+Virtual Routing and Forwarding (VRF) tables.</li></ol>
+</li></ul>
+</div>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource
+zone, choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">VSA Networks</span></b></span></span> and click <span class="uicontrol"><b>Create VSA Management Networks</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100026__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100026" class="sectiontitle2contents">Deleting a VSA Management Network</a></h4><p>If a VSA management network is not needed any more, you can delete
+it from the system. However, an in-use VSA management network is not
+allowed to be deleted.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource
+zone, choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">VSA Networks</span></b></span></span> page, locate the row that contains the target VSA network,
+and click <span class="uicontrol"><b>Delete</b></span>.</p>
+<p>After deleting the
+VSA management network, manually delete the matching VLAN information
+on the switch to release IP address and subnet resources in the network.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100026__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100026" class="sectiontitle2contents">Creating a VXLAN Tunnel Endpoint (VTEP)
+Network</a></h4><p>If the virtual extensible LAN (VXLAN) function is
+enabled, a VTEP network can assign IP addresses for the software router
+in the system to allow communication between the software router and
+the hosts over a VTEP channel.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource
+zone, choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">VSA Networks</span></b></span></span>, select <span class="wintitle"><b>VTEP Network</b></span>, and click <span class="uicontrol"><b>Create VTEP Network</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100026__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100026" class="sectiontitle2contents">Modifying Attributes of a VTEP Network</a></h4><p>You can modify the attributes of a VTEP network as needed.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource
+zone, choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">VSA Networks</span></b></span></span>, select <span class="wintitle"><b>VTEP Network</b></span>, locate the row that
+contains the target VTEP network, and click <span class="uicontrol"><b>Modify</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100026__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100026" class="sectiontitle2contents">Deleting a VTEP Network</a></h4><p>If
+a VTEP network is not needed any more, you can delete it from the
+system to release network resources. However, if a VTEP network is
+in use, it cannot be deleted.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource
+zone, choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">VSA Networks</span></b></span></span>, select <span class="wintitle"><b>VTEP Network</b></span>, locate the row that
+contains the target VTEP network, and click <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

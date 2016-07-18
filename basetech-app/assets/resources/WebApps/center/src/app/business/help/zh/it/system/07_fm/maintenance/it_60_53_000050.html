@@ -1,0 +1,195 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="生成及替换FusionManager的安全防护证书">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_53_000050">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>生成及替换FusionManager的安全防护证书</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("生成及替换FusionManager的安全防护证书<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_53_000050"></a><a name="it_60_53_000050"></a>
+
+
+
+<h1 class="topictitle1">生成及替换<span>FusionManager</span>的安全防护证书</h1>
+<ul><li><a href="#it_60_53_000050__1.2.1.1">操作场景</a></li><li><a href="#it_60_53_000050__1.2.2.1">对系统的影响</a></li><li><a href="#it_60_53_000050__1.2.3.1">前提条件</a></li><li><a href="#it_60_53_000050__1.2.4.1">操作步骤</a></li><li><a href="#it_60_53_000050__1.2.5.1">后续任务</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_53_000050__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">操作场景</a></h4>
+
+
+<div class="p"><span>FusionManager</span>为了提升系统安全性，对<span>FusionManager</span>系统进行了安全加固，用户SSH登录<span>FusionManager</span>后，将会置身于一个安全环境之中。用户在此安全环境中无法执行非法命令，同时，如果需要在<span>FusionManager</span>中安装软件包或文件，均要进行数字签名保护，文件或软件包在上传至<span>FusionManager</span>系统后才能正常安装或执行。<p>在上传文件或软件包前，需要首先生成一个安全防护证书，将此证书的公钥上传至<span>FusionManager</span>系统中，使用此证书的私钥对需要上传的文件或软件包进行数字签名，将生成的数字签名和需要上传的文件或软件包一起上传到<span>FusionManager</span>系统中，在执行安装软件包等命令时，系统会自动验证此签名文件，验证通过后命令才能正常执行，软件包才可以正常安装。</p>
+<p>该任务指导管理员通过OpenSSL工具生成安全防护证书，并将证书的公钥文件上传至<span>FusionManager</span>系统中。建议您在系统安装完成后，立即生成此安全防护证书并将公钥文件上传至系统中。同时本文档还提供替换此安全防护证书的指导，在运维阶段可以定期替换此证书，以提升安全性。</p>
+<p>在生成此安全防护证书后，管理员需要保管好此证书的私钥文件，私钥文件丢失后，无法生成数字签名文件，上传至<span>FusionManager</span>系统中的文件或软件包将无法安装或成功执行。</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_53_000050__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">对系统的影响</a></h4>
+
+
+<div class="p"><p>如果更换的证书不正确，会导致无法使用installComponents命令安装软件到<span>FusionManager</span>，并且无法再次更换安全防护证书。</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_53_000050__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">前提条件</a></h4>
+
+
+<div class="p"><ul><li>已获取<span>FusionManager</span>主、备节点的管理IP地址以及galaxmanager用户的密码。</li><li>已获取WinSCP工具。</li><li>已获取PuTTY工具。</li></ul>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_53_000050__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">操作步骤</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">生成安全防护证书</p>
+<div class="Steps-titled"><ol type="1" start="1"><li id="it_60_53_000050__ssl"><a name="it_60_53_000050__ssl"></a><a name="ssl"></a><span>登录OpenSSL官方网站<a href="http://www.slproweb.com/products/Win32OpenSSL.html" target="_blank">http://www.slproweb.com/products/Win32OpenSSL.html</a>。</span></li><li><span>选择相应的版本下载，例如<span class="parmname">“Win32 OpenSSL v1.0.1j”</span>。</span></li><li><span>在本地PC中安装OpenSSL工具。</span></li><li><span>在本地PC中选择<span class="menucascade">“<span class="uicontrol">开始</span> &gt; <span class="uicontrol">运行</span>”</span>。</span></li><li><span>输入<b><span class="cmdname">cmd</span></b>，单击<span class="uicontrol">“确定”</span>，进入命令行模式。</span></li><li><span>执行以下命令，进入OpenSSL工具所在磁盘。</span>
+<p><i><span class="varname">OpenSSL工具所在磁盘的盘符</span></i><b><span class="cmdname">:</span></b></p>
+<p>例如，进入OpenSSL工具所在磁盘<span class="parmvalue">“D盘”</span>。<p><b><span class="cmdname">D:</span></b></p>
+</p>
+</li><li><span>执行以下命令，进入OpenSSL工具所在目录。</span>
+<p><p><b><span class="cmdname">cd \</span></b><i><span class="varname">OpenSSL工具所在目录</span></i></p>
+</p>
+<p>例如，进入OpenSSL工具所在目录<span class="parmvalue">“OpenSSL-Win32\bin”</span>。<p><b><span class="cmdname">cd \OpenSSL-Win32\bin</span></b></p>
+</p>
+</li><li><span>执行以下命令，生成安全防护证书的私钥文件。</span>
+<p><b><span class="cmdname">openssl genrsa -aes256 -passout pass:</span></b><i><span class="varname">证书的加密密码</span></i> <b><span class="cmdname">-out</span></b> <i><span class="varname">private.key</span></i> <b><span class="cmdname">2048</span></b></p>
+<p>执行成功后，在OpenSSL工具的所在目录下，例如<span class="filepath">“OpenSSL-Win32\bin”</span>，即可看到生成的私钥文件<span class="parmname">“private.key”</span>，私钥文件的名称可以自定义。</p>
+</li><li id="it_60_53_000050__crt"><a name="it_60_53_000050__crt"></a><a name="crt"></a><span>执行以下命令，生成安全防护证书的公钥文件。</span>
+<p><b><span class="cmdname">openssl req -new -x509 -days 3650 -passin pass:</span></b><i><span class="varname">证书的加密密码</span></i> <b><span class="cmdname">-sha256 -key</span></b> <i><span class="varname">private.key</span></i> <b><span class="cmdname">-out upload_public.crt -pubkey -subj
+"/C=CN/ST=Shaanxi/L=Xi'an/O=Huawei/OU=IT/CN=localhost" -config openssl.cfg</span></b></p>
+<p>执行成功后，在OpenSSL的安装目录下即可看到生成的公钥文件<span class="parmname">“upload_public.crt”</span>，公钥文件的名称必须为<span class="parmname">“upload_public.crt”</span>，不可自定义。</p>
+</li><li id="it_60_53_000050__upload"><a name="it_60_53_000050__upload"></a><a name="upload"></a><span>使用<span class="parmname">“WinSCP”</span>工具，以<span class="parmname">“galaxmanager”</span>用户，将生成的公钥文件上传至<span>FusionManager</span>节点的<span class="filepath">“/opt/goku/data/upload”</span>路径下。</span></li><li><span>执行以下命令，使证书生效。</span>
+<p><b><span class="cmdname">updateCa upload</span></b></p>
+</li><li><span><span>FusionManager</span>是否为主备部署？</span>
+<p><ul><li>是，执行<a href="#it_60_53_000050__stp_tongbu">13</a>。</li><li>否，结束。</li></ul>
+</p>
+</li><li id="it_60_53_000050__stp_tongbu"><a name="it_60_53_000050__stp_tongbu"></a><a name="stp_tongbu"></a><span>执行以下命令，同步主备配置。</span>
+<p><b><span class="cmdname">haNotifySyncFiles /opt/goku/data/ca</span></b></p>
+<p>回显如下信息，表示同步成功。<pre class="screen">execute command syncfile successfully.
+</pre>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+<div class="section"><a name="it_60_53_000050__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">后续任务</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">替换安全防护证书</p>
+<p><div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/icon-notice.gif"> 注意： </span><div class="noticebody">替换新的安全防护证书时需要使用之前的安全防护证书的私钥文件，所以在生成新的公钥文件之前，请提前备份并保管之前的私钥文件，防止被新生成的私钥文件覆盖。</div></div>
+</p><div class="Steps-titled"><ol type="1" start="1"><li><span>重复执行<a href="#it_60_53_000050__ssl">1</a>～<a href="#it_60_53_000050__crt">9</a>，生成新的公钥文件。</span></li><li id="it_60_53_000050__sig"><a name="it_60_53_000050__sig"></a><a name="sig"></a><span>执行以下命令，使用之前保存的私钥文件对新生成的公钥文件做数字签名。</span>
+<p><b><span class="cmdname">openssl dgst -sha256 -out upload_public.crt.sig -sign</span></b> <i><span class="varname">private.key</span></i> <b><span class="cmdname">upload_public.crt</span></b></p>
+<p><i><span class="varname">private.key</span></i>为私钥文件的名称。</p>
+</li><li><span>重复执行<a href="#it_60_53_000050__upload">10</a>，将新生成的证书的公钥文件及数字签名文件上传至<span>FusionManager</span>节点的<span class="filepath">“/opt/goku/data/upload”</span>路径下。</span></li><li><span>使用<span class="parmname">“PuTTY”</span>工具，登录<span>FusionManager</span>主节点。</span>
+<p>以<span class="parmname">“galaxmanager”</span>用户，通过管理IP地址登录。</p>
+</li><li><span>执行以下命令，防止<span class="parmname">“PuTTY”</span>超时退出。</span>
+<p><b><span class="cmdname">TMOUT=0</span></b></p>
+</li><li><span>执行以下命令，替换证书。</span>
+<p><b><span class="cmdname">updateCa upload</span></b></p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

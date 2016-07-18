@@ -1,0 +1,54 @@
+<link href="../theme/default/css/formfield.css" type="text/css" rel="stylesheet"/>
+<div id="addRackBasicInfo">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="basicInfo.name.label" require="basicInfo.name.require">
+                <tiny-textbox id="basicInfo.name.id" value="basicInfo.name.value" type="input"
+                              width="formfieldWidth"
+                              tooltip="basicInfo.name.tooltip" validate="basicInfo.name.validate"
+                              tip-position="right"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="basicInfo.model.label" require="basicInfo.model.require">
+                <tiny-select id="basicInfo.model.id" values="basicInfo.model.values" change="basicInfo.model.change()"
+                             height="basicInfo.model.height" width="formfieldWidth"
+                             validate="basicInfo.model.validate"></tiny-select>
+            </tiny-item>
+            <tiny-item label="basicInfo.zone.label" require="basicInfo.zone.require"
+                       display="cloudType=='FUSIONSPHERE'">
+                <fm-select id="createInfo.zoneId" name="basicInfo.zone.value" width="formfieldWidth"
+                           option="basicInfo.zone.values"></fm-select>
+            </tiny-item>
+            <tiny-item label="basicInfo.room.label" require="basicInfo.room.require">
+                <tiny-combobox id="basicInfo.room.id" values="basicInfo.room.values" validate="basicInfo.room.validate"
+                               values-from="basicInfo.room.valuesFrom" match-method="basicInfo.room.matchMethod"
+                               width="formfieldWidth" height="basicInfo.room.height"
+                               select="basicInfo.room.select()"
+                               tooltip="basicInfo.room.tooltip"></tiny-combobox>
+            </tiny-item>
+            <tiny-item label="basicInfo.cabinet.label" require="basicInfo.cabinet.require">
+                <tiny-combobox id="basicInfo.cabinet.id" values="basicInfo.cabinet.values"
+                               values-from="basicInfo.cabinet.valuesFrom"
+                               match-method="basicInfo.cabinet.matchMethod" height="basicInfo.cabinet.height"
+                               width="formfieldWidth" validate="basicInfo.cabinet.validate"
+                               tooltip="basicInfo.cabinet.tooltip"></tiny-combobox>
+            </tiny-item>
+            <tiny-item label="basicInfo.subrack.label" require="basicInfo.subrack.require">
+                <tiny-textbox id="basicInfo.subrack.id" value="basicInfo.subrack.value" type="input"
+                              tooltip="basicInfo.subrack.tooltip"  width="formfieldWidth"
+                              tip-position="right" validate="basicInfo.subrack.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="basicInfo.description.label" require="basicInfo.description.require">
+                <tiny-textbox id="basicInfo.description.id" value="basicInfo.description.value"
+                              width="formfieldWidth"
+                              validate="basicInfo.description.validate"
+                              type="basicInfo.description.type" height="basicInfo.description.height"></tiny-textbox>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-smaller">
+                <tiny-button class="major-btn" id="basicInfo.nextBtn.id" text="basicInfo.nextBtn.text"
+                             click="basicInfo.nextBtn.click()"></tiny-button>
+                <tiny-button id="basicInfo.cancelBtn.id" text="basicInfo.cancelBtn.text"
+                             click="basicInfo.cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

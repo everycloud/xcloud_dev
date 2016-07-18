@@ -1,0 +1,76 @@
+<div class="margin-top-beautifier" id="toTmAzDetailDiv" ng-controller="multiPool.az.azDetail.ctrl">
+    <div class="mr20 fl">
+        <div ng-bind="i18n.common_term_basicInfo_label" class="inner-legend"></div>
+        <tiny-formfield>
+            <tiny-item label="nameItem.label">
+                <div ng-if="!nameItem.modifying" style="width: 300px">
+                    <span ng-bind="nameItem.value" style="white-space: normal"></span>
+                            <span class="btn-link" ng-click="nameItem.clickModify()" ng-show="poolType != 'openstack'">
+                                <img src="../theme/default/images/gm/edit.gif">
+                            </span>
+                </div>
+                <div ng-if="nameItem.modifying" class="nameItem">
+                    <tiny-textbox value="nameItem.value" blur="nameItem.blur()"
+                                  keypressfn="nameItem.keypressfn" width="250" validate="nameItem.validate"></tiny-textbox>
+                </div>
+            </tiny-item>
+            <tiny-item label="descItem.label">
+                <div ng-if="!descItem.modifying" style="width: 300px">
+                    <span ng-bind="descItem.value"  style="white-space: normal"></span>
+                            <span class="btn-link" ng-click="descItem.clickModify()" ng-show="poolType != 'openstack'">
+                                <img src="../theme/default/images/gm/edit.gif">
+                            </span>
+                </div>
+                <div ng-if="descItem.modifying"  class="descItem">
+                    <tiny-textbox value="descItem.value" blur="descItem.blur()" validate="descItem.validate"
+                                  keypressfn="descItem.keypressfn" type="descItem.type" height="descItem.height" width="250">
+                    </tiny-textbox>
+                </div>
+            </tiny-item>
+            <tiny-item label="'ID:'">
+                <div ng-bind="azId">
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="mr20 fl" style="width: 30%" ng-if="poolType == 'fusionmanager'">
+        <div ng-bind="i18n.cloud_term_tagInfo_label" class="inner-legend none-line"></div>
+        <div>
+            <tiny-table id="azDetailTagTable.id" data="azDetailTagTable.data"
+                        columns='azDetailTagTable.columns' render-row="azDetailTagTable.renderRow"
+                        enable-pagination="azDetailTagTable.enablePagination"></tiny-table>
+        </div>
+    </div>
+    <div class="mr20 fl" style="width: 30%">
+        <div ng-bind="i18n.resource_term_resourceInstance_label" class="inner-legend"></div>
+        {{i18n.common_term_vms_label}}： <span ng-bind="azVMNum"></span>{{unit}}<br/>
+        {{i18n.device_term_blockStor_label}}：<span ng-bind="azVolumeNum"></span>{{unit}}
+    </div>
+    <div class="clear_both"></div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/multiPool/controllers/poolInfo/availableZone/azDetailCtrl'],
+            function ($, azDetailCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $("#toTmAzDetailDiv").parent().parent().parent().prev().attr("lineNum");
+                var azId = $("#toTmAzDetailDiv").parent().parent().parent().prev().attr("azId");
+                var infraId = $("#toTmAzDetailDiv").parent().parent().parent().prev().attr("infraId");
+                var poolType = $("#toTmAzDetailDiv").parent().parent().parent().prev().attr("poolType");
+                var id = "toTmAzDetailDiv_" + lineNum;
+                $("#toTmAzDetailDiv").attr("id", id);
+
+                //编译
+                var dep = ['ng', 'wcc', azDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + id));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#" + id))($rootScope);
+                    $rootScope.$digest();
+                });
+                $("#" + id).scope().getAz(azId, infraId, id, poolType);
+            });
+</script>

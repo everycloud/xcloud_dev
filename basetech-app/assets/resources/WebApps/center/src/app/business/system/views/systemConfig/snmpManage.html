@@ -1,0 +1,219 @@
+<div fm-help help="'drawer_sys'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="pageTitle"></span></li>
+            <li class="two-lead" style="position: relative;">
+                <p ng-bind-html="i18n.sys_snmp_view_explan_label"></p>
+                <a class="btn-link fr"  href="javascript:void 0;">
+                    <div title="{{i18n.common_term_help_label}}"  ng-click="show.help=true" class="small-icon small-icon-help btn-link" style="position: absolute;right: 0;bottom: -5px;"></div>
+                </a>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box" id="snmpMrgInfo">
+        <tiny-formfield>
+
+            <tiny-item label="snmpMgrName.label" require="snmpMgrName.require">
+                <tiny-textbox value="snmpMgrName.value"
+                              id="snmpMgrName.id"
+                              width="inputWidth"
+                              extend-function="snmpMgrName.extendFunction"
+                              validate="snmpMgrName.validate"
+                              tooltip="snmpMgrName.desc"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="snmpVersion.label" require="snmpVersion.require">
+                <tiny-select id="snmpVersion.id"
+                             width="inputWidth"
+                             values="snmpVersion.values"
+                             change="snmpVersion.change()"
+                             disable="!hasSNMPManageOperateRight"></tiny-select>
+                  <span popover="{{i18n.device_all_connect_para_snmp_mean_tip}}" popover-trigger="mouseenter"
+                        class="small-icon small-icon-tips"></span>
+            </tiny-item>
+
+            <tiny-item label="port.label" require="port.require">
+                <tiny-textbox id="port.id"
+                              tiny-tip="port.tooltip"
+                              width="inputWidth"
+                              value="port.value"
+                              extend-function="port.extendFunction"
+                              validate="port.validate"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="ip.label" require="ip.require">
+                <tiny-ip id="ip.id"
+                         value="ip.value"
+                         type="ip.type"
+                         width="inputWidth" style="line-height:20px;"
+                         extend-function="ip.extendFunction"
+                         validate="ip.validate"
+                         disable="!hasSNMPManageOperateRight"></tiny-ip>
+            </tiny-item>
+
+            <tiny-item display="!snmpV3">
+                <tiny-checkbox id="checkComplexControl.id" text="checkComplexControl.text"
+                               checked='checkComplexControl.checked'
+                               disable="!hasSNMPManageOperateRight"
+                        ></tiny-checkbox>
+            </tiny-item>
+
+            <!-- v2-->
+            <tiny-item label="readName.label" require="readName.require" display="!snmpV3">
+                <tiny-textbox id="readName.id"
+                              tiny-tip="readName.tooltip"
+                              width="inputWidth"
+                              value="readName.value"
+                              validate="readName.validate"
+                              tooltip="readName.desc"
+                              extend-function="readName.extendFunction"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="writeName.label" require="writeName.require" display="!snmpV3">
+                <tiny-textbox value="writeName.value"
+                              width="inputWidth"
+                              id="writeName.id"
+                              validate="writeName.validate"
+                              tooltip="writeName.desc"
+                              extend-function="writeName.extendFunction"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+            <!--V2-->
+
+            <tiny-item label="outTime.label" require="outTime.require">
+                <tiny-textbox id="outTime.id"
+                              width="inputWidth"
+                              value="outTime.value"
+                              validate="outTime.validate"
+                              tooltip="outTime.desc"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <!--V3-->
+            <tiny-item label="userName.label" require="userName.require" display="snmpV3">
+                <tiny-textbox id="userName.id"
+                              width="inputWidth"
+                              value="userName.value"
+                              validate="userName.validate"
+                              tooltip="userName.desc"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="authGeneric.label" require="authGeneric.require" display="snmpV3">
+                <tiny-select id="authGeneric.id"
+                             width="inputWidth"
+                             values="authGeneric.values"
+                             change="authGeneric.change()"
+                             disable="!hasSNMPManageOperateRight"></tiny-select>
+            </tiny-item>
+            <tiny-item display="snmpV3">
+                <tiny-checkbox id="checkComplexPasswordControl.id" text="checkComplexPasswordControl.text"
+                               checked='checkComplexPasswordControl.checked'></tiny-checkbox>
+            </tiny-item>
+
+            <tiny-item label="authPassWord.label" require="authPassWord.require" display="snmpV3">
+                <tiny-textbox id="authPassWord.id"
+                              width="inputWidth"
+                              type="authPassWord.type"
+                              extend-function="authPassWord.extendFunction"
+                              validate="authPassWord.validate"
+                              tooltip="authPassWord.desc"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="confirmAuthPassWord.label" require="confirmAuthPassWord.require" display="snmpV3">
+                <tiny-textbox id="confirmAuthPassWord.id"
+                              width="inputWidth"
+                              type="confirmAuthPassWord.type"
+                              extend-function="confirmAuthPassWord.extendFunction"
+                              validate="confirmAuthPassWord.validate"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="privacyProtocol.label" require="privacyProtocol.require" display="snmpV3">
+                <tiny-select id="privacyProtocol.id"
+                             values="privacyProtocol.values"
+                             width="inputWidth"
+                             change="privacyProtocol.change()"
+                             disable="!hasSNMPManageOperateRight"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="privPassWord.label" require="privPassWord.require" display="snmpV3">
+                <tiny-textbox id="privPassWord.id"
+                              width="inputWidth"
+                              type="privPassWord.type"
+                              extend-function="privPassWord.extendFunction"
+                              validate="privPassWord.validate"
+                              tooltip="privPassWord.desc"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="confirmPrivPassWord.label" require="confirmPrivPassWord.require" display="snmpV3">
+                <tiny-textbox id="confirmPrivPassWord.id"
+                              width="inputWidth"
+                              type="confirmPrivPassWord.type"
+                              extend-function="confirmPrivPassWord.extendFunction"
+                              validate="confirmPrivPassWord.validate"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+            <!--V3-->
+
+            <tiny-item label="lan.label" require="lan.require">
+                <tiny-select id="lan.id"
+                             values="lan.values"
+                             width="inputWidth"
+                             change="lan.change()"
+                             disable="!hasSNMPManageOperateRight"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="emptySleepTime.label" require="emptySleepTime.require">
+                <tiny-textbox value="emptySleepTime.value"
+                              width="inputWidth"
+                              id="emptySleepTime.id"
+                              validate="emptySleepTime.validate"
+                              tooltip="emptySleepTime.desc"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="snmpSendMaxSize.label" require="snmpSendMaxSize.require">
+                <tiny-textbox value="snmpSendMaxSize.value"
+                              width="inputWidth"
+                              id="snmpSendMaxSize.id"
+                              extend-function="snmpSendMaxSize.extendFunction"
+                              validate="snmpSendMaxSize.validate"
+                              tooltip="snmpSendMaxSize.desc"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="monitorType.label" require="monitorType.require">
+                <tiny-checkboxgroup id="monitorType.id"
+                                    values="monitorType.values"
+                                    spacing="monitorType.spacing"
+                                    layout="monitorType.layout"
+                                    change="monitorType.change()" style="display: inline-block;margin-top:4px;"
+                                    disable="!hasSNMPManageOperateRight"></tiny-checkboxgroup>
+            </tiny-item>
+
+            <tiny-item label="snmpMgrDesc.label" require="snmpMgrDesc.require">
+                <tiny-textbox id="snmpMgrDesc.id"
+                              type="snmpMgrDesc.type"
+                              value="snmpMgrDesc.value"
+                              width="inputWidth"
+                              height="snmpMgrDesc.height"
+                              validate="snmpMgrDesc.validate"
+                              disable="!hasSNMPManageOperateRight"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item class="fm-btn-top-small">
+                <fm-button class="major-btn" id="saveBtn.id" text="saveBtn.text" click="saveBtn.save"
+                        ng-if="hasSNMPManageOperateRight"></fm-button>
+            </tiny-item>
+
+        </tiny-formfield>
+    </div>
+    <br>
+</div>

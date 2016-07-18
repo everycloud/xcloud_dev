@@ -1,0 +1,79 @@
+<div id="createVmBasicDiv">
+    <tiny-formfield>
+        <tiny-item label="nameTextbox.label" require="nameTextbox.require">
+            <tiny-textbox id="nameTextbox.id" value="nameTextbox.value" tooltip="nameTextbox.tooltip"
+                          validate="nameTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="computerNameTextbox.label" require="computerNameTextbox.require" display="createType == 'template'">
+            <tiny-textbox id="computerNameTextbox.id" value="computerNameTextbox.value"
+                          extend-function="computerNameTextbox.extendFunction"
+                          validate="computerNameTextbox.validate"></tiny-textbox>
+            <span popover="{{i18n.vm_vm_create_para_computerName_mean_tip}}" popover-trigger="mouseenter"
+                  popover-placement="right" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item display="model.confirmOsType === 'Windows'"  display="createType == 'template'">
+            <tiny-checkbox id="domainCheckbox.id" text="domainCheckbox.text"
+                           change="domainCheckbox.change()"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item label="domainNameTextbox.label" require="domainNameTextbox.require"
+                   display="model.confirmOsType === 'Windows'">
+            <tiny-textbox id="domainNameTextbox.id" value="domainNameTextbox.value"
+                          validate="domainNameTextbox.validate" disable="domainConfirmTextbox.disable"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="domainUsernameTextbox.label" require="domainUsernameTextbox.require"
+                   display="model.confirmOsType === 'Windows'">
+            <tiny-textbox id="domainUsernameTextbox.id" value="domainUsernameTextbox.value"
+                          validate="domainUsernameTextbox.validate"
+                          disable="domainConfirmTextbox.disable"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="domainPasswordTextbox.label" require="domainPasswordTextbox.require"
+                   display="model.confirmOsType === 'Windows'">
+            <tiny-textbox id="domainPasswordTextbox.id" value="domainPasswordTextbox.value"
+                          type="domainPasswordTextbox.type" disable="domainConfirmTextbox.disable"
+                          validate="domainPasswordTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="domainConfirmTextbox.label" require="domainConfirmTextbox.require"
+                   display="model.confirmOsType === 'Windows'">
+            <tiny-textbox id="domainConfirmTextbox.id" value="domainConfirmTextbox.value"
+                          type="domainConfirmTextbox.type" disable="domainConfirmTextbox.disable"
+                          validate="domainConfirmTextbox.validate"
+                          extend-function="domainConfirmTextbox.extendFunction"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="clusterTable.label" require="clusterTable.require" display="!clusterId">
+            <div style="width: 1200px">
+                <tiny-table id="clusterTable.id" data="clusterTable.data"
+                            pagination-style="clusterTable.paginationStyle"
+                            columns='clusterTable.columns' render-row="clusterTable.renderRow"
+                            total-records="clusterTable.totalRecords" length-change="clusterTable.lengthChange"
+                            cur-page="clusterTable.curPage" display-length="clusterTable.displayLength"
+                            enable-pagination="clusterTable.enablePagination"
+                            length-menu="clusterTable.lengthMenu" callback="clusterTable.callback"
+                            columns-draggable="clusterTable.columnsDraggable"
+                            change-select="clusterTable.changeSelect"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item label="hostSelector.label" require="hostSelector.require">
+            <tiny-select id="hostSelector.id" values="hostSelector.values" width="hostSelector.width"></tiny-select>
+        </tiny-item>
+        <tiny-item display="createType == 'template'">
+            <tiny-checkbox id="toleranceCheckbox.id" text="toleranceCheckbox.text"
+                           change="toleranceCheckbox.change()"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item label="toleranceSelector.label" require="orgSelector.require" display="createType == 'template'">
+            <tiny-select id="toleranceSelector.id" values="toleranceSelector.values"
+                         width="toleranceSelector.width" disable="toleranceSelector.disable"
+                         validate="toleranceSelector.validate"></tiny-select>
+        </tiny-item>
+        <tiny-item label="basicDescTextbox.label" require="basicDescTextbox.require">
+            <tiny-textbox id="basicDescTextbox.id" value="basicDescTextbox.value" height="basicDescTextbox.height"
+                          validate="basicDescTextbox.validate" type="basicDescTextbox.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="basicPreButton.id" text="basicPreButton.text" click="basicPreButton.click()"></tiny-button>
+            <tiny-button id="basicNextButton.id" text="basicNextButton.text"
+                         click="basicNextButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="basicCancelButton.id" text="basicCancelButton.text"
+                         click="basicCancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

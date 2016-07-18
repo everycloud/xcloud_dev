@@ -1,0 +1,124 @@
+<link href="../theme/default/css/gm/app.css" type="text/css" rel="stylesheet" />
+<div id="applyAppICT" class="container-fluid">
+    <div class="top20">
+        <div class="media">
+            <a class="pull-left">
+                <img class="media-object btn-link servicesImg" ng-src="{{detail.serviceImageUrl}}" alt="">
+            </a>
+            <div class="media-body">
+                <div style="font-size: 16px;color: #000000;">
+                    <div style="line-height: 50px;"><b ng-bind="detail.name"></b>
+                    </div>
+                    <p ng-bind="detail.description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--基本信息-->
+    <div class="container-fluid top10" ng-if="detail.param.lock.locationLock === '1' || detail.param.lock.vpcLock === '1'">
+        <div id="sspApplyAppLocationArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyAppLocationArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_location_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyAppLocationInfo" class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="span5">
+                        <tiny-formfield>
+
+                            <tiny-item label="base.location.label" require="base.location.require" display="detail.param.lock.locationLock === '1'">
+
+                                <tiny-select id="base.location.id" values="base.location.values" width="base.location.width" change="base.location.change()">
+                                </tiny-select>
+
+                            </tiny-item>
+                            <tiny-item label="base.vpc.label" require="base.vpc.require" display="detail.param.lock.vpcLock === '1'">
+
+                                <tiny-select id="base.vpc.id" disable="base.vpc.disable" values="base.vpc.values" width="base.vpc.width" validate='base.vpc.validate' change="base.vpc.change()">
+                                </tiny-select>
+
+                            </tiny-item>
+
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid top10">
+        <div id="sspApplyAppParams" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyAppParams')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_paraList_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyAppParams" class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25" style="margin-right: 25px;">
+                    <div class="bottom10">
+                        <div class="clearfix">
+                            <div class="fl createpage-title tableOuterHeaderLabel none-line">{{i18n.common_term_para_label}}：</div>
+                        </div>
+                    </div>
+                    <div class="clearfix table-tiny-box-height">
+                        <tiny-table id="info.commonParams.id" data="commonParams.data" columns="info.commonParams.columns" enable-pagination="info.commonParams.enablePagination" render-row="info.commonParams.renderRow" pagination-style="info.commonParams.paginationStyle" callback="info.commonParams.callback"
+                                    change-select="info.commonParams.changeSelect" length-menu="info.commonParams.lengthMenu" display-length="info.commonParams.displayLength" total-records="info.commonParams.totalRecords"></tiny-table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid top10">
+        <div id="sspApplyAppBasicArea" class="product-info-section">
+            <div class="sprite-x s-heading collapse" ng-click="clickAreaHeading('sspApplyAppBasicArea')">
+                <span class="sprite arrow"></span>
+                <h5 class="headFont" ng-bind="i18n.common_term_basicInfo_label"></h5>
+                <div class="product-info-section-subtitle">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="serviceApplyAppBaseInfo" class="s-content" style="display: block;">
+                <div class="row-fluid top10 left25">
+                    <div class="span5">
+                        <tiny-formfield>
+                            <tiny-item label="base.name.label" require="base.name.require">
+                                <tiny-textbox id="base.name.id" value="base.name.value" validate="base.name.validate" width="base.name.width"></tiny-textbox>
+                                <span ng-bind="appTempName"></span>
+                            </tiny-item>
+                            <tiny-item label="base.expireTime.label" require="base.expireTime.require" class="clearfix">
+                                <div class="fl">
+                                    <tiny-datetime id="base.expireTime.id" type="base.expireTime.type" min-date="base.expireTime.minDate"
+                                                   disable="base.expireTime.disable" show-clear="false" width="base.expireTime.width"
+                                                   date-format="base.expireTime.dateFormat" time-format="base.expireTime.timeFormat"
+                                                   default-date="base.expireTime.defaultDate" default-time="base.expireTime.defaultTime"></tiny-datetime>
+                                </div>
+                                <span class="fl" style="margin: 6px 0 0 10px;">
+                                    <tiny-checkbox id="base.neverExpire.id" checked="base.neverExpire.checked" change="base.neverExpire.change()" text="base.neverExpire.text"></tiny-checkbox>
+                                </span>
+                            </tiny-item>
+                            <tiny-item label="remark.label">
+                                <tiny-textbox id="remark.id" value="remark.value" type="remark.type" width="remark.width" height="remark.height" validate="remark.validate">
+                                </tiny-textbox>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="clear: left;" class="fm-btn-top-large">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>

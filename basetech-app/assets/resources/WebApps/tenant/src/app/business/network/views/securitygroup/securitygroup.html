@@ -1,0 +1,71 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <ul class="breadcrumb">
+                    <li><a ui-sref="network.manager.myVPClist" ng-bind="i18n.vpc_term_myVPC_label"></a> &gt; </li>
+                    <li><a ui-sref="network.vpcmanager.summary" ng-bind="vpcName"></a> &gt; </li>
+                    <li>{{i18n.security_term_SG_label}}</li>
+                    <li class="divider"></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div class="form-inline clearfix">
+            <div class="fl">
+                <tiny-button id="createBtn.id" text="createBtn.text" click="createBtn.click()"
+                             ng-show="hasSGOperateRight" class="major-btn"></tiny-button>
+            </div>
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div id="refresh.id" title="{{refresh.tips}}" ng-click="refresh.click()"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div title="{{help.tips}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+            <div class="fr button_mr" ng-if="isIT">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder"
+                                search="searchBox.search"></tiny-searchbox>
+            </div>
+        </div>
+        <div ng-if="isIT">
+            <div class="clear_both"></div>
+            <div>
+                <tiny-table id="securitygroupTable.id" data="securitygroupTable.datas"
+                            columns="securitygroupTable.columns" length-menu="securitygroupTable.lengthMenu"
+                            display-length="securitygroupTable.displayLength"
+                            total-records="securitygroupTable.totalRecords" render-row="securitygroupTable.renderRow"
+                            pagination-style="securitygroupTable.paginationStyle" callback="securitygroupTable.callback"
+                            change-select="securitygroupTable.changeSelect" columns-draggable="securitygroupTable.columnsDraggable">
+                </tiny-table>
+            </div>
+        </div>
+        <div ng-if="!isIT">
+            <tiny-table id="securitygroupTable.id" data="securitygroupTable.datas"
+                        enable-pagination="securitygroupTable.enablePagination"
+                        columns="securitygroupTable.columns"
+                        render-row="securitygroupTable.renderRow"
+                        callback="securitygroupTable.callback" columns-draggable="securitygroupTable.columnsDraggable">
+            </tiny-table>
+            <div class="pull-right">
+                <tiny-select id="pageSize.id" values="pageSize.values" width="pageSize.width"
+                             change="pageSize.change()"></tiny-select>
+                <label class="margin-right-beautifier" ng-bind="i18n.common_term_currentPage_label"></label>
+                <label class="margin-right-beautifier" ng-bind="page.currentPage"></label>
+                <a ng-class="{tinyPagination_paginationPrevSpan: hasPrePage, tinyPagination_paginationPrevSpanDisabled: !hasPrePage}"
+                   title="{{i18n.common_term_previous_button}}" class="tinyPagination_tinybutton clear_both"
+                   style="float:none; display: inline-block; position: relative; top: 8px;" ng-click="prePage()"></a>
+                <a ng-class="{tinyPagination_paginationNextSpan: hasNextPage,tinyPagination_paginationNextSpanDisabled: !hasNextPage}"
+                   title="{{i18n.common_term_nextPage_button}}" class="tinyPagination_tinybutton clear_both"
+                   style="float:none; display: inline-block; position: relative; top: 8px;" ng-click="nextPage()"></a>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,112 @@
+<div id="setScheduleAddRuleDiv" class="alert-tip-first">
+    <div class="row">
+        <div class="span4" id="addRuleNameDiv">
+            <tiny-formfield>
+                <tiny-item id="nameTextbox.id" label="nameTextbox.label" require="nameTextbox.require">
+                    <tiny-textbox id="nameTextbox.id" value="nameTextbox.value" disable="nameTextbox.disable" tooltip="nameTextbox.tooltip"
+                                  validate="nameTextbox.validate" tip-position="right" extend-function="nameTextbox.extendFunction">
+                    </tiny-textbox>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="span4">
+            <tiny-formfield>
+                <tiny-item label="typeSelector.label">
+                    <tiny-select id="typeSelector.id" values="typeSelector.values" width="typeSelector.width"
+                                 change="typeSelector.change()" disable="typeSelector.disable"></tiny-select>
+                    <span popover="{{i18n.virtual_cluster_schedul_para_ruleType_mean_tip}}" popover-trigger="mouseenter"
+                          class="small-icon small-icon-tips" popover-placement="bottom"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+
+    <div class="row padding-left10" ng-show="ruleType != '3'">
+        <div class="span4">
+            <div class="bottom10 color-gray">
+                <span id="waitChoose" ng-bind="dealNgbindString.waitChoose_value"> </span>
+                <div class="fr"><tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder"
+                                search="searchBox.search"></tiny-searchbox></div>
+            </div>
+            <div>
+                <tiny-table id="leftTable.id" data="leftTable.data"
+                            pagination-style="leftTable.paginationStyle"
+                            columns='leftTable.columns' render-row="leftTable.renderRow"
+                            total-records="leftTable.totalRecords" length-change="leftTable.lengthChange"
+                            cur-page="leftTable.curPage" display-length="leftTable.displayLength"
+                            enable-pagination="leftTable.enablePagination" length-menu="leftTable.lengthMenu"
+                            callback="leftTable.callback" change-select="leftTable.changeSelect"></tiny-table>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="line-height30 color-gray">
+                <span id="choosedValue" ng-bind="dealNgbindString.choosed_value"> </span>
+            </div>
+            <div>
+                <tiny-table id="rightTable.id" data="rightTable.data" pagination-style="rightTable.paginationStyle"
+                            columns='rightTable.columns' render-row="rightTable.renderRow"
+                            total-records="rightTable.totalRecords" length-change="rightTable.lengthChange"
+                            cur-page="rightTable.curPage" display-length="rightTable.displayLength"
+                            enable-pagination="rightTable.enablePagination" length-menu="rightTable.lengthMenu"
+                            callback="rightTable.callback"></tiny-table>
+            </div>
+        </div>
+    </div>
+    <div ng-show="ruleType == '3'">
+        <div>
+            <span id="groupLable" ng-bind="i18n.virtual_cluster_schedul_info_group_label"> </span>
+        </div>
+        <tiny-formfield>
+            <tiny-item label="vmSelector.label" require="vmSelector.require">
+                <tiny-select id="vmSelector.id" values="vmSelector.values" width="vmSelector.width"
+                             validate="vmSelector.validate" change="vmSelector.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="ruleSelector.label" require="ruleSelector.require">
+                <tiny-select id="ruleSelector.id" values="ruleSelector.values" width="ruleSelector.width"
+                             validate="ruleSelector.validate" change="ruleSelector.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="hostSelector.label" require="hostSelector.require">
+                <tiny-select id="hostSelector.id" values="hostSelector.values" width="hostSelector.width"
+                             validate="hostSelector.validate" change="hostSelector.change()"></tiny-select>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="fm-btn-top-smaller text-center">
+        <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()" disable="okButton.disable"></tiny-button>
+        <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+    </div>
+
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/cluster/setScheduleAddRuleCtrl', "tiny-widgets/Checkbox"],
+            function (setScheduleAddVgCtrl, Checkbox) {
+                var rootElement = $("#setScheduleAddRuleDiv");
+                rootElement.attr("ng-controller", "resources.cluster.addRule.ctrl");
+                var dep = ['ng', 'wcc', setScheduleAddVgCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                //待选虚拟机列表表头全选复选框
+                var leftTableId = "#addRuleLeftTable";
+                var leftOptions = {
+                    "id": "leftTableHeadCheckbox",
+                    "checked": false,
+                    "change": function () {
+                        var isChecked = $("#" + leftOptions.id).widget().options.checked;
+                        var index = 0;
+                        while($("#leftCheckbox_" + index).widget()){
+                            $("#leftCheckbox_" + index).widget().option("checked", isChecked);
+                            index ++;
+                        }
+                    }
+                };
+                var checkbox = new Checkbox(leftOptions);
+                $(leftTableId + " th:eq(0)").html(checkbox.getDom());
+            });
+</script>

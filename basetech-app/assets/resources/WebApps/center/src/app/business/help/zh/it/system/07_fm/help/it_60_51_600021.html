@@ -1,0 +1,363 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="如何设置虚拟机热插拔策略">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600021">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>如何设置虚拟机热插拔策略</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n虚拟机管理\n如何设置虚拟机热插拔策略");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../father_node/it_60_99_100032.html\">虚拟机管理<\/a> > 如何设置虚拟机热插拔策略<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600021"></a><a name="it_60_51_600021"></a>
+
+
+<h1 class="topictitle1">如何设置虚拟机热插拔策略</h1>
+<ul><li><a href="#it_60_51_600021__1.2.1.1">操作场景</a></li><li><a href="#it_60_51_600021__1.2.2.1">注意事项</a></li><li><a href="#it_60_51_600021__1.2.3.1">前提条件</a></li><li><a href="#it_60_51_600021__1.2.4.1">操作步骤</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600021__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600021" class="sectiontitle2contents">操作场景</a></h4>
+
+
+<div class="p"><p>通过<span>FusionManager</span>，设置虚拟机的热插拔策略。</p>
+<div class="p" id="it_60_51_600021__cpugm"><a name="it_60_51_600021__cpugm"></a><a name="cpugm"></a>虚拟化环境是<span>FusionCompute</span>时，CPU热插拔策略如下：<ul><li>禁用CPU热插拔：当虚拟机是运行状态时，增加或减少CPU数量时，需要重启虚拟机后生效。<span></span></li><li>启用CPU热插：当虚拟机是运行状态时，增加CPU数量，在线生效；减少CPU数量，需要重启虚拟机后生效。</li></ul>
+</div>
+<div class="p">虚拟化环境是VMware时，CPU热插拔策略如下：<ul><li>禁用CPU热插拔：当虚拟机是运行状态时，不能调整CPU数量。<span></span></li><li>启用CPU热插：当虚拟机是运行状态时，可以增加CPU数量，需要重启虚拟机后生效。</li><li>启用CPU热插拔：当虚拟机是运行状态时，可以增加或减少CPU数量，需要重启虚拟机后生效。</li></ul>
+</div>
+<div class="p">虚拟化环境是VMware时，内存热插拔策略如下：<ul><li>禁用内存热插：当虚拟机是运行状态时，不能调整内存大小。<span></span></li><li>启用内存热插：当虚拟机是运行状态时，只能增加内存大小，需要重启虚拟机后生效。</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600021__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600021" class="sectiontitle2contents">注意事项</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>虚拟机已安装Tools。</li><li>支持CPU热添加的虚拟机操作系统请参见<a href="#it_60_51_600021__d2086e66">表1</a>。其中，对部分操作系统，默认关闭了对CPU热添加的支持，需要在虚拟机所在主机单独对虚拟机开启该功能，具体操作请参见操作步骤。
+<div class="tablenoborder"><a name="it_60_51_600021__d2086e66"></a><a name="d2086e66"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600021__d2086e66" frame="border" border="1" rules="all"><caption><b>表1 </b>支持CPU热添加的虚拟机操作系统列表</caption>
+
+<thead align="left">
+<tr>
+
+<th class="cellrowborder" valign="top" width="12.781954887218044%" id="mcps1.2.2.2.1.1.2.2.2.5.1.1"><p>操作系统类型</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="25.81453634085213%" id="mcps1.2.2.2.1.1.2.2.2.5.1.2"><p>操作系统</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="20.30075187969925%" id="mcps1.2.2.2.1.1.2.2.2.5.1.3"><p>默认开启支持CPU热添加功能</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="41.10275689223057%" id="mcps1.2.2.2.1.1.2.2.2.5.1.4"><p>其他约束</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" rowspan="3" valign="top" width="12.781954887218044%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Windows 64-bit</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25.81453634085213%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>Windows 2012</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="20.30075187969925%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.10275689223057%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.4 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Windows Server 2008 R2 Enterprise</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Windows Server 2008 R2 Datacenter</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="3" valign="top" width="12.781954887218044%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Linux 32-bit</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25.81453634085213%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>Novell SUSE Linux Enterprise Server 11</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="20.30075187969925%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p id="it_60_51_600021__d2086e162"><a name="it_60_51_600021__d2086e162"></a><a name="d2086e162"></a>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.10275689223057%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.4 "><p id="it_60_51_600021__d2086e166"><a name="it_60_51_600021__d2086e166"></a><a name="d2086e166"></a>虚拟机当前CPU少于8个，且需要热添加至8个以上时（不含8个），应先将CPU数量热添加至8个，然后重启虚拟机，之后再次热添加至需要的CPU数量。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Novell SUSE Linux Enterprise Server 11 SP1</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Fedora 12</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>虚拟机当前CPU少于8个，且需要热添加至8个以上时（不含8个），应先将CPU数量热添加至8个，然后重启虚拟机，之后再次热添加至需要的CPU数量。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="8" valign="top" width="12.781954887218044%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Linux 64-bit</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25.81453634085213%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>Novell SUSE Linux Enterprise Server 11</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="20.30075187969925%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.10275689223057%" headers="mcps1.2.2.2.1.1.2.2.2.5.1.4 "><p>虚拟机当前CPU少于8个，且需要热添加至8个以上时（不含8个），应先将CPU数量热添加至8个，然后重启虚拟机，之后再次热添加至需要的CPU数量。</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Novell SUSE Linux Enterprise Server 11 (SP1、SP2)</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>CentOS 5.6</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>CentOS (6.2、6.3)</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Red Hat Enterprise Linux (5.5、5.6)</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Red Hat Enterprise Linux (6.0、6.1、6.2、6.3)</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>是</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Ubuntu 8.04 desktop</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.1 "><p>Ubuntu 10.04 desktop</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.2 "><p>否，需手动开启</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.2.2.1.1.2.2.2.5.1.3 "><p>-</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600021__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600021" class="sectiontitle2contents">前提条件</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>已登录<span>FusionManager</span>。</li><li>虚拟机状态是<span class="parmvalue">“已停止”</span>。</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600021__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600021" class="sectiontitle2contents">操作步骤</a></h4>
+
+<ol><li><span>单击待调整的虚拟机名称。</span>
+<p>系统弹出<span class="wintitle">“概要”</span>页面。</p>
+</li><li><span>在<span class="wintitle">“选项”</span>页面，单击<span class="uicontrol">“热插拔”</span>。</span>
+<p>进入<span class="wintitle">“热插拔”</span>页面。</p>
+</li><li><span>设置热插拔策略，并单击<span class="uicontrol">“确定”</span>。</span>
+<p>完成热插拔策略的配置。</p>
+</li></ol>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

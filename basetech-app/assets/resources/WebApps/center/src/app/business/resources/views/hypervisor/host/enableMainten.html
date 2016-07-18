@@ -1,0 +1,29 @@
+<div id="migrateAllVmsDiv">
+    <tiny-formfield>
+        <tiny-item label="nameTextbox.label" require="nameTextbox.require">
+            <div class="clear_both" ng-bind-html="i18n.virtual_host_turnMaintenance_info_confirm_msg"></div>
+        </tiny-item>
+        <tiny-item display="migrateAllVmsCheckBox.show">
+            <tiny-checkbox id="migrateAllVmsCheckBox.id" text="migrateAllVmsCheckBox.text"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="okButton.id" text="okButton.text" click="okButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/host/enableMaintenCtrl"], function (enableMaintenCtrl) {
+        var rootElement = $("#migrateAllVmsDiv");
+        rootElement.attr("ng-controller", "resources.hypervisor.host.enableMainten.ctrl");
+        var dep = ['ng', 'wcc', enableMaintenCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile(rootElement)($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

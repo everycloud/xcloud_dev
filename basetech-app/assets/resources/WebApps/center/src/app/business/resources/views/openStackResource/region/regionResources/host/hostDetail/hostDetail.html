@@ -1,0 +1,34 @@
+<div id="hostDetailLayout">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <div class="tiny-layout-title">
+                    <div class="row-fluid nosidedown-txt">
+                        <div class="span4">
+                            <div class="title-icon">
+                                <img src="../theme/default/images/gm/hostSummary.png"/>
+                            </div>
+                        </div>
+                        <div class="span8">
+                            <p id="hostNameDiv" class="title-text">{{i18n.common_term_host_label}}：{{name}}</p>
+                        </div>
+                    </div>
+                </div>
+                <li>
+                    <a ui-sref="resources.ictHostDetail.summary">{{i18n.common_term_summary_label}}</a>
+                </li>
+                <li>
+                    <a ui-sref="resources.ictHostDetail.monitor">{{i18n.perform_term_monitor_label}}</a>
+                </li>
+				<li>
+                    <a ui-sref="resources.ictHostDetail.server">{{i18n.common_term_vm_label}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+
+

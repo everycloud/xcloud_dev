@@ -1,0 +1,25 @@
+<div id="app_list_showFail_id" ng-controller="app.list.showFail.ctrl">
+    <tiny-formfield>
+        <tiny-item label="fail.label">
+            <span>{{fail.value}}</span>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+require(['tiny-widgets/Tabs',
+        'app/business/application/controllers/manager/showFailDetail'
+    ],
+    function(Tabs, showFailDetail) {
+        var dep = ['ng', 'wcc', showFailDetail.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#app_list_showFail_id"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#app_list_showFail_id"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

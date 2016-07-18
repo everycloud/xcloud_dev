@@ -1,0 +1,164 @@
+<div>
+    <div id="createVmtSpecInfo" class="create-page-distance">
+        <tiny-formfield>
+            <tiny-item label="osType.label" require="osType.require">
+                <tiny-select id="osType.id" values="osType.values" width="osType.width"
+                             change="osType.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="osVesion.label" require="osVesion.require">
+                <tiny-select id="osVesion.id" values="osVesion.values" width="osVesion.width" height="osVesion.height"
+                             change="osVesion.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="selectVmSpec.label">
+                <tiny-button id="selectVmSpec.id" text="selectVmSpec.text"
+                             tooltip="selectVmSpec.tooltip" click="selectVmSpec.click()"></tiny-button>
+            </tiny-item>
+            <tiny-item label="cpu.label" require="cpu.require">
+                <tiny-textbox id="cpu.id" value="service.model.cpu" validate="cpu.validate" blur="cpu.blur()"
+                              width="cpu.width"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="memory.label" require="memory.require">
+                <tiny-textbox id="memory.inputId" value="memory.value" validate="memory.validate" blur="memory.blur()"
+                              width="memory.inputWidth" extend-function="memory.extendFunction" tip-position="memory.tipPosition"></tiny-textbox>
+                <tiny-select id="memory.selectId" values="memory.values" width="memory.selectWidth"
+                             change="memory.change()"></tiny-select>
+                <a href="javascript:void(0)" style="margin-left: 10px;" ng-hide="qosConfig.show" ng-click="qosConfig.change()"><span ng-bind="i18n.common_term_setQoS_button"></span>&gt;&gt;</a>
+                <a href="javascript:void(0)" style="margin-left: 10px;" ng-show="qosConfig.show" ng-click="qosConfig.change()">&lt;&lt;<span ng-bind="i18n.common_term_setQoS_button"></span></a>
+                <!-- Qos配置 -->
+                <div id="qosConfigBlock" class="margin-top-beautifier" ng-show="qosConfig.show">
+                    <div>
+                        <span>{{ i18n.vm_term_CPUcontrol_label }}</span>
+                        <div style="width: 375px" class="horizontal_line"></div>
+
+                        <div class="row-fluid margin-top-beautifier">
+                            <tiny-formfield>
+                                <tiny-item label="cpuSpinnerReserve.label" require="cpuSpinnerReserve.require">
+                                    <tiny-spinner id="cpuSpinnerReserve.id" value="cpuSpinnerReserve.value"
+                                                  max="cpuSpinnerReserve.max" change="cpuSpinnerReserve.change()"
+                                                  min="cpuSpinnerReserve.min" step="cpuSpinnerReserve.step"
+                                                  width="cpuSpinnerReserve.width"></tiny-spinner>
+                                </tiny-item>
+                                <tiny-item label="cpuSpinnerLimit.label" require="cpuSpinnerLimit.require">
+                                    <tiny-spinner id="cpuSpinnerLimit.id" value="cpuSpinnerLimit.value"
+                                                  max="cpuSpinnerLimit.max" change="cpuSpinnerLimit.change()"
+                                                  min="cpuSpinnerLimit.min" step="cpuSpinnerLimit.step"
+                                                  width="cpuSpinnerLimit.width"></tiny-spinner>
+                                </tiny-item>
+                                <tiny-item label="cpuShare.label" require="cpuShare.require">
+                                    <tiny-select id="cpuShare.selectId" values="cpuShare.values" width="cpuShare.selectWidth"
+                                                 change="cpuShare.change()"></tiny-select>
+                                    <tiny-textbox id="cpuShare.textId" value="cpuShare.value" readonly="cpuShare.readonly"
+                                                  width="cpuShare.textWidth" validate="cpuShare.validate"></tiny-textbox>
+                                </tiny-item>
+                            </tiny-formfield>
+
+                        </div>
+                    </div>
+                    <div class="margin-top-beautifier">
+                        <span>{{ i18n.vm_term_memControl_label }}</span>
+                        <div style="width: 375px" class="horizontal_line"></div>
+
+                        <div class="row-fluid margin-top-beautifier">
+                            <tiny-formfield>
+                                <tiny-item label="memorySpinnerReserve.label" require="memorySpinnerReserve.require">
+                                    <tiny-spinner id="memorySpinnerReserve.id" value="memorySpinnerReserve.value" max="memorySpinnerReserve.max"
+                                                  min="memorySpinnerReserve.min" step="memorySpinnerReserve.step"
+                                                  width="memorySpinnerReserve.width"></tiny-spinner>
+                                </tiny-item>
+                                <tiny-item label="memoryShare.label" require="memoryShare.require">
+                                    <tiny-select id="memoryShare.selectId" values="memoryShare.values" width="memoryShare.selectWidth"
+                                                 change="memoryShare.change()"></tiny-select>
+                                    <tiny-textbox id="memoryShare.textId" value="memoryShare.value" readonly="memoryShare.readonly"
+                                                  width="memoryShare.textWidth" validate="memoryShare.validate"></tiny-textbox>
+                                </tiny-item>
+                            </tiny-formfield>
+                        </div>
+                    </div>
+                </div>
+            </tiny-item>
+
+            <tiny-item label="diskNum.label" require="diskNum.require">
+                <tiny-select id="diskNum.id" values="diskNum.values" width="diskNum.width"
+                             change="diskNum.change()"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="diskTable.label" require="diskTable.require">
+                <!-- 自定义表格 -->
+                <table class="complexTable">
+                    <tr>
+                        <th style="width: 30px;">{{ i18n.common_term_disk_label }}</th>
+                        <th style="width: 80px;">{{ i18n.common_term_capacityGB_label }}</th>
+                        <th style="width: 80px;">{{ i18n.common_term_setMode_label }}</th>
+                        <th style="width: 80px;">{{ i18n.common_term_storageMedia_label }}</th>
+                        <th style="width: 80px;">{{ i18n.vm_disk_view_para_affectedBySnap_label }}</th>
+                    </tr>
+                    <tbody>
+                    <tr ng-if="diskTable.data.length == 0" class="complexTable-empty-tr">
+                        <td valign="top" colspan="5">No data available in table</td>
+                    <tr class="complexTable-tr complexTable-height-tr" ng-repeat="tr in diskTable.data">
+                        <td>{{ i18n.common_term_disk_label }}<span ng-bind="tr.name"></span></td>
+                        <td style="overflow:visible;">
+                            <fm-text value="tr.quantity" valid="diskTable.checkDisk(tr.quantity)" tip="i18n.sprintf(i18n.common_term_rangeInteger_valid,1,65536)" width="80"></fm-text>
+                        </td>
+                        <td><select ng-model="tr.allocTypeObj" ng-change="diskTable.allocTypeChanged($index, tr.allocTypeObj)"
+                                    ng-options="allocType.value for allocType in tr.allocTypeList"
+                                    style="width: 100px;"></select></td>
+                        <td><select ng-model="tr.mediaTypeObj" ng-change="diskTable.mediaTypeChanged($index, tr.mediaTypeObj)"
+                                    ng-options="mediaType.value for mediaType in tr.mediaTypeList"
+                                    style="width: 100px;"></select></td>
+                        <td><select ng-model="tr.indepDiskObj"
+                                    ng-options="indepDisk.value for indepDisk in tr.indepDiskList"
+                                    style="width: 100px;"></select></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </tiny-item>
+
+            <!--高级配置-->
+            <tiny-item label="advConfig.label" require="advConfig.require">
+                <a href="javascript:void(0)" ng-hide="advConfig.show" ng-click="advConfig.change()">{{ i18n.common_term_advancedSet_label }}&gt;&gt;</a>
+                <a href="javascript:void(0)" ng-show="advConfig.show" ng-click="advConfig.change()">&lt;&lt;{{ i18n.common_term_advancedSet_label }}</a>
+            </tiny-item>
+            <tiny-item label="secStorage.label" require="secStorage.require" display="advConfig.show">
+                <tiny-select id="secStorage.id" values="secStorage.values" width="secStorage.width"
+                             change="secStorage.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="cpuHotplug.label" require="cpuHotplug.require" display="advConfig.show">
+                <tiny-select id="cpuHotplug.id" values="cpuHotplug.values" width="cpuHotplug.width"
+                             change="cpuHotplug.change()"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="haConfig.label" require="haConfig.require" display="advConfig.show">
+                <tiny-checkbox id="haConfig.id" width="haConfig.width" value="haConfig.value" text="haConfig.text"
+                               change="haConfig.change()" checked="haConfig.checked"></tiny-checkbox>
+            </tiny-item>
+            <tiny-item label="timeConfig.label" require="timeConfig.require" display="advConfig.show">
+                <tiny-checkbox id="timeConfig.id" width="timeConfig.width" value="timeConfig.value" text="timeConfig.text"
+                               change="timeConfig.change()" checked="timeConfig.checked"></tiny-checkbox>
+            </tiny-item>
+            <tiny-item label="updateMode.label" require="updateMode.require" display="advConfig.show">
+                <tiny-radiogroup id="updateMode.id" spacing="updateMode.spacing"
+                                 values="updateMode.values"></tiny-radiogroup>
+            </tiny-item>
+
+            <tiny-item label="blockHeatTranfer.label" require="blockHeatTranfer.require" display="advConfig.show">
+                <tiny-radiogroup id="blockHeatTranfer.id" spacing="blockHeatTranfer.spacing"
+                                 values="blockHeatTranfer.values"></tiny-radiogroup>
+            </tiny-item>
+
+            <!-- 操作按钮 -->
+            <tiny-item label="buttonGroup.label" require="buttonGroup.require">
+                <div class="margin-top-beautifier">
+                    <tiny-button id="preBtn.id" disable="preBtn.disabled" icons-class="preBtn.iconsClass" text="preBtn.text"
+                                 tooltip="preBtn.tip" click="preBtn.pre()"></tiny-button>
+                    <tiny-button class="major-btn" id="nextBtn.id" disable="nextBtn.disabled" icons-class="nextBtn.iconsClass" text="nextBtn.text"
+                                 tooltip="nextBtn.tip" click="nextBtn.next()"></tiny-button>
+                    <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                                 text="cancelBtn.text"
+                                 tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

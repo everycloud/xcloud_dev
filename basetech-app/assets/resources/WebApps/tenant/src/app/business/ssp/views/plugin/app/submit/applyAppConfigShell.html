@@ -1,0 +1,49 @@
+<div ng-controller="app.apply.configShell.ctrl" class="app_apply_configSoftware_configShell" id="app_apply_configSoftware_configShellId">
+    <div class="bottom20">
+        <li class="two-lead">
+            <p ng-bind="i18n.app_app_create_para_softCfg_mean_para_label"></p>
+        </li>
+    </div>
+
+    <div>
+        <div class="customAccordionSeparator">
+            <div ng-click="install.click()" class="customAccordionGm">
+                <img ng-src="{{'../theme/default/images/gm/open_'+install.open+'.png'}}">
+                <div class="customAccordionSpan">
+                    <span ng-bind="i18n.common_term_installCmd_label"></span>
+                </div>
+            </div>
+            <div ng-show="install.open" class="customAccordionContent">
+                <div ng-repeat="option in install.options" class="customFormItem">
+                    <tiny-formfield>
+                        <tiny-item label="option.label" require="option.require">
+                            <tiny-textbox id="option.id" value="option.value" width="240" validate='option.validate' change="configInputChange('shellInstall', option.name)"></tiny-textbox>
+                            <span class="customAssociateMargin">
+                                <tiny-button id="option.associate.id" text="option.associate.text" click="option.associate.click('shellInstall',option.name)"></tiny-button>
+                            </span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fm-btn-top-small">
+        <tiny-button id="ok.id" text="ok.text" click="ok.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancel.id" text="cancel.text" click="cancel.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+require(['app/business/ssp/controllers/plugin/app/submit/shellConfigParam'], function(shellConfigParam) {
+    var dependency = ['ng', 'wcc', shellConfigParam.name];
+    dependency.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $(".app_apply_configSoftware_configShell"));
+        }
+    ]);
+    var $injector = angular.injector(dependency);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($(".app_apply_configSoftware_configShell"))($rootScope);
+        $rootScope.$digest();
+    });
+});
+</script>

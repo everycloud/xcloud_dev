@@ -1,0 +1,56 @@
+<div id="nicDetailDiv" class="row-fluid innerbox-padding" ng-controller="resources.hypervisor.nicDetail.ctrl">
+    <div class="span7">
+        <tiny-formfield>
+            <tiny-item label="'ID:'">
+                <div ng-bind="nicId"></div>
+            </tiny-item>
+            <tiny-item label="label.ip">
+                <div ng-bind-html="ip"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="span5">
+        <tiny-formfield>
+            <tiny-item label="label.mac">
+                <div ng-bind="mac"></div>
+            </tiny-item>
+            <tiny-item label="label.ipStatus">
+                <div ng-bind="ipStatus"></div>
+            </tiny-item>
+            <tiny-item label="label.sg" display="vmType !== 'vmware'">
+                <div ng-bind="sg"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/hypervisor/vmInfo/nicDetailCtrl'],
+            function ($, azDetailCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $("#nicDetailDiv").parent().parent().parent().prev().attr("lineNum");
+                var attrDom =  $("#nicDetailDiv").parent().parent().parent().prev();
+                var nicInfo = {
+                    nicId:attrDom.attr("nicId"),
+                    mac: attrDom.attr("mac"),
+                    ip: attrDom.attr("ip"),
+                    ipStatus: attrDom.attr("ipStatus"),
+                    sg: attrDom.attr("sg")
+                };
+                var id = "nicDetailDiv_" + lineNum;
+                $("#nicDetailDiv").attr("id", id);
+
+                //编译
+                var dep = ['ng', 'wcc', azDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + id));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#" + id))($rootScope);
+                    $rootScope.$digest();
+                });
+                $("#" + id).scope().viewNic(nicInfo);
+            });
+</script>

@@ -1,0 +1,60 @@
+<div id="balanceDetail">
+    <div class="row-fluid innerbox-padding">
+        <div class="span6">
+            <div class="padding-bottom8">
+                <span class="color2">{{i18n.common_term_type_label}}:</span>
+                <span ng-bind="hardware"></span>
+            </div>
+            <div class="padding-bottom8">
+                <span class="color2">{{i18n.device_term_cabinet_label}}:</span>
+                <span ng-bind="rack"></span>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="padding-bottom8">
+                <span class="color2">{{i18n.device_term_subrack_label}}:</span>
+                <span ng-bind="subrack"></span>
+            </div>
+            <div class="padding-bottom8">
+                <span class="color2">{{i18n.common_term_desc_label}}:</span>
+                <span ng-bind="description"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/device/balance/balanceDetailCtrl"],
+            function (balanceDetailCtrl) {
+
+                var hardware = $("#balanceDetail").parent().parent().parent().prev().attr("hardware");
+                var rack = $("#balanceDetail").parent().parent().parent().prev().attr("rack");
+                var subrack = $("#balanceDetail").parent().parent().parent().prev().attr("subrack");
+                var description = $("#balanceDetail").parent().parent().parent().prev().attr("description");
+                //替换ID，使ID唯一
+                var index = $("#balanceDetail").parent().parent().parent().prev().attr("index");
+                var id = "balanceDetail" + index;
+                $("#balanceDetail").attr("id", id);
+                $("#" + id).attr("ng-controller", "balanceDetailCtrl");
+
+                //编译
+                var dep = ['ng', 'wcc', balanceDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + id));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#" + id))($rootScope);
+                    $rootScope.$digest();
+                });
+
+                // 3.初始化scope
+                var newScope = $("#" + id).scope();
+                newScope.$apply(function () {
+                    newScope.hardware = hardware;
+                    newScope.rack = rack;
+                    newScope.subrack = subrack;
+                    newScope.description = description;
+
+                });
+            });
+</script>

@@ -1,0 +1,93 @@
+<div id="netExportLimitDiv">
+    <tiny-formfield>
+        <tiny-item label="sendSpeedLimit.label" require="sendSpeedLimit.require">
+            <tiny-radiogroup id="sendSpeedLimit.id" values="sendSpeedLimit.values"
+                             spacing="sendSpeedLimit.spacing" change="sendSpeedLimit.change()"></tiny-radiogroup>
+        </tiny-item>
+        <tiny-item label="sendAvgBandwidth.label" require="sendAvgBandwidth.require">
+            <tiny-textbox id="sendAvgBandwidth.id" width="sendAvgBandwidth.width" type="sendAvgBandwidth.type"
+                          disable="sendAvgBandwidth.disable" validate="sendAvgBandwidth.validate"
+                          tooltip="sendAvgBandwidth.tooltip"
+                          tip-position="sendAvgBandwidth.tipPosition"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="sendPeakBandwidth.label" require="sendPeakBandwidth.require">
+            <tiny-textbox id="sendPeakBandwidth.id" width="sendPeakBandwidth.width" type="sendPeakBandwidth.type"
+                          disable="sendPeakBandwidth.disable" validate="sendPeakBandwidth.validate"
+                          tooltip="sendPeakBandwidth.tooltip" extend-function="sendPeakBandwidth.extendFunction"
+                          tip-position="sendPeakBandwidth.tipPosition"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="sendBurstSize.label" require="sendBurstSize.require">
+            <tiny-textbox id="sendBurstSize.id" width="sendBurstSize.width" type="sendBurstSize.type"
+                          disable="sendBurstSize.disable" validate="sendBurstSize.validate"
+                          tooltip="sendBurstSize.tooltip"
+                          tip-position="sendBurstSize.tipPosition"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="priority.label" require="priority.require">
+            <tiny-radiogroup id="priority.id" values="priority.values"
+                             disable="priority.disable" spacing="priority.spacing"></tiny-radiogroup>
+        </tiny-item>
+        <tiny-item>
+            <span class="inline-help">{{i18n.common_term_QoS_label}}</span>
+        </tiny-item>
+        <tiny-item label="receiveSpeedLimit.label" require="receiveSpeedLimit.require">
+            <tiny-radiogroup id="receiveSpeedLimit.id" values="receiveSpeedLimit.values"
+                             spacing="receiveSpeedLimit.spacing" change="receiveSpeedLimit.change()"></tiny-radiogroup>
+        </tiny-item>
+        <tiny-item label="receiveAvgBandwidth.label" require="receiveAvgBandwidth.require">
+            <tiny-textbox id="receiveAvgBandwidth.id" width="receiveAvgBandwidth.width" type="receiveAvgBandwidth.type"
+                          disable="receiveAvgBandwidth.disable" validate="receiveAvgBandwidth.validate"
+                          tooltip="receiveAvgBandwidth.tooltip"
+                          tip-position="receiveAvgBandwidth.tipPosition"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="receivePeakBandwidth.label" require="receivePeakBandwidth.require">
+            <tiny-textbox id="receivePeakBandwidth.id" width="receivePeakBandwidth.width"
+                          type="receivePeakBandwidth.type" disable="receivePeakBandwidth.disable"
+                          validate="receivePeakBandwidth.validate" extend-function="receivePeakBandwidth.extendFunction"
+                          tooltip="receivePeakBandwidth.tooltip"
+                          tip-position="receivePeakBandwidth.tipPosition"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="receiveBurstSize.label" require="receiveBurstSize.require">
+            <tiny-textbox id="receiveBurstSize.id" width="receiveBurstSize.width" type="receiveBurstSize.type"
+                          disable="receiveBurstSize.disable" validate="receiveBurstSize.validate"
+                          tooltip="receiveBurstSize.tooltip"
+                          tip-position="receiveBurstSize.tipPosition"></tiny-textbox>
+        </tiny-item>
+    </tiny-formfield>
+    <tiny-checkbox id="arpMsgSuppressionCheckbox.id" value="arpMsgSuppressionCheckbox.value"
+                   text="arpMsgSuppressionCheckbox.text"
+                   height="arpMsgSuppressionCheckbox.height" change="arpMsgSuppressionCheckbox.change()"
+                   checked="arpMsgSuppressionCheckbox.checked"></tiny-checkbox>
+    <tiny-formfield labelwidth="121">
+        <tiny-item label="arpMsgSuppressionTextbox.label" require="arpMsgSuppressionTextbox.require">
+            <tiny-textbox id="arpMsgSuppressionTextbox.id" width="arpMsgSuppressionTextbox.width"
+                          type="arpMsgSuppressionTextbox.type"
+                          disable="arpMsgSuppressionTextbox.disable"
+                          validate="arpMsgSuppressionTextbox.validate" tooltip="arpMsgSuppressionTextbox.tooltip"
+                          tip-position="arpMsgSuppressionTextbox.tipPosition"></tiny-textbox>
+        </tiny-item>
+    </tiny-formfield>
+    <tiny-checkbox id="ipMsgSuppressionCheckbox.id" value="ipMsgSuppressionCheckbox.value"
+                   text="ipMsgSuppressionCheckbox.text"
+                   height="ipMsgSuppressionCheckbox.height" change="ipMsgSuppressionCheckbox.change()"
+                   checked="ipMsgSuppressionCheckbox.checked"></tiny-checkbox>
+    <tiny-formfield labelwidth="121">
+        <tiny-item label="ipMsgSuppressionTextbox.label" require="ipMsgSuppressionTextbox.require">
+            <tiny-textbox id="ipMsgSuppressionTextbox.id" width="ipMsgSuppressionTextbox.width"
+                          type="ipMsgSuppressionTextbox.type"
+                          disable="ipMsgSuppressionTextbox.disable"
+                          validate="ipMsgSuppressionTextbox.validate" tooltip="ipMsgSuppressionTextbox.tooltip"
+                          tip-position="ipMsgSuppressionTextbox.tipPosition"></tiny-textbox>
+        </tiny-item>
+    </tiny-formfield>
+
+    <tiny-formfield labelwidth="132">
+        <tiny-item class="fm-btn-top-large">
+            <tiny-button id="preBtn.id" text="preBtn.text"
+                         click="preBtn.click()"></tiny-button>
+            <tiny-button class="major-btn" id="nextBtn.id" text="nextBtn.text"
+                         click="nextBtn.click()" disable="nextBtn.disable"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                         click="cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

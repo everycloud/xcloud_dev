@@ -1,0 +1,34 @@
+<div id="createDomainDiv" class="alert-tip-first">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" value="name.value" readonly="name.readonly" type="name.type" tooltip="name.tooltip" validate="name.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="description.label" require="description.require">
+                <tiny-textbox id="description.id" value="description.value" readonly="description.readonly" width="description.width" height="description.height" type="description.type" validate="description.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button id="createBtn.id" text="createBtn.text" click="createBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+
+<script type="application/javascript">
+require(['app/business/tenantUser/controllers/domain/createDomainCtrl'],
+    function(createDomainCtrl) {
+        $("#createDomainDiv").attr("ng-controller", "userMgr.domain.create.ctrl");
+        var dep = ['ng', 'wcc', createDomainCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#createDomainDiv"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#createDomainDiv"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

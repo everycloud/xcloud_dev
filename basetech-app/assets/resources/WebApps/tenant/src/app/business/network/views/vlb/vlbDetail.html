@@ -1,0 +1,126 @@
+<div class="container-fluid vlb-detail" ng-controller="detailCtrl">
+    <div class="innerbox-padding">
+        <div class="row-fluid margin-bottom-beautifier" ng-if="isIT">
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="name.label">
+                        <span ng-bind="vlbDetail.lbName"></span>
+                    </tiny-item>
+                    <tiny-item label="elasticIP.label">
+                        <span ng-bind="vlbDetail.lbIp"></span>
+                    </tiny-item>
+                    <tiny-item label="createTime.label">
+                        <span ng-bind="vlbDetail.createTime"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="externalIP.label">
+                        <span ng-bind="vlbDetail.slbVmInfo.extIP"></span>
+                    </tiny-item>
+                    <tiny-item label="frontNet.label">
+                        <span ng-bind="vlbDetail.extNetworkName"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="backNet.label">
+                        <span ng-bind="vlbDetail.intNetworkName"></span>
+                    </tiny-item>
+                    <tiny-item label="status.label">
+                        <span ng-bind="vlbDetail.uiStatus"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+        <div class="row-fluid margin-bottom-beautifier" ng-if="!isIT">
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="protocol.label">
+                        <span ng-bind="vlbDetail.listeners[0].protocol"></span>
+                    </tiny-item>
+                    <tiny-item label="checkInterval.label" display="isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].healthCheckInfo[0].checkInterval"></span>
+                    </tiny-item>
+                    <tiny-item label="maxRoundRobin.label" display="!isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].healthCheckInfo[0].unhealthyThreshold"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="checkPath.label" display="isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].healthCheckInfo[0].path"></span>
+                    </tiny-item>
+                    <tiny-item label="maxRoundRobin.label" display="isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].healthCheckInfo[0].unhealthyThreshold"></span>
+                    </tiny-item>
+                    <tiny-item label="timeout.label" display="!isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].healthCheckInfo[0].responseTime"></span>
+                    </tiny-item>
+                    <tiny-item label="frontPort.label" display="!isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].port"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="timeout.label" display="isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].healthCheckInfo[0].responseTime"></span>
+                    </tiny-item>
+                    <tiny-item label="httpCode.label" display="isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].healthCheckInfo[0].expectedCodes"></span>
+                    </tiny-item>
+                    <tiny-item label="checkInterval.label" display="!isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].healthCheckInfo[0].checkInterval"></span>
+                    </tiny-item>
+                    <tiny-item label="backendPort.label" display="!isHTTP">
+                        <span ng-bind="vlbDetail.listeners[0].bindingVM[0].servicePort"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+        <div>
+            <div style="text-align: center; overflow-x: auto;" class="outbox-padding padding-top10"
+                 id="{{topoCaversId}}">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/network/controllers/vlb/vlbDetailModule'],
+            function (vlbDetailModule) {
+                var curView = undefined;
+                $(".vlb-detail").each(function () {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+                curView.attr("id", new Date().getMilliseconds());
+
+                //编译(编译前scope是父页面继承来的)
+                var scope = curView.scope();
+                var currItem = scope.currentItem || {};
+                var dep = ['ng', 'wcc', vlbDetailModule.name];
+                dep.unshift(["$provide",
+                    function ($provide) {
+                        $provide.value("$rootElement", curView);
+                    }
+                ]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(curView)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                //查询详细信息 (编译后scope是新new出来的)
+                var newScope = curView.scope();
+                newScope.lbID = currItem.lbID;
+                newScope.cloudInfraId = currItem.cloudInfraId || {};
+                newScope.topoCaversId = newScope.topoCaversId + newScope.lbID;
+                newScope.$digest(); //立即生效
+                newScope.queryVLBDetail();
+            });
+</script>

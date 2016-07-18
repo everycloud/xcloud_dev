@@ -1,0 +1,150 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="镜像">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100030_ict">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>镜像</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\nOpenStack资源管理\n镜像");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100028.html\">OpenStack资源管理<\/a> > 镜像<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100030_ict"></a><a name="it_60_51_100030_ict"></a>
+
+
+<h1 class="topictitle1">镜像</h1>
+<ul><li><a href="#it_60_51_100030_ict__1.2.2.1">创建镜像</a></li><li><a href="#it_60_51_100030_ict__1.2.3.1">导出镜像</a></li><li><a href="#it_60_51_100030_ict__1.2.4.1">更改镜像</a></li><li><a href="#it_60_51_100030_ict__1.2.5.1">删除镜像</a></li></ul>
+
+<div>
+<div class="p"><span id="it_60_51_100030_ict__vmTemplate_define"><a name="it_60_51_100030_ict__vmTemplate_define"></a><a name="vmTemplate_define"></a>镜像是虚拟机的副本，包含操作系统、应用软件等。</span>用于：<a name="it_60_51_100030_ict__vmTemplate_function"></a><a name="vmTemplate_function"></a><ul id="it_60_51_100030_ict__vmTemplate_function"><li>发放虚拟机：使用镜像创建虚拟机，能够大幅节省配置新虚拟机和安装操作系统的时间。</li><li>发放应用实例：使用应用模板发放应用实例时，选择使用的镜像，实现批量创建虚拟机的功能。</li></ul>
+</div>
+
+<div class="section"><a name="it_60_51_100030_ict__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100030_ict" class="sectiontitle2contents">创建镜像</a></h4><div class="p" id="it_60_51_100030_ict__vmTemplate_get"><a name="it_60_51_100030_ict__vmTemplate_get"></a><a name="vmTemplate_get"></a><ol><li><p><strong>制作镜像文件</strong></p>
+<p>按照<span>FusionSphere OpenStack</span>要求，制作虚拟机镜像文件。</p>
+<div class="p">镜像文件要求如下：<ul><li>文件格式，即文件后缀名为qcow2、ami、aki、ari、iso、vhd、vmdk、raw、uec、vdi、vhdx、ovf、img。</li><li>文件大小小于6GB。</li><li>镜像中建议安装UVP VMTools，否则将影响虚拟机的信息监控和IO性能。UVP VMTools仅适用于华为<span>FusionSphere OpenStack</span>环境。</li></ul>
+具体操作方法请参考FusionSphere解决方案文档<span>《<span>FusionSphere OpenStack</span> 镜像制作指导书》</span>。</div>
+</li><li><p><strong>注册镜像文件</strong></p>
+<p>使用镜像文件，在<span>FusionManager</span>中注册虚拟机镜像。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">镜像</span>”</span>中，单击<span class="uicontrol">“注册”</span>。</p>
+</li></ol>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_100030_ict__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100030_ict" class="sectiontitle2contents">导出镜像</a></h4><p>可将<span>FusionManager</span>中的镜像文件导出，用于其它环境的虚拟机镜像的创建。</p>
+<div class="p"><span>进入<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">镜像</span>”</span>界面：</span><ol><li><p>在镜像所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">同步</span>”</span>，将镜像文件同步到<span>FusionManager</span>中存放。同步超过1天仍未被下载的镜像，会自动清除，以便释放存储空间。同步后，请及时下载镜像。</p>
+</li><li><p>在镜像所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">下载</span>”</span>，将镜像文件下载到本地。下载完成后，存放在<span>FusionManager</span>的镜像，会自动清除，以便释放存储空间。</p>
+</li><li><p>下载完成后，在镜像所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">清除</span>”</span>，将镜像状态恢复，等待下一次同步和下载。</p>
+</li></ol>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_100030_ict__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100030_ict" class="sectiontitle2contents">更改镜像</a></h4><p>变更镜像的属性信息。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">镜像</span>”</span>界面，在镜像所在行中，选择<span class="menucascade">“<span class="uicontrol">修改</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100030_ict__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100030_ict" class="sectiontitle2contents">删除镜像</a></h4><p>当镜像不再使用时，删除镜像。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">镜像</span>”</span>界面，在镜像所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

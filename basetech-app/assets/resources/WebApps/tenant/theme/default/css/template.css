@@ -1,0 +1,15 @@
+.tiny_form{
+	margin-top: 20px;
+}
+.tiny_form_require{
+	font-weight: normal;color: red;padding-right: 5px;
+}
+.tiny_form_label{
+	padding-left: 10px;
+}
+.tiny_form_td_label{
+	padding-right: 10px;padding-bottom: 8px;
+}
+.tiny_form_td_content{
+	padding-bottom: 8px;
+}

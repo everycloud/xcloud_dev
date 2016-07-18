@@ -1,0 +1,34 @@
+<div id="midifySwitchBasicInfoDiv" class="alert-tip-first">
+    <tiny-formfield>
+        <tiny-item label="name.label" require="name.require">
+            <tiny-textbox id="name.id" value="name.value" validate="name.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="description.label">
+            <tiny-textbox id="description.id" value="description.value" type="description.type"
+                          height="description.height"
+                          validate="description.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item>
+            <div class="fm-btn-top-smaller">
+                <tiny-button class="major-btn" id="modifyBtn.id" text="modifyBtn.text"
+                             click="modifyBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/device/switch/modifySwitchBasicInfoCtrl'],
+            function (modifySwitchBasicInfoCtrl) {
+                $("#midifySwitchBasicInfoDiv").attr("ng-controller", "modifySwitchBasicInfoCtrl");
+                var dep = ['ng', 'wcc', modifySwitchBasicInfoCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#midifySwitchBasicInfoDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#midifySwitchBasicInfoDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

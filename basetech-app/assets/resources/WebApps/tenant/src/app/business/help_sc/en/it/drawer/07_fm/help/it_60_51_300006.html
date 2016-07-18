@@ -1,0 +1,76 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Disks">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_300006">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Disks</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_300006"></a><a name="it_60_51_300006"></a>
+
+
+<h1 class="topictitle1">Disks</h1>
+
+
+<div>
+<div class="section"><p>Disks provide data storage space for VMs and are not dependent on VMs. A disk can be attached to different VMs and supports data migration among VMs.</p>
+<p><span>ServiceCenter</span> also supports disk snapshots for backing up disk data.</p>
+</div>
+
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Allocating a VM</h4></div><div class="dropdowncontext"><p>Allocate a VM assigned by the system administrator to a specified tenant. </p>
+<p>Locate the row that contains
+the target VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Allocate</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Modifying Disk Attributes</h4></div><div class="dropdowncontext"><p>After creating a disk, you can change the disk name if needed.</p>
+<p>Locate the row that contains the target disk, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Modify</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Attaching a Disk to a VM</h4></div><div class="dropdowncontext"><p>A disk can store the data of a VM only after being attached to the VM.</p>
+<p>Locate the row that contains the target disk, click <span class="uicontrol"><b>More</b></span>, and
+select <span class="uicontrol"><b>Bind VM</b></span>.</p>
+<div class="p" id="it_60_51_300006__addToOS"><a name="it_60_51_300006__addToOS"></a><a name="addToOS"></a>After attaching the disk to the VM, you also need to add the
+disk to the VM operating system (OS).<ul><li>If the attached disk is a newly created disk, format the disk. For the detailed operation procedure, <span>search from the
+Internet or <a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a>.</span></li><li>If the attached disk already contains data and the disk drive letter is the same as the disk drive letter on the VM, set the disk status from offline to online.</li></ul>
+</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Detaching a Disk from a VM</h4></div><div class="dropdowncontext"><p>Detach a disk from its attached VM.</p>
+<div class="p">To detach a disk from
+a running VM, note the following restrictions:<ul><li><p>The VM has the Tools run properly on it.</p>
+</li><li>The system disk cannot be detached.</li><li>A raw device mapped (RDM) disk cannot be detached.</li><li>Only VMs running the following operating systems (OSs) supports
+disk detaching when the VMs are running:<ul><li>Windows Server 2008 R2 Enterprise 64鈥揵it</li><li>Red Hat Linux Enterprise 5.7/5.8/6.5 (32-/64-bit)</li><li>CentOS 5.7/5.8/6.5 (32-/64-bit)</li></ul>
+</li></ul>
+</div>
+<p>Expand the disk details area, locate
+the row that contains the target VM, and click <span class="uicontrol"><b>Unbind</b></span>.</p>
+</div></div></div>
+
+
+
+
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

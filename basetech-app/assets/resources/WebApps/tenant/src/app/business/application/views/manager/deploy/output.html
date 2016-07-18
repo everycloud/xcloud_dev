@@ -1,0 +1,23 @@
+<div class="row-fluid margin-top-beautifier" id="app_list_deployMgr_output" ng-controller="app.list.deployOutput.ctrl">
+    <div>
+        <tiny-table id="outputTable.id" data="outputTable.data" columns="outputTable.columns" length-menu="outputTable.lengthMenu" enable-pagination="outputTable.enablePagination" render-row="outputTable.renderRow" pagination-style="outputTable.paginationStyle">
+        </tiny-table>
+    </div>
+</div>
+
+<script>
+require(['app/business/application/controllers/manager/deploy/outputCtrl'],
+    function(outputCtrl) {
+        var dep = ['ng', 'wcc', outputCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#app_list_deployMgr_output"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#app_list_deployMgr_output"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

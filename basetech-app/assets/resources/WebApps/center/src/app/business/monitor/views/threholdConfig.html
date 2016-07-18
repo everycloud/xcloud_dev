@@ -1,0 +1,22 @@
+<div fm-help help="'drawer_alarm_config'" show="show.help" i18n="'zh'"></div>
+<div>
+    <div class="margin-bottom-beautifier clearfix">
+        <div class="pull-right">
+            <a class="btn-link">
+                <div ng-click="refreshBtn.click()" id="refreshBtn.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+    </div>
+    <fm-dialog title="'{{i18n.common_term_modify_button}}'" width="850" height="400" show="showWin">
+        <div ng-show="showWin" ng-include src="'app/business/monitor/views/threholdConfigView.html'"></div>
+    </fm-dialog>
+    <div class="vmTable">
+        <tiny-table id="threholdListTable.id" data="threholdListTable.data" columns="threholdListTable.columns" enable-pagination="false" request-config="threholdListTable.requestConfig" columns-draggable="threholdListTable.columnsDraggable" render-row="threholdListTable.renderRow"
+        hide-total-records="threholdListTable.hideTotalRecords"></tiny-table>
+
+    </div>
+</div>
+

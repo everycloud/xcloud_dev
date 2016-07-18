@@ -1,0 +1,27 @@
+<div class="createlink container-fluid">
+    <div class="row-fluid tiny-step-boxset">
+        <div class="createpage-legend" ng-show="!service.isModifyMode"><span ng-bind="i18n.vpn_term_createLink_button"></span></div>
+        <div class="createpage-legend" ng-show="service.isModifyMode"><span ng-bind="i18n.vpn_term_modifyVPNconnect_button"></span></div>
+        <tiny-step id="service.step.id" values="service.step.values" width="service.step.width" jumpable="service.step.jumpable"></tiny-step>
+    </div>
+    <div>
+        <div ng-show="service.show == 'basic'">
+            <div ui-view="basic"></div>
+        </div>
+        <div ng-show="service.show == 'remote'">
+            <div ui-view="remote"></div>
+        </div>
+        <div ng-show="service.show == 'ike'">
+            <div ui-view="ike"></div>
+        </div>
+        <div ng-show="service.show == 'ikeUserNet'">
+            <div ui-view="ikeUserNet"></div>
+        </div>
+        <div ng-show="service.show == 'addUser'">
+            <div ui-view="addUser"></div>
+        </div>
+        <div ng-show="service.show == 'confirm'">
+            <div ui-view="confirm"></div>
+        </div>
+    </div>
+</div>

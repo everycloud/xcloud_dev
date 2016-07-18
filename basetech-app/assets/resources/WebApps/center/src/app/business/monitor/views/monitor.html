@@ -1,0 +1,59 @@
+<div>
+    <div class="slider-content">
+        <div id="monitor-layout">
+            <div class="tiny-layout-container">
+                <div class="tiny-layout-west">
+                    <ul>
+                        <div class="tiny-layout-title">
+                            <div class="row-fluid nosidedown-txt">
+                                <div class="span4">
+                                    <div class="title-icon layout-icon-monitoring"> </div>
+                                </div>
+                                <div class="span8">
+                                    <p class="title-text">监控</p>
+                                </div>
+                            </div>
+                        </div>
+                        <li>
+                            <div class="tiny-layout-head" ui-sref="monitor.alarmlist">
+                                告警
+                            </div>
+                            <ul>
+                                <li>
+                                    <a ui-sref="monitor.alarmlist">告警列表</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="monitor.alarmsettings">告警设置</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="monitor.alarmstat">告警统计</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-show="deployMode != 'top'">
+                            <div class="tiny-layout-head" ui-sref="monitor.view">性能</div>
+                            <ul>
+
+                                <li><a ui-sref="monitor.view">监控视图</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-show="deployMode != 'top'">
+                            <div class="tiny-layout-head" ui-sref="monitor.systemReport">报表</div>
+                            <ul>
+                                <li><a ui-sref="monitor.systemReport">系统报表</a>
+                                </li>
+                                <li><a ui-sref="monitor.customReport">自定义报表</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tiny-layout-center">
+                    <div ui-view id="view-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

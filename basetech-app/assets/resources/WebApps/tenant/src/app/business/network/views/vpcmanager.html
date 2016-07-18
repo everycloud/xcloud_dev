@@ -1,0 +1,97 @@
+<div>
+    <div class="slider-content">
+        <div id="network-vpcmanager-layout">
+            <div class="tiny-layout-container">
+                <div class="tiny-layout-west">
+                    <ul>
+                        <div class="tiny-layout-title">
+                            <div class="row-fluid nosidedown-txt">
+                                <div class="span4">
+                                    <div class="title-icon layout-icon-vpc"></div>
+                                </div>
+                                <div class="span8">
+                                    <p class="title-text" title="{{vpcName}}">{{vpcName}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <li ng-show="displayConf.summary=='true'">
+                            <a ui-sref="network.vpcmanager.summary" ng-bind="i18n.common_term_overview_label"></a>
+                        </li>
+                        <li ng-show="(!vpcTypeShared)&&(displayConf.router=='true')">
+                            <a ui-sref="network.vpcmanager.router" ng-bind="i18n.router_term_router_label"></a>
+                        </li>
+                        <li ng-show="!vpcTypeShared && (displayConf.vlb=='true')">
+                            <a ui-sref="network.vpcmanager.vlb" ng-bind="i18n.lb_term_vlb_label"></a>
+                        </li>
+                        <li ng-show="!vpcTypeShared && IT && hasPVMOperateRight && (displayConf.deploymentService=='true')">
+                            <a ui-sref="network.vpcmanager.deployservice" ng-bind="i18n.vpc_term_deployService_label"></a>
+                        </li>
+                        <li ng-show="vpcTypeShared && (displayConf.shareVpcEip=='true')">
+                            <a ui-sref="network.vpcmanager.eip" ng-bind="i18n.eip_term_eips_label"></a>
+                        </li>
+                        <li ng-show="!vpcTypeShared && (displayConf.network=='true')">
+                            <div ng-show="IT" class="tiny-layout-head" ui-sref="network.vpcmanager.network" ng-bind="i18n.vpc_term_net_label"></div>
+                            <div ng-show="ICT" class="tiny-layout-head" ui-sref="network.vpcmanager.ictnetwork" ng-bind="i18n.vpc_term_net_label"></div>
+                            <ul>
+                                <li ng-show="IT">
+                                    <a ui-sref="network.vpcmanager.network" ng-bind="i18n.vpc_term_net_label"></a>
+                                </li>
+                                <li ng-show="ICT">
+                                    <a ui-sref="network.vpcmanager.ictnetwork" ng-bind="i18n.vpc_term_net_label"></a>
+                                </li>
+                                <li ng-show="IT">
+                                    <a ui-sref="network.vpcmanager.publicIPPool" ng-bind="i18n.vpc_term_publicIP_label"></a>
+                                </li>
+                                <li>
+                                    <a ui-sref="network.vpcmanager.eip" ng-bind="i18n.eip_term_eips_label"></a>
+                                </li>
+                                <li ng-show="IT">
+                                    <a ui-sref="network.vpcmanager.dnat" ng-bind="i18n.nat_term_dnat_label"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-show="vpcTypeShared && (displayConf.security=='true')">
+                            <div class="tiny-layout-head" ui-sref="network.vpcmanager.securitygroup" ng-bind="i18n.common_term_security_label"></div>
+                            <ul>
+                                <li>
+                                    <a ui-sref="network.vpcmanager.securitygroup" ng-bind="i18n.security_term_SGs_label"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-show="!vpcTypeShared && (displayConf.security=='true')">
+                            <div ng-show="(IT ||isSDN)"class="tiny-layout-head" ui-sref="network.vpcmanager.acls" ng-bind="i18n.common_term_security_label"></div>
+                            <div ng-show="!(IT ||isSDN)"class="tiny-layout-head" ui-sref="network.vpcmanager.securitygroup" ng-bind="i18n.common_term_security_label"></div>
+                            <ul>
+                                <li ng-show="(IT ||isSDN)">
+                                    <a ui-sref="network.vpcmanager.acls" ng-bind="i18n.acl_term_acl_label"></a>
+                                </li>
+                                <li>
+                                    <a ui-sref="network.vpcmanager.securitygroup" ng-bind="i18n.security_term_SGs_label"></a>
+                                </li>
+                                <li ng-show="hasHardwareRouter && !vpcTypeShared">
+                                    <a ui-sref="network.vpcmanager.aspf" ng-bind="i18n.aspf_term_aspf_label"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-show="!vpcTypeShared && (displayConf.vpn=='true')&&(IT ||isSDN)">
+                            <div ng-if="IT" class="tiny-layout-head" ui-sref="network.vpcmanager.vpngateway" ng-bind="i18n.vpn_term_vpn_label"></div>
+                            <div ng-if="ICT" class="tiny-layout-head" ui-sref="network.vpcmanager.vpnlink" ng-bind="i18n.vpn_term_vpn_label"></div>
+                            <ul>
+                                <li ng-show="IT">
+                                    <a ui-sref="network.vpcmanager.vpngateway" ng-bind="i18n.vpn_term_vpnGateways_label"></a>
+                                </li>
+                                <li ng-show="(IT ||isSDN)">
+                                    <a ui-sref="network.vpcmanager.vpnlink" ng-bind="i18n.vpn_term_vpnConnect_label"></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tiny-layout-center">
+                    <div ui-view id="view-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

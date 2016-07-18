@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div id="memberManage" ng-controller="userMgr.org.memberManage.ctrl">
+        <tiny-formfield>
+            <tiny-item label="name.label">
+                <div ng-bind="name.value"></div>
+            </tiny-item>
+            <tiny-item label="description.label">
+                <div ng-bind="description.value"></div>
+            </tiny-item>
+            <tiny-item label="memberListLabel.label">
+                <div class="form-inline clearfix" style="width:650px;">
+                    <tiny-button id="addMemberBtn.id" class="major-btn" ng-if="!openstack" disabled="addMemberBtn.disable" ng-hide="addMemberBtn.disable" text="addMemberBtn.text" click="addMemberBtn.click()"></tiny-button>
+                    <tiny-button id="createUserBtn.id" class="major-btn" disabled="createUserBtn.disable" ng-hide="createUserBtn.disable" text="createUserBtn.text" click="createUserBtn.click()"></tiny-button>
+                    <!--刷新、帮助-->
+                    <div class="pull-right">
+                        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                            <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                            </tiny-searchbox>
+                        </span>
+                        <a class="btn-link">
+                            <div ng-click="operator.getMember()" class="small-icon small-icon-refresh"></div>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <tiny-table id="memberListTbl.id" data="memberListTbl.datas" columns="memberListTbl.columns" enable-pagination="memberListTbl.pagination" pagination-style="memberListTbl.paginationStyle" length-change="memberListTbl.lengthChange" length-menu="memberListTbl.lengthMenu"
+                    display-length="memberListTbl.displayLength" enable-filter="memberListTbl.enableFilter" cur-page="memberListTbl.curPage" total-records="memberListTbl.totalRecords" request-config="memberListTbl.requestConfig" hide-total-records="memberListTbl.hideTotalRecords"
+                    render-row="memberListTbl.renderRow" callback="memberListTbl.callback" change-select="memberListTbl.changeSelect"></tiny-table>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+require(["app/business/user/controllers/organization/memberManageCtrl"], function(memberManageCtrl) {
+    var $injector = angular.injector(["ng", memberManageCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#memberManage"));
+        link($("#memberManage").scope());
+        $("#memberManage").scope().$digest();
+    });
+});
+</script>

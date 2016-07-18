@@ -1,0 +1,27 @@
+<div class="create-page-distance">
+    <div>
+        <label ng-if="createStatus == '0'">{{ i18n.common_term_creating_value }}:</label>
+        <label ng-if="createStatus == '1'">{{ i18n.common_term_createSucceed_value }}:</label>
+        <div ng-if="createStatus == '-1'">
+            <label >{{ i18n.common_term_createFail_value }}(<span ng-bind="errorCode"></span>):</label>
+            <div>
+            <span ng-bind="errorMsg"></span>
+            </div>
+        </div>
+
+        <div style="display: block; width: 560px;" class="clearfix">
+            <div class="progressbar-box" style="width: 500px;  height: 22px; border-radius: 11px;float:left;margin-right: 5px;">
+                <div class="progressbar-color" ng-style="{width:progress*5}" style="height: 20px;"></div>
+            </div>
+            <div style="float:left;"><span ng-bind="progress"></span>%</div>
+        </div>
+    </div>
+
+    <div class="margin-top-beautifier">
+        <tiny-button class="major-btn" id="nextBtn.id" disable="nextBtn.disabled" icons-class="nextBtn.iconsClass" text="nextBtn.text"
+                     tooltip="nextBtn.tip" click="nextBtn.next()"></tiny-button>
+        <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                     text="cancelBtn.text"
+                     tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+    </div>
+</div>

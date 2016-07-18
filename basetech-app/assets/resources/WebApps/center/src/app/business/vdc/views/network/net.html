@@ -1,0 +1,50 @@
+<div fm-help help="'drawer_vpc_net'" show="show.help" i18n="'zh'"></div>
+<div id="vpcmanager-router">
+	<div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{i18n.vpc_term_nets_label||'网络'}}</span></li>
+            <li class="two-lead">
+				<div ng-repeat="e in i18n.split(i18n.vpc_net_view_explan_label)">
+					{{e}}<br/>
+				</div>
+				<div ng-if="!i18n.vpc_net_view_explan_label">
+                <p>包含路由网络、直连网络两种网络类型，为VPC中的应用实例和虚拟机提供网络资源。</p>
+                <p>您可以在VPC中创建不同类型的多个网络，以满足不同业务对网络资源的需求。</p>
+				</div>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+		<div class="form-inline margin-erect-beautifier clearfix">
+			<fm-button ng-show="user.privilege.role_role_add_option_netHandle_value"
+				class="major-btn" text="i18n.vpc_term_createNet_button||'创建网络'" click="create"></fm-button>
+			<!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="table.update()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+			<fm-search class="pull-right" tip="i18n.common_term_findCondition_prom||'请输入搜索条件'" value="form.key"
+				change="event.search"></fm-search>
+			<fm-select class="pull-right" id="form.id" name="form.name" option="form.type"
+				change="event.select" filter="true"></fm-select>
+        </div>
+		<fm-dialog title="i18n.perform_term_usageIPnum_label||'IP地址使用情况'" width="800" height="540" show="show.ip">
+			<div ng-show="show.ip" ng-include src="'app/business/vdc/views/network/ipDetail.html'" class="alert-tip-first"></div>
+		</fm-dialog>
+		<fm-dialog title="i18n.vpc_term_checkAssociateVM_button||'查看关联虚拟机'" width="600" height="360" show="show.vm">
+			<div ng-show="show.vm" ng-include src="'app/business/vdc/views/network/vmDetail.html'" class="alert-tip-first"></div>
+		</fm-dialog>
+		<div>
+			<fm-table columns="table.columns" data="table.data"
+				operate="user.privilege.role_role_add_option_netHandle_value?table.operate:''" 
+				detail="'app/business/vdc/views/network/networkDetail.html'"
+				total="table.total" change="change" update="table.update">
+			</fm-table>
+		</div>
+	</div>
+</div>

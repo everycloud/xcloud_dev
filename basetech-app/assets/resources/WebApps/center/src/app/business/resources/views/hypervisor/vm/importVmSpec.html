@@ -1,0 +1,39 @@
+<div id="createVmSpecDiv">
+    <tiny-formfield>
+        <tiny-item label="coreNumTextbox.label" require="coreNumTextbox.require">
+            <tiny-textbox id="coreNumTextbox.id" value="coreNumTextbox.value"
+                          validate="coreNumTextbox.validate" change="coreNumTextbox.change()"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="memoryTextbox.label" require="memoryTextbox.require">
+            <tiny-textbox id="memoryTextbox.id" value="memoryTextbox.value"
+                          extend-function="memoryTextbox.extendFunction"
+                          tooltip="memoryTextbox.tooltip" validate="memoryTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item>
+            <tiny-select id="unitSelector.id" values="unitSelector.values" width="unitSelector.width"
+                         change="unitSelector.change()"></tiny-select>
+        </tiny-item>
+        <tiny-item label="diskNumSelector.label" require="diskNumSelector.require">
+            <tiny-select id="diskNumSelector.id" values="diskNumSelector.values" width="diskNumSelector.width"
+                         height="diskNumSelector.height" validate="diskNumSelector.validate" change="diskNumSelector.change()"></tiny-select>
+        </tiny-item>
+        <tiny-item>
+            <div style="width: 1200px"  class="table-tiny-box-height">
+                <tiny-table id="diskTable.id" caption="diskTable.caption" data="diskTable.data"
+                            columns='diskTable.columns' render-row="diskTable.renderRow"
+                            enable-pagination="diskTable.enablePagination"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="specPreButton.id" text="specPreButton.text" click="specPreButton.click()"></tiny-button>
+            <tiny-button id="specNextButton.id" text="specNextButton.text" click="specNextButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="specCancelButton.id" text="specCancelButton.text"
+                         click="specCancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<style>
+    .allotTypePopover .popover{
+        max-width: 600px;
+    }
+</style>

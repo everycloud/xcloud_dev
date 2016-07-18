@@ -1,0 +1,157 @@
+<div class="resources-vsaNetwork-detail">
+    <div class="innerbox-padding">
+        <div class="row-fluid margin-top-beautifier bottom10">
+            <div class="span6">
+                <div class="color2">{{i18n.common_term_enableIPsegment_label}}:</div>
+                <div ng-repeat="ipRange in networkInfo.availableIPRanges">
+                    <span ng-bind="ipRange.startIP"></span> - <span ng-bind="ipRange.endIP"></span>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="color2">{{i18n.common_term_desc_label}}:</div>
+                <span style="white-space: normal;word-break: break-all;" ng-bind="networkInfo.description"></span>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="margin-top-beautifier">
+                    <div>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <div ng-if="!networkInfo.portSetting.outTrafficShapingPolicyFlag">
+                                    <span class="color2">{{i18n.common_term_sendSpeedLimitSet_label}}:</span>
+                                    <span>{{i18n.common_term_no_label}}</span>
+                                </div>
+                                <div ng-if="networkInfo.portSetting.outTrafficShapingPolicyFlag">
+                                    {{i18n.common_term_sendSpeedLimitSet_label}}:
+                                    <div class="row-fluid top5">
+                                        <div class="span5 color2">
+                                            {{i18n.perform_term_sendBandAvg_label}}(Mbit/s):
+                                        </div>
+                                        <div class="span7">
+                                            <span ng-bind="networkInfo.portSetting.outTrafficShapingPolicy.averageBandwidth"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid margin-top-beautifier">
+                                        <div class="span5 color2">
+                                            {{i18n.perform_term_sendBandPeak_label}}(Mbit/s):
+                                        </div>
+                                        <div class="span7">
+                                            <span ng-bind="networkInfo.portSetting.outTrafficShapingPolicy.peakBandwidth"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid margin-top-beautifier">
+                                        <div class="span5 color2">
+                                            {{i18n.common_term_sendGusty_label}}(Mbits):
+                                        </div>
+                                        <div class="span7">
+                                            <span ng-bind="networkInfo.portSetting.outTrafficShapingPolicy.burstSize"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid margin-top-beautifier">
+                                        <div class="span5 color2">
+                                            {{i18n.common_term_priority_label}}:
+                                        </div>
+                                        <div class="span7">
+                                            <span ng-bind="networkInfo.portSetting.outTrafficShapingPolicy.priorityStr"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div ng-if="!networkInfo.portSetting.inTrafficShapingPolicyFlag">
+                                    <span class="color2">{{i18n.common_term_receiveSpeedLimitSet_button}}:</span>
+                                    <span>{{i18n.common_term_no_label}}</span>
+                                </div>
+                                <div ng-if="networkInfo.portSetting.inTrafficShapingPolicyFlag">
+                                    {{i18n.common_term_receiveSpeedLimitSet_button}}:
+                                    <div class="row-fluid top5">
+                                        <div class="span5 color2">
+                                            {{i18n.perform_term_receiveBandAvg_label}}(Mbit/s):
+                                        </div>
+                                        <div class="span7">
+                                            <span ng-bind="networkInfo.portSetting.inTrafficShapingPolicy.averageBandwidth"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid margin-top-beautifier">
+                                        <div class="span5 color2">
+                                            {{i18n.perform_term_receiveBandPeak_label}}(Mbit/s):
+                                        </div>
+                                        <div class="span7">
+                                            <span ng-bind="networkInfo.portSetting.inTrafficShapingPolicy.peakBandwidth"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid margin-top-beautifier">
+                                        <div class="span5 color2">
+                                            {{i18n.common_term_receiveGusty_label}}(Mbits):
+                                        </div>
+                                        <div class="span7">
+                                            <span ng-bind="networkInfo.portSetting.inTrafficShapingPolicy.burstSize"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid margin-top-beautifier">
+                            <div class="span4">
+                                <div class="row-fluid top5">
+                                    <div class="span5 color2">
+                                        {{i18n.common_term_ARPsuppression_label}}:
+                                    </div>
+                                    <div class="span7">
+                                        <span ng-if="'0'==networkInfo.portSetting.arpPacketSuppression">{{i18n.common_term_notBate_value}}</span>
+                                        <span ng-if="'0'!=networkInfo.portSetting.arpPacketSuppression"
+                                              ng-bind="networkInfo.portSetting.arpPacketSuppression"></span>
+                                    </div>
+                                </div>
+                                <div class="row-fluid margin-top-beautifier">
+                                    <div class="span5 color2">
+                                        {{i18n.common_term_IPsuppression_label}}:
+                                    </div>
+                                    <div class="span7">
+                                        <span ng-if="'0'==networkInfo.portSetting.ipPacketSuppression">{{i18n.common_term_notBate_value}}</span>
+                                        <span ng-if="'0'!=networkInfo.portSetting.ipPacketSuppression"
+                                              ng-bind="networkInfo.portSetting.ipPacketSuppression"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(["jquery",
+        "app/business/resources/controllers/rpool/zone/zoneResources/network/vsaNetwork/vsaManagerNetwork/vsaMgnNetworkDetailCtrl",
+        "app/business/resources/controllers/constants"],
+            function ($, vsaMgnNetworkDetailCtrl, constants) {
+                var zoneId = $(".resources-vsaNetwork-detail").parent().parent().parent().prev().attr("zoneId");
+                var vsaManageNetworkID = $(".resources-vsaNetwork-detail").parent().parent().parent().prev().attr("vsaManageNetworkID");
+                //替换ID，使ID唯一
+                var index = $(".resources-vsaNetwork-detail").parent().parent().parent().prev().attr("index");
+                var classStr = "resources-vsaNetwork-detail" + index;
+                $(".resources-vsaNetwork-detail").attr("class", classStr);
+                $("." + classStr).attr("ng-controller", "vsaMgnNetworkDetailCtrl");
+
+                //编译
+                var dep = ['ng', 'wcc', vsaMgnNetworkDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("." + classStr));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("." + classStr))($rootScope);
+                    $rootScope.$digest();
+                });
+
+                // 3.初始化scope
+                var newScope = $("." + classStr).scope();
+                newScope.$apply(function () {
+                    newScope.vsaManageNetworkID = vsaManageNetworkID;
+                    newScope.operator.queryDetailInfo(zoneId, vsaManageNetworkID);
+                });
+            });
+</script>

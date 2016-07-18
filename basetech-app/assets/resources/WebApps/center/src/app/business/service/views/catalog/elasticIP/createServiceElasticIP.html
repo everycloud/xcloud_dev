@@ -1,0 +1,11 @@
+<div id="createElasticIPDiv" class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-bind="label.createElasticIPtitle"></div>
+        <div id="createElasticIPtitle" class="createpage-legend"></div>
+        <tiny-step id="createElasticIPStep.id" values="createElasticIPStep.values" jumpable="createElasticIPStep.jumpable" width="createElasticIPStep.width"></tiny-step>
+    </div>
+    <div  class="top20">
+        <div ng-include="createElasticIPStep1.url" ng-show="basicInfoPage"></div>
+        <div ng-include="createElasticIPStep2.url" ng-show="createElasticIPConfirmPage"></div>
+    </div>
+</div>

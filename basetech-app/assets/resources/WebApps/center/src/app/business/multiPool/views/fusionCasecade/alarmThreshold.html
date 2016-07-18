@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div id="alarmThresholdDiv">
+
+        <tiny-formfield>
+            <tiny-item>Inlinehelp：描述下这一步是在做什么，应该如何做</tiny-item>
+            <tiny-item>告警阈值上限，超过下面的数值，系统会上报告警。</tiny-item>
+
+                    <tiny-item label="cpuSlider.label">
+                        <tiny-slider id="cpuSlider.id"  rightCaption="cpuSlider.rightCaption" from="cpuSlider.from" width="cpuSlider.width" to="cpuSlider.to"
+                                 value="cpuSlider.value" step="cpuSlider.step"></tiny-slider>&nbsp;&nbsp;
+                                 <div style="padding-bottom:-1000px;margin-top:-60px;padding-left: 370px ">
+                                 <tiny-spinner id="cpuSpinner.id" value="cpuSpinner.value" min="cpuSpinner.min" max="cpuSpinner.max" width="cpuSpinner.width">
+                                 </tiny-spinner></div>
+                     </tiny-item>
+
+                     <tiny-item label="memorySlider.label">
+                         <tiny-slider id="memorySlider.id" width="memorySlider.width" rightCaption="memorySlider.rightCaption" from="memorySlider .from" to="memorySlider .to"
+                                       value="memorySlider.value" step="memorySlider.step"></tiny-slider>
+                         &nbsp;&nbsp;
+                         <div style="padding-bottom:-1000px;margin-top:-60px;padding-left: 370px ">
+                            <tiny-spinner id="memorySpinner.id" width="memorySpinner.width" value="memorySpinner.value" max="memorySpinner.max" min="memorySpinner.min"></tiny-spinner>
+                         </div>
+                     </tiny-item>
+
+                    <tiny-item label="storageSlider.label">
+                        <tiny-slider id="storageSlider.id" rightCaption="storageSlider.rightCaption" width="storageSlider.width" from="storageSlider.from" to="storageSlider.to"
+                                     value="storageSlider.value" step="storageSlider.step"></tiny-slider>
+                        <div style="padding-bottom:-1000px;margin-top:-40px;padding-left: 370px ">
+                            <tiny-spinner id="storageSpinner.id" value="storageSpinner.value"  width="storageSpinner.width" max="storageSpinner.max" min="storageSpinner.min"></tiny-spinner>
+                        </div>
+                    </tiny-item>
+
+                    <tiny-item label="elasticSlider.label">
+                        <tiny-slider id="elasticSlider.id" rightCaption="elasticSlider.rightCaption" width="elasticSlider.width" from="elasticSlider.from" to="elasticSlider.to"
+                                     value="elasticSlider.value" step="elasticSlider.step"></tiny-slider>
+                        <div style="padding-bottom:-1000px;margin-top:-40px;padding-left: 370px ">
+                            <tiny-spinner id="elasticSpinner.id" width="elasticSpinner.width" value="elasticSpinner.value" max="elasticSpinner.max" min="elasticSpinner.min"></tiny-spinner>
+                        </div>
+                    </tiny-item>
+
+                    <tiny-item label="vlanSlider.label">
+                        <tiny-slider id="vlanSlider.id" rightCaption="vlanSlider.rightCaption" width="vlanSlider.width" from="vlanSlider.from" to="vlanSlider.to"
+                                     value="vlanSlider.value" step="vlanSlider.step"></tiny-slider>
+                        <div style="padding-bottom:-1000px;margin-top:-40px;padding-left: 370px ">
+                            <tiny-spinner id="vlanSpinner.id" width="vlanSpinner.width" value="vlanSpinner.value" min="vlanSpinner.min" max="vlanSpinner.max">
+                            </tiny-spinner>
+                        </div>
+                    </tiny-item>
+
+                    <tiny-item label="firewallSlider.label">
+                        <tiny-slider id="firewallSlider.id" rightCaption="firewallSlider.rightCaption" from="firewallSlider.from" to="firewallSlider.to"
+                                     value="firewallSlider.value" width="firewallSlider.width" step="firewallSlider.step"></tiny-slider>
+                        <div style="padding-bottom:-1000px;margin-top:-40px;padding-left: 370px ">
+                            <tiny-spinner id="firewallSpinner.id" value="firewallSpinner.value" min="firewallSpinner.min" max="firewallSpinner.max"
+                                          width="firewallSpinner.width"></tiny-spinner>
+                        </div>
+                    </tiny-item>
+
+                    <tiny-item label="vsaSlider.label">
+                        <tiny-slider id="vsaSlider.id" rightCaption="vsaSlider.rightCaption" width="vsaSlider.width" from="vsaSlider.from" to="vsaSlider.to"
+                                     value="vsaSlider.value" step="vsaSlider.step"></tiny-slider>
+                        <div style="padding-bottom:-1000px;margin-top:-40px;padding-left: 370px ">
+                            <tiny-spinner id="vsaSpinner.id" width="vsaSpinner.width" value="vsaSpinner.value" min="vsaSpinner.min" max="vsaSpinner.max"></tiny-spinner>
+                        </div>
+                    </tiny-item>
+
+                    <tiny-item>
+                        <tiny-button id="alarmThreadPreBtn.id" text="alarmThreadPreBtn.text" click="alarmThreadPreBtn.click()"></tiny-button>
+                        <tiny-button class="major-btn" id="alarmThreadNextBtn.id" text="alarmThreadNextBtn.text" click="alarmThreadNextBtn.click()"></tiny-button>
+                        <tiny-button id="alarmThreadNextCancelBtn.id" text="alarmThreadNextCancelBtn.text" click="alarmThreadNextCancelBtn.click()"></tiny-button>
+                    </tiny-item>
+            </tiny-formfield>
+    </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+<div id="publicIpUsageDetailDiv" ng-controller="publicIpUsageDetailCtrl">
+    <div style="position: relative;left: 150px;width: 500px;">
+        <tiny-Lineplot id="ipUsagePiechart.id" series="ipUsagePiechart.pieSeries" colors="ipUsagePiechart.colors"
+                       width="ipUsagePiechart.width"
+                       height="ipUsagePiechart.height" data="ipUsagePiechart.data"
+                       legend="ipUsagePiechart.legend"></tiny-Lineplot>
+    </div>
+
+    <div class="margin-top-beautifier">
+        <tiny-table id="ipUsageTable.id" caption="ipUsageTable.caption" data="ipUsageTable.data"
+                    columns="ipUsageTable.columns"
+                    enable-pagination="ipUsageTable.enablePagination"
+                    pagination-style="ipUsageTable.paginationStyle" length-change="ipUsageTable.lengthChange"
+                    length-menu="ipUsageTable.lengthMenu" display-length="ipUsageTable.displayLength"
+                    enable-filter="ipUsageTable.enableFilter"
+                    cur-page="ipUsageTable.curPage" total-records="ipUsageTable.totalRecords"
+                    hide-total-records="ipUsageTable.hideTotalRecords"
+                    callback="ipUsageTable.callback" render-row="ipUsageTable.renderRow"
+                    show-details="ipUsageTable.showDetails" change-select="ipUsageTable.changeSelect"
+                    columns-draggable="ipUsageTable.columnsDraggable"></tiny-table>
+    </div>
+
+</div>
+<script>
+    require(['app/business/resources/controllers/rpool/zone/zoneResources/network/publicIP/publicIpUsageDetailCtrl'],
+            function (publicIpUsageDetailCtrl) {
+                var dep = ['ng', 'wcc', publicIpUsageDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#publicIpUsageDetailDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#publicIpUsageDetailDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

@@ -1,0 +1,62 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="高级属性">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100048">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>高级属性</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100048"></a><a name="it_60_51_100048"></a>
+
+
+<h1 class="topictitle1">高级属性</h1>
+
+
+<div><p></p>
+
+<div class="p">资源集群的高级属性包括：HA资源预留、主机内存复用、虚拟机启动策略、GuestNUMA、IMC策略。<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">VMware虚拟化环境中的资源集群，只能查看但不能修改资源集群的高级配置。 </div></div>
+</div>
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">HA预留</h4></div><div class="dropdowncontext"><p>当集群中的主机故障时，该主机上的虚拟机可以使用设置的预留资源迁移到集群内的其他主机上。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">主机内存复用</h4></div><div class="dropdowncontext"><p>设置主机内存复用策略后，可以使主机上的虚拟机共享主机的内存资源，提高主机上的虚拟机密度。</p>
+</div></div></div>
+
+<div class="section"><h4 class="sectiontitle">虚拟机启动策略</h4><div class="p">配置虚拟机启动策略后，在虚拟机启动时，会按照配置的策略在集群内选择对应的主机。<ul><li>自动分配：虚拟机启动时，在集群中满足资源条件的节点中随机进行节点的选择。</li><li>负载均衡：虚拟机启动时，根据节点的CPU和内存利用率进行节点的选择。</li></ul>
+</div>
+</div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">GuestNUMA</h4></div><div class="dropdowncontext"><p><span>GuestNUMA可以将CNA节点上的CPU和内存拓扑结构呈现给虚拟机，虚拟机用户可根据该拓扑结构利用第三方软件（Eclipse等）对CPU和内存进行相应的配置，从而使得虚拟机内部业务在运行时可以优先访问近端内存以减小访问延时，达到提升性能的目的。</span></p>
+<div class="p"><div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">GuestNUMA功能生效有下面的前提条件：<ul><li>虚拟机CPU的内核数必须为主机CPU个数的整数倍或主机单个CPU线程数的整数倍。<p> 如果由于虚拟机所在主机的CPU规格发上变化(比如热迁移或关机后在其他节点上启动)，或虚拟机的CPU规格被修改后，GuestNUMA功能可能会失效。</p>
+</li><li>不能开启集群内存复用功能。</li><li>在主机的高级BIOS设置中开启NUMA Support选项。</li><li>设置集群GuestNUMA策略后，需将主机上的虚拟机重启。</li></ul>
+</div></div>
+</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">IMC策略</h4></div><div class="dropdowncontext"><p>IMC可以确保集群内的主机向虚拟机提供相同的CPU功能集，即使这些主机的实际CPU不同，也不会因CPU不兼容而导致迁移虚拟机失败。</p>
+<div class="p">设置集群IMC策略时，如果集群中有主机或虚拟机，则必须满足下面的条件：<ul><li>集群下主机的CPU功能集必须等于或高于设置的目标基准功能集。</li><li>集群下运行或休眠状态的虚拟机CPU功能集必须等于或低于目标基准功能集。如果存在不满足条件的虚拟机，需要将该虚拟机关机或迁移出该集群后设置。</li></ul>
+</div>
+<div class="p"><div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">集群开启IMC模式后，已加入或待加入该集群的主机，需要在BIOS的CPU高级选项中开启<span class="uicontrol">“Execute Disable Bit”</span>，即CPU硬件防病毒功能，亦称作NX或XD功能。</div></div>
+</div>
+</div></div></div>
+
+</div>
+
+
+</body>
+</html>

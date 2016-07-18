@@ -1,0 +1,259 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Creating and Replacing a FusionManager Security Protection Certificate">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_53_000050">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Creating and Replacing a FusionManager Security Protection Certificate</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("Creating and Replacing a FusionManager Security Protection Certificate<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_53_000050"></a><a name="it_60_53_000050"></a>
+
+
+
+<h1 class="topictitle1">Creating and Replacing a <span>FusionManager</span> Security Protection Certificate</h1>
+<ul><li><a href="#it_60_53_000050__1.2.1.1">Scenarios</a></li><li><a href="#it_60_53_000050__1.2.2.1">Impact on the System</a></li><li><a href="#it_60_53_000050__1.2.3.1">Prerequisites</a></li><li><a href="#it_60_53_000050__1.2.4.1">Procedure</a></li><li><a href="#it_60_53_000050__1.2.5.1">Follow-up Procedure</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_53_000050__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">Scenarios</a></h4>
+
+
+<div class="p"><p>To improve system security, <span>FusionManager</span> provides a hardened security environment in which users cannot execute
+unauthorized commands after logging in to the system using Secure
+Shell (SSH). To install software packages or files on <span>FusionManager</span> in this environment, you need to first create a security protection
+certificate, upload the certificate public key to <span>FusionManager</span>, use the certificate private key to generate a digital signature
+file for the files or software packages to be installed, and upload
+both the digital signature file and the files and software packages
+to <span>FusionManager</span>. Before executing the installation commands, <span>FusionManager</span> verifies the uploaded signature file and starts installation only
+after the verification is successful.</p>
+<p>This topic describes how
+to create a security protection certificate using the OpenSSL tool
+and generate a signature file for the files or software packages to
+be installed. You are advised to create a security protection certificate
+and upload the certificate public key file immediately after setting
+up the <span>FusionManager</span> system. You can also replace the in-use security protection
+certificate during system operation and maintenance (O&amp;M) to improve
+system security. This topic also provides an instruction to replace
+a security protection certificate.</p>
+<p>After creating a security
+protection certificate, ensure that you well keep the private key
+file of the certificate. If the private key file is lost, the system
+cannot generate the required digital signature file, and therefore
+the software packages or files cannot be installed on <span>FusionManager</span>.</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_53_000050__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">Impact on the System</a></h4>
+
+
+<div class="p"><p>If the new certificate is incorrect, users are not allowed
+to use the <b><span class="cmdname">installComponents</span></b> command to install
+software to <span>FusionManager</span> or replace the security protection certification again.</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_53_000050__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">Prerequisites</a></h4>
+
+
+<div class="p"><ul><li>You have obtained the management IP addresses of the active and
+standby <span>FusionManager</span> nodes and the <span class="parmname"><b>galaxmanager</b></span> user password.</li><li>WinSCP is available.</li><li>PuTTY is available.</li></ul>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_53_000050__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">Procedure</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">Create a security protection certificate.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li id="it_60_53_000050__ssl"><a name="it_60_53_000050__ssl"></a><a name="ssl"></a><span>Visit the OpenSSL official website <a href="http://www.slproweb.com/products/Win32OpenSSL.html" target="_blank">http://www.slproweb.com/products/Win32OpenSSL.html</a>.</span>
+</li><li><span>Download the software,
+for example, download the <span class="parmname"><b>Win32 OpenSSL v1.0.1j</b></span>.</span>
+</li><li><span>Install the OpenSSL tool on the local PC.</span></li><li><span>On the local PC, choose <span class="menucascade"><b><span class="uicontrol">Start</span></b> &gt; <b><span class="uicontrol">Run</span></b></span>.</span></li><li><span>Enter <b><span class="cmdname">cmd</span></b> and click <span class="uicontrol"><b>OK</b></span> to enter the command-line interface (CLI).</span></li><li><span>Run the following command to switch to the drive containing
+the OpenSSL tool programs:</span>
+<p><i><span class="varname">Drive letter of the drive containing the OpenSSL tool</span></i><b><span class="cmdname">:</span></b></p>
+<p>For example, if the OpenSSL tool is stored in <span class="parmvalue"><b>drive
+D</b></span>, run the following command:<p><b><span class="cmdname">D:</span></b></p>
+</p>
+</li><li><span>Run the following command to switch to the directory
+containing the OpenSSL tool programs:</span>
+<p><p><b><span class="cmdname">cd \</span></b><i><span class="varname">directory containing the
+OpenSSL tool</span></i></p>
+</p>
+<p>For example, if the OpenSSL tool is stored in <span class="parmvalue"><b>OpenSSL-Win32\bin</b></span>, run the following command:<p><b><span class="cmdname">cd \OpenSSL-Win32\bin</span></b></p>
+</p>
+</li><li><span>Run the following command to create the private key
+file for the security protection certificate:</span>
+<p><b><span class="cmdname">openssl genrsa -aes256 -passout pass:</span></b><i><span class="varname">Certificate encryption password</span></i> <b><span class="cmdname">-out</span></b> <i><span class="varname">private.key</span></i> <b><span class="cmdname">2048</span></b></p>
+<p>After the command is successfully executed, the generated private
+key file <span class="parmname"><b>private.key</b></span> can be found in the OpenSSL
+installation directory, for example, if the OpenSSL tool is stored
+in <span class="parmvalue"><b>OpenSSL-Win32\bin</b></span>. The private key file
+can be named as desired.</p>
+</li><li id="it_60_53_000050__crt"><a name="it_60_53_000050__crt"></a><a name="crt"></a><span>Run the following command to create the public
+key file for the security protection certificate:</span>
+<p><b><span class="cmdname">openssl req -new -x509 -days 3650 -passin pass:</span></b><i><span class="varname">Certificate encryption password</span></i> <b><span class="cmdname">-sha256
+-key</span></b> <i><span class="varname">private.key</span></i> <b><span class="cmdname">-out upload_public.crt
+-pubkey -subj "/C=CN/ST=Shaanxi/L=Xi'an/O=Huawei/OU=IT/CN=localhost"
+-config openssl.cfg</span></b></p>
+<p>After the command is successfully executed, the generated public
+key file <span class="parmname"><b>upload_public.crt</b></span> can be found in the
+OpenSSL installation directory. The public key file must be named <span class="parmname"><b>upload_public.crt</b></span>.</p>
+</li><li id="it_60_53_000050__sig"><a name="it_60_53_000050__sig"></a><a name="sig"></a><span>Run the following command to create a digital
+signature file for the to-be-uploaded files and software packages
+using the private key file of the certificate:</span>
+<p><b><span class="cmdname">openssl dgst -sha256 -out</span></b> <i><span class="varname">Signature
+file name</span></i> <b><span class="cmdname">-sign private.key</span></b> <i><span class="varname">Name of the file or software package to be uploaded</span></i></p>
+<p>The recommended file or software package name format is <span class="parmname"><b>package or file name.sig</b></span> For example, if the software
+package name is <span class="parmname"><b>Tools.zip</b></span> and the private key
+file name is <span class="parmname"><b>private.key</b></span>, run the following command
+to create the signature file:<p><b><span class="cmdname">openssl dgst -sha256 -out
+Tools.zip.sig -sign private.key Tools.zip</span></b></p>
+</p>
+</li><li id="it_60_53_000050__upload"><a name="it_60_53_000050__upload"></a><a name="upload"></a><span>Use WinSCP to log in to the <span>FusionManager</span> node as user <span class="parmname"><b>galaxmanager</b></span> and upload the
+public key file and the signature file to the <span class="filepath"><b>/opt/goku/data/upload</b></span> directory on the <span>FusionManager</span> node.</span></li><li><span>Run the following command to make the certificate take
+effect:</span>
+<p><b><span class="cmdname">updateCa upload</span></b></p>
+</li><li><span>Determine whether <span>FusionManager</span> is deployed in active/standby mode.</span>
+<p><ul><li>If yes, go to <a href="#it_60_53_000050__stp_tongbu">14</a>.</li><li>If no, no further action is required.</li></ul>
+</p>
+</li><li id="it_60_53_000050__stp_tongbu"><a name="it_60_53_000050__stp_tongbu"></a><a name="stp_tongbu"></a><span>Run the following command to synchronize
+the active node configurations to the standby node:</span>
+<p><b><span class="cmdname">haNotifySyncFiles /opt/goku/data/ca</span></b></p>
+<p>The synchronization is successful if the command output is displayed
+as follows:<pre class="screen">execute command syncfile successfully.
+</pre>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+<div class="section"><a name="it_60_53_000050__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_53_000050" class="sectiontitle2contents">Follow-up Procedure</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">Replace a security protection certificate.</p>
+<p><div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/icon-notice.gif"> NOTICE: </span><div class="noticebody">The certificate replacement requires to
+use the private key file of the original security protection certificate.
+Therefore, before the new public key file is generated, ensure that
+you have a backup of the original private key file and properly keep
+the private key file to prevent it from being overwritten by the new
+private key file.</div></div>
+</p><div class="Steps-titled"><ol type="1" start="1"><li><span>Repeat <a href="#it_60_53_000050__ssl">1</a> to <a href="#it_60_53_000050__crt">9</a> to create a new public key file.</span></li><li id="it_60_53_000050__sig2"><a name="it_60_53_000050__sig2"></a><a name="sig2"></a><span>Run the following command to create a digital
+signature file for the new public key file using the original private
+key file:</span>
+<p><b><span class="cmdname">openssl dgst -sha256 -out upload_public.crt.sig -sign</span></b> <i><span class="varname">private.key</span></i> <b><span class="cmdname">upload_public.crt</span></b></p>
+<p><i><span class="varname">private.key</span></i> is the private key file name.</p>
+</li><li><span>Repeat <a href="#it_60_53_000050__upload">11</a> to upload the new
+public key file and the signature file to the <span class="filepath"><b>/opt/goku/data/upload</b></span> directory on the <span>FusionManager</span> node.</span></li><li><span>Use PuTTY to log in to the active <span>FusionManager</span> node.</span>
+<p>Ensure that the active node management IP address and username <span class="parmname"><b>galaxmanager</b></span> are used to establish the connection.</p>
+</li><li><span>Run the following command to disable user logout on
+system timeout:</span>
+<p><b><span class="cmdname">TMOUT=0</span></b></p>
+</li><li><span>Run the following commands to replace the original security
+protection certificate:</span>
+<p><b><span class="cmdname">updateCa upload</span></b></p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

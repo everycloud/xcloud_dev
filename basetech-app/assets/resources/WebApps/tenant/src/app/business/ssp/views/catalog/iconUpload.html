@@ -1,0 +1,24 @@
+<div id="iconUploadDiv" class="clearfix">
+    <span class="fl right10"><span ng-bind="i18n.common_term_icon_label"></span>:</span>
+    <tiny-fileupload id="iconUploadId" class="fl" enable-detail="true"
+                     file-obj-name="iconUpload.fileObjName" enable-progress="false"
+                     file-type="iconUpload.type" max-size="iconUpload.maxSize"
+                     action="iconUpload.url" complete="iconUpload.complete"
+                     click="iconUpload.beforeSubmit" select-error="iconUpload.selectError"
+                     select="iconUpload.select">
+    </tiny-fileupload>
+</div>
+<script type="text/javascript">
+    require(["app/business/ssp/controllers/catalog/iconUploadCtrl"], function (iconUploadModel) {
+        $("#iconUploadDiv").attr("ng-controller", "iconUploadCtrl");
+        var dep = ['ng', 'wcc', iconUploadModel.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", $("#iconUploadDiv"));
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile($("#iconUploadDiv"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

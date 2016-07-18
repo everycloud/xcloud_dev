@@ -1,0 +1,58 @@
+<link href="../theme/default/css/formfield.css" type="text/css" rel="stylesheet"/>
+<div id="addRackHostBasicInfo">
+    <tiny-formfield>
+        <tiny-item label="basicInfo.nameItem.label" require="basicInfo.nameItem.require">
+            <tiny-textbox id="basicInfo.nameItem.id" value="basicInfo.nameItem.value" type="input"
+                          tooltip="basicInfo.nameItem.tooltip" width="formfieldWidth"
+                          tip-position="right" validate="basicInfo.nameItem.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="basicInfo.modelItem.label" require="basicInfo.modelItem.require">
+            <tiny-select id="basicInfo.modelItem.id" values="basicInfo.modelItem.values"
+                         change="basicInfo.modelItem.change()" height="basicInfo.modelItem.height"
+                         width="formfieldWidth" validate="basicInfo.modelItem.validate"></tiny-select>
+        </tiny-item>
+        <tiny-item label="basicInfo.accessType.label" require="basicInfo.accessType.require">
+            <span ng-bind="i18n.device_term_connectHyper_label"></span>
+             <span popover="{{basicInfo.accessType.tooltip}}" popover-trigger="mouseenter"
+                   class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="basicInfo.zoneItem.label" require="basicInfo.zoneItem.require"
+                   display="cloudType=='FUSIONSPHERE'">
+            <fm-select id="createInfo.zoneId" name="basicInfo.zoneItem.value"
+                       width="formfieldWidth"
+                       option="basicInfo.zoneItem.values"></fm-select>
+        </tiny-item>
+        <tiny-item label="basicInfo.roomItem.label" require="basicInfo.roomItem.require">
+            <tiny-combobox id="basicInfo.roomItem.id" values="basicInfo.roomItem.values"
+                           validate="basicInfo.roomItem.validate" height="basicInfo.roomItem.height"
+                           values-from="basicInfo.roomItem.valuesFrom" match-method="basicInfo.roomItem.matchMethod"
+                           width="formfieldWidth" select="basicInfo.roomItem.select()"
+                           tooltip="basicInfo.roomItem.tooltip"></tiny-combobox>
+        </tiny-item>
+        <tiny-item label="basicInfo.cabinetItem.label" require="basicInfo.cabinetItem.require">
+            <tiny-combobox id="basicInfo.cabinetItem.id" values="basicInfo.cabinetItem.values"
+                           values-from="basicInfo.cabinetItem.valuesFrom"
+                           match-method="basicInfo.cabinetItem.matchMethod" height="basicInfo.cabinetItem.height"
+                           width="formfieldWidth" validate="basicInfo.cabinetItem.validate"
+                           tooltip="basicInfo.cabinetItem.tooltip"></tiny-combobox>
+        </tiny-item>
+        <tiny-item label="basicInfo.subrackItem.label" require="basicInfo.subrackItem.require">
+            <tiny-textbox id="basicInfo.subrackItem.id" value="basicInfo.subrackItem.value" type="input"
+                          width="formfieldWidth"
+                          tooltip="basicInfo.subrackItem.tooltip" validate="basicInfo.subrackItem.validate"
+                          tip-position="right"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="basicInfo.descriptionItem.label" require="basicInfo.descriptionItem.require">
+            <tiny-textbox id="basicInfo.descriptionItem.id" value="basicInfo.descriptionItem.value"
+                          type="basicInfo.descriptionItem.type" validate="basicInfo.descriptionItem.validate"
+                          width="formfieldWidth"
+                          height="basicInfo.descriptionItem.height"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="basicButtonGroup.nextBtn.id" text="basicButtonGroup.nextBtn.text"
+                         click="basicButtonGroup.nextBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="basicButtonGroup.cancelBtn.id" text="basicButtonGroup.cancelBtn.text"
+                         click="basicButtonGroup.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

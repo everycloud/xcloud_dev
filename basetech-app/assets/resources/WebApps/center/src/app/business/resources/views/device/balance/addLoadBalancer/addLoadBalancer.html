@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="../theme/default/css/scrollbar.css"/>
+<div class="box_padding">
+    <div id="addLoadBalancerStep" class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-bind="i18n.device_term_connectLB_button"></div>
+        <tiny-step id="addLoadBalancerStep.id" jumpable="addLoadBalancerStep.jumpable"
+                   values="addLoadBalancerStep.values" width="addLoadBalancerStep.width"></tiny-step>
+    </div>
+    <div id="addLoadBalancerContent" class="content create-page-distance">
+        <div ng-include="addLoadBalancerStep1.url" ng-show="showBasicInfoPage"></div>
+        <div ng-include="addLoadBalancerStep2.url" ng-show="showBusinessConfigPage"></div>
+        <div ng-include="addLoadBalancerStep3.url" ng-show="showConfirmInfoPage"></div>
+    </div>
+</div>

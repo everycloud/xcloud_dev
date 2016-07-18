@@ -1,0 +1,199 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Resource Pool Configuration">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000008">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Resource Pool Configuration</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Resource Configuration\nResource Pool Configuration");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100012.html\">Resource Configuration<\/a> > Resource Pool Configuration<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000008"></a><a name="it_60_51_000008"></a>
+
+
+
+<h1 class="topictitle1">Resource Pool Configuration</h1>
+<ul><li><a href="#it_60_51_000008__1.2.1.1">Overview</a></li><li><a href="#it_60_51_000008__1.2.2.1">Configuration Process</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_000008__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000008" class="sectiontitle2contents">Overview</a></h4><p><span>FusionManager</span> can manage hardware devices, virtualized resources, and applications
+in a cloud system. After setting up the <span>FusionManager</span> system, you can add multiple <span>FusionSphere
+OpenStack</span> instances into a unified cloud resource pool for <span>FusionManager</span> to manage resources in the pool in a centralized manner.</p>
+</div>
+
+<div class="section"><a name="it_60_51_000008__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000008" class="sectiontitle2contents">Configuration Process</a></h4><div class="p">Complete
+the tasks shown in <a href="#it_60_51_000008__fig_02">Figure 1</a>. <a href="#it_60_51_000008__tab_02">Table 1</a> describes the involved tasks.<div class="fignone" id="it_60_51_000008__fig_02"><a name="it_60_51_000008__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>Figure 1 </b>Service configuration</span>
+
+
+<br><span><img src="fig/fig_it_60_51_000008_01_ict.png"></span>
+</div>
+</div>
+<div class="p">
+<div class="tablenoborder"><a name="it_60_51_000008__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000008__tab_02" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="15%" id="mcps1.2.2.3.1.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="44.333333333333336%" id="mcps1.2.2.3.1.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="40.666666666666664%" id="mcps1.2.2.3.1.2.4.1.3"><p>Web Client Navigation</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.2.2.3.1.2.4.1.1 "><p>Add Keystone to <span>FusionManager</span>.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.2.2.3.1.2.4.1.2 "><p>Keystone is a rights management and authentication service provided by <span>FusionSphere
+OpenStack</span>. After the Keystone service is added to <span>FusionManager</span>, the Keystone rights management function applies to <span>FusionManager</span>.</p>
+<div class="p">Before the Keystone service
+is added to <span>FusionManager</span>, <span>FusionManager</span> cannot use the resources provided by OpenStack or manage rights specified in <span>FusionSphere
+OpenStack</span>.<div class="note"><span class="notetitle"> NOTE: </span><div class="notebody"><p>After the Keystone is added to <span>FusionManager</span>, if you use <span>FusionSphere
+OpenStack</span>, rather than <span>FusionManager</span> to manage users or perform other operations, use the Keystone v3 interfaces. Otherwise,
+the operations may fail due to authentication issues.</p>
+</div></div>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.2.2.3.1.2.4.1.3 "><p><span class="menucascade"><b><span class="uicontrol">User</span></b> &gt; <b><span class="uicontrol">Keystone Configuration</span></b></span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.2.2.3.1.2.4.1.1 "><p>Associate <span>FusionManager</span> with an OpenStack instance.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.2.2.3.1.2.4.1.2 "><p>An <span>OpenStack</span> instance is a hypervisor that manages all virtualized resources
+in a cloud platform.</p>
+<p><span>FusionManager</span> can manage and maintain virtual resources in an <span>OpenStack</span> instance only after the <span>OpenStack</span> instance is associated with <span>FusionManager</span>.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.2.2.3.1.2.4.1.3 "><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">OpenStack Instances</span></b></span>.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.2.2.3.1.2.4.1.1 "><p>Add physical devices to <span>FusionManager</span>.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.2.2.3.1.2.4.1.2 "><p>Add physical devices to <span>FusionManager</span> so that <span>FusionManager</span> can monitor and manage these devices in a unified manner.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.2.2.3.1.2.4.1.3 "><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b></span>.</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div id="bindOrgDiv">
+    <div class="blank_10"></div>
+    <div class="clearfix">
+        <tiny-table id="orgTable.id" caption="orgTable.caption" data="orgTable.data"
+                    pagination-style="orgTable.paginationStyle"
+                    columns='orgTable.columns' render-row="orgTable.renderRow"
+                    total-records="orgTable.totalRecords" length-change="orgTable.lengthChange"
+                    cur-page="orgTable.curPage" display-length="orgTable.displayLength"
+                    enable-pagination="orgTable.enablePagination"  change-select="orgTable.changeSelect"
+                    length-menu="orgTable.lengthMenu" callback="orgTable.callback"></tiny-table>
+    </div>
+    <div class="fm-btn-top-large text-center">
+        <tiny-button class="major-btn" id="okButton.id" text="okButton.text"
+                     click="okButton.click()"></tiny-button>
+        <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["tiny-widgets/Checkbox", 'app/business/multiPool/controllers/poolInfo/availableZone/bindOrgCtrl'],
+            function (Checkbox, bindOrgCtrl) {
+                var rootElement = $("#bindOrgDiv");
+                rootElement.attr("ng-controller", "multiPool.availableZone.bindOrg.ctrl");
+                var dep = ['ng', 'wcc', bindOrgCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

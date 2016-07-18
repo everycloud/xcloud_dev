@@ -1,0 +1,84 @@
+<div class="container-fluid elasticip-detail" ng-controller="network.elasticIP.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <div class="margin-beautifier">
+            <!--服务实例-->
+            <div ng-show="isServiceCenter">
+                <tiny-formfield>
+                    <tiny-item label="serviceInstanceName.label">
+                        <div >
+                            <a ng-bind="instanceName" title="{{i18n.common_term_search_button}} {{instanceName}}" class="btn-link"
+                               ng-click="jumpServiceInstancePage(instanceId)"></a>
+                        </div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span3" ng-show='routerType==1'ng-if="!isICT">
+
+                <span ng-bind="maxRxBandwidth.label" class="color-gray"></span>
+                <div>
+                    <span ng-bind="maxRxBandwidth.value"></span>
+                </div>
+            </div>
+            <div class="span3" ng-show='routerType==1' ng-if="!isICT">
+                <span ng-bind="maxTxBandwidth.label" class="color-gray"></span>
+                <div>
+                    <span ng-bind="maxTxBandwidth.value"></span>
+                </div>
+            </div>
+            <div class="span3" ng-if="!isICT&&!vpcTypeShared">
+                <span ng-bind="totalAclRule.label" class="color-gray"></span>
+                <div>
+                    <span ng-bind="totalAclRule.value"></span>
+                </div>
+            </div>
+            <div class="span3" ng-if="!isICT">
+                <span ng-bind="applyTime.label" class="color-gray"></span>
+                <div>
+                    <span ng-bind="applyTime.value"></span>
+                </div>
+            </div>
+            <div class="span3" ng-if="isICT">
+                <span ng-bind="bandObject.label" class="color-gray"></span>
+                <div>
+                    <span ng-bind="bandObject.value"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+require(['app/business/network/controllers/eip/elasticIPDetailModule', 'app/services/httpService'],
+    function(elasticIPDetailModule, http) {
+        var curView = undefined;
+        $(".elasticip-detail").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+
+        //编译(编译前scope是父页面继承来的)
+        var scope = curView.scope();
+        var routerType = scope.routerType;
+        var elasticIPId = scope.elasticIPId;
+        var vpcID = scope.params.vpcId;
+        var cloudInfrasId = scope.params.cloudInfraId;
+        var dep = ['ng', 'wcc', elasticIPDetailModule.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", curView);
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile(curView)($rootScope);
+            $rootScope.$digest();
+        });
+        // 3.查询初始化信息
+        var newScope = curView.scope();
+        newScope.routerType = routerType;
+        newScope.queryElasticIPDetail(elasticIPId, vpcID, cloudInfrasId);
+        newScope.queryServiceInstanceId(elasticIPId);
+    });
+</script>

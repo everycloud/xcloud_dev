@@ -1,0 +1,264 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="Configuring the VPN Client">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600025">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Configuring the VPN Client</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nConfiguring the VPN Client");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_faq_cp_01.html\">FAQ<\/a> > Configuring the VPN Client<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600025"></a><a name="it_60_51_600025"></a>
+
+
+<h1 class="topictitle1">Configuring the VPN Client</h1>
+<ul><li><a href="#it_60_51_600025__1.2.1">Scenarios</a></li><li><a href="#it_60_51_600025__1.2.2">Prerequisites</a></li><li><a href="#it_60_51_600025__1.2.3">Procedure</a></li><li><a href="#it_60_51_600025__1.2.4">Verification</a></li><li><a href="#it_60_51_600025__1.2.5">Additional Information</a></li></ul>
+
+<div>
+<div class="Section"><a name="it_60_51_600025__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_60_51_600025" class="sectiontitle2contents">Scenarios</a></h2>
+<div class="Sectionbody"><p>A user can configure the virtual private network
+(VPN) client on a PC to access all the routed networks in a virtual
+private cloud (VPC) from a VPN client.</p>
+</div></div>
+
+<div class="Section"><a name="it_60_51_600025__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_60_51_600025" class="sectiontitle2contents">Prerequisites</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">Conditions</p></span><ul><li>A VPN gateway and a Layer Two Tunneling Protocol (L2TP) VPN connection
+have been created.</li><li><p>You have obtained Huawei Secoway VPN Client in the following
+path and installed it on the PC:</p>
+<p>Visit <span class="uicontrol"><b>http://support.huawei.com/enterprise</b></span> and choose <span class="menucascade"><b><span class="uicontrol">http://support.huawei.com/enterprise</span></b> &gt; <b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Enterprise Networking</span></b> &gt; <b><span class="uicontrol">Network Solution</span></b> &gt; <b><span class="uicontrol">Enterprise Security
+Solution</span></b> &gt; <b><span class="uicontrol">VPN Client</span></b> &gt; <b><span class="uicontrol">V100R001C02SPC700</span></b></span>.</p>
+</li></ul>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_60_51_600025__1.2.3"></a><a name="1.2.3"></a><h2 class="sectiontitle"><a href="#it_60_51_600025" class="sectiontitle2contents">Procedure</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle">Create a connection.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>Open the Secoway VPN Client on the PC.</span></li><li><span>Create a connection on the client.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Select <span class="wintitle"><b>Create a new connection by inputting
+parameters</b></span> and click <span class="uicontrol"><b>Next</b></span>.</span>
+</li><li><span>Configure the login information for the client, as shown
+in <a href="#it_60_51_600025__fig_logn">Figure 1</a>.</span>
+<p><div class="fignone" id="it_60_51_600025__fig_logn"><a name="it_60_51_600025__fig_logn"></a><a name="fig_logn"></a><span class="figcap"><b>Figure 1 </b>Login information</span>
+
+<br><span><img src="fig/fig_it_60_51_600025_01.png"></span></div>
+<ul><li>Enter the VPN gateway address in <span class="parmname"><b>LNS Server</b></span>.</li><li>Enter the username of the target VPN in <span class="parmname"><b>Username</b></span>. This username was configured in the access user list during the
+L2TP VPN creation process.</li><li>Enter the password of the user in <span class="parmname"><b>Password</b></span>.</li></ul>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Finish</b></span>.</span></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure connection properties.</p>
+<div class="Steps-titled"><ol type="1" start="6"><li><span>Right click the newly created connection and select <span class="wintitle"><b>Property</b></span>.</span>
+<p>The <span class="wintitle"><b>Property</b></span> dialog box is displayed.</p>
+</li><li><span>On the <span class="wintitle"><b>Basic Settings</b></span> page, configure
+basic information for the connection, as shown in <a href="#it_60_51_600025__fig_l2tp">Figure 2</a>.</span>
+<p><div class="fignone" id="it_60_51_600025__fig_l2tp"><a name="it_60_51_600025__fig_l2tp"></a><a name="fig_l2tp"></a><span class="figcap"><b>Figure 2 </b>Basic settings</span>
+
+<br><span><img src="fig/fig_it_60_51_600025_02.png"></span></div>
+<ul><li>Select <span class="wintitle"><b>Enable IPSec Protocol</b></span> and <span class="wintitle"><b>Pre-Shared-Key</b></span>, and enter the password of the Internet
+Key Exchange (IKE) pre-shared key that is configured for the L2TP
+VPN connection in <span class="parmname"><b>Pre-Shared-Key</b></span>.</li><li>Select <span class="wintitle"><b>Allow Internet Access</b></span>.</li></ul>
+</p>
+</li><li><span>On the <span class="wintitle"><b>L2TP Settings</b></span> page, configure
+information for the VPN tunnel, as shown in <a href="#it_60_51_600025__fig_l2tp1">Figure 3</a>.</span>
+<p><div class="fignone" id="it_60_51_600025__fig_l2tp1"><a name="it_60_51_600025__fig_l2tp1"></a><a name="fig_l2tp1"></a><span class="figcap"><b>Figure 3 </b>L2TP settings</span>
+
+<br><span><img src="fig/fig_it_60_51_600025_03.png"></span></div>
+<ul><li>Enter the L2TP VPN name in <span class="parmname"><b>Tunnel Name</b></span>.</li><li>Select <span class="parmvalue"><b>CHAP</b></span> in <span class="parmname"><b>Authentication
+Mode</b></span>.</li><li>Select <span class="wintitle"><b>Enable Tunnel Authentication</b></span> and enter
+the encrypted password of the VPN tunnel configured for the L2TP VPN
+in <span class="parmname"><b>Tunnel Authentication Password</b></span>.</li></ul>
+</p>
+</li><li><span>On the <span class="wintitle"><b>IPSec Settings</b></span> page, configure
+information for the VPN Internet Protocol Security (IPSec), as shown
+in <a href="#it_60_51_600025__fig_l2tp2">Figure 4</a>.</span>
+<p><div class="fignone" id="it_60_51_600025__fig_l2tp2"><a name="it_60_51_600025__fig_l2tp2"></a><a name="fig_l2tp2"></a><span class="figcap"><b>Figure 4 </b>IPSec settings</span>
+
+<br><span><img src="fig/fig_it_60_51_600025_04.png"></span></div>
+<ul><li>Select <span class="wintitle"><b>Enable LNS Server IP</b></span>.</li><li>Set the options for <span class="parmname"><b>ESP Authentication Algorithm</b></span> and <span class="parmname"><b>ESP Encryption Algorithm</b></span> to the value that
+is the same as that configured for the Encapsulation Security Protocol
+(ESP) policy on the VPN gateway.</li></ul>
+</p>
+</li><li><span>On the <span class="wintitle"><b>IKE Settings</b></span> page, configure
+information for the VPN IKE, as shown in <a href="#it_60_51_600025__fig_l2tp3">Figure 5</a>.</span>
+<p><div class="fignone" id="it_60_51_600025__fig_l2tp3"><a name="it_60_51_600025__fig_l2tp3"></a><a name="fig_l2tp3"></a><span class="figcap"><b>Figure 5 </b>IKE settings</span>
+
+<br><span><img src="fig/fig_it_60_51_600025_05.png"></span></div>
+<ul><li>Select <span class="parmvalue"><b>Aggressive mode</b></span> in <span class="parmname"><b>Negotiation</b></span>.</li><li>Select <span class="parmvalue"><b>Name</b></span> in <span class="parmname"><b>ID Type</b></span>.</li><li>Set <span class="parmname"><b>Local Gateway Name</b></span> and <span class="parmname"><b>Remote
+Gateway Name</b></span> to the L2TP VPN name.</li><li>Set the options for <span class="parmname"><b>Authentication Algorithm</b></span> and <span class="parmname"><b>Encryption Algorithm</b></span> to the value that
+is the same as that configured for the IKE policy on the VPN gateway.</li><li>Set <span class="parmname"><b>DH Group Identifier</b></span> to the same value
+as the IKE DH group identifier configured on the firewall. For details
+about how to query the DH group information on a firewall, see <strong>Related Tasks</strong> provided at the end of this section.</li></ul>
+</p>
+</li><li><span>Retain the default values on the <span class="wintitle"><b>Advanced</b></span> page.</span></li><li><span>Click <span class="uicontrol"><b>Add</b></span> on the <span class="wintitle"><b>Route
+Settings</b></span> page.</span>
+<p>The <span class="wintitle"><b>Add VPN Network Segment</b></span> dialog box
+is displayed.</p>
+</li><li><span>Enter the IP address and subnet mask of the target routed
+network in the VPC and click <span class="uicontrol"><b>OK</b></span>.</span>
+<p><p>The information about the routed network is displayed on
+the <span class="wintitle"><b>Route Settings</b></span> page, as shown in <a href="#it_60_51_600025__fig_l2tp4">Figure 6</a>.</p>
+<div class="fignone" id="it_60_51_600025__fig_l2tp4"><a name="it_60_51_600025__fig_l2tp4"></a><a name="fig_l2tp4"></a><span class="figcap"><b>Figure 6 </b>Route settings</span>
+
+<br><span><img src="fig/fig_it_60_51_600025_06.png"></span></div>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span></li></ol></div>
+</div>
+</ul>
+
+</div></div>
+
+<div class="Section"><a name="it_60_51_600025__1.2.4"></a><a name="1.2.4"></a><h2 class="sectiontitle"><a href="#it_60_51_600025" class="sectiontitle2contents">Verification</a></h2>
+<div class="Sectionbody"><ol><li><p>After the VNP connection is configured, double-click the newly
+created connection on the VPN client. Run <b><span class="cmdname">ipconfig</span></b> to view the IP address that is assigned to the PC after the VPN
+client sets up the connection successfully. </p>
+<p>The assigned IP
+address belongs to the user subnet configured on the L2TP VPN connection.</p>
+</li><li>Run the <b><span class="cmdname">ping</span></b> command on the PC to check whether
+the VPC gateway can be pinged from the PC. If yes, the L2TP VPN is
+created successfully and is available to provide VPN services.</li></ol>
+</div></div>
+
+<div class="Section"><a name="it_60_51_600025__1.2.5"></a><a name="1.2.5"></a><h2 class="sectiontitle"><a href="#it_60_51_600025" class="sectiontitle2contents">Additional Information</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">Related Tasks</p></span><p><strong>Query the VPN IKE Information on a Firewall</strong></p>
+<ol><li id="it_60_51_600025__ol_pro"><a name="it_60_51_600025__ol_pro"></a><a name="ol_pro"></a><p>Run the following command on the firewall to query
+the IKE information on the firewall:</p>
+<div class="p"><pre class="screen">[Firewall01]<strong>display ike peer</strong></pre>
+</div>
+<p>In the command output as shown
+in the following, locate the virtual firewall used by the target VPC
+and make a note of its <span class="parmname"><b>Proposal</b></span> value:</p>
+<pre class="screen">……
+Local certificate file name:
+Proposal:<strong>2</strong>
+Local ID typt: FQDN
+Peer IP address:
+VPN instance:
+Authentic IP address:
+IP address pool
+Peer name:L2TP_XSY
+Peer domain name
+VPN instance bound to the SA: <strong>vfw100</strong>
+NAT traversal:enable
+……</pre>
+</li><li><p>Run the following command to check the IKE security proposal
+configured on the firewall:</p>
+<div class="p"><pre class="screen">[Firewall01]<strong>display ike Proposal</strong></pre>
+</div>
+<p>In the command output as shown in the following,
+find out the <span class="parmname"><b>Proposal</b></span> value noted down in <a href="#it_60_51_600025__ol_pro">1</a> and check the <span class="parmvalue"><b>Diffie-Hellman group</b></span> value of this proposal. The <span class="parmvalue"><b>Diffie-Hellman group</b></span> value is the IKE DH group ID to be configured on the VPN client.</p>
+<pre class="screen">priority  authentication  authentication  encryption  Diffie-Hellman  duration
+             method          algorithm     algorithm    group          seconds
+1            PRE_SHARED      SHA1          DES_CBC      MODP_768       86400
+<strong>2</strong>            PRE_SHARED      SHA1          DES_CBC      MODP_<strong>1024</strong>     86400
+3            PRE_SHARED      SHA1          DES_CBC      MODP_768       86400
+default      PRE_SHARED      SHA1          AES          MODP_1024      86400</pre>
+</li></ol>
+
+</div>
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

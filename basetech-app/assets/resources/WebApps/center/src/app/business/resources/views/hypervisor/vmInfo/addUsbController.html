@@ -1,0 +1,28 @@
+<div id="addUsbControllerDiv">
+    <tiny-formfield>
+        <tiny-item label="typeSelector.label" require="typeSelector.require">
+            <tiny-select id="typeSelector.id" values="typeSelector.values" width="typeSelector.width"
+                         change="typeSelector.change()"></tiny-select>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/vmInfo/addControllerCtrl'],
+            function (addControllerCtrl) {
+                var rootElement = $("#addUsbControllerDiv");
+                rootElement.attr("ng-controller", "resources.vmInfo.addController.ctrl");
+                var dep = ['ng', 'wcc', addControllerCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

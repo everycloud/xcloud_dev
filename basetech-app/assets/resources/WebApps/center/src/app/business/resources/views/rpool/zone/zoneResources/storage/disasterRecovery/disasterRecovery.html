@@ -1,0 +1,23 @@
+<div id="disasterRecoveryDiv" class="container-fluid">
+    <div class="clearfix bottom10">
+        <div class="fl">
+            <tiny-button id="createButton.id" class="major-btn" text="createButton.text"
+                         click="createButton.click()" ng-if="operable"></tiny-button>
+        </div>
+        <div class="fr">
+            <a class="btn-link">
+                <div ng-click="refresh()" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div ng-click="help.show=true" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+    </div>
+    <div>
+        <tiny-table id="storageTable.id" data="storageTable.data"
+                    columns='storageTable.columns' render-row="storageTable.renderRow"
+                    enable-pagination="storageTable.enablePagination"
+                    columns-draggable="storageTable.columnsDraggable"></tiny-table>
+    </div>
+    <div fm-help help="'drawer_resource_storage'" i18n="'zh'" show="help.show"></div>
+</div>

@@ -1,0 +1,60 @@
+<div fm-help help="'drawer_template_image_ict'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="i18n.common_term_image_label"></span></li>
+            <li class="two-lead">
+                <p ng-repeat="eView in i18n.split(i18n.resource_image_view_explan_label)">
+                    {{eView}}
+                </p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="clearfix">
+            <div class="fl">
+                <tiny-button class="major-btn" id="create.id" disable="create.disabled" icons-class="create.iconsClass" text="create.text"
+                             tooltip="create.tip" click="create.create()"></tiny-button>
+                <label ng-bind="i18n.template_term_oddSpace_label"></label>:<span ng-bind="freeCapacity" style="padding-left: 10px;"></span>MB
+            </div>
+            <!--刷新、列选择、帮助-->
+            <div class="pull-right">
+                <tiny-filtersel id="searchGlance.id" values="searchGlance.values" width="searchGlance.width"
+                                change="searchGlance.change()">
+                </tiny-filtersel>
+                <a class="btn-link btn-link-padding">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{ i18n.common_term_fresh_button }}" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                <div title="{{ i18n.common_term_onlinehelp_label }}" ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div class="top10 clearfix">
+            <tiny-table id="imageTable.id" caption="imageTable.caption" data="imageTable.data"
+                        columns="imageTable.columns"
+                        enable-pagination="imageTable.enablePagination"
+                        enable-filter="imageTable.enableFilter"
+                        hide-total-records="imageTable.hideTotalRecords"
+                        render-row="imageTable.renderRow"
+                        show-details="imageTable.showDetails"
+                        columns-draggable="imageTable.columnsDraggable"></tiny-table>
+        </div>
+        <div style="margin-top:20px">
+            <div class="fr">
+                <a ng-class="{tinyPagination_paginationNextSpan: hasNextPage,tinyPagination_paginationNextSpanDisabled: !hasNextPage}"
+                   href="javascript:void(0)" title="{{ i18n.common_term_nextPage_button }}" class="tinyPagination_tinybutton" ng-click="nextPage()"></a>
+            </div>
+            <div class="fr">
+                <a ng-class="{tinyPagination_paginationPrevSpan: hasPrePage,tinyPagination_paginationPrevSpanDisabled: !hasPrePage}"
+                   href="javascript:void(0)" title="{{ i18n.common_term_previous_button }}" class="tinyPagination_tinybutton" ng-click="prePage()"></a>
+            </div>
+            <div class="fr"  style="margin-right:10px">
+                <tiny-select id="sizeSelector.id" values="sizeSelector.values" width="sizeSelector.width"
+                             change="sizeSelector.change()"></tiny-select>
+            </div>
+        </div>
+    </div>
+    <iframe id="image-down" style="display:none"></iframe>
+</div>

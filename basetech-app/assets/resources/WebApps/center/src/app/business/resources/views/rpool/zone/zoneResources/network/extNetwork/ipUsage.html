@@ -1,0 +1,33 @@
+<div id="ipUsageInfo" class="innerbox-padding">
+    <div class="row-fluid">
+        <div class="span12">
+            <tiny-table id="ipUsageTable.id" data="ipUsageTable.data"
+                        columns="ipUsageTable.columns"
+                        enable-pagination="ipUsageTable.enablePagination"
+                        pagination-style="ipUsageTable.paginationStyle" length-change="ipUsageTable.lengthChange"
+                        length-menu="ipUsageTable.lengthMenu" display-length="ipUsageTable.displayLength"
+                        enable-filter="ipUsageTable.enableFilter"
+                        cur-page="ipUsageTable.curPage" total-records="ipUsageTable.totalRecords"
+                        hide-total-records="ipUsageTable.hideTotalRecords"
+                        callback="ipUsageTable.callback" change-select="ipUsageTable.changeSelect"
+                        render-row="ipUsageTable.renderRow"
+                        show-details="ipUsageTable.showDetails" columns-visibility="ipUsageTable.columnVisibility"
+                        columns-draggable="ipUsageTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/rpool/zone/zoneResources/network/extNetwork/ipUsage"],
+            function (ipUsageCtrl) {
+                $("#ipUsageInfo").attr("ng-controller", "ipUsageCtrl");
+                var dep = ['ng', 'wcc', ipUsageCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#ipUsageInfo"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#ipUsageInfo"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

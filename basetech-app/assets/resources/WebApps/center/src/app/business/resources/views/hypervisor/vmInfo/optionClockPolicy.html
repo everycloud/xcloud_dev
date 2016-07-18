@@ -1,0 +1,13 @@
+<div id="optionClockPolicyDiv">
+    <div class="legend">{{i18n.sys_term_timeSync_label}}</div>
+    <p class="color2 bottom10">{{i18n.sys_term_timeSync_label}}</p>
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-checkbox id="clockSynCheckbox.id" text="clockSynCheckbox.text"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="clockPolicyOkButton.id" text="clockPolicyOkButton.text"  ng-if="operable"
+                         click="clockPolicyOkButton.click()" class="major-btn"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

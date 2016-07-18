@@ -1,0 +1,171 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="How to Attach a Raw Device Mapped Disk That Has Been Detached from a VM to a Physical Server">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_400012">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>How to Attach a Raw Device Mapped Disk That Has Been Detached
+from a VM to a Physical Server</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nVM Management\nHow to Attach a Raw Device Mapped Disk That Has Been Detached from a VM to a Physical Server");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../../07_fm/father_node/it_60_99_100032.html\">VM Management<\/a> > How to Attach a Raw Device Mapped Disk That Has Been Detached from a VM to a Physical Server<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_400012"></a><a name="it_58_45_400012"></a>
+
+
+
+<h1 class="topictitle1">How to Attach a Raw Device Mapped Disk That Has Been Detached
+from a VM to a Physical Server</h1>
+<ul><li><a href="#it_58_45_400012__1.2.1">Scenarios</a></li><li><a href="#it_58_45_400012__1.2.2">Procedure</a></li></ul>
+<div>
+<div class="Section"><a name="it_58_45_400012__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_58_45_400012" class="sectiontitle2contents">Scenarios</a></h2>
+<div class="Sectionbody"><p>After a logical unit number (LUN) on a storage area
+network (SAN) device is attached to a VM as a disk, detach the disk,
+and attach the LUN to a physical server.</p>
+</div></div>
+
+<div class="Section"><a name="it_58_45_400012__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_58_45_400012" class="sectiontitle2contents">Procedure</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle"></p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>Detach the disk from the VM.</span>
+<p>After the disk is detached, do not delete the raw device mapped
+disk and data store. Otherwise, data in the LUN will be lost.</p>
+</li><li><span>Run the following command on the physical server to
+query all storage devices the server can access:</span>
+<p><b><span class="cmdname">ll /dev/disk/by-id/</span></b></p>
+<p>Information similar to the following is displayed, in which <span class="parmvalue"><b>scsi-360022a110005022b31fba15d00000036</b></span> indicates the
+storage device name, and <span class="parmvalue"><b>dm-0</b></span> indicates the
+corresponding file system name:<div class="p"><pre class="screen">...
+lrwxrwxrwx 1 root root 10 Dec  9 10:11 <strong>scsi-360022a110005022b31fba15d00000036</strong> -&gt;                                             ../../<strong>dm-0</strong>
+...</pre>
+</div>
+</p>
+</li><li><span>Run the following command to query partitions on the
+storage device:</span>
+<p><p><b><span class="cmdname">file -s /dev/</span></b><i><span class="varname">File system name</span></i></p>
+<p>For example, run the <b><span class="cmdname">file -s /dev/dm-0</span></b> command
+to query partitions on the storage device.</p>
+<div class="p">Information similar
+to the following is displayed:<pre class="screen">/dev/dm-0: x86 boot sector; partition 1; ID=0x83, starthead 1, startsector 63, 838849977 sectors</pre>
+</div>
+</p>
+</li><li id="it_58_45_400012__add"><a name="it_58_45_400012__add"></a><a name="add"></a><span>Run the following command to add a device partition:</span>
+<p><p><b><span class="cmdname">kpartx -a /dev/</span></b><i><span class="varname">File system name</span></i></p>
+<p>For example, run the <b><span class="cmdname">kpartx -a /dev/dm-0</span></b> command to add a device partition in <span class="parmvalue"><b>dm-0</b></span>.</p>
+</p>
+</li><li><span>Run the following command to query device partitions:</span>
+<p><p><b><span class="cmdname">kpartx -l /dev/</span></b><i><span class="varname">File system name</span></i></p>
+<p>For example, run the <b><span class="cmdname">kpartx -l /dev/dm-0</span></b> command to query device partitions in the file system.</p>
+<div class="p">Information
+similar to the following is displayed, in which <span class="parmvalue"><b>360022a1100092627004d04ed00000014p1</b></span> indicates the device partition ID: <pre class="screen"><strong>360022a1100092627004d04ed00000014p1</strong> : 0 838849977 /dev/dm-0 63</pre>
+</div>
+</p>
+</li><li id="it_58_45_400012__mount"><a name="it_58_45_400012__mount"></a><a name="mount"></a><span>Run the following command to attach the partition
+to the physical server.</span>
+<p><p><b><span class="cmdname">mount /dev/mapper/</span></b><i><span class="varname">Device partition
+ID</span></i><i><span class="varname"> Directory to be attached to</span></i></p>
+<p>For example, run the <b><span class="cmdname">mount /dev/mapper/</span></b><i><span class="varname">360022a1100092627004d04ed00000014p1</span></i><i><span class="varname"> /mnt/sample</span></i> command.</p>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

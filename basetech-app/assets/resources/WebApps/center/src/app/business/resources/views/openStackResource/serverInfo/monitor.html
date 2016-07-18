@@ -1,0 +1,137 @@
+<link href="../theme/default/css/line_plot.css" type="text/css" rel="stylesheet"/>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="vdcMgr.vdc.server">{{i18n.common_term_vms_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="vdcMgr.serverInfo.summary">{{vmName}}</a><span class="divider">&gt;</span>
+            </li>
+            <li class="active">{{i18n.perform_term_monitor_label}}</li>
+        </ul>
+    </div>
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li class="two-lead">
+                <p ng-bind-html="i18n.perform_config_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="row-fluid">
+            <div class="span3">
+                <div class="two-title" style="display: inline;">{{i18n.common_term_cycle_label}}：</div>
+                <tiny-select id="cycle.id" values="cycle.values" width="cycle.width"
+                             change="cycle.change()"></tiny-select>
+            </div>
+            <div class="span8">
+                <div ng-show="isCustomized" style="position: relative;">
+                    {{i18n.perform_term_customCycle_label}}：
+                    <tiny-datetime id="customizedCycle.startDate.id"
+                                   type="customizedCycle.startDate.type"
+                                   date-format="customizedCycle.startDate.dateFormat"
+                                   time-format="customizedCycle.startDate.timeFormat"
+                                   min-date="customizedCycle.startDate.minDate"
+                                   max-date="customizedCycle.startDate.maxDate"
+                                   ampm="customizedCycle.startDate.ampm"
+                                   first-day="customizedCycle.startDate.firstDay"
+                                   on-close="customizedCycle.startDate.onClose"></tiny-datetime>
+                    -
+                    <tiny-datetime id="customizedCycle.endDate.id"
+                                   type="customizedCycle.endDate.type"
+                                   date-format="customizedCycle.endDate.dateFormat"
+                                   time-format="customizedCycle.endDate.timeFormat"
+                                   min-date="customizedCycle.endDate.minDate"
+                                   max-date="customizedCycle.endDate.maxDate"
+                                   ampm="customizedCycle.endDate.ampm"
+                                   first-day="customizedCycle.endDate.firstDay"
+                                   on-close="customizedCycle.endDate.onClose"></tiny-datetime>
+                    <tiny-button class="major-btn" id="customizedCycle.okBtn.id" text="customizedCycle.okBtn.text"
+                                 click="customizedCycle.okBtn.click()"
+                                 style="position: absolute;margin-left: 20px;"></tiny-button>
+                </div>
+            </div>
+            <div class="span1 text-right">
+                <tiny-button id="export.id" text="export.text"
+                             click="export.click()"></tiny-button>
+            </div>
+        </div>
+
+        <div class="row-fluid top10">
+            <div class="span6 outbox-padding">
+                <div class="legend">{{i18n.perform_term_CPUusageRate_label}}</div>
+                <div class="clearfix">
+                    <div class="pull-right" id="cpuUsageLegend" style="padding-right: 40px;"></div>
+                </div>
+                <tiny-lineplot id="cpuUsage.id" xaxis="cpuUsage.xaxis" tips="cpuUsage.tips" grid="cpuUsage.grid"
+                               yaxis="cpuUsage.yaxis" data="cpuUsage.data" series="cpuUsage.series"
+                               width="cpuUsage.width" height="cpuUsage.height"
+                               legend="cpuUsage.legend">
+                </tiny-lineplot>
+            </div>
+            <div class="span6 outbox-padding">
+                <div class="legend">{{i18n.perform_term_memUsageRate_label}}</div>
+                <div class="clearfix">
+                    <div class="pull-right" id="memoUsageLegend" style="padding-right: 40px;"></div>
+                </div>
+                <tiny-lineplot id="memoUsage.id" xaxis="memoUsage.xaxis" tips="memoUsage.tips" grid="memoUsage.grid"
+                               yaxis="memoUsage.yaxis" data="memoUsage.data" series="memoUsage.series"
+                               width="memoUsage.width" height="memoUsage.height"
+                               legend="memoUsage.legend">
+                </tiny-lineplot>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span6 outbox-padding">
+                <div class="legend" ng-bind="i18n.common_term_diskIO_label"></div>
+                <div class="clearfix">
+                    <div class="pull-right" id="diskIoLegend" style="padding-right: 40px;"></div>
+                </div>
+                <tiny-lineplot id="diskIo.id" xaxis="diskIo.xaxis" tips="diskIo.tips" grid="diskIo.grid"
+                               yaxis="diskIo.yaxis" data="diskIo.data" series="diskIo.series"
+                               width="diskIo.width" height="diskIo.height"
+                               legend="diskIo.legend">
+                </tiny-lineplot>
+            </div>
+            <div class="span6 outbox-padding">
+                <div class="legend" ng-bind="i18n.perform_term_netFlowSpeedAvg_label"></div>
+                <div class="clearfix">
+                    <div class="pull-right" id="netIoLegend" style="padding-right: 40px;"></div>
+                </div>
+                <tiny-lineplot id="netIo.id" xaxis="netIo.xaxis" tips="netIo.tips" grid="netIo.grid"
+                               yaxis="netIo.yaxis" data="netIo.data" series="netIo.series"
+                               width="netIo.width" height="netIo.height"
+                               legend="netIo.legend">
+                </tiny-lineplot>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span6 outbox-padding">
+                <div class="legend">{{i18n.perform_term_diskUsageRate_label}}</div>
+                <div class="clearfix">
+                    <div class="pull-right" id="diskUsageLegend" style="padding-right: 40px;"></div>
+                </div>
+                <tiny-lineplot id="disk_usage.id" xaxis="disk_usage.xaxis" tips="disk_usage.tips" grid="disk_usage.grid"
+                               yaxis="disk_usage.yaxis" data="disk_usage.data" series="disk_usage.series"
+                               width="disk_usage.width" height="disk_usage.height"
+                               legend="disk_usage.legend">
+                </tiny-lineplot>
+            </div>
+            <div class="span6 outbox-padding">
+                <div class="legend" ng-bind="i18n.common_term_diskIOnum_label"></div>
+                <div class="clearfix">
+                    <div class="pull-right" id="disk_psUsageLegend" style="padding-right: 40px;"></div>
+                </div>
+                <tiny-lineplot id="disk_ps.id" xaxis="disk_ps.xaxis" tips="disk_ps.tips" grid="disk_ps.grid"
+                               yaxis="disk_ps.yaxis" data="disk_ps.data" series="disk_ps.series"
+                               width="disk_ps.width" height="disk_ps.height"
+                               legend="disk_ps.legend">
+                </tiny-lineplot>
+            </div>
+        </div>
+    </div>
+    <iframe id="download" style="display:none"></iframe>
+</div>

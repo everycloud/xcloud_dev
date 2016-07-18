@@ -1,0 +1,30 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="60px" height="60px" viewBox="0 0 60 60">
+    <polygon fill="#77858B" stroke="#77858B" stroke-miterlimit="10" points="3.5,26.5 5.012,26.5 10.5,26.5 10.5,20.635 27.105,29.275
+        10.052,38.468 10.007,32.5 3.5,32.5 "/>
+    <rect x="30.5" y="10.5" fill="#77858B" stroke="#77858B" stroke-miterlimit="10" width="6" height="39"/>
+    <g>
+        <g>
+            <line fill="none" stroke="#77858B" stroke-width="2" stroke-miterlimit="10" x1="39" y1="30" x2="47" y2="30"/>
+            <g>
+                <polygon fill="#77858B" points="45,33.743 58.009,30.256 45,26.77 			"/>
+            </g>
+        </g>
+    </g>
+    <g>
+        <g>
+            <line fill="none" stroke="#77858B" stroke-width="2" stroke-miterlimit="10" x1="39.638" y1="22.452" x2="46.269" y2="17.804"/>
+            <g>
+                <polygon fill="#77858B" points="46.323,22.024 54.974,11.702 42.32,16.314 			"/>
+            </g>
+        </g>
+    </g>
+    <g>
+        <g>
+            <line fill="none" stroke="#77858B" stroke-width="2" stroke-miterlimit="10" x1="39.638" y1="38.061" x2="46.268" y2="42.708"/>
+            <g>
+                <polygon fill="#77858B" points="42.32,44.198 54.973,48.812 46.322,38.489 			"/>
+            </g>
+        </g>
+    </g>
+</svg>

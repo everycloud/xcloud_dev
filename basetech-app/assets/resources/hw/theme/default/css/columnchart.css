@@ -1,0 +1,121 @@
+.tiny-columnchart-columnUl{
+    position: relative;
+    z-index: 22;
+}
+.tiny-columnchart-columnCon{ 
+    vertical-align: middle;
+    font-size: 12px;
+    height: 24px;
+    display: inline-block;
+    text-align: right;
+    margin-left: 5px;
+}
+.tiny-columnchart-columnLabel{
+    color: #666666;
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.tiny-columnchart-columnConBold .tiny-columnchart-columnBar{
+    display: inline-block;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    height: 9px;
+    margin-top: 14px;
+}
+
+.tiny-columnchart-columnConBold >span{
+    vertical-align: middle;
+}
+.tiny-columnchart-columnCon .tiny-columnchart-columnProc{
+    height: 14px;
+}
+.tiny-columnchart-columnCon .tiny-columnchart-columnBar{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    height: 14px;
+    margin-top: 7px;
+    display: inline-block;
+}
+.tiny-columnchart-columnConBold{
+     vertical-align: middle;
+     font-size: 18px;
+     height: 48px;
+     margin-left: 5px;
+     display: inline-block;
+     text-align: right;
+}
+.tiny-columnchart-columnConBold .tiny-columnchart-columnProc{
+    height: 20px;
+}
+.tiny-columnchart{
+    position: relative;
+    font-family: Helvetica, "Microsoft YaHei", Verdana, Arial, sans-serif;
+}
+.tiny-columnchart-backgroundTable{
+    position: absolute;
+    top: 0;
+    margin-left: 5px;
+}
+.tiny-columnchart-backgroundTableBold{
+    position: absolute;
+    top: 0;
+    margin-left: 5px;
+}
+.tiny-columnchart-backgroundTable > table  tr > td{
+    border: 1px dashed #E2E2E2;
+    height: 23px;
+}
+.tiny-columnchart-backgroundTableBold > table  tr > td{
+    border: 1px dashed #E2E2E2;
+    height: 47px;
+}
+.tiny-columnchart-backgroundTable > table  tr > td.startBorder{
+    border-left: 1px solid #CFCFCF;
+}
+.tiny-columnchart-backgroundTable > table  tr > td.endBorder{
+    border-right: 1px solid #CFCFCF;
+}
+.tiny-columnchart-backgroundTableBold > table  tr > td.startBorder{
+    border-left: 1px solid #CFCFCF;
+}
+.tiny-columnchart-backgroundTableBold > table  tr > td.endBorder{
+    border-right: 1px solid #CFCFCF;
+}
+.tiny-columnchart-columnLegend{
+    position: relative;
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    padding-top: 10px;
+    margin-left: 5px;
+}
+.tiny-columnchart-columnLegendList{
+    display: inline-block;
+}
+.tiny-columnchart-columnLegendBar{
+    display: inline-block;
+    margin-left: 20px;
+    border-radius: 5px;
+    width: 15px;
+    height: 9px;
+}
+.tiny-columnchart-tValue{
+    color: #999999;
+    margin-left: 5px;
+}
+.tiny-columnchart-columnBar-background-color{ 
+    background-color: #EAEAEA;
+}
+.tiny-columnchart-LegendList0-margin-left{
+    margin-left: 5px;
+}
+.tiny-columnchart-LegendList1-margin-left{
+    margin-left: 25px;
+}
+

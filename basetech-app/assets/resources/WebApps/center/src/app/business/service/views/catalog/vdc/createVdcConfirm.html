@@ -1,0 +1,120 @@
+<ul class="panel-list">
+    <li class="panel-item">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="i18n.common_term_basicInfo_label"></span>
+        </div>
+        <div class="panel-content">
+            <tiny-formfield>
+                <tiny-item label="createVdcConfirmInfo.serviceName.label"
+                           ng-bind="createVdcConfirmInfo.serviceName.value">
+                    {{createVdcConfirmInfo.serviceName.value}}
+                </tiny-item>
+                <tiny-item label="createVdcConfirmInfo.serviceCatalog.label"
+                           ng-bind="createVdcConfirmInfo.serviceCatalog.value">
+                    {{createVdcConfirmInfo.serviceCatalog.value}}
+                </tiny-item>
+                <tiny-item label="baseInfo.logo.label">
+                    <img ng-src="{{baseInfo.logo.curLogo}}" ng-if="params.iconId"
+                         class="upload-icon-size upload-icon-image"/>
+                </tiny-item>
+                <tiny-item label="createVdcConfirmInfo.description.label"
+                           ng-bind="createVdcConfirmInfo.description.value">
+                    {{createVdcConfirmInfo.description.value}}
+                </tiny-item>
+                <tiny-item label="createVdcConfirmInfo.apptype.label" ng-bind="createVdcConfirmInfo.apptype.value">
+                    {{createVdcConfirmInfo.apptype.value}}
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </li>
+
+    <li class="panel-item">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="i18n.common_term_resourceQuota_label"></span>
+                <span class="panel-title-ridiogrouplab">
+                    <tiny-radiogroup id="createVdcConfirmInfo.vdcresourceappType.id"
+                                     class="panel-title-ridiogroup"
+                                     values="createVdcConfirmInfo.vdcresourceappType.values"
+                                     spacing="createVdcConfirmInfo.vdcresourceappType.spacing"
+                                     layout="createVdcConfirmInfo.vdcresourceappType.layout"></tiny-radiogroup>
+                </span>
+        </div>
+        <div class="panel-content">
+            <ul class="clearfix">
+                <li class="fl column">
+                    <div class="form-item">
+                        <tiny-formfield>
+                            <tiny-item label="createVdcConfirmInfo.cpu.label" ng-bind="createVdcConfirmInfo.cpu.value">
+                                {{createVdcConfirmInfo.cpu.value}}
+                            </tiny-item>
+                            <tiny-item label="createVdcConfirmInfo.memory.label"
+                                       ng-bind="createVdcConfirmInfo.memory.value">
+                                {{createVdcConfirmInfo.memory.value}}
+                            </tiny-item>
+                            <tiny-item label="createVdcConfirmInfo.storage.label"
+                                       ng-bind="createVdcConfirmInfo.storage.value">
+                                {{createVdcConfirmInfo.storage.value}}
+                            </tiny-item>
+                            <tiny-item label="createVdcConfirmInfo.ipNum.label"
+                                       ng-bind="createVdcConfirmInfo.ipNum.value">
+                                {{createVdcConfirmInfo.ipNum.value}}
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </li>
+                <li class="fl column">
+                    <div class="form-item">
+                        <tiny-formfield>
+                            <tiny-item label="createVdcConfirmInfo.vpcNum.label"
+                                       ng-bind="createVdcConfirmInfo.vpcNum.value">
+                                {{createVdcConfirmInfo.vpcNum.value}}
+                            </tiny-item>
+                            <tiny-item label="createVdcConfirmInfo.groupNum.label"
+                                       ng-bind="createVdcConfirmInfo.groupNum.value">
+                                {{createVdcConfirmInfo.groupNum.value}}
+                            </tiny-item>
+                            <tiny-item label="createVdcConfirmInfo.vmNum.label"
+                                       ng-bind="createVdcConfirmInfo.vmNum.value">
+                                {{createVdcConfirmInfo.vmNum.value}}
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <li class="panel-item">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="i18n.common_term_region_label"></span>
+                <span class="panel-title-ridiogrouplab">
+                    <tiny-radiogroup id="createVdcConfirmInfo.vdcAreaappType.id"
+                                     class="panel-title-ridiogroup"
+                                     values="createVdcConfirmInfo.vdcAreaappType.values"
+                                     spacing="createVdcConfirmInfo.vdcAreaappType.spacing"
+                                     layout="createVdcConfirmInfo.vdcAreaappType.layout"></tiny-radiogroup>
+                </span>
+        </div>
+        <div class="panel-content">
+            <tiny-formfield>
+                <tiny-item label="createVdcConfirmInfo.area.label" ng-bind="createVdcConfirmInfo.area.value">
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </li>
+
+    <li>
+        <tiny-formfield>
+            <tiny-item>
+                <div class="fm-btn-top-large">
+                    <tiny-button id="createVdcConfirmInfo.preBtn.id" text="createVdcConfirmInfo.preBtn.text"
+                                 click="createVdcConfirmInfo.preBtn.click()"></tiny-button>
+                    <tiny-button id="createVdcConfirmInfo.addBtn.id" text="createVdcConfirmInfo.addBtn.text"
+                                 click="createVdcConfirmInfo.addBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="createVdcConfirmInfo.cancelBtn.id" text="createVdcConfirmInfo.cancelBtn.text"
+                                 click="createVdcConfirmInfo.cancelBtn.click()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </li>
+</ul>

@@ -1,0 +1,77 @@
+<div class="role_detail" ng-controller="userMgr.role.detail.ctrl">
+    <div class="container-fluid">
+        <div class="row-fluid innerbox-padding">
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="name.label">
+                        <div ng-bind="name.value"></div>
+                    </tiny-item>
+                    <tiny-item label="description.label">
+                        <div class="autoWrap" ng-bind="description.value"></div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span4">
+                <div style="border: 1px #ccc solid;overflow-y:auto;overflow-x:hidden;">
+                    <tiny-tree id="roleTree.id" height="roleTree.height" setting="roleTree.setting"
+                               values="roleTree.values"></tiny-tree>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="inner-legend none-line">{{i18n.common_term_user_label}}</div>
+                <div style="max-height: 200px;overflow: auto;">
+                    <tiny-table id="userModel.id" data="userModel.datas" columns="userModel.columns"
+                                enable-pagination="userModel.pagination"></tiny-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(["jquery",
+        "app/business/user/controllers/role/roleDetailCtrl"],
+            function ($, roleDetailCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $(".role_detail").parent().parent().parent().prev().attr("lineNum");
+                var roleId = $(".role_detail").parent().parent().parent().prev().attr("roleId");
+                var domId = "roleDetail" + lineNum;
+                var className = "role_detail" + lineNum;
+
+                // 1.获取当前Dom
+                var curView = undefined;
+                $(".role_detail").each(function () {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+
+                curView.attr("id", domId);
+                curView.attr("class", className);
+
+                // 2.编译
+                var scope = curView.scope();
+                var modules = ["wcc", roleDetailCtrl.name];
+                modules.unshift(["$provide",
+                    function ($provide) {
+                        $provide.value("$rootElement", curView);
+                    }
+                ]);
+                modules.unshift("ng");
+                var $injector = angular.injector(modules);
+                $injector.invoke(["$compile",
+                    function ($compile) {
+                        $compile(curView)(scope);
+                        scope.$digest();
+                    }
+                ]);
+
+                // 3.初始化scope
+                var newScope = curView.scope();
+                newScope.$apply(function () {
+                    newScope.roleId = roleId;
+                    newScope.operator.getRoleDetail();
+                });
+            });
+</script>
+

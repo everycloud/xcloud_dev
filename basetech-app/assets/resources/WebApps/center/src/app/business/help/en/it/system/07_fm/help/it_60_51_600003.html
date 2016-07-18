@@ -1,0 +1,374 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="Creating a Virtual Firewall">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600003">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Creating a Virtual Firewall</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nCreating a Virtual Firewall");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > Creating a Virtual Firewall<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600003"></a><a name="it_60_51_600003"></a>
+
+
+
+<h1 class="topictitle1">Creating a Virtual Firewall</h1>
+<ul><li><a href="#it_60_51_600003__1.2.1">Scenarios</a></li><li><a href="#it_60_51_600003__1.2.2">Prerequisites</a></li><li><a href="#it_60_51_600003__1.2.3">Procedure</a></li></ul>
+
+<div>
+<div class="Section"><a name="it_60_51_600003__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_60_51_600003" class="sectiontitle2contents">Scenarios</a></h2>
+<div class="Sectionbody"><p>Create and configure a virtual firewall on a qualified
+physical network. A virtual firewall provides functions including
+access control list (ACL), network address translation (NAT), and virtual private
+network (VPN) for networks in the virtual private cloud (VPC) using
+the virtual firewall.</p>
+</div></div>
+
+<div class="Section"><a name="it_60_51_600003__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_60_51_600003" class="sectiontitle2contents">Prerequisites</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">Conditions</p></span><ul><li>You have completed the following basic configurations for the
+physical firewall based on the Eudemon product documentation:<ul><li>If two firewalls are deployed on one site, you have configured
+the active/standby mode for the two firewalls.</li><li>You have created a Secure Shell (SSH) account on the physical
+firewall for login and configuration.</li></ul>
+</li><li>You have logged in to the firewall and the switch using the HyperTerminal.</li></ul>
+
+<span><p class="sectiontitle">Data</p></span><p><a href="#it_60_51_600003__fig_data">Figure 1</a> describes the data for
+creating a virtual firewall vfw101 on a physical firewall.</p>
+<div class="p">This
+virtual firewall has the following configurations: <ul><li>It has a subport GigabitEthernet0/0/2.101 created on port GigabitEthernet0/0/2
+of the physical firewall.</li><li>The subport GigabitEthernet0/0/2.101 belongs to the Untrust security
+zone of the physical firewall and belongs to VLAN101.</li><li>Port GigabitEthernet 0/0/3 on the switch connected to the physical
+firewall allows data transmission over VLAN101.</li><li>Port GigabitEthernet0/0/2 on the physical firewall belongs to
+the Untrust security zone, and port GigabitEthernet0/0/3 belongs to
+the Trust security zone.</li><li>Port GigabitEthernet 0/0/3 on the aggregation switch belongs to
+the Untrust security zone, and port GigabitEthernet 0/0/2 belongs
+to the Trust security zone of the physical firewall.</li></ul>
+</div>
+<div class="fignone" id="it_60_51_600003__fig_data"><a name="it_60_51_600003__fig_data"></a><a name="fig_data"></a><span class="figcap"><b>Figure 1 </b>Configurations of vfw101</span>
+
+<br><span><img src="fig/fig_it_60_51_600003_01.png"></span></div>
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletableborder">
+<tr>
+<th valign="bottom" align="left" id="mcps1.2.2.1.2.4.1.1" width="13.666666666666666%"><p>Item</p>
+</th>
+
+<th valign="bottom" align="left" id="mcps1.2.2.1.2.4.1.2" width="44.66666666666667%"><p>Data</p>
+</th>
+
+<th valign="bottom" align="left" id="mcps1.2.2.1.2.4.1.3" width="41.66666666666667%"><p>Remarks</p>
+</th>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.2.1.2.4.1.1">vfw101</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.2"><p>Routing ID: 101:1</p>
+<p>Untrust zone subport: GigabitEthernet0/0/2.101</p>
+<p>VLAN: 101</p>
+<p>IP address of Vlanif101: 192.168.101.1/29</p>
+</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.3">N/A</td>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.2.1.2.4.1.1">(1)</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.2"><p>Firewall port: GigabitEthernet 0/0/2</p>
+<p>Security zone:
+Untrust</p>
+</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.3">If two firewalls are configured in active/standby mode, the
+IP address of the subport configured for the standby firewall is 192.168.101.2.</td>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.2.1.2.4.1.1">(2)</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.2"><p>Firewall port: GigabitEthernet 0/0/3</p>
+<p>Security zone:
+Trust</p>
+</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.3">N/A</td>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.2.1.2.4.1.1">(3)</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.2"><p>Switch port: GigabitEthernet 0/0/3</p>
+<p>VLAN: 101</p>
+<p>IP address of Vlanif101: 192.168.101.4/29</p>
+</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.3">N/A</td>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.2.1.2.4.1.1">(4)</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.2"><p>Switch port: GigabitEthernet 0/0/2</p>
+<p>VLAN: 80 to 90</p>
+</td>
+
+<td valign="top" headers="mcps1.2.2.1.2.4.1.3">These VLANs are configured for the planned VPC subnets.</td>
+
+</tr>
+
+</table>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_60_51_600003__1.2.3"></a><a name="1.2.3"></a><h2 class="sectiontitle"><a href="#it_60_51_600003" class="sectiontitle2contents">Procedure</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle"></p>
+<p><p>This section uses Eudemon 1000E-X V300R001 as an example
+to describe how to create and configure a virtual firewall. For details
+about other firewalls, see the corresponding product documentation.
+If any firewall-related commands or parameters are different from
+those provided in the firewall product documentation, the command
+or parameter provided in the firewall product documentation shall
+prevail.</p>
+<p>A firewall and an aggregation switch can be networked
+in static route or Open Shortest Path First (OSPF) mode. This section
+describes how to create and configure a virtual firewall in an OSPF
+network. The static route networking only applies to scenarios that
+use S6324 or S9300 aggregation switches. The configuration process
+in a static route network is similar to that in an OSPF network, but
+does not require OSPF configuration.</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Create a virtual firewall and configure it.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>Run the following commands to add the firewall port
+GigabitEthernet0/0/2 to the Untrust zone and add GigabitEthernet0/0/3
+to the Trust zone:</span>
+<p><p>&lt;Eudemon_A&gt;<b><span class="cmdname">system-view</span></b></p>
+<p>[Eudemon_A]<b><span class="cmdname">firewall zone untrust</span></b></p>
+<p>[Eudemon_A-zone-untrust]<b><span class="cmdname">add interface GigabitEthernet0/0/2</span></b></p>
+<p>[Eudemon_A-zone-untrust]<b><span class="cmdname">quit</span></b></p>
+<p>[Eudemon_A]<b><span class="cmdname">firewall zone trust</span></b></p>
+<p>[Eudemon_A-zone-untrust]<b><span class="cmdname">add interface GigabitEthernet0/0/3</span></b></p>
+<p>[Eudemon_A-zone-untrust]<b><span class="cmdname">quit</span></b></p>
+</p>
+</li><li><span>Run the following commands to create virtual firewall
+vfw101 on the physical firewall.</span>
+<p><p>&lt;Eudemon_A&gt;<b><span class="cmdname">system-view</span></b></p>
+<p>[Eudemon_A]<strong>ip vpn-instance vfw101</strong></p>
+<p>[Eudemon_A-vpn-instance-vfw101]<strong>route-distinguisher 101:1</strong></p>
+<p>[Eudemon_A-vpn-instance-vfw101]<strong>quit</strong></p>
+</p>
+</li><li><span>Run the following commands to filter packets for the
+virtual firewall vfw101.</span>
+<p><p>[Eudemon_A]<strong>firewall packet-filter default permit interzone
+vpn-instance vfw101 local trust direction inbound</strong></p>
+<p>[Eudemon_A]<strong>firewall packet-filter default permit interzone vpn-instance vfw101
+trust untrust direction inbound</strong></p>
+<p>[Eudemon_A]<strong>firewall packet-filter
+default permit interzone vpn-instance vfw101 trust untrust direction
+outbound</strong></p>
+</p>
+</li><li><span>Run the following commands to create a subport on GigabitEthernet0/0/2
+and add the subport to the Untrust zone:</span>
+<p><p>[Eudemon_A]<strong>interface GigabitEthernet0/0/2.101</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>vlan-type dot1q 101</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>ip binding vpn-instance
+vfw101</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>ip address
+192.168.101.1 255.255.255.248</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>quit</strong></p>
+<p>[Eudemon_A]<b><span class="cmdname">firewall zone vpn-instance vfw101
+untrust</span></b></p>
+<p>[Eudemon_A-zone-untrust-vfw101]<b><span class="cmdname">add
+interface GigabitEthernet0/0/2.101</span></b></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>quit</strong></p>
+<p>If firewalls work in active/standby mode, perform
+the same operation on the standby firewall. Note that the subport
+IP addresses for the standby and active firewalls belong to the same
+IP address segment, for example, <span class="parmvalue"><b>192.168.101.2</b></span>.</p>
+</p>
+</li><li><span>Run the following commands to configure the Virtual
+Router Redundancy Protocol (VRRP) backup group of the subport and
+the virtual IP address of the backup group on the active and standby
+firewalls, respectively:</span>
+<p><p>[Eudemon_A]<strong>interface GigabitEthernet0/0/2.101</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>vrrp vrid 1 virtual-ip 192.168.101.3
+master</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>quit</strong></p>
+<p>[Eudemon_B]<strong>interface GigabitEthernet0/0/2.101</strong></p>
+<p>[Eudemon_B-GigabitEthernet0/0/2.101]<strong>vrrp vrid 1 virtual-ip 192.168.101.3 slave</strong></p>
+<p>[Eudemon_B-GigabitEthernet0/0/2.101]<strong>quit</strong></p>
+</p>
+</li><li><span>Run the following commands to send the static routes
+of the network address translation (NAT) mapping address pool to the
+associated switch through the subport of the Untrust zone:</span>
+<p><p>[Eudemon_A]<strong>ospf 1 vpn-instance vfw101</strong></p>
+<p>[Eudemon_A-ospf-1]<strong>import-route static</strong></p>
+<p>[Eudemon_A-ospf-1]<strong>area 1</strong></p>
+<p>[Eudemon_A-ospf-1-area-0.0.0.1]<strong>network 192.168.101.0 0.0.0.7</strong></p>
+<p>[Eudemon_A-ospf-1-area-0.0.0.1]<b><span class="cmdname">quit</span></b></p>
+<p><span class="parmvalue"><b>192.168.101.0</b></span> is an example of the IP address
+segment to which the Untrust zone subports belong.</p>
+<p>If firewalls
+work in active/standby mode, perform the same operation on the standby
+firewall.</p>
+</p>
+</li><li><span>Run the following command to add the virtual firewall
+to the static route of the aggregation switch:</span>
+<p><p>[Eudemon_A]<strong>ip route-static vpn-instance vfw101 0.0.0.0
+0.0.0.0 192.168.101.4</strong></p>
+</p>
+</li><li><span>Run the following command to enable bandwidth limiting
+on the active firewall: </span>
+<p><p>[Eudemon_A]<strong>traffic-policy enable</strong></p>
+</p>
+<p><p>The standby firewall automatically synchronizes this configuration
+from the active firewall.</p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure the aggregation switch.</p>
+<div class="Steps-titled"><ol type="1" start="9"><li><span>Run the following commands to configure the aggregation
+switch port GigabitEthernet0/0/3 that connects the switch to the Untrust
+zone:</span>
+<p><p>&lt;Quidway&gt;<strong>system-view</strong></p>
+<p>[Quidway]<strong>interface
+GigabitEthernet0/0/3</strong></p>
+<p>[Quidway-GigabitEthernet0/0/3]<strong>port
+hybrid tagged vlan 101</strong></p>
+<p>[Quidway-GigabitEthernet0/0/3]<strong>quit</strong></p>
+<p>[Quidway]<strong>interface vlanif 101</strong></p>
+<p>[Quidway_vlanif101]<strong>ip address 192.168.101.4 255.255.255.248</strong></p>
+<p>[Quidway_vlanif101]<strong>quit</strong></p>
+</p>
+</li><li><span>Run the following commands to configure the aggregation
+switch port GigabitEthernet0/0/4that connects the switch to connect
+to the Trust zone:</span>
+<p><p>[Quidway]<strong>interface GigabitEthernet0/0/4</strong></p>
+<p>[Quidway-GigabitEthernet0/0/4]<strong>port hybrid tagged vlan 80 to 90</strong></p>
+<p>[Quidway-GigabitEthernet0/0/4]<strong>quit</strong></p>
+<p><span class="parmvalue"><b>80 to 90</b></span> is an example of the
+planned VLANs on VPC subnet.</p>
+</p>
+</li><li><span>Run the following commands to enable OSPF on the port
+that connects the aggregation switch and the Untrust zone:</span>
+<p><p>[Quidway]<strong>ospf 1</strong></p>
+<p>[Quidway-ospf-1]<strong>area 0.0.0.1</strong></p>
+<p>[Quidway-ospf-1–area-0.0.0.1]<strong>network 192.168.101.0 0.0.0.7</strong></p>
+</p>
+</li></ol></div>
+<p><div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/icon-notice.gif"> NOTICE: </span><div class="noticebody"><p>After the basic data configurations
+for the virtual firewall are complete, do not perform other configurations
+for the virtual firewall on the physical firewall. Otherwise, service
+faults may occur, because service configurations of virtual firewalls
+are issued by the <span>FusionManager</span>.</p>
+</div></div>
+</p></div>
+</ul>
+
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

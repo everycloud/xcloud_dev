@@ -1,0 +1,114 @@
+@charset "utf-8";
+.portlets-table {
+	table-layout: fixed;
+	border-width: 0px;
+	border-collapse: separate;
+	border-spacing: 7px 0px; /*列间水平和垂直距离*/
+	empty-cells: show;
+}
+.portlets .portlets-table td {
+	vertical-align: top;
+}
+.portlet {
+	margin: 0 1em 1em 0;
+}
+.portlets-column {
+	padding-bottom: 100px;
+}
+.portlet-dashed {
+	border: 2px dashed #DDD;
+	border-radius: 5px;
+	margin-bottom: 12px;
+	position: relative;
+}
+.p-title-wrap {
+	height: 42px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #DCDCDC;
+	border-radius: 5px 5px 0 0;
+}
+.p-title-wrap .p-title {
+	margin-top: 5px;
+	color: #222;
+	font-size: 16px;
+	float: left;
+}
+.p-title-wrap .p-oprate-wrap {
+	float: right;
+	margin-top: 7px;
+}
+.p-title-wrap .p-oprate-wrap a {
+	height: 16px;
+	width: 16px;
+	float: right;
+	margin-right: 10px;
+	background-image: url(../images/portlet_icon_merger.png);
+	background-repeat: no-repeat;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-set {
+	background-position: 0px 0px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-set:hover {
+	background-position: -16px 0px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-min {
+	background-position: 0px -16px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-min:hover {
+	background-position: -16px -16px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-max {
+	background-position: 0px -48px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-max:hover {
+	background-position: -16px -48px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-normal {
+	background-position: 0px -32px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-normal:hover {
+	background-position: -16px -32px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-close {
+	background-position: 0px -64px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-close:hover {
+	background-position: -16px -64px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-refresh {
+	background-position: 0px -80px;
+}
+.p-title-wrap .p-oprate-wrap .p-oprate-refresh:hover {
+	background-position: -16px -80px;
+}
+.p-content {
+	overflow: auto;
+}
+.tiny_portitem_foot {
+	clear: both;
+	height: 6px;
+	background-image: url(../images/portlet_icon_merger.png);
+	background-position: -16px -96px;
+}
+.tiny_port_shadow_left {
+	float: left;
+	height: 6px;
+	margin: 0;
+	background-image: url(../images/portlet_icon_merger.png);
+	background-position: 0px -112px;
+	width: 100px;
+}
+.tiny_port_shadow_right {
+	float: right;
+	height: 6px;
+	margin: 0;
+	background-image: url(../images/portlet_icon_merger.png);
+	background-position: 0px -128px;
+	width: 100px;
+}
+.tiny_port_shadow_middle {
+	height: 6px;
+	float: left;
+	margin: 0;
+}

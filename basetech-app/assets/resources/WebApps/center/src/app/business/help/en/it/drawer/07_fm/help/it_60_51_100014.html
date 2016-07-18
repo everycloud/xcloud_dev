@@ -1,0 +1,70 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Resource Cluster">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100014">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Resource Cluster</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100014"></a><a name="it_60_51_100014"></a>
+
+
+
+<h1 class="topictitle1">Resource Cluster</h1>
+
+
+
+
+<div><p></p>
+
+<p>A resource cluster is a collection of computing, storage, and network
+resources that have the same resource attributes in a hypervisor.
+A resource cluster can be displayed on the resource pool page only
+after it is associated with a resource zone and can be used by <span>FusionManager</span> to provision VMs or application instances only after it is added
+to an availability zone (AZ).</p>
+
+<p>Multiple resource clusters constitute an AZ. Both AZs and resource
+clusters can serve as the resource pool for provisioning VMs and application
+instances.</p>
+
+<div class="section"><h4 class="sectiontitle">Associating a Resource Cluster</h4><p><span>FusionManager</span> can manage only its associated resource clusters.</p>
+<p>During resource
+cluster association, configure storage media for storages in the resource
+cluster, which means that you need to configure a storage SLA flag for each storage
+in the cluster. Then, you can select required storages to create VMs
+or disks based on the configured storage media. </p>
+</div>
+
+
+<div class="section"><h4 class="sectiontitle">Disassociating a Resource Cluster</h4><p>To change
+the resource zone to which the resource cluster belongs or delete
+a resource cluster from a resource zone, disassociate the resource
+cluster from the resource zone first. The resource cluster that has
+been added to an AZ cannot be disassociated.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Managing Tags</h4><p id="it_60_51_100014__tag_define"><a name="it_60_51_100014__tag_define"></a><a name="tag_define"></a>After defining tags, you can create VMs using the resources with
+required tags. For example, because cluster A contains sufficient
+resources and provides high reliability, you can add create tag <span class="parmvalue"><b>SLA</b></span> whose value is set to <span class="parmvalue"><b>GOLD</b></span> for cluster A. In this case, you can create VMs in the cluster tagged
+with <span class="parmvalue"><b>GOLD</b></span> to ensure VM performance.</p>
+<p id="it_60_51_100014__tag_source"><a name="it_60_51_100014__tag_source"></a><a name="tag_source"></a>The tags available are all defined on the <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Tags</span></b></span> page.</p>
+</div>
+
+</div>
+
+
+</body>
+</html>

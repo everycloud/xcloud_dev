@@ -1,0 +1,32 @@
+<div fm-help help="'drawer_report_custom'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span>{{i18n.report_term_customReport_label}}</span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.report_report_view_explan_custom_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <tiny-button class="major-btn" id="createCustomReport.id" text="createCustomReport.text" display="createCustomReport.display" click="createCustomReport.click()"></tiny-button>
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="model.id" data="model.datas" columns="model.columns" enable-pagination="model.pagination" pagination-style="model.paginationStyle" length-change="model.lengthChange" length-menu="model.lengthMenu" display-length="model.displayLength" enable-filter="model.enableFilter"
+            cur-page="model.curPage" total-records="model.totalRecords" request-config="model.requestConfig" hide-total-records="model.hideTotalRecords" render-row="model.renderRow" callback="model.callback" change-select="model.changeSelect" show-details="model.showDetails"></tiny-table>
+        </div>
+        <iframe id="downloadCustomReport" style="display:none"></iframe>
+    </div>
+</div>

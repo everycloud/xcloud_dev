@@ -1,0 +1,157 @@
+<div id="snmpClientView">
+    <div>
+        <p class="line-height30 bottom10 color2">
+            {{i18n.alarm_config_thirdAssembly_desc_label}}
+        </p>
+        <tiny-formfield>
+            <tiny-item label="nameControl.label" require="nameControl.require">
+                <tiny-textbox id="nameControl.id" value="nameControl.value" readonly="nameControl.readonly"
+                              type="nameControl.type"
+                              tooltip="nameControl.tooltip" validate="nameControl.validate"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="tsnmpClienTypeControl.label" require="tsnmpClienTypeControl.require">
+                <tiny-select id="tsnmpClienTypeControl.id" values="tsnmpClienTypeControl.values"
+                             width="tsnmpClienTypeControl.width" class="margin-right-beautifier"
+                             default-label="tsnmpClienTypeControl.dftLabel" change="tsnmpClienTypeControl.change()"
+                             display="mode == 'insert'">
+                </tiny-select>
+                <span ng-show="mode == 'update'">{{currentItem.type}}</span>
+            </tiny-item>
+
+            <tiny-item label="snmpVersionControl.label" require="snmpVersionControl.require">
+                <tiny-select id="snmpVersionControl.id" values="snmpVersionControl.values"
+                             width="snmpVersionControl.width" class="margin-right-beautifier"
+                             default-label="snmpVersionControl.dftLabel" change="snmpVersionControl.change()"
+                             display="mode == 'insert'">
+                </tiny-select>
+                 <span ng-show="mode == 'insert'" popover="{{i18n.device_all_connect_para_snmp_mean_tip}}" popover-trigger="mouseenter"
+                         class="small-icon small-icon-tips"></span>
+                <span ng-show="mode == 'update'">{{currentItem.snmpVersionValue}}</span>
+            </tiny-item>
+            <tiny-item label="portControl.label" require="portControl.require">
+                <tiny-textbox id="portControl.id" value="portControl.value" readonly="portControl.readonly"
+                              type="portControl.type"
+                              tooltip="portControl.tooltip" validate="portControl.validate"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="ipControl.label" require="ipControl.require">
+                <tiny-ip id="ipControl.id" value="ipControl.value" readonly="ipControl.readonly" type="ipControl.type"
+                         tooltip="ipControl.tooltip" validate="ipControl.validate" width="ipControl.width"
+                         extend-function="ipControl.extendFunction"></tiny-ip>
+            </tiny-item>
+
+            <tiny-item display="snmpVersion == '2'">
+                <tiny-checkbox id="checkComplexControl.id" text="checkComplexControl.text"
+                               checked='checkComplexControl.checked'></tiny-checkbox>
+            </tiny-item>
+
+            <tiny-item label="readNameControl.label" require="readNameControl.require" display="snmpVersion == '2'">
+                <tiny-textbox id="readNameControl.id" value="readNameControl.value" readonly="readNameControl.readonly"
+                              type="readNameControl.type" tooltip="readNameControl.tooltip"
+                              validate="readNameControl.validate"
+                              extend-function="readNameControl.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="writeNameControl.label" require="writeNameControl.require" display="snmpVersion == '2'">
+                <tiny-textbox id="writeNameControl.id" value="writeNameControl.value"
+                              readonly="writeNameControl.readonly" type="writeNameControl.type"
+                              tooltip="writeNameControl.tooltip" validate="writeNameControl.validate"
+                              extend-function="writeNameControl.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="outTimeControl.label" require="outTimeControl.require">
+                <tiny-textbox id="outTimeControl.id" value="outTimeControl.value" readonly="outTimeControl.readonly"
+                              type="outTimeControl.type" tooltip="outTimeControl.tooltip"
+                              validate="outTimeControl.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="userNameControl.label" require="userNameControl.require" display="snmpVersion == '3'">
+                <tiny-textbox id="userNameControl.id" value="userNameControl.value" readonly="userNameControl.readonly"
+                              type="userNameControl.type"
+                              tooltip="userNameControl.tooltip" validate="userNameControl.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="authGenericControl.label" require="authGenericControl.require"
+                       display="snmpVersion == '3'">
+                <tiny-select id="authGenericControl.id" values="authGenericControl.values"
+                             width="authGenericControl.width" class="margin-right-beautifier"
+                             default-label="authGenericControl.dftLabel" change="authGenericControl.change()">
+                </tiny-select>
+            </tiny-item>
+
+            <tiny-item display="snmpVersion == '3'">
+                <tiny-checkbox id="checkComplexPasswordControl.id" text="checkComplexPasswordControl.text"
+                               checked='checkComplexPasswordControl.checked'></tiny-checkbox>
+            </tiny-item>
+
+
+            <tiny-item display="snmpVersion == '3' && mode == 'update'">
+                <tiny-checkbox text='authPassWordCheckBoxControl.text' id='authPassWordCheckBoxControl.id'
+                               checked='authPassWordCheckBoxControl.checked'
+                               change='authPassWordCheckBoxControl.change()'></tiny-checkbox>
+            </tiny-item>
+
+            <tiny-item label="authPassWordControl.label" require="authPassWordControl.require"
+                       display="snmpVersion == '3'">
+                <tiny-textbox id="authPassWordControl.id" value="authPassWordControl.value"
+                              disable="authPassWordControl.disable" type="authPassWordControl.type"
+                              tooltip="authPassWordControl.tooltip"
+                              validate="authPassWordControl.validate"
+                              extend-function="authPassWordControl.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="confirmAuthPassWordControl.label" require="confirmAuthPassWordControl.require"
+                       display="snmpVersion == '3'">
+                <tiny-textbox id="confirmAuthPassWordControl.id" value="confirmAuthPassWordControl.value"
+                              disable="confirmAuthPassWordControl.disable"
+                              type="confirmAuthPassWordControl.type"
+                              extend-function="confirmAuthPassWordControl.extendFunction"
+                              tooltip="confirmAuthPassWordControl.tooltip"
+                              validate="confirmAuthPassWordControl.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="privacyProtocolControl.label" require="privacyProtocolControl.require"
+                       display="snmpVersion == '3'">
+                <tiny-select id="privacyProtocolControl.id" values="privacyProtocolControl.values"
+                             width="privacyProtocolControl.width" class="margin-right-beautifier"
+                             default-label="privacyProtocolControl.dftLabel" change="privacyProtocolControl.change()">
+                </tiny-select>
+            </tiny-item>
+            <tiny-item display="snmpVersion == '3' && mode == 'update'">
+                <tiny-checkbox text='privPassWordCheckBoxControl.text' id='privPassWordCheckBoxControl.id'
+                               checked='privPassWordCheckBoxControl.checked'
+                               change='privPassWordCheckBoxControl.change()'></tiny-checkbox>
+            </tiny-item>
+
+            <tiny-item label="privPassWordControl.label" require="privPassWordControl.require"
+                       display="snmpVersion == '3'">
+                <tiny-textbox id="privPassWordControl.id" value="privPassWordControl.value"
+                              disable="privPassWordControl.disable" type="privPassWordControl.type"
+                              tooltip="privPassWordControl.tooltip"
+                              validate="privPassWordControl.validate"
+                              extend-function="privPassWordControl.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="confirmPrivPassWordControl.label" require="confirmPrivPassWordControl.require"
+                       display="snmpVersion == '3'">
+                <tiny-textbox id="confirmPrivPassWordControl.id" value="confirmPrivPassWordControl.value"
+                              disable="confirmPrivPassWordControl.disable"
+                              type="confirmPrivPassWordControl.type"
+                              extend-function="confirmPrivPassWordControl.extendFunction"
+                              tooltip="confirmPrivPassWordControl.tooltip"
+                              validate="confirmPrivPassWordControl.validate"></tiny-textbox>
+            </tiny-item>
+
+
+            <tiny-item label="descriptionControl.label" require="descriptionControl.require">
+                <tiny-textbox id="descriptionControl.id" value="descriptionControl.value"
+                              readonly="descriptionControl.readonly" type="descriptionControl.type"
+                              tooltip="descriptionControl.tooltip" validate="descriptionControl.validate"
+                              width="descriptionControl.width" height="descriptionControl.height"
+                        ></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item>
+                <div class="fm-btn-top-small">
+                    <fm-button class="major-btn" id="saveBtn.id" text="saveBtn.text" click="saveBtn.click"
+                               ng-if="operateRight"></fm-button>
+                    <fm-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click"></fm-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

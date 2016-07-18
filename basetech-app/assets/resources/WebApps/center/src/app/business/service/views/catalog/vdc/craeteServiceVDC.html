@@ -1,0 +1,13 @@
+<div id="createVdcDiv" class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-bind="label.createVdcTitle"></div>
+        <div id="createVDCtitle" class="createpage-legend"></div>
+        <tiny-step id="createVdcStep.id" values="createVdcStep.values" jumpable="createVdcStep.jumpable" width="createVdcStep.width"></tiny-step>
+    </div>
+    <div  class="top20">
+        <div ng-include="createVdvStep1.url" ng-show="basicInfoPage"></div>
+        <div ng-include="createVdvStep2.url" ng-show="resourceQuotaPage"></div>
+        <div ng-include="createVdvStep3.url" ng-show="networkQuotaPage"></div>
+        <div ng-include="createVdvStep4.url" ng-show="createVdcConfirmPage"></div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div id="downloadHistoryReport" ng-controller="report.reportDownload.historyReport.ctrl">
+        <div class="form-inline">
+            <span ng-bind="selectTip.label"></span>
+
+        </div>
+        <div class="margin-erect-beautifier">
+            <div style="border: 1px #ccc solid;overflow-y:auto;overflow-x:hidden;height:280px;">
+                <div class="margin-beautifier">
+                    <tiny-checkboxgroup id="reportCheckBoxGroup.id" all-select="reportCheckBoxGroup.allSelect" layout="reportCheckBoxGroup.layout" change="reportCheckBoxGroup.change()" values="reportCheckBoxGroup.values"></tiny-checkboxgroup>
+                </div>
+            </div>
+        </div>
+        <div class="text-center fm-btn-top-small">
+            <tiny-button id="downloadBtn.id" text="downloadBtn.text" disable="downloadBtn.disable"
+                         display="downloadBtn.display" click="downloadBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+
+        </div>
+        <iframe id="mydown" style="display:none"></iframe>
+
+    </div>
+</div>
+<script type="application/javascript">
+require(["app/business/monitor/controllers/report/downloadHistoryReportCtrl"], function(downloadHistoryReportCtrl) {
+    var $injector = angular.injector(["ng", downloadHistoryReportCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#downloadHistoryReport"));
+        link($("#downloadHistoryReport").scope());
+        $("#downloadHistoryReport").scope().$digest();
+    });
+});
+</script>

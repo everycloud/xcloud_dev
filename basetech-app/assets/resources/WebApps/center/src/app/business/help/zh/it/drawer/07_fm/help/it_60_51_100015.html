@@ -1,0 +1,89 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="虚拟机">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100015">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>虚拟机</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100015"></a><a name="it_60_51_100015"></a>
+
+
+<h1 class="topictitle1">虚拟机</h1>
+
+<div>
+<div class="section"><p>虚拟机与物理计算机一样，是运行操作系统和应用程序的虚拟计算机。</p>
+<p>虚拟机运行在某个主机上，并从主机上获取所需的CPU、内存等计算资源，以及图形处理器、USB设备、网络连接和存储访问等能力。多台虚拟机可以同时运行在一台主机中。</p>
+</div>
+
+
+<div class="section"><h4 class="sectiontitle">使用VNC方式登录虚拟机</h4><p>VNC（Virtual
+Network Computer）是虚拟网络计算机的缩写，是一款远程控制工具。通过VNC方式，管理员能够连接并查看虚拟机的界面，便于进行虚拟机的管理和维护。</p>
+<p>查看虚拟机的界面并不代表能够登录虚拟机的操作系统，即使使用VNC登录虚拟机，也只是将虚拟机的当前画面显示出来。若虚拟机的操作系统设置有密码，仍然需要对应的用户名和密码才可登录虚拟机。</p>
+<div class="p">VNC登录虚拟机，需注意以下几点：<ul><li><span><strong>高危特性声明</strong>：该功能使用过程中可能触及最终用户数据，符合业界惯例，但仍须谨慎使用。</span>该操作将涉及虚拟机用户隐私，使用该功能时务必遵从当地适用的法律法规。</li><li><p><span id="it_60_51_100015__modifyPsw"><a name="it_60_51_100015__modifyPsw"></a><a name="modifyPsw"></a>为确保安全，请虚拟机用户及时修改虚拟机密码。</span></p>
+</li><li>通过VNC方式登录虚拟机时，虚拟机用户将无法远程登录该虚拟机。 </li></ul>
+</div>
+<p id="it_60_51_100015__VNC_fail_FAQ"><a name="it_60_51_100015__VNC_fail_FAQ"></a><a name="VNC_fail_FAQ"></a>若登录过程出现问题，请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_000025.html" target="_blank">VNC登录常见问题</a>。</p>
+</div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">虚拟机电源管理</h4></div><div class="dropdowncontext"><p>包括启动或唤醒、休眠、关闭、重启虚拟机，其中关闭和重启有安全和强制两种方式，建议使用安全方式进行关闭和重启。只有当虚拟机操作系统异常，无法安全关闭或重启时，才可强制关闭或重启，强制关闭或重启可能导致虚拟机磁盘数据受损。</p>
+<p>大量虚拟机同时启动或关闭时，会加重主机的负载。如果需同时对一个主机上的大量虚拟机执行启动或关闭操作，建议分批进行，避免对其他虚拟机的业务造成影响。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">迁移虚拟机</h4></div><div class="dropdowncontext"><p>迁移虚拟机是指将正在运行的虚拟机从一台主机移到另一台主机上的过程，迁移过程中无需中断虚拟机上的业务。</p>
+<div class="p">虚拟机运行在主机上，当主机出现故障、资源分配不均（如负载过重、负载过轻）等情况时，可通过迁移虚拟机来保证虚拟机业务的正常运行。<ul><li>当主机故障或主机负载过重时，可以将运行的虚拟机迁移到另一台主机上，避免业务中断，保证业务的正常运行。</li><li>当多数主机负载过轻时，可以将虚拟机迁移整合，以减少主机数量，提高资源的利用率，实现节能减排。</li></ul>
+</div>
+<p>迁移虚拟机的具体要求请参见<a href="../src/app/business/help/zh/it/system/05_fc/vm_prov/it_58_45_200041.html" target="_blank">虚拟机迁移要求</a>。</p>
+<p>勾选虚拟机，并选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">迁移</span>”</span>。</p>
+</div></div></div>
+
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">导出虚拟机列表</h4></div><div class="dropdowncontext"><p>将当前所有虚拟机详细信息，导出到本地，并保存为*.xls文件，便于信息备份和统计。</p>
+<p>单击<span class="menucascade">“<span class="uicontrol">导出列表</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">为虚拟机设置标签</h4></div><div class="dropdowncontext"><p>为虚拟机设置标签，自定义特征将虚拟机分类，便于管理和搜索相同特征的虚拟机。</p>
+<p>若想删除已设置的标签，将标签值设置为空即可。</p>
+<p>勾选虚拟机，并选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">设置标签</span>”</span>。</p>
+</div></div></div>
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">修改虚拟机升级方式</h4></div><div class="dropdowncontext"><p>设置<span>FusionCompute</span>虚拟化环境中的虚拟机Tools软件的升级方式。Tools的更多信息请参见<a href="../src/app/business/help/zh/it/system/05_fc/vm_prov/it_58_45_200029.html" target="_blank">Tools简介</a>。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以修改虚拟机升级方式。虚拟机成功安装Tools，且Tools运行正常时，才能执行自动升级。</p>
+<p>勾选虚拟机，并选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">修改升级方式</span>”</span>。</p>
+</div></div></div>
+
+<div class="section" id="it_60_51_100015__cdrom"><a name="it_60_51_100015__cdrom"></a><a name="cdrom"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">挂载光驱</h4></div><div class="dropdowncontext"><p>将本地PC中的ISO文件或者光驱挂载至虚拟机中，即可将ISO或光驱中的文件拷贝至虚拟机中。具体操作方法请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600018.html" target="_blank">挂载光驱</a>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">删除虚拟机</h4></div><div class="dropdowncontext"><p>当虚拟机不再使用时，删除虚拟机，以释放虚拟资源。删除虚拟机的同时，会同时删除虚拟机的所有磁盘数据，请谨慎操作。</p>
+<p>可设置延时删除虚拟机，在指定时长内，虚拟机资源不释放，虚拟机状态为<span class="parmvalue">“回收中”</span>，还可取消此次删除。</p>
+<p>勾选虚拟机，并选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">恢复回收中的虚拟机</h4></div><div class="dropdowncontext"><p>当虚拟机设置为延时删除，且还未被删除，即虚拟机状态为<span class="parmvalue">“回收中”</span>时，可通过恢复回收中的虚拟机撤销此次删除。</p>
+<p>勾选虚拟机，并选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">恢复回收中虚拟机</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<div id="environmentDetailDiv" class="row-fluid innerbox-padding" ng-controller="hypervisor.environment.environmentDetail.ctrl">
+    <div class="span6">
+        <tiny-formfield>
+            <tiny-item label="'ID:'">
+                <div ng-bind="info.id"></div>
+            </tiny-item>
+            <tiny-item label="label.vendor">
+                <div ng-bind="info.vendor"></div>
+            </tiny-item>
+            <tiny-item label="label.version">
+                <div ng-bind="info.version"></div>
+            </tiny-item>
+            <tiny-item label="label.refreshCycle">
+                <div ng-bind="info.refreshCycle"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="span6">
+        <tiny-formfield>
+            <tiny-item label="label.protocol">
+                <div ng-bind="info.protocol"></div>
+            </tiny-item>
+            <tiny-item label="label.port">
+                <div ng-bind="info.port"></div>
+            </tiny-item>
+            <tiny-item label="label.userName">
+                <div ng-bind="info.userName"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/hypervisor/environment/environmentDetailCtrl'],
+            function ($, environmentDetailCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $("#environmentDetailDiv").parent().parent().parent().prev().attr("lineNum");
+                var eid = $("#environmentDetailDiv").parent().parent().parent().prev().attr("eid");
+                var id = "environmentDetailDiv_" + lineNum;
+                $("#environmentDetailDiv").attr("id", id);
+
+                //编译
+                var dep = ['ng', 'wcc', environmentDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + id));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#" + id))($rootScope);
+                    $rootScope.$digest();
+                });
+                $("#" + id).scope().getEnvironment(eid, id);
+            });
+</script>

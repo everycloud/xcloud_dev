@@ -1,0 +1,85 @@
+<div class="template-vpcSpec-detail container-fluid" ng-controller="template.vpcSpec.detail.ctrl">
+    <div>
+        <div class="row-fluid innerbox-padding">
+            <div class="span3">
+                <tiny-formfield>
+                    <tiny-item label="defaultBand.label" require="defaultBand.require" display="!openstack">
+                        <span ng-bind="model.maxNetworkBandWidth"></span>
+                    </tiny-item>
+                    <tiny-item label="priority.label" require="priority.require" display="!openstack">
+                        <span ng-bind="model.priority"></span>
+                    </tiny-item>
+                    <tiny-item label="maxVCPUNum.label" require="maxVCPUNum.require" display="openstack">
+                        <span ng-if="model.maxVCPUNum != -1" ng-bind="model.maxVCPUNum"></span>
+                        <span ng-if="model.maxVCPUNum == -1" ng-bind="i18n.temp_term_nolimit_label"></span>
+                    </tiny-item>
+                    <tiny-item label="maxMemoryCapacity.label" require="maxMemoryCapacity.require" display="openstack">
+                        <span ng-if="model.maxMemoryCapacity != -1" ng-bind="model.maxMemoryCapacity"></span>
+                        <span ng-if="model.maxMemoryCapacity == -1" ng-bind="i18n.temp_term_nolimit_label"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span1"></div>
+            <div class="span3">
+                <tiny-formfield>
+                    <tiny-item label="receiveBand.label" require="receiveBand.require" display="!openstack">
+                        <span ng-bind="model.maxRxThroughput"></span>
+                    </tiny-item>
+                    <tiny-item label="sendBand.label" require="sendBand.require" display="!openstack">
+                        <span ng-bind="model.maxTxThroughput"></span>
+                    </tiny-item>
+                    <tiny-item label="maxVMNum.label" require="maxVMNum.require" display="openstack">
+                        <span ng-if="model.maxVMNum != -1" ng-bind="model.maxVMNum"></span>
+                        <span ng-if="model.maxVMNum == -1" ng-bind="i18n.temp_term_nolimit_label"></span>
+                    </tiny-item>
+                    <tiny-item label="maxStorageCapacity.label" require="maxStorageCapacity.require" display="openstack">
+                        <span ng-if="model.maxStorageCapacity != -1" ng-bind="model.maxStorageCapacity"></span>
+                        <span ng-if="model.maxStorageCapacity == -1" ng-bind="i18n.temp_term_nolimit_label"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span1"></div>
+            <div class="span3">
+                <tiny-formfield>
+                    <tiny-item label="maxSecurityGroupNum.label" require="maxSecurityGroupNum.require" display="!vmwareICT">
+                        <span ng-bind="model.maxSecurityGroupNum"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/templateSpec/spec/vpcSpec/vpcSpecDetailCtrl'],
+            function ($, vpcSpecDetailCtrl) {
+
+                // 1.获取当前Dom
+                var curView = undefined;
+                $(".template-vpcSpec-detail").each(function () {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+
+                curView.attr("id", new Date().getMilliseconds());
+
+                // 2.编译
+                var scope = curView.scope();
+
+                var modules = ["wcc",vpcSpecDetailCtrl.name];
+                modules.unshift(["$provide", function($provide) {
+                    $provide.value("$rootElement", curView);
+                }]);
+                modules.unshift("ng");
+                var $injector = angular.injector(modules);
+                $injector.invoke(["$compile", function ($compile) {
+                    $compile(curView)(scope);
+                    scope.$digest();
+                }]);
+
+                // 3.初始化scope
+                var curScope = curView.scope();
+                curScope.queryDetail(scope.currentItem);
+            });
+</script>

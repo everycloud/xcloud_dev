@@ -1,0 +1,40 @@
+.jqplot-meterGauge-value {
+	font-size: 24px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.jqplot-linearGauge-value {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.jqplot-meterGauge-label {
+	font-size: 12px;
+	color: #2b2b2b;
+	font-family: "Microsoft Yahei";
+}
+.tiny_widgets_charts_arrow_image {
+	background-image: url(../images/arrow_d.png);
+	display: none;
+}
+.tiny_widgets_charts_needle_image {
+	background-image: url(../images/needle.png);
+	display: none;
+}
+
+.jqplot-linearGauge-value {
+	z-index: 2;
+	color: #000000;
+}
+
+.tiny-gaugechart {
+	display: inline-block;
+}
+
+.tiny_thermoImage {
+	background: url(../images/arrow_a.png) 0 0 no-repeat;
+	width: 10px;
+	height: 14px;
+	margin-top: 8px;
+}

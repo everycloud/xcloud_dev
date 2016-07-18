@@ -1,0 +1,29 @@
+<link href="../theme/default/css/gm/ssp.css" type="text/css" rel="stylesheet" />
+
+<div id="serviceInstanceLayoutId">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <div class="tiny-layout-title">
+                    <div class="row-fluid nosidedown-txt">
+                        <div class="span4">
+                            <div class="title-icon layout-icon-catalog"></div>
+                        </div>
+                        <div class="span8"  title="{{i18n.service_term_serviceInstance_label}}">
+                            <p class="title-text" ng-bind="i18n.service_term_serviceInstance_label"></p>
+                        </div>
+                    </div>
+                </div>
+                <li>
+                    <a ui-sref="ssp.instance.myInstance" ng-bind="i18n.service_term_myServiceInstance_label"></a>
+                </li>
+                <li ng-show="hasApprovalOrderRight === true">
+                    <a ui-sref="ssp.instance.allInstance" ng-bind="i18n.service_term_allServiceInstance_label"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

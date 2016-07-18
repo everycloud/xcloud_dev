@@ -1,0 +1,24 @@
+<div class="clearfix">
+    <tiny-button ng-show="right.hasNetPoolOperateRight" class="major-btn" id="create.id" disabled="create.disabled"
+                 icons-class="create.iconsClass"
+                 text="create.text"
+                 tooltip="create.tip" click="create.create()"></tiny-button>
+
+    <!--刷新、列选择、帮助-->
+    <div class="pull-right">
+        <a class="btn-link">
+            <div ng-click="refresh.refresh()" id="vtepRefresh_id" title="{{i18n.common_term_fresh_button}}"
+                 class="small-icon small-icon-refresh"></div>
+        </a>
+    </div>
+    <div class="margin-top-beautifier">
+        <tiny-table id="vtepTable.id" caption="vtepTable.caption" data="vtepTable.data"
+                    columns="vtepTable.columns"
+                    enable-pagination="vtepTable.enablePagination"
+                    enable-filter="vtepTable.enableFilter"
+                    hide-total-records="vtepTable.hideTotalRecords"
+                    callback="vtepTable.callback" render-row="vtepTable.renderRow"
+                    show-details="vtepTable.showDetails"
+                    columns-draggable="vtepTable.columnsDraggable"></tiny-table>
+    </div>
+</div>

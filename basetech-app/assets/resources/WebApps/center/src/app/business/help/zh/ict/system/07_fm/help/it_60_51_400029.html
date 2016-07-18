@@ -1,0 +1,139 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="MAC地址资源池">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400029">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>MAC地址资源池</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\nOpenStack资源管理\nOpenStack实例\nMAC地址资源池");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100028.html\">OpenStack资源管理<\/a> > <a href=\"../father_node/it_60_99_100029.html\">OpenStack实例<\/a> > MAC地址资源池<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_400029"></a><a name="it_60_51_400029"></a>
+
+
+<h1 class="topictitle1">MAC地址资源池</h1>
+<ul><li><a href="#it_60_51_400029__1.2.2.1">添加MAC地址资源池</a></li><li><a href="#it_60_51_400029__1.2.3.1">删除MAC资源池</a></li><li><a href="#it_60_51_400029__1.2.4.1">添加MAC地址段</a></li><li><a href="#it_60_51_400029__1.2.5.1">删除MAC地址段</a></li></ul>
+
+<div>
+<div class="section"><p>在MAC地址资源池中指定<span>FusionManager</span>可以使用的MAC地址段，用于为虚拟机的网卡分配MAC地址。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400029__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400029" class="sectiontitle2contents">添加MAC地址资源池</a></h4><p>创建一个空的MAC地址资源池，用于添加MAC地址段。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">OpenStack实例</span>”</span>界面，选择一个OpenStack实例，在<span class="wintitle">“MAC地址资源池”</span>界面，单击<span class="menucascade">“<span class="uicontrol">添加MAC地址资源池</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400029__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400029" class="sectiontitle2contents">删除MAC资源池</a></h4><p>删除空的MAC地址资源池。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">OpenStack实例</span>”</span>界面，选择一个OpenStack实例，在<span class="wintitle">“MAC地址资源池”</span>界面，MAC地址资源池所在行，单击<span class="menucascade">“<span class="uicontrol">删除MAC资源池</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400029__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400029" class="sectiontitle2contents">添加MAC地址段</a></h4><p>在新添加的MAC地址资源池中配置起始MAC地址、结束MAC地址。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">OpenStack实例</span>”</span>界面，选择一个OpenStack实例，在<span class="wintitle">“MAC地址资源池”</span>界面，MAC地址资源池所在行，单击<span class="menucascade">“<span class="uicontrol">添加MAC地址段</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_400029__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400029" class="sectiontitle2contents">删除MAC地址段</a></h4><p>删除MAC地址资源池中配置的MAC地址段，MAC地址段删除后可以重新添加。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">OpenStack实例</span>”</span>界面，选择一个OpenStack实例，在<span class="wintitle">“MAC地址资源池”</span>界面，MAC地址资源池所在行，单击<span class="menucascade">“<span class="uicontrol">删除MAC地址段</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

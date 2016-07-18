@@ -1,0 +1,90 @@
+<div id="addRackHostConfirm">
+    <div>
+        <span class="createpage-title">{{i18n.common_term_basicInfo_label}}</span>
+        <tiny-formfield>
+            <tiny-item label="basicInfo.nameItem.label">
+                <div ng-bind="createInfo.name"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.modelItem.label">
+                <div ng-bind="createInfo.deviceType"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.zoneItem.label" display="cloudType=='FUSIONSPHERE'">
+                <div ng-bind="basicInfo.zoneItem.value"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.roomItem.label">
+                <div ng-bind="createInfo.roomName"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.cabinetItem.label">
+                <div ng-bind="createInfo.rackId"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.subrackItem.label">
+                <div ng-bind="createInfo.subRackId"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.descriptionItem.label">
+                <div ng-bind="createInfo.description"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+
+    <tiny-formfield ng-hide="isBareMetal">
+        <tiny-item label="SSHParamInfo.manageIpItem.label">
+            <div ng-bind="createInfo.sshConnectorParam.ip"></div>
+        </tiny-item>
+    </tiny-formfield>
+
+    <div ng-show="setIpmi">
+        <span class="createpage-title">{{i18n.device_term_IPMIpara_label}}</span>
+        <tiny-formfield>
+            <tiny-item label="IPMIParamInfo.versionItem.label">
+                <div ng-bind="createInfo.ipmiConnectorParam.version"></div>
+            </tiny-item>
+            <tiny-item label="IPMIParamInfo.bmcIpItem.label">
+                <div ng-bind="createInfo.ipmiConnectorParam.ip"></div>
+            </tiny-item>
+            <tiny-item label="IPMIParamInfo.portItem.label">
+                <div ng-bind="createInfo.ipmiConnectorParam.port"></div>
+            </tiny-item>
+            <tiny-item label="IPMIParamInfo.timeoutItem.label">
+                <div ng-bind="createInfo.ipmiConnectorParam.timeOut"></div>
+            </tiny-item>
+            <tiny-item label="IPMIParamInfo.usernameItem.label">
+                <div ng-bind="createInfo.ipmiConnectorParam.userName"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div ng-hide="trapProtocol.length == 0">
+        <span class="createpage-title">{{i18n.common_term_alarmSet_label}}</span>
+        <tiny-formfield>
+            <tiny-item label="snmpParamInfo.snmpVersion.label">
+                <div ng-bind="createInfo.snmpParam.trapSnmpVersion"></div>
+            </tiny-item>
+            <tiny-item display="isSNMPv3" label="snmpParamInfo.snmpPort.label">
+                <div ng-bind="createInfo.snmpParam.port"></div>
+            </tiny-item>
+            <tiny-item display="isSNMPv3" label="snmpParamInfo.snmpTimeout.label">
+                <div ng-bind="createInfo.snmpParam.timeOut"></div>
+            </tiny-item>
+            <tiny-item display="isSNMPv3" label="snmpParamInfo.snmpRetries.label">
+                <div ng-bind="createInfo.snmpParam.retryTimes"></div>
+            </tiny-item>
+            <tiny-item display="isSNMPv3" label="snmpParamInfo.snmpSecurity.label">
+                <div ng-bind="createInfo.snmpParam.securityName"></div>
+            </tiny-item>
+            <tiny-item display="isSNMPv3" label="snmpParamInfo.snmpAuthProtocol.label">
+                <div ng-bind="createInfo.snmpParam.authProtocol"></div>
+            </tiny-item>
+            <tiny-item display="isSNMPv3" label="snmpParamInfo.snmpEncrptProtocol.label">
+                <div ng-bind="createInfo.snmpParam.dataEncryptionProtocol"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div ng-bind="i18n.device_all_connect_info_wait_msg" class="color2"></div>
+    <div class="fm-btn-top-large">
+        <tiny-button id="confirmButtonGroup.preBtn.id" text="confirmButtonGroup.preBtn.text"
+                     click="confirmButtonGroup.preBtn.click()"></tiny-button>
+        <tiny-button id="confirmButtonGroup.okBtn.id" text="confirmButtonGroup.okBtn.text"
+                     click="confirmButtonGroup.okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="confirmButtonGroup.cancelBtn.id" text="confirmButtonGroup.cancelBtn.text"
+                     click="confirmButtonGroup.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

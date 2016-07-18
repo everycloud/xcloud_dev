@@ -1,0 +1,205 @@
+<div>
+    <div class="legend"><span ng-bind="i18n.vm_term_vmInfo_label"></span></div>
+    <tiny-formfield>
+        <tiny-item label="templateCell.osType.label" require="templateCell.osType.require">
+            <tiny-select id="templateCell.osType.id" values="templateCell.osType.values" height="templateCell.osType.height" width="templateCell.osType.width" change="templateCell.osType.change()">
+            </tiny-select>
+        </tiny-item>
+        <tiny-item label="templateCell.osVersion.label" require="templateCell.osVersion.require">
+            <tiny-select id="templateCell.osVersion.id" values="templateCell.osVersion.values" height="templateCell.osVersion.height" width="templateCell.osVersion.width" change="templateCell.osVersion.change()">
+            </tiny-select>
+        </tiny-item>
+        <tiny-item label="templateCell.name.label" require="templateCell.name.require">
+            <tiny-textbox id="templateCell.name.id" value="templateCell.value.name" tooltip="templateCell.name.tooltip" extend-function="templateCell.name.extendFunction" validate="templateCell.name.validate" blur="templateCell.name.blur()" width="templateCell.name.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="templateCell.description.label" require="templateCell.description.require">
+            <tiny-textbox id="templateCell.description.id" value="templateCell.value.description" tooltip="templateCell.description.tooltip" extend-function="templateCell.description.extendFunction" validate="templateCell.description.validate" blur="templateCell.description.blur()"
+            width="templateCell.description.width" type="templateCell.description.type" height="templateCell.description.height"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="templateCell.computerName.label" require="templateCell.computerName.require">
+            <tiny-textbox id="templateCell.computerName.id" value="templateCell.value.computerName" tooltip="templateCell.computerName.tooltip" extend-function="templateCell.computerName.extendFunction" validate="templateCell.computerName.validate" blur="templateCell.computerName.blur()"
+            width="templateCell.computerName.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="templateCell.updateType.label" require="templateCell.updateType.require">
+            <tiny-select id="templateCell.updateType.id" values="templateCell.updateType.values" width="templateCell.updateType.width" change="templateCell.updateType.change()">
+            </tiny-select>
+        </tiny-item>
+        <tiny-item label="templateCell.transplantType.label" require="templateCell.transplantType.require">
+            <tiny-select id="templateCell.transplantType.id" values="templateCell.transplantType.values" width="templateCell.transplantType.width" change="templateCell.transplantType.change()">
+            </tiny-select>
+        </tiny-item>
+    </tiny-formfield>
+    <div class="margin-beautifier">
+        <div class="clearfix">
+            <div class="pull-left" ng-bind="templateCell.nics.label"></div>
+            <div class="pull-right">
+                <img ng-src="{{enableIcon.addIcon}}" class="btn-link" id="template-nic-add">
+            </div>
+        </div>
+        <div class="clearfix">
+            <table class="table table-striped table-striped" id="template-nic-table">
+                <thead>
+                <tr>
+                    <th class="textOverflow" style="width: 60px">{{ i18n.common_term_NICname_label }}</th>
+                    <th class="textOverflow" style="width: 60px">{{ i18n.vpc_term_netName_label }}</th>
+                    <th class="textOverflow" style="width: 50px">VLB</th>
+                    <th class="textOverflow width30">{{ i18n.common_term_operation_label }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="nic in templateCell.value.nics" data-id="{{nic.id}}">
+                    <td ng-bind="nic.nicName" title="{{ nic.nicName }}" class="textOverflow" style="width: 60px"></td>
+                    <td ng-bind="nic.networkName" title="{{ nic.networkName }}" class="textOverflow" style="width: 60px"></td>
+                    <td class="textOverflow" style="width: 50px">
+                        <input type='checkbox' style='margin: 0;vertical-align: middle;' ng-checked="nic.vlb"
+                               ng-click="nic.change(nic.id)"/>
+                        <label style='padding: 0 0 0 5px'>{{ i18n.common_term_support_value }}</label>
+                    </td>
+                    <td class="textOverflow">
+                        <div ng-hide="nic.systemDefault">
+                            <img ng-src="{{enableIcon.modifyIcon}}" class="template-nic-edit btn-link">
+                            <img ng-src="{{enableIcon.deleteIcon}}" class="template-nic-delete btn-link">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="margin-beautifier">
+        <div class="clearfix">
+            <div class="pull-left" ng-bind="templateCell.initCommands.label"></div>
+            <div class="pull-right">
+                <img ng-src="{{enableIcon.addIcon}}" class="btn-link" id="template-initCommands-add">
+            </div>
+        </div>
+        <div class="margin-top-beautifier">
+            <table class="table table-striped table-hover" id="template-initCommand-table">
+                <tbody>
+                    <tr ng-repeat="initCommand in templateCell.value.initCommands" data-id="{{initCommand.id}}">
+                        <td ng-bind="initCommand.value" class="textOverflow" style="max-width: 200px">
+                        </td>
+                        <td>
+                            <div class="pull-right">
+                                <img ng-src="{{enableIcon.modifyIcon}}" class="btn-link initCommands-edit">
+                                <img ng-src="{{enableIcon.deleteIcon}}" class="btn-link initCommands-delete">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="margin-beautifier">
+        <div class="clearfix">
+            <div class="pull-left" ng-bind="templateCell.startCommands.label"></div>
+            <div class="pull-right">
+                <img ng-src="{{enableIcon.addIcon}}" class="btn-link" id="template-startCommands-add">
+            </div>
+        </div>
+        <div class="margin-top-beautifier">
+            <table class="table table-striped table-hover" id="template-startCommands-table">
+                <tbody>
+                    <tr ng-repeat="startCommand in templateCell.value.startCommands" data-id="{{startCommand.id}}">
+                        <td ng-bind="startCommand.value" class="textOverflow" style="max-width: 200px">
+                        </td>
+                        <td>
+                            <div class="pull-right">
+                                <img ng-src="{{enableIcon.modifyIcon}}" class="btn-link startCommands-edit">
+                                <img ng-src="{{enableIcon.deleteIcon}}" class="btn-link startCommands-delete">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="margin-beautifier">
+        <div class="clearfix">
+            <div class="pull-left" ng-bind="templateCell.stopCommands.label"></div>
+            <div class="pull-right">
+                <img ng-src="{{enableIcon.addIcon}}" class="btn-link" id="template-stopCommands-add">
+            </div>
+        </div>
+        <div class="margin-top-beautifier">
+            <table class="table table-striped table-hover" id="template-stopCommands-table">
+                <tbody>
+                    <tr ng-repeat="stopCommand in templateCell.value.stopCommands" data-id="{{stopCommand.id}}">
+                        <td ng-bind="stopCommand.value" class="textOverflow" style="max-width: 200px">
+                        </td>
+                        <td>
+                            <div class="pull-right">
+                                <img ng-src="{{enableIcon.modifyIcon}}" class="btn-link stopCommands-edit">
+                                <img ng-src="{{enableIcon.deleteIcon}}" class="btn-link stopCommands-delete">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="margin-beautifier" ng-if="isScallingGroup">
+        <div class="margin-bottom-beautifier" ng-bind="templateCell.scalinggroup.label"></div>
+        <tiny-formfield>
+            <tiny-item label="templateCell.scalinggroup.name.label" require="templateCell.scalinggroup.name.require">
+                <tiny-textbox id="templateCell.scalinggroup.name.id" value="templateCell.scalinggroup.value.name" tooltip="templateCell.scalinggroup.name.tooltip" extend-function="templateCell.scalinggroup.name.extendFunction" validate="templateCell.scalinggroup.name.validate"
+                blur="templateCell.scalinggroup.name.blur()" width="templateCell.scalinggroup.name.width" type="templateCell.scalinggroup.name.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="templateCell.scalinggroup.description.label" require="templateCell.scalinggroup.description.require">
+                <tiny-textbox id="templateCell.scalinggroup.description.id" value="templateCell.scalinggroup.value.description" tooltip="templateCell.scalinggroup.description.tooltip" extend-function="templateCell.scalinggroup.description.extendFunction" validate="templateCell.scalinggroup.description.validate"
+                blur="templateCell.scalinggroup.description.blur()" width="templateCell.scalinggroup.description.width" type="templateCell.scalinggroup.description.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="templateCell.scalinggroup.max.label" require="templateCell.scalinggroup.max.require">
+                <tiny-textbox id="templateCell.scalinggroup.max.id" value="templateCell.scalinggroup.value.maxSize" tooltip="templateCell.scalinggroup.max.tooltip" extend-function="templateCell.scalinggroup.max.extendFunction" validate="templateCell.scalinggroup.max.validate"
+                blur="templateCell.scalinggroup.max.blur()" width="templateCell.scalinggroup.max.width"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="templateCell.scalinggroup.min.label" require="templateCell.scalinggroup.min.require">
+                <tiny-textbox id="templateCell.scalinggroup.min.id" value="templateCell.scalinggroup.value.minSize" tooltip="templateCell.scalinggroup.min.tooltip" extend-function="templateCell.scalinggroup.min.extendFunction" validate="templateCell.scalinggroup.min.validate"
+                blur="templateCell.scalinggroup.min.blur()" width="templateCell.scalinggroup.min.width" type="templateCell.scalinggroup.min.type" height="templateCell.scalinggroup.min.height"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="templateCell.scalinggroup.desiredCapacity.label" require="templateCell.scalinggroup.desiredCapacity.require">
+                <tiny-textbox id="templateCell.scalinggroup.desiredCapacity.id" value="templateCell.scalinggroup.value.desiredCapacity" tooltip="templateCell.scalinggroup.desiredCapacity.tooltip" extend-function="templateCell.scalinggroup.desiredCapacity.extendFunction"
+                validate="templateCell.scalinggroup.desiredCapacity.validate" blur="templateCell.scalinggroup.desiredCapacity.blur()" width="templateCell.scalinggroup.desiredCapacity.width"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="templateCell.scalinggroup.cooldown.label" require="templateCell.scalinggroup.cooldown.require">
+                <tiny-textbox id="templateCell.scalinggroup.cooldown.id" value="templateCell.scalinggroup.value.cooldown" tooltip="templateCell.scalinggroup.cooldown.tooltip" extend-function="templateCell.scalinggroup.cooldown.extendFunction" validate="templateCell.scalinggroup.cooldown.validate"
+                blur="templateCell.scalinggroup.cooldown.blur()" width="templateCell.scalinggroup.cooldown.width" type="templateCell.scalinggroup.cooldown.type" height="templateCell.scalinggroup.cooldown.height"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+
+        <div class="margin-beautifier">
+            <div class="clearfix">
+            <div class="pull-left" ng-bind="templateCell.scalinggroup.scalingPolicies.label"></div>
+            <div class="pull-right">
+                <img ng-src="{{enableIcon.addIcon}}" class="btn-link" id="template-scalinggroup-scalingPolicies-add" ng-click="templateCell.scalinggroup.addScalingPolicy()">
+            </div>
+            </div>
+            <div class="margin-top-beautifier">
+            <table class="table table-striped table-striped" id="template-scalinggroup-scalingPolicies-table">
+                <thead>
+                    <tr>
+                        <th class="textOverflow" style="width: 50px">{{ i18n.common_term_name_label }}</th>
+                        <th class="textOverflow" style="width: 50px">{{ i18n.common_term_actionType_label }}</th>
+                        <th class="textOverflow" style="width: 60px; text-align:center">{{ i18n.common_term_desc_label }}</th>
+                        <th>{{ i18n.common_term_operation_label }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="scalingPolicy in templateCell.scalinggroup.value.scalingPolicies" data-id="{{scalingPolicy.id}}">
+                        <td ng-bind="scalingPolicy.name" title="{{ scalingPolicy.name }}" class="textOverflow" style="width: 50px"></td>
+                        <td ng-bind="templateCell.scalinggroup.getActionTypeName(scalingPolicy.action.ActionType)" title="{{ templateCell.scalinggroup.getActionTypeName(scalingPolicy.action.ActionType) }}" class="textOverflow" style="width: 50px"></td>
+                        <td ng-bind="scalingPolicy.description" title="{{ scalingPolicy.description }}" class="textOverflow" style="width: 60px; text-align: center"></td>
+                        <td>
+                            <div>
+                                <img ng-src="{{enableIcon.modifyIcon}}" class="template-scalingpolicy-edit btn-link">
+                                <img ng-src="{{enableIcon.deleteIcon}}" class="template-scalingpolicy-delete btn-link">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+</div>

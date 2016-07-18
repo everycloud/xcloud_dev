@@ -1,0 +1,36 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="container-fluid ">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span ng-bind-html="i18n.template_term_vm_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.template_vm_view_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="clearfix form-inline">
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <tiny-filtersel id="searchOSType.id" values="searchOSType.values" width="searchOSType.width" height="searchOSType.height" default-label="searchOSType.dftLabel" change="searchOSType.change()">
+                </tiny-filtersel>
+                <tiny-filtersel id="searchOSVersion.id" values="searchOSVersion.values" width="searchOSVersion.width" height="searchOSVersion.height" default-label="searchOSVersion.dftLabel" change="searchOSVersion.change()">
+                </tiny-filtersel>
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                    <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                    </tiny-searchbox>
+                </span>
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+                </a>
+            </div>
+        </div>
+        <tiny-table id="vmTableList.id" data="vmTableList.data" columns="vmTableList.columns" enable-pagination="vmTableList.pagination" show-details="vmTableList.showDetails" pagination-style="vmTableList.paginationStyle" length-change="vmTableList.lengthChange"
+        length-menu="vmTableList.lengthMenu" display-length="vmTableList.displayLength" enable-filter="vmTableList.enableFilter" cur-page="vmTableList.curPage" total-records="vmTableList.totalRecords" request-config="vmTableList.requestConfig" hide-total-records="vmTableList.hideTotalRecords"
+        columns-visibility="vmTableList.visibility" render-row="vmTableList.renderRow" callback="vmTableList.callback" columns-draggable="true"></tiny-table>
+
+    </div>
+</div>

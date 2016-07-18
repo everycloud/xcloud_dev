@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.openStackResource.region">{{i18n.resource_term_openstack_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.regionResources.summary">{{regionName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">VLAN</li>
+        </ul>
+        <ul class="nav nav-list noPadding">
+            <li class="two-lead">
+                <p ng-bind-html="i18n.resource_vlan_viewICT_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+
+    <div class="content-right-box">
+        <div class="bottom10 clearfix">
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link"><img src="../theme/default/images/gm/refresh.gif" ng-click="queryVlans()"></a>
+            </div>
+        </div>
+
+        <div>
+            <fm-table columns="vlanTable.columns" data="vlanTable.data"
+                      operate="vlanTable.operate">
+            </fm-table>
+        </div>
+    </div>
+
+</div>

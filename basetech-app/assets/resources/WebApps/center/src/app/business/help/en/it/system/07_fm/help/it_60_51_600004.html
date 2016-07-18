@@ -1,0 +1,471 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Creating a VM Template (Windows)">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600004">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Creating a VM Template (Windows)</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nCreating a VM Template (Windows)");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > Creating a VM Template (Windows)<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600004"></a><a name="it_60_51_600004"></a>
+
+
+
+<h1 class="topictitle1">Creating a VM Template (Windows)</h1>
+<ul><li><a href="#it_60_51_600004__1.2.1.1">Scenarios</a></li><li><a href="#it_60_51_600004__1.2.2.1">Prerequisites</a></li><li><a href="#it_60_51_600004__1.2.3.1">Procedure</a></li></ul>
+<div>
+<div class="section" id="it_60_51_600004__back"><a name="it_60_51_600004__back"></a><a name="back"></a><a name="it_60_51_600004__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600004" class="sectiontitle2contents">Scenarios</a></h4>
+
+
+<div class="p"><div class="p"><span>A VM template is a duplicate of a VM,
+which includes an OS, software packages, and a set of VM specifications. </span> VM templates can be used to:<ul><li>Provision VMs. Creating VMs using a VM template can greatly reduce
+the time for creating the VMs and configuring operating systems (OSs)
+for them.</li><li>Provision application instances: A VM template can be used to
+create multiple VMs for an application instance. An application instance
+can be used to provision application instances.</li></ul>
+</div>
+<div class="p">On <span>FusionManager</span>, create a VM template in customized mode by performing the following operations:<ol><li>Use <span>FusionManager</span> to create a bare VM: A bare VM is a virtual computer without an operating system (OS) or application software installed. </li><li>Install the OS: Use the OS ISO image file to install the OS on the bare VM.</li><li>Install the driver: Use the mapping driver ISO image files to install the drivers on the VM template to meet the VM running requirements.</li><li>Install application software: Use the application software ISO image files to install required application software on the VM template. </li><li>Configure the OS: Adjust the OS configurations to meet the VM function requirements.</li></ol>
+</div>
+<p>The VM template is created and can be used to deploy VMs or application instances.</p>
+</div>
+
+</div>
+
+<div class="section" id="it_60_51_600004__pre"><a name="it_60_51_600004__pre"></a><a name="pre"></a><a name="it_60_51_600004__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600004" class="sectiontitle2contents">Prerequisites</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>You have logged in to <span>FusionManager</span> and <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Templates and Specs</span></b> &gt; <b><span class="uicontrol">VM Templates</span></b></span>.</li><li>If the VMware hypervisor is used, CD-ROM drives cannot be attached using a locally shared file for installing the OS and application software to the VM. An NSF server must be configured in the vCenter to communicate with <span>FusionManager</span> and attach CD-ROM drives.</li><li><div class="p">You have obtained software listed in <a href="#it_60_51_600004__tab_02">Table 1</a>.
+<div class="tablenoborder"><a name="it_60_51_600004__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600004__tab_02" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Software to be obtained</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="16.414686825053995%" id="mcps1.2.2.2.1.1.3.1.2.2.5.1.1"><p>Name</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="7.991360691144708%" id="mcps1.2.2.2.1.1.3.1.2.2.5.1.2"><p>Mandatory or Optional</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="34.7732181425486%" id="mcps1.2.2.2.1.1.3.1.2.2.5.1.3"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="40.8207343412527%" id="mcps1.2.2.2.1.1.3.1.2.2.5.1.4"><p>How to Obtain</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="16.414686825053995%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.1 "><p>OS ISO file</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.991360691144708%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.2 "><p>Mandatory</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="34.7732181425486%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.3 "><p>Used to install an OS for the VM template. </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.8207343412527%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.4 "><p>Provided by the customer</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.414686825053995%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.1 "><p>Application software installation ISO image files</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.991360691144708%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.2 "><p>Optional</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="34.7732181425486%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.3 "><p>Application software installed on the VM template as required.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.8207343412527%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.4 "><p>Provided by the customer</p>
+<p>You can use any ISO image creation tool, such as UltraISO
+and ISOMaker, to create an ISO file for the desired software. For
+more information, visit <span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span>.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.414686825053995%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.1 "><p>FusionCompute V100R005C00SPC200_GuestOS.iso</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.991360691144708%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.2 "><p>Mandatory</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="34.7732181425486%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.3 "><div class="p">Consists of Tools and the iNIC driver.<ul><li>Tools:required for creating a VM template in the <span>FusionCompute</span> hypervisor. </li><li>iNIC drive: required for creating a VM template if the iNIC is used on the host </li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.8207343412527%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.4 "><p>Download the <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOSDrivers.zip</b></span> file in the following path and decompress it:</p>
+<p>For an enterprise user, download it from </p>
+<p><span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">IT</span></b> &gt; <b><span class="uicontrol">FusionCloud</span></b> &gt; <b><span class="uicontrol">FusionSphere</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span></p>
+<p>For a carrier user, download it from </p>
+<p><span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Carrier Software &amp; Core Network </span></b> &gt; <b><span class="uicontrol">Carrier Cloud Computing</span></b> &gt; <b><span class="uicontrol">IT Cloud Infrastructure
+Solution</span></b> &gt; <b><span class="uicontrol">Cloud OS</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.414686825053995%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.1 "><p>puppetclient_windows.iso</p>
+<p>puppetclient_linux.iso</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.991360691144708%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.2 "><p>Optional</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="34.7732181425486%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.3 "><p>Client software required for creating a VM template if the automatic software deployment function is to be used on the <span>FusionManager</span> hypervisor. </p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.8207343412527%" headers="mcps1.2.2.2.1.1.3.1.2.2.5.1.4 "><p>Download the <span class="filepath"><b>FusionManager V100R005C00SPC200_tool.zip</b></span> file in the following path and decompress it:</p>
+<p>For
+enterprise users, visit http://support.huawei.com/enterprise and choose <span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">IT</span></b> &gt; <b><span class="uicontrol">FusionCloud</span></b> &gt; <b><span class="uicontrol">FusionSphere</span></b> &gt; <b><span class="uicontrol">FusionManager</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC200</span></b></span>.</p>
+<p>For carrier users,
+visit http://support.huawei.com and choose <span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Carrier Software &amp; Core Network </span></b> &gt; <b><span class="uicontrol">Carrier Cloud Computing</span></b> &gt; <b><span class="uicontrol">IT Cloud
+Infrastructure Solution</span></b> &gt; <b><span class="uicontrol">Cloud OS</span></b> &gt; <b><span class="uicontrol">FusionManager</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC200</span></b></span>.</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">Verify the obtained software packages.
+For details, see <a href="../soft_inst/it_60_23_000021.html">Verifying Software Packages</a>.</div></div>
+</div>
+</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600004__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600004" class="sectiontitle2contents">Procedure</a></h4>
+
+<ul><a name="it_60_51_600004__step_enter"></a><a name="step_enter"></a><div class="HandlingTitled" id="it_60_51_600004__step_enter"><p class="sectiontitle">Enter the page for creating a template.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>On the <span class="wintitle"><b>VM Templates</b></span> page, click <span class="uicontrol"><b>Create</b></span>.</span>
+<p>The <span class="wintitle"><b>Create VM Template</b></span> page is displayed.</p>
+</li></ol></div>
+</div>
+<a name="it_60_51_600004__step_vm"></a><a name="step_vm"></a><div class="HandlingTitled" id="it_60_51_600004__step_vm"><p class="sectiontitle">Create a bare VM.</p>
+<p>Essentially, a VM template is a VM. Creating a VM template is includes creating a bare VM, installing the OS/drives/software, adjusting configure the attributes, and converting the VM to a VM template.</p><div class="Steps-titled"><ol type="1" start="2"><li><span>Configure the basic VM information, as shown in <a href="#it_60_51_600004__fig01">Figure 1</a>.</span>
+<p><div class="fignone" id="it_60_51_600004__fig01"><a name="it_60_51_600004__fig01"></a><a name="fig01"></a><span class="figcap"><b>Figure 1 </b>Basic information</span>
+
+<br><span><img src="fig/fig_it_60_51_600004_01.png"></span><br>
+</div>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span> to configure the VM specifications, as shown in <a href="#it_60_51_600004__fig02">Figure 2</a>.</span>
+<p><div class="fignone" id="it_60_51_600004__fig02"><a name="it_60_51_600004__fig02"></a><a name="fig02"></a><span class="figcap"><b>Figure 2 </b>VM specifications</span>
+
+<br><span><img src="fig/fig_it_60_51_600004_02.png"></span><br>
+</div>
+</p>
+</li><li><span>Configure the VM specifications.</span>
+<p><div class="p">The following information needs to be configured:<ul><li>OS type and version</li><li>Number of CPUs, memory, number of disks, and disk information. You can enter disk information or click <span class="uicontrol"><b>Select VM Spec.</b></span> and select an available specification template.</li></ul>
+Descriptions of the disk parameters are as follows:<ul><li><div class="p">Capacity:<ul><li>The OS is installed in the first disk by default. Therefore, allocate
+proper space for the disk based on the OS file size.</li><li>The maximum disk capacity supported by Windows 2000 and Windows
+XP is 2047 GB. Therefore, a VM that runs Windows 2000 or Windows XP
+cannot identify disks whose capacity is greater than 2047 GB.</li></ul>
+</div>
+</li><li><div class="p">Configuration Mode:<ul><li><span class="parmname"><b>Thick provisioning lazy zeroed</b></span>: This mode
+is used when the data store type is <span class="parmvalue"><b>Local Pome</b></span> or <span class="parmvalue"><b>LUN Pome</b></span>. The system allocates storage
+space to a disk based on the disk capacity. However, data remaining
+on the physical device is zeroed out only on first data write from
+the VM as required.<p>You cannot create a VM template on a local disk.</p>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">Data stores are classified into basic stores (non-virtualization)
+and virtualization stores. Details about each storage device are as
+follows:<ul><li>SAN storage: shared storage device supporting both basic and virtualization
+stores. <span class="parmvalue"><b>LUN Pome</b></span> refers to the virtualization
+SAN storage.</li><li>Advanced SAN storage: advanced shared storage device supporting
+only basic stores.</li><li>NAS storage: supporting only virtualization stores.</li><li>Local disk: supporting both basic and virtualization stores.</li><li>FusionStorage: logical storage device.</li></ul>
+</div></div>
+</li><li><span class="parmname"><b>Common</b></span>: The system allocates disk space based
+on the disk capacity. During disk creation in this mode, data remaining
+on the physical device will be reset to 0. The performance of the
+disks in this mode is better than that in the other two modes, but
+the creation duration may be longer than that required in the other
+modes.</li><li><span class="parmname"><b>Thin provisioning</b></span>: This mode only applies
+to disks that use virtualized data stores or the storage device is <span>Advanced SAN or </span>FusionStorage. In this mode, the system allocates
+part of the configured disk capacity for the first time, and allocates
+the rest disk capacity based on the storage usage of the disk until
+all the configured disk capacity is allocated. Thin provisioning allows
+more virtual storage space to be allocated than the real storage available.
+This mode cannot be enabled for disks that do not support thin provisioning.
+If FusionStorage devices are not used, do not enable thin provisioning
+for disks that run performance-intensive programs.</li></ul>
+</div>
+</li><li><p><span class="parmname"><b>Storage SLA</b></span>: specifies
+the storage media used by the disk. If the disk type is SAN-SATA,
+SAN-SAS&amp;FC, or SAN-SSD, strict storage type matching is performed
+based on the storage media type of the cluster to which the VM belongs.
+If the disk type is Any, the storage media type is selected in the
+following sequence: SAN-SATA &gt; Any &gt; SAN-SASSAS&amp;FC &gt; SAN-SSD.</p>
+</li><li><p><span class="parmname"><b>Included in Snapshot</b></span>: specifies whether to take a snapshot for the VM disk when a snapshot
+is taken for a VM. If this option is not selected, data on the disk
+will not be restored when the VM is restored using its snapshot.</p>
+</li></ul>
+</div>
+</p>
+</li><li><span>To modify the QoS configuration, click <span class="uicontrol"><b>QoS Settings</b></span> and configure the parameters.</span>
+<p><span>Quality of service
+(QoS) settings ensure optimal allocation of computing and memory resources
+for VMs based on their service requirements. The settings also prevent
+resource contention between VMs due to different service requirements,
+improving the resource utilization and reducing the costs.</span><div class="p">The following information needs to be configured:<ul><li><p><span class="parmname"><b>Limited</b></span> (CPU): specifies
+the maximum CPU resource that can be allocated by a server to a VM.
+If the VMware hypervisor is used, <span class="parmvalue"><b>-1</b></span> indicates
+that the allocated CPU resource is not limited.</p>
+</li><li><div class="p"><span class="parmname"><b>CPU Share</b></span> and <span class="parmname"><b>Memory Share</b></span>: specify the CPU and memory quotas that a
+VM can obtain in resource contention. The quota represents the relative
+priority of a VM. For example, if the CPU quota of a VM is twice that
+of another VM, this VM has the priority to consume the CPU resources
+as twice as that of the other VM.<ul><li><span class="parmvalue"><b>High</b></span>: The quota is 2000 for each CPU and
+20 for each MB of memory.<p>For example, if the CPU and memory resource
+quota is set to High for a VM that has two virtual CPUs and 1 GB memory,
+the VM has 4000 CPU quotas (2 x 2000) and 20,480 memory quotas (20
+x 1024). </p>
+</li><li><span class="parmvalue"><b>Medium</b></span>: The quota is 1000 for each CPU
+and 10 for each MB of memory.</li><li><span class="parmvalue"><b>Low</b></span>: The quota is 500 for each CPU and
+5 for each MB of memory.</li><li><span class="parmvalue"><b>Custom</b></span></li></ul>
+</div>
+</li><li><div class="p"><span class="parmname"><b>Reserved</b></span> (CPU, Memory):<ul><li>Specify the minimum CPU and memory resources required by a VM.</li><li>A VM can start only when the VM host provides at least the reserved
+amount of CPU and memory resources required by the VM.</li><li>If the reserved CPU and memory resources are specified for a VM,
+the VM host provides the reserved resources for the VM even if the
+server is already heavily loaded.<p>For example, if a host has 2 GB
+memory space available and 1 GB memory is each reserved for VM 1 and
+VM 2 on this host, both the VMs can always obtain 1 GB memory.</p>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</p>
+</li><li><span>To modify more advanced configurations, click <span class="uicontrol"><b>Advanced Settings</b></span> and configure the parameters.</span>
+<p><span>Advanced
+settings specify the advanced and extended functions or attributes
+of a VM or VM template.</span><div class="p">The following information needs to be configured:<ul><li><p><span class="parmname"><b>Secondary Storage</b></span>:
+A secondary storage resource is associated with each cluster. If a
+secondary storage resource is available in the system, the system
+preferentially selects it when creating a VM template. A VM template
+using a secondary storage resource can be used to deploy VMs across
+clusters. </p>
+</li><li><p><span class="parmname"><b>CPU Hot Swap</b></span>: specifies
+the CPU hot swap policies for a VM. For details about CPU hot swap
+policy settings, see <a href="it_60_51_600021.html">Setting Hot Swap Policies for a VM</a>.</p>
+</li><li><p><span class="parmname"><b>HA</b></span>: Specifies whether to
+enable the high availability (HA) function for VMs created using a
+VM template. With this function enabled, the VMs will be automatically
+migrated to another running host if the source host of the VMs becomes
+faulty. HA takes effect only after it is enabled on both the VMs and
+the cluster housing these VMs.</p>
+</li><li><p><span class="parmname"><b>Clock Sync</b></span>: If <span class="parmvalue"><b>Sync with Host</b></span> is selected, the VM periodically synchronizes
+time with the host. If <span class="parmvalue"><b>Sync with Host</b></span> is not
+selected, the VM uses the time set by the user.</p>
+</li><li><div class="p"><span class="parmname"><b>Upgrade Mode</b></span>: <ul><li><span class="parmvalue"><b>Automatic</b></span>: The VM automatically installs
+the upgrade package pushed by the system.</li><li><span class="parmname"><b>Manual</b></span>: If the VM runs a Windows operating
+system, the VM user determines whether to install the upgrade package
+pushed by the system after receiving an installation confirmation
+message. If the VM runs a Linux operating system, the upgrade package
+is not installed.</li></ul>
+</div>
+</li><li><div class="p"><span class="parmname"><b>Basic Block Storage Advanced
+Functions</b></span>:<ul><li>In this mode, the storage device performance is not adversely
+affected.</li><li>In this mode, the storage device performance deteriorates.</li></ul>
+</div>
+</li></ul>
+</div>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span> and create a bare VM.</span></li><li><span>After the VM is created, click <span class="uicontrol"><b>Next</b></span>.</span>
+<p>The <span class="wintitle"><b>Install Software</b></span> page is displayed. <div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>After a VM template is created, the template occupies system resources regardless of whether the follow-up operations are performed. Therefore, delete unused VM templates. </p>
+</div></div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Install the OS on the VM.</p>
+<div class="Steps-titled"><ol type="1" start="9"><li><span>Mount the OS ISO file to the VM and log in to the VM using VNC.</span>
+<p>For the detailed procedure for mounting a CD/DVD-ROM drive, see <a href="it_60_51_600018.html">Mounting a CD/DVD-ROM Drive or an ISO File</a>.</p>
+</li><li><span>Install and configure the OS.</span>
+<p><ul><li>The installation takes about 30 minutes. The duration varies depending on the OS you use.</li><li>For detailed operation methods, <span>search from the
+Internet or <a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a>.</span>.</li><li><p id="it_60_51_600004__keyboard"><a name="it_60_51_600004__keyboard"></a><a name="keyboard"></a>If the VMware hypervisor used, mouse operations are not allowed if the VMware Tools is not installed on the VM. Therefore, use the keyboard to install the OS.</p>
+</li><li><p>If the VMware hypervisor and Windows 7 OS is used, do not store software or data in VM desktop file folders. Otherwise, the stored data may be lost.</p>
+</li></ul>
+</p>
+</li><li><span>Disable the firewall of the OS.</span></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Install the drivers.</p>
+<p><p>Install the required drivers for the VM OS. </p>
+</p><div class="Steps-titled"><ol type="1" start="12"><li><span>Mount the <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOS.iso</b></span> file and install Tools.</span>
+<p>For details, see <a href="../../05_fc/vm_prov/it_58_45_200031.html">Installing the Tools on a Windows VM</a>.<p>If the VMware hypervisor is used, Tools is not required, but VMware Tools must be installed.</p>
+</p>
+</li><li><span>Install the iNIC driver.</span>
+<p>Save the iNIC driver installation program and Tools in the same ISO image file. If the <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOS.iso</b></span> file has been mounted to the VM, install the iNIC driver. For
+details, see <a href="../../05_fc/vm_prov/it_58_45_200051.html">Installing the iNIC Driver on a Windows VM</a>.</p>
+</li><li><span>Mount the <span class="filepath"><b>puppetclient_windows.iso</b></span> file and install Puppet Client.</span>
+<p>For details, see <a href="it_60_51_600014.html">Installing the Puppet Client on a Windows VM</a>.<p>This software is required if you use the automatic software deployment function. For details, see <a href="it_60_51_000018.html">Automatic Software Deployment</a>.</p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Install application software.</p>
+<p><p>Install common software or copy the software installation programs to the VM so that the created VM has required application software or installation programs for the software.</p>
+</p><div class="Steps-titled"><ol type="1" start="15"><li><span>Mount the ISO image files to the VM on demand to install required software on the VM.</span>
+<p><ul><li><p>You can use any ISO image creation tool, such as UltraISO
+and ISOMaker, to create an ISO file for the desired software. For
+more information, visit <span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span>.</p>
+</li><li>If the VMware hypervisor is used and the target OS is Windows XP 32-bit, you need to manually install the NIC driver and SCSI controller driver after installing the OS.<ul><li>To obtain the required NIC driver, log in to <a href="http://www.intel.com/support/network/sb/cs-006120.htm" target="_blank">http://www.intel.com/support/network/sb/cs-006120.htm</a> to download the required program.</li><li>To obtain the SCSI controller driver, log in to <a href="http://www.lsi.com/support/Pages/download-search.aspx" target="_blank">http://www.lsi.com/support/Pages/download-search.aspx</a>, search for <span class="parmname"><b>LSI20320</b></span>, and download <span class="parmvalue"><b>LSI20320-R_xp_50700_01034132IT_1201800_1005239.zip</b></span>.</li></ul>
+</li></ul>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure the OS.</p>
+<div class="Steps-titled"><ol type="1" start="16"><li id="it_60_51_600004__initial_disk"><a name="it_60_51_600004__initial_disk"></a><a name="initial_disk"></a><span>Initialize the user disk.</span>
+<p>The first attached disk functions as the system disk. The other attached disks function as user disks. If multiple disks are configured for a VM, the user disks need to be initialized so that they can be used by the VM. The operation method is
+same as that for a physical PC. For detailed operation methods, <span>search from the
+Internet or <a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a>.</span>.</p>
+</li><li><span>Configure the security identifiers (SIDs) for the VMs. For details, see <a href="../../05_fc/vm_prov/it_58_45_200037.html">Configuring the VM SID Customization</a>.</span>
+<p><p>VMs created using this VM template have different SIDs only when the OS SID is configured and can be added to a domain.</p>
+</p>
+</li><li><span>Configure the VM attributes. For details, see <a href="../../05_fc/vm_prov/it_58_45_200038.html">Configuring Specifications Attribute Customization for a Windows VM</a>.</span>
+<p><div class="p">This function is not required when:<ul><li><p>The VMware hypervisor does not require the following configuration.</p>
+</li><li><p id="it_60_51_600004__d2050e41"><a name="it_60_51_600004__d2050e41"></a><a name="d2050e41"></a>If the random initial password and VM specifications
+attribute customization functions are not required, do not configure
+this function.</p>
+</li><li>The VM runs the Windows 2000 Server SP4 or Windows 2000 Advanced
+Server SP4 OS. The two OSs do not support this function.</li><li>The VM SID has been configured. SID configuration
+includes specifications attributes configuration. For details about
+VM SID configuration, see <a href="../../05_fc/vm_prov/it_58_45_200037.html">Configuring the VM SID Customization</a>.</li><li>The VM SID has been
+configured. SID configuration includes specifications attributes configuration. </li></ul>
+</div>
+<div class="p">Configure specifications attribute customization for a VM. If the
+VM is used as a template for creating VMs. this function enables the
+created VMs have the following functions:<ul><li>Have a unique initial password</li><li>Support computer name customization</li><li>Synchronize time with the host</li><li>Obtain an IP address in static-manual mode</li></ul>
+</div>
+</p>
+</li><li><span>Enable the Administrator account.</span>
+<p>If a VM template running Windows 7 OS is used to create a VM in the VMware hypervisor, the Administrator account is automatically disabled for the created VM. To log in to the VM using the Administrator account in the VMware hypervisor, perform
+the following steps to configure a script file for enabling the Administrator account: </p>
+<p><ol type="a"><li>Create a <span class="parmvalue"><b>Scripts</b></span> folder in the <span class="parmvalue"><b>C:\Windows\Setup</b></span> directory of the VM.</li><li>Create a <span class="parmvalue"><b>SetupComplete.cmd</b></span> script file in the <span class="filepath"><b>C:\Windows\Setup\Scripts</b></span> directory.<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>The new folder and script file must be named as specified in the preceding steps, and the names are case sensitive. </li><li>Ensure that the suffix of the script file is <span class="parmvalue"><b>*.cmd</b></span>. Do not add redundant suffixes, such as <span class="parmvalue"><b>.txt</b></span> behind <span class="parmvalue"><b>*.cmd</b></span>. </li></ul>
+</div></div>
+</li><li>Open the <span class="parmvalue"><b>SetupComplete.cmd</b></span> file and add the following command in the file: <p><b><span class="cmdname">net user administrator /active:yes</span></b></p>
+</li><li>Save and close the <span class="parmvalue"><b>SetupComplete.cmd</b></span> file. </li></ol>
+</p>
+</li></ol></div>
+</div>
+<a name="it_60_51_600004__step_publish"></a><a name="step_publish"></a><div class="HandlingTitled" id="it_60_51_600004__step_publish"><p class="sectiontitle">Complete VM template creation.</p>
+<p><p>The exact duration for VM template creation is not predictable because the creation process is flexibly performed by customers based on their specific service requirements. Therefore, this step is intended to confirm with the
+system that all the required software has been installed on the VM. The system will change the template status and allow the user to perform the subsequent steps only after obtaining the confirmation result.</p>
+<p>The creation process is implemented
+on the VNC window. During the creation process, <span>FusionManager</span> may automatically log out due to timeout. In this case, you need to log in to <span>FusionManager</span> again.</p>
+</p><div class="Steps-titled"><ol type="1" start="20"><li><span>Log in to <span>FusionManager</span> again if you have logged out from <span>FusionManager</span>. Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Templates and Specs</span></b> &gt; <b><span class="uicontrol">VM Templates</span></b></span>.</span></li><li><span>Locate the row that contains the target VM template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Install Software</b></span>.</span>
+<p>The <span class="wintitle"><b>Install Software</b></span> page is displayed. </p>
+</li><li><span>Click <span class="uicontrol"><b>Complete</b></span>.</span>
+<p>The system returns to the <span class="wintitle"><b>VM Templates</b></span> page. The VM template is in the <span class="parmvalue"><b>Complete</b></span> state. The CD/DVD-ROM drive mounted to the VM will be automatically unmounted.</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

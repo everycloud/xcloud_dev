@@ -1,0 +1,93 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Disks">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100016">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Disks</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100016"></a><a name="it_60_51_100016"></a>
+
+
+<h1 class="topictitle1">Disks</h1>
+
+
+<div>
+<div class="section"><p>Disks provide data storage space for VMs
+and are not dependent on VMs. A disk can be attached to different
+VMs and supports data migration among VMs.</p>
+<p>You can view all
+disks available in the system and adjust disk information as needed.</p>
+</div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Modifying Disk Attributes</h4></div><div class="dropdowncontext"><p>After creating a disk, you can modify
+the disk description information as needed.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Exporting the Disk List</h4></div><div class="dropdowncontext"><p>You can export all the disks available in the system to a .xls
+file and save it on the local PC for information backup and statistics.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Expand Capacity of a Disk</h4></div><div class="dropdowncontext"><div class="p">Expand
+the capacity of a disk on a VM when required. You can expand the disk
+capacity of a VM only when the following requirements are met:<ul><li>The virtual data store or FusionStorage is used.</li><li>No snapshots have been created for the disk. If any snapshots
+have been created for the disk, delete the snapshots before expanding
+the disk capacity. </li><li>The disk is not the system disk of a linked clone.</li><li>For a VM in the <span>FusionCompute</span> hypervisor, the capacity of the VM disk to be expanded is greater
+than or equal to 4 GB.</li><li>You cannot expand the disk capacity when the VM is running if
+the disk is created on NAS storage and the disk is in common configuration
+mode.</li></ul>
+</div>
+<p>If the VM is in the <span>FusionCompute</span> hypervisor, you can expand the disk capacity of a VM when the VM
+is in the <span class="parmvalue"><b>Stopped</b></span> or <span class="parmvalue"><b>Running</b></span> state. If the VM is in the other hypervisor, you can expand the
+disk capacity of a VM only when the VM is in the <span class="parmvalue"><b>Stopped</b></span> state.</p>
+<p>Locate the row that contains the target
+disk, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Expand
+Capacity</b></span>.</p>
+<div class="p">Determine the VM scenario and make capacity expansion
+take effect.<ol><li><div class="p">If the VM is in the following scenario, restart the VM:<ol type="a"><li>The VM is in the <span class="parmvalue"><b>Running</b></span> state. </li><li>The disk is created on a Local Pome, LUN Pome, or NAS storage.</li><li>The VM does not run one of the following OSs:<ul><li>Windows Server 2003</li><li>Windows Server 2008</li><li>Windows XP</li><li>Windows 7</li></ul>
+</li></ol>
+</div>
+<div class="p">If the VM is in the following scenario, power cycle the
+VM:<ol type="a"><li>The VM is in the <span class="parmvalue"><b>Running</b></span> state. </li><li>The disk is created on FusionStorage.</li></ol>
+</div>
+</li><li>The VM OS recognizes newly expanded disk capacity as an unallocated
+partition. Therefore, you need to merge the partition or create a
+partition to identify the expanded disk capacity. For detailed operation
+methods, <span>search from the
+Internet or <a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a>.</span>.</li></ol>
+</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Setting the I/O Upper
+Limit of a Disk</h4></div><div class="dropdowncontext"><p>Configure the input/output (I/O) upper limit for
+a disk to prevent that the disk deteriorates the performance of other
+VMs due to excessive I/O. If the I/O upper limit is set to a low value,
+the VM may respond slowly or even cannot get started. </p>
+<p>You can configure the I/O upper limit only when
+the VM is in the <span class="parmvalue"><b>Running</b></span>, <span class="parmvalue"><b>Stopped</b></span>, or <span class="parmvalue"><b>Hibernated</b></span> state. VRMs VMs in the <span>FusionCompute</span> hypervisor do not support this function.</p>
+<p>Locate the row that contains the target
+disk, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Set
+I/O Upper Limit</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

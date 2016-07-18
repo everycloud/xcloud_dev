@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="serviceMgr.multiPool">{{i18n.cloud_term_cloudPool_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="service.poolInfo.summary">{{poolName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.resource_term_externalNets_label}}</li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box clearfix">
+        <!--刷新、列选择、帮助-->
+        <div class="clearfix fm-btn-bottom-small">
+            <div class="fr">
+                <a class="btn-link">
+                    <div ng-click="refresh()" id="refresh.id" title="{{i18n.common_term_fresh_button}}"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+            </div>
+            <div class="fr">
+                <tiny-filtersel id="azSelector.id" values="azSelector.values" width="azSelector.width"
+                                change="azSelector.change()">
+                </tiny-filtersel>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="exNetTable.id" data="exNetTable.data" columns="exNetTable.columns"
+                        enable-pagination="exNetTable.enablePagination"
+                        pagination-style="exNetTable.paginationStyle" length-change="exNetTable.lengthChange"
+                        length-menu="exNetTable.lengthMenu" display-length="exNetTable.displayLength"
+                        change-select="exNetTable.changeSelect"
+                        cur-page="exNetTable.curPage" total-records="exNetTable.totalRecords"
+                        callback="exNetTable.callback" render-row="exNetTable.renderRow"
+                        columns-draggable="exNetTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+    <div fm-help help="" i18n="'zh'" show="help.show"></div>
+</div>

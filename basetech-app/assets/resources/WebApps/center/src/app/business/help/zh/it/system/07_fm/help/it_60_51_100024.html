@@ -1,0 +1,149 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="外部网络">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100024">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>外部网络</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\n资源池管理\n资源分区\n外部网络");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100004.html\">资源池管理<\/a> > <a href=\"../father_node/it_60_99_100005.html\">资源分区<\/a> > 外部网络<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100024"></a><a name="it_60_51_100024"></a>
+
+
+<h1 class="topictitle1">外部网络</h1>
+<ul><li><a href="#it_60_51_100024__1.2.2.1">创建外部网络</a></li><li><a href="#it_60_51_100024__1.2.3.1">修改外部网络</a></li><li><a href="#it_60_51_100024__1.2.4.1">删除外部网络</a></li><li><a href="#it_60_51_100024__1.2.5.1">FAQ</a></li></ul>
+
+<div>
+<p id="it_60_51_100024__internet_define"><a name="it_60_51_100024__internet_define"></a><a name="internet_define"></a>外部网络是指用户已有的网络，相对于VPC中的网络，称之为外部网络。将外部网络资源添加至<span>FusionManager</span>中，便可用于发放虚拟机和创建VPC中的直连网络。<span>其中，连接方式为子网（普通VLAN）、能够连接到Internet，子网要求IP分配方式为静态注入的IPv4网络，且不包含IPv6子网的外部网络可用于连接软件路由器，为弹性IP等业务提供所需的公网IP地址。</span></p>
+
+<div class="section"><a name="it_60_51_100024__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">创建外部网络</a></h4><div class="p">创建外部网络前，要求已在交换机上配置用于创建外部网络的VLAN或子网，且已经将使用的VLAN添加到VLAN池中。以下几种情况还需要在交换机上进行相关配置：<ul><li>如果外部网络的<span class="parmname">“连接方式”</span>选择<span class="parmvalue">“超级VLAN”</span>，还需在交换机上配置Super-VLAN及Sub-VLAN。具体操作方法请参考<a href="it_60_51_600016.html">在交换机上配置VLAN聚合</a>。<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>Super-VLAN的VLAN ID不能添加到VLAN池中，但要将Sub-VLAN的VLAN
+ID添加到VLAN池中。</p>
+</div></div>
+</li><li>如果要求外部网络支持IPv6的子网，需要提前完成以下配置：<ol><li>在汇聚交换机上开启IPv6转发功能，具体操作方法请参考<a href="it_60_51_600023.html">在交换机上配置IPv6转发功能</a>。</li><li>在FusionCompute上，选择<span class="menucascade">“<span class="uicontrol">网络</span> &gt; <span class="uicontrol">网络配置</span>”</span>，开启<span class="wintitle">“IPv6转发配置”</span>。</li></ol>
+</li><li>如果外部网络使用外部DHCP服务器分配IP地址，还需在汇聚交换机上配置DHCP服务器的网络信息和DHCP中继。具体操作方法请参考<a href="it_60_51_600017.html">配置DHCP服务器的网络信息</a>。</li><li>如果外部网络使用内部DHCP服务器分配IP地址，还需完成如下任务，创建一个系统服务虚拟机作为内部DHCP服务器：<ol><li>添加VSA管理网络。</li><li>导入系统服务虚拟机模板。</li><li><p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">外部网络</span>”</span>界面</span>，选择<span class="wintitle">“DHCP服务器”</span>，单击<span class="menucascade">“<span class="uicontrol">创建DHCP服务器</span>”</span>。</p>
+</li><li>在汇聚交换机上配置DHCP服务器的网络信息和DHCP中继。具体操作方法请参考<a href="it_60_51_600017.html">配置DHCP服务器的网络信息</a>。</li></ol>
+</li></ul>
+满足上述条件后，才可以开始创建外部网络。</div>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">外部网络</span>”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">创建</span>”</span>。</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_100024__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">修改外部网络</a></h4><p>修改外部网络的信息。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">外部网络</span>”</span>界面</span>，外部网络所在行中，单击<span class="menucascade">“<span class="uicontrol">修改</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100024__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">删除外部网络</a></h4><p>当外部网络不再使用时，删除外部网络。已被VDC使用的外部网络，不允许删除。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，在<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">外部网络</span>”</span>界面</span>，外部网络所在行中，单击<span class="menucascade">“<span class="uicontrol">删除</span>”</span>。</p>
+</div>
+
+
+
+
+<div class="section"><a name="it_60_51_100024__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100024" class="sectiontitle2contents">FAQ</a></h4><p><strong>什么是超级子网</strong></p>
+<p>超级子网是指一个子网支持多个VLAN，通过VLAN对子网中的IP地址资源进行隔离。超级子网用于多个VPC使用同一网段的公网IP地址，可确保不同VPC使用的公网IP互相隔离，又能使公网IP资源充分利用。一个超级子网的一个所属VLAN，只能被一个VPC使用。超级子网的可用IP个数和子网相关，子网中的IP地址供超级子网中的多个VLAN使用。 </p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

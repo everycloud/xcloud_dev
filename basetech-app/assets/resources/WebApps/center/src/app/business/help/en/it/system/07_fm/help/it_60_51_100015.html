@@ -1,0 +1,191 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VMs">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100015">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VMs</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("VDC Management\nVMs");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100019.html\">VDC Management<\/a> > VMs<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100015"></a><a name="it_60_51_100015"></a>
+
+
+
+<h1 class="topictitle1">VMs</h1>
+<ul><li><a href="#it_60_51_100015__1.2.2.1">Logging In to a VM Using VNC</a></li><li><a href="#it_60_51_100015__1.2.3.1">VM Power Management</a></li><li><a href="#it_60_51_100015__1.2.4.1">Migrating a VM</a></li><li><a href="#it_60_51_100015__1.2.5.1">Exporting the VM List</a></li><li><a href="#it_60_51_100015__1.2.6.1">Setting a Tag for a VM</a></li><li><a href="#it_60_51_100015__1.2.7.1">Changing the VM Upgrade Mode</a></li><li><a href="#it_60_51_100015__1.2.8.1">Mounting a CD/DVD-ROM Drive to a VM</a></li><li><a href="#it_60_51_100015__1.2.9.1">Deleting a VM</a></li><li><a href="#it_60_51_100015__1.2.10.1">Recovering a VM in Reclaiming State</a></li></ul>
+<div>
+<div class="section"><p>A virtual machine (VM) is a software computer that functions like a physical computer, running an operating system (OS) and applications.</p>
+<p>A VM runs on a host and obtains CPUs, memory, graphics cards, universal serial bus
+(USB) devices, network resources, and storage access capabilities of the host. Multiple VMs can run concurrently on a host.</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_100015__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">Logging In to a VM Using VNC</a></h4><p>VNC is a remote terminal access tool. You can use VNC to remotely connect to a VM, view the VM operating page, and perform management and maintenance operations on it.</p>
+<p>However,
+if the VM operating system (OS) requires password input for login, you need to enter the correct OS username and password to access the VM operating page.</p>
+<div class="p">Note the following points when you log in to a VM using VNC:<ul><li><span><strong>Declaration</strong>: This feature is a high-risk feature. Using this feature complies
+with industry practices. However, end user data may be required for
+implementing the feature. Exercise caution and obtain end user's consent
+when using this feature.</span>This operation involves user privacy issues. Therefore, ensure that your login complies with the local laws.</li><li><p><span id="it_60_51_100015__modifyPsw"><a name="it_60_51_100015__modifyPsw"></a><a name="modifyPsw"></a>To ensure VM security, the VM user must change the VM login password in the earliest time.</span></p>
+</li><li>If you, as an administrator, have logged in to a VM, the VM service VM will not be allowed to log in to the VM before you log out. </li></ul>
+</div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>VNC Login</b></span>.</p>
+<p id="it_60_51_100015__VNC_fail_FAQ"><a name="it_60_51_100015__VNC_fail_FAQ"></a><a name="VNC_fail_FAQ"></a>If any exception occurs during login, address the issue based on the
+method described in <a href="it_60_51_000025.html">VNC Login Troubleshooting</a>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100015__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">VM Power Management</a></h4><p><span>Power management for a VM includes hibernate, start or wake up, stop, and restart the VM. </span> Stopping or restarting a VM can be performed in a safe or forcible manner. You are advised to use the safe manner. Forcibly stop or restart a VM only if the VM cannot be safely stopped
+or restarted due to an OS fault. Forcibly stopping or restarting a VM may damage the VM disks and cause data loss.</p>
+<p>Starting or stopping a large number of VMs increases host workload. If you need to start or stop a large number of VMs on a host,
+perform the start or stop operations in batches to prevent VM services on the host from being adversely affected.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate
+the row that contains the target VM, and select the desired operation to perform.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100015__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">Migrating a VM</a></h4><p>VM migration refers to the process that a running VM is moved from one host to another host without service interruption.</p>
+<div class="p">If the service load is over light
+or heavy on the host where the VMs run or the host is faulty, migrate the VMs to ensure that they work properly.<ul><li>If the service load is too heavy on the host or the host is faulty, migrate the VMs to another host to prevent service interruption due to a host exception.</li><li>If the service load is too light on multiple hosts, migrate the VMs to a small number of hosts to consolidate host resources and then power off the idle hosts. This improves resource utilization and reduces power consumption.</li></ul>
+</div>
+<p>For
+details about the requirements for VM migration, see <a href="../../05_fc/vm_prov/it_58_45_200041.html">VM Migration Requirements</a>.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Migrate</b></span>.</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_100015__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">Exporting the VM List</a></h4><p>You can export all the VMs available in the system to an .xls file and save it on the local PC for information backup and statistics.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, click <span class="uicontrol"><b>Export VM List</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100015__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">Setting a Tag for a VM</a></h4><p>Label a tag for a group of VMs with the same characteristics to facilitate VM search and management.</p>
+<p>To delete the tag set for a VM, change the tag value of the VM to
+empty.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Set Tag</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100015__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">Changing the VM Upgrade Mode</a></h4><p>Change the upgrade mode for the Tools on a VM in the <span>FusionCompute</span> hypervisor. Fore more details about Tools,
+see <a href="../../05_fc/vm_prov/it_58_45_200029.html">Tools Introduction</a>.</p>
+<p>You can modify the VM upgrade mode only when the VM is in the <span class="parmvalue"><b>Running</b></span> or <span class="parmvalue"><b>Stopped</b></span> state. The system can automatically upgrade a VM only when Tools is installed and running properly on the VM. </p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Modify Upgrade Mode</b></span>.</p>
+</div>
+
+<div class="section" id="it_60_51_100015__cdrom"><a name="it_60_51_100015__cdrom"></a><a name="cdrom"></a><a name="it_60_51_100015__1.2.8.1"></a><a name="1.2.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">Mounting a CD/DVD-ROM Drive to a VM</a></h4><p>Mount the ISO image file or CD/DVD-ROM drive in the local PC to the VM, and then the VM can use the ISO image file or DC/DVD-ROM drive to install OS
+or software. For details, see <a href="it_60_51_600018.html">Mounting a CD/DVD-ROM Drive or an ISO File</a>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100015__1.2.9.1"></a><a name="1.2.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">Deleting a VM</a></h4><p>If a VM is not needed any more, you can delete it to release VM resources. After a VM is deleted, all the data on the VM disks will also be deleted. Therefore, exercise caution when
+performing this operation.</p>
+<p>FusionManager also supports a lazy delete function, which allows the system to retain the VM in the specified lazy delete duration after the VM deletion operation is triggered. In this duration, the VM is
+in the <span class="parmvalue"><b>Reclaiming</b></span> state, and you can cancel the VM deletion if needed.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target
+VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100015__1.2.10.1"></a><a name="1.2.10.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100015" class="sectiontitle2contents">Recovering a VM in Reclaiming State</a></h4><p>If the lazy delete function is enabled for a VM and the VM is in the <span class="parmvalue"><b>Reclaiming</b></span>, you can recover the VM to cancel the VM deletion.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Restore Reclaimed VM</b></span>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<style>
+    #addSanContent {
+        
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="../theme/default/css/scrollbar.css"/>
+<div class="box_padding">
+    <div id="addSanStep" class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-bind="i18n.device_term_connectSAN_button"></div>
+        <tiny-step id="addSanStep.id" jumpable="addSanStep.jumpable"
+                   values="addSanStep.values" width="addSanStep.width"></tiny-step>
+    </div>
+    <div id="addSanContent" class="create-page-distance">
+        <div ng-include="addSanStep1.url" ng-show="showBasicInfoPage"></div>
+        <div ng-include="addSanStep2.url" ng-show="showParamSettingPage"></div>
+        <div ng-include="addSanStep3.url" ng-show="showAlarmSettingPage"></div>
+        <div ng-include="addSanStep4.url" ng-show="showConfirmInfoPage"></div>
+    </div>
+</div>

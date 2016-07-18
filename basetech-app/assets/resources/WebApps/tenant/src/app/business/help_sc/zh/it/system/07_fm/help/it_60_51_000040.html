@@ -1,0 +1,200 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VXLAN">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000040">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VXLAN</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("业务功能的使用\nVXLAN");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100024.html\">业务功能的使用<\/a> > VXLAN<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000040"></a><a name="it_60_51_000040"></a>
+
+
+
+<h1 class="topictitle1">VXLAN</h1>
+<ul><li><a href="#it_60_51_000040__1.3.1.1">简介</a></li><li><a href="#it_60_51_000040__1.3.2.1">原理概述</a></li><li><a href="#it_60_51_000040__1.3.3.1">配置流程</a></li></ul>
+
+<div><p></p>
+
+<div class="section"><a name="it_60_51_000040__1.3.1.1"></a><a name="1.3.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000040" class="sectiontitle2contents">简介</a></h4><p id="it_60_51_000040__d763e13"><a name="it_60_51_000040__d763e13"></a><a name="d763e13"></a>VXLAN（Virtual
+eXtensible Local Area Network）是建立在物理网络之上的虚拟以太网，将二层报文用三层协议进行封装，对二层网络在三层范围进行扩展，突破了目前广泛采用的VLAN所能表示的2<sup>12</sup>个隔离网络的限制，可以使用户创建约2<sup>24</sup>个相互隔离的虚拟网络。VXLAN可用于多租户环境下的大规模网络部署。</p>
+</div>
+
+<div class="section"><a name="it_60_51_000040__1.3.2.1"></a><a name="1.3.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000040" class="sectiontitle2contents">原理概述</a></h4><p>使用VXLAN技术通信的两端称为VTEP（VXLAN
+Tunneling End Point），位于<span>ServiceCenter</span>所管理的主机中，负责VXLAN报文的封装和解封装工作，以及在转发报文中对虚拟机MAC地址和IP地址的映射关系进行学习。</p>
+<p>如<a href="#it_60_51_000040__d763e33">图1</a>所示，不同主机上的两个虚拟机VM1和VM2，都处于VXLAN
+ID为6000的网络中。VM1与VM2通信时，主机1上的VTEP1会查找VM1所属的VXLAN ID，并将来自于VM1的物理帧封装成VXLAN报文，通过与另一台主机上的VTEP2组成VXLAN隧道，进行VXLAN报文的传输。VTEP2在接收到VXLAN报文后对其进行解封装，并将物理帧发送给VM2。</p>
+<div class="fignone" id="it_60_51_000040__d763e33"><a name="it_60_51_000040__d763e33"></a><a name="d763e33"></a><span class="figcap"><b>图1 </b>VXLAN原理</span>
+
+<br><span><img src="fig/fig_it_60_51_000009_02.png"></span></div>
+<p>VXLAN网络的网关位于软件路由器上，实现了VXLAN网络之间，以及VXLAN网络与VLAN网络之间的通信，如<a href="#it_60_51_000040__d763e43">图2</a>所示。</p>
+<div class="fignone" id="it_60_51_000040__d763e43"><a name="it_60_51_000040__d763e43"></a><a name="d763e43"></a><span class="figcap"><b>图2 </b>VXLAN的网关</span>
+
+<br><span><img src="fig/fig_it_60_51_000009_03.png"></span></div>
+</div>
+
+<div class="section"><a name="it_60_51_000040__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000040" class="sectiontitle2contents">配置流程</a></h4><p>使用该功能的前提是在Local FusionManager中已经完成了相关配置，详情请参考<span>《FusionManager V100R005C00 local管理员指南(服务器整合,top-local)》</span>中的<span class="menucascade">“<span class="uicontrol">资源配置</span> &gt; <span class="uicontrol">特性配置</span>”</span>。</p>
+<p>租户创建VXLAN类型网络的流程如<a href="#it_60_51_000040__fig_vxlanProcess">图3</a>所示。</p>
+<div class="fignone" id="it_60_51_000040__fig_vxlanProcess"><a name="it_60_51_000040__fig_vxlanProcess"></a><a name="fig_vxlanProcess"></a><span class="figcap"><b>图3 </b>创建VXLAN网络</span>
+
+<br><span><img src="fig/fig_it_60_51_000040_01.png"></span></div>
+<p>VXLAN网络创建流程中的各任务说明如<a href="#it_60_51_000040__table_vxlan">表1</a>所示。</p>
+
+<div class="tablenoborder"><a name="it_60_51_000040__table_vxlan"></a><a name="table_vxlan"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000040__table_vxlan" frame="border" border="1" rules="all"><caption><b>表1 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="27.333333333333332%" id="mcps1.3.3.6.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="36.333333333333336%" id="mcps1.3.3.6.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="36.333333333333336%" id="mcps1.3.3.6.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+
+<td class="cellrowborder" valign="top" width="27.333333333333332%" headers="mcps1.3.3.6.2.4.1.1 "><p>创建VPC</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="36.333333333333336%" headers="mcps1.3.3.6.2.4.1.2 "><p id="it_60_51_000040__p_creVPC"><a name="it_60_51_000040__p_creVPC"></a><a name="p_creVPC"></a><span>ServiceCenter</span>支持在VPC中创建VXLAN类型的内部网络和路由网络。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="36.333333333333336%" headers="mcps1.3.3.6.2.4.1.3 "><span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span></td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="27.333333333333332%" headers="mcps1.3.3.6.2.4.1.1 "><p>申请路由器</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="36.333333333333336%" headers="mcps1.3.3.6.2.4.1.2 "><p id="it_60_51_000040__p_router"><a name="it_60_51_000040__p_router"></a><a name="p_router"></a>为VPC申请路由器，在申请路由器时选择软件路由器，并选择支持VXLAN功能。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="36.333333333333336%" headers="mcps1.3.3.6.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="uicontrol">“路由器”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="27.333333333333332%" headers="mcps1.3.3.6.2.4.1.1 "><p>创建VXLAN网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="36.333333333333336%" headers="mcps1.3.3.6.2.4.1.2 "><p id="it_60_51_000040__p_vxlanNET"><a name="it_60_51_000040__p_vxlanNET"></a><a name="p_vxlanNET"></a>在创建内部网络或路由网络时，选择VLAN类型为VXLAN，那么创建的网络就是VXLAN网络。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="36.333333333333336%" headers="mcps1.3.3.6.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">网络</span> &gt; <span class="uicontrol">网络</span>”</span>。</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

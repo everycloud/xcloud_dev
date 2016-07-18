@@ -1,0 +1,19 @@
+.tiny-progressBar-package{
+    display: inline-block;
+    position: relative;
+}
+
+.tiny-progressBar-graphArea{
+    background-color : #eaeaea;
+    height   : auto;
+    vertical-align: middle;
+    overflow : hidden;
+}
+
+.tiny-progressBar-annotation{
+    font-size   : 18px;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    white-space : nowrap;
+    line-height : normal;
+    display: inline-block;
+}

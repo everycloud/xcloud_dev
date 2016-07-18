@@ -1,0 +1,41 @@
+<div id="createNetworkWindow">
+    <fm-valid valid="valid.networkCheck">
+        <tiny-formfield>
+            <tiny-item label="form.label.name" require="true">
+                <fm-text value="para.name"></fm-text>
+            </tiny-item>
+            <tiny-item label="form.label.type" require="true">
+                <fm-select id="para.type.id" name="para.type.name" option="form.type"
+                           change="event.typeChange"></fm-select>
+            </tiny-item>
+            <tiny-item label="form.label.phyNetwork" require="true" display="(para.type.id == 'vlan')">
+                <tiny-combobox id="vlanCombobox.id" validate="vlanCombobox.validate" width="120" height="150"
+                               valuesFrom="'local'" matchMethod="'any-nocap'"></tiny-combobox>
+            <span popover="{{i18n.resource_open_addExternalNet_para_physiNet_mean_tip}}" popover-trigger="mouseenter"
+                  popover-placement="bottom" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="form.label.phyNetwork" require="false" display="(para.type.id == 'vxlan')">
+                <tiny-combobox id="vxlanCombobox.id" validate="vxlanCombobox.validate"  width="'120'" height="150"
+                               valuesFrom="'local'" matchMethod="'any-nocap'"></tiny-combobox>
+            <span popover="{{i18n.resource_open_addExternalNet_para_physiNet_mean_tip}}" popover-trigger="mouseenter"
+                  popover-placement="bottom" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="form.label.segmentationId" require="true" display="(para.type.id == 'vlan')">
+                <fm-digit value="para.segmentationId" min="1" max="4094"></fm-digit>
+            </tiny-item>
+            <tiny-item label="form.label.segmentationId" require="true" display="(para.type.id == 'vxlan')">
+                <fm-digit value="para.segmentationId" min="4096" max="16777215"></fm-digit>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <fm-button text="form.label.create" class='fm-valid major-btn' click="createNetwork"></fm-button>
+                <fm-button text="form.label.cancel" class='fm-valid-clear' click="cancelNetwork"></fm-button>
+            </tiny-item>
+        </tiny-formfield>
+    </fm-valid>
+</div>
+
+<style>
+    #createNetworkWindow .popover {
+        max-width: 500px;
+    }
+</style>

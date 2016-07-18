@@ -1,0 +1,36 @@
+.tiny-step-selectedNode {
+    background: url(../images/step_merger.png) 0 0 no-repeat;
+    width:27px;
+    height: 27px;
+    left: -2px;
+    float: left;
+    margin: 25px 0 0 0;
+}
+.tiny-step-nodeLink {
+    background: url(../images/step_merger.png) 0 -110px repeat-x;
+    float: left;
+    height: 6px;
+	margin: 35px 0 0 0px;
+}
+.tiny-step-selectedNodeLink {
+    background: url(../images/step_merger.png) 0 -50px repeat-x;
+    float: left;
+    height: 6px;
+    margin: 35px 0 0 0;
+}
+.tiny-step-deselectedNode {
+    background: url(../images/step_merger.png) 0 -59px no-repeat;
+    width: 27px;
+    height:27px;
+    float: left;
+    margin: 25px 0 0 0;
+}
+.tiny-step-text {
+	position: absolute;
+    margin-left: -10px;
+}
+
+.tiny-step-boxset{
+    padding: 25px 0 30px 40px;
+    background: #eeeeee;
+}

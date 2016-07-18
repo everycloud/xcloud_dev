@@ -1,0 +1,16 @@
+<div id="specLayoutDiv">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <div class="tiny-layout-title"><span ng-bind="i18n.common_term_spec_label"></span></div>
+                <li>
+                    <a ui-sref="resources.spec.vmSpec"
+                       ng-class="{ 'tiny-layout-a-current': $state.includes('resources.spec.vmSpec')}">{{ i18n.spec_term_vm_label }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>          

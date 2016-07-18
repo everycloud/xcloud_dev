@@ -1,0 +1,46 @@
+<div id="createVmIpDiv">
+    <tiny-checkbox id="ipv4Checkbox.id" text="ipv4Checkbox.text" checked="ipv4Checkbox.checked"
+                   change="ipv4Checkbox.change()" disable="ipv4Checkbox.disable"></tiny-checkbox>
+    <br/>
+    <tiny-formfield>
+        <tiny-item label="ipv4Box.label">
+            <tiny-ip id="ipv4Box.id" value="ipv4Box.value"
+                     validate="ipv4Box.validate" disable="ipv4Box.disable"></tiny-ip>
+        </tiny-item>
+    </tiny-formfield>
+    <tiny-checkbox id="ipv6Checkbox.id" text="ipv6Checkbox.text" checked="ipv6Checkbox.checked"
+                   change="ipv6Checkbox.change()" disable="ipv6Checkbox.disable"></tiny-checkbox>
+    <br/>
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-button id="addButton.id" text="addButton.text" disable="addButton.disable"
+                         tooltip="addButton.tooltip" click="addButton.click()"></tiny-button>
+        </tiny-item>
+        <tiny-item label="ipv6Textbox.label">
+            <tiny-textbox id="ipv6Textbox.id" value="ipv6Textbox.value" disable="ipv6Textbox.disable"
+                          validate="ipv6Textbox.validate"></tiny-textbox>
+        </tiny-item>
+    </tiny-formfield>
+    <div id="createVmIpv6Div" style="margin-left: 48px"></div>
+    <tiny-formfield labelwidth="okButton.labelWidth">
+        <tiny-item>
+            <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/vm/createVmIpCtrl"], function (createVmIpCtrl) {
+        var rootElement = $("#createVmIpDiv");
+        rootElement.attr("ng-controller", "resources.vm.createVmIp.ctrl");
+        var dep = ['ng', 'wcc', createVmIpCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile(rootElement)($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

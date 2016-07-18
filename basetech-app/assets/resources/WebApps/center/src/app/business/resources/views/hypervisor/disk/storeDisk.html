@@ -1,0 +1,57 @@
+﻿<div id="storeDiskDiv" class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.hypervisor.cluster">{{i18n.virtual_term_clusters_label}}</a> <span
+                    class="divider">&gt;</span>
+            </li>
+            <li class="active">
+                <a ng-click="goToCluster()" href="javascript:void(0)">{{breadCrumbs.clusterName}}</a><span
+                    class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ng-click="goToStorage()" href="javascript:void(0)">{{i18n.common_term_storage_label}}</a> <span
+                    class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.storeInfo.summary">{{storeName}}</a><span
+                    class="divider">&gt;</span></li>
+            <li class="active">{{i18n.common_term_disk_label}}</li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <div class="fr">
+                <a class="btn-link">
+                    <div ng-click="refresh()" class="small-icon small-icon-refresh"></div>
+                </a>
+            </div>
+            <div class="fr button_mr">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder"
+                                search="searchBox.search"></tiny-searchbox>
+            </div>
+            <div class="fr button_mr">
+                <tiny-filtersel id="bindSelector.id" values="bindSelector.values" width="bindSelector.width"
+                                change="bindSelector.change()"></tiny-filtersel>
+            </div>
+            <tiny-button class="major-btn" id="createButton.id" text="createButton.text" click="createButton.click()"
+                         ng-if="operable"></tiny-button>
+            <tiny-button id="deleteButton.id" text="deleteButton.text" click="deleteButton.click()"
+                         ng-if="operable"></tiny-button>
+            <tiny-button id="transferButton.id" text="transferButton.text" click="transferButton.click()"
+                         ng-if="operable"></tiny-button>
+        </div>
+        <div>
+            <tiny-table id="diskTable.id" data="diskTable.data" pagination-style="diskTable.paginationStyle"
+                        columns='diskTable.columns' render-row="diskTable.renderRow"
+                        total-records="diskTable.totalRecords"
+                        length-change="diskTable.lengthChange" show-details="diskTable.showDetails"
+                        cur-page="diskTable.curPage" display-length="diskTable.displayLength"
+                        enable-pagination="diskTable.enablePagination" change-select="diskTable.changeSelect"
+                        length-menu="diskTable.lengthMenu" callback="diskTable.callback"
+                        columns-visibility="diskTable.columnsVisibility"
+                        columns-draggable="diskTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+    <div fm-help help="'drawer_vm_disk'" i18n="'zh'" show="help.show"></div>
+</div>

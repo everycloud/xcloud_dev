@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div id="modifyQuota" ng-controller="userMgr.org.modifyQuota.ctrl">
+        <tiny-formfield labelwidth="orgQuotaInfo.labelwidth">
+            <tiny-item label="quotaLimit.label" require="false">
+                <tiny-radiogroup id="quotaLimit.id" values="quotaLimit.values" change="quotaLimit.change()"></tiny-radiogroup>
+            </tiny-item>
+            <tiny-item label="cpuNumber.label" require="cpuNumber.require" display="!quotaNotLimit">
+                <tiny-textbox id="cpuNumber.id" value="cpuNumber.value" validate="cpuNumber.validate" extend-function="cpuNumber.extendFunction" type="cpuNumber.type" disable="quotaNotLimit"></tiny-textbox>
+                <span id="tipsCpuNumber" ng-bind="itemsTips.cpuTips"></span>
+            </tiny-item>
+            <tiny-item label="memoryUpperLimit.label" require="memoryUpperLimit.require" display="!quotaNotLimit">
+                <tiny-textbox id="memoryUpperLimit.id" value="memoryUpperLimit.value" validate="memoryUpperLimit.validate" extend-function="memoryUpperLimit.extendFunction" type="memoryUpperLimit.type" disable="quotaNotLimit"></tiny-textbox>
+                <span id="tipsMemoryNumber" ng-bind="itemsTips.memoryTips"></span>
+            </tiny-item>
+            <tiny-item label="storage.label" require="storage.require" display="!quotaNotLimit">
+                <tiny-textbox id="storage.id" value="storage.value" validate="storage.validate" extend-function="storage.extendFunction" type="storage.type" disable="quotaNotLimit"></tiny-textbox>
+                <span id="tipsStorageNumber" ng-bind="itemsTips.storageTips"></span>
+            </tiny-item>
+            <tiny-item label="eipNumber.label" require="eipNumber.require" display="!quotaNotLimit && !Competition.isBaseOnVmware">
+                <tiny-textbox id="eipNumber.id" value="eipNumber.value" validate="eipNumber.validate" extend-function="eipNumber.extendFunction" type="eipNumber.type" disable="quotaNotLimit"></tiny-textbox>
+                <span id="tipsEipNumber" ng-bind="itemsTips.eipTips"></span>
+            </tiny-item>
+            <tiny-item label="vpcNumber.label" require="vpcNumber.require" display="!quotaNotLimit">
+                <tiny-textbox id="vpcNumber.id" value="vpcNumber.value" validate="vpcNumber.validate" extend-function="vpcNumber.extendFunction" type="vpcNumber.type" disable="quotaNotLimit"></tiny-textbox>
+                <span id="tipsVpcNumber" ng-bind="itemsTips.vpcTips"></span>
+            </tiny-item>
+            <tiny-item label="sgNumber.label" require="sgNumber.require" display="!quotaNotLimit && !Competition.isBaseOnVmware">
+                <tiny-textbox id="sgNumber.id" value="sgNumber.value" validate="sgNumber.validate" extend-function="sgNumber.extendFunction" type="sgNumber.type" value="vpcNumber.value" disable="quotaNotLimit"></tiny-textbox>
+                <span id="tipsSegNumber" ng-bind="itemsTips.segTips"></span>
+            </tiny-item>
+            <tiny-item label="vmNumber.label" require="vmNumber.require" display="!quotaNotLimit">
+                <tiny-textbox id="vmNumber.id" value="vmNumber.value" validate="vmNumber.validate" extend-function="vmNumber.extendFunction" disable="quotaNotLimit"></tiny-textbox>
+                <span id="tipsVmNumber" ng-bind="itemsTips.vmTips"></span>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="modifyBtn.id" text="modifyBtn.text" click="modifyBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+require(["app/business/user/controllers/organization/modifyQuotaCtrl"], function(modifyQuotaCtrl) {
+    var $injector = angular.injector(["ng", modifyQuotaCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#modifyQuota"));
+        link($("#modifyQuota").scope());
+        $("#modifyQuota").scope().$digest();
+    });
+});
+</script>

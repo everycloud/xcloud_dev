@@ -1,0 +1,45 @@
+<div class="detail-background-before"></div>
+<div class="row-fluid innerbox-padding">
+	<div class="row-fluid">
+		<div class="span4">
+			<tiny-formfield>
+				<tiny-item label="label.netNum">
+					{{row.vpcSpecTemplate.maxDirectNetworkNum||"-"}}
+				</tiny-item>
+				<tiny-item label="label.routerNum">
+					{{row.vpcSpecTemplate.maxRoutedNetworkNum||"-"}}
+				</tiny-item>
+				<tiny-item label="label.publicIPNum">
+					{{row.vpcSpecTemplate.maxPublicIpNum||"-"}}
+				</tiny-item>
+                <tiny-item label="label.internalNum" display="!row.shared">
+                    {{row.vpcSpecTemplate.maxInternalNetworkNum||"-"}}
+                </tiny-item>
+			</tiny-formfield>
+		</div>
+		<div class="span4">
+			<tiny-formfield>
+				<tiny-item label="label.bw">
+					{{row.vpcSpecTemplate.maxNetworkBandWidth||"-"}}
+				</tiny-item>
+				<tiny-item label="label.pri">
+					{{{1:i18n.common_term_high_label||'高',2:i18n.common_term_middling_label||'中',3:i18n.common_term_low_label||'低'}[row.vpcSpecTemplate.priority]||"-"}}
+				</tiny-item>
+				<tiny-item label="label.rx">
+					{{row.vpcSpecTemplate.maxRxThroughput||"-"}}
+				</tiny-item>
+				<tiny-item label="label.tx">
+					{{row.vpcSpecTemplate.maxTxThroughput||"-"}}
+				</tiny-item>
+			</tiny-formfield>
+		</div>
+		<div class="span4">
+			<tiny-formfield>
+				<tiny-item label="label.desp">
+					{{row.description||"-"}}
+				</tiny-item>
+			</tiny-formfield>
+		</div>
+	</div>
+</div>
+<div class="detail-background-after"></div>

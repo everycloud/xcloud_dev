@@ -1,0 +1,221 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="System Configuration">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_500009">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>System Configuration</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_500009"></a><a name="it_60_51_500009"></a>
+
+
+
+
+<h1 class="topictitle1">System Configuration</h1>
+
+
+
+<div><p></p>
+
+<p id="it_60_51_500009__sys_desc"><a name="it_60_51_500009__sys_desc"></a><a name="sys_desc"></a>You can configure system data, such as system license
+and system time. Typically, you only need to configure system data
+only once.</p>
+
+<div class="section" id="it_60_51_500009__section_03"><a name="it_60_51_500009__section_03"></a><a name="section_03"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">System Timeout</h4></div><div class="dropdowncontext"><p>If you do not perform any operation within the specified time,
+you will be logged out automatically. A shorter system timeout duration
+provides higher security, but a longer timeout duration relieves the
+need to log in multiple times. You can set the system timeout duration
+based on your requirements.</p>
+<p>After the system timeout duration
+is configured, the configuration does not take effect for the current
+user and takes effect the next time the user logs in to the system.</p>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_04"><a name="it_60_51_500009__section_04"></a><a name="section_04"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">VM Start
+Interval</h4></div><div class="dropdowncontext"><p>You can configure the minimum interval at which
+VMs start when their application instances are started. This interval
+limitation does not apply to the VM that is started separately.</p>
+<p>For example, an application instance contains VM A and VM B, and
+the interval is set to 30 minutes. If you start this application instance
+and VM A successfully starts at 12:00, VM B will start at 12:30.</p>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_05"><a name="it_60_51_500009__section_05"></a><a name="section_05"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">SNMP Station</h4></div><div class="dropdowncontext"><p>To enable a third-party system to manage <span>FusionManager</span> alarms and monitoring data, you can configure an SNMP station so
+that the alarms and monitoring data are reported to the third-party
+system.</p>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>Do not set the interconnection parameters as follows because risks
+may arise: <ul><li><span class="parmname"><b>SNMP Version</b></span> is <span class="parmvalue"><b>SNMPv2c</b></span>.</li><li><span class="parmname"><b>Authentication Mode</b></span> is <span class="parmvalue"><b>MD5</b></span>.</li><li><span class="parmname"><b>Key Type</b></span> is <span class="parmvalue"><b>DES56</b></span>.</li></ul>
+</li><li>Set the interconnection parameters as follows, instead: <ul><li><span class="parmname"><b>SNMP Version</b></span> is <span class="parmvalue"><b>SNMPv3</b></span>.</li><li><span class="parmname"><b>Authentication Mode</b></span> is <span class="parmvalue"><b>SHA1</b></span>.</li><li><span class="parmname"><b>Key Type</b></span> is <span class="parmvalue"><b>AES128</b></span>, <span class="parmvalue"><b>AES192</b></span>, or <span class="parmvalue"><b>AES256</b></span>.</li></ul>
+</li></ul>
+</div></div>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_06"><a name="it_60_51_500009__section_06"></a><a name="section_06"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Backup Settings</h4></div><div class="dropdowncontext"><p id="it_60_51_500009__b1"><a name="it_60_51_500009__b1"></a><a name="b1"></a>You can back up data for both the <span>FusionManager</span> system and application VMs.</p>
+<ul><li>Management system backup: <p id="it_60_51_500009__b2"><a name="it_60_51_500009__b2"></a><a name="b2"></a><span>Before performing an
+important operation, such as system upgrade or critical data modification,
+you can manually back up data of the <span>FusionManager</span> node. The data backup can be used to restore the<span>FusionManager</span> node if an exception occurs or the operation has not achieved the
+expected result.</span></p>
+<p id="it_60_51_500009__b3"><a name="it_60_51_500009__b3"></a><a name="b3"></a>You can back up <span>FusionManager</span> management data either using the <span>FusionManager</span> Web Client or using the command-line interface (CLI). To back up
+management data on the <span>FusionManager</span> Web Client, configure the FTP server.</p>
+<p>For details about management system backup, see <span class="menucascade"><b><span class="uicontrol">Routine Maintenance</span></b> &gt; <b><span class="uicontrol">Backup and Restoration</span></b></span> in the <i><cite>FusionManager V100R005C00 Administrator Guide (Server
+Consolidation)</cite></i>.</p>
+</li><li id="it_60_51_500009__b4"><a name="it_60_51_500009__b4"></a><a name="b4"></a>VM backup: You can back up data of user VMs. The data
+backup can be used to restore a VM if an exception occurs on the VM,
+ensuring VM data reliability.<p>HyperDP and CommVault backup servers
+are supported.</p>
+<p>To use a CommVault backup server, you must manually
+configure it first. For details, see <a href="../src/app/business/help/en/it/system/07_fm/help/it_60_51_600009.html" target="_blank">Configuring a CommVault
+VM Backup Server</a>.</p>
+</li></ul>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_07"><a name="it_60_51_500009__section_07"></a><a name="section_07"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">System Logo</h4></div><div class="dropdowncontext"><div class="p">You can customize the system logo displayed in the address bar of
+the browser or the <span>FusionManager</span> Web Client.<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If Internet Explorer is used, ensure that the system logo used in
+the address bar is in its original <span class="parmvalue"><b>ico</b></span> format.
+Pictures that are originally not created in <span class="parmvalue"><b>ico</b></span> format cannot be used as system logos after being changed to <span class="parmvalue"><b>ico</b></span> format.</div></div>
+</div>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_02"><a name="it_60_51_500009__section_02"></a><a name="section_02"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">License Management</h4></div><div class="dropdowncontext"><p>After <span>FusionManager</span> is installed or the system license has expired, you can update the
+license to renew the validity period and authorize <span>FusionManager</span> services.</p>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_01"><a name="it_60_51_500009__section_01"></a><a name="section_01"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Time Management</h4></div><div class="dropdowncontext"><p>After installing the system, configure the time synchronization
+policy and time zone on <span>FusionManager</span>, enabling <span>FusionManager</span> to use the local time and synchronize time with an external time
+server.</p>
+<p>If <span>FusionStorage</span> is used, the system automatically configures the time synchronization
+policy and time zone for the FusionStorage Manager nodes of <span>FusionStorage</span> when you configure the <span>FusionManager</span> time synchronization policy and time zone.</p>
+<p>You
+are advised to preferentially configure an external Network Time Protocol
+(NTP) clock source. If no external NTP clock source is available,
+set the clock source to the host where the <span>FusionManager</span> VM is running.</p>
+<p>If the time difference between <span>FusionManager</span> and the NTP server exceeds one minute, automatic time synchronization
+fails, and the system generates an alarm. In this case, the administrator
+needs to forcibly synchronize time with the NTP server based on the
+alarm help guide. Forcible time synchronization may interrupt services.
+Therefore, exercise caution when enabling forcible time synchronization.</p>
+<div class="p">The verification rules for daylight saving time (DST) are as follows
+(m indicates the selected month, and HH:MM indicates the selected
+hour and minute):<ul><li>By date:<p>Start time: If the selected date is the last day in
+m and HH:MM plus the offset is greater than or equal to 24 hours,
+set the start date to the first day in the next month of m. If either
+of the conditions is not met, retain m.</p>
+<p>End time: If the selected
+date is the first day in m and the offset subtracted from HH:MM is
+less than or equal to 1 minute, set the end date to the last day in
+the last month of m. If either of the conditions is not met, retain
+m.</p>
+<p>For example, if the start time is set to 02:00 on August
+8, the end time is set to 00:00 on September 1, and the offset is
+set to 60 minutes, the settings are invalid, because 60 minutes subtracted
+from HH:MM is less than 1 minute. The real end time is 23:00 on August
+31. However, the start date and the end date cannot be set in the
+same month. Therefore, set the end time to 01:01 on September 1 or
+later.</p>
+</li><li>By week:<p>Start time: If the selected week is the last week in
+m and HH:MM plus the offset is greater than or equal to 24 hours,
+set the start week to the first week in the next month of m. If either
+of the conditions is not met, retain m.</p>
+<p>End time: If the selected
+week is the first week in m and the offset subtracted from HH:MM is
+less than or equal to 1 minute, set the end week to the last week
+in the last month of m. If either of the conditions is not met, retain
+m.</p>
+<p>For example, if the start time is set to 23:00 in the last
+Sunday in March, the end time is set to 01:00 in the first Sunday
+in April, and the offset is set to 60 minutes, the settings are invalid,
+because 60 minutes plus HH:MM is equal to 24 hours. The real end time
+may be in April. However, the start date and the end date cannot be
+set in the same month. Therefore, set the start time to 22:59 on last
+Sunday in March or earlier.</p>
+</li><li>By date and week:<p>Start time: If the time span between the specified
+date and the last day in m is less than 8 days, set m to the next
+month of m. If not, retain m.</p>
+<p>End time: If the selected date
+is the first day in m and the offset subtracted from HH:MM is less
+than or equal to 1 minute, set the end week to the last week in the
+last month of m. If either of the conditions is not met, retain m.</p>
+<p>For example, if the start time is set to 08:00 on May 26, Sunday,
+and the end time is set to 00:00 on June 8, Wednesday, the settings
+are invalid, because the time span between May 26 and the last day
+in May is less than 8 days. The real start time may be in June. However,
+the start date and the end date cannot be set in the same month. Therefore,
+set the start date to May 22 or earlier.</p>
+</li></ul>
+</div>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__mgrIP"><a name="it_60_51_500009__mgrIP"></a><a name="mgrIP"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Management IP Address</h4></div><div class="dropdowncontext"><div class="p">When adjusting the network
+configuration or changing the IP address for logging in to the system,
+you can change the management IP address of the management node, that
+is, the management IP address of the <span>FusionManager</span> VM. During the management IP address change process, all system
+services are interrupted, but services on the VMs in use are not affected.
+Perform the following operations to change the management IP address:<ol><li>Choose <span class="menucascade"><b><span class="uicontrol">System</span></b> &gt; <b><span class="uicontrol">Management
+IP Address</span></b></span> and click <span class="uicontrol"><b>Modify</b></span>.</li><li>Configure a new management IP address and click <span class="uicontrol"><b>Save</b></span>. <p>The new IP address can be used to log in to the system after
+the change takes effect.</p>
+</li><li>If a device has been added to the system, update the management
+IP address recorded on the device by choosing <span class="menucascade"><b><span class="uicontrol">System</span></b> &gt; <b><span class="uicontrol">Management IP Address</span></b></span> and clicking <span class="uicontrol"><b>Update</b></span>.</li><li>If other components have connected to the system, synchronize
+the change with these components.</li></ol>
+</div>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_09"><a name="it_60_51_500009__section_09"></a><a name="section_09"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">DR Management
+IP Address</h4></div><div class="dropdowncontext"><p>If UltraVR is used to provide disaster recovery
+(DR) functions, the UltraVR management IP address can be set to the
+DR management IP address. Administrators can only view the DR management
+IP address settings after configuration.</p>
+</div></div></div>
+
+
+
+
+<div class="section" id="it_60_51_500009__section_13"><a name="it_60_51_500009__section_13"></a><a name="section_13"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Email Server</h4></div><div class="dropdowncontext"><p id="it_60_51_500009__email_server"><a name="it_60_51_500009__email_server"></a><a name="email_server"></a>You need to configure the email server settings
+only when the alarm notification by email function is required. This
+function enables the system to send system alarms to your specified
+email box. The email server is the server of the email box that is
+to send the selected alarms.</p>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_14"><a name="it_60_51_500009__section_14"></a><a name="section_14"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Desktop
+Cloud Address</h4></div><div class="dropdowncontext"><p>Desktop cloud is a virtual desktop application.
+With hardware and software deployed on the cloud platform, end users
+can use a thin client (TC) or any other device that is connected to
+the network to access application programs and their desktops on the
+cloud platform.</p>
+<p><span>FusionAccess</span> needs to be connected only when the <span>FusionAccess</span> product is used.</p>
+<p>For details about the desktop cloud, log
+in to <a href="http://support.huawei.com/enterprise/productsupport?lang=en&amp;pid=19917528&amp;idAbsPath=7919749|7919788|9856610|19917528" target="_blank">Documentation Center</a> and download the <span>FusionAccess</span> product documents.</p>
+</div></div></div>
+
+<div class="section" id="it_60_51_500009__section_15"><a name="it_60_51_500009__section_15"></a><a name="section_15"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Internal Communication Account</h4></div><div class="dropdowncontext"><div class="p">To ensure system security, change the passwords for the following
+accounts periodically:<ul><li><span class="parmname"><b>hqadmin</b></span>: The default password of the monitoring service account <span class="parmname"><b>hqadmin</b></span> is <span class="parmvalue"><b>Huawei@123</b></span>.</li><li><span class="parmname"><b>proxyvmkeystorepass</b></span>: The default password
+of the PVM certificate key encryption account <span class="parmname"><b>proxyvmkeystorepass</b></span> is <span class="parmvalue"><b>Huawei@123</b></span>.<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">After changing the <span class="parmname"><b>proxyvmkeystorepass</b></span> password, you must replace the Tomcat
+certificate of the PVM. For details about how to replace the PVM certificate,
+see the product documentation.</div></div>
+</li><li><span class="parmname"><b>softuser</b></span>: The default password of the FTP user account <span class="parmname"><b>softuser</b></span> is <span class="parmvalue"><b>softuser@123</b></span>.</li></ul>
+</div>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

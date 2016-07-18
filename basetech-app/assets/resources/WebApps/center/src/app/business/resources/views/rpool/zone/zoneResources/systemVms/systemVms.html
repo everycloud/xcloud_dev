@@ -1,0 +1,51 @@
+<div fm-help help="'drawer_resource_vsavm'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.rpool.zone">{{i18n.resource_term_zones_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="resources.zoneResources.summary.zoneSummary">{{zoneInfo.zoneName}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><span class="divider">{{i18n.resource_term_ServiceVM_label}}</span></li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box clearfix">
+        <tiny-button ng-show="right.hasServiceVMOperateRight" id="startButton.id" text="startButton.text"
+                     click="startButton.click()"
+                     class="major-btn"></tiny-button>
+        <tiny-button ng-show="right.hasServiceVMOperateRight" id="restartButton.id" text="restartButton.text"
+                     click="restartButton.click()"></tiny-button>
+        <div class="pull-right">
+            <tiny-filtersel id="typeFilter.id" values="typeFilter.values" width="typeFilter.width"
+                            default-label="typeFilter.dftLabel" change="typeFilter.change()">
+            </tiny-filtersel>
+             <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+            <a class="btn-link">
+                <div ng-click="refresh()" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+        <div class="blank_10"></div>
+        <div>
+            <tiny-table id="vmTable.id" data="vmTable.data" pagination-style="vmTable.paginationStyle"
+                        columns='vmTable.columns' render-row="vmTable.renderRow" total-records="vmTable.totalRecords"
+                        length-change="vmTable.lengthChange" change-select="vmTable.changeSelect"
+                        cur-page="vmTable.curPage" display-length="vmTable.displayLength"
+                        enable-pagination="vmTable.enablePagination"
+                        length-menu="vmTable.lengthMenu" callback="vmTable.callback"
+                        render-row="vmTable.renderRow"
+                        columns-draggable="vmTable.columnsDraggable"></tiny-table>
+        </div>
+        <iframe id="download" style="display:none"></iframe>
+    </div>
+</div>

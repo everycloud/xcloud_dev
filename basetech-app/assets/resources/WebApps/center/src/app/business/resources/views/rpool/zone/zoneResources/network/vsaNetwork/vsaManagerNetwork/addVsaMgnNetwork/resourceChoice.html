@@ -1,0 +1,254 @@
+<div id="resourceChoiceDiv">
+<tiny-formfield>
+<tiny-item label="model.label" require="model.require">
+    <tiny-table id="dvsTable.id" data="dvsTable.data"
+                columns="dvsTable.columns"
+                enable-pagination="dvsTable.enablePagination"
+                pagination-style="dvsTable.paginationStyle"
+                length-change="dvsTable.lengthChange" length-menu="dvsTable.lengthMenu"
+                display-length="dvsTable.displayLength" cur-page="dvsTable.curPage"
+                total-records="dvsTable.totalRecords"
+                request-config="dvsTable.requestConfig"
+                hide-total-records="dvsTable.hideTotalRecords"
+                render-row="dvsTable.renderRow" change-select="dvsTable.changeSelect"
+                callback="dvsTable.callback">
+    </tiny-table>
+</tiny-item>
+<tiny-item label="subnetIp.label" require="subnetIp.require">
+    <tiny-ip id="subnetIp.id" type="subnetIp.type" width="subnetIp.width"
+             disable="subnetIp.disable" extend-function="subnetIp.extendFunction"
+             validate="subnetIp.validate"></tiny-ip>
+</tiny-item>
+<tiny-item label="subnetMask.label" require="subnetMask.require">
+    <tiny-ip id="subnetMask.id" type="subnetMask.type" width="subnetMask.width"
+             disable="subnetMask.disable" extend-function="subnetMask.extendFunction"
+             validate="subnetMask.validate"></tiny-ip>
+</tiny-item>
+<tiny-item label="availableIpSegment1.label" require="availableIpSegment1.require">
+    <tiny-ip id="availableIpSegment1.startIp.id" disable="availableIpSegment1.disable"
+             type="availableIpSegment1.startIp.type" width="availableIpSegment.width"
+             extend-function="availableIpSegment1.startIp.extendFunction"
+             validate="availableIpSegment1.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment1.endIp.id" type="availableIpSegment1.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment1.disable"
+             extend-function="availableIpSegment1.endIp.extendFunction"
+             validate="availableIpSegment1.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment2.display">
+    <tiny-ip id="availableIpSegment2.startIp.id" disable="availableIpSegment2.disable"
+             type="availableIpSegment2.startIp.type" width="availableIpSegment.width"
+             extend-function="availableIpSegment2.startIp.extendFunction"
+             validate="availableIpSegment2.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment2.endIp.id" width="availableIpSegment.width"
+             type="availableIpSegment2.endIp.type"
+             disable="availableIpSegment2.disable" extend-function="availableIpSegment2.endIp.extendFunction"
+             validate="availableIpSegment2.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment2')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment3.display">
+    <tiny-ip id="availableIpSegment3.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment3.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment3.startIp.extendFunction"
+             validate="availableIpSegment3.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment3.endIp.id" type="availableIpSegment3.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment3.endIp.extendFunction"
+             validate="availableIpSegment3.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment3')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment4.display">
+    <tiny-ip id="availableIpSegment4.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment4.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment4.startIp.extendFunction"
+             validate="availableIpSegment4.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment4.endIp.id" type="availableIpSegment4.endIp.type"
+             disable="availableIpSegment.disable" width="availableIpSegment.width"
+             extend-function="availableIpSegment4.endIp.extendFunction"
+             validate="availableIpSegment4.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment4')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment5.display">
+    <tiny-ip id="availableIpSegment5.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment5.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment5.startIp.extendFunction"
+             validate="availableIpSegment5.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment5.endIp.id" type="availableIpSegment5.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment5.endIp.extendFunction"
+             validate="availableIpSegment5.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment5')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment6.display">
+    <tiny-ip id="availableIpSegment6.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment6.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment6.startIp.extendFunction"
+             validate="availableIpSegment6.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment6.endIp.id" type="availableIpSegment6.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment6.endIp.extendFunction"
+             validate="availableIpSegment6.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment6')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment7.display">
+    <tiny-ip id="availableIpSegment7.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment7.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment7.startIp.extendFunction"
+             validate="availableIpSegment7.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment7.endIp.id" type="availableIpSegment7.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment7.endIp.extendFunction"
+             validate="availableIpSegment7.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment7')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment8.display">
+    <tiny-ip id="availableIpSegment8.startIp.id" type="availableIpSegment8.startIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment8.startIp.extendFunction"
+             validate="availableIpSegment8.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment8.endIp.id" type="availableIpSegment8.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment8.endIp.extendFunction"
+             validate="availableIpSegment8.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment8')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment9.display">
+    <tiny-ip id="availableIpSegment9.startIp.id" disable="availableIpSegment9.disable"
+             type="availableIpSegment9.startIp.type" width="availableIpSegment.width"
+             extend-function="availableIpSegment9.startIp.extendFunction"
+             validate="availableIpSegment9.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment9.endIp.id" width="availableIpSegment.width"
+             type="availableIpSegment9.endIp.type"
+             disable="availableIpSegment9.disable" extend-function="availableIpSegment9.endIp.extendFunction"
+             validate="availableIpSegment9.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment9')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment10.display">
+    <tiny-ip id="availableIpSegment10.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment10.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment10.startIp.extendFunction"
+             validate="availableIpSegment10.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment10.endIp.id" type="availableIpSegment10.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment10.endIp.extendFunction"
+             validate="availableIpSegment10.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment10')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment11.display">
+    <tiny-ip id="availableIpSegment11.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment11.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment11.startIp.extendFunction"
+             validate="availableIpSegment11.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment11.endIp.id" type="availableIpSegment11.endIp.type"
+             disable="availableIpSegment.disable" width="availableIpSegment.width"
+             extend-function="availableIpSegment11.endIp.extendFunction"
+             validate="availableIpSegment11.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment11')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment12.display">
+    <tiny-ip id="availableIpSegment12.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment12.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment11.startIp.extendFunction"
+             validate="availableIpSegment11.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment12.endIp.id" type="availableIpSegment12.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment12.endIp.extendFunction"
+             validate="availableIpSegment12.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment12')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment13.display">
+    <tiny-ip id="availableIpSegment13.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment13.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment13.startIp.extendFunction"
+             validate="availableIpSegment13.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment13.endIp.id" type="availableIpSegment13.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment13.endIp.extendFunction"
+             validate="availableIpSegment13.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment13')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment14.display">
+    <tiny-ip id="availableIpSegment14.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment14.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment14.startIp.extendFunction"
+             validate="availableIpSegment14.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment14.endIp.id" type="availableIpSegment14.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment14.endIp.extendFunction"
+             validate="availableIpSegment14.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment14')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment15.display">
+    <tiny-ip id="availableIpSegment15.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment15.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment15.startIp.extendFunction"
+             validate="availableIpSegment15.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment15.endIp.id" type="availableIpSegment15.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment15.endIp.extendFunction"
+             validate="availableIpSegment15.endIp.validate"></tiny-ip>
+    <a ng-click="operate.addIpv4Ip()">{{i18n.common_term_add_button}}</a>&nbsp;<a
+        ng-click="operate.deleteIpv4Ip('availableIpSegment15')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item labelwidth="labelwidth" display="availableIpSegment16.display">
+    <tiny-ip id="availableIpSegment16.startIp.id" width="availableIpSegment.width"
+             type="availableIpSegment16.startIp.type" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment16.startIp.extendFunction"
+             validate="availableIpSegment16.startIp.validate"></tiny-ip>
+    -
+    <tiny-ip id="availableIpSegment16.endIp.id" type="availableIpSegment16.endIp.type"
+             width="availableIpSegment.width" disable="availableIpSegment.disable"
+             extend-function="availableIpSegment16.endIp.extendFunction"
+             validate="availableIpSegment16.endIp.validate"></tiny-ip>
+    <a ng-click="operate.deleteIpv4Ip('availableIpSegment16')">{{i18n.common_term_delete_button}}</a>
+</tiny-item>
+<tiny-item label="gateway.label" require="gateway.require">
+    <tiny-ip id="gateway.id" type="gateway.type" width="gateway.width"
+             disable="gateway.disable" extend-function="gateway.extendFunction"
+             validate="gateway.validate"></tiny-ip>
+</tiny-item>
+<tiny-item label="vlan.label" require="vlan.require">
+    <tiny-textbox id="vlan.id" width="vlan.width" disable="vlan.disable" type="vlan.type"
+                  validate="vlan.validate" tooltip="vlan.tooltip"
+                  tip-position="vlan.tipPosition"></tiny-textbox>
+       <span popover="{{vlan.tips}}" popover-trigger="mouseenter"
+             class="small-icon small-icon-tips"></span>
+</tiny-item>
+<tiny-item class="fm-btn-top-small">
+    <tiny-button id="preBtn.id" text="preBtn.text"
+                 click="preBtn.click()"></tiny-button>
+    <tiny-button class="major-btn" id="nextBtn.id" text="nextBtn.text"
+                 click="nextBtn.click()" disable="nextBtn.disable"></tiny-button>
+    <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                 click="cancelBtn.click()"></tiny-button>
+</tiny-item>
+</tiny-formfield>
+</div>

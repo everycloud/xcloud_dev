@@ -1,0 +1,121 @@
+.tiny-button {
+    padding-left:12px;
+    color: #666666;
+    text-decoration: none;
+    min-width: 50px;
+    outline: none;
+    height: 26px;
+    line-height: 26px;
+    background: url(../images/button_merger.png) no-repeat 0 0;
+}
+.tiny-button .tiny-right {
+    padding-right: 12px;
+    height: 26px;
+    background: url(../images/button_merger.png) no-repeat right -29px;
+}
+.tiny-button .tiny-center {
+    height: 26px;
+    padding: 1px 3px 0 3px;
+    color: #333;
+    text-align: center;
+}/*此处左右padding过小按钮上文字会出现省略号*/
+.tiny-center .tiny-leftImg {
+    height: 16px;
+    display: inline-block;
+    float: left;
+}
+.tiny-button-buttonLeftImg {
+    margin-top:5px;
+    display: inline-block;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
+.tiny-button-buttonCenterText {
+	line-height: 22px;
+	display: inline-block;
+	vertical-align: top;
+	color: '#666666';
+    font-family:"微软雅黑";
+    font-size: 14px;
+}
+.tiny-button-buttonRightImg {
+    margin-top: 5px;
+    margin-left: 5px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    float: right
+}
+
+.tiny-button-buttonClass {
+    margin-right: 5px;
+    display: inline-block;
+}
+
+
+/**鼠标划过状态**/
+
+.tiny-button-hover .tiny-button {
+    background-position: 0 0;
+    
+}
+.tiny-button-hover .tiny-button .tiny-right {
+    background-position:  right -29px;
+}
+.tiny-button-hover .tiny-button .tiny-center {
+	color: #333;
+}
+
+/**不可用状态**/
+a.tiny-button-buttonDefaultDisabled .tiny-button, a.tiny-button-buttonDefaultDisabled .tiny-button:hover {
+    background-position: 0 -174px;
+}
+a.tiny-button-buttonDefaultDisabled .tiny-button .tiny-right, a.tiny-button-buttonDefaultDisabled .tiny-button .tiny-right:hover {
+    background-position: right -203px;
+}
+a.tiny-button-buttonDefaultDisabled .tiny-button .tiny-center, a.tiny-button-buttonDefaultDisabled .tiny-button .tiny-center:hover {
+    color: #999999;
+}
+.tiny-button-imgDisable {
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+.tiny-button-buttonDefaultDisabled {
+    cursor: default;
+}
+
+/**点击状态**/
+.tiny-button-active{color: #666666;}
+.tiny-button-active .tiny-button{background-position: 0 -58px;}
+.tiny-button-active .tiny-right{background-position: right -87px;color: #666666;}
+.tiny-button-active .tiny-center{background-position: 0 -87px;}
+
+/* 页面当中蓝色按钮的样式  */
+.major-btn .tiny-button{
+    padding-left: 12px;
+    text-decoration: none;
+    min-width: 50px;
+    outline: medium none;
+    height: 26px;
+    line-height: 26px;
+    background: url('../images/create-button_merger.png') no-repeat scroll 0px 0px transparent;
+}
+.major-btn .tiny-button .tiny-right{
+    padding-right: 12px;
+    height: 26px;
+    background: url('../images/create-button_merger.png') no-repeat scroll right -29px transparent;
+}
+.major-btn .tiny-button .tiny-center {
+    color: #fff;
+    text-align: center;
+}
+.major-btn .tiny-button-hover .tiny-button .tiny-center{
+    color: #ece7e7;
+}
+/**点击状态**/
+.major-btn .tiny-button-active{color: #666;}
+.major-btn .tiny-button-active .tiny-button{background-position: 0 -58px;}
+.major-btn .tiny-button-active .tiny-right{background-position: right -87px;}
+.major-btn .tiny-button-active .tiny-center{background-position: 0 -87px;}

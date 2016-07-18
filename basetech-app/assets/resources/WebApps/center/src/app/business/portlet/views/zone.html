@@ -1,0 +1,28 @@
+<style  type="text/css">
+    #first-table table.dataTable thead th{ background-color: #ffffff; }
+    #first-table .sorting{ background:none;}
+    #first-table table.dataTable tr.odd{ background-color: #ffffff;}
+    #first-table table.dataTable tr.even{ background-color: #ffffff;}
+</style>
+<div class="legend">{{i18n.perform_term_zoneStatistic_label}}</div>
+<div id="portlet-resource-zone" style="width:100%;height:auto;" ng-controller="servicePage.zone.ctrl">
+    <div class="clearfix bottom10">
+        <div class="pull-right">
+            <a class="btn-link">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}"
+                     class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link" ng-click="goToZonePage()">{{i18n.common_term_more_button}}</a>
+        </div>
+    </div>
+    <div class="top10"  id="first-table">
+        <tiny-table id="zoneStaticTable.id" data="zoneStaticTable.data"
+                    columns="zoneStaticTable.columns"
+                    enable-pagination="zoneStaticTable.enablePagination"
+                    enable-filter="zoneStaticTable.enableFilter"
+                    hide-total-records="zoneStaticTable.hideTotalRecords" render-row="zoneStaticTable.renderRow"
+                    show-details="zoneStaticTable.showDetails"
+                    columns-draggable="zoneStaticTable.columnsDraggable"></tiny-table>
+
+    </div>
+</div>

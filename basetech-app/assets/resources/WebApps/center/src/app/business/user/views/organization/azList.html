@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div id="azList" ng-controller="userMgr.org.azList.ctrl">
+        <div class="form-inline">
+            <span ng-bind="azNumber.label"></span>
+            <span ng-bind="azNumber.value"></span>
+        </div>
+        <div style="max-height: 200px;overflow: auto;">
+            <tiny-table id="model.id" data="azListModel.datas" columns="azListModel.columns"
+                        enable-pagination="azListModel.pagination" pagination-style="azListModel.paginationStyle"
+                        length-change="azListModel.lengthChange" length-menu="azListModel.lengthMenu"
+                        display-length="azListModel.displayLength"
+                        enable-filter="azListModel.enableFilter" cur-page="azListModel.curPage"
+                        total-records="azListModel.totalRecords" request-config="azListModel.requestConfig"
+                        hide-total-records="azListModel.hideTotalRecords" render-row="azListModel.renderRow"
+                        callback="azListModel.callback" show-details="azListModel.showDetails"></tiny-table>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/business/user/controllers/organization/azListCtrl"], function (azListCtrl) {
+        var $injector = angular.injector(["ng", azListCtrl.name]);
+        $injector.invoke(function ($compile) {
+            var link = $compile($("#azList"));
+            link($("#azList").scope());
+            $("#azList").scope().$digest();
+        });
+    });
+</script>

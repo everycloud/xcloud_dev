@@ -1,0 +1,64 @@
+<div id="createDiskDiv">
+    <div class="blank_10"></div>
+    <tiny-formfield>
+        <tiny-item label="nameTextbox.label" require="nameTextbox.require">
+            <tiny-textbox id="nameTextbox.id" value="nameTextbox.value"
+                          validate="nameTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="typeSelector.label">
+            <tiny-select id="typeSelector.id" values="typeSelector.values"
+                         width="typeSelector.width" change="typeSelector.change()"></tiny-select>
+            <span popover="{{i18n.org_disk_add_para_type_mean_tip}}" popover-trigger="mouseenter"
+                  popover-placement="bottom" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="sizeTextbox.label" require="sizeTextbox.require">
+            <tiny-textbox id="sizeTextbox.id" value="sizeTextbox.value"
+                          validate="sizeTextbox.validate"></tiny-textbox>
+            <div class="clear_both" ng-bind="i18n.org_term_currentDatastorFactAvailableSpaceGB_label + ': ' + freeCapacityGB"></div>
+        </tiny-item>
+        <tiny-item label="patternSelector.label">
+            <tiny-select id="patternSelector.id" values="patternSelector.values"
+                         width="patternSelector.width"></tiny-select>
+        </tiny-item>
+        <tiny-item>
+            <tiny-checkbox id="influenceCheckbox.id" text="influenceCheckbox.text"
+                           change="influenceCheckbox.change()"></tiny-checkbox>
+            <div class="clear_both" ng-bind="i18n.org_disk_add_para_snap_mean_label"></div>
+        </tiny-item>
+        <tiny-item>
+                <div style="float: left;">
+                    <tiny-radiogroup id="permanenceRadio.id" values="permanenceRadio.values"
+                                     change="permanenceRadio.change()"
+                                     layout="permanenceRadio.layout"></tiny-radiogroup>
+                </div>
+                <div style="float: left;">
+                    <span ng-bind="i18n.org_disk_add_para_persistent_mean_yes_label"></span><br/>
+                    <span ng-bind="i18n.org_disk_add_para_persistent_mean_no_label"></span>
+                </div>
+        </tiny-item>
+        <tiny-item label="mediaSelector.label"  require="mediaSelector.require">
+            <tiny-select id="mediaSelector.id" values="mediaSelector.values" require="mediaSelector.require"
+                         width="mediaSelector.width" disable="mediaSelector.disable"></tiny-select>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="okButton.id" text="okButton.text" click="okButton.click()"
+                         disable="okButton.disable" class="major-btn"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/disk/createDiskCtrl"], function (editDiskCtrl) {
+        var rootElement = $("#createDiskDiv");
+        rootElement.attr("ng-controller", "resources.hypervisor.createDisk.ctrl");
+        var dep = ['ng', 'wcc', editDiskCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile(rootElement)($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

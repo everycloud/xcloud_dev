@@ -1,0 +1,47 @@
+<div id="editDisasterDiv">
+    <tiny-formfield>
+        <tiny-item label="nameTextbox.label" require="nameTextbox.require">
+            <tiny-textbox id="nameTextbox.id" value="nameTextbox.value" validate="nameTextbox.validate"
+                          width="nameTextbox.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="descTextbox.label" require="descTextbox.require">
+            <tiny-textbox id="descTextbox.id" value="descTextbox.value"
+                          width="descTextbox.width" height="descTextbox.height"
+                          type="descTextbox.type" validate="descTextbox.validate">
+            </tiny-textbox>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="addDisasterButton.id" text="addDisasterButton.text"
+                         click="addDisasterButton.click()"></tiny-button>
+        </tiny-item>
+        <tiny-item>
+            <div  style="width: 650px">
+                <tiny-table id="disasterTable.id" data="disasterTable.data"
+                            columns='disasterTable.columns' render-row="disasterTable.renderRow"
+                            enable-pagination="disasterTable.enablePagination"
+                            columns-draggable="disasterTable.columnsDraggable"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button class="major-btn" id="okButton.id" text="okButton.text"
+                         tooltip="okButton.tooltip" click="okButton.click()"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["tiny-widgets/Checkbox", 'app/business/resources/controllers/rpool/zone/zoneResources/storage/disasterRecovery/editDisasterCtrl'],
+            function (Checkbox, editDisasterCtrl) {
+                var rootElement = $("#editDisasterDiv");
+                rootElement.attr("ng-controller", "resources.zone.editDisaster.ctrl");
+                var dep = ['ng', 'wcc', editDisasterCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

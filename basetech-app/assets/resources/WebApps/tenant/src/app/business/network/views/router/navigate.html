@@ -1,0 +1,8 @@
+<div class="content-right-box">
+    <p>
+        <span ng-show="!isICT" ng-bind="i18n.router_router_null_info_label"></span>
+        <span ng-show="isICT" ng-bind="i18n.router_router_nullICT_info_label"></span>
+        <a class="btn-link margin-horizon-beautifier" ng-if="hasRouterOperateRight" ng-click="create()"
+           ng-bind="i18n.router_term_applyRouter_button"></a>
+    </p>
+</div>

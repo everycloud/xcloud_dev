@@ -1,0 +1,92 @@
+<link href="../theme/default/css/gm/ssp.css" type="text/css" rel="stylesheet" />
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div>
+    <div id="catalogManagerLayoutId">
+        <div class="tiny-layout-container">
+            <div class="tiny-layout-west">
+                <ul>
+                    <div class="tiny-layout-title">
+                        <div class="row-fluid nosidedown-txt">
+                            <div class="span4">
+                                <div class="title-icon layout-icon-catalog"></div>
+                            </div>
+                            <div class="span6">
+                                <span class="text-left" ng-bind="i18n.service_term_service_label"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <li>
+                        <a ui-sref="service.myCatalog" ng-bind="i18n.service_term_catalogMgr_label"></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tiny-layout-center">
+                <div class="crumbs">
+                    <ul class="nav nav-list noPadding">
+                        <li>
+                            <span ng-bind-html="i18n.service_term_catalogMgr_label"></span>
+                        </li>
+                        <li class="two-lead">
+                            <p ng-bind-html="i18n.service_service_view_explan_eCommerce_label"></p>
+                        </li>
+                        <li class="divider"></li>
+                    </ul>
+                </div>
+                <div class="content-right-box">
+                    <div class="clearfix bottom10">
+                        <div class="fl">
+                            <tiny-button ng-if="hasCatalogOperateRight == true" id="createBtn.id" text="createBtn.text" click="createBtn.click()" class="major-btn"></tiny-button>
+                        </div>
+                        <div class="pull-right">
+                            <tiny-button ng-if="hasCatalogOperateRight == true" id="saveSequenceBtn.id" text="saveSequenceBtn.text" click="saveSequenceBtn.click()"></tiny-button>
+                            <a class="btn-link">
+                                <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+                            </a>
+                            <a class="btn-link">
+                                <div title="{{i18n.common_term_help_label}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <tiny-table id="catalogs.id" data="catalogs.data" columns="catalogs.columns" render-row="catalogs.renderRow" enable-pagination="catalogs.page">
+                        </tiny-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .reorder {
+        position: relative;
+        top: 3px;
+        display: inline-block;
+        width: 12px;
+        height: 15px;
+        margin-left: 10px;
+        background: url("../theme/default/images/gm/reorder.png") no-repeat -4px 0;
+        cursor: pointer;
+    }
+
+    .reorder-up {
+        background-position: -4px -16px;
+    }
+
+    .reorder-up-disabled {
+        background-position: -4px -48px;
+        cursor: default;
+
+    }
+
+    .reorder-down {
+        background-position: -4px 0;
+
+    }
+    .reorder-down-disabled {
+        background-position: -4px -32px;
+        cursor: default;
+
+    }
+</style>

@@ -1,0 +1,202 @@
+<ul class="" style="padding-top:20px;">
+    <li class="clearfix" ng-if="applyType == 'apply'">
+        <div class="fl" style="width:82px;height:82px;">
+            <img ng-src="{{imageUrl}}" style="width:82px;height:82px;"/>
+        </div>
+        <div class="fl left10" style="width:1100px;height:130px;font-size:16px;color:#000;">
+            <h4 class="text-overflow " ng-bind="serviceName" style="font-weight:bold;line-height:50px;"></h4>
+
+            <p style="line-height:20px;height:80px;overflow:auto;word-break: break-all;"
+               title="{{serviceDescription}}"
+               ng-bind="serviceDescription"></p>
+        </div>
+    </li>
+
+    <li class="panel-item" ng-if="applyType == 'apply'">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="baseInfo.title"></span>
+        </div>
+        <div class="panel-content">
+            <tiny-formfield>
+                <tiny-item label="baseInfo.content.userName.label">
+                    <span ng-bind="baseInfo.content.userName.value"></span>
+                </tiny-item>
+                <tiny-item label="baseInfo.content.approvalName.label"
+                           ng-bind="baseInfo.content.approvalName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.orderName.label"
+                           ng-bind="baseInfo.content.orderName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.region.label"
+                           ng-bind="baseInfo.content.region.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.tenancy.label"
+                           ng-bind="baseInfo.content.tenancy.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.comments.label"
+                           ng-bind="baseInfo.content.comments.value">
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </li>
+
+    <li class="panel-item" ng-if="applyType == 'apply'">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="i18n.common_term_resourceQuota_label"></span>
+        </div>
+        <div class="panel-content">
+            <tiny-formfield>
+                <tiny-item label="quotaInfo.quota.CPU.label" ng-bind="quotaInfo.quota.CPU.value">
+                </tiny-item>
+                <tiny-item label="quotaInfo.quota.MEMORY.label" ng-bind="quotaInfo.quota.MEMORY.value">
+                </tiny-item>
+                <tiny-item label="quotaInfo.quota.STORAGE.label" ng-bind="quotaInfo.quota.STORAGE.value">
+                </tiny-item>
+                <tiny-item label="quotaInfo.quota.VM.label" ng-bind="quotaInfo.quota.VM.value">
+                </tiny-item>
+                <tiny-item label="quotaInfo.quota.EIP.label" ng-bind="quotaInfo.quota.EIP.value">
+                </tiny-item>
+                <tiny-item label="quotaInfo.quota.VPC.label" ng-bind="quotaInfo.quota.VPC.value">
+                </tiny-item>
+                <tiny-item label="quotaInfo.quota.SEG.label" ng-bind="quotaInfo.quota.SEG.value">
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </li>
+
+    <li class="panel-item" ng-if="applyType == 'modify'">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="modifyTitle"></span>
+        </div>
+        <div class="panel-content">
+            <tiny-formfield>
+                <tiny-item label="baseInfo.content.userName.label"
+                           ng-bind="baseInfo.content.userName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.approvalName.label"
+                           ng-bind="baseInfo.content.approvalName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.orderName.label"
+                           ng-bind="baseInfo.content.orderName.value">
+                </tiny-item>
+                <tiny-item label="quotaInfo.quotaCurrentTitle">
+                    <tiny-formfield>
+                        <tiny-item label="quotaInfo.quota.CPU.label" ng-bind="quotaInfo.quota.CPU.oldValue">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.MEMORY.label" ng-bind="quotaInfo.quota.MEMORY.oldValue">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.STORAGE.label" ng-bind="quotaInfo.quota.STORAGE.oldValue">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.VM.label" ng-bind="quotaInfo.quota.VM.oldValue">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.EIP.label" ng-bind="quotaInfo.quota.EIP.oldValue">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.VPC.label" ng-bind="quotaInfo.quota.VPC.oldValue">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.SEG.label" ng-bind="quotaInfo.quota.SEG.oldValue">
+                        </tiny-item>
+                    </tiny-formfield>
+                </tiny-item>
+                <tiny-item label="quotaInfo.quotaChangeToTitle">
+                    <tiny-formfield>
+                        <tiny-item label="quotaInfo.quota.CPU.label" ng-bind="quotaInfo.quota.CPU.value">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.MEMORY.label" ng-bind="quotaInfo.quota.MEMORY.value">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.STORAGE.label" ng-bind="quotaInfo.quota.STORAGE.value">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.VM.label" ng-bind="quotaInfo.quota.VM.value">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.EIP.label" ng-bind="quotaInfo.quota.EIP.value">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.VPC.label" ng-bind="quotaInfo.quota.VPC.value">
+                        </tiny-item>
+                        <tiny-item label="quotaInfo.quota.SEG.label" ng-bind="quotaInfo.quota.SEG.value">
+                        </tiny-item>
+                    </tiny-formfield>
+                </tiny-item>
+                <tiny-item label="baseInfo.content.comments.label"
+                           ng-bind="baseInfo.content.comments.value">
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </li>
+
+    <li class="panel-item" ng-if="applyType == 'extend'">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="extendTitle"></span>
+        </div>
+        <div class="panel-content">
+            <tiny-formfield>
+                <tiny-item label="baseInfo.content.userName.label"
+                           ng-bind="baseInfo.content.userName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.approvalName.label"
+                           ng-bind="baseInfo.content.approvalName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.orderName.label"
+                           ng-bind="baseInfo.content.orderName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.tenancy.label"
+                           ng-bind="baseInfo.content.tenancy.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.comments.label"
+                           ng-bind="baseInfo.content.comments.value">
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </li>
+
+    <li class="panel-item" ng-if="applyType == 'release'">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="releaseTitle"></span>
+        </div>
+        <div class="panel-content">
+            <tiny-formfield>
+                <tiny-item label="baseInfo.content.userName.label" ng-bind="baseInfo.content.userName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.orderName.label" ng-bind="baseInfo.content.orderName.value">
+                </tiny-item>
+                <tiny-item label="baseInfo.content.provide.label" ng-bind="baseInfo.content.provide.value">
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </li>
+
+    <li class="panel-item" ng-if="applyType == 'release'">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="resourcesInfo.resourcesTitle"></span>
+        </div>
+        <ul class="panel-content">
+            <li class="row-fluid" ng-repeat="resource in resourcesInfo.resources">
+                <span class="span3" ng-bind="resource.resourceName"></span>
+                <span class="span3" ng-bind="resource.resourceId"></span>
+                <span class="span3" ng-bind="resource.resourceType"></span>
+            </li>
+        </ul>
+    </li>
+
+    <li class="panel-item">
+        <div class="panel-title clearfix">
+            <span class="panel-title-label fl" ng-bind="historyInfo.title"></span>
+        </div>
+        <div class="panel-content">
+            <ul ng-if="historyInfo.content && historyInfo.content.length">
+                <li ng-repeat="historyItem in historyInfo.content" class="line-height30 text-overflow">
+                    <span ng-repeat="infoItem in historyItem.info"
+                          ng-bind="infoItem"
+                          ng-class="{left10:!!$index}"
+                          title="{{infoItem}}"></span>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <li class="top10">
+        <tiny-button id="backBtn.id"
+                     class="major-btn"
+                     text="backBtn.text"
+                     click="backBtn.click()">
+        </tiny-button>
+    </li>
+</ul>

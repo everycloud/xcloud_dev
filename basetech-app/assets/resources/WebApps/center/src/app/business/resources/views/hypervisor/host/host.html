@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb" ng-if="curState == 'resources.clusterInfo.host'">
+            <li>
+                <a ui-sref="resources.hypervisor.cluster">{{i18n.virtual_term_clusters_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.clusterInfo.summary">{{clusterName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.common_term_host_label}}</li>
+            <li class="crumbs_line"></li>
+        </ul>
+        <ul class="breadcrumb"  ng-if="curState == 'resources.storeInfo.host'">
+            <li>
+                <a ui-sref="resources.hypervisor.cluster">{{i18n.virtual_term_clusters_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active">
+                <a ng-click="goToCluster()" href="javascript:void(0)">{{breadCrumbs.clusterName}}</a><span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ng-click="goToStorage()" href="javascript:void(0)">{{i18n.common_term_storage_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.storeInfo.summary">{{storeName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.common_term_host_label}}</li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div id="clusterInfoHostDiv">
+            <div class="clearfix bottom10">
+                <div class="fl">
+                    <tiny-button id="exportButton.id" text="exportButton.text" click="exportButton.click()"
+                                 class="major-btn" ng-if="exportAble"></tiny-button>
+                </div>
+                <div class="fr">
+                    <a class="btn-link">
+                        <div ng-click="operator.init()" id="refreshHost" title="{{i18n.common_term_fresh_button}}"
+                             class="small-icon small-icon-refresh"></div>
+                    </a>
+                    <a class="btn-link">
+                        <div ng-click="help.show=true" class="small-icon small-icon-help"></div>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <tiny-table id="hostTable.id" data="hostTable.data" pagination-style="hostTable.paginationStyle"
+                            columns='hostTable.columns' render-row="hostTable.renderRow"
+                            total-records="hostTable.totalRecords" length-change="hostTable.lengthChange"
+                            cur-page="hostTable.curPage" display-length="hostTable.displayLength"
+                            enable-pagination="hostTable.enablePagination"
+                            length-menu="hostTable.lengthMenu" callback="hostTable.callback"
+                            columns-visibility="hostTable.columnsVisibility" change-select="hostTable.changeSelect"
+                            columns-draggable="hostTable.columnsDraggable" renderRow="hostTable.renderRow"
+                            show-details="hostTable.showDetails"></tiny-table>
+            </div>
+        </div>
+    </div>
+    <div fm-help help="'drawer_virtual_cluster_host'" i18n="'zh'" show="help.show"></div>
+    <iframe id="download" style="display:none"></iframe>
+</div>

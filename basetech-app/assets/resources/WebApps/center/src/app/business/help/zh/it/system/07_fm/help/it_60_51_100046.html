@@ -1,0 +1,169 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="虚拟机-选项">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100046">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>虚拟机-选项</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\n虚拟化资源管理\n资源集群管理\n虚拟机-选项");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100003.html\">虚拟化资源管理<\/a> > <a href=\"../father_node/it_60_99_100034.html\">资源集群管理<\/a> > 虚拟机-选项<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100046"></a><a name="it_60_51_100046"></a>
+
+
+<h1 class="topictitle1">虚拟机-选项</h1>
+<ul><li><a href="#it_60_51_100046__1.2.3.1">修改操作系统属性</a></li><li><a href="#it_60_51_100046__1.2.4.1">修改虚拟机HA策略</a></li><li><a href="#it_60_51_100046__1.2.5.1">修改虚拟机启动方式</a></li><li><a href="#it_60_51_100046__1.2.6.1">修改虚拟机时钟策略</a></li><li><a href="#it_60_51_100046__1.2.7.1">修改虚拟机热插拔策略</a></li><li><a href="#it_60_51_100046__1.2.8.1">修改虚拟机升级方式</a></li><li><a href="#it_60_51_100046__1.2.9.1">修改虚拟机基本块存储高级功能</a></li><li><a href="#it_60_51_100046__1.2.10.1">设置虚拟机防病毒</a></li></ul>
+<div>
+<p>显示虚拟机的高级属性和策略信息。</p>
+
+<p>虚拟机创建好之后，可根据实际需要，调整策略配置。</p>
+
+<div class="section"><a name="it_60_51_100046__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100046" class="sectiontitle2contents">修改操作系统属性</a></h4><p>当虚拟机因故障或重新安装，操作系统发生改变时，修改虚拟机操作系统的属性，使系统中显示的操作系统类型与虚拟机实际操作系统一致。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态时，才可以修改操作系统属性。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“选项”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">操作系统</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100046__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100046" class="sectiontitle2contents">修改虚拟机HA策略</a></h4><p>虚拟机HA（High
+Availability）是指系统持续监控所有主机，当主机故障时能自动迁移故障主机上的所有虚拟机至其他运行正常的主机中。 </p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以修改虚拟机HA策略。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“选项”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">HA</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100046__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100046" class="sectiontitle2contents">修改虚拟机启动方式</a></h4><p>虚拟机启动方式包括：网络启动、光驱启动、硬盘启动。若将启动方式设置为<span class="parmvalue">“网络启动”</span>或者<span class="parmvalue">“光驱启动”</span>时，则该虚拟机第二启动方式默认为<span class="parmvalue">“硬盘启动”</span>。 </p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以修改虚拟机启动方式。建议统一通过<span>FusionManager</span>进行修改，否则在虚拟化环境中修改了虚拟机的启动方式，还需要在<span>FusionManager</span>上同步修改后才能生效。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“选项”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">启动方式</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100046__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100046" class="sectiontitle2contents">修改虚拟机时钟策略</a></h4><p>设置虚拟机的时钟是否与主机定期同步。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态时，才可以修改虚拟机时钟策略。对于VMware虚拟化环境中的虚拟机，如果安装了VMware
+Tools工具且该工具处于运行状态，即使设置为不与主机时间同步，虚拟机重启后也会自动与所在主机进行时间同步。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“选项”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">时钟策略</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100046__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100046" class="sectiontitle2contents">修改虚拟机热插拔策略</a></h4><p>设置虚拟机的CPU和内存的热插拔策略。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“选项”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">热插拔</span>”</span>。</p>
+<p>具体操作方法请参见<a href="it_60_51_600021.html">如何设置虚拟机热插拔策略</a>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100046__1.2.8.1"></a><a name="1.2.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100046" class="sectiontitle2contents">修改虚拟机升级方式</a></h4><p>设置<span>FusionCompute</span>虚拟化环境中的虚拟机Tools软件的升级方式。Tools的更多信息请参见<a href="../../05_fc/vm_prov/it_58_45_200029.html">Tools简介</a>。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以修改虚拟机升级方式。虚拟机成功安装Tools，且Tools运行正常时，才能执行自动升级。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“选项”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">升级方式</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100046__1.2.9.1"></a><a name="1.2.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100046" class="sectiontitle2contents">修改虚拟机基本块存储高级功能</a></h4><p>基本块存储是指非虚拟化SAN存储、非虚拟化本地硬盘、Advanced
+SAN存储、FusionStorage存储类型的数据存储。</p>
+<div class="p">设置虚拟机是否支持如下功能：<ul><li>基本块存储的磁盘向虚拟化存储热迁移。</li><li>FusionStorage存储主机复制容灾功能。</li></ul>
+</div>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态时，才可以修改虚拟机基本块存储高级功能。对于VMware虚拟化环境中的虚拟机，不支持该操作。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“选项”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">基本块存储高级功能</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100046__1.2.10.1"></a><a name="1.2.10.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100046" class="sectiontitle2contents">设置虚拟机防病毒</a></h4><div class="p">设置虚拟化防病毒功能开启或关闭。开启后可选择虚拟机类型为：<ul><li>安全服务虚拟机：为安全用户虚拟机提供病毒查杀、病毒实时监控服务的虚拟机，由防病毒厂商提供该虚拟机模板。 </li><li>安全用户虚拟机：使用虚拟机防病毒功能的最终用户虚拟机。</li></ul>
+</div>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态时，才可以设置虚拟机防病毒功能。使用该功能需同时在主机开启防病毒功能。虚拟机防病毒功能的详细介绍和完整部署方案请参见<a href="it_60_51_600029.html">虚拟化防病毒管理</a>。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“选项”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">虚拟机防病毒</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

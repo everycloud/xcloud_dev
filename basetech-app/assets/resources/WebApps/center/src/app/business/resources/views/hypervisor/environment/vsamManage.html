@@ -1,0 +1,112 @@
+<div id="vsamManageDiv">
+    <style>
+        .input-text, .tiny_form_require, .tiny_form_label_default {
+            line-height: 29px;
+        }
+    </style>
+    <div class="bottom5 color2" ng-if="vsamNormal" ng-bind-html="i18n.virtual_hyper_modifyVSAM_desc_label"></div>
+    <div class="bottom5 color2" ng-if="!vsamNormal"  ng-bind-html="i18n.virtual_hyper_modifyVSAM_info_statusAbnormal_label"></div>
+
+    <tiny-formfield>
+
+        <tiny-item label="floatIp.label"
+                   require="floatIp.require"
+                   display="haMode">
+            <tiny-ip id="floatIp.id"
+                     value="floatIp.value"
+                     disable="floatIp.disable"
+                     ng-if="haMode"
+                     type="floatIp.type"
+                     width="floatIp.width"
+                     extend-function="floatIp.extendFunction"
+                     validate="floatIp.validate"></tiny-ip>
+        </tiny-item>
+
+        <tiny-item label="floatIp.singleLabel"
+                   require="floatIp.require"
+                   display="!haMode">
+            <tiny-ip id="floatIp.id"
+                     ng-if="!haMode"
+                     value="floatIp.value"
+                     disable="floatIp.disable"
+                     type="floatIp.type"
+                     width="floatIp.width"
+                     extend-function="floatIp.extendFunction"
+                     validate="floatIp.validate"></tiny-ip>
+        </tiny-item>
+
+        <tiny-item label="activeIp.label"
+                   require="activeIp.require"
+                   display="haMode">
+            <tiny-ip id="activeIp.id"
+                     value="activeIp.value"
+                     disable="activeIp.disable"
+                     type="activeIp.type"
+                     width="activeIp.width"
+                     extend-function="activeIp.extendFunction"
+                     validate="activeIp.validate"></tiny-ip>
+        </tiny-item>
+
+        <tiny-item label="standbyIp.label"
+                   require="standbyIp.require"
+                   display="haMode">
+            <tiny-ip id="standbyIp.id"
+                     value="standbyIp.value"
+                     disable="standbyIp.disable"
+                     type="standbyIp.type"
+                     width="standbyIp.width"
+                     extend-function="standbyIp.extendFunction"
+                     validate="standbyIp.validate"></tiny-ip>
+        </tiny-item>
+
+        <tiny-item label="netmask.label"
+                   require="netmask.require">
+            <tiny-ip id="netmask.id"
+                     value="netmask.value"
+                     disable="netmask.disable"
+                     type="netmask.type"
+                     width="netmask.width"
+                     extend-function="netmask.extendFunction"
+                     validate="netmask.validate"></tiny-ip>
+        </tiny-item>
+
+        <tiny-item label="gateway.label"
+                   require="gateway.require">
+            <tiny-ip id="gateway.id"
+                     value="gateway.value"
+                     disable="gateway.disable"
+                     type="gateway.type"
+                     width="gateway.width"
+                     extend-function="gateway.extendFunction"
+                     validate="gateway.validate"></tiny-ip>
+        </tiny-item>
+
+        <tiny-item class="fm-btn-top-small">
+            <fm-button class="major-btn"
+                       id="saveBtn.id"
+                       disable="saveBtn.disable"
+                       text="saveBtn.text"
+                       click="saveBtn.click"></fm-button>
+            <fm-button id="cancelBtn.id"
+                       text="cancelBtn.text"
+                       click="cancelBtn.click"></fm-button>
+        </tiny-item>
+
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/environment/vsamManageCtrl"], function (vsamManageCtrl) {
+        var rootElement = $("#vsamManageDiv");
+        rootElement.attr("ng-controller", "resources.hypervisor.vsamManage.ctrl");
+        var dep = ['ng', 'wcc', vsamManageCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile) {
+            var scope = rootElement.scope();
+            $compile(rootElement)(scope);
+            scope.$digest();
+        });
+    });
+</script>

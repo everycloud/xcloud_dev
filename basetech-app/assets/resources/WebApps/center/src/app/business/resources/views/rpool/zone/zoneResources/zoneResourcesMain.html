@@ -1,0 +1,85 @@
+<div id="zoneLayoutDiv">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <div class="tiny-layout-title">
+                    <div class="row-fluid nosidedown-txt">
+                        <div class="span4">
+                            <div class="title-icon">
+                                <img src="../theme/default/images/resource-partitions.png">
+                            </div>
+                        </div>
+                        <div class="span8">
+                            <p class="title-text">资源分区</p>
+                        </div>
+                    </div>
+                </div>
+                <li>
+                    <a ui-sref="resources.zoneResources.summary.zoneSummary"
+                       ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.summary')}">概览</a>
+                </li>
+                <li ng-show="privilege['role_role_add_option_AZView_value.601001']">
+                    <a ui-sref="resources.zoneResources.availableZone"
+                       ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.availableZone')}">可用分区</a>
+                </li>
+                <li ng-show="privilege['role_role_add_option_clusterView_value']">
+                    <a ui-sref="resources.zoneResources.computing"
+                       ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.computing')}">计算资源池</a>
+                </li>
+                <li>
+                    <a ui-sref="resources.zoneResources.physical.physicalNetwork"
+                       ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.physical')}">物理资源池</a>
+                </li>
+                <li ng-show="privilege['role_role_add_option_storagePoolView_value']">
+                    <a ui-sref="resources.zoneResources.storage.mainStorage"
+                       ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.storage')}">存储资源池</a>
+                </li>
+                <li>
+                    <div class="tiny-layout-head" ui-sref="resources.zoneResources.networkSummary">网络资源池</div>
+                    <ul>
+                        <li>
+                            <a ui-sref="resources.zoneResources.networkSummary"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.networkSummary')}">概览</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.zoneResources.dvs"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.dvs')}">DVS</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.zoneResources.vlanPool.vlan"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.vlanPool')}">VLAN池</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.zoneResources.externalNetwork.extNetwork"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.externalNetwork')}">外部网络</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.zoneResources.publicIP"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.publicIP')}">公网IP</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.zoneResources.vsaNetwork.vsaManagerNetwork"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.vsaNetwork')}">VSA网络</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.zoneResources.virtualFirewall.hardwareFirewall"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.virtualFirewall')}">虚拟机防火墙</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.zoneResources.vlbPool"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.vlbPool')}">VLB</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a ui-sref="resources.zoneResources.systemVms"
+                       ng-class="{ 'tiny-layout-a-current': $state.includes('resources.zoneResources.systemVms')}">系统服务虚拟机</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view></div>
+        </div>
+                
+    </div>
+</div>

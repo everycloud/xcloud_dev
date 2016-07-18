@@ -1,0 +1,144 @@
+<div class="row-fluid tiny-step-boxset clearfix">
+	<div class="createpage-legend">{{state.modify ? (i18n.vpn_term_modifyVPNconnect_button||'修改VPN链接') : (i18n.vpn_term_createLink_button||'创建VPN链接')}}</div>
+	<fm-step value="step_status" option='[i18n.common_term_basicInfo_label||"基本信息", 
+		i18n.vpn_term_setTunnelInfo_button||"配置隧道信息", i18n.vpc_term_setNet_button||"配置网络", i18n.common_term_confirmInfo_label||"确认信息"]' width="600"></fm-step>
+</div>
+<div fm-tips-width='300' class="row-fluid create-page-distance" style="width:800px;">
+<fm-valid valid="show.check">
+	<div ng-show="0==step_status">
+		<div ng-if="!state.modify">
+		<tiny-formfield>
+			<tiny-item label="label.type+':'" require="true">
+				L2TP
+			</tiny-item>
+			<tiny-item label="label.name+':'" require="true">
+				<fm-text value="para.name" length="8" 	tip="i18n.common_term_composition1_valid+i18n.sprintf(i18n.common_term_maxLength_valid,{1:8})"></fm-text>
+			</tiny-item>
+			<tiny-item label="label.zone+':'" require="true">
+			<fm-select id="para.zone" name="para.zoneName" option="form.zone"
+				change="event.zoneChange" valid="i18n.resource_term_noZone_valid"></fm-select>
+			</tiny-item>
+			<tiny-item label="label.az+':'" require="true">
+				<fm-select id="para.az" name="para.azName" option="form.az"
+					change="event.azChange" valid="i18n.resource_term_noAZ_valid"></fm-select>
+			</tiny-item>
+			<tiny-item label="label.vpc+':'" require="true">
+				<fm-select id="para.vpc" name="para.vpcName" option="form.vpc"
+					change="event.vpcChange" valid="i18n.vpc_term_noSharedVPC_valid"></fm-select>
+			</tiny-item>
+			<tiny-item label="label.desp+':'" require="false">
+				<fm-text value="para.desp" length="1024" type="'multi'" require="false" valid="#XSS"></fm-text>
+			</tiny-item>
+		</tiny-formfield>
+		</div>
+		<div ng-if="state.modify">
+		<tiny-formfield>
+			<tiny-item label="label.type+':'" require="true">
+				L2TP
+			</tiny-item>
+			<tiny-item label="label.name+':'" require="true">
+				<fm-text value="para.name" length="8"	tip="i18n.common_term_composition1_valid+i18n.sprintf(i18n.common_term_maxLength_valid,{1:8})"></fm-text>
+			</tiny-item>
+			<tiny-item label="(i18n.vpc_term_vpc_label||'VPC')+':'" require="true">
+				{{state.vpcName}}
+			</tiny-item>
+			<tiny-item label="(i18n.vpc_term_VPCid_label||'VPC ID')+':'" require="true">
+				{{state.vpc}}
+			</tiny-item>
+			<tiny-item label="label.desp+':'" require="false">
+				<fm-text value="para.desp" length="1024" type="'multi'" require="false" valid="#XSS"></fm-text>
+			</tiny-item>
+		</tiny-formfield>
+		</div>
+	</div>
+	<div ng-show="1==step_status">
+		<div ng-if="!state.modify">
+		<tiny-formfield>
+			<tiny-item label="label.ikePass+':'" require="true">
+				<fm-text value="para.ikePass" length="127" type="'password'" tip="form.ikePassTip" require="true" valid="form.ikePass(para.ikePass)"></fm-text>
+			</tiny-item>
+			<tiny-item label="label.confirmIkePass+':'" require="true">
+				<fm-text value="para.confirmIkePass" length="127" type="'password'" tip="form.ikePassTip" require="true" 
+				valid="(para.confirmIkePass==para.ikePass)||(i18n.common_term_pswDifferent_valid||'两次输入不一致')"></fm-text>
+			</tiny-item>
+			<tiny-item label="label.tunnelPass+':'" require="true">
+				<fm-text value="para.tunnelPass" length="16" type="'password'" tip="form.tunnelPassTip" require="true" valid="form.tunnelPass(para.tunnelPass)"></fm-text>
+			</tiny-item>
+			<tiny-item label="label.confirmTunnelPass+':'" require="true">
+				<fm-text value="para.confirmTunnelPass" length="16" type="'password'" tip="form.tunnelPassTip" require="true" 
+				valid="(para.confirmTunnelPass==para.tunnelPass)||(i18n.common_term_pswDifferent_valid||'两次输入不一致')"></fm-text>
+			</tiny-item>
+		</tiny-formfield>
+		</div>
+		<div ng-if="state.modify">
+		<tiny-formfield>
+			<tiny-item label="label.ikeModify+':'" require="true">
+				<fm-radio option="form.ikeModify" change="event.ikeModify"></fm-radio>
+			</tiny-item>
+			<tiny-item display="show.ike" label="label.ikePass+':'" require="true">
+				<fm-text value="para.ikePass" length="127" type="'password'" require="true" tip="form.ikePassTip" valid="form.ikePass(para.ikePass)"></fm-text>
+			</tiny-item>
+			<tiny-item display="show.ike" label="label.confirmIkePass+':'" require="true">
+				<fm-text value="para.confirmIkePass" length="127" type="'password'" tip="form.ikePassTip" require="true" 
+				valid="(para.confirmIkePass==para.ikePass)||(i18n.common_term_pswDifferent_valid||'两次输入不一致')"></fm-text>
+			</tiny-item>
+			<tiny-item label="label.tunnelModify+':'" require="true">
+				<fm-radio option="form.tunnelModify" change="event.tunnelModify"></fm-radio>
+			</tiny-item>
+			<tiny-item display="show.tunnel" label="label.tunnelPass+':'" require="true">
+				<fm-text value="para.tunnelPass" length="16" type="'password'" require="true" tip="form.tunnelPassTip" valid="form.tunnelPass(para.tunnelPass)"></fm-text>
+			</tiny-item>
+			<tiny-item display="show.tunnel" label="label.confirmTunnelPass+':'" require="true">
+				<fm-text value="para.confirmTunnelPass" length="16" type="'password'" tip="form.tunnelPassTip" require="true" 
+				valid="(para.confirmTunnelPass==para.tunnelPass)||(i18n.common_term_pswDifferent_valid||'两次输入不一致')"></fm-text>
+			</tiny-item>
+		</tiny-formfield>	
+		</div>
+	</div>
+	<div ng-show="2==step_status">
+		<fm-table columns="netTable.columns" data="netTable.data"
+			template="'app/business/vdc/views/vpn/col.html'" size="5">
+		</fm-table>
+	</div>
+	<div ng-show="3==step_status">
+		<div class="inner-legend">{{i18n.common_term_basicInfo_label||'基本信息'}}</div>
+		<div class="row-fluid">
+			<div class='span6'>
+				<tiny-formfield>
+					<tiny-item label="label.name+':'">
+						{{para.name}}
+					</tiny-item>
+					<tiny-item label="label.type+':'">
+						L2TP
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class='span6'>
+				<tiny-formfield>
+					<tiny-item label="label.vpc+':'">
+						{{para.vpcName}} - {{para.vpc}}
+					</tiny-item>
+					<tiny-item label="label.desp+':'">
+						{{para.desp}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+		</div>
+		<div class="inner-legend">{{i18n.vpn_term_userIPassign_label||'用户地址分配'}}</div>
+		<div class="row-fluid">
+		<fm-table columns="netTableShow.columns" data="netTableShow.data" size="5">
+		</fm-table>
+		</div>
+	</div>
+	<fm-dialog title="i18n.vpn_term_userIPassign_label||'用户地址分配'" width="540" height="210" show="show.ipCfg">
+		<div ng-show="show.ipCfg" ng-include src="'app/business/vdc/views/vpn/ipCfg.html'" class="alert-tip-first"></div>
+	</fm-dialog>
+	<div class="fm-btn-top-small">
+	<fm-button ng-show="0!=step_status" text="i18n.common_term_back_button||'上一步'" click="prev"></fm-button>
+	<fm-button ng-show="3!=step_status" class="major-btn fm-valid" text="i18n.common_term_next_button||'下一步'" click="next"></fm-button>
+	<fm-button class="major-btn" ng-show="3==step_status" 
+		text="state.modify ? (i18n.common_term_modify_button||'修改') : (i18n.common_term_create_button||'创建')" click="create"></fm-button>
+	<fm-button text="i18n.common_term_cancle_button||'取消'" class="fm-valid-clear" click="cancel"></fm-button>
+	</div>
+</fm-valid>
+</div>

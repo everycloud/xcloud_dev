@@ -1,0 +1,27 @@
+<div id="publicIpPoolDetailDiv" ng-controller="publicIpPoolDetailCtrl">
+    <tiny-table id="ipPoolTable.id" caption="ipPoolTable.caption" data="ipPoolTable.data"
+                columns="ipPoolTable.columns"
+                enable-pagination="ipPoolTable.enablePagination"
+                pagination-style="ipPoolTable.paginationStyle" length-change="ipPoolTable.lengthChange"
+                length-menu="ipPoolTable.lengthMenu" display-length="ipPoolTable.displayLength"
+                enable-filter="ipPoolTable.enableFilter"
+                cur-page="ipPoolTable.curPage" total-records="ipPoolTable.totalRecords"
+                hide-total-records="ipPoolTable.hideTotalRecords"
+                callback="ipPoolTable.callback" render-row="ipPoolTable.renderRow"
+                show-details="ipPoolTable.showDetails" change-select="ipPoolTable.changeSelect"
+                columns-draggable="ipPoolTable.columnsDraggable"></tiny-table>
+</div>
+<script>
+    require(['app/business/resources/controllers/rpool/zone/zoneResources/network/publicIP/publicIpPoolDetailCtrl'],
+            function (publicIpPoolDetailCtrl) {
+                var dep = ['ng', 'wcc', publicIpPoolDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#publicIpPoolDetailDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#publicIpPoolDetailDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

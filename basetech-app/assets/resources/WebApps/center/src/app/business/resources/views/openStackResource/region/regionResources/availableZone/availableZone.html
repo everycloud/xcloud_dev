@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.openStackResource.region">{{i18n.resource_term_openstack_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.regionResources.summary">{{regionName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.resource_term_AZ_label}}</li>
+        </ul>
+        <ul class="nav nav-list noPadding">
+            <li class="two-lead">
+                <p ng-bind-html="i18n.resource_az_viewICT_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div id="availableZoneDiv">
+            <div>
+                <tiny-table id="availableZoneTable.id" data="availableZoneTable.data" pagination-style="availableZoneTable.paginationStyle"
+                            columns='availableZoneTable.columns' render-row="availableZoneTable.renderRow"
+                            total-records="availableZoneTable.totalRecords" length-change="availableZoneTable.lengthChange"
+                            cur-page="availableZoneTable.curPage" display-length="availableZoneTable.displayLength"
+                            enable-pagination="availableZoneTable.enablePagination"
+                            length-menu="availableZoneTable.lengthMenu" callback="availableZoneTable.callback"
+                            columns-visibility="availableZoneTable.columnsVisibility"
+                            columns-draggable="availableZoneTable.columnsDraggable" renderRow="availableZoneTable.renderRow"></tiny-table>
+            </div>
+        </div>
+    </div>
+</div>

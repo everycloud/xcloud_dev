@@ -1,0 +1,145 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="ASPF">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000046">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>ASPF</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_000046"></a><a name="it_60_51_000046"></a>
+
+
+
+<h1 class="topictitle1">ASPF</h1>
+
+
+<div>
+<div class="section"><h4 class="sectiontitle">Overview</h4><p>Application Specific
+Packet Filtering (ASPF) enables the system to filter packets based
+on the application layer session connection status. ASPF can work
+with a static firewall to implement internal network security policies.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Process</h4><p>By resolving
+the application layer packets sent to the device, ASPF is able to
+detect the random port that is automatically selected for establishing
+a connection, and then permits or rejects the packets sent to the
+port based on the specified access rules. This function allows packets
+forwarding even if no specific access control list (ACL) rule applies
+to the packets.</p>
+<p>For example, in a session based on File Transport
+Protocol (FTP), if the ACL rule only allows users to connect to port
+21 of the FTP server, the firewall device establishes a session table
+to monitor packet transmission between the user and port 21 of the
+FTP server. However, the FTP server actually randomly selects a port
+to establish connections to the user. Therefore, the FTP connection
+to the user may fail to be established due to the restriction of the
+specified ACL rule.</p>
+<p>If ASPF is enabled in this case, as shown
+in <a href="#it_60_51_000046__d828e27">Figure 1</a>, after user A triggers a connection
+to the FTP server, the firewall can automatically detect the port
+on which the connection is initiated, and it also creates a server
+map entry to allow packets from any IP address or port to access the
+user's connection setup port 22787. Specifically, the firewall
+uses a default port to initialize a controlled connection, and then
+dynamically selects a port for data transmission. The firewall is
+able to resolve and record the ports used for all connections and
+establish a session table entry for each connection. Before the data
+connection is released, the firewall deletes the previously recorded
+server map entry. In this manner, the system can effectively control
+the access to application layer connections that use dynamic communication
+ports.</p>
+<div class="fignone" id="it_60_51_000046__d828e27"><a name="it_60_51_000046__d828e27"></a><a name="d828e27"></a><span class="figcap"><b>Figure 1 </b>ASPF process</span>
+
+<br><span><img src="fig/fig_it_60_51_000044_02.png"></span></div>
+<div class="p" id="it_60_51_000046__d828e33"><a name="it_60_51_000046__d828e33"></a><a name="d828e33"></a><span>FusionManager</span> supports ASPF for packets based on the following protocols:<ul><li>Domain Name System (DNS)</li><li>File Transfer Protocol (FTP)</li><li>Internet Locator Server (ILS)</li><li>Microsoft Service Network Protocol (MSN), which is a communications
+protocol used by Microsoft MSN Messenger</li><li>Tencent QQ, which is a communications protocol used by Tencent
+IM tool QQ</li><li>H.323 Protocol (H323), which is used for audio and video communications
+on networks</li><li>Network Basic Input/Output System (NetBIOS), which defines a method
+for standardizing software interfaces and communications interfaces
+between application programs and connected media</li><li>Session Initiation Protocol (SIP), which is a text-based application-layer
+control protocol, independent of transport-layer protocols including
+TCP, UDP, and SCTP, and applied to establish, modify, and terminate
+both-party or multi-party multimedia sessions on IP networks</li><li>Media Gateway Control Protocol (MGCP), which is a voice over IP
+protocol applied between separate multimedia gateway units</li><li>Microsoft Media Server Protocol (MMS), which is to access and
+streamingly receive .asf files on the Windows Media server. MMS is
+widely applied to online broadcasting stations for accessing unicast
+content on Windows media distribution points.</li><li>Real-Time Streaming Protocol (RTSP), which defines how to effectively
+transmit multimedia data through IP networks for one-to-multiple application
+programs</li><li>Point to Point Tunneling Protocol (PPTP), which is to establish
+dedicated VPN tunnels on the Internet</li><li>SQL.NET Protocol (SQLNET), which is a language of Oracle database</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Configuration Process</h4><div class="p"><a href="#it_60_51_000046__fig_aspf1">Figure 2</a> show the process for configuring
+the ASPF function in a VPC.<div class="fignone" id="it_60_51_000046__fig_aspf1"><a name="it_60_51_000046__fig_aspf1"></a><a name="fig_aspf1"></a><span class="figcap"><b>Figure 2 </b>Configuration process </span>
+
+<br><span><img src="fig/fig_it_60_51_000046_01.png"></span></div>
+</div>
+<div class="p"><a href="#it_60_51_000046__table_aspf">Table 1</a> describes the involved tasks.
+<div class="tablenoborder"><a name="it_60_51_000046__table_aspf"></a><a name="table_aspf"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000046__table_aspf" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Task description</caption>
+<thead align="left">
+<tr>
+
+<th class="cellrowborder" valign="top" width="26.91029900332226%" id="mcps1.2.3.3.2.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="40.863787375415285%" id="mcps1.2.3.3.2.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="32.22591362126246%" id="mcps1.2.3.3.2.2.4.1.3"><p>Web Client Navigation</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="26.91029900332226%" headers="mcps1.2.3.3.2.2.4.1.1 "><p>Apply for a router.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.863787375415285%" headers="mcps1.2.3.3.2.2.4.1.2 "><p>Apply for a hardware router for the VPC.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="32.22591362126246%" headers="mcps1.2.3.3.2.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select the target VPC, and select <span class="uicontrol"><b>Routers</b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="26.91029900332226%" headers="mcps1.2.3.3.2.2.4.1.1 "><p>Enable ASPF.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.863787375415285%" headers="mcps1.2.3.3.2.2.4.1.2 "><p>Enable ASPF for specific protocols based on the service
+access control requirements.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="32.22591362126246%" headers="mcps1.2.3.3.2.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select the target VPC, and choose <span class="menucascade"><b><span class="uicontrol">Security</span></b> &gt; <b><span class="uicontrol">ASPF</span></b></span>.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

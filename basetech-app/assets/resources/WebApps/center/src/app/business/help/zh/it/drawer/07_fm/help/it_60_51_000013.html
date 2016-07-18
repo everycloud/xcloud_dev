@@ -1,0 +1,260 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VPN">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000013">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>VPN</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_000013"></a><a name="it_60_51_000013"></a>
+
+
+<h1 class="topictitle1">VPN</h1>
+
+
+<div>
+<div class="section" id="it_60_51_000013__sec_overView"><a name="it_60_51_000013__sec_overView"></a><a name="sec_overView"></a><h4 class="sectiontitle">简介</h4><p>VPN业务用于在远端用户和VPC之间建立一条安全加密的通信隧道，使远端用户通过VPN访问VPC中的业务资源。</p>
+<p><span>FusionManager</span>支持创建IPSec和L2TP两种类型的VPN：</p>
+<ul><li>IPSec VPN用于分支机构和公司总部之间通信，为处于不同物理地域的企业提供了建立安全通信隧道的方式。</li><li>L2TP VPN用于企业出差人员远程经由Internet，通过VPN客户端与公司总部之间的网络连接。</li></ul>
+</div>
+
+<div class="section" id="it_60_51_000013__sec_principle"><a name="it_60_51_000013__sec_principle"></a><a name="sec_principle"></a><h4 class="sectiontitle">原理概述</h4><p><strong>IPSec VPN</strong></p>
+<p>IPSec提供了一种建立和管理安全隧道的方式，通过对要传输的数据报文提供认证和加密服务来防止数据在网络内或通过公网传输时被非法查看或篡改。</p>
+<p>网关到网关的组网方式是IPSec的典型组网，如<a href="#it_60_51_000013__fig_ipsec">图1</a>所示。在此组网方式下，VPN网关和远端网关都支持IPSec，两个网关之间的连接是加密的。从用户到远端网关之间的连接，服务器和VPN网关之间的连接是未加密的。</p>
+<div class="fignone" id="it_60_51_000013__fig_ipsec"><a name="it_60_51_000013__fig_ipsec"></a><a name="fig_ipsec"></a><span class="figcap"><b>图1 </b>IPSec VPN</span>
+
+<br><span><img src="fig/fig_it_60_51_000013_01.png"></span></div>
+<p><strong>L2TP
+VPN</strong></p>
+<p>L2TP VPN用于出差员工访问公司中的服务器，通过终端设备上安装的VPN客户端直接向LNS发起隧道连接请求，LNS为客户端分配IP地址，在VPN客户端和VPN网关之间建立起L2TP
+over IPSec的VPN隧道，如<a href="#it_60_51_000013__fig_l2tp">图2</a>所示。</p>
+<div class="fignone" id="it_60_51_000013__fig_l2tp"><a name="it_60_51_000013__fig_l2tp"></a><a name="fig_l2tp"></a><span class="figcap"><b>图2 </b> L2TP VPN</span>
+
+<br><span><img src="fig/fig_it_60_51_000013_02.png"></span></div>
+</div>
+
+<div class="section" id="it_60_51_000013__sec_caution"><a name="it_60_51_000013__sec_caution"></a><a name="sec_caution"></a><h4 class="sectiontitle">注意事项</h4><ul><li>用户所在的远端网络和VPC的路由器之间路由可达。</li><li>硬件路由器支持IPSec和L2TP两种类型的VPN；软件路由器只支持IPSec类型的VPN。</li><li>一个VPC中只能选择IPSec和L2TP中的一种类型的VPN进行配置。</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle">需要准备的软件</h4><p>通过软件路由器实现VPN业务时，需要获取<a href="#it_60_51_000013__tbl_01">表1</a>中的软件。</p>
+
+<div class="tablenoborder"><a name="it_60_51_000013__tbl_01"></a><a name="tbl_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000013__tbl_01" frame="border" border="1" rules="all"><caption><b>表1 </b>软件</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="23%" id="mcps1.2.4.3.2.4.1.1"><p>名称</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="35.75%" id="mcps1.2.4.3.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="41.25%" id="mcps1.2.4.3.2.4.1.3"><p>获取方式</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+
+<td class="cellrowborder" valign="top" width="23%" headers="mcps1.2.4.3.2.4.1.1 "><span class="filepath">“FusionCompute V100R005C00SPC200_VSA.zip”</span></td>
+
+<td class="cellrowborder" valign="top" width="35.75%" headers="mcps1.2.4.3.2.4.1.2 "><p>系统服务虚拟机模板文件，申请软件路由器时，系统会自动通过此模板文件创建系统服务虚拟机，提供路由器功能。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.25%" headers="mcps1.2.4.3.2.4.1.3 "><div class="p" id="it_60_51_000013__d760e114"><a name="it_60_51_000013__d760e114"></a><a name="d760e114"></a><ul><li><p>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise </span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+</li><li><p>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud
+OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+</li></ul>
+</div>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">获取到软件包后建议先执行软件包校验的操作，具体操作请参见<a href="../soft_inst/it_60_23_000021.html">校验软件包</a>。</div></div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">配置流程</h4><p>硬件路由器时，VPN业务的配置流程如<a href="#it_60_51_000013__fig_01">图3</a>所示。</p>
+<div class="p"><div class="fignone" id="it_60_51_000013__fig_01"><a name="it_60_51_000013__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>图3 </b>基于硬件路由器的VPN业务配置流程</span>
+
+<br><span><img src="fig/fig_it_60_51_000013_5.png"></span></div>
+</div>
+<p>配置流程中的各任务说明如<a href="#it_60_51_000013__tab_01">表2</a>所示。</p>
+
+<div class="tablenoborder"><a name="it_60_51_000013__tab_01"></a><a name="tab_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000013__tab_01" frame="border" border="1" rules="all"><caption><b>表2 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="17.277486910994764%" id="mcps1.2.5.5.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="55.23560209424083%" id="mcps1.2.5.5.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="27.486910994764397%" id="mcps1.2.5.5.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="17.277486910994764%" headers="mcps1.2.5.5.2.4.1.1 "><p>接入防火墙设备</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.23560209424083%" headers="mcps1.2.5.5.2.4.1.2 "><p>硬件类型的路由器能够提供弹性IP、NAT、ACLs、应用层包过滤和VPN功能，在使用这些功能之前，需要在防火墙设备上创建虚拟防火墙实例，并将防火墙设备接入到<span>FusionManager</span>，以便通过<span>FusionManager</span>对防火墙进行配置和管理。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.486910994764397%" headers="mcps1.2.5.5.2.4.1.3 "><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">设备</span> &gt; <span class="uicontrol">网络设备</span> &gt; <span class="uicontrol">防火墙</span>”</span></td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.277486910994764%" headers="mcps1.2.5.5.2.4.1.1 "><p>添加VLAN池并关联DVS</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.23560209424083%" headers="mcps1.2.5.5.2.4.1.2 "><p>将规划的路由网络的VLAN，添加到<span>FusionManager</span>的VLAN池，并为其关联DVS。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.486910994764397%" headers="mcps1.2.5.5.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">VLAN池</span>”</span>。</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="17.277486910994764%" headers="mcps1.2.5.5.2.4.1.1 "><p>添加公网IP地址池</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.23560209424083%" headers="mcps1.2.5.5.2.4.1.2 "><p>公网IP地址池是对<span>FusionManager</span>所使用的公网IP地址进行管理的资源池，租户为VPC申请的弹性IP地址，来源于公网IP地址池。</p>
+<p>在VPN业务中，弹性IP地址用于为VPN网关提供网关地址。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.486910994764397%" headers="mcps1.2.5.5.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">公网IP地址池</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.277486910994764%" headers="mcps1.2.5.5.2.4.1.1 "><p>创建IP带宽规格</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.23560209424083%" headers="mcps1.2.5.5.2.4.1.2 "><p>IP带宽规格中规定了IP地址的接收和发送带宽。租户在申请弹性IP时，通过选择IP带宽规格，设置弹性IP业务的带宽。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.486910994764397%" headers="mcps1.2.5.5.2.4.1.3 "><span class="menucascade">“<span class="uicontrol">VDC</span> &gt; <span class="uicontrol">IP带宽规格</span>”</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<p>软件路由器时，VPN业务的配置流程如<a href="#it_60_51_000013__fig_02">图4</a>所示。</p>
+<div class="p"><div class="fignone" id="it_60_51_000013__fig_02"><a name="it_60_51_000013__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>图4 </b>软件路由器提供的VPN业务使用流程</span>
+
+<br><span><img src="fig/fig_it_60_51_000013_4.png"></span></div>
+</div>
+<p>配置流程中的各任务说明如<a href="#it_60_51_000013__tab_02">表3</a>所示。</p>
+
+<div class="tablenoborder"><a name="it_60_51_000013__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000013__tab_02" frame="border" border="1" rules="all"><caption><b>表3 </b>任务说明</caption>
+<thead align="left">
+<tr>
+
+<th class="cellrowborder" valign="top" width="17.098445595854923%" id="mcps1.2.5.9.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="55.44041450777202%" id="mcps1.2.5.9.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="27.461139896373055%" id="mcps1.2.5.9.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="17.098445595854923%" headers="mcps1.2.5.9.2.4.1.1 "><p>安装并接入VSAM</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.44041450777202%" headers="mcps1.2.5.9.2.4.1.2 "><p>使用系统服务虚拟机，为系统提供软件路由器、软件负载均衡以及DHCP服务等服务时，要求使用<span>FusionCompute</span>虚拟化环境，并在虚拟化环境中部署VSAM节点，该节点用来对系统服务虚拟机进行配置和管理。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.461139896373055%" headers="mcps1.2.5.9.2.4.1.3 "><ul><li>安装VSAM：<span>《<span>FusionManager V100R005C00
+软件安装指南</span>》</span>中的<span class="wintitle">“安装VSAM”</span>。</li><li>修改虚拟化环境：<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟化环境</span>”</span>。</li></ul>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.098445595854923%" headers="mcps1.2.5.9.2.4.1.1 "><p>添加VLAN池并关联DVS</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.44041450777202%" headers="mcps1.2.5.9.2.4.1.2 "><div class="p">需要在VLAN池中添加以下网络的VLAN信息:<ul><li>路由网络的VLAN，该路由网络用来部署业务虚拟机。</li><li>外部网络的VLAN，该外部网络用来连接软件路由器。</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.461139896373055%" headers="mcps1.2.5.9.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">VLAN池</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.098445595854923%" headers="mcps1.2.5.9.2.4.1.1 "><p>添加外部网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.44041450777202%" headers="mcps1.2.5.9.2.4.1.2 "><p>本任务中的外部网络用于连接软件路由器，为路由网络中关联的虚拟机访问公网提供公网IP地址资源。在<span>FusionManager</span>上创建外部网络时要求能够连接到Internet，且子网的分配方式为静态注入，子网类型为普通。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.461139896373055%" headers="mcps1.2.5.9.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">外部网络</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.098445595854923%" headers="mcps1.2.5.9.2.4.1.1 "><p>添加VSA管理网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.44041450777202%" headers="mcps1.2.5.9.2.4.1.2 "><div class="p">VSA管理网络用来为系统服务虚拟机提供管理平面网络，其配置要求如下：<ul><li>VSA管理网络与系统管理平面互通。</li><li>VSA管理网络的VLAN要添加到FusionCompute的分布式交换机中，但在<span>FusionManager</span>的VLAN池中不能包含此VLAN。</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.461139896373055%" headers="mcps1.2.5.9.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">VSA网络</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="17.098445595854923%" headers="mcps1.2.5.9.2.4.1.1 "><p>导入VSA虚拟机模板</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="55.44041450777202%" headers="mcps1.2.5.9.2.4.1.2 "><p>VSA虚拟机模板为系统自动创建系统服务虚拟机提供模板资源。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.461139896373055%" headers="mcps1.2.5.9.2.4.1.3 "><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">虚拟机模板</span>”</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

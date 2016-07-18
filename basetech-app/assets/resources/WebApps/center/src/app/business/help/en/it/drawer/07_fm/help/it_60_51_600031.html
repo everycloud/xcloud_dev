@@ -1,0 +1,122 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Modifying Network Configurations of a Shared VPC">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600031">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Modifying Network Configurations of a Shared VPC</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_600031"></a><a name="it_60_51_600031"></a>
+
+
+
+<h1 class="topictitle1">Modifying Network Configurations of a Shared VPC</h1>
+
+<div>
+<div class="section"><h4 class="sectiontitle">Scenarios</h4>
+
+
+<div class="p"><p>A shared virtual private cloud (VPC) can be created by the system administrator to provide network resources for all virtual data centers (VDCs) in the system. This topic describes how to change the network configurations of the shared VPC from the default values to your desired settings.</p>
+<ul><li><span id="it_60_51_600031__p_modify1"><a name="it_60_51_600031__p_modify1"></a><a name="p_modify1"></a>With the default network configurations, networks in a shared VPC cannot be used by a tenant exclusively. However, you can modify the network configurations before creating a network in the VPC to enable a tenant to use the network exclusively.</span></li><li>If multiple tenants are using exclusive networks in a shared VPC and need to connect to the same virtual private network (VPN) using Layer 2 Tunneling Protocol (L2TP), the system uses different domain names (domain name prefix + a serial number) to distinguish between these tenants. You can change the domain name prefix from its default value to a desired prefix.</li></ul>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Prerequisites</h4>
+
+
+<div class="p"><ul><li>If two <span>FusionManager</span> nodes are deployed in active/standby mode, you have obtained the <span>FusionManager</span> floating IP address. If only one <span>FusionManager</span> node is deployed in standalone mode, you have obtained the <span>FusionManager</span> management IP address.</li><li>You have obtained the <span class="parmvalue"><b>galaxmanager</b></span> password for logging in to the <span>FusionManager</span> node.</li></ul>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Procedure</h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle"></p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>Use PuTTY to log in to the <span>FusionManager</span> node as user <span class="parmvalue"><b>galaxmanager</b></span>.</span>
+<p><ul><li>If <span>FusionManager</span> is deployed in active/standby mode, use the floating IP address to log in to the active <span>FusionManager</span> node.</li><li>If <span>FusionManager</span> is deployed in standalone mode, use the management IP address to log in to the <span>FusionManager</span> node.</li></ul>
+</p>
+</li><li><span>Run the following command to disable user logout upon system timeout:</span>
+<p><b><span class="cmdname">TMOUT=0</span></b></p>
+</li><li><span>Run the following command to modify network configurations of the shared VPC:</span>
+<p><p><b><span class="cmdname">confNetInfo</span></b> <i><span class="varname">Parameter</span></i></p>
+<p><a href="#it_60_51_600031__table_select">Table 1</a> describes the VPC network configuration options.</p>
+
+<div class="tablenoborder"><a name="it_60_51_600031__table_select"></a><a name="table_select"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600031__table_select" frame="border" border="1" rules="all"><caption><b>Table 1 </b>VPC network configuration options</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="35.5%" id="mcps1.2.3.2.1.2.3.2.3.2.3.1.1"><p>Option</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="64.5%" id="mcps1.2.3.2.1.2.3.2.3.2.3.1.2"><p>Description</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="35.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.1 "><p>Share_Network false</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.2 "><p>To allow tenants to exclusively use networks in the VPC, enter this option in the command.</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="35.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.1 "><p>Share_Network true</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.2 "><p>To prohibit tenants from exclusively using networks in the VPC, enter this option in the command. The system uses this option by default.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="35.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.1 "><p>L2TP_DomainPrefix fmVpnDomain</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="64.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.2 "><ul><li>This option specifies the L2TP VPN domain name prefix of the shared VPC. The default value is <span class="parmvalue"><b>fmVpnDomain</b></span>.</li><li>The prefix can be changed to a string of 1 to 20 characters, which can contain letters, digits, and underscores (_).</li></ul>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<p>For example, to enable tenants to exclusively use networks, run the <b><span class="cmdname">confNetInfo.sh Share_Network
+false</span></b> command. To change the L2TP VPN domain name prefix, run the <b><span class="cmdname">confNetInfo.sh L2TP_DomainPrefix</span></b> <i><span class="varname">VpnDomainName</span></i> command.</p>
+<p>The configuration is successful is the following information is displayed.</p>
+<pre class="screen">configure success</pre>
+</p>
+</li><li><span>If <span>FusionManager</span> is deployed in active/standby mode, run the following command to synchronize active node configuration to the standby node:</span>
+<p><p><b><span class="cmdname">haNotifySyncFiles /opt/goku/services/irm/rpool/config/network.properties</span></b></p>
+<p>The configuration is successful is the following information is displayed.</p>
+<pre class="screen">execute command syncfile successfully.</pre>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

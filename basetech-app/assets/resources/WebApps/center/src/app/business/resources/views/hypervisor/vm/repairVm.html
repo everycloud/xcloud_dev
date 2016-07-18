@@ -1,0 +1,33 @@
+<div id="repairVmDiv">
+    <p ng-bind-html="vm_vm_restor_info_noTemplate_msg" class="bottom10 color2"></p>
+
+    <div>
+        <tiny-table id="templateTable.id" data="templateTable.data"
+                    pagination-style="templateTable.paginationStyle" columns-draggable="templateTable.columnsDraggable"
+                    columns='templateTable.columns' render-row="templateTable.renderRow"
+                    total-records="templateTable.totalRecords" length-change="templateTable.lengthChange"
+                    cur-page="templateTable.curPage" display-length="templateTable.displayLength"
+                    enable-pagination="templateTable.enablePagination"  change-select="templateTable.changeSelect"
+                    length-menu="templateTable.lengthMenu" callback="templateTable.callback"></tiny-table>
+    </div>
+    <div class="blank_10 clear_both"></div>
+    <div>
+        <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()"></tiny-button>
+        <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/vm/repairVmCtrl"], function (repairVmCtrl) {
+        var rootElement = $("#repairVmDiv");
+        rootElement.attr("ng-controller", "resources.vm.repairVm.ctrl");
+        var dep = ['ng', 'wcc', repairVmCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile(rootElement)($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

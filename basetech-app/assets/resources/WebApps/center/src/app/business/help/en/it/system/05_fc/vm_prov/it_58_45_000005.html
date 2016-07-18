@@ -1,0 +1,429 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="Replacing VM OS Kernel Files">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_000005">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Replacing VM OS Kernel Files</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nVM Management\nReplacing VM OS Kernel Files");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../../07_fm/father_node/it_60_99_100032.html\">VM Management<\/a> > Replacing VM OS Kernel Files<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_000005"></a><a name="it_58_45_000005"></a>
+
+
+<h1 class="topictitle1">Replacing VM OS Kernel Files</h1>
+<ul><li><a href="#it_58_45_000005__1.3.1">Scenarios</a></li><li><a href="#it_58_45_000005__1.3.2">Prerequisites</a></li><li><a href="#it_58_45_000005__1.3.3">Procedure</a></li></ul>
+
+<div>
+<div class="Section"><a name="it_58_45_000005__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#it_58_45_000005" class="sectiontitle2contents">Scenarios</a></h2>
+<div class="Sectionbody"><p>To install the Tools on a Linux VM,
+replace the operating system (OS) kernel files on the VM.</p>
+<div class="p"><div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/icon-notice.gif"> NOTICE: </span><div class="noticebody">Huawei warrants that the Linux OS functions properly
+on Huawei VMs after the VM OS kernel files are replaced by Huawei's
+kernel files. Huawei's warranty does not extend to any consequential
+losses due to the use of the kernel files during the kernel file replacement
+process. The disclaimer is as follows.</div></div>
+</div>
+<p><strong>Disclaimer</strong></p>
+<p><strong>Please read through the terms in this disclaimer if you use the
+Linux operating system (OS). You may use kernel files provided by
+Huawei or other vendors. However, by using kernel files provided by
+Huawei, you agree to accept and comply with the items set out in this
+disclaimer. If you do not find the items reasonable, you shall not
+use the kernel files provided by Huawei.</strong></p>
+<div class="p">The kernels of
+some Linux OS versions provided by third-party vendors may be unsound.
+If the Linux OS you use is listed below, please upgrade your OS to
+the latest version to ensure that it functions properly on Huawei
+VMs.<a name="it_58_45_000005__change_core"></a><a name="change_core"></a><ul id="it_58_45_000005__change_core"><li>Red Hat Linux Enterprise 4.7 32-/64-bit</li><li>Red Hat Linux Enterprise 6.0 32-/64-bit</li><li>CentOS 4.7 32-/64-bit</li><li>CentOS 6.0 32-/64-bit</li><li>Ubuntu desktop 10.04 64-bit</li><li>Fedora 12 32-bit</li></ul>
+</div>
+<p>If the Linux OS cannot be upgraded to the latest version
+due to any reason, you are advised to replace the original OS kernel
+files with Huawei kernel files free of charge. </p>
+<p>Huawei only
+warrants that the Linux OS functions properly on Huawei VMs after
+the OS kernel files are replaced. Huawei makes no express or implied
+warranty, statutory or otherwise, for any incompatibility problems
+caused by the kernel file replacement. However, Huawei can provide
+assistance in diagnosing the problems. Huawei shall not have liability
+for any after-sale services for OS problems resulting from the kernel
+file replacement. Huawei disclaims any warranty on technical support
+or maintenance provided by the Linux OS provider. Huawei does not
+assume any and all liability for damages, including but not limited
+to direct, indirect, special, incidental and consequential damages
+due to the use of the kernel files during kernel file replacement. </p>
+
+<div class="tablenoborder"><a name="it_58_45_000005__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_58_45_000005__tab_02" frame="border" border="1" rules="all"><caption><b>Table 1 </b>OSs for which kernel files need to be replaced</caption>
+
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="22.421524663677133%" id="mcps1.3.1.8.2.5.1.1"><p>OS</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="16.143497757847534%" id="mcps1.3.1.8.2.5.1.2"><p>CPU Type and Memory Size</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.18385650224215%" id="mcps1.3.1.8.2.5.1.3"><p>Kernel File to Be Replaced with</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="28.251121076233183%" id="mcps1.3.1.8.2.5.1.4"><p>Package Containing the Kernel Files</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" rowspan="3" valign="top" width="22.421524663677133%" headers="mcps1.3.1.8.2.5.1.1 "><div class="p"><ul><li>Red Hat Enterprise Linux 4.7 32-bit</li><li>CentOS 4.7 32-bit</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.143497757847534%" headers="mcps1.3.1.8.2.5.1.2 "><p>CPU: single-core</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.18385650224215%" headers="mcps1.3.1.8.2.5.1.3 "><div class="p"><ul><li>kernel-2.6.9-78.EL.i686.rpm</li><li>kernel-devel-2.6.9-78.EL.i686.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.251121076233183%" headers="mcps1.3.1.8.2.5.1.4 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>CPU: multi-core</li><li>Memory size: less than or equal to 4 GB</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.2 "><div class="p"><ul><li>kernel-smp-2.6.9-78.EL.i686.rpm</li><li>kernel-smp-devel-2.6.9-78.EL.i686.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.3 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>CPU: multi-core</li><li>Memory size: greater than 4 GB</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.2 "><div class="p"><ul><li>kernel-hugemem-2.6.9-78.EL.i686.rpm</li><li>kernel-hugemem-devel-2.6.9-78.EL.i686.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.3 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="3" valign="top" width="22.421524663677133%" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>Red Hat Enterprise Linux 4.7 64-bit</li><li>CentOS 4.7 64-bit</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.143497757847534%" headers="mcps1.3.1.8.2.5.1.2 "><p>CPU: single-core</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.18385650224215%" headers="mcps1.3.1.8.2.5.1.3 "><div class="p"><ul><li>kernel-2.6.9-78.EL.x86_64.rpm</li><li>kernel-devel-2.6.9-78.EL.x86_64.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.251121076233183%" headers="mcps1.3.1.8.2.5.1.4 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>CPU: multi-core</li><li>Memory size: less than or equal to 4 GB</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.2 "><div class="p"><ul><li>kernel-smp-2.6.9-78.EL.x86_64.rpm</li><li>kernel-smp-devel-2.6.9-78.EL.x86_64.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.3 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.1 "><ul><li>CPU: multi-core</li><li>Memory size: greater than 4 GB</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.2 "><div class="p"><ul><li>kernel-largesmp-2.6.9-78.EL.x86_64.rpm</li><li>kernel-largesmp-devel-2.6.9-78.EL.x86_64.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.1.8.2.5.1.3 "><p>kernel_patch-redhat_enterprise_linux_4.7.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.421524663677133%" headers="mcps1.3.1.8.2.5.1.1 "><div class="p"><ul><li>Red Hat Enterprise Linux 6.0 32-bit</li><li>CentOS 6.0 32-bit</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.143497757847534%" headers="mcps1.3.1.8.2.5.1.2 "><p>N/A</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.18385650224215%" headers="mcps1.3.1.8.2.5.1.3 "><div class="p"><ul><li>kernel-2.6.32-71.el6.i686.rpm</li><li>kernel-devel-2.6.32-71.el6.i686.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.251121076233183%" headers="mcps1.3.1.8.2.5.1.4 "><p>kernel_patch-redhat_enterprise_linux_6.0.tar.gz</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.421524663677133%" headers="mcps1.3.1.8.2.5.1.1 "><div class="p"><ul><li>Red Hat Enterprise Linux 6.0 64-bit</li><li>CentOS 6.0 64-bit</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="16.143497757847534%" headers="mcps1.3.1.8.2.5.1.2 "><p>N/A</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.18385650224215%" headers="mcps1.3.1.8.2.5.1.3 "><div class="p"><ul><li>kernel-2.6.32-71.el6.x86_64.rpm</li><li>kernel-devel-2.6.32-71.el6.x86_64.rpm</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.251121076233183%" headers="mcps1.3.1.8.2.5.1.4 "><p>kernel_patch-redhat_enterprise_linux_6.0.tar.gz</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_000005__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#it_58_45_000005" class="sectiontitle2contents">Prerequisites</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">Conditions</p></span><div class="p"><ul><li>The OS has been installed on the VM.</li><li>You have obtained the ISO file that contains the new kernel files. <p>The software package name
+is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOSDrivers.zip</b></span>, and the ISO file name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOS.iso</b></span>.</p>
+<div class="p">To obtain the software package <ul><li><span>For enterprise
+users, visit <span class="uicontrol"><b>http://support.huawei.com/enterprise</b></span> and choose <span class="menucascade" id="it_58_45_000005__d63e90"><a name="it_58_45_000005__d63e90"></a><a name="d63e90"></a><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">IT</span></b> &gt; <b><span class="uicontrol">FusionCloud</span></b> &gt; <b><span class="uicontrol">FusionSphere</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span>.</span></li><li><span>For telecom carrier
+users, visit <span class="uicontrol"><b>http://support.huawei.com</b></span> and
+choose <span class="menucascade" id="it_58_45_000005__d63e112"><a name="it_58_45_000005__d63e112"></a><a name="d63e112"></a><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Carrier Software &amp; Core Network </span></b> &gt; <b><span class="uicontrol">Carrier Cloud Computing</span></b> &gt; <b><span class="uicontrol">IT Cloud Infrastructure
+Solution</span></b> &gt; <b><span class="uicontrol">Cloud OS</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span>.</span></li></ul>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">Verify
+the obtained software packages. For details, see <a href="../../07_fm/soft_inst/it_60_23_000021.html">Verifying Software Packages</a>.</div></div>
+</li></ul>
+</div>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_000005__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#it_58_45_000005" class="sectiontitle2contents">Procedure</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle">Mount an ISO file.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>Log in to the VM
+using VNC as user <span class="parmvalue"><b>root</b></span>.</span></li><li><span>Mount a CD/DVD-ROM drive or an
+ISO File.</span>
+<p>The <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOS.iso</b></span> is required ISO file to be mounted.</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Replace the kernel file.</p>
+<div class="Steps-titled"><ol type="1" start="3"><li><span>On the VM desktop displayed in the VNC window, right-click the desktop, and choose <span class="uicontrol"><b>Open in Terminal</b></span>.</span>
+<p>The command line interface (CLI) window is displayed.</p>
+</li><li><span>Run the following command to create the <span class="filepath"><b>xvdd</b></span> directory:</span>
+<p><b><span class="cmdname">mkdir xvdd</span></b></p>
+</li><li><span id="it_58_45_000005__d69e93"><a name="it_58_45_000005__d69e93"></a><a name="d69e93"></a>Run the following commands to mount a CD/DVD-ROM drive to the VM:</span>
+<p><p><b><span class="cmdname">mount</span></b><i><span class="varname"> Path to be mounted</span></i><b><span class="cmdname"> xvdd</span></b></p>
+<p>For example, <b><span class="cmdname">mount /dev/sr0 xvdd</span></b></p>
+</p>
+<p><a href="#it_58_45_000005__d69e112">Table 2</a> lists the directories for mounting a CD/DVD-ROM drive or ISO file to a VM running the Linux OS.
+<div class="tablenoborder"><a name="it_58_45_000005__d69e112"></a><a name="d69e112"></a><table cellpadding="4" cellspacing="0" summary="" id="it_58_45_000005__d69e112" frame="border" border="1" rules="all"><caption><b>Table 2 </b>Directories for mounting a CD/DVD-ROM drive or ISO file to a VM running the Linux OS</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="48.00000000000001%" id="mcps1.3.3.1.2.2.3.3.2.2.4.1.1"><p>Linux Version</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.00000000000001%" id="mcps1.3.3.1.2.2.3.3.2.2.4.1.2"><p>Supported CD/DVD-ROM Drive Type</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="19%" id="mcps1.3.3.1.2.2.3.3.2.2.4.1.3"><p>Mounting Directory</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="48.00000000000001%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.1 "><div class="p"><ul><li>CentOS 5.8 or earlier</li><li>Red Hat Enterprise Linux 5.8 or earlier</li><li>Oracle Linux Server release 5.7</li><li>SUSE Linux Enterprise Server 10</li><li>NeoShine</li><li>Red Flag Asianux Server 3</li><li>DOPRA ICTOM V002R003 EIMP</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.00000000000001%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.2 "><p>ISO file or CD/DVD-ROM drive</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="19%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.3 "><p>/dev/hdd</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="48.00000000000001%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.1 "><div class="p"><ul><li>CentOS 6.0 or later</li><li>Red Hat Enterprise Linux 6.0 or later</li><li>Oracle Linux Server release 6.1</li><li>SUSE Linux Enterprise Server 11 or later</li><li>openSUSE 11.3</li><li>Debian GNU/Linux</li><li>Ubuntu 8.04 or later</li><li>SUSE Linux Enterprise Server 11 or later</li><li>Fedora 9 or later</li><li>Red Flag Asianux Server 4</li><li>DOPRA ICTOM V002R003 IMAOS</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.00000000000001%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.2 "><p>ISO file or CD/DVD-ROM drive</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="19%" headers="mcps1.3.3.1.2.2.3.3.2.2.4.1.3 "><p>/dev/sr0</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If the VMware hypervisor is used, change the CD-ROM drive mounting directory by following the procedures in the documentation for the hypervisor and the OS in use.</div></div>
+</p>
+</li><li><span>Run the following command to enter the path saving the
+kernel package:</span>
+<p><p><b><span class="cmdname">cd xvdd/pvDriver/kernel\ patch</span></b></p>
+</p>
+</li><li><span>Run the following command to view the kernel file name:</span>
+<p><b><span class="cmdname">ls</span></b></p>
+</li><li><span>Run the following command to copy the new kernel file
+to the <span class="filepath"><b>root</b></span> folder:</span>
+<p><p><b><span class="cmdname">cp</span></b><i><span class="varname"> Kernel file name</span></i><b><span class="cmdname"> /root</span></b></p>
+<p>For example, <b><span class="cmdname">cp kernel_patch-redhat_enterprise_linux_4.7.tar.gz
+/root</span></b>.</p>
+</p>
+</li><li><span>Run the following commands to decompress the package
+containing the kernel files:</span>
+<p><p><b><span class="cmdname">cd /root</span></b></p>
+<p><b><span class="cmdname">tar -xzf</span></b><i><span class="varname"> Name of the package</span></i></p>
+<p>For example, run the <b><span class="cmdname">tar -xzf kernel_patch-redhat_enterprise_linux_4.7.tar.gz</span></b> command.</p>
+</p>
+</li><li><span>Run the following command to replace the existing kernel
+files with the copied kernel files:</span>
+<p><p><b><span class="cmdname">rpm -ivh --force --nodeps </span></b><i><span class="varname">Kernel
+file name</span></i></p>
+<p>For example, run the following commands:</p>
+<p><b><span class="cmdname">rpm -ivh --force --nodeps kernel-2.6.9-78.EL.i686.rpm</span></b></p>
+<p><b><span class="cmdname">rpm -ivh --force --nodeps kernel-devel-2.6.9-78.EL.i686.rpm</span></b></p>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Ignore the alerts that may be displayed
+during the kernel replacement process.</p>
+</div></div>
+</p>
+</li><li id="it_58_45_000005__reboot"><a name="it_58_45_000005__reboot"></a><a name="reboot"></a><span id="it_58_45_000005__cmd_reboot"><a name="it_58_45_000005__cmd_reboot"></a><a name="cmd_reboot"></a>Run the following command
+to restart the OS of the VM to make the new kernel files take effect:</span>
+<p><b><span class="cmdname">reboot</span></b></p>
+<p>No further action is required.</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

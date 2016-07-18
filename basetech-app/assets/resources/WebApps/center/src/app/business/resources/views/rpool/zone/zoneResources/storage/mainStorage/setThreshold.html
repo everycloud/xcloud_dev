@@ -1,0 +1,33 @@
+<div id="setThresholdDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-checkbox id="thresholdCheckbox.id" text="thresholdCheckbox.text" checked="thresholdCheckbox.checked"
+                           change="thresholdCheckbox.change()"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item label="thresholdTextbox.label" require="thresholdTextbox.require">
+            <tiny-textbox id="thresholdTextbox.id" value="thresholdTextbox.value" disable="thresholdTextbox.disable"
+                          validate="thresholdTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/resources/controllers/rpool/zone/zoneResources/storage/mainStorage/setThresholdCtrl'],
+            function (setThresholdCtrl) {
+                var rootElement = $("#setThresholdDiv");
+                rootElement.attr("ng-controller", "resources.zone.storagePool.setThreshold.ctrl");
+                var dep = ['ng', 'wcc', setThresholdCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

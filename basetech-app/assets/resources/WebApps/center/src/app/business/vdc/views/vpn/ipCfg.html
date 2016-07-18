@@ -1,0 +1,16 @@
+<fm-valid valid="show.ipCheck">
+<tiny-formfield>
+	<tiny-item label="(i18n.common_term_SubnetIP_label||'子网IP地址')+':'" require="true">
+		<fm-ipv4 value="para.ip" valid="form.subnetCheck(lib.string2ip(para.ip),lib.string2ip(para.mask))" require="true"></fm-ipv4>
+	</tiny-item>
+	<tiny-item label="(i18n.common_term_SubnetMask_label||'子网掩码')+':'" require="true">
+		<fm-ipv4 value="para.mask" valid="form.maskCheck(para.mask)" require="true"></fm-ipv4>
+	</tiny-item>
+	<tiny-item>
+		<div class="fm-btn-top-small">
+			<fm-button class='major-btn fm-valid' text="i18n.common_term_ok_button||'确定'" click="ipSave"></fm-button>
+			<fm-button class='fm-valid-clear' text="i18n.common_term_cancle_button||'取消'" click="ipCancel"></fm-button>
+		</div>
+	</tiny-item>
+</tiny-formfield>
+</fm-valid>

@@ -1,0 +1,546 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Installing and Configuring VPN (Windows)">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_23_000022">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Installing and Configuring VPN (Windows)</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nInstalling and Configuring VPN (Windows)");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_faq_cp_01.html\">FAQ<\/a> > Installing and Configuring VPN (Windows)<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_23_000022"></a><a name="it_60_23_000022"></a>
+
+
+
+<h1 class="topictitle1">Installing and Configuring VPN (Windows)</h1>
+<ul><li><a href="#it_60_23_000022__1.2.1.1">Scenarios</a></li><li><a href="#it_60_23_000022__1.2.2.1">Prerequisites</a></li><li><a href="#it_60_23_000022__1.2.3.1">Procedure</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_23_000022__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_23_000022" class="sectiontitle2contents">Scenarios</a></h4>
+
+
+<div class="p"><div class="p">Install and configure a virtual private network (VPN)
+when a user cannot access the management network due to network isolation.
+After the VPN is configured, the user can connect to the management
+network through the VPN to install and use the <span>ServiceCenter</span>. <a href="#it_60_23_000022__fig_01">Figure 1</a> shows the networking when
+the user accesses the management network through the VPN. <div class="fignone" id="it_60_23_000022__fig_01"><a name="it_60_23_000022__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>Figure 1 </b>VPN networking</span>
+
+
+<br><span><img src="fig/fig_it_60_23_000022_13_sc.png"></span>
+</div>
+</div>
+<p>The OpenVPN must be installed and configured on both
+the server and client. The OpenVPN server is a VM or physical computer
+provided by the user and is named server in this section. The OpenVPN
+client is a laptop or PC that the administrator uses to connect to
+the <span>ServiceCenter</span>. The OpenVPN client is named client in this section. </p>
+<p>This section describes how to install and configure VPN software,
+and OpenVPN software installed in a Windows operating system (OS)
+is used as an example.</p>
+<p>The installation and configuration of
+the OpenVPN software varies depending on versions. This section uses
+the OpenVPN software in version 2.2.1 as an example.</p>
+</div>
+
+</div>
+
+<div class="section" id="it_60_23_000022__qianti"><a name="it_60_23_000022__qianti"></a><a name="qianti"></a><a name="it_60_23_000022__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_23_000022" class="sectiontitle2contents">Prerequisites</a></h4>
+
+
+<div class="p">The VPN server must meet the following conditions: <ul><li>The VPN server deployed on a computer: <p>A physical computer
+with dual network interface cards (NICs) is available. One NIC has
+been connected to the management network, and the other NIC has been
+connected to the office network. </p>
+</li><li>The VPN server deployed on a VM: <div class="p"><ul><li>A VM with dual NICs has been created in an idle virtual cluster.
+One NIC has been connected to the management network, and the other
+NIC has been connected to the office network. It is recommended that
+the VM is created in a service cluster. If resources in the service
+cluster are insufficient, create the VM in a management cluster. </li><li>An office network has been created in the hypervisor. </li><li>VM specifications meet recommended configuration requirements
+of the OS to be installed. </li></ul>
+</div>
+</li></ul>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_23_000022__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_23_000022" class="sectiontitle2contents">Procedure</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">Install the OpenVPN on the server and client, respectively. </p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>Log in to OpenVPN's official website <a href="http://openvpn.net/" target="_blank">http://openvpn.net/</a> and download the <span class="parmname"><b>openvpn-2.2.1-install.exe</b></span> software. </span></li><li><span>Double-click <span class="parmname"><b>openvpn-2.1.1-install.exe</b></span> and install the OpenVPN software as instructed to the default directory. </span>
+</li><li><span>Check whether a local connection is added to the server
+and client, respectively. </span>
+<p><ul><li>If yes, go to <a href="#it_60_23_000022__none">5</a>.</li><li>If no, go to <a href="#it_60_23_000022__add">4</a>.</li></ul>
+</p>
+</li><li id="it_60_23_000022__add"><a name="it_60_23_000022__add"></a><a name="add"></a><span>Switch to the <span class="filepath"><b>C:\Program Files\OpenVPN\bin</b></span> directory on the server and client, respectively. Then, run <span class="parmname"><b>addtap.bat</b></span>.</span>
+<p>A virtual NIC is added. </p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Initialize the OpenVPN on the server. </p>
+<div class="Steps-titled"><ol type="1" start="5"><li id="it_60_23_000022__none"><a name="it_60_23_000022__none"></a><a name="none"></a><span>On the server, switch to the <span class="filepath"><b>C:\Program
+Files\OpenVPN\easy-rsa</b></span> directory.</span></li><li><span>Open the <span class="parmname"><b>vars.bat.sample</b></span> file using
+WordPad. </span></li><li><span>Modify the following fields: </span>
+<p>set KEY_COUNTRY=<strong>CN</strong> <p>set KEY_PROVINCE=<strong>BJ</strong></p>
+<p>set KEY_CITY=<strong>BeiJing</strong></p>
+<p>set KEY_ORG=<strong>cdtsm</strong></p>
+<p>set KEY_EMAIL=<strong>sunzhouyi@cdtsm.com</strong></p>
+</p>
+</li><li><span>Save the file and rename it <span class="parmname"><b>vars.bat</b></span>.</span></li><li><span>In the server OS, choose <span class="menucascade"><b><span class="uicontrol">Start</span></b> &gt; <b><span class="uicontrol">Search</span></b></span>, enter <span class="uicontrol"><b>cmd</b></span>, and press <span class="uicontrol"><b>Enter</b></span>.</span>
+<p>The command-line interface (CLI) is displayed.</p>
+</li><li><span>Run the following command to enter the directory containing <strong>easy-rsa</strong>: </span>
+<p><b><span class="cmdname">cd "\Program Files\OpenVPN\easy-rsa"</span></b></p>
+</li><li><span>Run the following command:</span>
+<p><b><span class="cmdname">vars</span></b></p>
+</li><li><span>Run the following command:</span>
+<p><b><span class="cmdname">clean-all</span></b></p>
+<p>The command is executed successfully if the command output is
+as follows: <pre class="screen">The system cannot find the file specified.
+             1 file&lt;s&gt; copied.
+             2 file&lt;s&gt; copied.</pre>
+</p>
+</li><li><span>Run the following command:</span>
+<p><b><span class="cmdname">vars</span></b></p>
+</li><li><span>Run the following command to generate a root CA certificate:</span>
+<p><b><span class="cmdname">build-ca</span></b></p>
+</li><li><span>Perform the configuration based on the following figure.</span>
+<p><div class="fignone"><span class="figcap"><b>Figure 2 </b>Generating the CA root configuration</span>
+
+<br><span><img src="fig/fig_it_60_23_000022_01.png"></span></div>
+</p>
+</li><li><span>Run the following command:</span>
+<p><b><span class="cmdname">vars</span></b></p>
+</li><li><span>Run the following command to generate the <span class="parmname"><b>dh1024.pem</b></span> file:</span>
+<p><b><span class="cmdname">build-dh</span></b></p>
+<p>The <span class="parmname"><b>dh1024.pem</b></span> file is successfully generated
+if the following information is displayed: <pre class="screen">Loading 'screen' into random state - done Generating DH parameters, 1024 bit long safe prime, generator 2 This is going to take a long time ...........+...............+......................+.....+.......... ......................................................+*++*++</pre>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Generate a server root CA certificate on the server. </p>
+<div class="Steps-titled"><ol type="1" start="18"><li><span>Run the following command:</span>
+<p><b><span class="cmdname">vars</span></b></p>
+</li><li><span>Run the following to generate a certificate for the
+server:</span>
+<p><b><span class="cmdname">build-key-server CdtsmServer</span></b></p>
+</li><li><span>Perform the configuration based on the following figure.</span>
+<p><div class="fignone"><span class="figcap"><b>Figure 3 </b>Basic configuration</span>
+
+<br><span><img src="fig/fig_it_60_23_000022_04.png"></span></div>
+</p>
+</li><li><span>Configure information including the password based on
+the following figure. </span>
+<p>After the configuration, the certificate for the server is generated. <div class="fignone"><span class="figcap"><b>Figure 4 </b>Other configuration information</span>
+
+<br><span><img src="fig/fig_it_60_23_000022_03.png"></span></div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Generate a client certificate on the server.</p>
+<div class="Steps-titled"><ol type="1" start="22"><li><span>Run the following command:</span>
+<p><b><span class="cmdname">vars</span></b></p>
+</li><li><span>Run the following to generate a certificate for the
+client.</span>
+<p><b><span class="cmdname">build-key CdtsmClient</span></b></p>
+</li><li><span>Perform the basic configuration based on the following
+figure.</span>
+<p><div class="fignone"><span class="figcap"><b>Figure 5 </b>Basic configuration</span>
+
+<br><span><img src="fig/fig_it_60_23_000022_06.png"></span></div>
+</p>
+</li><li><span>Configure information including the password based on
+the following figure. </span>
+<p>After the configuration, the client certificate is generated. <div class="fignone"><span class="figcap"><b>Figure 6 </b>Other configuration information</span>
+
+<br><span><img src="fig/fig_it_60_23_000022_07.png"></span></div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Generate the <strong>ta.key</strong> file on the server. </p>
+<div class="Steps-titled"><ol type="1" start="26"><li><span>Run the following command to generate the <strong>ta.key</strong> file:</span>
+<p><b><span class="cmdname">openvpn --genkey --secret keys/ta.Key</span></b></p>
+<p>The <strong>ta.key</strong> file is successfully generated if the following
+information is displayed: <pre class="screen">C:\Program Files\OpenVPN\easy-rsa&gt;</pre>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure the OpenVPN server on the server. </p>
+<div class="Steps-titled"><ol type="1" start="27"><li><span>On the server, switch to the <span class="filepath"><b>C:\Program Files\OpenVPN\sample-config</b></span> directory.</span></li><li><span>Open the <span class="parmname"><b>server.ovpn</b></span> file using
+WordPad. </span></li><li><span>Move the cursor to <span class="parmname"><b>port</b></span> and set
+a port value. </span>
+<p>The default port value is <span class="parmvalue"><b>1194</b></span>.</p>
+<p># Which TCP/UDP port should OpenVPN listen on?<p># If you want
+to run multiple OpenVPN instances</p>
+<p># on the same machine, use
+a different port</p>
+<p># number for each one.  You will need to</p>
+<p># open up this port on your firewall. </p>
+<p>port <strong>1194</strong></p>
+</p>
+</li><li><span>Set the protocol to be used. </span>
+<p>The User Datagram Protocol (UDP) is used by default. To use
+the HTTP proxy, set the protocol to TCP.</p>
+<p># TCP or UDP server? <p>;proto tcp</p>
+<p><strong>proto udp</strong></p>
+</p>
+</li><li><span>Set the device to be used.</span>
+<p>TAP simulates a link layer device and it operates with layer
+2 packets. TUN simulates a network layer device and it operates with
+layer 3 packets, such as IP packets. They can be configured as required.</p>
+<p><p>...</p>
+<p># the firewall for the TUN/TAP interface.</p>
+<p>;dev tap</p>
+<p><strong>dev tun</strong></p>
+</p>
+</li></ol></div>
+<div class="Steps-titled"><ol type="1" start="32"><li><span>Write the generated root CA certificate into the configuration
+file on the server. </span>
+<p><p># Any X509 key management system can be used.</p>
+<p># OpenVPN
+can also use a PKCS #12 formatted key file</p>
+<p># (see "pkcs12" directive
+in man page). </p>
+<p><strong>ca ca.crt</strong> </p>
+<p><strong>cert server.crt</strong></p>
+<p><strong>key CdtsmServer.key</strong>  # This file should be kept secret</p>
+</p>
+</li><li><span>Write the generated <strong>dh1024.pem</strong> file into the
+configuration file on the server. </span>
+<p><p># Diffie hellman parameters.</p>
+<p># Generate your own with: </p>
+<p>#   openssl dhparam -out dh1024.pem 1024</p>
+<p># Substitute 2048
+for 1024 if you are using</p>
+<p># 2048 bit keys.</p>
+<p><strong>dh dh1024.pem</strong></p>
+ </p>
+</li><li><span>Configure the intranet IP address and subnet mask of
+the OpenVPN server according to the actual network environment. </span>
+<p><p># Configure server mode and supply a VPN subnet</p>
+<p># for
+OpenVPN to draw client addresses from.</p>
+<p># The server will take
+10.8.0.1 for itself,</p>
+<p># the rest will be made available to clients.</p>
+<p># Each client will be able to reach the server</p>
+<p># on 10.8.0.1.
+Comment this line out if you are</p>
+<p># ethernet bridging. See the
+man page for more info. </p>
+<p><strong>server <i><span class="varname">192.168.0.0 255.255.255.0</span></i></strong></p>
+</p>
+</li><li><span>Add routes according to actual network environment. </span>
+<p>The OpenVPN sends the added routes to the client. After the
+client is successfully connected, the routes are added to the routing
+table. </p>
+<p># EXAMPLE: Suppose the client <p># having the certificate common
+name "Thelonious"</p>
+<p># also has a small subnet behind his connecting</p>
+<p># machine, such as 192.168.40.128/255.255.255.248.</p>
+<p># First,
+uncomment out these lines:</p>
+<p>client-config-dir ccd</p>
+<p>push
+"route <strong><i><span class="varname">192.168.3.0 255.255.255.0</span></i></strong>"</p>
+<p>push "route <strong><i><span class="varname">192.168.22.0 255.255.255.0</span></i></strong>"</p>
+</p>
+</li><li><span>Send data parsed by the DNS to the client according
+to the actual network environment. </span>
+<p><p># Certain Windows-specific network settings</p>
+<p># can be
+pushed to clients, such as DNS</p>
+<p># or WINS server addresses. CAVEAT:</p>
+<p># http://openvpn.net/faq.html#dhcpcaveats</p>
+<p># The addresses
+below refer to the public</p>
+<p># DNS servers provided by opendns.com.</p>
+<p>push "dhcp-option <strong><i><span class="varname">DNS 192.168.22.243</span></i></strong>"</p>
+<p>push "dhcp-option <strong><i><span class="varname">WINS 192.168.0.20</span></i></strong>"</p>
+ </p>
+</li><li><span>Set the packet forwarding mode.</span>
+<p>If VPN clients access each other, OpenVPN can directly forward
+packets, which eliminates forwarding by the tun or tap device. This
+improves the client-to-client access efficiency.</p>
+<p><p># Uncomment this directive to allow different</p>
+<p># clients
+to be able to "see" each other.</p>
+<p># By default, clients will only
+see the server.</p>
+<p># To force clients to only see the server, you</p>
+<p># will also need to appropriately firewall the</p>
+<p># server's
+TUN/TAP interface.</p>
+<p><strong>client-to-client</strong></p>
+</p>
+</li><li><span>Configure the VPN for connecting multiple terminals. </span>
+<p>If CA's common names used by clients are repeated or the same
+CA and keys are used for VPN connection, the following configuration
+is mandatory. Otherwise, only one terminal can connect to the VPN. </p>
+<p><p># IF YOU HAVE NOT GENERATED INDIVIDUAL</p>
+<p># CERTIFICATE/KEY
+PAIRS FOR EACH CLIENT,</p>
+<p># EACH HAVING ITS OWN UNIQUE "COMMON
+NAME",</p>
+<p># UNCOMMENT THIS LINE OUT.</p>
+<p><strong>duplicate-cn</strong></p>
+</p>
+</li><li><span>Set VPN's connection interval. </span>
+<p>The following configuration indicates that the ping operation
+is performed every 10 seconds through the VPN's control channel. If
+the ping operation fails in consecutive 120s, the connection is lost.
+Then, the VPN restarts and attempts reconnections (the OpenVPN in <span class="parmvalue"><b>modeserver</b></span> mode does not attempt reconnections). The
+interval is configured as required. </p>
+<p><p># The keepalive directive causes ping-like</p>
+<p># messages
+to be sent back and forth over</p>
+<p># the link so that each side
+knows when</p>
+<p># the other side has gone down.</p>
+<p># Ping every
+10 seconds, assume that remote</p>
+<p># peer is down if no ping received
+during</p>
+<p># a 120 second time period.</p>
+<p><strong>keepalive <i><span class="varname">10</span></i> <i><span class="varname">120</span></i></strong></p>
+</p>
+</li><li><span>Write the generated attack defense file into the configuration
+file on the server. </span>
+<p>The hash-based message authentication code (HMAC) firewall defends
+against DoS attacks. Only controlled information with an HMAC signature
+can be processed. </p>
+<p><p># The server and each client must have</p>
+<p># a copy of
+this key.</p>
+<p># The second parameter should be '0'</p>
+<p># on the
+server and '1' on the clients.</p>
+<p><strong>tls-auth ta.key 0</strong></p>
+</p>
+</li><li><span>Configure the maximum connections as required. </span>
+<p><p># The maximum number of concurrently connected</p>
+<p># clients
+we want to allow.</p>
+<p><strong>max-clients <em>20</em></strong></p>
+</p>
+</li><li><span>Define users using OpenVPN. </span>
+<p><p># You can uncomment this out on</p>
+<p># non-Windows systems.</p>
+<p><strong>user nobody</strong></p>
+<p><strong>group nobody</strong></p>
+</p>
+</li><li><span>Configure the processing after timeout. </span>
+<p>For <strong>persist-key</strong>: After a timeout is detected through
+keepalive, the VPN restarts and retains the key used for the first
+time. <p>For <strong>persist-tun</strong>: After a timeout is detected through
+keepalive, the VPN restarts. The tun or tap device keeps links up.
+Otherwise, links will be down and then up. </p>
+</p>
+<p><p># The persist options will try to avoid</p>
+<p># accessing
+certain resources on restart</p>
+<p># that may no longer be accessible
+because</p>
+<p># of the privilege downgrade.</p>
+<p><strong>persist-key</strong></p>
+<p><strong>persist-tun</strong></p>
+</p>
+</li><li><span>Copy the configured <span class="parmname"><b>server.ovpn</b></span> file to the <span class="filepath"><b>C:\Program Files\OpenVPN\config</b></span> directory.</span></li><li><span>Copy files <span class="parmname"><b>ca.crt</b></span>, <span class="parmname"><b>ca.key</b></span>, <span class="parmname"><b>CdtsmServer.crt</b></span>, <span class="parmname"><b>CdtsmServer.csr</b></span>, <span class="parmname"><b>CdtsmServer.key</b></span>, <span class="parmname"><b>dh1024.pem</b></span>, and <span class="parmname"><b>ta.key</b></span> stored in the <span class="filepath"><b>C:\Program
+Files\OpenVPN\easy-rsa\keys</b></span> directory to the <span class="filepath"><b>C:\Program Files\OpenVPN\config</b></span> directory.</span></li><li><span>Double-click <span class="parmname"><b>OpenVPN GUI</b></span>. After
+the OpenVPN starts, click <span><img src="fig/fig_it_60_23_000022_08.png"></span> in the right lower corner of the server desktop and select <span class="parmname"><b>Connect</b></span>.</span>
+<p>When <span><img src="fig/fig_it_60_23_000022_09.png"></span> turns
+to green, the connection is successful. </p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure the OpenVPN on the client. </p>
+<div class="Steps-titled"><ol type="1" start="47"><li><span>On the client, switch to the <span class="filepath"><b>C:\Program Files\OpenVPN\sample-config</b></span> directory.</span></li><li><span>Open the <span class="parmname"><b>client.ovpn</b></span> file using
+WritePad. </span></li><li><span>Configure the port type used by the client to be the
+same as that for the server. </span>
+<p><p>...</p>
+<p># the firewall for the TUN/TAP interface.</p>
+<p>;dev tap</p>
+<p><strong>dev tun</strong></p>
+</p>
+</li><li><span>Configure the protocol used by the client the same as
+that for the server. </span>
+<p><p># Are we connecting to a TCP or</p>
+<p># UDP server?  Use
+the same setting as</p>
+<p># on the server.</p>
+<p>;proto tcp</p>
+<p><strong>proto udp</strong></p>
+</p>
+</li><li><span>Configure the extranet IP address of the OpenVPN. </span>
+<p><p># The hostname/IP and port of the server.</p>
+<p># You can
+have multiple remote entries</p>
+<p># to load balance between the servers.</p>
+<p><strong>remote <em>my-server-1</em> 1194</strong></p>
+<p>;remote my-server-2
+1194</p>
+</p>
+</li><li><span>Configure the connection mode for the server to random
+connection. </span>
+<p><p># Choose a random host from the remote</p>
+<p># list for load-balancing.
+Otherwise</p>
+<p># try hosts in the order specified.</p>
+<p><strong>remote-random</strong></p>
+</p>
+</li><li><span>Configure that the server's IP address is always resolved. </span>
+<p>Ensure that the server uses a dynamic IP address. With a dynamic
+IP address, after the Dynamic Domain Name Server (DDNS) updates the
+domain name server (DNS), the client resolves the server's IP address
+again during the automatic reconnection. In this situation, users
+can reconnect to the VPN without human intervention. </p>
+<p><p># Keep trying indefinitely to resolve the</p>
+<p># host name
+of the OpenVPN server.  Very useful</p>
+<p># on machines which are
+not permanently connected</p>
+<p># to the internet such as laptops.</p>
+<p><strong>resolv-retry infinite</strong></p>
+</p>
+</li><li><span>Configure that no ports are bound to the server. </span>
+<p>The server does not bind any port and therefore does not monitoring
+incoming data. This configuration is not required for clients but
+is required for one-to-one VPNs. </p>
+<p><p># Most clients don't need to bind to</p>
+<p># a specific local
+port number.</p>
+<p><strong>nobind</strong></p>
+</p>
+</li><li><span>Define users using OpenVPN. </span>
+<p><p># Downgrade privileges after initialization (non-Windows
+only)</p>
+<p><strong>user nobody</strong></p>
+<p><strong>group nobody</strong></p>
+</p>
+</li><li><span>Configure the processing after timeout. </span>
+<p>Same as the configuration on the server. If the chroot or su
+function is used, configure <strong>persist-key</strong> and <strong>persist-tun</strong> to prevent the keys file loss or the nobody account not having rights
+to start the tun device. </p>
+<p><p># Try to preserve some state across restarts.</p>
+<p><strong>persist-key</strong></p>
+<p><strong>persist-tun</strong></p>
+</p>
+</li><li><span>Write the generated certificate into the configuration
+file on the client. </span>
+<p><p># SSL/TLS parms.</p>
+<p># See the server config file for more</p>
+<p># description.  It's best to use</p>
+<p># a separate .crt/.key
+file pair</p>
+<p># for each client.  A single ca</p>
+<p># file can be
+used for all clients.</p>
+<p><strong>ca ca.crt</strong></p>
+<p><strong>cert CdtsmClient.crt</strong></p>
+<p><strong>key CdtsmClient.key</strong></p>
+</p>
+</li><li><span>Copy the configured <span class="parmname"><b>client.ovpn</b></span> file to the <span class="filepath"><b>C:\Program Files\OpenVPN\config</b></span> directory.</span></li><li><span>Copy files <span class="parmname"><b>ca.crt</b></span>, <span class="parmname"><b>ca.key</b></span>, <span class="parmname"><b>ta.key</b></span>, <span class="parmname"><b>CdtsmClient.crt</b></span>, <span class="parmname"><b>CdtsmClient.csr</b></span>, <span class="parmname"><b>CdtsmClient.key</b></span>, <span class="parmname"><b>ta.key</b></span> stored in the <span class="filepath"><b>C:\Program
+Files\OpenVPN\easy-rsa\keys</b></span> directory to the <span class="filepath"><b>C:\Program Files\OpenVPN\config</b></span> directory.</span></li><li><span>Double-click <span class="parmname"><b>OpenVPN GUI</b></span>. After
+the OpenVPN starts, click <span><img src="fig/fig_it_60_23_000022_08.png"></span> in the right lower corner of the server desktop. Select <span class="parmname"><b>Connect</b></span>.</span>
+<p>When <span><img src="fig/fig_it_60_23_000022_09.png"></span> turns
+to green, the connection is successful. </p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

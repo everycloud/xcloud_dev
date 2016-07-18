@@ -1,0 +1,50 @@
+<div ng-show="service.networkType=='0'" class="row-fluid">
+    <div class="create-page-distance">
+        <tiny-formfield>
+            <tiny-item label="directTable.label" require="directTable.require" content-td-attr = "directTable.contentTdAttr" contentcls="directTable.contentcls">
+                <tiny-table id="directTable.id" data="directTable.data" columns="directTable.columns" pagination-style="directTable.paginationStyle" length-change="directTable.lengthChange" display-length="directTable.displayLength" length-menu="directTable.lengthMenu"
+                render-row="directTable.renderRow" callback="directTable.callback" change-select="directTable.changeSelect" total-records="directTable.totalRecords" enable-filter="directTable.enableFilter" columns-visibility="false"></tiny-table>
+            </tiny-item>
+        </tiny-formfield>
+        <div class="margin-top-basicInfo">
+            <tiny-formfield>
+                <tiny-item label="directSelect.label" require="directSelect.require">
+                    <tiny-select id="directSelect.id" values="directSelect.values" width="directSelect.width" validate="directSelect.validate">
+                    </tiny-select>
+                    <span class="inline-help" style="margin-left: 10px;" ng-bind="i18n.vpc_net_add_para_directVLAN_mean_label"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>
+<div ng-show="service.networkType!='0'" class="row-fluid">
+    <div class="create-page-distance">
+        <tiny-formfield>
+            <tiny-item label="info.connectType.label" require="info.connectType.require">
+
+                <tiny-radio text='info.connectType.subnet' name="info.connectType.name" checked='true' click="typeClick('subnet')" height="27" id="info.connectType.subNetRadioId"></tiny-radio>
+                <div ng-show="!service.isHardwareRoute">
+                    <tiny-radio text='info.connectType.subnetvxlan' name="info.connectType.name" click="typeClick('subnetvxlan')" height="27" id="info.connectType.subNetVxlanRadioId"></tiny-radio>
+                </div>
+
+                <div ng-show="service.networkType=='1'">
+                    <tiny-radio text='info.connectType.vlan' name="info.connectType.name" click="typeClick('vlan')" height="27"></tiny-radio>
+                    <tiny-radio text='info.connectType.vxlan' name="info.connectType.name" click="typeClick('vxlan')" height="27"></tiny-radio>
+                </div>
+            </tiny-item>
+
+            <tiny-item label="info.vlanId.label" require="info.vlanId.require">
+                <div class="bottom10">
+                    <tiny-textbox id="info.vlanId.id" value="info.vlanId.value" validate="info.vlanId.validate" extend-function="info.vlanId.extendFunction"></tiny-textbox>
+                </div>
+                <tiny-table id="vlanTable.id" data="vlanTable.data" columns="vlanTable.columns" pagination-style="vlanTable.paginationStyle" length-change="vlanTable.lengthChange" length-menu="vlanTable.lengthMenu" display-length="vlanTable.displayLength" render-row="vlanTable.renderRow"
+                callback="vlanTable.callback" change-select="vlanTable.changeSelect" total-records="vlanTable.totalRecords" enable-filter="vlanTable.enableFilter" columns-visibility="false" columns-draggable="false"></tiny-table>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<div class="fm-btn-top-small">
+    <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+    <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+    <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+</div>

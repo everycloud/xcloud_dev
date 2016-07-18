@@ -1,0 +1,40 @@
+<div fm-help help="'drawer_acl'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>ACLs</span></li>
+            <li class="two-lead">
+				<div ng-repeat="e in i18n.split(i18n.acl_general_view_explan_label)">
+					{{e}}<br/>
+				</div>
+				<div ng-if="!i18n.acl_general_view_explan_label">
+                <p>ACL即访问控制列表，用来控制端口进出的数据包。通过这种安全策略来保障非授权用户只能访问特定的网络资源，从而达到对访问进行控制的目的。</p>
+                <p>ACL的作用域分为域内和域间，域内指VPC内部互相访问的规则，域间指VPC内部与外部网络之间互相访问的规则。</p>
+				</div>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="table.update()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+			<fm-dialog title="i18n.common_term_checkRule_button||'查看规则'" width="1080" height="510" show="show.detail">
+				<div ng-show="show.detail" ng-include src="'app/business/vdc/views/acls/aclsDetail.html'"></div>
+			</fm-dialog>
+			<fm-table columns="table.columns" data="table.data" template="'app/business/vdc/views/acls/col.html'"
+                      total="table.total" change="changeAcls" update="table.update">
+			</fm-table>
+        </div>
+    </div>
+</div>

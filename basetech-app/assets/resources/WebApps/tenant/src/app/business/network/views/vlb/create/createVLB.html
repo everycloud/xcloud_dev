@@ -1,0 +1,26 @@
+<link href="../theme/default/css/gm/ecs.css" type="text/css" rel="stylesheet" />
+<div class="ecs_vm_create container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-show="!service.onlyAddListener" ng-bind="i18n.lb_term_createVLB_button"></div>
+        <div class="createpage-legend" ng-show="service.onlyAddListener"><span ng-bind="i18n.lb_term_addListen_button"></span></div>
+        <tiny-step id="service.step.id" values="service.step.values" width="service.step.width" jumpable="service.step.jumpable"></tiny-step>
+    </div>
+
+    <div>
+        <div ng-show="service.show == 'basic'">
+            <div ui-view="basic"></div>
+        </div>
+        <div ng-show="service.show == 'addMonitor'">
+            <div ui-view="addMonitor"></div>
+        </div>
+        <div ng-show="service.show == 'configMonitor'">
+            <div ui-view="configMonitor"></div>
+        </div>
+        <div ng-show="service.show == 'bindVM'">
+            <div ui-view="bindVM"></div>
+        </div>
+        <div ng-show="service.show == 'confirm'">
+            <div ui-view="confirm"></div>
+        </div>
+    </div>
+</div>

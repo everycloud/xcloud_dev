@@ -1,0 +1,72 @@
+<div id="addRackHostParamSetting">
+    <tiny-formfield ng-hide="isBareMetal">
+        <tiny-item label="SSHParamInfo.manageIpItem.label" require="SSHParamInfo.manageIpItem.require">
+            <tiny-ip id="SSHParamInfo.manageIpItem.id" type="SSHParamInfo.manageIpItem.type"
+                     width="formfieldWidth" extend-function="SSHParamInfo.manageIpItem.extendFunction"
+                     validate="SSHParamInfo.manageIpItem.validate"></tiny-ip>
+        </tiny-item>
+    </tiny-formfield>
+    <tiny-checkbox id="checkbox.id" checked="checkbox.checked" height="checkbox.height"
+                   text="checkbox.text" change="checkbox.change()"
+                   ng-hide="isBareMetal"></tiny-checkbox>
+    <tiny-formfield>
+        <span class="createpage-title">{{i18n.device_term_IPMIpara_label}}</span>
+        <tiny-item label="IPMIParamInfo.versionItem.label" require="IPMIParamInfo.versionItem.require">
+            <tiny-select id="IPMIParamInfo.versionItem.id" values="IPMIParamInfo.versionItem.values"
+                         disable="IPMIParamInfo.versionItem.disable"
+                         width="formfieldWidth"
+                         validate="IPMIParamInfo.versionItem.validate"></tiny-select>
+            <span popover="{{IPMIParamInfo.versionItem.tooltip}}" popover-trigger="mouseenter"
+                  class="small-icon small-icon-tips" ng-show="showIPMITip"></span>
+        </tiny-item>
+        <tiny-item label="IPMIParamInfo.bmcIpItem.label" require="IPMIParamInfo.bmcIpItem.require">
+            <tiny-ip id="IPMIParamInfo.bmcIpItem.id" type="IPMIParamInfo.bmcIpItem.type"
+                     width="formfieldWidth" disable="IPMIParamInfo.bmcIpItem.disable"
+                     extend-function="IPMIParamInfo.bmcIpItem.extendFunction"
+                     validate="IPMIParamInfo.bmcIpItem.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="IPMIParamInfo.portItem.label" require="IPMIParamInfo.portItem.require">
+            <tiny-textbox id="IPMIParamInfo.portItem.id" value="IPMIParamInfo.portItem.value" width="formfieldWidth"
+                          disable="IPMIParamInfo.portItem.disable" validate="IPMIParamInfo.portItem.validate"
+                          type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="IPMIParamInfo.timeoutItem.label" require="IPMIParamInfo.timeoutItem.require">
+            <tiny-textbox id="IPMIParamInfo.timeoutItem.id" value="IPMIParamInfo.timeoutItem.value"
+                          width="formfieldWidth"
+                          disable="IPMIParamInfo.timeoutItem.disable" validate="IPMIParamInfo.timeoutItem.validate"
+                          type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="IPMIParamInfo.usernameItem.label" require="IPMIParamInfo.usernameItem.require">
+            <tiny-textbox id="IPMIParamInfo.usernameItem.id" value="IPMIParamInfo.usernameItem.value"
+                          disable="IPMIParamInfo.usernameItem.disable" width="formfieldWidth"
+                          extend-function="IPMIParamInfo.usernameItem.extendFunction"
+                          validate="IPMIParamInfo.usernameItem.validate"
+                          type="input"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="IPMIParamInfo.passwordItem.label" require="IPMIParamInfo.passwordItem.require">
+            <tiny-textbox id="IPMIParamInfo.passwordItem.id" value="IPMIParamInfo.passwordItem.value"
+                          width="formfieldWidth"
+                          disable="IPMIParamInfo.passwordItem.disable" validate="IPMIParamInfo.passwordItem.validate"
+                          extend-function="IPMIParamInfo.passwordItem.extendFunction"
+                          type="IPMIParamInfo.passwordItem.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="IPMIParamInfo.passwordConfirmItem.label"
+                   require="IPMIParamInfo.passwordConfirmItem.require">
+            <tiny-textbox id="IPMIParamInfo.passwordConfirmItem.id"  width="formfieldWidth"
+                          disable="IPMIParamInfo.passwordConfirmItem.disable"
+                          value="IPMIParamInfo.passwordConfirmItem.value"
+                          extend-function="IPMIParamInfo.passwordConfirmItem.extendFunction"
+                          validate="IPMIParamInfo.passwordConfirmItem.validate"
+                          type="IPMIParamInfo.passwordConfirmItem.type"></tiny-textbox>
+        </tiny-item>
+    </tiny-formfield>
+
+    <div class="fm-btn-top-large">
+        <tiny-button id="paramButtonGroup.preBtn.id" text="paramButtonGroup.preBtn.text"
+                     click="paramButtonGroup.preBtn.click()"></tiny-button>
+        <tiny-button id="paramButtonGroup.nextBtn.id" text="paramButtonGroup.nextBtn.text"
+                     click="paramButtonGroup.nextBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="paramButtonGroup.cancelBtn.id" text="paramButtonGroup.cancelBtn.text"
+                     click="paramButtonGroup.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

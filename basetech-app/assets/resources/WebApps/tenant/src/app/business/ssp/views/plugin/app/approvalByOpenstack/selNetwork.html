@@ -1,0 +1,49 @@
+<div ng-controller="ssp.approvalByOpenstack.selNetwork.ctrl" id="app_approvalByOpenstack_selNetwork">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="ictNetType.label" require="ictNetType.require">
+                <tiny-select id="ictNetType.id" values="ictNetType.values" change="ictNetType.change()" width="ictNetType.width">
+                </tiny-select>
+            </tiny-item>
+            <tiny-item label="networkTable.label" require="ictNetType.require">
+                <tiny-table id="networkTable.id" data="networkTable.data" columns="networkTable.columns" enable-pagination="networkTable.enablePagination" render-row="networkTable.renderRow"
+                            callback="networkTable.callback">
+                </tiny-table>
+                <div class="pull-right">
+                    <tiny-select id="pageSize.id" values="pageSize.values" width="pageSize.width"
+                                 change="pageSize.change()"></tiny-select>
+                    <label class="margin-right-beautifier" ng-bind="i18n.common_term_currentPage_label"></label>
+                    <label class="margin-right-beautifier" ng-bind="page.currentPage"></label>
+                    <a ng-class="{tinyPagination_paginationPrevSpan: hasPrePage, tinyPagination_paginationPrevSpanDisabled: !hasPrePage}"
+                       title="{{i18n.common_term_previous_button}}" class="tinyPagination_tinybutton clear_both"  style="float:none; display: inline-block; position: relative; top: 8px;" ng-click="prePage()"></a>
+                    <a ng-class="{tinyPagination_paginationNextSpan: hasNextPage,tinyPagination_paginationNextSpanDisabled: !hasNextPage}"
+                       title="{{i18n.common_term_nextPage_button}}" class="tinyPagination_tinybutton clear_both" style="float:none; display: inline-block; position: relative; top: 8px;" ng-click="nextPage()"></a>
+                </div>
+            </tiny-item>
+            <tiny-item label="subnetSelect.label" require="subnetSelect.require">
+                <tiny-select id="subnetSelect.id" values="subnetSelect.values" width="ictNetType.width">
+                </tiny-select>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+
+    <div class="customOkOuter2">
+        <tiny-button id="nextBtn.id" text="nextBtn.text" tooltip="nextBtn.tooltip" click="nextBtn.click()" disable="subnetSelect.values.length<=0"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+require(['app/business/ssp/controllers/plugin/app/approvalByOpenstack/selNetwork'], function(selInstanceType) {
+    var dep = ['ng', 'wcc', selInstanceType.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#app_approvalByOpenstack_selNetwork"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#app_approvalByOpenstack_selNetwork"))($rootScope);
+        $rootScope.$digest();
+    });
+});
+</script>

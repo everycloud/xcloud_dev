@@ -1,0 +1,37 @@
+<div class="service_add_catalog_ins alert-tip-first" ng-controller="ssp.catalogManager.addCatalog.ctrl">
+    <tiny-formfield>
+        <tiny-item label="catalogName.name" require="catalogName.require">
+            <tiny-textbox id="catalogName.id" value="catalogName.value" validate="catalogName.validate"></tiny-textbox>
+        </tiny-item>
+
+        <tiny-item label="catalogDesc.name" require="catalogDesc.require">
+            <tiny-textbox id="catalogDesc.id" value="catalogDesc.value" width="catalogDesc.width" height="catalogDesc.height" type="catalogDesc.type" validate="catalogDesc.validate">
+            </tiny-textbox>
+        </tiny-item>
+        <tiny-item>
+            <div class="text-center fm-btn-top-small">
+                <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+
+
+</div>
+
+<script>
+require(['app/business/ssp/controllers/catalog/manage/addCatalogCtrl'],
+    function(extendInstanceCtrl) {
+        var dep = ['ng', 'wcc', extendInstanceCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".service_add_catalog_ins"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".service_add_catalog_ins"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

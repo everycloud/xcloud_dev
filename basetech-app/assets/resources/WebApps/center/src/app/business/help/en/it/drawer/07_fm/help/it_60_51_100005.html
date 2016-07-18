@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Firewalls">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100005">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Firewalls</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100005"></a><a name="it_60_51_100005"></a>
+
+
+<h1 class="topictitle1">Firewalls</h1>
+
+<div>
+<div class="section"><p>A firewall is a system implementing one
+or one set of access control policies. It monitors communication channels
+between trusted networks (internal networks) and untrusted network
+(external networks) to prevent risks on external networks from affecting
+internal networks.</p>
+<div class="p">After being added to <span>FusionManager</span>, a firewall can be used to:<ul><li>Control the incoming and outgoing network traffic of physical
+devices added to <span>FusionManager</span>.</li><li>Provide virtual firewall services, such as routed networks in
+a virtual private cloud (VPC), elastic IP addresses, network address
+translation (NAT), access control list (ACL), and virtual private
+network (VPN).</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Adding a Physical Firewall to <span>FusionManager</span></h4><p id="it_60_51_100005__loginCheck"><a name="it_60_51_100005__loginCheck"></a><a name="loginCheck"></a>Before adding a switch to <span>FusionManager</span>, use a remote access tool, such as PuTTY, to log in to the switch
+by Secure Shell (SSH) to check whether you can successfully log in
+to the switch and enter the switch user interface. If the login fails
+or stops responding due to alarms or other exceptions, address the
+failure and then add the switch to <span>FusionManager</span>.</p>
+<p>After a firewall is added to <span>FusionManager</span>, the firewall information is displayed on the <span class="wintitle"><b>Firewalls</b></span> page.</p>
+<p>If the required server model is not available
+for selection, include more compatible hardware devices into the system.
+For details, see <a href="../src/app/business/help/en/it/system/07_fm/help/it_60_51_100011.html" target="_blank">Adaptation Package
+Management</a>.</p>
+</div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Creating a Virtual Firewall</h4></div><div class="dropdowncontext"><p id="it_60_51_100005__vFW_define"><a name="it_60_51_100005__vFW_define"></a><a name="vFW_define"></a>Virtual firewalls are logical firewalls virtualized
+on a physical firewall. Each virtual firewall functions as an independent
+firewall device to monitor and filter packets over its parent physical
+firewall device. FusionManager implements firewall functions in the
+system using virtual firewalls.</p>
+<div class="p"><ol><li>Virtual firewalls are created on its parent physical firewall
+device. For the detailed operation procedure, see <a href="../src/app/business/help/en/it/system/07_fm/help/it_60_51_600003.html" target="_blank">Creating a Virtual
+Firewall</a>.</li><li>If a physical firewall has been added to <span>FusionManager</span> before virtual firewalls are created it, you need to trigger a firewall
+discovery operation on <span>FusionManager</span> after virtual firewalls are created on it.<p>Locate the row that contains the target
+firewall, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Rediscover</b></span>.</p>
+</li></ol>
+</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Setting the Firewall Usage Scope</h4></div><div class="dropdowncontext"><p>All functions of a firewall, such as Source Network Address Translation
+(SNAT), Network Address and Port Translation (NAPT), and subinterfaces,
+are available for users by default. You can import a custom firewall
+configuration file to the system to restrict the usage permission
+to specified firewall functions.</p>
+<div class="p"><ol><li>Click <span class="uicontrol"><b>Import Configuration</b></span>.</li><li>Download the configuration file template to your PC and fill the
+template with custom firewall settings data. For the detailed operation
+procedure, see <a href="../src/app/business/help/en/it/system/07_fm/help/it_60_51_600001.html" target="_blank">Importing Firewall
+Configurations</a>.</li><li>Import the custom configuration file to the system.</li></ol>
+If the system has two firewalls configured in active/standby
+mode, you only need to import the custom configuration file once.
+The imported custom settings take effect for both the active and standby
+firewalls.</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Modifying Firewall Connection Parameters</h4></div><div class="dropdowncontext"><p>If the management information of a firewall has been modified
+after the firewall is added to <span>FusionManager</span>, you need to synchronize the new information to <span>FusionManager</span> in a timely manner. Otherwise, <span>FusionManager</span> will lose management for the firewall.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Deleting a Firewall</h4></div><div class="dropdowncontext"><p>If a
+firewall is not needed any more, you can delete it from the system.
+After a firewall is deleted, <span>FusionManager</span> will not monitor or manage this firewall, and the services associated
+with this firewall will be unavailable.</p>
+<p>If active and standby
+firewalls are added to <span>FusionManager</span> and one firewall is deleted, the other firewall is also automatically
+deleted.</p>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

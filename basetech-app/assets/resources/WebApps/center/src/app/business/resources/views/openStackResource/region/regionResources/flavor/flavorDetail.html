@@ -1,0 +1,78 @@
+<div class="region-flavor container-fluid" ng-controller="template.flavor.detail.ctrl">
+    <div class="margin-top-beautifier">
+        <div class="row-fluid">
+            <div class="span5">
+                <tiny-formfield>
+                    <tiny-item label="type.label">
+                        <div>
+                            <span ng-bind="type.value"></span>
+                        </div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="span1">
+            </div>
+            <div class="span5">
+                <tiny-formfield>
+                    <tiny-item label="slaInfo.label">
+                        <!-- 自定义表格 -->
+                        <table class="complexTable">
+                            <tr>
+                                <th style="width: 200px;"><span ng-bind="i18n.cloud_term_tagName_label"></span></th>
+                                <th style="width: 180px;"><span ng-bind="i18n.cloud_term_tagValue_label"></span></th>
+                            </tr>
+                            <tbody>
+                            <tr ng-if="slaInfo.data.length == 0" class="complexTable-empty-tr">
+                                <td valign="top" colspan="3">No data available in table</td>
+                            </tr>
+                            <tr class="complexTable-tr" ng-repeat="tr in slaInfo.data">
+                                <td>
+                                    <span ng-bind="tr.key"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="tr.value"></span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/openStackResource/region/regionResources/flavor/flavorDetailCtrl',
+        'app/business/resources/controllers/constants'],
+            function ($, flavorDetailCtrl, constants) {
+
+                // 1.获取当前Dom
+                var curView = undefined;
+                $(".region-flavor").each(function () {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+
+                curView.attr("id", new Date().getMilliseconds());
+
+                // 2.编译
+                var scope = curView.scope();
+
+                var modules = ["wcc",flavorDetailCtrl.name];
+                modules.unshift(["$provide", function($provide) {
+                    $provide.value("$rootElement", curView);
+                }]);
+                modules.unshift("ng");
+                var $injector = angular.injector(modules);
+                $injector.invoke(["$compile", function ($compile) {
+                    $compile(curView)(scope);
+                    scope.$digest();
+                }]);
+
+                // 3.初始化scope
+                var curScope = curView.scope();
+                curScope.queryDetail(scope.currentItem);
+            });
+</script>

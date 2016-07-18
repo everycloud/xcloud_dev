@@ -1,0 +1,54 @@
+<div id="createAppBaseInfo">
+    <div class="create-page-distance">
+        <tiny-formfield>
+            <div id="createAppBaseInfoName">
+                <tiny-item label="info.name.label" require="info.name.require">
+                    <tiny-textbox id="info.name.id" value="params.appName" validate="info.name.validate" disable="params.isModify" tooltip="info.name.tooltip"></tiny-textbox>
+                </tiny-item>
+            </div>
+
+            <div>
+                <tiny-item label="info.location.label" require="info.location.require">
+                    <tiny-select id="info.location.id" values="info.location.values" width="info.location.width" validate='info.location.validate' change='info.location.change()' disable='params.isModify'>
+                    </tiny-select>
+                </tiny-item>
+            </div>
+
+            <div>
+                <tiny-item label="info.vpc.label" require="info.vpc.require">
+                    <tiny-select id="info.vpc.id" values="info.vpc.values" width="info.vpc.width" validate='info.vpc.validate' change='info.vpc.change()' disable='params.isModify'>
+                    </tiny-select>
+                </tiny-item>
+            </div>
+
+            <div>
+                <tiny-item label="info.timeout.label" require="info.timeout.require">
+                    <tiny-textbox id="info.timeout.id" value="params.timeout" validate="info.timeout.validate"></tiny-textbox>
+                </tiny-item>
+            </div>
+
+            <div>
+                <tiny-item label="info.logo.label" require="info.logo.require">
+                    <img ng-src="{{'../theme/default/images/gm/appImage/'+params.curLogo}}" ng-click='info.logo.change()' class='customHide' width='60px' height='76px' id="createAppIctCurImgId">
+                    <a ng-click='info.logo.change()' class='customHide' ng-bind="i18n.template_term_changeIcon_button"></a>
+                    <div id="customAppLogoOptionId" style="display: none;">
+                        <div ng-repeat="logo in info.logo.options" style="display: inline-block;margin-right: 5px;margin-top: 10px;">
+                            <img ng-src="{{'../theme/default/images/gm/appImage/'+logo}}" ng-click='info.logo.changeLogo(logo)' width='60px' height='76px' style="cursor: pointer;" class="customHide">
+                        </div>
+                    </div>
+                </tiny-item>
+            </div>
+
+            <tiny-item label="info.description.label" require="info.description.require">
+                <tiny-textbox id="info.description.id" value="params.selDescription" width="info.description.width" height="info.description.height" type="info.description.type" validate="info.description.validate" error-msg="info.description.errorMsg"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+
+        <div class="create-btn-margin" style="margin-left: 50px;">
+            <tiny-button id="info.preBtn.id" text="info.preBtn.text" tooltip="info.preBtn.tooltip" click="info.preBtn.click()"></tiny-button>
+            <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" disable="info.nextBtn.disable" tooltip="info.nextBtn.tooltip" click="info.nextBtn.click()"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" tooltip="info.cancelBtn.tooltip" click="info.cancelBtn.click()"></tiny-button>
+        </div>
+
+    </div>
+</div>

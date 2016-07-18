@@ -1,0 +1,39 @@
+<div id="poolInfoDiv">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <div class="tiny-layout-title">
+                    <div class="row-fluid nosidedown-txt">
+                        <div class="span4">
+                            <div class="title-icon layout-icon-subjunctive"></div>
+                        </div>
+                        <div class="span8">
+                            <p id="poolInfoName" class="title-text">{{i18n.cloud_term_cloudPool_label}}:{{poolName}}</p>
+                        </div>
+                    </div>
+                </div>
+                <li>
+                    <a ui-sref="service.poolInfo.summary" ng-bind="i18n.common_term_summary_label"></a>
+                </li>
+                <li ng-show="privilege['role_role_add_option_AZView_value.304002']">
+                    <a ui-sref="service.poolInfo.availableZone" ng-bind="i18n.resource_term_Azs_label"></a>
+                </li>
+                <li ng-show="isServiceCenter && !openstack">
+                    <a ui-sref="service.poolInfo.publicIpPool" ng-bind="i18n.vpc_term_publicIPpool_label"></a>
+                </li>
+                <li ng-show="isServiceCenter">
+                    <a ui-sref="service.poolInfo.vmTemplate" ng-bind="i18n.template_term_vms_label"></a>
+                </li>
+                <li ng-show="isServiceCenter && !openstack">
+                    <a ui-sref="service.poolInfo.externalNet" ng-bind="i18n.resource_term_externalNets_label"></a>
+                </li>
+                <li ng-show="isServiceCenter">
+                    <a ui-sref="service.poolInfo.host" ng-bind="i18n.server_term_servers_label"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

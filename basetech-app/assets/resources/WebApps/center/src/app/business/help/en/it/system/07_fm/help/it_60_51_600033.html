@@ -1,0 +1,223 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Configuring Public IP Addresses to Be Multiplexed in Both DNAT and SNAT">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600033">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Configuring Public IP Addresses to Be Multiplexed in Both DNAT
+and SNAT</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nConfiguring Public IP Addresses to Be Multiplexed in Both DNAT and SNAT");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > Configuring Public IP Addresses to Be Multiplexed in Both DNAT and SNAT<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600033"></a><a name="it_60_51_600033"></a>
+
+
+
+
+<h1 class="topictitle1">Configuring Public IP Addresses to Be Multiplexed in Both DNAT
+and SNAT</h1>
+<ul><li><a href="#it_60_51_600033__1.2.1.1">Scenarios</a></li><li><a href="#it_60_51_600033__1.2.2.1">Prerequisites</a></li><li><a href="#it_60_51_600033__1.2.3.1">Procedure</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600033__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600033" class="sectiontitle2contents">Scenarios</a></h4>
+
+
+<div class="p"><p><span>Public IP addresses are used for communication
+between VMs and public networks.</span></p>
+<p>In the Network Address Translation (NAT) service, a public
+IP address cannot be used concurrently on destination network address
+translation (DNAT) and source network address translation (SNAT) by
+default. Configure the address multiplexing function
+to allow a public IP address to be applied in both DNAT and SNAT services.</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600033__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600033" class="sectiontitle2contents">Prerequisites</a></h4>
+
+
+<div class="p"><ul><li>If two <span>FusionManager</span> nodes are deployed in active/standby mode, you have obtained
+the <span>FusionManager</span> floating IP address. If only one <span>FusionManager</span> node is deployed in standalone mode, you have obtained the <span>FusionManager</span> management IP address.</li><li>You have obtained the <span class="parmvalue"><b>galaxmanager</b></span> password
+for logging in to the <span>FusionManager</span> node.</li></ul>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600033__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600033" class="sectiontitle2contents">Procedure</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle"></p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>Use PuTTY to log in to the <span>FusionManager</span> node as user <span class="parmvalue"><b>galaxmanager</b></span>.</span>
+<p><ul><li>If <span>FusionManager</span> is deployed in active/standby mode, use the floating IP address
+to log in to the active <span>FusionManager</span> node.</li><li>If <span>FusionManager</span> is deployed in standalone mode, use the management IP address
+to log in to the <span>FusionManager</span> node.</li></ul>
+</p>
+</li><li><span>Run the following command to disable user logout upon
+system timeout:</span>
+<p><b><span class="cmdname">TMOUT=0</span></b></p>
+</li><li><span>Run the following command to configure the public IP
+address multiplexing function:</span>
+<p><p><b><span class="cmdname">modConfig confSharePublicIP Share_PublicIP</span></b> <i><span class="varname">Configuration option</span></i></p>
+<p><a href="#it_60_51_600033__table_select">Table 1</a> describes the address multiplexing configuration
+options.</p>
+
+<div class="tablenoborder"><a name="it_60_51_600033__table_select"></a><a name="table_select"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600033__table_select" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Address multiplexing configuration options</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="19.5%" id="mcps1.2.3.2.1.2.3.2.3.2.3.1.1"><p>Option</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="80.5%" id="mcps1.2.3.2.1.2.3.2.3.2.3.1.2"><p>Description</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+
+<td class="cellrowborder" valign="top" width="19.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.1 "><p>true</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="80.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.2 "><p>Enables the address multiplexing function to allow a public
+IP address to be used concurrently in DNAT and SNAT services.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="19.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.1 "><p>false</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="80.5%" headers="mcps1.2.3.2.1.2.3.2.3.2.3.1.2 "><p>Disables the address multiplexing function to prevent a
+public IP address from being used concurrently in DNAT and SNAT services.
+After the address multiplexing function is disabled, follow-up public
+IP addresses cannot be used concurrently in DNAT and SNAT services.
+However, the public IP addresses that have been multiplexed are not
+adversely affected.</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<p>For example, run the following command to enable the address
+multiplexing function:</p>
+<p><b><span class="cmdname">modConfig confSharePublicIP
+Share_PublicIP true</span></b></p>
+<p>The function is successfully enabled
+if information similar to the following is displayed:</p>
+<pre class="screen">configure success</pre>
+</p>
+</li><li><span>If <span>FusionManager</span> is deployed in active/standby mode, run the following command
+to synchronize active node configuration to the standby node:</span>
+<p><p><b><span class="cmdname">haNotifySyncFiles /opt/goku/services/irm/rpool/config/network.properties</span></b></p>
+<p>The configuration is successful if the following information
+is displayed.</p>
+<pre class="screen">execute command syncfile successfully.</pre>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

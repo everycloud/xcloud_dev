@@ -1,0 +1,60 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="外部网络">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100024">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>外部网络</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100024"></a><a name="it_60_51_100024"></a>
+
+
+<h1 class="topictitle1">外部网络</h1>
+
+
+<div>
+<p id="it_60_51_100024__internet_define"><a name="it_60_51_100024__internet_define"></a><a name="internet_define"></a>外部网络是指用户已有的网络，相对于VPC中的网络，称之为外部网络。将外部网络资源添加至<span>FusionManager</span>中，便可用于发放虚拟机和创建VPC中的直连网络。<span>同时能够作为弹性IP等业务所需的弹性IP地址池。</span></p>
+
+
+<div class="section"><h4 class="sectiontitle">创建外部网络</h4><p>创建外部网络前，要求已在交换机上配置用于创建外部网络的VLAN或子网，且已经将使用的VLAN添加到VLAN池中。</p>
+<div class="notice"><span class="noticetitle"><img src="../theme/default/images/icon-notice.gif"> 注意： </span><div class="noticebody"><p><span>FusionManager</span>上创建的外部网络会默认共享给所有使用当前OpenStack实例的VDC，VDC用户可以通过安全组对外部网络中的虚拟机配置隔离规则，但是仍可能存在安全隐患，建议在高安全要求的场景下谨慎使用。</p>
+</div></div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">修改外部网络</h4><p>修改外部网络的信息。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">删除外部网络</h4><p>当外部网络不再使用时，删除外部网络。已被VDC使用的外部网络，不允许删除。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">创建子网</h4><p>为新创建的外部网络配置子网IP地址。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">修改子网</h4><p>修改外部网络的子网信息。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">删除子网</h4><p>删除外部网络的子网。</p>
+</div>
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

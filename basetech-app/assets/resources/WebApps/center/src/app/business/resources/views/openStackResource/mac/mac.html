@@ -1,0 +1,35 @@
+<div class="macDiv">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.openStackResource.region">{{i18n.resource_term_openstack_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.regionResources.summary">{{regionName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.common_term_MACresourcePool_label}}</li>
+        </ul>
+        <ul class="nav nav-list noPadding">
+            <li class="two-lead">
+                <p>{{i18n.resource_mac_view_explan_label}}</p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div class="bottom10 clearfix">
+            <tiny-button id="createMacButton.id" text="createMacButton.text" click="createMacButton.click()"
+                         width="createMacButton.width" class="major-btn">
+            </tiny-button>
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link"><img src="../theme/default/images/gm/refresh.gif" ng-click="queryMacPoolRanges()"></a>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="displayTable.id" columns="displayTable.columns" data="displayTable.data"
+                        columns-draggable="displayTable.columnsDraggable"
+                        render-row="displayTable.renderRow" enable-pagination="displayTable.enablePagination">
+            </tiny-table>
+        </div>
+    </div>
+</div>

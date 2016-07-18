@@ -1,0 +1,19 @@
+<div ng-controller="app.templates.templateContent.ctrl" id="app_templates_templateContent_popId">
+    <div>
+        <tiny-textbox id="templateContent.id" value="templateContent.value" width="templateContent.width" height="templateContent.height" type="templateContent.type" validate="templateContent.validate" error-msg="templateContent.errorMsg" readonly="templateContent.readonly"></tiny-textbox>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/multiPool/controllers/appTemplate/TemplateContent'], function(TemplateContent){
+        var dependency = ['ng', 'wcc', TemplateContent.name];
+        dependency.unshift(["$provide", function($provide){
+            $provide.value("$rootElement", $("#app_templates_templateContent_popId"));
+        }]);
+        var $injector = angular.injector(dependency);
+        $injector.invoke(function($compile){
+            var scope = $("#app_templates_templateContent_popId").scope();
+            $compile($("#app_templates_templateContent_popId"))(scope);
+            scope.$digest();
+        });
+    });
+</script>

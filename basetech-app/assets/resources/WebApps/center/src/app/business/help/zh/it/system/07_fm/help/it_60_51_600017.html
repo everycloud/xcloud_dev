@@ -1,0 +1,175 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="配置DHCP服务器的网络信息">
+<meta name="DC.Relation" scheme="URI" content="../../07_fm/father_node/it_60_99_faq.html">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600017">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>配置DHCP服务器的网络信息</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n配置DHCP服务器的网络信息");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > 配置DHCP服务器的网络信息<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600017"></a><a name="it_60_51_600017"></a>
+
+
+
+<h1 class="topictitle1">配置DHCP服务器的网络信息</h1>
+<ul><li><a href="#it_60_51_600017__1.2.1.1">操作场景</a></li><li><a href="#it_60_51_600017__1.2.2.1">前提条件</a></li><li><a href="#it_60_51_600017__1.2.3.1">操作步骤</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600017__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600017" class="sectiontitle2contents">操作场景</a></h4>
+
+
+<div class="p"><p>使用<span>FusionManager</span>系统外部的DHCP服务器时，在交换机上配置DHCP服务器的网络信息，并为<span>FusionManager</span>上的网络配置DHCP中继。</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600017__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600017" class="sectiontitle2contents">前提条件</a></h4>
+
+
+<div class="p">已使用终端仿真程序登录交换机设备。</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600017__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600017" class="sectiontitle2contents">操作步骤</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">在交换机上配置DHCP服务器的网络信息</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>登录汇聚交换机。</span><p><p id="it_60_51_600017__switch_mode"><a name="it_60_51_600017__switch_mode"></a><a name="switch_mode"></a>下列命令以华为交换机S5300为例进行说明，如果在其他型号交换机上执行该配置，具体命令请参考对应交换机的产品文档。</p>
+</p></li><li><span>在系统视图中执行命令<b><span class="cmdname">interface vlanif</span></b> <i><span class="varname">vlan id</span></i>，进入DHCP服务器所在VLAN的vlanif视图。</span></li><li><span>执行命令<b><span class="cmdname">ip address</span></b> <i><span class="varname">VLANIF的IP地址</span></i> <i><span class="varname">子网掩码</span></i>，配置VLANIF的IP地址和子网掩码。</span><p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>如果DHCP服务器所在VLAN和其他网络为同一VLAN，且和其他网络使用不同的网关时，执行下面的命令配置从IP地址。</p>
+<p><b><span class="cmdname">ip address</span></b> <i><span class="varname">VLANIF的IP地址</span></i> <i><span class="varname">子网掩码</span></i> <b><span class="cmdname">sub</span></b></p>
+</div></div>
+</p>
+</li><li><span>执行命令<b><span class="cmdname">quit</span></b>，退出VLANIF接口。</span>
+<p><p>例如，DHCP服务器所在VLAN ID为20，网关和子网掩码分别为<span class="parmvalue">“192.160.18.1”</span>和<span class="parmvalue">“255.255.255.0”</span>，在交换机上配置如下：</p>
+<p>&lt;Quidway&gt; <b><span class="cmdname">system-view</span></b></p>
+<p>[Quidway] <b><span class="cmdname">interface vlanif 20</span></b></p>
+<p>[Quidway-Vlanif20] <b><span class="cmdname">ip address 192.160.18.1 24</span></b></p>
+<p>[Quidway-Vlanif20] <b><span class="cmdname">quit</span></b></p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">为外部网络配置DHCP中继</p>
+<div class="Steps-titled"><ol type="1" start="5"><li><span>登录汇聚交换机（以外部网络的网关在汇聚交换机上进行说明）。</span></li><li><span>在系统视图中执行命令<b><span class="cmdname">dhcp enable</span></b>，使能全局DHCP功能。</span>
+</li><li><span>执行命令<b><span class="cmdname">dhcp server group</span></b> <i><span class="varname">group-name</span></i>，创建DHCP服务器组。</span>
+</li><li><span>执行命令<b><span class="cmdname">dhcp-server</span></b> <i><span class="varname">dhcp-server-ip-address</span></i>，为DHCP服务器组添加DHCP服务器。</span></li><li><span>执行命令<b><span class="cmdname">interface vlanif</span></b> <i><span class="varname">vlan
+id</span></i>，进入外部网络对应的vlanif视图。</span></li><li><span>执行命令<b><span class="cmdname">dhcp select relay</span></b>，启用DHCP中继功能。</span>
+</li><li><span>执行命令<b><span class="cmdname">dhcp relay server-select</span></b> <i><span class="varname">DHCP服务器组</span></i>，配置DHCP服务器IP地址。</span>
+<p><p>例如，外部网络的vlan id为2005，DHCP服务器的IP地址为192.160.18.10，在汇聚交换机上配置如下：</p>
+<p>&lt;Quidway&gt; <b><span class="cmdname">system-view</span></b></p>
+<p>[Quidway] <b><span class="cmdname">dhcp enable</span></b></p>
+<p>[Quidway] <b><span class="cmdname">dhcp server group dhcpgroup1</span></b></p>
+<p>[Quidway-dhcp-server-group-dhcpgroup1] <b><span class="cmdname">dhcp-server 192.160.18.10</span></b></p>
+<p>[Quidway-dhcp-server-group-dhcpgroup1] <b><span class="cmdname">quit</span></b></p>
+<p>[Quidway] <b><span class="cmdname">interface vlanif 2005</span></b></p>
+<p>[Quidway-Vlanif2005] <b><span class="cmdname">dhcp select relay</span></b></p>
+<p>[Quidway-Vlanif2005] <b><span class="cmdname">dhcp relay server-select dhcpgroup1</span></b></p>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a href="../father_node/it_60_99_faq.html" title="">FAQ</a></div>
+</div>
+</div>
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

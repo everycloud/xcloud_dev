@@ -1,0 +1,75 @@
+<div fm-help help="'drawer_resource_internet'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.openStackResource.region">{{i18n.resource_term_openstack_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.regionResources.summary">{{regionName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.resource_term_externalNets_label}}</li>
+        </ul>
+        <ul class="nav nav-list noPadding">
+            <li class="two-lead">
+                <p ng-bind-html="i18n.resource_exter_viewict_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div class="bottom10 clearfix">
+            <fm-button text="i18n.common_term_create_button" click="showNetwork" class="major-btn" ng-show="service.hasNetworkService"></fm-button>
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="init()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div title="{{ i18n.common_term_onlinehelp_label }}" ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <fm-dialog title="i18n.vpc_term_createNet_button" width="660" height="400" show="show.createNetwork">
+                <div ng-show="show.createNetwork" ng-include
+                     src="'app/business/resources/views/openStackResource/network/createNetwork.html'" class="alert-tip-first"></div>
+            </fm-dialog>
+            <fm-dialog title="i18n.resource_term_modifyNet_button" width="600" height="200" show="show.modifyNetwork">
+                <div ng-show="show.modifyNetwork" ng-include
+                     src="'app/business/resources/views/openStackResource/network/modifyNetwork.html'" class="alert-tip-first"></div>
+            </fm-dialog>
+            <fm-dialog title="i18n.resource_term_createSubnet_button" width="800" height="500" show="show.createSubnet">
+                <div ng-show="show.createSubnet" ng-include
+                     src="'app/business/resources/views/openStackResource/network/createSubnet.html'"></div>
+            </fm-dialog>
+            <fm-dialog title="i18n.vpc_term_modifySubnet_button" width="600" height="200" show="show.modifySubnet">
+                <div ng-show="show.modifySubnet" ng-include
+                     src="'app/business/resources/views/openStackResource/network/modifySubnet.html'"></div>
+            </fm-dialog>
+            <fm-table columns="table.columns" data="table.data"
+                      operate="table.operate" detail-click='table.getDetail' size='0'
+                      detail="'app/business/resources/views/openStackResource/network/networkDetail.html'">
+            </fm-table>
+            <div style="margin-top:20px">
+                <div class="fr">
+                    <a ng-class="{tinyPagination_paginationNextSpan: hasNextPage,tinyPagination_paginationNextSpanDisabled: !hasNextPage}"
+                       href="javascript:void(0)" title="{{i18n.common_term_nextPage_button}}" class="tinyPagination_tinybutton" ng-click="nextPage()"></a>
+                </div>
+                <div class="fr">
+                    <a ng-class="{tinyPagination_paginationPrevSpan: hasPrePage,tinyPagination_paginationPrevSpanDisabled: !hasPrePage}"
+                       href="javascript:void(0)"  title="{{i18n.common_term_previous_button}}" class="tinyPagination_tinybutton" ng-click="prePage()"></a>
+                </div>
+                <div class="fr" style="margin-right:10px;margin-top: 3px" ng-bind="curPage">
+                </div>
+                <div class="fr" style="margin-right:10px;margin-top: 3px">
+                    <span ng-bind="i18n.common_term_currentPage_label"></span>:
+                </div>
+                <div class="fr"  style="margin-right:10px">
+                    <tiny-select id="sizeSelector.id" values="sizeSelector.values" width="sizeSelector.width"
+                                 change="sizeSelector.change()"></tiny-select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

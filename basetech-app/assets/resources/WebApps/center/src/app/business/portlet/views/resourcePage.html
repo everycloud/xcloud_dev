@@ -1,0 +1,126 @@
+<style type="text/css">
+    .info_line {
+        font-size: 14px;
+        color: #666666;
+        font-family: Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;
+
+        margin: 20px;
+        padding: 0px;
+    }
+
+    .info_value {
+        font-size: 18px;
+        font-family: Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+</style>
+<div>
+    <div class="outbox-padding top10" ng-if="right.resourceStatistic">
+        <div class="legend">{{i18n.common_term_sysResourceHealthScore_label}}</div>
+        <div class="row-fluid margin-left-beautifier">
+            <div class="span3">
+                <div class="three-title top26">{{i18n.common_term_healthScore_label}}</div>
+                <div id="sysResourceHealth" style="margin:20px 0px 0px 0px;">
+                    <fm-cirque rotate="0" r="60" data="healthScore.data"
+                               stroke-width="20"
+                               show-legend="false" center-text="healthScore.center"
+                               width="200" height="120">
+                    </fm-cirque>
+                </div>
+            </div>
+            <!--注释-->
+            <div class="span2 top26 block-style en-width" style="background: #ffffff;">
+                <div class="three-title bottom20">{{i18n.common_term_alarmStatistic_label}}</div>
+                <div class="row-fluid fl cursor-pointer border-style" ng-click="linkToAlarmModel.click(1)">
+                    <div class="four-title">{{i18n.alarm_term_AlarmCritical_label}}:</div>
+                    <br/>
+
+                    <div class="info_value" style="color:#fc5043;">
+                        <span>{{sysHealthStatus.alarmInfo.urgentAlarmCnt}}</span>
+                    </div>
+                </div>
+                <div class="row-fluid fl cursor-pointer" ng-click="linkToAlarmModel.click(2)">
+                    <div class="four-title">{{i18n.alarm_term_alarmMajor_label}}:</div>
+                    <br/>
+
+                    <div class="info_value" style="color:#ffa235">
+                        <span>{{sysHealthStatus.alarmInfo.importantAlarmCnt}}</span>
+                    </div>
+                </div>
+            </div>
+            <!--注释-->
+            <div class="span3 top26 block-style  manage_index_resource en-2width" style="background: #ffffff;">
+                <div class="three-title bottom20">{{i18n.common_term_resourceCapacityScore_label}}</div>
+                <div class="row-fluid fl border-style">
+                    <div class="four-title">{{i18n.common_term_compute_label}}:</div>
+                    <br/>
+
+                    <div class="info_value"
+                         style="color:{{sysHealthStatus.resCapacityInfo.computeScore >= 85 ? style.color.run : style.color.stop}}">
+                        {{sysHealthStatus.resCapacityInfo.computeScore}}
+                    </div>
+                </div>
+                <div class="row-fluid fl border-style">
+                    <div class="four-title">{{i18n.common_term_storage_label}}:</div>
+                    <br/>
+
+                    <div class="info_value"
+                         style="color:{{sysHealthStatus.resCapacityInfo.storeScore >= 85 ? style.color.run : style.color.stop}}">
+                        {{sysHealthStatus.resCapacityInfo.storeScore}}
+                    </div>
+                </div>
+                <div class="row-fluid fl">
+                    <div class="right10 four-title">{{i18n.vpc_term_net_label}}:</div>
+                    <br/>
+
+                    <div class="info_value"
+                         style="color:{{sysHealthStatus.resCapacityInfo.netScore >= 85 ? style.color.run : style.color.stop}}">
+                        {{sysHealthStatus.resCapacityInfo.netScore}}
+                    </div>
+                </div>
+            </div>
+            <div class="span3 top26 block-style manage_index_resource en-3width" style="background: #ffffff;">
+                <div class="three-title bottom20">{{i18n.virtual_term_hypervisor_label}}</div>
+                <div class="four-title">{{i18n.common_term_environmentStatus_value}}:</div>
+                <ul class="clearfix">
+                    <li class="fl" style="color:#1fb103;">
+                        <span>{{i18n.common_term_natural_value}}</span>
+                        <p class="info_value" >{{sysHealthStatus.virEvnInfo.runningENVCount}}</p>
+                    </li>
+
+                    <li class="fl left50" style="color:#fc5043">
+                        <span>{{i18n.common_term_abnormal_value}}</span>
+                        <p class="info_value" >{{sysHealthStatus.virEvnInfo.faultENVCount}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div ng-include src="'app/business/portlet/views/zone.html'" ng-show="right.zone"
+         class="outbox-padding top10"></div>
+
+    <div class="outbox-padding" ng-if="right.vmStatic || right.device">
+        <div class="legend">{{i18n.resource_term_resourceStatus_label}}</div>
+        <div class="row-fluid margin-left-beautifier">
+            <div class="span6" ng-if="right.vmStatic">
+                <div class="two-title bottom30">{{i18n.vm_term_vmStatus_label}}</div>
+                <div id="vmStat">
+                    <fm-cirque rotate="0" r="60" data="vmStatus.data"
+                               stroke-width="20"
+                               show-legend="true" center-text="vmStatus.center"
+                               width="500" height="180">
+                    </fm-cirque>
+                </div>
+            </div>
+            <div class="span6" ng-if="right.device">
+                <div class="two-title bottom30">{{i18n.device_term_deviceStatus_label}}</div>
+                <div id="deviceStat"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,42 @@
+<div fm-help help="'drawer_spec_ip'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{i18n.template_term_ipBandwidth_label ||'IP带宽模板'}}</span></li>
+            <li class="two-lead">
+				<div ng-repeat="e in i18n.split(i18n.spec_ipBand_view_explan_label)">
+					{{e}}<br/>
+				</div>
+				<div ng-if="!i18n.spec_ipBand_view_explan_label">
+                <p>IP带宽模板定义了最大接收带宽和最大发送带宽。</p>
+                <p>用于在使用硬件防火墙方式，申请弹性IP地址时，根据该模板为弹性IP地址设置带宽规格。</p>
+				</div>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+	<div class="content-right-box">
+		<div class="form-inline clearfix">
+			<fm-button ng-show="user.privilege.role_role_add_option_ipBandwidthHandle_value"
+				class="major-btn" text="i18n.common_term_create_button||'创建'" click="create"></fm-button>
+			<!--刷新、帮助-->
+			<div class="pull-right">
+				<a class="btn-link">
+                    <div ng-click="update()" class="small-icon small-icon-refresh"></div>
+                </a>
+				<a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+			</div>
+		</div>
+		<div>
+			<fm-dialog title="show.title" width="750" height="240" show="show.win">
+				<div ng-show="show.win" ng-include src="'app/business/vdc/views/ipBW/ipBWNew.html'"></div>
+			</fm-dialog>
+			<fm-table columns="table.columns" data="table.data"
+				operate="user.privilege.role_role_add_option_ipBandwidthHandle_value?table.operate:''"
+				total="table.total" change="change">
+			</fm-table>
+		</div>
+	</div>
+</div>

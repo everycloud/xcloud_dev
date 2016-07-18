@@ -1,0 +1,106 @@
+<div id="vmDetailDiv" class="row-fluid innerbox-padding" ng-controller="resources.hypervisor.vmDetail.ctrl">
+    <div class="span6">
+        <tiny-formfield>
+            <tiny-item label="label.longId">
+                <div ng-bind="vmId"></div>
+            </tiny-item>
+            <tiny-item label="label.vmType">
+                <div ng-bind="type"></div>
+            </tiny-item>
+            <tiny-item label="label.os">
+                <div ng-bind="os"></div>
+            </tiny-item>
+            <tiny-item label="label.osVersion">
+                <div ng-bind="osVersion"></div>
+            </tiny-item>
+            <tiny-item label="label.ip">
+                <div class="autoWrap" ng-bind-html="ip"></div>
+            </tiny-item>
+            <tiny-item label="label.mac">
+                <div class="autoWrap" ng-bind-html="mac"></div>
+            </tiny-item>
+            <tiny-item label="label.updateMethod">
+                <div ng-bind="updateMethod"></div>
+            </tiny-item>
+            <tiny-item label="label.tools">
+                <div ng-bind="tools"></div>
+            </tiny-item>
+            <tiny-item label="label.imc">
+                <div ng-bind="imc"></div>
+            </tiny-item>
+            <tiny-item label="label.createTime">
+                <div ng-bind="createTime"></div>
+            </tiny-item>
+            <tiny-item label="label.vncPw">
+                <div ng-if="vncPw">
+                    <a class="btn-link" ng-bind="i18n.common_term_check_button" ng-show="!showPass" ng-click="showPass = true"></a>
+                    <p ng-bind="vncPw" ng-show="showPass"></p>
+                </div>
+                <div ng-if="!vncPw">
+                    <span class="disabled" ng-bind="i18n.common_term_check_button"></span>
+                </div>
+            </tiny-item>
+            <tiny-item label="label.tag">
+                <div ng-bind="tag"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="span6">
+        <tiny-formfield>
+            <tiny-item label="label.hypervisor">
+                <div ng-bind="hypervisor"></div>
+            </tiny-item>
+            <tiny-item label="label.cluster">
+                <div ng-bind="clusterName"></div>
+            </tiny-item>
+            <tiny-item label="label.host">
+                <div ng-bind="hostName"></div>
+            </tiny-item>
+            <tiny-item label="label.az">
+                <div ng-bind="az"></div>
+            </tiny-item>
+            <tiny-item label="label.storage">
+                <div ng-bind="dataStore"></div>
+            </tiny-item>
+            <tiny-item label="label.useDisaster">
+                <div ng-bind="useDisaster"></div>
+            </tiny-item>
+            <tiny-item label="label.disasterGroup">
+                <div ng-bind="disasterGroup"></div>
+            </tiny-item>
+            <tiny-item label="label.app">
+                <div ng-bind="app"></div>
+            </tiny-item>
+            <tiny-item label="label.vdcId">
+                <div ng-bind="vdcId"></div>
+            </tiny-item>
+            <tiny-item label="label.desc">
+                <div class="autoWrap" ng-bind="description"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/hypervisor/vm/vmDetailCtrl'],
+            function ($, vmDetailCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $("#vmDetailDiv").parent().parent().parent().prev().attr("lineNum");
+                var vmId = $("#vmDetailDiv").parent().parent().parent().prev().attr("vmId");
+                var id = "vmDetailDiv_" + lineNum;
+                $("#vmDetailDiv").attr("id", id);
+
+                //编译
+                var dep = ['ng', 'wcc', vmDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + id));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#" + id))($rootScope);
+                    $rootScope.$digest();
+                });
+                $("#" + id).scope().getVm(vmId, id);
+            });
+</script>

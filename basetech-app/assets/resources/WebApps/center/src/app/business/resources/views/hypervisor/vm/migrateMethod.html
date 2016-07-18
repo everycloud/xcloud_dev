@@ -1,0 +1,13 @@
+<div id="migrateMethodDiv">
+    <tiny-radiogroup id="methodRadioGroup.id" values="methodRadioGroup.values"
+                     layout="methodRadioGroup.layout" change="methodRadioGroup.change()"></tiny-radiogroup>
+    <div class="clear_both">
+        <div ng-show="methodShow.host" ng-bind-html="i18n.vm_vm_migrate_para_mode_mean_changeHost_label"></div>
+        <div ng-show="methodShow.store" ng-bind-html="i18n.vm_vm_migrate_para_mode_mean_changeStorage_label"></div>
+    </div>
+    <div class="fm-btn-top-large">
+        <tiny-button class="major-btn" id="methodNextButton.id" text="methodNextButton.text" click="methodNextButton.click()"></tiny-button>
+        <tiny-button id="methodCancelButton.id" text="methodCancelButton.text"
+                     click="methodCancelButton.click()"></tiny-button>
+    </div>
+</div>

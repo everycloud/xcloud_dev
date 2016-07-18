@@ -1,0 +1,38 @@
+.jqplot-yaxis {
+	margin-right: 10px;
+}
+.jqplot-axis {
+	font-size: 0.55em;
+}
+.jqplot-target {
+	position: relative;
+	color: #666666;
+	font-family: "Microsoft Yahei", "Arial", "Tahoma", "Verdana", "SimSun";
+}
+
+.jqplot-xaxis {
+	margin-top: 5px;
+}
+table.jqplot-table-legend, table.jqplot-cursor-legend {
+	border: 0px solid #cccccc;
+	position: absolute;
+	font-size: 12px;
+	color: #000000;
+}
+table.jqplot-table-legend {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+div.jqplot-table-legend-swatch {
+	width: 12px;
+	height: 12px;
+}
+.jqplot-title {
+	padding-bottom: 0.5em;
+	font-size: 1.2em;
+}
+.jqplot-yaxis-tick {
+	right: 0px;
+	top: 15px;
+	text-align: right;
+}

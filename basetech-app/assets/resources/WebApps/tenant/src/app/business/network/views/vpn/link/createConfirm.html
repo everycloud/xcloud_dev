@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="create-page-distance">
+        <div id="basicInfoDiv">
+            <div class="createpage-title"><span ng-bind="i18n.common_term_setBasicInfo_label"></span></div>
+            <tiny-formfield>
+                <tiny-item label="info.name.label">
+                    <span ng-bind="service.name"></span>
+                </tiny-item>
+                <tiny-item label="info.type.label">
+                    <span ng-bind="service.vpnTypeUI"></span>
+                </tiny-item>
+                <tiny-item label="info.desc.label">
+                    <span ng-bind="service.description"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div ng-show="service.vpnType=='0'">
+            <div class="createpage-title"><span ng-bind="i18n.vpn_term_tunnelInfo_label"></span></div>
+            <tiny-formfield>
+                <tiny-item label="info.localTable.label">
+                    <tiny-table id="info.localTable.id" data="service.selectedNets" columns="info.localTable.columns" enable-pagination="false"></tiny-table>
+                </tiny-item>
+                <tiny-item label="info.gateway.label">
+                    <span>{{service.customerGw.ipAddr}}</span>
+                </tiny-item>
+                <tiny-item label="info.network.label">
+                    <div ng-repeat="subnet in service.customerGw.customerSubnets">
+                        <div class="margin-beautifier">
+                            <span>{{i18n.common_term_Subnet_label}}: {{subnet.subnetAddr}} /</span>
+                            <span>{{i18n.common_term_SubnetMask_label}}: {{subnet.subnetMask}}</span>
+                        </div>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+            <div class="createpage-title"><span ng-bind="i18n.vpn_term_ESPpolicy_label"></span></div>
+            <tiny-formfield>
+                <tiny-item label="info.dnAlgorithm.label">
+                    <span>{{service.pfsGroup}}</span>
+                </tiny-item>
+                <tiny-item label="info.lifeTime.label">
+                    <span>{{service.lifeTime}}</span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div ng-show="service.vpnType=='1'">
+            <div class="createpage-title"><span ng-bind="i18n.vpn_term_userIPassign_label"></span></div>
+            <tiny-formfield>
+                <tiny-item label="info.subnetAddr.label">
+                    <span>{{service.l2tpInfo.subnetAddr}}</span>
+                </tiny-item>
+                <tiny-item label="info.subnetMask.label">
+                    <span>{{service.l2tpInfo.subnetMask}}</span>
+                </tiny-item>
+            </tiny-formfield>
+            <div class="createpage-title"><span ng-bind="i18n.vpn_term_connectUser_label"></span></div>
+            <div ng-repeat="user in service.users">
+                <tiny-formfield>
+                    <tiny-item label="i18n.common_term_userName_label + ($index+1) + ': '">
+                        <span ng-bind="user.userName"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+        <div class="fm-btn-top-small">
+            <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+            <tiny-button id="info.createBtn.id" text="info.createBtn.text" click="info.createBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>

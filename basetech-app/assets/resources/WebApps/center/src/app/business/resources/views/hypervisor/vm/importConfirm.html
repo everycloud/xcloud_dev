@@ -1,0 +1,63 @@
+<div id="add_environment_confirm_div">
+    <tiny-formfield>
+        <tiny-item label="templateFile.label">
+            <div ng-bind="model.templateFile"></div>
+        </tiny-item>
+        <tiny-item label="dirTextbox.label">
+            <div ng-bind="model.templateDir"></div>
+        </tiny-item>
+        <tiny-item label="label.useAccount">
+            <div ng-bind="model.useAccountStr"></div>
+        </tiny-item>
+        <tiny-item label="usernameTextbox.label" display="model.useAccount">
+            <div ng-bind="model.username"></div>
+        </tiny-item>
+        <tiny-item label="label.cluster" display="!model.occupiedVmId">
+            <div ng-bind="model.cluster"></div>
+        </tiny-item>
+        <tiny-item label="label.host" display="model.selectHost">
+            <div ng-bind="model.host"></div>
+        </tiny-item>
+        <tiny-item label="nameTextbox.label" display="!model.occupiedVmId">
+            <div ng-bind="model.vmName"></div>
+        </tiny-item>
+        <tiny-item label="label.osType">
+            <div ng-bind="model.osType"></div>
+        </tiny-item>
+        <tiny-item label="basicDescTextbox.label" display="!model.occupiedVmId">
+            <div ng-bind="model.description"></div>
+        </tiny-item>
+        <tiny-item label="coreNumTextbox.label">
+            <div ng-bind="model.coreNum"></div>
+        </tiny-item>
+        <tiny-item label="memoryTextbox.label">
+            <div ng-bind="model.memorySize + model.memoryUnit"></div>
+        </tiny-item>
+        <tiny-item label="confirmDiskTable.label" display="!model.occupiedVmId">
+            <div style="width: 1200px">
+                <tiny-table id="confirmDiskTable.id" caption="confirmDiskTable.caption" data="confirmDiskTable.data"
+                            columns='confirmDiskTable.columns' render-row="confirmDiskTable.renderRow"
+                            enable-pagination="confirmDiskTable.enablePagination"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item label="confirmNicTable.label" display="!model.occupiedVmId">
+            <div style="width: 1200px">
+                <tiny-table id="confirmNicTable.id" caption="confirmNicTable.caption" data="confirmNicTable.data"
+                            columns='confirmNicTable.columns' render-row="confirmNicTable.renderRow"
+                            enable-pagination="confirmNicTable.enablePagination"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item display="!model.occupiedVmId">
+            <tiny-checkbox id="autoBootCheckbox.id" text="autoBootCheckbox.text"
+                           checked="autoBootCheckbox.checked"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="confirmPreButton.id" text="confirmPreButton.text"
+                         click="confirmPreButton.click()"></tiny-button>
+            <tiny-button id="confirmOkButton.id" text="confirmOkButton.text"
+                         click="confirmOkButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="confirmCancelButton.id" text="confirmCancelButton.text"
+                         click="confirmCancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

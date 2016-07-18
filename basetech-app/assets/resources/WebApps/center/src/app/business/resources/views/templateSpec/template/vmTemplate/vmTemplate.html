@@ -1,0 +1,52 @@
+<div fm-help help="'drawer_template_vm'" show="show.help" i18n="'zh'"></div>
+<div>
+    <div class="clearfix bottom10">
+        <div  ng-if="privilege.role_role_add_option_vmTemplateHandle_value" class="fl">
+            <tiny-button class="major-btn" id="create.id" disable="create.disabled" icons-class="create.iconsClass" text="create.text"
+                         tooltip="create.tip" click="create.create()"></tiny-button>
+            <tiny-button id="discover.id" disable="discover.disabled" icons-class="discover.iconsClass"
+                         text="discover.text"
+                         tooltip="discover.tip" click="discover.discover()"></tiny-button>
+        </div>
+
+        <!--刷新、列选择、帮助-->
+        <div class="pull-right">
+            <tiny-filtersel id="searchOSType.id" values="searchOSType.values" width="searchOSType.width"
+                            default-label="searchOSType.dftLabel" change="searchOSType.change()">
+            </tiny-filtersel>
+            <tiny-filtersel id="searchOSVersion.id" values="searchOSVersion.values" width="searchOSVersion.width" height="searchOSVersion.height"
+                            default-label="searchOSVersion.dftLabel" change="searchOSVersion.change()">
+            </tiny-filtersel>
+            <tiny-filtersel id="searchStatus.id" values="searchStatus.values" width="searchStatus.width" change="searchStatus.change()">
+            </tiny-filtersel>
+            <tiny-filtersel id="searchFuzzy.id" values="searchFuzzy.values" width="searchFuzzy.width" change="searchFuzzy.change()">
+            </tiny-filtersel>
+        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+            <a class="btn-link">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{ i18n.common_term_fresh_button }}" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div title="{{ i18n.common_term_onlinehelp_label }}" ng-click="show.help=true" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="margin-top-beautifier">
+        <tiny-table id="vmTemplateTable.id" caption="vmTemplateTable.caption" data="vmTemplateTable.data"
+                    columns="vmTemplateTable.columns"
+                    enable-pagination="vmTemplateTable.enablePagination"
+                    pagination-style="vmTemplateTable.paginationStyle" length-change="vmTemplateTable.lengthChange"
+                    length-menu="vmTemplateTable.lengthMenu" display-length="vmTemplateTable.displayLength"
+                    enable-filter="vmTemplateTable.enableFilter"
+                    cur-page="vmTemplateTable.curPage" total-records="vmTemplateTable.totalRecords"
+                    hide-total-records="vmTemplateTable.hideTotalRecords"
+                    callback="vmTemplateTable.callback" render-row="vmTemplateTable.renderRow" change-select="vmTemplateTable.changeSelect"
+                    show-details="vmTemplateTable.showDetails"
+                    columns-draggable="vmTemplateTable.columnsDraggable"></tiny-table>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<link href="../theme/default/css/gm/app.css" type="text/css" rel="stylesheet" />
+<div class="container-fluid">
+    <div>
+        <div class="crumbs">
+            <ul class="nav nav-list noPadding">
+                <li>
+                    <ul class="breadcrumb">
+                        <li><a ui-sref="application.manager.instance" ng-bind="i18n.app_term_appInstance_label"></a> &gt; </li>
+                        <li><a ui-sref="application.navigate.topo" ng-bind="appName"></a> &gt; </li>
+                        <li>{{i18n.common_term_monitor_label}}</li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-right-box">
+        <div id="app-monitorMgr-tabs" class="tiny-tabs-container">
+            <div class="tiny-tabs-titles">
+                <ul>
+                    <li ng-class="{tinyTabActive:$state.includes('application.navigate.monitor.res')}">
+                        <a ui-sref="application.navigate.monitor.res" ng-bind-html="i18n.common_term_resources_label"></a>
+                    </li>
+                    <li ng-class="{tinyTabActive:$state.includes('application.navigate.monitor.process')}" ng-show="isIT">
+                        <a ui-sref="application.navigate.monitor.process" ng-bind-html="i18n.common_term_process_label"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tiny-tabs-content">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+require(["tiny-widgets/Tabs"], function(Tabs) {
+    var tabs = new Tabs({
+        "id": "app-monitorMgr-tabs",
+        "setActiveClass": true
+    });
+});
+</script>

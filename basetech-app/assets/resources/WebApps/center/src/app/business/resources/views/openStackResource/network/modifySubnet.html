@@ -1,0 +1,18 @@
+<fm-valid valid="valid.modifySubnetCheck">
+    <tiny-formfield>
+        <tiny-item label="subnetForm.label.name" require="false">
+            <fm-text value="subnetPara.name" require="false"></fm-text>
+        </tiny-item>
+        <tiny-item label="subnetForm.label.gateWay" require="true">
+            <fm-ipv4 value="subnetPara.gateWay" ng-show="(subnetPara.ip_version == '4')" valid="subnetForm.gateCheck(
+						lib.string2ip(subnetPara.ip),
+						lib.string2ip(subnetPara.mask),
+						lib.string2ip(subnetPara.gateWay))"></fm-ipv4>
+            <fm-ipv6 value="subnetPara.gateWay" ng-show="(subnetPara.ip_version == '6')"></fm-ipv6>
+        </tiny-item>
+        <tiny-item>
+            <fm-button text="subnetForm.label.modify" class='fm-valid' click="modifySubnet"></fm-button>
+            <fm-button text="subnetForm.label.cancel" class='fm-valid-clear' click="cancelSubnet"></fm-button>
+        </tiny-item>
+    </tiny-formfield>
+</fm-valid>

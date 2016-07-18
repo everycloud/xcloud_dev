@@ -1,0 +1,113 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="监控视图">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_500004">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>监控视图</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_500004"></a><a name="it_60_51_500004"></a>
+
+
+<h1 class="topictitle1">监控视图</h1>
+
+
+<div id="perf_monitor"><a name="perf_monitor"></a><a name="perf_monitor"></a><p></p>
+
+
+<p>提供接入<span>FusionManager</span>的<span>FusionSphere OpenStack</span>的资源的性能监控指标。</p>
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">CPU使用率</h4></div><div class="dropdowncontext"><p><strong>指标含义</strong></p>
+<p>该指标用于统计测量对象的CPU使用率。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机CPU使用率
+= 1&#8211;主机CPU空闲时间 / 主机CPU总时间。</li><li>虚拟机CPU使用率 = 单个虚拟机CPU使用率 / 单个虚拟机的CPU总核数。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div></div></div>
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">内存使用率</h4></div><div class="dropdowncontext"><p><strong>指标含义</strong></p>
+<p>该指标用于统计测量对象的内存使用率。</p>
+<p>测量对象可以是：主机和虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机内存使用率
+= 主机的内存使用量 / 主机的内存总量。</li><li>虚拟机内存使用率 = 该虚拟机内存使用量 / 该虚拟机内存总量。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div></div></div>
+
+
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">网络流入速率</h4></div><div class="dropdowncontext"><p><strong>指标含义</strong></p>
+<p>该指标用于统计每秒流入测量对象的网络流量。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机网络流入流速 = 主机的网络流入的字节数之和 / 测量周期。</li><li>虚拟机网络流入流速 = 虚拟机的网络流入的字节数之和 / 测量周期。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">网络流出速率</h4></div><div class="dropdowncontext"><p><strong>指标含义</strong></p>
+<p>该指标用于统计每秒流出测量对象的网络流量。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机网络流出流速 = 主机的网络流出的字节数之和 / 测量周期。</li><li>虚拟机网络流出流速= 虚拟机的网络流出的字节数之和 / 测量周期。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">磁盘I/O写入</h4></div><div class="dropdowncontext"><p><strong>指标含义</strong></p>
+<p>该指标用于统计每秒写到测量对象的数据量，以KB为单位。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<ul><li>主机磁盘写入的字节数 = 主机的磁盘写入的字节数之和 / 测量周期。</li><li>虚拟机磁盘写入的字节数 = 虚拟机的磁盘写入的字节数之和 / 测量周期。</li></ul>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">磁盘I/O读出</h4></div><div class="dropdowncontext"><p><strong>指标含义</strong></p>
+<p>该指标用于统计每秒从测量对象读出数据量，以KB为单位。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机磁盘读出的字节数 = 主机的磁盘读出的字节数之和 / 测量周期。</li><li>虚拟机磁盘读出的字节数 = 虚拟机的磁盘读出的字节数之和 / 测量周期。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">磁盘使用率</h4></div><div class="dropdowncontext"><p><strong>指标含义</strong></p>
+<p>该指标用于统计测量对象的磁盘使用情况。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机磁盘使用率 = 主机磁盘的已使用容量 / 主机磁盘的总容量。</li><li>虚拟机磁盘使用率 = 虚拟机磁盘使用容量 / 虚拟机磁盘总容量。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div></div></div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<div>
+    <div id="createVmtInstallSoftware" class="margin-top-beautifier">
+        <div ng-if="service.model.hypervisorType === 'FusionCompute'">
+            <p ng-repeat="fcView in i18n.split(i18n.template_vm_add_desc_mountCDfc_label)">
+                {{fcView}}
+            </p>
+        </div>
+        <div ng-if="service.model.hypervisorType === 'VMware'">
+            <p ng-repeat="vmwareView in i18n.split(i18n.template_vm_add_desc_mountCDvmware_label)">
+                {{vmwareView}}
+            </p>
+        </div>
+        <div class="margin-top-beautifier">
+            <span id="vnc-applet-id"></span>
+            <span id="checkJRE"></span>
+            <div>
+                <label><span ng-bind="i18n.template_term_currentStartMode_label"></span>:</label>
+                <span ng-bind="model.startMode"></span>
+                <a href="javascript:void(0)" ng-click="windowOperator.changeStartMode()"><span ng-bind="i18n.vm_term_modifyStartMode_button"></span></a>
+            </div>
+            <div ng-if="service.model.hypervisorType === 'FusionCompute'">
+            <tiny-formfield>
+                <tiny-item label="installMountConfig.label" require="installMountConfig.require">
+                    <tiny-radiogroup id="installMountConfig.id" values="installMountConfig.values"
+                                     spacing="installMountConfig.spacing" layout="installMountConfig.layout"
+                                     change="installMountConfig.change()"></tiny-radiogroup>
+                </tiny-item>
+            </tiny-formfield>
+            </div>
+        </div>
+
+        <div ng-if="service.model.hypervisorType === 'FusionCompute'">
+        <div id="mountISOInfo">
+        <div ng-if="model.mountMode == 'local'" class="margin-top-beautifier">
+        </div>
+
+        <div ng-if="model.mountMode == 'share'" class="margin-top-beautifier">
+            <tiny-formfield>
+                <tiny-item label="name.label" require="name.require">
+                    <tiny-textbox id="name.id" value="name.value" validate="name.validate"
+                                  focused="name.focused"
+                                  width="name.width"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="password.label" require="password.require">
+                    <tiny-textbox id="password.id" value="password.value" validate="password.validate"
+                                  focused="password.focused" type="password.type"
+                                  width="password.width"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="shareUrl.label" require="shareUrl.require">
+                    <tiny-textbox id="shareUrl.id" value="shareUrl.value" validate="shareUrl.validate"
+                                  focused="shareUrl.focused" extend-function="shareUrl.extendFunction"
+                                  width="shareUrl.width"></tiny-textbox>
+                    <div>
+                    <span>
+                        <p ng-repeat="pathView in i18n.split(i18n.vm_vm_import_para_path_mean_label)">
+                            {{pathView}}
+                        </p>
+                    </span>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <div ng-if="model.mountMode == 'iso'" class="margin-top-beautifier">
+            <tiny-formfield>
+                <tiny-item label="selectIsoBtn.label" require="selectIsoBtn.require">
+                    <tiny-button id="selectIsoBtn.id" disable="selectIsoBtn.disabled" icons-class="selectIsoBtn.iconsClass" text="selectIsoBtn.text"
+                                 tooltip="selectIsoBtn.tip" click="selectIsoBtn.selectISO()"></tiny-button>
+                </tiny-item>
+                <tiny-item label="isoName.label" require="isoName.require">
+                    <span ng-bind="selectedISO.name"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        </div>
+        </div>
+        <div ng-if="service.model.hypervisorType === 'VMware'" class="margin-top-beautifier">
+            <div id="mountISOInfoVmware">
+            <tiny-formfield>
+                <tiny-item label="shareUrlVmware.label" require="shareUrlVmware.require">
+                    <tiny-textbox id="shareUrlVmware.id" value="shareUrlVmware.value" validate="shareUrlVmware.validate"
+                                  focused="shareUrlVmware.focused" extend-function="shareUrlVmware.extendFunction"
+                                  width="shareUrlVmware.width"></tiny-textbox>
+                    <div>
+                    <span>
+                        <p ng-repeat="pathView in i18n.split(i18n.vm_vm_importVMware_para_path_mean_label)">
+                            {{pathView}}
+                        </p>
+                    </span>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="margin-top-beautifier">
+        <tiny-button id="mountBtn.id" disable="mountBtn.disabled" icons-class="mountBtn.iconsClass" text="mountBtn.text"
+                     tooltip="mountBtn.tip" click="mountBtn.mount()"></tiny-button>
+        <tiny-button id="umountBtn.id" disable="umountBtn.disabled" icons-class="umountBtn.iconsClass" text="umountBtn.text"
+                     tooltip="umountBtn.tip" click="umountBtn.umount()"></tiny-button>
+        <tiny-button id="vncBtn.id" disable="vncBtn.disabled" icons-class="vncBtn.iconsClass" text="vncBtn.text"
+                     tooltip="vncBtn.tip" click="vncBtn.vncLogin()"></tiny-button>
+        <tiny-button id="successBtn.id" disable="successBtn.disabled" icons-class="successBtn.iconsClass" text="successBtn.text"
+                     tooltip="successBtn.tip" click="successBtn.success()"></tiny-button>
+        <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                     text="cancelBtn.text"
+                     tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+    </div>
+</div>

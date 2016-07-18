@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="公网IP地址池">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100025">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>公网IP地址池</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100025"></a><a name="it_60_51_100025"></a>
+
+
+
+<h1 class="topictitle1">公网IP地址池</h1>
+
+<div>
+<div class="p"><span id="it_60_51_100025__pip_define"><a name="it_60_51_100025__pip_define"></a><a name="pip_define"></a>公网IP地址是系统中的虚拟机与公网通信所需的IP地址资源。</span>如下业务均需在资源分区中添加公网IP地址池。<ul><li>弹性IP（硬件防火墙方式）</li><li>NAT（硬件防火墙方式）</li><li>ACL</li><li>VPN</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle">添加公网IP地址池</h4><p>添加公网IP地址池，为虚拟机提供可用的公网IP地址资源。</p>
+<div class="p">添加的公网IP地址池要求如下：<ul><li>不能与在防火墙上手动配置的公网IP地址重复，否则可能会业务冲突。</li><li>已经在核心交换机上配置公网IP池到汇聚交换机的下行路由。</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">配置公网IP地址的NAT复用功能</h4><p>当公网IP地址用于NAT业务时，系统默认一个公网IP地址不能同时用于DNAT和SNAT。若需使一个公网IP地址可同时用于DNAT和SNAT，则需开启NAT复用功能，具体操作方法请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600033.html" target="_blank">配置公网IP地址复用为DNAT和SNAT</a>。</p>
+<p>开启复用功能后，公网IP地址若同时用于DNAT和SNAT，则公网IP地址使用情况将分别计数于DNAT和SNAT，因此使用情况中显示的已使用公网IP地址总和会大于分配情况中显示的数值。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">删除公网IP地址池</h4><p>当公网IP地址池不再使用时，删除公网IP池。如果公网IP地址池中有公网IP地址被申请使用，则无法删除。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

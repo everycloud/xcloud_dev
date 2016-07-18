@@ -1,0 +1,36 @@
+<div fm-help help="'drawer_resource_vlan'" show="show.help" i18n="'zh'"></div>
+<div class="clearfix">
+    <tiny-button ng-show="right.hasNetPoolOperateRight" class="major-btn" id="create.id"
+                 text="create.text"
+                 click="create.create()"></tiny-button>
+    <!--刷新、列选择、帮助-->
+    <div class="pull-right">
+        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+        <a class="btn-link">
+            <div ng-click="refresh.refresh()" id="vlanPoolRefresh_id" title="{{i18n.common_term_fresh_button}}"
+                 class="small-icon small-icon-refresh"></div>
+        </a>
+        <a class="btn-link">
+            <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+        </a>
+    </div>
+</div>
+<div class="margin-top-beautifier">
+    <tiny-table id="vlanPoolTable.id" caption="vlanPoolTable.caption" data="vlanPoolTable.data"
+                columns="vlanPoolTable.columns"
+                enable-pagination="vlanPoolTable.enablePagination"
+                pagination-style="vlanPoolTable.paginationStyle" length-change="vlanPoolTable.lengthChange"
+                length-menu="vlanPoolTable.lengthMenu" display-length="vlanPoolTable.displayLength"
+                enable-filter="vlanPoolTable.enableFilter"
+                cur-page="vlanPoolTable.curPage" total-records="vlanPoolTable.totalRecords"
+                hide-total-records="vlanPoolTable.hideTotalRecords"
+                callback="vlanPoolTable.callback" change-select="vlanPoolTable.changeSelect"
+                render-row="vlanPoolTable.renderRow"
+                show-details="vlanPoolTable.showDetails" columns-visibility="vlanPoolTable.columnVisibility"
+                columns-draggable="vlanPoolTable.columnsDraggable"></tiny-table>
+</div>

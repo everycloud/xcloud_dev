@@ -1,0 +1,241 @@
+<style type="text/css">
+    .topo-container {
+        width: 100%;
+        height: 437px;
+        background: url("../theme/default/images/topo-bg.png") no-repeat 50% 50%;
+        text-align: center;
+        overflow: auto;
+    }
+
+    .region-list {
+        padding: 20px 200px;
+    }
+
+    .region-item {
+        position: relative;
+        display: inline-block;
+        width: 242px;
+        height: 137px;
+        margin: 30px;
+    }
+
+    .region-name {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: -30px;
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    .region-item-less {
+        margin-top: 100px;
+    }
+
+    .region-random-list .left {
+        left: -10%;
+    }
+
+    .region-random-list .right {
+        left: 10%;
+    }
+
+    .region-random-list .region-item {
+        margin: 30px 50px;
+    }
+
+    .region-item-icon {
+        width: 130px;
+        height: 100px;
+        padding: 30px 62px 7px 50px;
+        background: url("../theme/default/images/region.png");
+        cursor: pointer;
+    }
+
+    .region-add {
+        display: inline-block;
+        margin: 6px;
+        height: 8px;
+        width: 230px;
+        height: 121px;
+        background: url("../theme/default/images/region-add.png");
+    }
+
+    .region-item-container {
+        position: relative;
+        height: 100%;
+    }
+
+    .az-list {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .az-canvas canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+    .az-item {
+        position: relative;
+        display: inline-block;
+        width: 63px;
+        height: 50px;
+    }
+
+    .az-item-less {
+        margin-top: 25px;
+    }
+
+    .az-item-icon {
+        display: inline-block;
+        width: 52px;
+        height: 31px;
+        margin-top: 10px;
+        background: url("../theme/default/images/az.png");
+    }
+
+    .region-item > .popover.top {
+        bottom: 130px;
+        left: -5px;
+        top: auto;
+    }
+
+    .az-item > .popover.top {
+        bottom: 60px;
+        left: -85px;
+        top: auto;
+    }
+
+    .region-item > .popover.right {
+        top: 10px;
+        right: -240px;
+        left: auto;
+    }
+
+    .az-item > .popover.right {
+        top: 10px;
+        right: -240px;
+        left: auto;
+    }
+
+    .more-az {
+        position: absolute;
+        right: -30px;
+        bottom: 10px;
+    }
+</style>
+<div ng-controller="servicePage.topo.ctrl">
+    <div class="outbox-padding top10">
+        <div>
+            <div class="legend">{{i18n.common_term_section_label + ' / ' + i18n.resource_term_AZ_label}}</div>
+        </div>
+        <div class="topo-container">
+            <ul class="region-list clearfix" ng-class="{'region-random-list':regions.length == 3}">
+                <li id=""
+                    class="region-item region-item-icon"
+                    ng-class="{right:$last,left:!$last,'region-item-less':regions.length <= 2}"
+                    ng-repeat="region in regions"
+                    ng-click="operator.regionAction($event)">
+                    <div class="region-item-container">
+                        <svg width="130px" height="100px" xmlns="http://www.w3.org/2000/svg">
+                            <line data-x1="{{line.x1}}"
+                                  data-y1="{{line.y1}}"
+                                  data-x2="{{line.x2}}"
+                                  data-y2="{{line.y2}}"
+                                  style="stroke:#00a6e7;stroke-width:2;"
+                                  ng-repeat="line in region.lines"/>
+                        </svg>
+                        <ul class="az-list clearfix" ng-click="operator.regionAction($event)">
+                            <li class="az-item"
+                                ng-class="{'az-item-less':region.azs.length<3}"
+                                ng-repeat="az in region.azs"
+                                ng-if="$index < 4">
+                                <a href="javascript:void 0;"
+                                   class="az-item-icon"
+                                   ng-click="operator.azAction($event)"
+                                   title="{{az.name}}"></a>
+
+                                <div class="popover right" id="{{region.id+'_'+az.id}}" style="">
+                                    <div class="arrow"></div>
+                                    <div class="popover-inner">
+                                        <h3 class="popover-title" ng-bind="az.name" title="{{az.name}}" ng-show="az.name"></h3>
+
+                                        <div class="popover-content" style="width:200px;">
+                                            <tiny-formfield class="clearfix">
+                                                <tiny-item label="azLabels.name">
+                                                    <div ng-bind="az.name" title="{{az.name}}"></div>
+                                                </tiny-item>
+                                                <tiny-item label="azLabels.bindedVDC" display="!openstack">
+                                                    <div ng-bind="az.associatedOrgNumText" title="{{az.associatedOrgNumText}}"></div>
+                                                </tiny-item>
+                                                <tiny-item label="azLabels.status">
+                                                    <div ng-bind="az.serviceStatusText" title="{{az.serviceStatusText}}"></div>
+                                                </tiny-item>
+                                            </tiny-formfield>
+                                            <a href="javascript:void 0;"
+                                               ng-click="operator.azDetail($event,region)"
+                                               ng-bind="azLabels.detail"
+                                               class=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="javascript:void 0;"
+                           class="more-az"
+                           ng-click="operator.azDetail($event,region)"
+                           ng-bind="azLabels.more"
+                           title="{{azLabels.more}}"
+                           ng-if="region.azs.length > 4"></a>
+                    </div>
+
+                    <div class="popover right" id="{{region.id}}" style="">
+                        <div class="arrow"></div>
+                        <div class="popover-inner">
+                            <h3 class="popover-title" ng-bind="region.region" title="{{region.region}}" ng-show="region.region"></h3>
+
+                            <div class="popover-content" style="width:250px;">
+                                <tiny-formfield class="clearfix">
+                                    <tiny-item label="regionLabels.region">
+                                        <div ng-bind="region.region" title="{{region.region}}"></div>
+                                    </tiny-item>
+                                    <tiny-item label="regionLabels.connectStatus">
+                                        <div ng-bind="region.connectStatusText" title="{{region.connectStatusText}}"></div>
+                                    </tiny-item>
+                                    <tiny-item label="regionLabels.cpu">
+                                        <div ng-bind="region.cpu" title="{{region.cpu}}"></div>
+                                    </tiny-item>
+                                    <tiny-item label="regionLabels.memery">
+                                        <div ng-bind="region.memery" title="{{region.memery}}"></div>
+                                    </tiny-item>
+                                    <tiny-item label="regionLabels.storage">
+                                        <div ng-bind="region.storage" title="{{region.storage}}"></div>
+                                    </tiny-item>
+                                </tiny-formfield>
+                                <a href="javascript:void 0;"
+                                   ng-click="operator.regionDetail($event,region)"
+                                   ng-bind="regionLabels.detail"
+                                   class=""></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="region-name" ng-bind="region.region" title="{{region.region}}"
+                       ng-click="operator.regionDetail($event,region)"></a>
+                </li>
+                <li class="region-item right" ng-class="{'region-item-less':regions.length <= 2}">
+                    <a href="javascript:void 0;" class="region-add" title="{{tips}}" ng-click="operator.addRegion()"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

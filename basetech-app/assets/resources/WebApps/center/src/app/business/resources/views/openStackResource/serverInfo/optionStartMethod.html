@@ -1,0 +1,15 @@
+<div id="optionStartMethodDiv">
+    <div class="legend1" ng-bind="i18n.common_term_startupMode_label"></div>
+    <div class="horizontal_line"></div>
+    <p ng-bind="i18n.vm_vm_startMode_desc_label"></p>
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-select id="startMethodSelector.id" values="startMethodSelector.values"
+                         width="startMethodSelector.width"></tiny-select>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button class="major-btn" id="startMethodOkButton.id" text="startMethodOkButton.text"
+                         click="startMethodOkButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

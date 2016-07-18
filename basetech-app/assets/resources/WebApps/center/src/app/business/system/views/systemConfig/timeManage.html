@@ -1,0 +1,174 @@
+<div fm-help help="'drawer_sys'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{i18n.sys_term_time_label}}</span></li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.sys_time_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="outbox-padding">
+            <a class="btn-link fr top10" href="javascript:void 0;">
+                <div   ng-click="show.help=true" class="small-icon small-icon-help"></div>
+            </a>
+            <div class="legend">{{i18n.sys_term_timeSync_label}}</div>
+            <div class="clearfix">
+                <span class="fl bottom5 color2">
+                <span ng-bind-html="i18n.sys_time_snyc_desc_label"></span>
+                </span>
+            </div>
+            <tiny-formfield>
+                <tiny-item label="systemTimeName.label" ng-bind="systemTimeName.value">
+                </tiny-item>
+                <tiny-item id="timeSychName.id" label="timeSychName.label" require="timeSychName.require">
+                    {{timeSychName.value}}
+                </tiny-item>
+                <tiny-item id="timeServerOne.id" label="timeServerOne.label" require="timeServerOne.require">
+                    <tiny-ip id="timeServerOne.id" type="timeServerOne.type" value="timeServerOne.value"  class="line-height20"
+                             disable="!hasTimeManageOperateRight"></tiny-ip>
+                </tiny-item>
+                <tiny-item id="timeServerTwo.id" label="timeServerTwo.label" require="timeServerTwo.require">
+                    <tiny-ip id="timeServerTwo.id" type="timeServerTwo.type" value="timeServerTwo.value" class="line-height20"
+                             disable="!hasTimeManageOperateRight"></tiny-ip>
+                </tiny-item>
+                <tiny-item label="timeServerThree.label" require="timeServerThree.require">
+                    <tiny-ip id="timeServerThree.id" type="timeServerThree.type"
+                             value="timeServerThree.value" class="line-height20"
+                             disable="!hasTimeManageOperateRight"></tiny-ip>
+                </tiny-item>
+                <tiny-item id="timeSysInterval.id" label="timeSysInterval.label" require="timeSysInterval.require">
+                    <tiny-select id="timeSysInterval.id" values="timeSysInterval.values"
+                                 disable="timeSysInterval.disabled || !hasTimeManageOperateRight">
+                    </tiny-select>
+                    <span class="color2">{{i18n.sys_time_snyc_para_distance_mean_label}}</span>
+                </tiny-item>
+                <tiny-item class="fm-btn-top-smaller">
+                    <fm-button class="major-btn" id="saveBtn.id" text="saveBtn.text"
+                                 click="saveBtn.save"
+                                 ng-if="hasTimeManageOperateRight"></fm-button>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <div class="outbox-padding">
+            <div class="legend">{{i18n.sys_term_forciblySyncTime_button}}</div>
+            <div class="bottom5 color2">{{i18n.sys_time_snyc_info_warning_label}}</div>
+            <tiny-formfield>
+                <tiny-item id="forceTimeStatus.id" label="forceTimeStatus.label">
+                    {{forceTimeStatus.value}}
+                </tiny-item>
+                <tiny-item id="forceTimeFail.id" label="forceTimeFail.label">
+                    {{forceTimeFail.value}}
+                </tiny-item>
+            </tiny-formfield>
+            <div class="fm-btn-top-smaller">
+            <tiny-formfield>
+                <fm-button id="forceTimeSysBtn.id" class="major-btn" text="forceTimeSysBtn.text"
+                             click="forceTimeSysBtn.force"
+                             ng-if="hasTimeManageOperateRight"></fm-button>
+            </tiny-formfield>
+            </div>
+        </div>
+
+        <div class="outbox-padding">
+            <div class="legend">{{i18n.common_term_timeZone_label}}</div>
+            <div class="bottom5 color2">{{i18n.sys_time_modifyTimeZone_desc_msg}}</div>
+            <tiny-formfield>
+                <tiny-item id="district.id" label="district.label" require="district.require">
+                    <tiny-select id="district.id" values="district.values" width="district.width"
+                                 change="district.changeDistrict()" disable="district.disabled || !hasTimeManageOperateRight" height="district.height">
+                    </tiny-select>
+                </tiny-item>
+                <tiny-item id="city.id" label="city.label" require="city.require">
+                    <tiny-select id="city.id" values="city.values" width="city.width" disable="city.disabled || !hasTimeManageOperateRight" height="city.height">
+                    </tiny-select>
+                </tiny-item>
+                <tiny-item id="currentTimezone.id" label="currentTimezone.label">
+                    {{currentTimezone.value}}
+                </tiny-item>
+            </tiny-formfield>
+
+
+            <tiny-formfield>
+                <div class="clearfix">
+                    <tiny-checkbox id="supportClock.id" values="supportClock.values" text="supportClock.text"
+                                   style="padding-left:12px" checked="supportClock.checked"
+                                   change="supportClock.isDisable()"
+                                   disable="!hasTimeManageOperateRight">
+                    </tiny-checkbox>
+                </div>
+                <tiny-item id="startTime.id" label="startTime.label" disable="startTime.disable || !hasTimeManageOperateRight"
+                           require="startTime.require">
+                    <div style="margin-left: 54px;">
+                    <tiny-select id="startTime.id" values="startTime.values" width="startTime.width"
+                                 change="startTime.changStartWay()" disable="startTime.disable || !hasTimeManageOperateRight">
+                    </tiny-select>
+                    <tiny-select id="startMonth.id" values="startMonth.values" width="startMonth.width"
+                                 disable="startMonth.disable || !hasTimeManageOperateRight" height="startMonth.height">
+                    </tiny-select>
+                    <tiny-select id="startDay.id" values="startDay.values" width="startDay.width"
+                                 disable="startDay.disable || !hasTimeManageOperateRight" height="startDay.height" ng-show="startDayIsshow">
+                    </tiny-select>
+                    <tiny-select id="startSequenceWeek.id" values="startSequenceWeek.values"
+                                 disable="startSequenceWeek.disable || !hasTimeManageOperateRight" ng-show="startSequenceWeekIsshow">
+                    </tiny-select>
+                    <tiny-select id="startWeek.id" values="startWeek.values" width="startWeek.width"
+                                 disable="startWeek.disable || !hasTimeManageOperateRight" ng-show="startWeekIsshow" height="startWeek.height">
+                    </tiny-select>
+                    <tiny-datetime id="startTimerPre.id" type="startTimerPre.type"
+                                   disable="startTimerPre.disable || !hasTimeManageOperateRight" class="bd-margin"></tiny-datetime>
+                    </tiny-select>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+
+
+            <tiny-formfield>
+                <tiny-item id="endTime.id" label="endTime.label" require="endTime.require">
+                    <div style="margin-left: 54px;">
+                    <tiny-select id="endTime.id" values="endTime.values" width="endTime.width"
+                                 change="endTime.changEndWay()" disable="endTime.disable || !hasTimeManageOperateRight">
+                    </tiny-select>
+                    <tiny-select id="endMonth.id" values="endMonth.values" width="endMonth.width"
+                                 disable="endMonth.disable || !hasTimeManageOperateRight" height="endMonth.height">
+                    </tiny-select>
+                    <tiny-select id="endDay.id" values="endDay.values" width="endDay.width" disable="endDay.disable || !hasTimeManageOperateRight"
+                                 ng-show="endDayIsshow" height="endDay.height">
+                    </tiny-select>
+                    <tiny-select id="endSequenceWeek.id" values="endSequenceWeek.values" width="endSequenceWeek.width"
+                                 disable="endSequenceWeek.disable || !hasTimeManageOperateRight"
+                                 ng-show="endSequenceWeekIsshow">
+                    </tiny-select>
+                    <tiny-select id="endWeek.id" values="endWeek.values" width="endWeek.width" disable="endWeek.disable || !hasTimeManageOperateRight"
+                                 ng-show="endWeekIsshow" height="endWeek.height">
+                    </tiny-select>
+                    <tiny-datetime id="endTimerPre.id" type="endTimerPre.type"
+                                   disable="endTimerPre.disable || !hasTimeManageOperateRight" class="bd-margin"></tiny-datetime>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+
+
+
+
+            <tiny-formfield>
+                <tiny-item id="adjustOffset.id" label="adjustOffset.label" require="adjustOffset.require">
+                    <tiny-textbox id="adjustOffset.id" value="adjustOffset.value" disable="adjustOffset.disable || !hasTimeManageOperateRight" tooltip="adjustOffset.tooltip"
+                                  validate="adjustOffset.validate" tip-position="right">
+                    </tiny-textbox>
+                </tiny-item>
+            </tiny-formfield>
+            <tiny-formfield>
+                <tiny-item>
+                    <div class="fm-btn-top-small" style="margin-left: 105px;">
+                    <fm-button class="major-btn" id="timeZoneBtn.id" text="timeZoneBtn.text" click="timeZoneBtn.save"
+                                 ng-if="hasTimeManageOperateRight"></fm-button>
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>

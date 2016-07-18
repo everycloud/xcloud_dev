@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div id="editVdiDiv" class="alert-tip-first">
+        <tiny-formfield>
+
+            <tiny-item label="oldPassword.label" require="oldPassword.require">
+                <tiny-textbox id="oldPassword.id"
+                              type="oldPassword.type"
+                              width="oldPassword.width"
+                              validate="oldPassword.validate"
+                              type="oldPassword.type"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="password.label" require="password.require">
+                <tiny-textbox id="password.id"
+                              type="password.type"
+                              width="password.width"
+                              extend-function="password.extendFunction"
+                              validate="password.validate"
+                              type="password.type"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="repassword.label" require="repassword.require">
+                <tiny-textbox id="repassword.id"
+                              type="repassword.type"
+                              width="repassword.width"
+                              extend-function="repassword.extendFunction"
+                              validate="repassword.validate"
+                              type="repassword.type"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button class="major-btn"
+                             id="saveBtn.id"
+                             text="saveBtn.text"
+                             click="saveBtn.save()"></tiny-button>
+                <tiny-button id="closeBtn.id"
+                             text="closeBtn.text"
+                             click="closeBtn.close()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/system/controllers/systemConfig/editMachineAccountCtrl'],
+            function (editMachineAccountCtrl) {
+                var $container = $("#editVdiDiv").attr("ng-controller", "editMachineAccountCtrl");
+                var dep = ['ng', 'wcc', editMachineAccountCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $container);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($container)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>
+

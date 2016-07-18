@@ -1,0 +1,65 @@
+<div id="addEnvironmentVsamDiv">
+    <tiny-formfield>
+        <tiny-item label="vsamCheckbox.label">
+            <tiny-checkbox id="vsamCheckbox.id" text="vsamCheckbox.text" change="vsamCheckbox.change()"
+                           checked="vsamCheckbox.checked"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item label="vsamNameTextbox.label" require="vsamNameTextbox.require">
+            <tiny-textbox id="vsamNameTextbox.id" disable="vsamNameTextbox.disable"
+                          validate="vsamNameTextbox.validate" value="vsamNameTextbox.value"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="vsamVersionSelector.label" require="vsamVersionSelector.require">
+            <tiny-select id="vsamVersionSelector.id" values="vsamVersionSelector.values"
+                         width="vsamVersionSelector.width" disable="vsamVersionSelector.disable"
+                         validate="vsamVersionSelector.validate"
+                         default-selectid="vsamVersionSelector.defaultSelectid"></tiny-select>
+        </tiny-item>
+        <tiny-item label="vsamProtocolSelector.label" require="vsamProtocolSelector.require">
+            <tiny-select id="vsamProtocolSelector.id" values="vsamProtocolSelector.values"
+                         width="vsamProtocolSelector.width" disable="vsamProtocolSelector.disable"
+                         validate="vsamProtocolSelector.validate"
+                         default-selectid="vsamProtocolSelector.defaultSelectid"></tiny-select>
+        </tiny-item>
+        <tiny-item label="vsamIpBox.label" require="vsamIpBox.require">
+            <tiny-ip id="vsamIpBox.id" disable="vsamIpBox.disable" validate="vsamIpBox.validate"
+                     width="vsamIpBox.width" value="vsamIpBox.value" extend-function="vsamIpBox.extendFunction"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="vsamPortTextbox.label" require="vsamPortTextbox.require">
+            <tiny-textbox id="vsamPortTextbox.id" disable="vsamPortTextbox.disable"
+                          validate="vsamPortTextbox.validate" value="vsamPortTextbox.value"></tiny-textbox>
+            <span popover="{{i18n.virtual_hyper_add_para_portVSAM_mean_tip}}" popover-trigger="mouseenter"
+                  popover-placement="right" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="vsamUsernameTextbox.label" require="vsamUsernameTextbox.require">
+            <tiny-textbox id="vsamUsernameTextbox.id" disable="vsamUsernameTextbox.disable"
+                          validate="vsamUsernameTextbox.validate" value="vsamUsernameTextbox.value"></tiny-textbox>
+            <span popover="{{i18n.virtual_hyper_add_para_userNameVSAM_mean_tip}}" popover-trigger="mouseenter"
+                  popover-placement="right" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="editVsamPwdCheckbox.label" display="editVsamPwd">
+            <tiny-checkbox id="editVsamPwdCheckbox.id" text="editVsamPwdCheckbox.text"
+                           change="editVsamPwdCheckbox.change()" disable="editVsamPwdCheckbox.disable"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item label="vsamPwdTextbox.label" require="vsamPwdTextbox.require">
+            <tiny-textbox id="vsamPwdTextbox.id" type="vsamPwdTextbox.type"
+                          disable="vsamPwdTextbox.disable" validate="vsamPwdTextbox.validate"></tiny-textbox>
+            <span popover="{{i18n.virtual_hyper_add_para_pswVSAM_mean_tip}}" popover-trigger="mouseenter"
+                  popover-placement="right" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="vsamPwdConfirmTextbox.label" require="vsamPwdConfirmTextbox.require">
+            <tiny-textbox id="vsamPwdConfirmTextbox.id" type="vsamPwdConfirmTextbox.type"
+                          disable="vsamPwdConfirmTextbox.disable"
+                          validate="vsamPwdConfirmTextbox.validate"
+                          extend-function="vsamPwdConfirmTextbox.extendFunction"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="vsamProviderTextbox.label" require="vsamProviderTextbox.require">
+            <tiny-textbox id="vsamProviderTextbox.id" disable="vsamProviderTextbox.disable"
+                          validate="vsamProviderTextbox.validate" value="vsamProviderTextbox.value"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="vsamPreButton.id" text="vsamPreButton.text" click="vsamPreButton.click()"></tiny-button>
+            <tiny-button id="vsamNextButton.id" text="vsamNextButton.text" click="vsamNextButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="vsamCancelButton.id" text="vsamCancelButton.text" click="vsamCancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

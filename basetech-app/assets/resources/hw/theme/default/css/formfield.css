@@ -1,0 +1,39 @@
+.tiny_form_require {
+	font-weight: normal;
+	color: red;
+    padding-right: 5px; 
+	vertical-align: top;
+}
+.tiny_form_label {
+	padding-left: 10px;
+}
+.tiny_form_td_label {
+	padding-right: 10px;
+	vertical-align: top;
+	white-space: nowrap;
+	color:#666666;
+    padding-bottom: 8px!important;
+}
+.tiny_form_td_content {
+	padding-bottom: 8px;
+	display: inline-block;
+	vertical-align: top;
+}
+.tiny_form_vertical_middle {
+	padding-bottom: 8px;
+	vertical-align: middle;
+}
+.tiny_form_vertical_bottom {
+	padding-bottom: 8px;
+	vertical-align: bottom;
+}
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}

@@ -1,0 +1,450 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="制作PVM模板">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_56_c10122">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>制作PVM模板</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_56_c10122"></a><a name="it_60_56_c10122"></a>
+
+
+<h1 class="topictitle1">制作PVM模板</h1>
+
+<div>
+<div class="section"><h4 class="sectiontitle">操作场景</h4>
+
+
+<div class="p"><div class="p">当需要使用如下功能时，要求管理员手动制作PVM虚拟机模板，以便在VPC内部署该服务时，系统能够自动使用该模板在VPC内创建PVM虚拟机，PVM虚拟机能够提供如下所需功能。用户不需要使用该模板进行虚拟机的创建。<ul><li>软件自动部署功能<ul><li>软件自动安装：使用应用模板发放应用实例时，若虚拟机模板中带有软件包模块，则可选择使用的软件包，应用软件会自动安装在对应的应用实例虚拟机中。</li><li>软件分发：选定应用软件包，并指定分发的目的虚拟机，可自动将该应用软件安装至虚拟机中。</li></ul>
+<ul><li>脚本自动执行：使用应用模板发放应用实例时，若虚拟机模板中带有脚本模块，则可选择使用的脚本，脚本在对应的应用实例虚拟机中自动执行。</li><li>脚本分发：选定脚本，并指定分发的目的虚拟机，可自动在虚拟机中执行该脚本。</li></ul>
+</li><li>基于Hyperic HQ的虚拟机进程监控功能</li></ul>
+建议同时安装两款软件，使得PVM虚拟机模板支持如上所有功能，以便满足业务的扩展需要。</div>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">安全声明</h4>
+
+
+<div class="p"><p id="it_60_56_c10122__sec_1"><a name="it_60_56_c10122__sec_1"></a><a name="sec_1"></a>请您务必仔细阅读并透彻理解本声明。</p>
+<p>软件自动部署功能和虚拟机进程监控功能，是依赖Puppet软件和Hyperic
+HQ软件完成的。请您自行评估使用的操作系统、Puppet软件和Hyperic HQ软件的产品质量和安全风险等因素之后，决定是否使用这些功能。</p>
+<p id="it_60_56_c10122__sec_2"><a name="it_60_56_c10122__sec_2"></a><a name="sec_2"></a>对于这些软件出现的问题，华为可以协助您进行定位，除此之外华为没有义务提供任何形式的支持。因此引起的售后服务问题，华为亦不提供任何性质的保证，由这些软件带来的安全风险华为不承担任何责任。</p>
+<p id="it_60_56_c10122__sec_3"><a name="it_60_56_c10122__sec_3"></a><a name="sec_3"></a>您可以选择不使用这些功能，但如果您使用这些功能，您的使用行为将被视为对本声明全部内容的认可。</p>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">前提条件</h4>
+
+
+<div class="p"><a name="it_60_56_c10122__condition"></a><a name="condition"></a><ul id="it_60_56_c10122__condition"><li>已获取登录<span>FusionManager</span>的管理员用户名与密码。</li><li><div class="p">已获取如<a href="#it_60_56_c10122__tbl_01">表1</a>所示的软件和文档。
+<div class="tablenoborder"><a name="it_60_56_c10122__tbl_01"></a><a name="tbl_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_56_c10122__tbl_01" frame="border" border="1" rules="all"><caption><b>表1 </b>所需软件和文档</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="21.004566210045663%" id="mcps1.2.3.2.1.2.1.2.2.5.1.1"><p>名称</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="21.004566210045663%" id="mcps1.2.3.2.1.2.1.2.2.5.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="7.077625570776255%" id="mcps1.2.3.2.1.2.1.2.2.5.1.3"><p>是否可选</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="50.91324200913242%" id="mcps1.2.3.2.1.2.1.2.2.5.1.4"><p>获取方式</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p>PVM-AutoInstall.iso</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><p>PVM虚拟机模板软件配置文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p>在如下路径下载<span class="filepath">“FusionManager V100R005C00SPC200_tool.zip”</span>后解压缩。</p>
+<ul><li><p>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise </span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionManager</span> &gt; <span class="uicontrol">V100R005C00SPC200</span>”</span></p>
+</li><li><p>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud
+OS</span> &gt; <span class="uicontrol">FusionManager</span> &gt; <span class="uicontrol">V100R005C00SPC200</span>”</span></p>
+</li></ul>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p>虚拟机操作系统镜像文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><p>操作系统版本要求为Novell SUSE Linux Enterprise Server 11 SP1 64位</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p>自行准备</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p>FusionCompute V100R005C00SPC200_GuestOS.iso</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><div class="p">包含了Tools和智能网卡驱动。<ul><li>Tools：<span>虚拟机的驱动程序。安装Tools后，才能实现对虚拟机的监控、迁移和其他虚拟机的高级功能，如安全关闭虚拟机、休眠虚拟机、在线调整CPU规格、对虚拟机创建快照等。</span>制作<span>FusionCompute</span>虚拟化环境中的虚拟机模板时必须安装的软件。</li><li>智能网卡驱动：如果主机使用了智能网卡，在制作虚拟机模板时需要安装智能网卡驱动。</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p>在如下路径下载<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOSDrivers.zip”</span>后解压缩。</p>
+<p>企业用户：</p>
+<p><span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise</span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+<p>运营商用户：</p>
+<p><span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">FusionCompute
+V100R005</span> &gt; <span class="uicontrol">FusionCompute V100R005C00SPC100</span>”</span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p id="it_60_56_c10122__makeISO_name"><a name="it_60_56_c10122__makeISO_name"></a><a name="makeISO_name"></a>ISO文件制作工具</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><p id="it_60_56_c10122__makeISO_desc"><a name="it_60_56_c10122__makeISO_desc"></a><a name="makeISO_desc"></a>将功能所需的安装文件制作成为ISO文件，以便通过挂载光驱的方式，将安装文件拷贝至虚拟机中。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p>目前业界已有多款优秀的ISO镜像制作工具，如UltraISO、ISOMaker等，使用这些工具能够轻松将各类文件打包制作成为ISO文件。可通过互联网或<span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span>获取更多信息。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p>jre安装文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><div class="p">安装文件要求如下：<ul><li>7.0版本及以上</li><li>适用于Linux 64位操作系统</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p><a href="http://www.java.com/en/download/manual.jsp" target="_blank">http://www.java.com/en/download/manual.jsp</a></p>
+<p>例如，安装文件为<span class="parmvalue">“jre-8u25-linux-x64.gz”</span>。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p>tomcat安装文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><div class="p">安装文件要求如下：<ul><li>7.0版本及以上</li><li>适用于Linux 64位操作系统</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>必选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p><a href="http://tomcat.apache.org/download-70.cgi" target="_blank">http://tomcat.apache.org/download-70.cgi</a></p>
+<p>例如，安装文件为<span class="parmvalue">“apache-tomcat-7.0.56.tar.gz”</span>。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p>使用软件自动部署功能所需的Puppet软件服务端安装文件和依赖软件包</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><div class="p">安装文件要求如下：<ul><li>2.7.12版本及以上</li><li>适用于Linux 64位操作系统</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>可选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p><a href="https://rubygems.org" target="_blank">https://rubygems.org</a></p>
+<p>例如，依赖软件包为<span class="parmvalue">“facter-2.2.0.gem”</span>，安装文件为<span class="parmvalue">“puppet-2.7.12.gem”</span>。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p>安装*.gem文件使用的工具</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><div class="p">包含如下工具，建议使用1.8.7版本及以上：<ul><li>ruby</li><li>ruby-devel</li><li>rubygems</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>可选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p>自行准备</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.1 "><p>使用基于Hyperic HQ的虚拟机进程监控功能所需的Hyperic HQ软件服务端安装文件</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="21.004566210045663%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.2 "><div class="p">安装文件要求如下：<ul><li>4.6.6版本，软件为付费软件，需用户自行购买。</li><li>适用于Linux 64位操作系统</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="7.077625570776255%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.3 "><p>可选</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50.91324200913242%" headers="mcps1.2.3.2.1.2.1.2.2.5.1.4 "><p><a href="http://www.hyperic.com/downloads/hyperic-open-source-downloads?sid=49436" target="_blank">http://www.hyperic.com/downloads/hyperic-open-source-downloads?sid=49436</a></p>
+<p>例如，安装文件为<span class="parmvalue">“hyperic-hq-installer-4.6.6-x86-64-linux.tar.gz”</span>。</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">获取到软件包后建议先执行软件包校验的操作，具体操作请参见<a href="../soft_inst/it_60_23_000021.html">校验软件包</a>。</div></div>
+</div>
+</li></ul>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">操作步骤</h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">创建PVM虚拟机模板</p>
+<p>虚拟机模板实质上就是一个虚拟机。创建虚拟机模板的过程，实际上是创建了一个空虚拟机，安装操作系统、驱动、软件，完成一系列配置后，又将其转换成了虚拟机模板。</p><div class="Steps-titled"><ol type="1" start="1"><li><span>登录<span>FusionManager</span>，并进入<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">虚拟机模板</span>”</span>界面。</span></li><li><span>在<span class="wintitle">“虚拟机模板”</span>界面，单击<span class="uicontrol">“创建”</span>。</span>
+<p>进入<span class="wintitle">“创建虚拟机模板”</span>界面。</p>
+</li><li><span>配置虚拟机信息。</span></li><li><span>单击<span class="uicontrol">“下一步”</span>，配置虚拟机规格。</span>
+<p>如下参数按照要求配置，其他参数使用默认值。<ul><li>操作系统类型：Linux</li><li>操作系统版本：Novell SUSE Linux Enterprise Server 11 SP1 64bit</li><li>CPU个数：4</li><li>内存：4GB</li><li>磁盘个数：1</li><li>容量：82GB</li></ul>
+</p>
+</li><li><span>单击<span class="uicontrol">“下一步”</span>，开始创建空虚拟机。</span></li><li><span>虚拟机创建成功后，单击<span class="uicontrol">“下一步”</span>。</span>
+<p>进入<span class="wintitle">“安装软件”</span>页面。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">安装操作系统</p>
+<div class="Steps-titled"><ol type="1" start="7"><li><span>使用VNC登录虚拟机并挂载操作系统ISO文件。</span>
+<p>挂载光驱的具体操作方法，请参考<a href="it_60_51_600018.html">挂载光驱</a>。</p>
+</li><li><span>完成操作系统的安装和配置。</span>
+<p><ul><li>安装大约耗时30分钟，不同的操作系统安装耗时会有不同。</li><li>操作系统安装参考，<span>可在互联网或<a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a>中查找获取</span>。</li><li><p id="it_60_56_c10122__keyboard"><a name="it_60_56_c10122__keyboard"></a><a name="keyboard"></a>若为VMware虚拟化环境，虚拟机在未安装和运行VMware Tools工具之前，无法使用鼠标操作。安装操作系统时，请使用键盘。</p>
+</li></ul>
+<div class="p">在安装操作系统中，必须满足如下要求：<ul><li>若设置虚拟机与主机时钟同步，则必须将硬件时钟设置为UTC。</li><li>当存在多块磁盘时，必须将操作系统安装在第一块磁盘上。第一块磁盘的标识可能为：xvda、hda、sda或xen-vbd-51712。</li><li>磁盘分区时，只能建立<span class="parmname">“根分区”</span>和<span class="parmname">“swap分区”</span>，并且<span class="parmname">“根分区”</span>和<span class="parmname">“swap分区”</span>都必须设置为主分区。</li><li>使用<span class="parmname">“ext2”</span>或<span class="parmname">“ext3”</span>文件系统。如使用<span class="parmname">“RAID”</span>或<span class="parmname">“LVM”</span>文件系统，会导致操作系统随机密码功能、能够自定义计算机属性、静态注入分配IP地址功能无法生效。</li><li>建议选择完全安装或者标准安装方式安装操作系统，避免由于缺少依赖的系统软件包导致部分软件无法正常使用。</li></ul>
+</div>
+</p>
+</li><li><span>关闭操作系统的防火墙。</span></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置操作系统</p>
+<div class="Steps-titled"><ol type="1" start="10"><li><span>配置网络服务属性，使虚拟机能够以如下方式获取IP地址。具体操作方法请参考<a href="../../05_fc/vm_prov/it_58_45_200040.html">配置Linux虚拟机网络属性</a>。</span>
+<p><ul><li>以DHCP方式</li><li>以静态注入方式</li></ul>
+</p>
+</li><li><span>执行以下命令，使用VI编辑器打开<span class="parmname">“rc”</span>文件。</span>
+<p><b><span class="cmdname">vi /etc/init.d/rc</span></b></p>
+</li><li><span>按<span class="parmvalue">“i”</span>进入编辑模式。</span></li><li><span>按照如下要求，在文件中增加命令语句。</span>
+<p><ul><li>若文件最后有<span class="parmvalue">“exit 0”</span>，则在文件最后的<span class="parmvalue">“exit 0”</span>前一行，输入<b><span class="cmdname">sh /etc/init.d/setpasswd.sh</span></b></li><li>若文件最后无<span class="parmvalue">“exit 0”</span>，则在文件最后一行输入<b><span class="cmdname">sh /etc/init.d/setpasswd.sh</span></b></li></ul>
+</p>
+</li><li><span>按<span class="uicontrol">“Esc”</span>后，输入<b><span class="cmdname">:wq</span></b>，按<span class="uicontrol">“Enter”</span>。保存设置并退出VI编辑器。</span></li><li><span>执行以下命令，使用VI编辑器打开<span class="parmname">“menu.lst”</span>文件。</span>
+<p><b><span class="cmdname">vi /boot/grub/menu.lst</span></b></p>
+</li><li><span>按<span class="parmvalue">“i”</span>进入编辑模式。</span></li><li><span>在文件末尾增加如下命令语句，设置虚拟机为非密码随机，即使得后续系统生成的PVM虚拟机的初始密码均为PVM模板安装操作系统时所设置的密码。</span>
+<p><b><span class="cmdname">#UVP uvp</span></b></p>
+</li><li><span>按<span class="uicontrol">“Esc”</span>后，输入<b><span class="cmdname">:wq</span></b>，按<span class="uicontrol">“Enter”</span>。保存设置并退出VI编辑器。</span></li><li><span>执行以下命令，查看操作系统是否自带iptables规则。</span>
+<p><p><b><span class="cmdname">iptables -S</span></b></p>
+<div class="p">回显信息如下，表示系统没有自带iptables规则。
+ <pre class="screen">-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT</pre>
+</div>
+</p>
+</li><li><span>若系统自带iptables规则，则会与后续的安装配置冲突，需要提前清除。执行以下命令，清除iptables规则。</span>
+<p><p><b><span class="cmdname">cd /etc/init.d</span></b></p>
+<p><b><span class="cmdname">SuSEfirewall2
+stop</span></b></p>
+<p><b><span class="cmdname">SuSEfirewall2 off</span></b></p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">将需要安装的软件制作为ISO文件</p>
+<div class="Steps-titled"><ol type="1" start="21"><li><span>将功能所需的安装软件，制作为一个ISO文件，以便通过挂载光驱的方式，将安装文件拷贝至虚拟机中。</span>
+<p><p>目前业界已有多款优秀的ISO镜像制作工具，如UltraISO、ISOMaker等，使用这些工具能够轻松将各类文件打包制作成为ISO文件。可通过互联网或<span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span>获取更多信息。</p>
+<div class="p">后续步骤中ISO文件名称以<span class="filepath" id="it_60_56_c10122__softwareISO"><a name="it_60_56_c10122__softwareISO"></a><a name="softwareISO"></a>“software.iso”</span>为例。其中包含：<ul><li><span class="filepath">“jre”</span>文件夹：包含jre软件安装文件。</li><li><span class="filepath">“tomcat”</span>文件夹：包含tomcat软件安装文件。</li><li><span class="filepath">“puppet”</span>文件夹：包含安装*.gem文件使用的工具、puppet服务端软件安装文件和依赖软件包。</li><li><span class="filepath">“hyperic-hq”</span>文件夹：包含Hyperic HQ服务端软件安装文件。</li></ul>
+</div>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>安装这些软件的过程中使用的端口必须和<span>《FusionManager
+V100R005C00 通信矩阵》</span>中保持一致，PVM的功能才可正常运行。</p>
+</div></div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">通过挂载光驱的方式将ISO文件中的安装文件拷贝至PVM虚拟机中</p>
+<div class="Steps-titled"><ol type="1" start="22"><li><span>使用VNC登录虚拟机并挂载ISO文件<span class="filepath">“software.iso”</span>。</span>
+<p>挂载光驱的具体操作方法，请参考<a href="it_60_51_600018.html">挂载光驱</a>。</p>
+</li><li id="it_60_56_c10122__loginOS"><a name="it_60_56_c10122__loginOS"></a><a name="loginOS"></a><span>使用<span class="parmvalue">“root”</span>帐户进入虚拟机操作系统。</span>
+<p>若操作系统为图形化界面，则右键单击桌面，在弹出的快捷菜单中选择<span class="uicontrol">“在终端中打开”</span>，进入命令行界面。</p>
+</li><li><span>执行以下命令，防止系统超时退出。</span>
+<p><b><span class="cmdname">TMOUT=0</span></b></p>
+</li></ol></div>
+<a name="it_60_56_c10122__linux_mountISO"></a><a name="linux_mountISO"></a><div class="Steps-titled"><ol type="1" start="25" id="it_60_56_c10122__linux_mountISO"><li id="it_60_56_c10122__mkdir"><a name="it_60_56_c10122__mkdir"></a><a name="mkdir"></a><span>执行以下命令，创建<span class="filepath">“xvdd”</span>目录。</span>
+<p><b><span class="cmdname">mkdir xvdd</span></b></p>
+</li><li id="it_60_56_c10122__mount"><a name="it_60_56_c10122__mount"></a><a name="mount"></a><span id="it_60_56_c10122__mount1"><a name="it_60_56_c10122__mount1"></a><a name="mount1"></a>执行以下命令，挂载虚拟机光驱。</span>
+<p><b><span class="cmdname">mount /dev/sr0 xvdd</span></b></p>
+</li></ol></div>
+<div class="Steps-titled"><ol type="1" start="27"><li><span>执行以下命令，创建<span class="filepath">“/opt/R5_PVM”</span>目录。</span>
+<p><b><span class="cmdname">mkdir /opt/R5_PVM</span></b></p>
+</li><li><span>执行以下命令，将ISO中的文件夹拷贝到虚拟机的指定目录下。</span>
+<p><p><b><span class="cmdname">cp -r xvdd/jre/ /opt</span></b></p>
+<p><b><span class="cmdname">cp
+-r xvdd/tomcat/ /opt</span></b></p>
+<p><b><span class="cmdname">cp -r xvdd/puppet/ /opt</span></b></p>
+<p><b><span class="cmdname">cp -r xvdd/hyperic-hq/ /opt/R5_PVM</span></b></p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">安装必备软件并进行配置</p>
+<div class="Steps-titled"><ol type="1" start="29"><li><span>使用已经拷贝至<span class="filepath">“/opt”</span>目录下的安装文件，安装jre软件。</span>
+</li><li><span>使用已经拷贝至<span class="filepath">“/opt”</span>目录下的安装文件，安装tomcat软件。</span>
+</li><li><span>重新挂载ISO文件<span class="filepath">“PVM-AutoInstall.iso”</span>。</span>
+</li><li><span>执行以下命令，挂载虚拟机光驱。</span>
+<p><b><span class="cmdname">mount /dev/sr0 xvdd</span></b></p>
+</li><li><span>执行以下命令，将ISO中的文件夹拷贝到虚拟机的<span class="filepath">“opt”</span>目录下。</span>
+<p><b><span class="cmdname">cp -r PVM-AutoInstall /opt</span></b></p>
+</li><li><span>执行以下命令，使用VI编辑器打开<span class="parmname">“tomcatd”</span>文件。</span>
+<p><b><span class="cmdname">vi /opt/PVM-AutoInstall/tomcat/tomcatd</span></b></p>
+</li><li><span>按<span class="parmvalue">“i”</span>进入编辑模式。</span></li><li><span>将如下参数的取值，修改为虚拟机中实际已安装tomcat软件和jre软件的目录，例如斜体部分所示。</span>
+<p><pre class="screen">export CATALINA_HOME=<em>/opt/apache-tomcat-7.0.54</em>
+export CATALINA_BASE=<em>/opt/apache-tomcat-7.0.54</em>
+export JRE_HOME=<em>/opt/jdk1.7.0_65/jre</em></pre>
+</p>
+</li><li><span>按<span class="uicontrol">“Esc”</span>后，输入<b><span class="cmdname">:wq</span></b>，按<span class="uicontrol">“Enter”</span>。保存设置并退出VI编辑器。</span></li><li><span>执行以下命令，使用VI编辑器打开<span class="parmname">“server.xml”</span>文件。</span>
+<p><b><span class="cmdname">vi /opt/PVM-AutoInstall/tomcat/server.xml</span></b></p>
+</li><li><span>按<span class="parmvalue">“i”</span>进入编辑模式。</span></li><li><span>将如下参数的取值，修改为虚拟机中实际已安装tomcat软件的目录，例如斜体部分所示。</span>
+<p><pre class="screen">keystoreFile=<em>/opt/apache-tomcat-7.0.54/proxyvm.jks</em>
+truststoreFile=<em>/opt/apache-tomcat-7.0.54/proxyvm.jks</em></pre>
+</p>
+</li><li><span>按<span class="uicontrol">“Esc”</span>后，输入<b><span class="cmdname">:wq</span></b>，按<span class="uicontrol">“Enter”</span>。保存设置并退出VI编辑器。</span></li><li><span>执行以下命令，进入<span class="filepath">“/opt/PVM-AutoInstall”</span>目录。</span>
+<p><b><span class="cmdname">cd /opt/PVM-AutoInstall</span></b></p>
+</li><li><span>执行以下命令，配置软件。</span>
+<p><p><b><span class="cmdname">sh install.sh</span></b><i><span class="varname"> 虚拟机中实际已安装tomcat软件的目录</span></i></p>
+<p>例如，<b><span class="cmdname">sh install.sh /opt/apache-tomcat-7.0.54</span></b></p>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>tomcat默认启用HTTPS协议且支持双向认证，若关闭HTTPS协议而开启HTTP协议，将存在安全风险。</p>
+</div></div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">在PVM虚拟机中安装Puppet服务端软件</p>
+<p>使用软件自动部署功能时，才需要安装和配置此软件。</p><div class="Steps-titled"><ol type="1" start="44"><li><span>执行以下命令，导入环境变量。</span>
+<p><b><span class="cmdname">source /home/puppet/.bashrc</span></b></p>
+</li><li><span>使用已经拷贝至<span class="filepath">“/opt”</span>目录下的安装文件，安装ruby、ruby-devel和rubygems软件。</span>
+</li><li><span>使用已经拷贝至<span class="filepath">“/opt”</span>目录下的安装文件，安装依赖软件包和Puppet服务端软件。</span>
+<p>具体操作方法请参考Puppet官方网站相关产品文档。</p>
+</li><li><span>安装完成后，执行以下命令，运行配置脚本。</span>
+<p><p><b><span class="cmdname">sh /opt/PuppetServerConfigPackage/configpuppet.sh</span></b></p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">在PVM虚拟机中安装Hyperic HQ服务端软件</p>
+<p>使用基于Hyperic HQ的虚拟机进程监控功能时，才需要安装和配置此软件。</p><div class="Steps-titled"><ol type="1" start="48"><li><span>执行以下命令，创建用户<span class="parmvalue">“hyperic”</span>。</span>
+<p><p>该用户无密码，不能登录操作系统，仅作为操作HQ server使用。</p>
+<p><b><span class="cmdname">groupadd
+hyperic</span></b></p>
+<p><b><span class="cmdname">useradd -g hyperic hyperic</span></b></p>
+</p>
+</li><li><span>执行以下命令，创建<span class="filepath">“/opt/R5_PVM/hyperic”</span>目录。</span>
+<p><b><span class="cmdname">mkdir -p /opt/R5_PVM/hyperic</span></b></p>
+</li><li><span>执行以下命令，修改目录的执行权限。</span>
+<p><p><b><span class="cmdname">chmod -R 750 /opt/R5_PVM</span></b></p>
+<p><b><span class="cmdname">chown -R hyperic:hyperic /opt/R5_PVM</span></b></p>
+</p>
+</li><li><span>进入安装文件所在目录<span class="filepath">“/opt/R5_PVM/hyperic-hq”</span>解压缩安装包。</span></li><li><span>进入<span class="filepath">“/opt/R5_PVM/hyperic-hq”</span>中的<span class="filepath">“/installer/data/hqdb”</span>目录，并执行以下命令，使用开源默认数据库。</span>
+<p><b><span class="cmdname">sh tune-os.sh</span></b></p>
+</li><li><span>进入目录<span class="filepath">“/opt/R5_PVM/hyperic-hq”</span>中的安装文件目录，并执行以下命令，切换至<span class="parmname">“hyperic”</span>用户，开始安装Hyperic HQ服务端软件。</span>
+<p><p><b><span class="cmdname">su hyperic</span></b></p>
+<p><b><span class="cmdname">sh setup.sh</span></b></p>
+<p>具体操作方法请参考<a href="http://www.hyperic.com/downloads/hyperic-open-source-downloads?sid=49436" target="_blank">Hyperic HQ官方网站</a>相关产品文档。</p>
+<p>安装需满足如下要求：</p>
+<ul><li>软件安装目录必须设置为<span class="parmvalue">“/opt/R5_PVM/hyperic”</span>。</li><li>服务端帐户必须设置为<span class="parmvalue">“hqadmin”</span>，默认密码为<span class="parmvalue">“Huawei@123”</span>。</li><li>配置端口使用端口<span class="parmvalue">“7443”</span>。</li></ul>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>Hyperic HQ软件的公开接口信息，请参见<a href="https://pubs.vmware.com/vfabric5/index.jsp#com.vmware.vfabric.hyperic.4.6/vFabric_Hyperic_4.6.html" target="_blank">Hyperic HQ产品文档</a>。</p>
+</div></div>
+</p>
+</li><li><span>执行以下命令，将hyperic服务设置为随系统自动启动。</span>
+<p><p><b><span class="cmdname">cd /etc/init.d</span></b></p>
+<p><b><span class="cmdname">chkconfig
+hyperic on</span></b></p>
+</p>
+</li><li><span>执行以下命令，使用VI编辑器打开<span class="parmname">“hq-server.conf”</span>文件。</span>
+<p><b><span class="cmdname">vi /opt/R5_PVM/hyperic/server-4.6.6/conf/hq-server.conf</span></b></p>
+</li><li><span>按<span class="parmvalue">“i”</span>进入编辑模式。</span></li><li><span>删除如下语句，关闭HTTP7080通道。</span>
+<p><pre class="screen">server.webapp.port=7080</pre>
+</p>
+</li><li><span>按<span class="uicontrol">“Esc”</span>后，输入<b><span class="cmdname">:wq</span></b>，按<span class="uicontrol">“Enter”</span>。保存设置并退出VI编辑器。</span></li><li><span>使用<span class="parmvalue">“root”</span>用户，执行以下命令，检查hyperic服务是否正常。</span>
+<p><p>若回显信息有结果输出，表示服务正常。</p>
+<p><b><span class="cmdname">netstat -nao | grep 7443</span></b></p>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>若服务异常，可执行如下命令重启服务后再检查。</p>
+<p><b><span class="cmdname">cd /etc/init.d</span></b></p>
+<p><b><span class="cmdname">service hyperic
+restart</span></b></p>
+</div></div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">安装驱动程序</p>
+<p><p>为虚拟机操作系统安装必备的驱动程序。</p>
+</p><div class="Steps-titled"><ol type="1" start="60"><li><span>挂载<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOS.iso”</span>并安装Tools。</span>
+<p>具体操作方法请参考<a href="../../05_fc/vm_prov/it_58_45_200032.html">在Linux系统中安装Tools</a>。<p>若虚拟化环境是VMware，不需要安装华为Tools，但需要安装对应的VMware
+tools。</p>
+</p>
+</li><li><span>安装智能网卡驱动。</span>
+<p>智能网卡驱动安装源与华为Tools存放在同一个ISO文件中，若已经挂载<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOS.iso”</span>，则可直接安装，具体操作方法请参考<a href="../../05_fc/vm_prov/it_58_45_200052.html">在Linux系统中安装智能网卡驱动</a>。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">加固操作系统</p>
+<div class="Steps-titled"><ol type="1" start="62"><li><span>所有软件安装配置完成后，进行PVM虚拟机操作系统的安全加固，以提升系统安全性。加固方法建议参考如下文档：</span>
+<p><ul><li><span>《FusionManager V100R005C00 操作系统安全加固清单》</span></li><li><span>《FusionManager V100R005C00 Web安全加固清单》</span></li></ul>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">完成制作虚拟机模板</p>
+<p><p>由于模板制作过程操作灵活，由用户自主完成，耗时不可预知。因此，这一步目的在于告知系统是否完成了虚拟机中所有软件的安装。系统得到安装完成的结果后，才会变更模板的状态，允许用户进行后续动作。</p>
+<p>由于制作过程是在VNC登录窗口中完成的，若耗时较长，<span>FusionManager</span>可能会超时自动退出，因此还需重新登录<span>FusionManager</span>。</p>
+</p><div class="Steps-titled"><ol type="1" start="63"><li><span>若当前已经退出<span>FusionManager</span>，重新登录<span>FusionManager</span>，并进入<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">虚拟机模板</span>”</span>界面。</span></li><li><span>在虚拟机模板所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">安装软件</span>”</span>。</span>
+<p>进入<span class="wintitle">“安装软件”</span>界面。</p>
+</li><li><span>单击<span class="uicontrol">“完成”</span>。</span>
+<p>返回<span class="wintitle">“虚拟机模板”</span>界面，创建的虚拟机模板的状态为<span class="parmvalue">“完成”</span>。虚拟机模板挂载的光驱会自动卸载。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">将PVM模板的类型修改为<span class="parmvalue">“PVM模板”</span></p>
+<div class="Steps-titled"><ol type="1" start="66"><li><span>在发现的PVM模板所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">修改虚拟机模板基本信息</span>”</span>。</span>
+<p>弹出<span class="wintitle">“修改虚拟机模板基本信息”</span>对话框。</p>
+</li><li><span>将<span class="parmname">“类型”</span>选择为<span class="parmvalue">“PVM模板”</span>，并单击<span class="uicontrol">“完成”</span>。</span></li><li><span>若<span>FusionManager</span>系统中接入了多个虚拟化环境，则按照如上方法，制作所有虚拟化环境的PVM模板。</span></li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

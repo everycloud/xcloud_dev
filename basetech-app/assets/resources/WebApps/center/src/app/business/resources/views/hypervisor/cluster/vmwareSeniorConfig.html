@@ -1,0 +1,69 @@
+<div id="vmwareSeniorConfigDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <div class="fl">
+                <tiny-checkbox id="haCheckbox.id" text="haCheckbox.text" change="haCheckbox.change()"
+                               checked="haCheckbox.checked" disable="haCheckbox.disable"></tiny-checkbox>
+            </div>
+        </tiny-item>
+        <tiny-item>
+            <div class="fl" style="margin-right: 20px">
+                <tiny-radio id="faultHostRadio.id" name="faultHostRadio.name" text="faultHostRadio.text"
+                            value="faultHostRadio.value" disable="faultHostRadio.disable"></tiny-radio>
+            </div>
+            <div class="fl">
+                <tiny-textbox id="faultHostTextbox.id" value="faultHostTextbox.value" max="faultHostTextbox.max"
+                              min="faultHostTextbox.min" width="faultHostTextbox.width"
+                              disable="faultHostTextbox.disable"></tiny-textbox>
+            </div>
+        </tiny-item>
+        <tiny-item>
+            <div class="fl">
+                <tiny-radio id="percentRadio.id" value="percentRadio.value" name="percentRadio.name"
+                            text="percentRadio.text" disable="percentRadio.disable"></tiny-radio>
+            </div>
+        </tiny-item>
+        <tiny-item>
+            <div class="fl" style="margin-left: 20px;margin-right: 10px" ng-bind="cpuReserveSpinner.label">
+            </div>
+            <div class="fl" style="margin-right: 20px">
+                <tiny-spinner id="cpuReserveSpinner.id" value="cpuReserveSpinner.value" max="cpuReserveSpinner.max"
+                              min="cpuReserveSpinner.min" width="cpuReserveSpinner.width"
+                              disable="cpuReserveSpinner.disable"></tiny-spinner>
+            </div>
+            <div class="fl" style="margin-right: 10px" ng-bind="memoryReserveSpinner.label">
+            </div>
+            <div class="fl">
+                <tiny-spinner id="memoryReserveSpinner.id" value="memoryReserveSpinner.value"
+                              max="memoryReserveSpinner.max" min="memoryReserveSpinner.min"
+                              width="memoryReserveSpinner.width" disable="memoryReserveSpinner.disable"></tiny-spinner>
+            </div>
+        </tiny-item>
+        <tiny-item label="policySelector.label">
+            <div class="fl" style="margin-right: 20px">
+                <tiny-radio id="translateRadio.id" name="translateRadio.name" text="translateRadio.text"
+                            value="translateRadio.value" disable="translateRadio.disable"></tiny-radio>
+            </div>
+            <p class="fl" ng-bind="hostNum"></p>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="closeButton.id" text="closeButton.text" click="closeButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/cluster/vmwareSeniorConfigCtrl'],
+            function (seniorConfigCtrl) {
+                var rootElement = $("#vmwareSeniorConfigDiv");
+                rootElement.attr("ng-controller", "resources.clusterInfo.vmwareSeniorConfig.ctrl");
+                var dep = ['ng', 'wcc', seniorConfigCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

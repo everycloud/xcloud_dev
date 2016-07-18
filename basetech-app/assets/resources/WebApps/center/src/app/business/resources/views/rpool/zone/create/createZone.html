@@ -1,0 +1,54 @@
+<div class="zone-createZone" ng-controller="resources.rpool.zone.createCtrl">
+    <div id="resources_rpool_createZone" class="alert-tip-first">
+        <tiny-formfield>
+            <tiny-item label="nameTextbox.label" require="nameTextbox.require">
+                <tiny-textbox id="nameTextbox.id" value="nameTextbox.name" validate="nameTextbox.validate"
+                              width="nameTextbox.width"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="regionTextbox.label" require="regionTextbox.require">
+                <tiny-textbox id="regionTextbox.id" width="regionTextbox.width" validate="regionTextbox.validate"
+                              value="regionTextbox.zoneLocation"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="modelSelector.label" require="modelSelector.require">
+                <tiny-select id="modelSelector.id" values="modelSelector.values"
+                             width="modelSelector.width" validate="modelSelector.validate"></tiny-select>
+                    <span popover="{{i18n.resource_zone_add_para_physiNetMode_mean_tip}}" popover-trigger="mouseenter"
+                          popover-placement="bottom" class="small-icon small-icon-tips"
+                          ng-mouseover="resizeWindow('down')" ng-mouseout="resizeWindow('up')"></span>
+            </tiny-item>
+            <tiny-item label="descTextbox.label" require="descTextbox.require">
+                <tiny-textbox id="descTextbox.id" value="descTextbox.value"
+                              width="descTextbox.width" type="descTextbox.type"
+                              validate="descTextbox.validate" height="descTextbox.height">
+                </tiny-textbox>
+            </tiny-item>
+            <tiny-item>
+                <div class="fm-btn-top-smaller">
+                    <tiny-button class="major-btn" id="createBtn.id" text="createBtn.text"
+                                 tooltip="createBtn.tooltip" click="createBtn.click()"></tiny-button>
+                    <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                                 tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<style>
+    #resources_rpool_createZone .popover {
+        max-width: 500px;
+    }
+</style>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/rpool/zone/create/createZoneCtrl'],
+            function (createZoneCtrl) {
+                var dep = ['ng', 'wcc', createZoneCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $(".zone-createZone"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($(".zone-createZone"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

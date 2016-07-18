@@ -1,0 +1,106 @@
+<div class="org_view" ng-controller="userMgr.orgView.ctrl">
+    <div class="container-fluid">
+        <div class="row-fluid innerbox-padding">
+            <div class="span6">
+                <div class="inner-legend" ng-bind="i18n.common_term_basicInfo_label"></div>
+                <div id="orgBasicInfoDiv">
+                    <tiny-formfield>
+                        <tiny-item label="name.label">
+                            <div ng-if="!name.modifying">
+                                <span ng-bind="orgDetail.name"></span>
+                                <span class="btn-link" ng-if="!orgDetail.defaultOrg && hasOrgOperateRight" ng-click="name.clickModify()">
+                                    <img src="../theme/default/images/gm/edit.gif">
+                                </span>
+                            </div>
+                            <div ng-if="name.modifying">
+                                <tiny-textbox id="name.id" value="orgDetail.name" validate="name.validate"
+                                              blur="name.blur()" keypressfn="name.keypressfn" width="150"></tiny-textbox>
+                            </div>
+                        </tiny-item>
+                        <tiny-item label="orgAz.label">
+                            <a href='javascript:void(0)' ng-click="orgAz.click()" ng-bind="orgAz.value"></a>
+                        </tiny-item>
+                        <tiny-item label="orgMember.label">
+                            <a href='javascript:void(0)' ng-if="hasOrgViewRight" ng-click="orgMember.click()" ng-bind="orgMember.value"></a>
+                            <span ng-if="!hasOrgViewRight" ng-bind="orgMember.value"></span>
+                        </tiny-item>
+                        <tiny-item label="description.label">
+                            <div ng-if="!description.modifying">
+                                <span ng-bind="orgDetail.description"></span>
+                                <span class="btn-link" ng-if="hasOrgOperateRight" ng-click="description.clickModify()">
+                                    <img src="../theme/default/images/gm/edit.gif">
+                                </span>
+                            </div>
+                            <div ng-if="description.modifying">
+                                <tiny-textbox id="description.id" value="orgDetail.description" validate="description.validate"
+                                              type="description.type" width="description.width" height="description.height"
+                                              blur="description.blur()" keypressfn="description.keypressfn" width="150"></tiny-textbox>
+                            </div>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="inner-legend none-line" ng-bind="i18n.resource_term_resourceUsageStatus_label"></div>
+                <div>
+                    <tiny-table id="resourceUseInfo.id" data="resourceUseInfo.datas" columns="resourceUseInfo.columns"
+                                table-language="resourceUseInfo.tableLanguage" enable-pagination="resourceUseInfo.pagination"></tiny-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+require(["jquery",
+        "app/business/user/controllers/organization/orgViewCtrl"
+    ],
+    function($, orgDetail) {
+        //替换ID，使ID唯一
+        var lineNum = $(".org_view").parent().parent().parent().prev().attr("lineNum");
+        var orgId = $(".org_view").parent().parent().parent().prev().attr("orgId");
+        var domId = "orgView" + lineNum;
+        var className = "org_view" + lineNum;
+        var isOpenstack = $("html").scope().user.cloudType == "OPENSTACK";
+
+        // 1.获取当前Dom
+        var curView = undefined;
+        $(".org_view").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", domId);
+        curView.attr("class", className);
+
+        // 2.编译
+        var scope = curView.scope();
+        var modules = ["wcc", orgDetail.name];
+        modules.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", curView);
+            }
+        ]);
+        modules.unshift("ng");
+        var $injector = angular.injector(modules);
+        $injector.invoke(["$compile",
+            function($compile) {
+                $compile(curView)(scope);
+                scope.$digest();
+            }
+        ]);
+
+        // 3.初始化scope
+        var newScope = curView.scope();
+        newScope.$apply(function() {
+            newScope.domId = domId;
+            newScope.id = orgId;
+            newScope.operator.getOrgDetail();
+            if(isOpenstack){
+                newScope.operator.getCloudInfrasNumber();
+            }else{
+                newScope.operator.getAzNumber();
+            }
+            newScope.operator.getMemberNumber();
+        });
+    });
+</script>

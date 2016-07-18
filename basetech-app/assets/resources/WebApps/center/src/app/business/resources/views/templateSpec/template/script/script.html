@@ -1,0 +1,54 @@
+<div fm-help help="'drawer_template_script'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{ i18n.template_term_script_label }}</span></li>
+            <li class="two-lead">
+                <p ng-repeat="eView in i18n.split(i18n.template_script_view_explan_label)">
+                    {{eView}}
+                </p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+    <div class="clearfix">
+        <tiny-button ng-if="privilege.role_role_add_option_scriptHandle_value" class="major-btn" id="addScript.id" disable="addScript.disabled" icons-class="addScript.iconsClass" text="addScript.text"
+                     tooltip="addScript.tip" click="addScript.addScript()"></tiny-button>
+        <label ng-bind="i18n.template_term_oddSpace_label"></label>:<span ng-bind="freeCapacity" style="padding-left: 10px;"></span>MB
+
+        <!--刷新、列选择、帮助-->
+        <div class="pull-right">
+            <tiny-filtersel id="searchOSType.id" values="searchOSType.values" width="searchOSType.width"
+                        change="searchOSType.change()">
+            </tiny-filtersel>
+        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+            <a class="btn-link">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{ i18n.common_term_fresh_button }}" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div title="{{ i18n.common_term_onlinehelp_label }}" ng-click="show.help=true" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+
+        <div class="top10">
+            <tiny-table id="scriptTable.id" caption="scriptTable.caption" data="scriptTable.data"
+                        columns="scriptTable.columns"
+                        enable-pagination="scriptTable.enablePagination"
+                        pagination-style="scriptTable.paginationStyle" length-change="scriptTable.lengthChange"
+                        length-menu="scriptTable.lengthMenu" display-length="scriptTable.displayLength"
+                        enable-filter="scriptTable.enableFilter"
+                        cur-page="scriptTable.curPage" total-records="scriptTable.totalRecords"
+                        hide-total-records="scriptTable.hideTotalRecords"
+                        callback="scriptTable.callback" render-row="scriptTable.renderRow" change-select="scriptTable.changeSelect"
+                        show-details="scriptTable.showDetails"
+                        columns-draggable="scriptTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+    </div>
+</div>

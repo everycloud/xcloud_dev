@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div id="customReportConfig" ng-controller="report.customReportConfig.ctrl">
+        <div class="clearfix">
+            <div class="fl" ng-bind="metrics.label"></div>
+            <div class="fl margin-left-beautifier">
+                <div ng-repeat="metric in metrics.values">
+                    <div ng-bind="metric"></div>
+                </div>
+                <div class="fm-btn-top-large">
+                    <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+require(["app/business/monitor/controllers/report/customReportConfigCtrl"], function(customReportConfigCtrl) {
+    var $injector = angular.injector(["ng", customReportConfigCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#customReportConfig"));
+        link($("#customReportConfig").scope());
+        $("#customReportConfig").scope().$digest();
+    });
+});
+</script>

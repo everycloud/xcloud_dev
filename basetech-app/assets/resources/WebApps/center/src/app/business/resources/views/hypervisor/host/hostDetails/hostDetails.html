@@ -1,0 +1,53 @@
+<div id="hostDetailsDiv" class="row-fluid innerbox-padding" ng-controller="hypersior.host.hostDetails.hostDetailsCtrl.ctrl">
+    <div class="span6">
+        <tiny-formfield>
+            <tiny-item label="label.id">
+                <div ng-bind="info.hostId"></div>
+            </tiny-item>
+            <tiny-item label="label.logicalCpuQuantity">
+                <div ng-bind="info.logicalCpuQuantity"></div>
+            </tiny-item>
+            <tiny-item label="label.antiVirusVmNum" display="hyperType !== 'VMware'">
+                <div ng-bind="info.antiVirusVmNum"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="span6">
+        <tiny-formfield>
+            <tiny-item label="label.maintenance">
+                <div ng-bind="info.maintenance"></div>
+            </tiny-item>
+            <tiny-item label="label.imcSetting">
+                <div ng-bind="info.hostImcSetting"></div>
+            </tiny-item>
+            <tiny-item label="label.maxImcSetting">
+                <div ng-bind="info.hostMaxImcSetting"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/hypervisor/host/hostDetails/hostDetailsCtrl'],
+            function ($, hostDetailsCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $("#hostDetailsDiv").parent().parent().parent().prev().attr("lineNum");
+                var hostId = $("#hostDetailsDiv").parent().parent().parent().prev().attr("hostId");
+                var hyperType = $("#hostDetailsDiv").parent().parent().parent().prev().attr("hyperType");
+                var id = "hostDetailsDiv_" + lineNum;
+                $("#hostDetailsDiv").attr("id", id);
+
+                //编译
+                var dep = ['ng', 'wcc', hostDetailsCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + id));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#" + id))($rootScope);
+                    $rootScope.$digest();
+                });
+                $("#" + id).scope().getHosts(hostId,hyperType);
+            });
+</script>

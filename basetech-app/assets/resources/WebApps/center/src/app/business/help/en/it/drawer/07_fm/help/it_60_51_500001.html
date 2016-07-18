@@ -1,0 +1,74 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Alarm List">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_500001">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Alarm List</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_500001"></a><a name="it_60_51_500001"></a>
+
+
+<h1 class="topictitle1">Alarm List</h1>
+
+
+
+<div id="alarm_list"><a name="alarm_list"></a><a name="alarm_list"></a><p></p>
+
+<div class="p">The <span>FusionManager</span> alarm list displays the alarms of the system and other third-party
+components, that are
+connected to <span>FusionManager</span>. Using the alarm information, you can find and locate
+faults promptly.<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>You can click the alarm name in the <span class="wintitle"><b>Alarm
+Name</b></span> column, and handle the alarm as instructed by the
+alarm help.</p>
+<p><span id="it_60_51_500001__hard_alarm"><a name="it_60_51_500001__hard_alarm"></a><a name="hard_alarm"></a>If detailed information in the
+alarm help fails to be displayed, run the <b><span class="cmdname">reg add HKLM\SOFTWARE\Microsoft\HTMLHelp\1.x\ItssRestrictions
+/v MaxAllowedZone /t REG_DWORD /d 3 /f</span></b> command and open
+the alarm help again. Then, you can search for an alarm by the alarm
+ID. If multiple alarms are displayed as the search result by the alarm
+ID, you can find the alarm to be queried based on the sensor type
+in the alarm name.</span></p>
+</div></div>
+</div>
+
+<div class="section" id="it_60_51_500001__alarm_clear"><a name="it_60_51_500001__alarm_clear"></a><a name="alarm_clear"></a><h4 class="sectiontitle">Clearing an Alarm</h4><p>After handling alarms,
+you can manually clear those alarms that have been handled but cannot
+be automatically cleared.</p>
+<p>You can also clear multiple alarms at a time.
+To do so, select the alarms to be cleared and click <span class="uicontrol"><b>Clear</b></span> on the left upper corner of the page.</p>
+<div class="p">If the alarm
+has been cleared, one of the following is displayed in <span class="parmname"><b>Clear
+Type</b></span> indicating how this alarm is cleared:<ul><li><span class="parmname"><b>Manually Clear</b></span></li><li><span class="parmname"><b>Automatically Clear</b></span></li><li><span class="parmname"><b>Exception Clear</b></span>: After the component for
+which this alarm is generated is restored using the historical backup
+data, this alarm that has been reported to the <span>FusionManager</span> is rolled back. Therefore, the <span>FusionManager</span> automatically clears this alarm.</li></ul>
+</div>
+</div>
+
+<div class="section" id="it_60_51_500001__alarm_mask"><a name="it_60_51_500001__alarm_mask"></a><a name="alarm_mask"></a><h4 class="sectiontitle">Masking an Alarm</h4><p>You can
+mask an alarm that does not adversely affect services. Follow-up alarms for the masked alarm ID will be
+not displayed in the alarm list. You can choose <span class="menucascade"><b><span class="uicontrol">Alarm Settings</span></b> &gt; <b><span class="uicontrol">Alarm Mask</span></b></span> to view all masked alarms.</p>
+</div>
+
+<div class="section" id="it_60_51_500001__alarm_export"><a name="it_60_51_500001__alarm_export"></a><a name="alarm_export"></a><h4 class="sectiontitle">Exporting Alarms</h4><p>You can
+export the alarm list to the local PC so that you can view alarms
+offline and confirm and handle alarms without using <span>FusionManager</span>.</p>
+</div>
+
+</div>
+
+
+</body>
+</html>

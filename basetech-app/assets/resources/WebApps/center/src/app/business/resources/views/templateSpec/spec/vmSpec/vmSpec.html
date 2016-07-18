@@ -1,0 +1,55 @@
+<div fm-help help="'drawer_spec_vm'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="i18n.spec_term_vm_label"></span></li>
+            <li class="two-lead">
+                <p ng-repeat="eView in i18n.split(i18n.spec_vm_view_explan_label)">
+                    {{eView}}
+                </p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="clearfix">
+            <div class="fl">
+                <fm-button ng-if="privilege.role_role_add_option_vmSpecHandle_value" class="major-btn" id="create.id"
+                           disabled="create.disabled" icons-class="create.iconsClass" text="create.text"
+                           tooltip="create.tip" click="create.create"></fm-button>
+            </div>
+            <!--刷新、列选择、帮助-->
+            <div class="pull-right">
+            <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+               <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                               suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                               suggest="searchBox.suggest" search="searchBox.search">
+               </tiny-searchbox>
+             </span>
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{ i18n.common_term_fresh_button }}"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div title="{{ i18n.common_term_onlinehelp_label }}" ng-click="show.help=true"
+                         class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="top10">
+            <tiny-table id="vmSpecTable.id" caption="vmSpecTable.caption" data="vmSpecTable.data"
+                        columns="vmSpecTable.columns"
+                        enable-pagination="vmSpecTable.enablePagination"
+                        pagination-style="vmSpecTable.paginationStyle" length-change="vmSpecTable.lengthChange"
+                        length-menu="vmSpecTable.lengthMenu" display-length="vmSpecTable.displayLength"
+                        enable-filter="vmSpecTable.enableFilter"
+                        cur-page="vmSpecTable.curPage" total-records="vmSpecTable.totalRecords"
+                        hide-total-records="vmSpecTable.hideTotalRecords"
+                        callback="vmSpecTable.callback" render-row="vmSpecTable.renderRow"
+                        change-select="vmSpecTable.changeSelect"
+                        show-details="vmSpecTable.showDetails"
+                        columns-draggable="vmSpecTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div id="diskBindVmDiv">
+    <tiny-formfield>
+        <tiny-item label="clusterSelector.label" require="clusterSelector.require">
+            <tiny-select id="clusterSelector.id" values="clusterSelector.values" width="clusterSelector.width"
+                         validate="clusterSelector.validate" change="clusterSelector.change()"></tiny-select>
+        </tiny-item>
+        <tiny-item>
+            <div style="width: 650px">
+                <tiny-table id="bindVmTable.id" data="bindVmTable.data"
+                            pagination-style="bindVmTable.paginationStyle"
+                            columns='bindVmTable.columns' render-row="bindVmTable.renderRow"
+                            total-records="bindVmTable.totalRecords" length-change="bindVmTable.lengthChange"
+                            cur-page="bindVmTable.curPage" display-length="bindVmTable.displayLength"
+                            enable-pagination="bindVmTable.enablePagination" change-select="bindVmTable.changeSelect"
+                            length-menu="bindVmTable.lengthMenu" callback="bindVmTable.callback"
+                            column-sorting="bindVmTable.columnSorting"
+                            columns-draggable="bindVmTable.columnsDraggable"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="okButton.id" text="okButton.text" click="okButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/disk/bindVmCtrl"], function (bindVmCtrl) {
+        var rootElement = $("#diskBindVmDiv");
+        rootElement.attr("ng-controller", "resources.storeInfo.bindVm.ctrl");
+        var dep = ['ng', 'wcc', bindVmCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile(rootElement)($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

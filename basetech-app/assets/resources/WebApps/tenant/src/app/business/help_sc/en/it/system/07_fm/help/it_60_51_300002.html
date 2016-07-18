@@ -1,0 +1,143 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Scheduling Policies">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_300002">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Scheduling Policies</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Applications\nScheduling Policies");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100020.html\">Applications<\/a> > Scheduling Policies<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_300002"></a><a name="it_60_51_300002"></a>
+
+
+<h1 class="topictitle1">Scheduling Policies</h1>
+<ul><li><a href="#it_60_51_300002__1.2.3.1">Configuring Scheduling Policies</a></li><li><a href="#it_60_51_300002__1.2.4.1">Configuring Scheduled Tasks for Scheduling Policies</a></li></ul>
+<div>
+<p><span id="it_60_51_300002__policy_define"><a name="it_60_51_300002__policy_define"></a><a name="policy_define"></a>Scheduling policies are used to adjust resource workloads for scaling groups in an application instance.</span></p>
+
+<p><span id="it_60_51_300002__scaling_define"><a name="it_60_51_300002__scaling_define"></a><a name="scaling_define"></a>A scaling group is a collection of VMs in an application instance. With scheduling policies, the system automatically adds new VMs or start stopped VMs in a scaling group if the VM workloads in the group are generally heavy.
+If the VM workloads are generally light, the system automatically deletes VMs from the group. This function balances the VM workloads in an application instance and maximizes the resource utilization.</span></p>
+
+<div class="section"><a name="it_60_51_300002__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300002" class="sectiontitle2contents">Configuring Scheduling Policies</a></h4><div class="p">You can configure scheduling policies for an application instance using one of the following methods:<ol><li><p><strong>Configure scheduling polices in the application template.</strong></p>
+<p>When creating an application template, you can add scaling groups for the selected VMs and configure scheduling policies for the VMs. Therefore, the application
+instances created using this application template automatically contains the configured scheduling policies.</p>
+<p>For details, see <a href="it_60_51_600011.html">Creating an Application Template</a>.</p>
+</li><li><p><strong>Configure scheduling polices in the application instance.</strong></p>
+<p>After creating an application instance, navigate to the application instance topology, add scaling groups for the VMs in the application instance, and configure scheduling
+policies for the VMs.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Application Instance</span></b></span>, select
+an application instance, navigate to the <span class="uicontrol"><b>Topology</b></span> page</span>, click a scaling group icon and add scheduling policies for the group.</p>
+</li></ol>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_300002__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_300002" class="sectiontitle2contents">Configuring Scheduled Tasks for Scheduling Policies</a></h4><p>Configure scheduled tasks or periodic tasks for the system to automatically execute or disable the configured scheduling policies.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Policy Management</span></b></span>, navigate to the <span class="wintitle"><b>Scheduled Task</b></span> page, and click <span class="uicontrol"><b>Create</b></span>.</p>
+<p>The system records logs about all the executed scheduled tasks. To view the task logs, choose <span class="menucascade"><b><span class="uicontrol">Application</span></b> &gt; <b><span class="uicontrol">Policy Management</span></b></span> and click <span class="wintitle"><b>Policy
+Log</b></span>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

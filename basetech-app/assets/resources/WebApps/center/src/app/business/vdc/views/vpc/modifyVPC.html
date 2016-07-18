@@ -1,0 +1,41 @@
+<fm-valid valid="show.check">
+<tiny-formfield>
+	<tiny-item label="label.name" require="true">
+		<fm-text value="para.name" length="16" valid="lib.checkZH(para.name,'\\w')"
+		tip="i18n.common_term_composition2_valid+i18n.sprintf(i18n.common_term_maxLength_valid,{1:16})"></fm-text>
+	</tiny-item>
+	<tiny-item label="label.netNum" require="true">
+		<fm-digit value="para.netNum" min="1" max="200"></fm-digit>
+	</tiny-item>
+	<tiny-item label="label.routerNum" require="true">
+		<fm-digit value="para.routerNum" min="1" max="200"></fm-digit>
+	</tiny-item>
+	<tiny-item label="label.internalNum" require="true" display="!para.isShared">
+		<fm-digit value="para.internalNum" min="1" max="200"></fm-digit>
+	</tiny-item>
+	<tiny-item label="label.publicIPNum" require="true">
+		<fm-digit value="para.publicIPNum" min="1" max="200"></fm-digit>
+	</tiny-item>
+	<tiny-item label="label.pri" require="true">
+		<fm-radio id="para.pri.id" name="para.pri.name" option="form.pri"></fm-radio>
+	</tiny-item>
+	<tiny-item label="label.bw" require="true">
+		<fm-digit value="para.bw" min="1" max="10000"></fm-digit>
+	</tiny-item>
+	<tiny-item label="label.rx" require="true">
+		<fm-digit value="para.rx" min="1" max="4000"></fm-digit>
+	</tiny-item>
+	<tiny-item label="label.tx" require="true">
+		<fm-digit value="para.tx" min="1" max="4000"></fm-digit>
+	</tiny-item>
+	<tiny-item label="label.desp" require="false">
+		<fm-text value="para.desp" length="1024" type="'multi'" require="false" valid="#XSS"></fm-text>
+	</tiny-item>
+    <tiny-item>
+        <div class="fm-btn-top-small">
+            <fm-button class='major-btn fm-valid' text="i18n.common_term_ok_button||'确定'" click="modify"></fm-button>
+            <fm-button class='fm-valid-clear' text="i18n.common_term_cancle_button||'取消'" click="cancel"></fm-button>
+        </div>
+    </tiny-item>
+</tiny-formfield>
+</fm-valid>

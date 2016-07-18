@@ -1,0 +1,17 @@
+<div id="setScheduleRuleDiv" class="clearfix">
+    <div class="row">
+        <div class="span5 fl color-gray">{{i18n.virtual_cluster_schedul_desc_ruleMgr_label}}</div>
+        <div class="span1 fm-btn-bottom-small top10" style="clear:both;">
+            <tiny-button id="addRuleButton.id" text="addRuleButton.text" click="addRuleButton.click()"></tiny-button>
+        </div>
+    </div>
+    <div>
+        <tiny-table id="ruleTable.id" data="ruleTable.data" show-details="ruleTable.showDetails"
+                    pagination-style="ruleTable.paginationStyle"
+                    columns='ruleTable.columns' render-row="ruleTable.renderRow"
+                    total-records="ruleTable.totalRecords" length-change="ruleTable.lengthChange"
+                    cur-page="ruleTable.curPage" display-length="ruleTable.displayLength"
+                    enable-pagination="ruleTable.enablePagination"
+                    length-menu="ruleTable.lengthMenu" callback="ruleTable.callback"></tiny-table>
+    </div>
+</div>

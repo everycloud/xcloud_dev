@@ -1,0 +1,70 @@
+<div id="azDetailDiv" class="row-fluid innerbox-padding" ng-controller="rpool.zone.zoneResources.azDetail.ctrl">
+    <div id="azDetailBasic" class="span6">
+        <div class="inner-legend" ng-bind="i18n.common_term_basicInfo_label"></div>
+        <tiny-formfield>
+            <tiny-item label="nameItem.label">
+                <div ng-if="!nameItem.modifying" style="width: 450px">
+                    <span ng-bind="nameItem.value" style="white-space: normal"></span>
+                            <span class="btn-link" ng-click="nameItem.clickModify()" ng-if="operable">
+                                <img src="../theme/default/images/gm/edit.gif">
+                            </span>
+                </div>
+                <div ng-if="nameItem.modifying" class="nameItem">
+                    <tiny-textbox value="nameItem.value" blur="nameItem.blur()"
+                                  keypressfn="nameItem.keypressfn" width="150"
+                                  validate="nameItem.validate"></tiny-textbox>
+                </div>
+            </tiny-item>
+            <tiny-item label="descItem.label">
+                <div ng-if="!descItem.modifying" style="width: 450px">
+                    <span ng-bind="descItem.value" style="white-space: normal"></span>
+                            <span class="btn-link" ng-click="descItem.clickModify()" ng-if="operable">
+                                <img src="../theme/default/images/gm/edit.gif">
+                            </span>
+                </div>
+                <div ng-if="descItem.modifying" class="descItem">
+                    <tiny-textbox value="descItem.value" blur="descItem.blur()"
+                                  keypressfn="descItem.keypressfn" type="descItem.type" width="200"
+                                  height="descItem.height"
+                                  validate="descItem.validate">
+                    </tiny-textbox>
+                </div>
+            </tiny-item>
+            <tiny-item label="'ID:'">
+                <div ng-bind="azId"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="span6">
+        <div class="inner-legend none-line" ng-bind="i18n.cloud_term_tagInfo_label"></div>
+        <div class="clearfix">
+            <tiny-table id="azDetailTagsTable.id" data="azDetailTagsTable.data"
+                        columns='azDetailTagsTable.columns' render-row="azDetailTagsTable.renderRow"
+                        enable-pagination="azDetailTagsTable.enablePagination"></tiny-table>
+        </div>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/rpool/zone/zoneResources/availableZone/azDetailCtrl'],
+            function ($, azDetailCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $("#azDetailDiv").parent().parent().parent().prev().attr("lineNum");
+                var azId = $("#azDetailDiv").parent().parent().parent().prev().attr("azId");
+                var id = "azDetailDiv_" + lineNum;
+                $("#azDetailDiv").attr("id", id);
+
+                //编译
+                var dep = ['ng', 'wcc', azDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + id));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#" + id))($rootScope);
+                    $rootScope.$digest();
+                });
+                $("#" + id).scope().getAz(azId, id);
+            });
+</script>

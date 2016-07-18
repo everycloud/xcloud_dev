@@ -1,0 +1,48 @@
+<div ng-controller="app.templates.copyTemplate.ctrl" id="app_templates_copyTemplate_popId" class="alert-tip-first">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" value="name.value" extend-function="name.extendFunction" validate="name.validate"></tiny-textbox>
+            </tiny-item>
+
+            <div>
+                <tiny-item label="templateLogo.label" require="templateLogo.label">
+                    <img ng-src="{{'../theme/default/images/gm/appImage/'+templateLogo.curLogo}}" ng-click='templateLogo.change()' class='customHide' width='60px' height='76px'>
+                    <a ng-click='templateLogo.change()' class='customHide'>{{ i18n.template_term_changeIcon_button }}</a>
+                    <div id="customCopyTemplateLogoOptionId" style="display: none;">
+                        <div ng-repeat="logo in templateLogo.options" style="display: inline-block;margin-right: 5px;margin-top: 10px;">
+                            <img ng-src="{{'../theme/default/images/gm/appImage/'+logo}}" ng-click='templateLogo.changeLogo(logo)' width='60px' height='76px' style="cursor: pointer;" class="customHide">
+                        </div>
+                    </div>
+                </tiny-item>
+            </div>
+
+            <tiny-item label="description.label" require="description.require">
+                <tiny-textbox id="description.id" value="description.value" width="description.width" height="description.height" type="description.type"
+                              validate="description.validate" error-msg="description.errorMsg"></tiny-textbox>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="nextBtn.id" text="nextBtn.text"
+                             tooltip="nextBtn.tooltip" click="nextBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                             tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+
+
+</div>
+<script type="application/javascript">
+    require(['app/business/multiPool/controllers/appTemplate/copyTemplate'], function(copyTemplate){
+        var dependency = ['ng', 'wcc', copyTemplate.name];
+        dependency.unshift(["$provide", function($provide){
+            $provide.value("$rootElement", $("#app_templates_copyTemplate_popId"));
+        }]);
+        var $injector = angular.injector(dependency);
+        $injector.invoke(function($compile){
+            var scope = $("#app_templates_copyTemplate_popId").scope();
+            $compile($("#app_templates_copyTemplate_popId"))(scope);
+            scope.$digest();
+        });
+    });
+</script>

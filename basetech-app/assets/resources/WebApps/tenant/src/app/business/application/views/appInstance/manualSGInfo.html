@@ -1,0 +1,42 @@
+<div id="app-instance-manualsginfo-mod" ng-controller="manualSGInfo">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="actionType.label" require="actionType.require">
+                <tiny-select id="actionType.id" values="actionType.values" width="actionType.width" change="actionType.change()">
+                </tiny-select>
+            </tiny-item>
+            <tiny-item display="actionTypeScalingOut">
+                <tiny-radiogroup id="scaleOut.id" layout="scaleOut.layout" values="scaleOut.values" change="scaleOut.change()">
+                </tiny-radiogroup>
+            </tiny-item>
+            <tiny-item display="!actionTypeScalingOut">
+                <tiny-radiogroup id="scaleIn.id" layout="scaleIn.layout" values="scaleIn.values" change="scaleIn.change()">
+                </tiny-radiogroup>
+            </tiny-item>
+            <tiny-item label="step.label" require="step.require">
+                <tiny-textbox id="step.id" value="values.StepValue" tooltip="step.tooltip" extend-function="step.extendFunction" validate="step.validate" width="sstep.width" type="step.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+
+<script>
+require(['app/business/application/controllers/appInstance/manualSGInfoModule'],
+    function(manualSGInfoModule) {
+        var dep = ['ng', 'wcc', manualSGInfoModule.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#app-instance-manualsginfo-mod"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#app-instance-manualsginfo-mod"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

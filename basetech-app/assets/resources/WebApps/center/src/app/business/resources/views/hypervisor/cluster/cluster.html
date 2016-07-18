@@ -1,0 +1,43 @@
+<div id="cluster_list_table" class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{i18n.virtual_term_clusters_label||'资源集群'}}</span></li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.virtual_cluster_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <tiny-button id="associateButton.id" text="associateButton.text" icons-class="associateButton.iconsClass"
+                         click="associateButton.click()" class="major-btn fl" ng-if="operable"></tiny-button>
+            <div class="fr">
+            <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+                <a class="btn-link">
+                    <div ng-click="refresh()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="help.show=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="clusterTable.id" data="clusterTable.data" pagination-style="clusterTable.paginationStyle"
+                        columns='clusterTable.columns' render-row="clusterTable.renderRow"
+                        total-records="clusterTable.totalRecords" length-change="clusterTable.lengthChange"
+                        cur-page="clusterTable.curPage" display-length="clusterTable.displayLength"
+                        enable-pagination="clusterTable.enablePagination"
+                        length-menu="clusterTable.lengthMenu" callback="clusterTable.callback"
+                        column-sorting="clusterTable.columnSorting" columns-visibility="clusterTable.columnsVisibility"
+                        columns-draggable="clusterTable.columnsDraggable"
+                        change-select="clusterTable.changeSelect"></tiny-table>
+        </div>
+    </div>
+    <div fm-help help="'drawer_virtual_cluster'" i18n="'zh'" show="help.show"></div>
+</div>

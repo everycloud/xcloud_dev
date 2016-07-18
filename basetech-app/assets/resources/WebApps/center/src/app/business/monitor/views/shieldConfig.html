@@ -1,0 +1,29 @@
+<div fm-help help="'drawer_alarm_config'" show="show.help" i18n="'zh'"></div>
+<div>
+    <div class="margin-bottom-beautifier clearfix">
+        <div class="fl">
+        <fm-button id="createAddBtn.id" icons-class="icon-plus" text="createAddBtn.text" click="createAddBtn.click" class="major-btn" ng-if="operateRight"></fm-button>
+        <fm-button id="deleteBtn.id" icons-class="icon-plus" text="deleteBtn.text" click="deleteBtn.click" ng-if="operateRight"></fm-button>
+        </div>
+            <div class="pull-right">
+            <a class="btn-link">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+    </div>
+
+    <fm-dialog title="'{{i18n.alarm_term_addMaskRule_button}}'" width="900" height="820" show="showWin">
+        <div ng-show="showWin" ng-include src="'app/business/monitor/views/createAlarmShield.html'"></div>
+    </fm-dialog>
+
+
+    <div>
+
+        <tiny-table id="shieldListTable.id" data="shieldListTable.data" columns="shieldListTable.columns" pagination-style="shieldListTable.paginationStyle" length-change="shieldListTable.lengthChange" length-menu="shieldListTable.lengthMenu" display-length="shieldListTable.displayLength"
+        enable-filter="shieldListTable.enableFilter" change-select="shieldListTable.changeSelect" show-details="shieldListTable.showDetails" callback="shieldListTable.callback" render-row="shieldListTable.renderRow" columns-visibility="false" total-records="shieldListTable.totalRecords"
+        cur-page="shieldListTable.curPage" columns-draggable="true"></tiny-table>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<div id="networkManage" ng-controller="userMgr.org.networkManage.ctrl" ng-show="showView">
+    <ul>
+        <li ng-bind="networkSelectModel.networkSelectLabel" class="bottom10">
+        </li>
+        <li class="clearfix">
+            <tiny-radiogroup id="networkRange.id"
+                             values="networkRange.values"
+                             spacing="networkRange.spacing"
+                             layout="networkRange.layout"
+                             change="networkRange.change()"></tiny-radiogroup>
+        </li>
+        <li ng-show="choiceNetwork">
+            <div class="clearfix">
+                <div class="fl" style="width:450px;">
+                    <div class="form-inline">
+                        <span ng-bind="networkSelectModel.canSelectNetworkLabel"></span>
+
+                        <div class="pull-right">
+                            <tiny-filtersel id="azFilter.id"
+                                            label="azFilter.label"
+                                            values="azFilter.values"
+                                            change="azFilter.change()">
+                            </tiny-filtersel>
+                            <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                                <tiny-searchbox id="leftNetworkSearchBox.id"
+                                                placeholder="leftNetworkSearchBox.placeholder"
+                                                width="leftNetworkSearchBox.width"
+                                                suggest-size="leftNetworkSearchBox.suggestSize"
+                                                maxlength="leftNetworkSearchBox.maxLength"
+                                                search="leftNetworkSearchBox.search">
+                                </tiny-searchbox>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <tiny-table id="leftNetworkTable.id"
+                                    data="leftNetworkTable.data"
+                                    columns="leftNetworkTable.columns"
+                                    enable-pagination="leftNetworkTable.pagination"
+                                    pagination-style="leftNetworkTable.paginationStyle"
+                                    length-change="leftNetworkTable.lengthChange"
+                                    length-menu="leftNetworkTable.lengthMenu"
+                                    display-length="leftNetworkTable.displayLength"
+                                    enable-filter="leftNetworkTable.enableFilter"
+                                    cur-page="leftNetworkTable.curPage"
+                                    total-records="leftNetworkTable.totalRecords"
+                                    request-config="leftNetworkTable.requestConfig"
+                                    hide-total-records="leftNetworkTable.hideTotalRecords"
+                                    render-row="leftNetworkTable.renderRow"
+                                    callback="leftNetworkTable.callback"
+                                    change-select="leftNetworkTable.changeSelect"
+                                    columns-draggable="true"
+                                    show-details="leftNetworkTable.showDetails"></tiny-table>
+                    </div>
+                </div>
+                <div class="fl left20" style="width:250px;">
+                    <div class="form-inline">
+                        <span ng-bind="networkSelectModel.networkSelectedLabel"></span>
+                    </div>
+
+                    <div>
+                        <tiny-table id="rightNetworkTable.id"
+                                    data="rightNetworkTable.data"
+                                    columns="rightNetworkTable.columns"
+                                    enable-pagination="rightNetworkTable.pagination"
+                                    hide-total-records="rightNetworkTable.hideTotalRecords"
+                                    render-row="rightNetworkTable.renderRow"
+                                    callback="rightNetworkTable.callback"
+                                    change-select="rightNetworkTable.changeSelect"
+                                    columns-draggable="true"
+                                    show-details="rightNetworkTable.showDetails"></tiny-table>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="fm-btn-top-small">
+            <div>
+                <tiny-button class="major-btn"
+                             id="networkSaveBtn.id"
+                             text="networkSaveBtn.text"
+                             click="networkSaveBtn.click()"></tiny-button>
+                <tiny-button id="networkCancelBtn.id"
+                             text="networkCancelBtn.text"
+                             click="networkCancelBtn.click()"></tiny-button>
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="application/javascript">
+    require(["app/business/user/controllers/organization/networkManageCtrl"], function (networkManageCtrl) {
+        var $injector = angular.injector(["ng", networkManageCtrl.name]);
+        $injector.invoke(function ($compile) {
+            var $rootDiv = $("#networkManage");
+            var link = $compile($rootDiv);
+            link($rootDiv.scope());
+            $rootDiv.scope().$digest();
+        });
+    });
+</script>

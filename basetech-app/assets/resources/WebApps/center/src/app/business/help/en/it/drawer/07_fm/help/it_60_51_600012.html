@@ -1,0 +1,310 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Connecting a Firewall to FusionManager">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600012">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Connecting a Firewall to FusionManager</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_600012"></a><a name="it_60_51_600012"></a>
+
+
+
+
+<h1 class="topictitle1">Connecting a Firewall to <span>FusionManager</span></h1>
+
+<div>
+<div class="section"><h4 class="sectiontitle">Scenarios</h4>
+
+
+<div class="p">This topic describes how to connect a physical firewall device
+to <span>FusionManager</span>, so that <span>FusionManager</span> can monitor and manage and firewall and configure services
+for the firewall.</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Prerequisites</h4>
+
+
+<div class="p"><p>Ensure that the following conditions are met before you
+configure firewall connection parameters:</p>
+<ul><li>The required data, including the Secure Shell (SSH) user and password
+and Simple Network Management Protocol (SNMP) parameters, has been
+configured on the physical firewall. For details, see associated product
+documentation for the firewall.</li><li>You have logged in to <span>FusionManager</span>.</li></ul>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Configuration Before Connection</h4>
+
+
+<div class="p">If two <span class="parmvalue"><b>Eudemon8000E V200R001C01</b></span> firewall
+devices (active and standby) need to be connected to <span>FusionManager</span>, perform the following operations before connecting them to
+the system:</div>
+
+<ol><li><span>Log in to the active and standby firewall devices and run
+the <b><span class="cmdname">hrp auto-sync config</span></b> command to enable the
+automatic synchronization function on them, respectively.</span></li><li><span>Perform the following steps to disable the image configuration
+function on the active and standby firewall devices:</span>
+<p><ol type="a"><li><p>Run the <b><span class="cmdname">display current-configuration | include hrp</span></b> command to check the current image configuration state.</p>
+<p>If
+the command output contains the following content, the image configuration
+function is enabled on the firewall devices.</p>
+<pre class="screen">hrp mirror config enable</pre>
+</li><li><p>Log in to the active and standby firewall devices and run the <b><span class="cmdname">undo hrp mirror config enable</span></b> command to delete the image
+configuration settings on them, respectively.</p>
+</li></ol>
+</p>
+</li><li><span>Perform the following steps to check the active/standby
+status and heartbeat communication status of the firewall devices:</span>
+<p><ol type="a"><li><p>Run the <b><span class="cmdname">display hrp state</span></b> command on both
+of the firewall devices, respectively, to check their active/standby
+status.</p>
+<p>If the command output for the active firewall device
+is as follows, the active firewall device is in the normal state:</p>
+<pre class="screen"><strong>Role: active, peer: standby</strong>
+Running priority: 47008, peer: 47008
+<strong>Core state: normal, peer: normal</strong>
+Backup channel usage: 0%
+Stable time: 0 days, 2 hours, 51 minutes</pre>
+</li><li><p>Run the <b><span class="cmdname">display hrp interface</span></b> command on
+any firewall device to check the status of the heartbeat communication
+between the two firewall devices.</p>
+<p>If the command output is as
+follows, the heartbeat communication between the two firewall devices
+is normal.</p>
+<pre class="screen">Eth-Trunk4 : running</pre>
+</li></ol>
+</p>
+</li><li><span>Check whether the two firewall devices have been switched
+over. If so, restore their planned active/standby relationship by
+following the methods provided in the associated firewall device documentation.</span>
+</li></ol>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Procedure</h4>
+
+<ol><li><span>On <span>FusionManager</span>, choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Network Devices</span></b> &gt; <b><span class="uicontrol">Firewalls</span></b></span>.</span></li><li><span>Click <span class="uicontrol"><b>Add Firewall</b></span>.</span>
+<p>The <span class="wintitle"><b>Navigation</b></span> page is displayed.</p>
+</li><li><span>Configure the following basic parameters of the firewall:</span>
+<p><ul><li><span class="parmname"><b>Added As</b></span>: specifies the firewall access mode.
+If a single firewall is deployed, select <span class="uicontrol"><b>Add Single Firewall</b></span>. If two firewalls are deployed in active/standby mode, select <span class="uicontrol"><b>Add Active and Standby Firewalls</b></span>.</li><li><span class="parmname"><b>Resource Zone</b></span>: specifies the resource zone
+to which the firewall belongs.</li><li><span class="parmname"><b>Username</b></span>: specifies the SSH user created
+on the firewall.</li><li><span class="parmname"><b>Password</b></span>: specifies the password of SSH user.</li><li><span class="parmname"><b>Confirm Password</b></span>: specifies the SSH user
+password to be entered for confirmation.</li><li><span class="parmname"><b>Port</b></span>: specifies the port for firewall access.
+The default value is <span class="parmvalue"><b>22</b></span>.</li><li><span class="parmname"><b>Networking Mode</b></span>: <ul><li><span class="parmname"><b>ospf</b></span>: If <span class="parmname"><b>Networking Mode</b></span> is set to <span class="parmname"><b>ospf</b></span>, the virtual firewall created
+on the physical firewall broadcasts messages so that the aggregation
+switch can use the dynamic route study function to automatically obtain
+the return route and manual route configuration is not required. The
+orange and blue lines in <a href="#it_60_51_600012__fig_01">Figure 1</a> show the process.
+The route and return route are relative. If the communication from
+the VM to the Internet is based on routes, the communication from
+the Internet to the VM is the return route, as shown in blue dashed
+line in the figure. </li><li><span class="parmname"><b>static-route</b></span>: Only Huawei S6324, S9300, and
+CE12800 switches support this networking type. When a large number
+of firewalls are deployed in the system, use <span class="parmname"><b>static-route</b></span> to prevent the virtual firewalls from sending too many broadcast
+packets, which may cause overload on the aggregation switch and consequently
+deteriorate the switch performance. If the resource zone uses the <span class="parmvalue"><b>Gateway residing on the switch and managing the firewall</b></span> networking mode, the network can only use the <span class="parmname"><b>static-route</b></span> networking type. To set the networking type of a firewall device
+to <span class="parmname"><b>static-route</b></span>:<ol type="a"><li>Connect the aggregation switch to <span>FusionManager</span> so that <span>FusionManager</span> can configure routes on the switch.</li><li><span>FusionManager</span> uses the root route of the aggregation switch and the untrust
+zone of the firewall to configure return routes for the elastic IP
+address, DNAT, and SNAT services. Therefore, static routes do not
+need to be manually configured. If the root route is not used, manually
+configure static routes, as shown in the blue line in <a href="#it_60_51_600012__fig_01">Figure 1</a>.</li><li>Manually configure static routes if the routed network is also
+required to connect to other devices. For details, see <span class="parmname"><b>Related
+Tasks</b></span>.</li></ol>
+<div class="fignone" id="it_60_51_600012__fig_01"><a name="it_60_51_600012__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>Figure 1 </b>Networking Mode</span>
+
+<br><span><img src="fig/fig_it_60_51_600012_01.png"></span></div>
+</li></ul>
+</li><li><span class="parmname"><b>IP Address</b></span>: specifies the management IP address
+of the physical firewall.</li><li><span class="parmname"><b>Equipment Room</b></span>: specifies the name of the
+equipment room housing the firewall.</li><li><span class="parmname"><b>Cabinet</b></span>: identifies the cabinet housing the
+firewall.</li><li><span class="parmname"><b>Subrack</b></span>: identifies the subrack housing the
+firewall.</li></ul>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span></li><li><span>Configure the following SNMP access parameters for the
+firewall:</span>
+<p><div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><div class="p"><ul><li>SNMPv3 supports HMACMD5 and HMACSHA algorithms, which, however,
+are insecure algorithms. You are advised to use the more secure HMACSHA
+(HMACSHA1) algorithm.</li><li><span>FusionManager</span> supports AES (AES128) and DES data encryption algorithms. You
+are advised to use the more secure AES (AES128) algorithm.</li></ul>
+</div>
+</div></div>
+<ul><li><span class="parmname"><b>Version</b></span>: specifies the SNMP version used
+by the firewall. The system supports SNMPv1, SNMPv2, and SNMPv3. SNMPv1
+and SNMPv2 are prone to security risks, and therefore SNMPv3 is recommended.</li><li><span class="parmname"><b>Port</b></span>: identifies the SNMP port used by the
+firewall. The default port number is <span class="parmvalue"><b>161</b></span>.</li><li><span class="parmname"><b>Timeout (S)</b></span>: specifies the timeout duration
+of SNMP requests supported by the system. The value ranges from 1
+to 60.</li><li>(SNMPv1 and SNMPv2) <span class="parmname"><b>Read Community Name</b></span>:
+Specifies the name of the community granted read permission. SNMPv1
+and SNMPv2c use the community name for authentication. If the community
+name contained in an SNMP message is invalid, this SNMP message is
+discarded. The read community name is a character string.</li><li>(SNMPv1 and SNMPv2) <span class="parmname"><b>Write Community Name</b></span>:
+Specifies the name of the community granted write permission. SNMPv2c
+uses the community name for authentication. If the community name
+contained in an SNMP message is invalid, this SNMP message is discarded.
+The write community name is a character string.</li><li><span>(SNMPv3)</span> <span class="parmname"><b>Security Username</b></span>: specifies
+the SNMP username for logging in to the firewall.</li><li><span>(SNMPv3)</span> <span class="parmname"><b>Authentication Protocol</b></span>: specifies the protocol for checking whether the transmitted data
+is valid.</li><li><span>(SNMPv3)</span> <span class="parmname"><b>Authentication Password</b></span>: specifies the password for checking whether the transmitted data
+is valid.</li><li>(SNMPv3) <span class="parmname"><b>Confirm Password</b></span>: specifies the
+authentication password to be entered for confirmation.</li><li><span>(SNMPv3) </span><span class="parmname"><b>Encryption Protocol</b></span>: specifies
+the protocol for encrypting the transmitted data.</li><li><span>(SNMPv3)</span><span class="parmname"><b>Encryption Password</b></span>: specifies
+the password for encrypting the transmitted data.</li><li>(SNMPv3) <span class="parmname"><b>Confirm Password</b></span>: specifies the
+encryption password to be entered for confirmation.</li></ul>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">You are advised to use secure algorithms for
+the communication between <span>FusionManager</span> and firewalls. <span>FusionManager</span> also supports some algorithms that are known to be prone to
+security risks, such as Data Encryption Standard (DES), and keyed-hash
+message authentication code (HMAC) MD5. If you determine to use these
+less-secure algorithms, ensure that you understand the potential risks. <p>The HMACSHA algorithm supported by <span>FusionManager</span> is HMAC SHA1.</p>
+</div></div>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Next</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>Complete</b></span>.</span>
+<p>The physical firewall is connected to the system.</p>
+</li></ol>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Follow-up Procedure</h4>
+
+
+<div class="p"><p><strong>Configure static routes.</strong></p>
+<ol><li><p>Use PuTTY to log in to <span>FusionManager</span> as user <span class="parmname"><b>galaxmanager</b></span>.</p>
+<p>Ensure that
+the management IP address is used to establish the connection.</p>
+</li><li>Run the following command to disable user logout upon system timeout: <p><span class="parmname"><b>TMOUT=0</b></span></p>
+</li><li>Run the following command to view the vFW configuration file: <p><b><span class="cmdname">modConfig vfw list</span></b></p>
+<div class="p">The following information
+is displayed:<pre class="screen">-------------------------------------------------------
+#zoneName:vfwDomainName:vrfName:publicType
+-------------------------------------------------------</pre>
+</div>
+</li><li><p>Run the following command to add a static route: </p>
+<p><b><span class="cmdname">modConfig vfw add</span></b></p>
+<div class="p"><a href="#it_60_51_600012__tab_01">Table 1</a> describes
+the parameters in the preceding command.
+<div class="tablenoborder"><a name="it_60_51_600012__tab_01"></a><a name="tab_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600012__tab_01" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Parameter configuration</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="12.333333333333334%" id="mcps1.2.5.2.2.4.3.2.2.4.1.1"><p>Parameter</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="22.666666666666668%" id="mcps1.2.5.2.2.4.3.2.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="65%" id="mcps1.2.5.2.2.4.3.2.2.4.1.3"><p>Configuration Guideline</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="12.333333333333334%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.1 "><p>zoneName</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22.666666666666668%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.2 "><p>Specifies the zone name.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="65%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.3 "><p>Set this parameter to an existing zone in the system.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="12.333333333333334%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.1 "><p>vfwDomainName</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22.666666666666668%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.2 "><p>Specifies the domain name configured on the firewall.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="65%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.3 "><p>Set this parameter to an existing domain name on the firewall.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="12.333333333333334%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.1 "><p>vrfName</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22.666666666666668%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.2 "><p>Specifies vrf name.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="65%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.3 "><p>Set this parameter to an existing vrf name on the aggregation
+switch as planned based on customer requirements.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="12.333333333333334%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.1 "><p>publicType</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22.666666666666668%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.2 "><p>Specifies the routing relationship. The value can be <span class="parmvalue"><b>1</b></span> and <span class="parmvalue"><b>0</b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="65%" headers="mcps1.2.5.2.2.4.3.2.2.4.1.3 "><div class="p"><ul><li><span class="parmvalue"><b>1</b></span>: indicates that the configured routes
+are between the public IP address and virtual firewall. only one <span class="parmvalue"><b>publicType=1</b></span> routing relationship can be configured in
+each zone. </li><li><span class="parmvalue"><b>0</b></span>: indicates that the configured routes
+are between the routed network and virtual firewall.</li></ul>
+</div>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<div class="p">The following information is displayed:<pre class="screen">Please input params [zoneName:vfwDomainName:vrfName:publicType]:</pre>
+</div>
+</li><li><p>Complete the input as instructed.</p>
+<p>For example, if you
+intend to configure a route from the public network to the vFW, enter <b><span class="cmdname">Zone01:untrust:InternetVRF:1</span></b>.</p>
+<div class="p">The route is successfully
+added if the following information is displayed:<pre class="screen">insert success</pre>
+</div>
+<p>To delete a route, run the <b><span class="cmdname">modConfig vfw del</span></b> command and specify the route parameters as required.</p>
+</li></ol>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Example</h4>
+
+
+<div class="p"><p><strong>Example aggregation switch route information</strong></p>
+<div class="p">If <span class="parmname"><b>static-route</b></span> is used to connect to the
+physical firewall, the required static routes are configured, and
+the following services are provisioned: <ul><li>VM 1 and VM 2 have been created in the routed network <span class="parmvalue"><b>192.168.30.0/24</b></span>.</li><li>The IP address of the switch untrust zone port used by the routed
+network is <span class="parmvalue"><b>192.168.60.5/24</b></span>. The IP address
+of the name area01 zone port is <span class="parmvalue"><b>192.168.61.5/24</b></span>. </li><li>The public IP address <span class="parmvalue"><b>192.168.50.8</b></span> has
+been bound to VM 1.</li></ul>
+<span>FusionManager</span> configures the following route information on the aggregation
+switch: <pre class="screen">Network address         Subnet mask            Gateway address
+192.168.30.0            255.255.255.0          192.168.61.5
+192.168.50.8            255.255.255.255        192.168.60.5</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

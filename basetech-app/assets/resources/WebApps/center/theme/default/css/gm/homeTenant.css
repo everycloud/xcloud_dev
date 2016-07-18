@@ -1,0 +1,154 @@
+.homeTitle{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.resourceHeight {
+    height: 142px;
+}
+.resourceHeight2 {
+    height: 210px;
+}
+
+.vmHeight {
+    height: 380px;
+}
+
+.task{
+    margin: 20px 0 0 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.task .alarmnum {
+    color: #009ae7;
+    padding: 0 3px;
+    font-size: 18px;
+}
+
+.task img {
+    margin: 5px 10px 0 0;
+    vertical-align: middle;
+}
+
+.fontBold{font-weight: bold;}
+.progressbar {
+    width: 45%;
+    height: 9px;
+    background: #eaeaea;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.progressbar>.text {
+    width: 45%;
+    top: -18px;
+    left: 140px;
+    position: relative;
+    font-size: 18px;
+    color: #5ecc49;
+    text-align: left;
+    display: block;
+}
+
+.progressbar>.bar {
+    width: 0px;
+    height: 100%;
+    background:#5ECC49;
+    margin-bottom:3px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.quotaTitle{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 288px;
+    font-size: 14px;
+    color: #333;
+}
+
+.myprogress {
+    width: 50%;
+    height: 11px;
+    background: #eaeaea;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.myprogress>.bar {
+    width: 0px;
+    height: 100%;
+    background:#5ECC49;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.inlineBlockCss{
+    display: inline-block;
+    margin-right: 15px;
+}
+.homeGreenNumber{
+    font-size: 18px;
+    color: #5ecc49;
+}
+.homeTextRight{
+    text-align: right;
+}
+.homeNewSeperator{
+    display: block;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 16px;
+    line-height: 40px;
+    color: #000;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.homeMyResLeft{
+    display: inline-block;
+}
+.homeMyResNumber{
+    font-size: 26px;
+    font-weight: bold;
+    color: #009AE7;
+    margin-top: 5px;
+}
+.homeMyResNumber a:hover {
+    color: #009AE7;
+}
+.homeMyResRight{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.homeMyResRight_title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.more-title{
+    font-size: 14px;
+    color: #009ae7;
+    line-height: 30px;
+    margin-right: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow:ellipsis;
+}

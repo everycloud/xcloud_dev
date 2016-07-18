@@ -1,0 +1,130 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Configuring a CommVault VM Backup Server">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600009">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Configuring a CommVault VM Backup Server</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_600009"></a><a name="it_60_51_600009"></a>
+
+
+
+<h1 class="topictitle1">Configuring a CommVault VM Backup Server</h1>
+
+
+<div>
+<div class="section"><h4 class="sectiontitle">Scenario</h4>
+
+
+<div class="p"><p>Configure a CommVault VM backup server to back up VM disk
+data. If a VM is faulty, the data backups on the backup server can
+be used to restore the VM.</p>
+<p><span>FusionManager</span> supports Huawei HyperDP backup system and the CommVault Simpana
+backup system. Simpana is the data management software from the CommVault
+Systems company, and HyperDP is a data protection solution provided
+by Huawei for the FusionCompute hypervisor. These backup servers can
+conquer the challenges of large-scale data backups and data redundancy
+to improve VM data security.</p>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Prerequisites</h4>
+
+
+<div class="p"><ul><li>You have obtained the backup server name, username, and password.</li><li>You have logged in to <span>FusionManager</span>.</li><li>You have configured the storage policies on the CommVault server.</li><li>You have obtained the private key file.</li></ul>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Procedure</h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">Install the iDataAgent client.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li id="it_60_51_600009__s_01"><a name="it_60_51_600009__s_01"></a><a name="s_01"></a><span>Use PuTTY to log in to the active <span>FusionManager</span> node as user <span class="parmname"><b>galaxmanager</b></span>.</span>
+<p>The default password for user <span class="parmname"><b>galaxmanager</b></span> is <span class="parmname"><b>Huawei@CLOUD8</b></span>.</p>
+</li><li><span>Run the following command to disable logout on timeout:</span>
+<p><b><span class="cmdname">TMOUT=0</span></b></p>
+</li><li><span>Run the following command to configure the CommVault
+operating environment:</span>
+<p><b><span class="cmdname">modConfig cv -b</span></b></p>
+<p>The configuration is successful if information similar to the
+following is displayed:<pre class="screen">configure cv before install success</pre>
+</p>
+</li><li id="it_60_51_600009__step4"><a name="it_60_51_600009__step4"></a><a name="step4"></a><span>Install the OpenSSL tool on the local PC.
+For details, see <a href="../maintenance/it_60_53_000050.html">Creating and Replacing a FusionManager Security Protection Certificate</a>.</span></li><li><span>Obtain the CommVault ISO software package and private
+key and store them in the directory where the OpenSSL tool is installed.</span>
+<p>For example, the OpenSSL installation directory is <span class="filepath"><b>D:\OpenSSL-Win32\bin</b></span>.</p>
+</li><li><span>Run the following command to generate a digital signature
+for the CommVault ISO software package:</span>
+<p><b><span class="cmdname">openssl dgst -sha256 -out</span></b> <i><span class="varname">File name
+after signature</span></i> <b><span class="cmdname">-sign</span></b> <i><span class="varname">File name
+of the private key</span></i> <i><span class="varname">File name of the CommVault software
+package</span></i></p>
+<p><p>The <span class="parmname"><b>Software package file name.sig</b></span> format
+is recommended for the file name after signature.</p>
+</p>
+<p>If the software package file name is <span class="parmname"><b>CommVault.zip</b></span> and the file name of the generated private key is <span class="parmname"><b>private.key</b></span>, run the following command to generate a digital signature:<p><b><span class="cmdname">openssl dgst -sha256 -out CommVault.zip.sig -sign private.key CommVault.zip</span></b></p>
+</p>
+</li><li><span>Use WinSCP to log in to the active <span>FusionManager</span> node as user <span class="parmname"><b>galaxmanager</b></span> and copy the CommVault
+ISO software package and signature file to the <span class="parmname"><b>/opt/goku/data/upload</b></span> directory of the active <span>FusionManager</span> node.</span>
+<p>The default password for user <span class="parmname"><b>galaxmanager</b></span> is <span class="parmname"><b>Huawei@CLOUD8</b></span>.</p>
+</li><li><span>Run the following command to start installing the CommVault
+server:</span>
+<p><b><span class="cmdname">installComponents cv Simpana_10_DVD03_UNIX_03042013.iso</span></b></p>
+</li><li><span>Install the CommVault client, iDataAgent, on the active
+and standby <span>FusionManager</span> nodes, respectively. For details, see the CommVault product documents.</span>
+<p><p>You can visit <a href="http://www.commvault.com.cn/services-and-support" target="_blank">http://www.commvault.com.cn/services-and-support</a> and
+download the product documents for the corresponding CommVault version.</p>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Select the file system components to be installed
+when installing the iDataAgent.</p>
+</div></div>
+</p>
+</li><li id="it_60_51_600009__stp_cv"><a name="it_60_51_600009__stp_cv"></a><a name="stp_cv"></a><span>Run the following command to configure the
+CommVault server:</span>
+<p><b><span class="cmdname">modConfig cv -a -i</span></b><i><span class="varname"> IP address of
+the CommVault server</span></i><b><span class="cmdname"> -s</span></b><i><span class="varname">"Storage
+policy name"</span></i></p>
+<p><p>Note the following when executing this command:</p>
+<ul><li>Enter the name of the storage policy that has been configured
+on the CommVault server.</li><li>If multiple storage policies are available, use vertical bars
+(|) to separate them.</li></ul>
+<p>For example, to configure the CommVault server, run the <b><span class="cmdname">modConfig cv -a -i 192.168.0.123 -s "storage01|storage02"</span></b> command.</p>
+</p>
+</li><li><span>Install the CommVault server on the standby <span>FusionManager</span> node. For details, see <a href="#it_60_51_600009__s_01">1</a> to <a href="#it_60_51_600009__stp_cv">10</a>.</span></li><li><span>Configure the CommVault server to regularly collect
+storage usage information and upload the report to a specific directory
+on <span>FusionManager</span>.</span>
+<p><p>The reports are divided into groups according to the customer
+client group, the report names are ended with <span class="parmvalue"><b>summary.csv</b></span>, and the reports are stored in the report storage directory configured
+on the iDataAgent client.</p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure a CommVault backup server.</p>
+<div class="Steps-titled"><ol type="1" start="13"><li><span>On <span>FusionManager</span>, choose <span class="menucascade"><b><span class="uicontrol">System</span></b> &gt; <b><span class="uicontrol">Backup
+Settings</span></b></span>.</span></li><li><span>Select <span class="wintitle"><b>Configure CommVault Backup Server</b></span> in the <span class="wintitle"><b>Virtual Backup Server</b></span> area.</span>
+</li><li><span>Select <span class="uicontrol"><b>Use CommVault backup server</b></span>.</span></li><li><span>Set <span class="parmname"><b>Server name</b></span> to the name of
+the CommVault backup server.</span></li><li><span>Set <span class="parmname"><b>Username</b></span>, <span class="parmname"><b>Password</b></span>, and <span class="parmname"><b>Confirm Password</b></span> for the CommVault backup
+server.</span></li><li><span>Click <span class="uicontrol"><b>Save</b></span> to save the configuration.</span>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

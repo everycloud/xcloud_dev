@@ -1,0 +1,116 @@
+.tinyMenuButton {
+	display: inline-block;
+}
+.tiny-menubutton-main-a {
+	display:inline-block;
+	cursor: pointer;
+	color : #333;
+}
+.tiny-menubutton-buttondropdown {
+    margin:1px 0 0 -3px;
+	z-index: 10002;
+	position: absolute;
+	font-size: 12px;
+	list-style: none;
+	border-radius: 3px;
+	background-color: #fafafa;
+    box-shadow: 0px 4px 5px #B1B1B1;
+    -webkit-box-shadow: 0px 4px 5px #B1B1B1;
+    -moz-box-shadow: 0px 4px 5px #B1B1B1;
+}
+.tiny-menubutton-normaldropdown {
+	z-index: 10002;
+	font-size: 12px;
+	list-style: none;
+	background-color: #fafafa;
+	position: absolute;
+    border-radius: 3px;
+    box-shadow: 0px 4px 5px #B1B1B1;
+    -webkit-box-shadow: 0px 4px 5px #B1B1B1;
+    -moz-box-shadow: 0px 4px 5px #B1B1B1;
+}
+.tiny-menubutton-buttondropdown > li > a {
+	text-decoration: none;
+	display: block;
+	padding: 0 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 26px;
+	color: #333333;
+	white-space: nowrap;
+    border-radius: 3px;
+}
+.tiny-menubutton-normaldropdown > li > a {
+	text-decoration: none;
+	display: block;
+	padding: 0 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 26px;
+	color: #333333;
+	white-space: nowrap;
+    border-radius: 3px;
+}
+.tiny-menubutton-buttondropdown > li > a:hover, .tiny-menubutton-buttondropdown> li > a:focus {
+	background: #f1f1f1;
+	text-decoration: none;
+    color: #008fd6;
+}
+.tiny-menubutton-normaldropdown > li > a:hover, .tiny-menubutton-normaldropdown > li > a:focus {
+	background: #f1f1f1;
+	text-decoration: none;
+    color: #008fd6;
+}
+.tiny-menubutton-normaldropdown > .active > a, .tiny-menubutton-normaldropdown > .active > a:hover, .tiny-menubutton-normaldropdown > .active > a:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: #428bca;
+	outline: 0
+}
+/*更多后的三角符号样式*/
+.tiny-menubutton-caret {
+	display: inline-block;
+	margin-left: 5px;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+	border-top: 4px solid #aaa;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+	content: "";
+}
+.tiny-button .tiny-center .tiny-menubutton-caret{
+    border-top: 4px solid #aaa;
+    }
+
+.tiny-menubutton-cus {
+	margin-left: -3px;
+	z-index: 10002;
+	position: absolute;
+	font-size: 12px;
+	list-style: none;
+	border-radius: 10px;
+	background-color: #F5F5F5;
+	border: 1px solid #ccc;
+}
+.tiny-menubutton-cus > li > a {
+	text-decoration: none;
+	display: block;
+	padding: 0 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 26px;
+	color: #666666;
+	white-space: nowrap;
+}
+.tiny-menubutton-cus > li > a:hover, .tiny-menubutton-cus > li > a:focus {
+	background: #1BA4E8;
+	text-decoration: none;
+}
+
+
+.tiny-button-buttonCenterText .tiny-menubutton-caret{
+    border-top: 0px solid #AAA !important;
+    border-right: 0px solid transparent;
+    border-left: 0px solid transparent;
+}

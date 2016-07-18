@@ -1,0 +1,28 @@
+<div id="vlb_create_basic" class="row-fluid create-page-distance">
+    <tiny-formfield>
+        <tiny-item label="info.name.label" require="info.name.require">
+            <tiny-textbox id="info.name.id" value="service.vlbName" validate="info.name.validate" width="info.name.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.maxSession.label" require="info.maxSession.require">
+            <tiny-textbox id="info.maxSession.id" value="service.maxSession" tooltip="info.maxSession.tooltip" validate="info.maxSession.validate" width="info.maxSession.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.maxPut.label" require="info.maxPut.require">
+            <tiny-textbox id="info.maxPut.id" value="service.throughPut" tooltip="info.maxPut.tooltip" validate="info.maxPut.validate" width="info.maxPut.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.lbType.label" require="info.lbType.require">
+            <tiny-select id="info.lbType.id" values="info.lbType.value" width="info.lbType.width"></tiny-select>
+        </tiny-item>
+        <tiny-item label="info.frontNet.label" require="info.frontNet.require">
+            <tiny-select id="info.frontNet.id" values="info.backendNet.value" width="info.frontNet.width"></tiny-select>
+            <span popover="{{info.frontNet.tooltip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="info.backendNet.label" require="info.backendNet.require">
+            <tiny-select id="info.backendNet.id" values="info.backendNet.value" width="info.backendNet.width"></tiny-select>
+            <span popover="{{info.backendNet.tooltip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

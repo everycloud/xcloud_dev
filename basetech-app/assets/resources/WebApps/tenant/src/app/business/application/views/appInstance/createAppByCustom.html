@@ -1,0 +1,22 @@
+<div class="container-fluid" id="createAppByCustom">
+    <div class="margin-top-beautifier">
+        <my-container></my-container>
+    </div>
+</div>
+<script type="application/javascript">
+require(['app/business/application/controllers/appInstance/createByCustom/createByCustom'],
+    function(createByCustom) {
+        var dependency = ['ng', 'wcc', createByCustom.name];
+        dependency.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#createAppByCustom"));
+            }
+        ]);
+
+        var $injector = angular.injector(dependency);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#createAppByCustom"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

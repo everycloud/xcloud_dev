@@ -1,0 +1,111 @@
+<div id="createVdcAreaPage">
+    <div style="margin-top: 0;" class="panel_title fl" >{{i18n.common_term_section_label}}：</div>
+    <div style="padding-left: 60px;">
+        <tiny-radiogroup id="zone.appType.id" values="zone.appType.values" spacing="zone.appType.spacing" layout="zone.appType.layout" change="zone.appType.change()"></tiny-radiogroup>
+    </div>
+    <div class="horizontal_line"  style="clear:both;"></div>
+    <div class="clearfix top20" ng-show="params.networkLock == '0'">
+        <tiny-formfield>
+            <tiny-item label="zone.areaZone.label" require="zone.areaZone.require">
+                <tiny-select mode="zone.areaZone.mode" width="zone.areaZone.width" id="zone.areaZone.id" values="zone.areaZone.values" validate="zone.areaZone.validate"></tiny-select>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="clearfix fm-btn-top-large">
+        <tiny-button id="zone.preBtn.id" text="zone.preBtn.text"
+                     click="zone.preBtn.click()"></tiny-button>
+        <tiny-button id="zone.nextBtn.id" text="zone.nextBtn.text"
+                     click="zone.nextBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="zone.cancelBtn.id" text="zone.cancelBtn.text"
+                     click="zone.cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+<style type="text/css">
+    .custom-instance-types .types {
+        overflow: hidden;
+    }
+
+    .custom-instance-types .types-item:first-child {
+        margin-left: 0;
+    }
+
+    .custom-instance-types .types-item {
+        cursor: pointer;
+        float: left;
+        height: 70px;
+        width: 56px;
+        opacity: .9;
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    .custom-instance-types .types-item .inner {
+        padding-top: 6px;
+        height: 30px;
+    }
+
+    .custom-instance-types .types-item:hover, .custom-instance-types .types-item.selected {
+        opacity: 1;
+    }
+
+    .custom-instance-types .types-item h6 {
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .custom-instance-types .options {
+        margin: 10px 0;
+    }
+
+    .types-options:first-child {
+        margin-left: 0;
+    }
+
+    .eipNum-options,.vpcNum-options,.serNum-options{
+        width: 112px;
+    }
+
+    .types-options {
+        padding: 20px 7px;
+        background: #fff;
+        color: #1f90c8;
+        border: 1px solid #cfeaf8;
+        font-size: 16px;
+        margin: 0 4px;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    .types-options:first-child {
+        margin-left: 0;
+    }
+
+    .types-options.selected {
+        border: 1px solid #1c82b4;
+        background: #1f90c8;
+        color: #fff;
+    }
+    .types-options.disabled {
+        cursor: no-drop;
+        border: 1px solid #d6d6d6;
+        background: #eee;
+        color: #777;
+        -webkit-text-shadow: 0 1px #fff;
+        -moz-text-shadow: 0 1px #fff;
+        text-shadow: 0 1px #fff;
+    }
+
+    .types-options.disabled:hover {
+        border: 1px solid #d6d6d6;
+        background: #eee;
+        color: #777;
+    }
+    .input-tip {
+        color: red;
+        display: none;
+    }
+</style>

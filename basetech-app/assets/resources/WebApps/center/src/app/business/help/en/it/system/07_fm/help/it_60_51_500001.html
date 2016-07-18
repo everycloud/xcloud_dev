@@ -1,0 +1,167 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Alarm List">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_500001">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Alarm List</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Monitoring\nAlarm Monitoring\nAlarm List");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100008.html\">Monitoring<\/a> > <a href=\"../father_node/it_60_99_100009.html\">Alarm Monitoring<\/a> > Alarm List<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_500001"></a><a name="it_60_51_500001"></a>
+
+
+<h1 class="topictitle1">Alarm List</h1>
+<ul><li><a href="#it_60_51_500001__1.3.2.1">Clearing an Alarm</a></li><li><a href="#it_60_51_500001__1.3.3.1">Masking an Alarm</a></li><li><a href="#it_60_51_500001__1.3.4.1">Exporting Alarms</a></li></ul>
+
+
+<div id="alarm_list"><a name="alarm_list"></a><a name="alarm_list"></a><p></p>
+
+<div class="p">The <span>FusionManager</span> alarm list displays the alarms of the system and other third-party
+components, that are
+connected to <span>FusionManager</span>. Using the alarm information, you can find and locate
+faults promptly.<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>You can click the alarm name in the <span class="wintitle"><b>Alarm
+Name</b></span> column, and handle the alarm as instructed by the
+alarm help.</p>
+<p><span id="it_60_51_500001__hard_alarm"><a name="it_60_51_500001__hard_alarm"></a><a name="hard_alarm"></a>If detailed information in the
+alarm help fails to be displayed, run the <b><span class="cmdname">reg add HKLM\SOFTWARE\Microsoft\HTMLHelp\1.x\ItssRestrictions
+/v MaxAllowedZone /t REG_DWORD /d 3 /f</span></b> command and open
+the alarm help again. Then, you can search for an alarm by the alarm
+ID. If multiple alarms are displayed as the search result by the alarm
+ID, you can find the alarm to be queried based on the sensor type
+in the alarm name.</span></p>
+</div></div>
+</div>
+
+<div class="section" id="it_60_51_500001__alarm_clear"><a name="it_60_51_500001__alarm_clear"></a><a name="alarm_clear"></a><a name="it_60_51_500001__1.3.2.1"></a><a name="1.3.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500001" class="sectiontitle2contents">Clearing an Alarm</a></h4><p>After handling alarms,
+you can manually clear those alarms that have been handled but cannot
+be automatically cleared.</p>
+<p>You can also clear multiple alarms at a time.
+To do so, select the alarms to be cleared and click <span class="uicontrol"><b>Clear</b></span> on the left upper corner of the page.</p>
+<div class="p">If the alarm
+has been cleared, one of the following is displayed in <span class="parmname"><b>Clear
+Type</b></span> indicating how this alarm is cleared:<ul><li><span class="parmname"><b>Manually Clear</b></span></li><li><span class="parmname"><b>Automatically Clear</b></span></li><li><span class="parmname"><b>Exception Clear</b></span>: After the component for
+which this alarm is generated is restored using the historical backup
+data, this alarm that has been reported to the <span>FusionManager</span> is rolled back. Therefore, the <span>FusionManager</span> automatically clears this alarm.</li></ul>
+</div>
+<p>To clear an alarm, choose <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Alarm List</span></b></span>, locate the row that contains the alarm, and click <span class="uicontrol"><b>Clear</b></span> in the <span class="uicontrol"><b>Operation</b></span> column. You can also clear multiple alarms
+at a time. To do so, select the alarms to be cleared and click <span class="uicontrol"><b>Clear</b></span> on the left upper corner of the page.</p>
+</div>
+
+<div class="section" id="it_60_51_500001__alarm_mask"><a name="it_60_51_500001__alarm_mask"></a><a name="alarm_mask"></a><a name="it_60_51_500001__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500001" class="sectiontitle2contents">Masking an Alarm</a></h4><p>You can
+mask an alarm that does not adversely affect services. Follow-up alarms for the masked alarm ID will be
+not displayed in the alarm list. You can choose <span class="menucascade"><b><span class="uicontrol">Alarm Settings</span></b> &gt; <b><span class="uicontrol">Alarm Mask</span></b></span> to view all masked alarms.</p>
+<p>To mask an alarm,
+choose <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Alarm
+List</span></b></span>, locate the row that contains the alarm,
+and click <span class="uicontrol"><b>Mask</b></span> in the <span class="uicontrol"><b>Operation</b></span> column.</p>
+</div>
+
+<div class="section" id="it_60_51_500001__alarm_export"><a name="it_60_51_500001__alarm_export"></a><a name="alarm_export"></a><a name="it_60_51_500001__1.3.4.1"></a><a name="1.3.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500001" class="sectiontitle2contents">Exporting Alarms</a></h4><p>You can
+export the alarm list to the local PC so that you can view alarms
+offline and confirm and handle alarms without using <span>FusionManager</span>.</p>
+<p>To export alarms,
+choose <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Alarm
+List</span></b></span> and click <span class="uicontrol"><b>Export</b></span>.</p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

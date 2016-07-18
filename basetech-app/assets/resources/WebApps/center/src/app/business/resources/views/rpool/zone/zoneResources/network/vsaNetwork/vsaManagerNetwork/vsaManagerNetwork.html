@@ -1,0 +1,28 @@
+<div fm-help help="'drawer_resource_vsa'" show="show.help" i18n="'zh'"></div>
+<div class="clearfix">
+    <tiny-button ng-show="right.hasNetPoolOperateRight" class="major-btn" id="create.id" disabled="create.disabled"
+                 icons-class="create.iconsClass"
+                 text="create.text"
+                 tooltip="create.tip" click="create.create()"></tiny-button>
+
+    <!--刷新、列选择、帮助-->
+    <div class="pull-right">
+        <a class="btn-link">
+            <div ng-click="refresh.refresh()" id="vsaManagerRefresh_id" title="{{i18n.common_term_fresh_button}}"
+                 class="small-icon small-icon-refresh"></div>
+        </a>
+        <a class="btn-link">
+            <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+        </a>
+    </div>
+    <div class="margin-top-beautifier">
+        <tiny-table id="vsaManagerTable.id" caption="vsaManagerTable.caption" data="vsaManagerTable.data"
+                    columns="vsaManagerTable.columns"
+                    enable-pagination="vsaManagerTable.enablePagination"
+                    enable-filter="vsaManagerTable.enableFilter"
+                    hide-total-records="vsaManagerTable.hideTotalRecords"
+                    callback="vsaManagerTable.callback" render-row="vsaManagerTable.renderRow"
+                    show-details="vsaManagerTable.showDetails"
+                    columns-draggable="vsaManagerTable.columnsDraggable"></tiny-table>
+    </div>
+</div>

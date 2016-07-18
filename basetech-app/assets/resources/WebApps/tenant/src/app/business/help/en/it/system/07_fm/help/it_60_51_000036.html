@@ -1,0 +1,235 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Security Group">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000036">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Security Group</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Service Functions\nSecurity Group");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100024.html\">Service Functions<\/a> > Security Group<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000036"></a><a name="it_60_51_000036"></a>
+
+
+<h1 class="topictitle1">Security Group</h1>
+<ul><li><a href="#it_60_51_000036__1.3.1.1">Overview</a></li><li><a href="#it_60_51_000036__1.3.2.1">Principles</a></li><li><a href="#it_60_51_000036__1.3.3.1">Precautions</a></li><li><a href="#it_60_51_000036__1.3.4.1">Configuration
+Process</a></li></ul>
+
+
+<div><p></p>
+
+<div class="section" id="it_60_51_000036__sec_overView"><a name="it_60_51_000036__sec_overView"></a><a name="sec_overView"></a><a name="it_60_51_000036__1.3.1.1"></a><a name="1.3.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000036" class="sectiontitle2contents">Overview</a></h4>A security group
+is a set of rules that isolate or control the VM access. After a security
+group is created on the <span>FusionManager</span>, the administrator can define various access rules for the
+security group. The VMs added to the security group are subject to
+these access rules and therefore are protected.</div>
+
+<div class="section" id="it_60_51_000036__sec_principle"><a name="it_60_51_000036__sec_principle"></a><a name="sec_principle"></a><a name="it_60_51_000036__1.3.2.1"></a><a name="1.3.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000036" class="sectiontitle2contents">Principles</a></h4><p>The security group feature uses the packet filtering firewall
+Iptables attached with the Linux operating system (OS) to filter the
+packets entered to a host OS. Iptables provides rules for packet filtering.
+The filtering rules are defined based on source addresses, destination
+addresses, and protocols.</p>
+<p>After you add a network interface
+card (NIC) of a VM to a security group created on the <span>FusionManager</span>, Iptables creates a user link based on the security group ID
+and adds the NIC to the link. A new user link has a default rule "DROP
+ALL". New rules of the security group are added to this link. Before
+forwarding a data packet, the host matches the packet with the rules
+in the user link. It only forwards the packet that matches with the
+rules to the VM NIC.</p>
+<p><strong>Access mechanism of the security group</strong></p>
+<p>By default, the system allows all data packets that are sent
+out from VMs in a security group and rejects all the data packets
+that are sent to the VMs in a security group. You can add rules for
+a security group to control the data packets that are sent to the
+VMs in the security group. It is like whitelist management function.
+For example, in <a href="#it_60_51_000036__fig_sg1">Figure 1</a>, A is a security group
+rule that allows VM 3 to access VM 1 in the security group.</p>
+<div class="fignone" id="it_60_51_000036__fig_sg1"><a name="it_60_51_000036__fig_sg1"></a><a name="fig_sg1"></a><span class="figcap"><b>Figure 1 </b>Security group access</span>
+
+<br><span><img src="fig/fig_it_60_51_000036_02.png"></span></div>
+</div>
+
+<div class="section" id="it_60_51_000036__sec_caution"><a name="it_60_51_000036__sec_caution"></a><a name="sec_caution"></a><a name="it_60_51_000036__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000036" class="sectiontitle2contents">Precautions</a></h4><p>Before
+using the security group function, pay attention to the following
+precautions:</p>
+<ul><li>Only the VMs in the FusionCompute hypervisor can be added to a
+security group, and one NIC of a VM can be added only to one security
+group.</li><li>The security group function cannot solve the problems caused by
+network fault or incorrect network configuration. For example, when
+two VMs cannot communicate with each other due to network configuration
+reasons, they still cannot communicate even if you configure a security
+group rule to allow them to communicate.</li><li>When the host on which a VM runs uses an intelligent NIC, the
+VM cannot be added to a security group.</li></ul>
+</div>
+
+<div class="section" id="it_60_51_000036__sec_process"><a name="it_60_51_000036__sec_process"></a><a name="sec_process"></a><a name="it_60_51_000036__1.3.4.1"></a><a name="1.3.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000036" class="sectiontitle2contents">Configuration
+Process</a></h4><p><span>FusionManager</span> provides the security group function for the VMs in internal
+networks and routed networks. <a href="#it_60_51_000036__fig_hardNAT">Figure 2</a> shows
+the process for configuring a security group.</p>
+<div class="fignone" id="it_60_51_000036__fig_hardNAT"><a name="it_60_51_000036__fig_hardNAT"></a><a name="fig_hardNAT"></a><span class="figcap"><b>Figure 2 </b>Process for configuring a security group</span>
+
+<br><span><img src="fig/fig_it_60_51_000036_01.png"></span></div>
+<p><a href="#it_60_51_000036__tab_02">Table 1</a> provides descriptions about each task in the
+process.</p>
+
+<div class="tablenoborder"><a name="it_60_51_000036__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000036__tab_02" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="28.311688311688314%" id="mcps1.3.4.5.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="37.922077922077925%" id="mcps1.3.4.5.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.766233766233775%" id="mcps1.3.4.5.2.4.1.3"><p>Web Client Navigation</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="28.311688311688314%" headers="mcps1.3.4.5.2.4.1.1 "><p>Create a security group.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="37.922077922077925%" headers="mcps1.3.4.5.2.4.1.2 "><p>Create an empty security group in a VPC.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.766233766233775%" headers="mcps1.3.4.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Security</span></b> &gt; <b><span class="uicontrol">Security Group</span></b></span>.</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="28.311688311688314%" headers="mcps1.3.4.5.2.4.1.1 "><p>Add a security group rule.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="37.922077922077925%" headers="mcps1.3.4.5.2.4.1.2 "><p>Add a security group rule based on the service deployment
+requirements.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.766233766233775%" headers="mcps1.3.4.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Security</span></b> &gt; <b><span class="uicontrol">Security Group</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="28.311688311688314%" headers="mcps1.3.4.5.2.4.1.1 "><p>Add VMs to a security group.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="37.922077922077925%" headers="mcps1.3.4.5.2.4.1.2 "><p>Add NICs of VMs to a security group for isolation based
+on the service deployment requirements.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.766233766233775%" headers="mcps1.3.4.5.2.4.1.3 "><span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

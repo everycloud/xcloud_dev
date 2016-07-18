@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div id="modifyCloudInfraDiv" class="alert-tip-first">
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" width="name.width" value="name.value"
+                              tooltip="name.tooltip" validate="name.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="region.label" require="region.require">
+                <tiny-textbox id="region.id" width="region.width" value="region.value"
+                              tooltip="region.tooltip" validate="region.validate"></tiny-textbox>
+                <span popover="{{i18n.cloud_pool_add_para_zone_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="version.label" require="version.require">
+                <tiny-select id="version.id" width="version.width" values="version.values"></tiny-select>
+            </tiny-item>
+            <tiny-item label="provider.label" require="provider.require">
+                <tiny-textbox id="provider.id" width="provider.width" value="provider.value"
+                              validate="provider.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="ipAddress.label" require="ipAddress.require">
+                <tiny-ip id="ipAddress.id" value="ipAddress.value" width="ipAddress.width" extend-function="ipAddress.extendFunction"
+                         validate="ipAddress.validate" type="ipAddress.type"></tiny-ip>
+                <span popover="{{i18n.cloud_pool_add_para_ip_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="port.label" require="port.require">
+                <tiny-textbox id="port.id" width="port.width" value="port.value"
+                              validate="port.validate"></tiny-textbox>
+                <span popover="{{i18n.cloud_pool_add_para_port_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+
+            <tiny-item label="userName.label" require="userName.require">
+                <tiny-textbox id="userName.id" value="userName.value" width="userName.width"
+                              tooltip="userName.tooltip"  validate="userName.validate"></tiny-textbox>
+                <span popover="{{i18n.cloud_pool_add_para_user_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item>
+                <tiny-checkbox id="modifyPwdCheckbox.id" text="modifyPwdCheckbox.text" checked="modifyPwdCheckbox.checked"
+                               change="modifyPwdCheckbox.change()">
+                </tiny-checkbox>
+            </tiny-item>
+            <tiny-item label="password.label" require="password.require">
+                <tiny-textbox id="password.id" type="password.type" value="password.value" disable="notModifyPwd"
+                              validate="password.validate"
+                              width="password.width"></tiny-textbox>
+                <span popover="{{i18n.cloud_pool_add_para_psw_mean_tip}}" popover-trigger="mouseenter" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="repassword.label" require="repassword.require">
+                <tiny-textbox id="repassword.id" width="repassword.width" value="repassword.value" disable="notModifyPwd"
+                              validate="repassword.validate"
+                              extend-function="repassword.extendFunction"type="repassword.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="description.label" require="description.require">
+                <tiny-textbox id="description.id" value="description.value" width="description.width" type="description.type"
+                              validate="description.validate"
+				height="description.height"></tiny-textbox>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="accessConfigNextBtn.id" text="accessConfigNextBtn.text"
+                             display="accessConfigNextBtn.display" click="accessConfigNextBtn.click()"></tiny-button>
+                <tiny-button id="accessConfigNextCancelBtn.id" text="accessConfigNextCancelBtn.text" click="accessConfigNextCancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/multiPool/controllers/fusionCasecade/modifyCloudInfraCtrl'],
+            function (openStackAccessCtrl) {
+                $("#modifyCloudInfraDiv").attr("ng-controller", "modifyCloudInfraCtrl");
+                var dep = ['ng', 'wcc', openStackAccessCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#modifyCloudInfraDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    var dom = $("#modifyCloudInfraDiv");
+                    $compile(dom)(dom.scope());
+                    dom.$digest();
+                });
+            });
+</script>
+
+
+

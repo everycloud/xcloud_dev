@@ -1,0 +1,56 @@
+<div id="templateSpecLayoutDiv">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <li>
+                    <div class="tiny-layout-title">
+                        <div class="row-fluid nosidedown-txt">
+                            <div class="span4">
+                                <div class="title-icon">
+                                    <img src="../theme/default/images/moulding board.png">
+                                </div>
+                            </div>
+                            <div class="span8">
+                                <p class="title-text">模板和规格</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="tiny-layout-head" ui-sref="resources.templateSpec.vmTemplateResources.vmTemplate">模板</div>
+                    <ul>
+                        <li>
+                            <a ui-sref="resources.templateSpec.vmTemplateResources.vmTemplate"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.templateSpec.vmTemplateResources')}">虚拟机模板</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.templateSpec.iso"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.templateSpec.iso')}">ISO</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.templateSpec.software"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.templateSpec.software')}">软件包</a>
+                        </li>
+                        <li>
+                            <a ui-sref="resources.templateSpec.script"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.templateSpec.script')}">脚本</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div  class="tiny-layout-head" ui-sref="resources.templateSpec.vmSpec">规格</div>
+                    <ul>
+                        <li>
+                            <a ui-sref="resources.templateSpec.vmSpec"
+                               ng-class="{ 'tiny-layout-a-current': $state.includes('resources.templateSpec.vmSpec')}">虚拟机规格</a>
+                        </li>
+                    </ul>
+                <li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view></div>
+        </div>
+                
+    </div>
+</div>

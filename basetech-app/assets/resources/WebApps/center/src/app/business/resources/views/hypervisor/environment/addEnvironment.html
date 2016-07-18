@@ -1,0 +1,14 @@
+<div id="add_environment_div" class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-bind="title"></div>
+        <div class="blank_10"></div>
+        <tiny-step id="addStep.id" values="addStep.values" jumpable="addStep.jumpable"
+                   width="addStep.width"></tiny-step>
+        <div class="blank_10 clear_both"></div>
+    </div>
+    <div class="content create-page-distance">
+        <div ng-include="stepUrl.step1" ng-show="curStep == 'info'"></div>
+        <div ng-include="stepUrl.step2" ng-show="curStep == 'vsam'"></div>
+        <div ng-include="stepUrl.step3" ng-show="curStep == 'confirm'"></div>
+    </div>
+</div>

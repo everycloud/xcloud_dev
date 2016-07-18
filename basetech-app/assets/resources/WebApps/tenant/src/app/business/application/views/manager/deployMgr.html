@@ -1,0 +1,56 @@
+<div id="app_list_deployMgr_id" ng-controller="app.list.deployMrg.ctrl">
+    <div id="app-deployMgr-baseTabs" class="tiny-tabs-container">
+        <div class="tiny-tabs-titles">
+            <ul>
+                <li style="margin-bottom: -1px;">
+                    <a url="app/business/application/views/manager/deploy/baseInfo.html" active="true" ng-bind="i18n.common_term_basicInfo_label"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-tabs-content">
+        </div>
+    </div>
+    <div id="app-deployMgr-tabs" class="tiny-tabs-container">
+        <div class="tiny-tabs-titles">
+            <ul>
+                <li ng-show="!resPoolFm">
+                    <a url="app/business/application/views/manager/deploy/resources.html"
+                       active="{{!resPoolFm}}" ng-bind="i18n.common_term_resourceList_label"></a>
+                </li>
+                <li>
+                    <a url="app/business/application/views/manager/deploy/output.html" active="{{resPoolFm}}" ng-bind="i18n.common_term_output_label"></a>
+                </li>
+                <li>
+                    <a url="app/business/application/views/manager/deploy/report.html" ng-bind="i18n.app_term_deployReport_label"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-tabs-content">
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    require([
+        'tiny-widgets/Tabs',
+        'app/business/application/controllers/manager/deployMgrCtrl'
+    ], function (Tabs, deployMgrCtrl) {
+        var dep = ['ng', 'wcc', deployMgrCtrl.name];
+        dep.unshift(["$provide",
+            function ($provide) {
+                $provide.value("$rootElement", $("#app_list_deployMgr_id"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile($("#app_list_deployMgr_id"))($rootScope);
+            $rootScope.$digest();
+        });
+
+        var baseTabs = new Tabs({
+            "id": "app-deployMgr-baseTabs"
+        });
+        var tabs = new Tabs({
+            "id": "app-deployMgr-tabs"
+        });
+    });
+</script>

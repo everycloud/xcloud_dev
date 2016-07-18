@@ -1,0 +1,176 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VM-Summary">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100044">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VM-Summary</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("VDC Management\nVM\nVM-Summary");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100019.html\">VDC Management<\/a> > <a href=\"../father_node/it_60_99_100033.html\">VM<\/a> > VM-Summary<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100044"></a><a name="it_60_51_100044"></a>
+
+
+<h1 class="topictitle1">VM-Summary</h1>
+<ul><li><a href="#it_60_51_100044__1.3.2.1">VM Power Management</a></li><li><a href="#it_60_51_100044__1.3.3.1">Migrating a VM</a></li><li><a href="#it_60_51_100044__1.3.4.1">FAQ</a></li></ul>
+
+<div><p></p>
+
+<p>The general information about the VRM VM is displayed, including
+basic properties, number of alarms, resource usage, and NIC and disk
+information.</p>
+
+
+
+<div class="section"><a name="it_60_51_100044__1.3.2.1"></a><a name="1.3.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100044" class="sectiontitle2contents">VM Power Management</a></h4><p>Power
+management for a VM includes hibernate, start or wake up, stop, restart<span>, pause, unpause</span> the VM. Stop or restart a VM can
+be performed in a safe or forcible manner. You are advised to use
+the safe manner. Forcibly stop or restart a VM only if the VM cannot
+be safely stopped or restarted due to an OS fault. Forcibly stopping
+or restarting a VM may damage the VM disks and cause data loss.</p>
+<p>Starting or stopping a large number of VMs increases host workload.
+If you need to start or stop a large number of VMs on a host, perform
+the start or stop operations in batches to prevent VM services on
+the host from being adversely affected.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, and select
+required operations. Some operations are collapsed in <span class="uicontrol"><b>More</b></span>.</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_100044__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100044" class="sectiontitle2contents">Migrating a VM</a></h4><p>For details
+about requirements, see <a href="it_60_51_600030.html">VM Migration and Specification Modification Requirements</a>.</p>
+<p><strong>Live
+migration</strong></p>
+<div class="p">If the service load is over light
+or heavy on the host where the VMs run or the host is faulty, migrate the VMs to ensure that they work properly.<ul><li>If the service load is too heavy on the host or the host is faulty, migrate the VMs to another host to prevent service interruption due to a host exception.</li><li>If the service load is too light on multiple hosts, migrate the VMs to a small number of hosts to consolidate host resources and then power off the idle hosts. This improves resource utilization and reduces power consumption.</li></ul>
+</div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Live Migrate</b></span>.</p>
+<p><strong>Cold Migration</strong></p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span>, locate the row that contains the target VM, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Cold Migrate</b></span>.</p>
+<p>After cold migration, you also need
+to click <span class="uicontrol"><b>More</b></span> and select <span class="uicontrol"><b>Confirm
+Modification</b></span> to make the system continue the subsequent
+operations.</p>
+</div>
+
+
+
+
+
+
+
+<div class="section" id="it_60_51_100044__tools"><a name="it_60_51_100044__tools"></a><a name="tools"></a><a name="it_60_51_100044__1.3.4.1"></a><a name="1.3.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100044" class="sectiontitle2contents">FAQ</a></h4><p><strong>Why is the VM performance under expectation and the VM lacking
+part of monitoring data when UVP VMTools is not installed?</strong></p>
+<p>UVP VMTools is a recommended component for VMs. Without UVP VMTools,
+the information monitoring and input/output (I/O) performance of a
+VM are adversely affected. However, UVP VMTools only applies to Huawei <span>FusionSphere
+OpenStack</span> hypervisor. For details about installing UVP VMTools on a VM, see
+FusionSphere document <i><cite><span>FusionSphere
+OpenStack</span> Image Creation Guide</cite></i>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

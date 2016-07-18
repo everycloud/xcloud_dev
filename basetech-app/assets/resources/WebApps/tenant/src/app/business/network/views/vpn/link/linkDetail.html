@@ -1,0 +1,199 @@
+<div class="container-fluid vpnlink-detail" ng-controller="vpnLink.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <div class="span6">
+            <div id="basicInfoDiv">
+                <div class="inner-legend"><span ng-bind="i18n.common_term_basicInfo_label"></span></div>
+                <tiny-formfield>
+                    <tiny-item label="info.name.label">
+                        <span ng-bind="vpnLinkDetail.name"></span>
+                    </tiny-item>
+                    <tiny-item label="info.type.label">
+                        <span ng-bind="vpnLinkDetail.vpnType==1?'L2TP':'IPSec'"></span>
+                    </tiny-item>
+                    <tiny-item label="info.localIPAddr.label">
+                        <span ng-bind="vpnLinkDetail.localIPAddr"></span>
+                    </tiny-item>
+                    <tiny-item label="info.desc.label">
+                        <span title="{{vpnLinkDetail.description}}" class="textOverflow maxWidth200"
+                              ng-bind="vpnLinkDetail.description"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-show="isIT && vpnLinkDetail.vpnType=='0'">
+                <div class="inner-legend top10"><span ng-bind="i18n.vpn_term_ESPpolicy_label"></span></div>
+                <tiny-formfield>
+                    <tiny-item label="info.certifAlgorithm.label" display="vpnLinkDetail.vpnType=='0'">
+                        <span ng-bind="vpnLinkDetail.espPublicInfo.authentication"></span>
+                    </tiny-item>
+                    <tiny-item label="info.encryptAlgorithm.label" display="vpnLinkDetail.vpnType=='0'">
+                        <span ng-bind="vpnLinkDetail.espPublicInfo.encryption"></span>
+                    </tiny-item>
+                    <tiny-item label="info.dnAlgorithm.label">
+                        <span ng-bind="vpnLinkDetail.pfsGroup"></span>
+                    </tiny-item>
+                    <tiny-item label="info.lifeTime.label">
+                        <span ng-bind="vpnLinkDetail.lifeTime"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-show="!isIT">
+                <div class="inner-legend top10"><span ng-bind="i18n.vpn_term_IPSecPolicy_label"></span></div>
+                <tiny-formfield>
+                    <tiny-item label="ipsecpolicy.transform_protocol.label">
+                        <span ng-bind="vpnLinkDetail.ipsecPolicy.transformProtocol"></span>
+                    </tiny-item>
+                    <tiny-item label="ipsecpolicy.auth_algorithm.label">
+                        <span ng-bind="vpnLinkDetail.ipsecPolicy.authentication"></span>
+                    </tiny-item>
+                    <tiny-item label="ipsecpolicy.encryption_algorithm.label">
+                        <span ng-bind="vpnLinkDetail.ipsecPolicy.encryption"></span>
+                    </tiny-item>
+                    <tiny-item label="ipsecpolicy.pfs.label">
+                        <span ng-bind="vpnLinkDetail.ipsecPolicy.pfsGroup"></span>
+                    </tiny-item>
+                    <tiny-item label="ipsecpolicy.lifetime.label">
+                        <span ng-bind="vpnLinkDetail.ipsecPolicy.lifeTime"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-show="vpnLinkDetail.vpnType=='0'&& isIT">
+                <div class="inner-legend"><span ng-bind="i18n.vpn_term_DPDinfo_label"></span></div>
+                <tiny-formfield>
+                    <tiny-item label="info.dfdAction" display="!isIT">
+                        <span ng-bind="vpnLinkDetail.dpdInfo.action"></span>
+                    </tiny-item>
+                    <tiny-item label="info.dfdAction" display="isIT">
+                        <span ng-bind="i18n.vpn_term_renegotiation_label"></span>
+                    </tiny-item>
+                    <tiny-item label="info.dpdInterval.label">
+                        <span ng-bind="vpnLinkDetail.dpdInfo.dpdInterval"></span>
+                    </tiny-item>
+                    <tiny-item label="info.dpdTimeOut.label">
+                        <span ng-bind="vpnLinkDetail.dpdInfo.dpdTimeOut"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-show="vpnLinkDetail.vpnType=='1'">
+                <div class="inner-legend"><span ng-bind="i18n.vpn_term_userIPassign_label"></span></div>
+                <tiny-formfield>
+                    <tiny-item label="info.subnetAddr.label">
+                        <span ng-bind="vpnLinkDetail.l2tpInfo.subnetAddr"></span>
+                    </tiny-item>
+                    <tiny-item label="info.subnetMask.label">
+                        <span ng-bind="vpnLinkDetail.l2tpInfo.subnetMask"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+        <div class="span6">
+            <div ng-show="vpnLinkDetail.vpnType=='0'">
+                <div class="inner-legend"><span ng-bind="i18n.vpn_term_tunnelInfo_label"></span></div>
+                <tiny-formfield>
+                    <tiny-item label="info.localTable.label">
+                        <tiny-table id="info.localTable.id" data="info.localTable.data"
+                                    columns="info.localTable.columns" render-row="info.localTable.renderRow"
+                                    enable-pagination="false"></tiny-table>
+                    </tiny-item>
+                </tiny-formfield>
+                <tiny-formfield>
+                    <tiny-item label="info.gateway.label">
+                        <span ng-bind="vpnLinkDetail.customerGw.ipAddr"></span>
+                    </tiny-item>
+                    <tiny-item label="info.network.label">
+                        <div ng-repeat="subnet in vpnLinkDetail.customerGw.customerSubnets">
+                            <div class="margin-beautifier">
+                                <span ng-bind="i18n.common_term_Subnet_label">:</span>
+                                <span ng-bind="subnet.subnetAddr"></span>
+                                <span ng-bind="i18n.common_term_SubnetMask_label">:</span>
+                                <span ng-bind="subnet.subnetMask"></span>
+                            </div>
+                        </div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div class="inner-legend"><span ng-bind="i18n.vpn_term_IKEpolicy_label"></span></div>
+            <div ng-show="isIT">
+                <tiny-formfield>
+                    <tiny-item label="info.authentication.label">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.authMethod=='1'?'X.509 数字证书':'PreSharedKey'"></span>
+                    </tiny-item>
+                    <tiny-item label="info.encryptAlgorithm.label">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.encryption"></span>
+                    </tiny-item>
+                    <tiny-item label="info.certifAlgorithm.label">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.authentication"></span>
+                    </tiny-item>
+                    <tiny-item label="info.dnAlgorithm.label" display="vpnLinkDetail.vpnType=='0'">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.pfsGroup"></span>
+                    </tiny-item>
+                    <tiny-item label="info.lifeTime.label" display="vpnLinkDetail.vpnType=='0'">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.lifeTime"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-show="!isIT">
+                <tiny-formfield>
+                    <tiny-item label="ikepolicy.auth_algorithm.label" require="ikepolicy.auth_algorithm.require">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.authentication"></span>
+                    </tiny-item>
+                    <tiny-item label="ikepolicy.encryption_algorithm.label"
+                               require="ikepolicy.encryption_algorithm.require">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.encryption"></span>
+                    </tiny-item>
+                    <tiny-item label="ikepolicy.pfs.label" require="ikepolicy.pfs.require">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.pfsGroup"></span>
+                    </tiny-item>
+                    <tiny-item label="ikepolicy.ike_version.label">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.ikeVersion"></span>
+                    </tiny-item>
+                    <tiny-item label="ikepolicy.lifetime.label" require="ikepolicy.lifetime.require">
+                        <span ng-bind="vpnLinkDetail.ikePublicInfo.lifeTime"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-show="vpnLinkDetail.vpnType=='1'">
+                <div class="inner-legend"><span ng-bind="i18n.vpn_term_connectUser_label"></span></div>
+                <div ng-repeat="user in vpnLinkDetail.l2tpInfo.vpnUsers">
+                    <tiny-formfield>
+                        <tiny-item label="i18n.common_term_userName_label + ($index+1) + ': '">
+                            <span ng-bind="user.name"></span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(['app/business/network/controllers/vpn/link/linkDetail'],
+            function (linkDetail) {
+                var curView = undefined;
+                $(".vpnlink-detail").each(function () {
+
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+                curView.attr("id", new Date().getMilliseconds());
+
+                //编译(编译前scope是父页面继承来的)
+                var scope = curView.scope();
+                var dep = ['ng', 'wcc', linkDetail.name];
+                dep.unshift(["$provide",
+                    function ($provide) {
+                        $provide.value("$rootElement", curView);
+                    }
+                ]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(curView)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                //查询详细信息 (编译后scope是新new出来的)
+                var params = scope.params
+                var newScope = curView.scope();
+                newScope.queryDetail(params);
+            });
+</script>

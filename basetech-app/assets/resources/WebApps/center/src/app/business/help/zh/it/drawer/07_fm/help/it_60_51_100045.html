@@ -1,0 +1,166 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="虚拟机-硬件">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100045">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>虚拟机-硬件</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100045"></a><a name="it_60_51_100045"></a>
+
+
+<h1 class="topictitle1">虚拟机-硬件</h1>
+
+<div>
+<p>虚拟机运行在主机上，硬件由虚拟CPU、虚拟内存、虚拟磁盘和虚拟网卡等组成。主机为虚拟机提供CPU、内存等计算资源，以及连接光驱、USB设备、网络等的能力；物理存储设备提供虚拟磁盘的存储空间。</p>
+
+
+<p>虚拟机创建好之后，可根据实际需要，调整硬件的属性和配置。</p>
+
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">调整CPU</h4></div><div class="dropdowncontext"><p>调整虚拟机CPU属性，包括配置CPU个数和CPU资源控制，以调整虚拟机性能。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以调整CPU规格。</p>
+<p>具体操作方法请参见<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600020.html" target="_blank">如何调整虚拟机的CPU规格</a>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">调整内存</h4></div><div class="dropdowncontext"><p>调整虚拟机内存属性，包括配置内存大小和内存资源控制，以调整虚拟机性能。</p>
+<div class="p">虚拟机处于如下状态时，才可以调整内存规格。<ul><li><span>FusionCompute</span>虚拟化环境中的虚拟机，需处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态。 </li><li>VMware虚拟化环境中的虚拟机，需处于<span class="parmvalue">“已停止”</span>状态。</li></ul>
+</div>
+<p>在线修改内存大小后，需要重启虚拟机才能生效，在线修改其他属性可即时生效。 </p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">调整磁盘</h4></div><div class="dropdowncontext"><p><strong>增加磁盘</strong></p>
+<div class="p">通过为虚拟机绑定存储的方式扩大虚拟机的存储空间。<ul><li>将新创建磁盘绑定到虚拟机上。</li><li>将现有的空闲磁盘绑定到虚拟机上。</li><li>将裸设备存储绑定到虚拟机上。</li></ul>
+</div>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态，且虚拟机所在主机未进入维护模式时，才可以增加磁盘。</p>
+<div class="p">磁盘绑定成功后，还需在虚拟机中将磁盘添加至操作系统中。<ul><li>若绑定的磁盘是新创建的磁盘，则需对新增磁盘进行格式化。具体操作方法<span>可在互联网或<a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a>中查找获取</span>。</li><li>若绑定的磁盘是已有数据的磁盘，且磁盘的盘符和虚拟机上的盘符相同，则需将磁盘由“脱机”设置为“联机”。</li></ul>
+</div>
+<p><strong>扩容磁盘容量</strong></p>
+<div class="p" id="it_60_51_100045__expand_define"><a name="it_60_51_100045__expand_define"></a><a name="expand_define"></a>当虚拟机磁盘容量不足时，可在已有磁盘容量的基础上，增加该磁盘的容量。但必须满足如下要求：<ul><li>磁盘使用的数据存储类型为虚拟化存储或FusionStorage。</li><li>磁盘不存在快照，若磁盘存在快照，则要提前删除快照。</li><li>磁盘不是链接克隆虚拟机的系统磁盘。</li><li><span>FusionCompute</span>虚拟化环境下的虚拟机的待扩容磁盘当前容量大于等于4GB。</li><li>磁盘所属的数据存储类型为NAS存储，且磁盘的配置模式为普通时，不支持在线增加磁盘容量。</li></ul>
+</div>
+<p id="it_60_51_100045__expand_status"><a name="it_60_51_100045__expand_status"></a><a name="expand_status"></a><span>FusionCompute</span>虚拟化环境的虚拟机在<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态，可以扩容磁盘。其他虚拟机处于<span class="parmvalue">“已停止”</span>状态才可以扩容磁盘。</p>
+<p>在磁盘所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">调整容量</span>”</span>。</p>
+<div class="p" id="it_60_51_100045__expand_effect"><a name="it_60_51_100045__expand_effect"></a><a name="expand_effect"></a>使增加磁盘容量生效，还需进行以下操作：<ol><li>以下场景要重启虚拟机或关闭虚拟机后再启动虚拟机，其余场景，可直接生效。<div class="p">以下场景，需重启虚拟机：<ol type="a"><li>虚拟机的状态为<span class="parmvalue">“运行中”</span>。</li><li>磁盘所属的数据存储类型为虚拟化本地硬盘、虚拟化SAN存储或NAS存储。</li><li>操作系统不为以下操作系统的一种：<ul><li>Windows Server 2003</li><li>Windows Server 2008</li><li>Windows XP</li><li>Windows 7</li></ul>
+</li></ol>
+</div>
+<div class="p">以下场景，需停止后再启动虚拟机：<ol type="a"><li>虚拟机的状态为<span class="parmvalue">“运行中”</span>。</li><li>磁盘所属的数据存储类型为FusionStorage。</li></ol>
+</div>
+</li><li>由于新增的磁盘容量，在虚拟机操作系统中显示为未分配的磁盘分区，需要合并分区或创建新分区。具体操作方法<span>可在互联网或<a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a>中查找获取</span>。</li></ol>
+</div>
+<p><strong>修改磁盘属性</strong></p>
+<p>修改虚拟机磁盘的属性信息，包括名称、快照影响、持久化。</p>
+<p>VMware虚拟化环境的虚拟机处于<span class="parmvalue">“已停止”</span>状态时，才可以修改磁盘属性；虚拟机处于<span class="parmvalue">“已停止”</span>状态时，才可以修改持久化属性。</p>
+<p>在磁盘所在行，单击<span class="uicontrol">“修改”</span>。</p>
+<p><strong>回收精简磁盘资源</strong></p>
+<p>将精简磁盘中未被使用的虚拟磁盘空间回收到数据存储的虚拟存储资源中，回收的资源可以再分配，提高存储资源的利用率。</p>
+<div class="p">磁盘资源回收有如下限制条件：  <ul><li>VMware虚拟化环境中的虚拟机不支持此功能。</li><li>磁盘的“类型”为“普通”，“配置模式”为“精简”，“持久化”选项为“持久化”，使用的数据存储为虚拟化数据存储（虚拟化本地硬盘、虚拟化SAN存储或NAS存储）。</li><li>磁盘的格式为“NTFS”，且受限于NTFS文件系统，部分文件删除后空间无法回收完全。</li><li>磁盘不存在快照。</li><li>磁盘不是链接克隆虚拟机的系统磁盘。</li><li>当磁盘所在数据存储的实际可用容量大于磁盘的规格时，才能对该磁盘进行回收。当数据存储的可用容量不足时，建议先将数据存储上的其他磁盘迁移，预留足够的空间后，再进行回收。</li></ul>
+</div>
+<p>建议当磁盘的“实际使用容量”大于“已用容量”时进行回收。当磁盘的“实际使用容量”小于“已用容量”时，该磁盘可能是带快照虚拟机的磁盘、链接克隆虚拟机的系统盘或非持久化磁盘，该磁盘不能进行回收。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态，才可以回收精简磁盘资源。</p>
+<p>在磁盘所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">磁盘资源回收</span>”</span>。</p>
+<p><strong>设置磁盘的IO上限</strong></p>
+<p id="it_60_51_100045__diskIO_define"><a name="it_60_51_100045__diskIO_define"></a><a name="diskIO_define"></a>设置虚拟机每个磁盘的IO上限，以避免某个虚拟机的磁盘IO过大，影响其他虚拟机的性能。但如果磁盘的IO上限设置过低，将导致该虚拟机响应慢或无法启动。</p>
+<p id="it_60_51_100045__diskIO_status"><a name="it_60_51_100045__diskIO_status"></a><a name="diskIO_status"></a>虚拟机处于<span class="parmvalue">“已停止”</span>、<span class="parmvalue">“已休眠”</span>或<span class="parmvalue">“运行中”</span>状态，才可以设置磁盘的IO上限。<span>FusionCompute</span>虚拟化环境中的VRM虚拟机不支持该操作。</p>
+<p>在磁盘所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">设置IO上限</span>”</span>。</p>
+<p><strong>将磁盘解绑定虚拟机</strong></p>
+<p>将绑定在虚拟机中的磁盘解绑定。</p>
+<div class="p">对运行中的虚拟机解绑定磁盘时，有如下约束：<ul><li><p>虚拟机已安装Tools，且Tools运行正常。</p>
+</li><li>不支持解绑定虚拟机上的系统盘。</li><li>不支持解绑定虚拟机上的裸设备映射类型的磁盘。</li><li>仅以下操作系统的虚拟机支持在运行时解绑定磁盘：<ul><li>Windows Server 2008 R2 Enterprise 64位</li><li>Red Hat Linux Enterprise 5.7/5.8/6.5 （32位或64位）</li><li>CentOS 5.7/5.8/6.5 （32位或64位）</li></ul>
+</li></ul>
+</div>
+<p>在磁盘所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">解绑定</span>”</span>。</p>
+<p><strong>删除磁盘</strong></p>
+<p>当磁盘不再使用时，删除磁盘，以释放虚拟资源。删除磁盘的同时，会同时删除所有磁盘数据，请谨慎操作。</p>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><span><strong>高危特性声明</strong>：该功能使用过程中可能触及最终用户数据，符合业界惯例，但仍须谨慎使用。</span></div></div>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态，才可以删除磁盘。</p>
+<p>在磁盘所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">调整网卡</h4></div><div class="dropdowncontext"><p><strong>添加网卡</strong></p>
+<p>为虚拟机添加网卡，实现虚拟机多网卡特性。</p>
+<div class="p">虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以添加网卡。虚拟机处于如下场景时，只有<span class="parmvalue">“已停止”</span>状态，才可以添加网卡。<ul><li>虚拟机为Windows 2000操作系统</li><li>虚拟机所在主机使用智能网卡</li></ul>
+</div>
+<div class="p">添加网卡有如下限制条件：  <ul><li>添加网卡前，需已添加MAC地址段或添加独立MAC地址。</li><li><span>FusionCompute</span>虚拟化环境的虚拟机每台最多配置12个网卡；VMware虚拟化环境的虚拟机每台最多配置8个网卡。</li><li>虚拟机所绑定的网卡中，只允许一个网卡的网关为虚拟机默认网关。若多个网卡均有网关，则需手动在虚拟机中配置策略路由。</li><li>虚拟机网卡不支持选择静态注入的网络。</li><li>在线添加网卡时，虚拟机需已安装Tools，且Tools运行正常。</li></ul>
+</div>
+<p>单击<span class="menucascade">“<span class="uicontrol">网卡</span>”</span>，再单击<span class="uicontrol">“添加”</span>。</p>
+<p><strong>修改网卡属性</strong></p>
+<p>修改虚拟机网卡属性，调整虚拟机网卡所属网络。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>状态时，才可以修改网卡属性。</p>
+<p>在网卡所在行，单击<span class="menucascade">“<span class="uicontrol">修改</span>”</span>。</p>
+<div class="p">操作系统为Linux的虚拟机在修改MAC地址后，会自动更新网卡标识（例如从eth0变为eth1），导致虚拟机通信中断。需使用VNC方式登录虚拟机后，采用如下其中任一方式解决该问题：<ul><li>为虚拟机重新配置IP地址。</li><li>删除规格文件并重启虚拟机，恢复MAC地址和网卡的对应关系。例如，当操作系统为<span class="parmname">“SUSE Linux Enterprise
+Server 11 SP1 64位”</span>时，规格文件的路径为<span class="filepath">“/etc/udev/rules.d/70-persistent-net.rules”</span>。</li></ul>
+</div>
+<p><strong>加入与退出安全组</strong></p>
+<p>若网卡所属VPC中存在安全组，可将网卡加入或退出安全组。</p>
+<p>在网卡所在行，选择对应操作。</p>
+<p><strong>删除网卡</strong></p>
+<p>将虚拟机不再使用的网卡删除，释放虚拟机所占用的网络资源。</p>
+<div class="p">虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态时，才可以删除网卡。虚拟机处于如下场景时，只有<span class="parmvalue">“已停止”</span>状态，才可以删除网卡。<ul><li>虚拟机为Windows 2000操作系统</li><li>虚拟机所在主机使用智能网卡</li></ul>
+</div>
+<div class="p">删除网卡有如下限制条件：  <ul><li>在线删除网卡时，虚拟机需已安装Tools，且Tools运行正常。</li><li>虚拟机操作系统为Windows，且其所在主机使用智能网卡时，需按网卡编号顺序从后往前删除。如果删除编号顺序靠前的网卡，会导致该编号往后的网卡的配置信息错位，重新配置网卡后方能正常使用。
+ 例如，Windows虚拟机有3个网卡iNIC 1、iNIC 2和iNIC 3，离线删除iNIC 2后，iNIC 3的配置信息会变更为iNIC
+2的数据，需重新配置。</li></ul>
+</div>
+<p>在网卡所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除</span>”</span>。</p>
+<p>若虚拟机操作系统为Linux，则删除网卡后还需手动删除虚拟机中的网卡信息，具体操作方法请参见<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600024.html" target="_blank">如何删除Linux虚拟机的网卡信息</a>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">调整USB控制器</h4></div><div class="dropdowncontext"><p><strong>添加USB控制器</strong></p>
+<p>为VMware虚拟化环境中的虚拟机添加USB控制器，添加USB控制器后，虚拟机才可以绑定USB设备。</p>
+<p><span>FusionCompute</span>虚拟化环境中默认已经添加USB控制器，不需要再手动添加。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态，且其所在主机具备USB控制器时，才可以添加USB控制器，且每个虚拟机只能添加一种USB控制器。</p>
+<p>单击<span class="menucascade">“<span class="uicontrol">USB控制器</span>”</span>，再单击<span class="uicontrol">“添加”</span>。</p>
+<p><strong>移除USB控制器</strong></p>
+<p>移除VMware虚拟化环境中的虚拟机的USB控制器，释放虚拟机所占用的USB控制器资源。</p>
+<p><span>FusionCompute</span>虚拟化环境中的虚拟机不支持该功能。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态，且USB控制器未被使用时，才可以移除USB控制器。</p>
+<p>在USB控制器所在行，单击<span class="menucascade">“<span class="uicontrol">删除</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">调整USB设备</h4></div><div class="dropdowncontext"><p><strong>添加USB设备</strong></p>
+<p>将虚拟机与主机上的USB设备进行绑定，使得虚拟机能够访问USB设备，满足业务需求。</p>
+<div class="p" id="it_60_51_100045__usb_condition"><a name="it_60_51_100045__usb_condition"></a><a name="usb_condition"></a>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态，且具备如下条件，才可以添加USB设备。<ul><li>虚拟机已具备USB控制器、其所在主机具备USB设备。</li><li>当虚拟机的操作系统为Windows Server 2003时，绑定USB设备前，需先安装<span class="parmvalue">“kb944704”</span>补丁，否则绑定USB设备后会导致虚拟机停止响应或黑屏。<p>补丁可通过操作系统的官方网站获取。</p>
+</li></ul>
+</div>
+<div class="p">每台虚拟机最多可绑定4个USB设备，且这4个USB设备只能属于一个主机。虚拟机绑定USB设备后，以下功能将受到影响：<ul><li>虚拟机HA：绑定USB设备的虚拟机HA后，将断开与USB设备的连接。此时USB设备的状态为<span class="parmvalue">“已分配，未直通”</span>，不能绑定给其他虚拟机。</li><li>虚拟机热迁移：绑定USB设备的虚拟机不支持热迁移。</li><li>虚拟机休眠：绑定USB设备的虚拟机休眠后，禁止对USB设备进行插拔操作，否则会导致虚拟机唤醒失败。</li><li>虚拟机快照：绑定USB设备的虚拟机不支持创建内存快照。</li><li>集群调度策略：集群调度策略对绑定USB设备的虚拟机无效。</li><li>传输速率：绑定USB设备后，USB端口的最大传输速率为3MB/s。</li></ul>
+</div>
+<p>单击<span class="menucascade">“<span class="uicontrol">USB设备</span>”</span>，再单击<span class="uicontrol">“添加”</span>。</p>
+<p><strong>移除USB设备</strong></p>
+<p>当虚拟机上的USB设备不再使用时，解绑定主机上已绑定给虚拟机的USB设备。</p>
+<p>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态，才可以移除USB设备。</p>
+<p>在USB设备所在行，单击<span class="menucascade">“<span class="uicontrol">删除</span>”</span>。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">FAQ</h4></div><div class="dropdowncontext"><p><strong>什么是虚拟机的CPU插槽</strong></p>
+<p>在物理主机上，每个物理CPU均对应若干内存，CPU可读写所有内存的数据，但对本身对应的内存做读写操作时性能最佳。</p>
+<p>基于此，虚拟机在使用多个CPU时，可通过设置虚拟机CPU插槽，使虚拟机的CPU平均地由多个物理CPU提供，此时对单个物理CPU的压力较小，同时也能达到更佳的内存读写性能。</p>
+<p>虚拟机CPU插槽数量即指定了虚拟机的多个CPU可平均分布到多少个物理CPU上。因此，虚拟机CPU插槽的数量必须能整除虚拟机的CPU个数。</p>
+<p>该特性需要在集群的高级设置中开启<span class="uicontrol">“GuestNUMA”</span>功能。</p>
+<p>假设以下场景：</p>
+<p>环境中每台主机拥有4颗8核的物理CPU，总物理核数为32个。</p>
+<p>一个未设置CPU插槽的虚拟机，CPU数量为8个，则可能由主机上一个物理CPU的8个内核组成虚拟机的8个虚拟CPU；或可能由一个物理CPU提供5个内核，另一个物理CPU提供3个内核，一同组成虚拟机的8个虚拟机CPU，等等。</p>
+<p>另一个虚拟机设置了CPU插槽数量为4，此时虚拟机的8个CPU平均地由主机上的4颗物理CPU提供，每个物理CPU提供2个内核，达到了最佳的计算性能。</p>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

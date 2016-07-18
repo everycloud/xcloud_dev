@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="在Linux系统中卸载智能网卡驱动">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_200055">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>在Linux系统中卸载智能网卡驱动</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n智能网卡驱动管理\n在Linux系统中卸载智能网卡驱动");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"it_58_45_200048.html\">智能网卡驱动管理<\/a> > 在Linux系统中卸载智能网卡驱动<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_200055"></a><a name="it_58_45_200055"></a>
+
+
+<h1 class="topictitle1">在Linux系统中卸载智能网卡驱动</h1>
+<ul><li><a href="#it_58_45_200055__1.2.1">操作场景</a></li><li><a href="#it_58_45_200055__1.2.2">对系统的影响</a></li><li><a href="#it_58_45_200055__1.2.3">必备事项</a></li><li><a href="#it_58_45_200055__1.2.4">操作步骤</a></li></ul>
+<div>
+<div class="Section"><a name="it_58_45_200055__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_58_45_200055" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>当操作虚拟机失误，导致智能网卡功能异常时，需要卸载智能网卡驱动后再重新安装。</p>
+<p>如果该虚拟机运行在有智能网卡的主机上，卸载智能网卡驱动后，需及时重新安装智能网卡驱动，否则虚拟机的网卡不可见，会导致虚拟机网络不通。</p>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200055__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_58_45_200055" class="sectiontitle2contents">对系统的影响</a></h2>
+<div class="Sectionbody"><p>如果该虚拟机运行在有智能网卡的主机上，卸载智能网卡驱动后，虚拟机的网卡不可见，会导致虚拟机网络不通。</p>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200055__1.2.3"></a><a name="1.2.3"></a><h2 class="sectiontitle"><a href="#it_58_45_200055" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">前提条件</p></span><p>虚拟机已安装智能网卡驱动。</p>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200055__1.2.4"></a><a name="1.2.4"></a><h2 class="sectiontitle"><a href="#it_58_45_200055" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle">卸载智能网卡驱动</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>使用VNC方式登录虚拟机。</span></li><li><span>在VNC登录窗口的虚拟机操作系统界面，右键单击桌面，在弹出的快捷菜单中选择<span class="uicontrol">“在终端中打开”</span>。</span>
+<p>进入命令行模式。</p>
+</li><li><span>执行以下命令，卸载智能网卡驱动。</span>
+<p><b><span class="cmdname">rpm -e iNIC</span></b></p>
+<p><p>回显信息如下时，表示智能网卡驱动卸载成功。</p>
+<div class="p"><pre class="screen">Uninstall iNIC driver success</pre>
+</div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">后续任务</p>
+<p><p>如果该虚拟机运行在有智能网卡的主机上，卸载智能网卡驱动后，需及时重新安装智能网卡驱动，否则虚拟机的网卡不可见，会导致虚拟机网络不通。</p>
+</p></div>
+</ul>
+
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

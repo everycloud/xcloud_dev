@@ -1,0 +1,39 @@
+<div id="clusterInfoStoreDiv" class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.hypervisor.cluster">{{i18n.virtual_term_clusters_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.clusterInfo.summary">{{clusterName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.common_term_storage_label}}</li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="clearfix bottom10">
+            <tiny-button class="major-btn fl" id="exportButton.id" text="exportButton.text"
+                         click="exportButton.click()" ng-if="exportAble"></tiny-button>
+            <div class="fr">
+                <a class="btn-link">
+                    <div ng-click="refresh()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="help.show=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div id="storeTable">
+            <tiny-table id="storeTable.id" data="storeTable.data"
+                        pagination-style="storeTable.paginationStyle"
+                        columns='storeTable.columns' render-row="storeTable.renderRow"
+                        total-records="storeTable.totalRecords" length-change="storeTable.lengthChange"
+                        cur-page="storeTable.curPage" display-length="storeTable.displayLength"
+                        enable-pagination="storeTable.enablePagination" show-details="storeTable.showDetails"
+                        length-menu="storeTable.lengthMenu" callback="storeTable.callback"
+                        columns-visibility="storeTable.columnsVisibility" change-select="storeTable.changeSelect"
+                        columns-draggable="storeTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+    <div fm-help help="'drawer_virtual_cluster_storage'" i18n="'zh'" show="help.show"></div>
+    <iframe id="downloadStoreIframe" style="display:none"></iframe>
+</div>

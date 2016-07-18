@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div fm-help help="'drawer_resource_pip'" show="show.help" i18n="'zh'"></div>
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="serviceMgr.multiPool" ng-bind="i18n.cloud_term_cloudPool_label"></a>
+                <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="service.poolInfo.summary" ng-bind="couldName"></a>
+                <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><span class="divider" ng-bind="i18n.vpc_term_publicIPpool_label"></span></li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box clearfix">
+        <div class="clearfix">
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="refresh.refresh()" id="refresh.id" title="{{i18n.common_term_fresh_button}}"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+            </div>
+        </div>
+        <div class="margin-top-beautifier">
+            <tiny-table id="publicIPTable.id"
+                        caption="publicIPTable.caption"
+                        data="publicIPTable.data"
+                        columns="publicIPTable.columns"
+                        enable-pagination="publicIPTable.enablePagination"
+                        pagination-style="publicIPTable.paginationStyle"
+                        length-change="publicIPTable.lengthChange"
+                        length-menu="publicIPTable.lengthMenu"
+                        display-length="publicIPTable.displayLength"
+                        enable-filter="publicIPTable.enableFilter"
+                        cur-page="publicIPTable.curPage"
+                        total-records="publicIPTable.totalRecords"
+                        hide-total-records="publicIPTable.hideTotalRecords"
+                        callback="publicIPTable.callback"
+                        render-row="publicIPTable.renderRow"
+                        show-details="publicIPTable.showDetails"
+                        columns-draggable="publicIPTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+</div>

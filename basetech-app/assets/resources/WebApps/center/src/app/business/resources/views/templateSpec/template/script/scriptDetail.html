@@ -1,0 +1,74 @@
+<div class="template-script-detail container-fluid" ng-controller="template.script.detail.ctrl">
+    <div>
+        <div class="row-fluid innerbox-padding">
+            <div class="span3">
+                <tiny-formfield>
+                    <tiny-item label="path.label" require="path.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                        <span ng-bind="path.value" title="{{ path.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="command.label" require="command.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                        <span ng-bind="command.value" title="{{ command.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="version.label" require="version.require">
+                        <div class="over-flow-style" style="width: 200px;">
+                        <span ng-bind="version.value" title="{{ version.value }}"></span>
+                        </div>
+                    </tiny-item>
+                </tiny-formfield>
+
+            </div>
+            <div class="span1"></div>
+            <div class="span4">
+                <tiny-formfield>
+                    <tiny-item label="description.label" require="description.require">
+                        <div class="over-flow-style" style="width: 500px;">
+                        <span ng-bind="description.value" title="{{ description.value }}"></span>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="picture.label" require="picture.require">
+                        <img ng-src='{{ picture.value }}' width="20px" height="20px"/>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/templateSpec/template/script/scriptDetailCtrl',
+        'app/business/resources/controllers/constants'],
+            function ($, scriptDetailCtrl, constants) {
+
+                // 1.获取当前Dom
+                var curView = undefined;
+                $(".template-script-detail").each(function () {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+
+                curView.attr("id", new Date().getMilliseconds());
+
+                // 2.编译
+                var scope = curView.scope();
+
+                var modules = ["wcc",scriptDetailCtrl.name];
+                modules.unshift(["$provide", function($provide) {
+                    $provide.value("$rootElement", curView);
+                }]);
+                modules.unshift("ng");
+                var $injector = angular.injector(modules);
+                $injector.invoke(["$compile", function ($compile) {
+                    $compile(curView)(scope);
+                    scope.$digest();
+                }]);
+
+                // 3.初始化scope
+                var curScope = curView.scope();
+                curScope.queryDetail(scope.currentItem.id);
+            });
+</script>

@@ -1,0 +1,139 @@
+<div>
+    <div fm-help help="'drawer_sc_service'" show="show.help" i18n="'zh'"></div>
+    <div id="serviceCatalogLayoutId">
+        <div class="tiny-layout-container">
+            <div class="tiny-layout-west">
+                <ul>
+                    <div class="tiny-layout-title pr">
+                        <div class="row-fluid nosidedown-txt">
+                            <div class="span4">
+                                <div class="title-icon">
+                                    <img src="../theme/default/images/catalog.png">
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <span class="text-left" ng-bind="i18n.service_term_service_label"></span>
+                            </div>
+                            <a ui-sref="service.catalogManager" ng-if="hasCataLogViewRight"
+                               title="{{i18n.service_term_catalogMgr_label}}">
+                                <span class="catalog-manage-icon">
+                                    <span class="catalog-manage-icon-img"></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <li ng-repeat="catalog in catalogs">
+                        <a ng-bind="catalog.name" ng-click="stateGo(catalog.id)" data-catalogid="{{catalog.id}}"></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tiny-layout-center">
+                <div class="crumbs">
+                    <ul class="nav nav-list noPadding">
+                        <li><span ng-bind="i18n.service_term_service_label"></span></li>
+                        <li class="two-lead" ng-bind-html="i18n.service_service_view_explan_userBusiness_label">
+                        </li>
+                        <li class="divider"></li>
+                    </ul>
+                </div>
+                <div class="content-right-box">
+                    <div class="clearfix">
+                        <span class="fl" ng-if="hasServiceOperateRight">
+                            <tiny-button id="createBtn.id" text="createBtn.text" click="createBtn.click()"
+                                         width="createBtn.width" class="major-btn"></tiny-button>
+                        </span>
+
+                        <div class="pull-right">
+                            <span style="display: inline-block; vertical-align: middle; margin-bottom: 4px;">
+                                <tiny-searchbox id="searchBox.id"
+                                                title="{{searchBox.placeholder}}"
+                                                placeholder="searchBox.placeholder"
+                                                width="searchBox.width"
+                                                suggest-size="searchBox.suggestSize"
+                                                maxlength="searchBox.maxLength"
+                                                suggest="searchBox.suggest"
+                                                search="searchBox.search">
+                                </tiny-searchbox>
+                             </span>
+                            <a class="btn-link"><img src="../theme/default/images/gm/refresh.gif"
+                                                     ng-click="refresh.click()"
+                                                     id="refresh.id" title="{{i18n.common_term_fresh_button}}"></a>
+                            <a class="btn-link"><img src="../theme/default/images/gm/help.png"
+                                                     ng-click="show.help=true"
+                                                     title="{{i18n.common_term_help_label}}"></a>
+                        </div>
+                    </div>
+
+                    <ul class="serviceCatalogServiceList top10 clearfix row-fluid">
+                        <li class="small-layout span6" ng-repeat="service in services"
+                            ng-class={fl:!($index%2),fr:$index%2} style="margin-left: 0;">
+                            <div class="small-layout-inner clearfix">
+                                <div class="fl" style="width:100%;">
+                                    <div style="margin-left:130px;">
+                                        <p ng-bind="service.name"
+                                           title="{{service.name}}"
+                                           class="small-layout-title bottom5 text-overflow"></p>
+
+                                        <p class="bottom5 text-overflow">
+                                            <span>ID:</span>
+                                            <span ng-bind="service.id" title="{{service.id}}"></span>
+                                        </p>
+                                        <div class="bottom5" style="height:72px;overflow:auto;">
+                                            <p ng-bind="service.description"
+                                               title="{{service.description}}">
+                                            </p>
+                                        </div>
+
+                                        <div ng-if="service.status == 'published' && hasServiceOperateRight">
+                                            <tiny-button id="cancelBtn.id"
+                                                         class="major-btn"
+                                                         text="cancelBtn.text"
+                                                         click="cancelBtn.click(service.id)"></tiny-button>
+                                        </div>
+                                        <div ng-if="service.status == 'unpublished' && hasServiceOperateRight">
+                                            <tiny-button id="releaseBtn.id"
+                                                         class="major-btn"
+                                                         text="releaseBtn.text"
+                                                         click="releaseBtn.click(service.id)"></tiny-button>
+                                            <tiny-button id="modifyBtn.id"
+                                                         text="modifyBtn.text"
+                                                         click="modifyBtn.click(service.id,service.applyUrl,service.modifyUrl)"></tiny-button>
+                                            <tiny-button id="copyBtn.id"
+                                                         text="copyBtn.text"
+                                                         display="copyBtn.display"
+                                                         click="copyBtn.click(service.id)"></tiny-button>
+                                            <tiny-button id="deleteBtn.id"
+                                                         text="deleteBtn.text"
+                                                         click="deleteBtn.click(service.id)"></tiny-button>
+                                            <tiny-button id="modifyVdcBtn.id"
+                                                         ng-hide="cloudType== 'ICT'&& service.applyUrl =='ssp.applyVdc'"
+                                                         text="modifyVdcBtn.text"
+                                                         click="modifyVdcBtn.click(service.id)"></tiny-button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img class="media-object fl"
+                                     style="margin-left:-100%;"
+                                     ng-src="{{service.serviceImageUrl}}" alt="">
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!--翻页条-->
+                    <div class="clearfix">
+                        <tiny-pagination id="pagination.id"
+                                         type="pagination.type"
+                                         length-options="pagination.lengthOptions"
+                                         total-records="pagination.totalRecords"
+                                         display-length="pagination.displayLength"
+                                         cur-page="pagination.curPage"
+                                         callback="pagination.callback"
+                                         change-select="pagination.changeSelect">
+                        </tiny-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="交换机">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100004">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>交换机</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\n设备管理\n交换机");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100002.html\">设备管理<\/a> > 交换机<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100004"></a><a name="it_60_51_100004"></a>
+
+
+<h1 class="topictitle1">交换机</h1>
+<ul><li><a href="#it_60_51_100004__1.2.2.1">接入交换机</a></li><li><a href="#it_60_51_100004__1.2.3.1">更新交换机信息</a></li><li><a href="#it_60_51_100004__1.2.4.1">删除交换机</a></li><li><a href="#it_60_51_100004__1.2.5.1">FAQ</a></li></ul>
+<div>
+<div class="section"><p><span>FusionManager</span>能够监控与管理被接入的交换机。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100004__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100004" class="sectiontitle2contents">接入交换机</a></h4><div class="p" id="it_60_51_100004__loginCheck"><a name="it_60_51_100004__loginCheck"></a><a name="loginCheck"></a>接入前，建议：<ul><li>先使用远程访问工具，如PuTTY，通过SSH方式登录待接入的设备，确保能够正常登录设备并顺利进入用户视图。若受到某些警告或者其他异常导致的登录阻塞或失败，则解决异常后再进行接入。</li><li>确保交换机登录密码设置为“永不过期”，避免因交换机提示用户修改密码导致登录阻塞或失败。</li><li>部分型号的交换机需要配置SNMP参数，在接入前请参考对应的交换机产品文档配置交换机。</li></ul>
+</div>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">设备</span> &gt; <span class="uicontrol">网络设备</span> &gt; <span class="uicontrol">交换机</span>”</span>界面中，单击<span class="uicontrol">“接入交换机”</span>。</p>
+<p>接入成功后，设备信息会显示在<span class="wintitle">“交换机”</span>界面列表中。</p>
+<p>若无待接入的设备型号可供选择，请参见<a href="it_60_51_100011.html">如何兼容更多型号的硬件设备</a>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100004__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100004" class="sectiontitle2contents">更新交换机信息</a></h4><p><strong>修改上行端口</strong></p>
+<p>接入交换机时，若该交换机为<strong>汇聚交换机</strong>，则配置了其上行端口号。接入后，若汇聚交换机上行端口修改，需及时将信息同步到<span>FusionManager</span>系统中。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">设备</span> &gt; <span class="uicontrol">网络设备</span> &gt; <span class="uicontrol">交换机</span>”</span>界面，交换机所在行中，单击<span class="menucascade">“<span class="uicontrol">修改上行端口</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100004__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100004" class="sectiontitle2contents">删除交换机</a></h4><p>当设备不再使用时，删除交换机。删除后，<span>FusionManager</span>系统不再对该交换机进行管理和监控，但资源池中的虚拟资源不受影响。 </p>
+<p>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">设备</span> &gt; <span class="uicontrol">网络设备</span> &gt; <span class="uicontrol">交换机</span>”</span>界面，交换机所在行中，单击<span class="menucascade">“<span class="uicontrol">删除</span>”</span>。</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_100004__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100004" class="sectiontitle2contents">FAQ</a></h4><p><strong>为什么某些交换机没有<span class="wintitle">“端口状态”</span>监控信息</strong></p>
+<div class="p">当前仅支持对如下三款交换机进行端口状态监控：<ul><li>Huawei Quidway S5352</li><li>Huawei Quidway S5710</li><li>Huawei E9000 XCUB</li></ul>
+</div>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

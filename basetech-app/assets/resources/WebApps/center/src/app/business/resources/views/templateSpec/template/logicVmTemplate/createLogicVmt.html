@@ -1,0 +1,89 @@
+<div class="alert-tip-first">
+    <div id="createLogicVmt" ng-controller="resources.template.createLogicVmt.ctrl">
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" value="model.vmLogicTemplateNum" validate="name.validate"
+                              width="name.width" extend-function="name.extendFunction"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="disk.label" require="disk.require">
+                <tiny-textbox id="disk.id" value="model.systemDiskSize" validate="disk.validate"
+                              width="disk.width" tooltip="disk.tooltip"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="osType.label" require="osType.require">
+                <tiny-select id="osType.id" values="osType.values" width="osType.width" change="osType.change()"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="version.label" require="version.require">
+                <tiny-select id="version.id" values="version.values" width="version.width" height="version.height"
+                             change="version.change()"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="changePwd.label" require="changePwd.require" display="changePwd.display">
+                <tiny-checkbox id="changePwd.id" text="changePwd.text"
+                               change="changePwd.change()" checked="changePwd.checked"></tiny-checkbox>
+            </tiny-item>
+
+            <tiny-item label="userName.label" require="userName.require" display="userName.display">
+                <tiny-textbox id="userName.id" value="model.defaultUserName" validate="userName.validate"
+                              width="userName.width" tooltip="userName.tooltip"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="password.label" require="password.require" display="password.display">
+                <tiny-textbox id="password.id" value="model.defaultPassWord" validate="password.validate" type="password.type"
+                              width="password.width" extend-function="password.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="passwordConfirm.label" require="passwordConfirm.require" display="passwordConfirm.display">
+                <tiny-textbox id="passwordConfirm.id" value="model.value" validate="passwordConfirm.validate" type="passwordConfirm.type"
+                              width="passwordConfirm.width" extend-function="passwordConfirm.extendFunction"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="newPassword.label" require="newPassword.require" display="newPassword.display">
+                <tiny-textbox id="newPassword.id" value="model.newDefaultpassword" validate="newPassword.validate" type="newPassword.type"
+                              width="newPassword.width" tooltip="newPassword.tooltip" extend-function="newPassword.extendFunction"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="newPasswordConfirm.label" require="newPasswordConfirm.require" display="newPasswordConfirm.display">
+                <tiny-textbox id="newPasswordConfirm.id" value="model.newDefaultpasswordConfirm" validate="newPasswordConfirm.validate" type="newPasswordConfirm.type"
+                              width="newPasswordConfirm.width" tooltip="newPasswordConfirm.tooltip" extend-function="newPasswordConfirm.extendFunction"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="description.label" require="description.require">
+                <tiny-textbox id="description.id" value="model.description"
+                              width="description.width" height="description.height" type="description.type"
+                              validate="description.validate"
+                              error-msg="description.errorMsg">
+                </tiny-textbox>
+            </tiny-item>
+
+            <!-- 操作按钮 -->
+            <tiny-item label="buttonGroup.label" require="buttonGroup.require">
+                <div class="margin-top-beautifier">
+                    <tiny-button class="major-btn" id="saveBtn.id" disable="saveBtn.disabled" icons-class="saveBtn.iconsClass"
+                                 text="saveBtn.text"
+                                 tooltip="saveBtn.tip" click="saveBtn.save()"></tiny-button>
+                    <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                                 text="cancelBtn.text"
+                                 tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+                </div>
+            </tiny-item>
+
+        </tiny-formfield>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/templateSpec/template/logicVmTemplate/createLogicVmtCtrl'],
+            function ($, createLogicVmtCtrl) {
+                var dep = ['ng', 'wcc', createLogicVmtCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#createLogicVmt"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile) {
+                    var scope = $("#createLogicVmt").scope();
+                    $compile($("#createLogicVmt"))(scope);
+                    scope.$digest();
+                });
+            });
+</script>

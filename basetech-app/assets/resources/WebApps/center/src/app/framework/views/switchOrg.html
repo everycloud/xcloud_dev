@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div id="switchVdcDiv" ng-controller="switchVdcCtrl">
+        <ul class="clearfix">
+            <li ng-repeat="vdc in vdcList" class="textOverflow line-height30" style="width:140px;margin-right:10px;">
+                <a href="javascript:void 0;" ng-click="switchVdcById(vdc.id)" title="{{vdc.name}}"><img style="margin-right: 5px;" src="../theme/default/images/gm/org.png" />{{vdc.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/framework/controllers/switchOrgCtrl"], function (switchVdcCtrl) {
+        var $injector = angular.injector(["ng", switchVdcCtrl.name]);
+        $injector.invoke(function ($compile) {
+            var $rootEl = $("#switchVdcDiv");
+            var link = $compile($rootEl);
+            link($rootEl.scope());
+            $($rootEl).scope().$digest();
+        });
+    });
+</script>

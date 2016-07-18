@@ -1,0 +1,251 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="监控视图">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_500004">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>监控视图</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("监控\n性能监控\n监控视图");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100008.html\">监控<\/a> > <a href=\"../father_node/it_60_99_100010.html\">性能监控<\/a> > 监控视图<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_500004"></a><a name="it_60_51_500004"></a>
+
+
+<h1 class="topictitle1">监控视图</h1>
+<ul><li><a href="#it_60_51_500004__1.3.3.1">CPU使用率</a></li><li><a href="#it_60_51_500004__1.3.4.1">CPU预留率</a></li><li><a href="#it_60_51_500004__1.3.5.1">内存使用率</a></li><li><a href="#it_60_51_500004__1.3.6.1">内存预留率</a></li><li><a href="#it_60_51_500004__1.3.7.1">存储使用率</a></li><li><a href="#it_60_51_500004__1.3.8.1">存储分配率</a></li><li><a href="#it_60_51_500004__1.3.9.1">网络流入速率</a></li><li><a href="#it_60_51_500004__1.3.10.1">网络流出速率</a></li><li><a href="#it_60_51_500004__1.3.11.1">磁盘I/O写入</a></li><li><a href="#it_60_51_500004__1.3.12.1">磁盘I/O读出</a></li><li><a href="#it_60_51_500004__1.3.13.1">磁盘使用率</a></li></ul>
+
+<div id="perf_monitor"><a name="perf_monitor"></a><a name="perf_monitor"></a><p></p>
+
+<p>提供接入<span>FusionManager</span>的资源的集群、主机、虚拟机的性能监控指标。下文以<span>FusionCompute</span>为例介绍各项性能指标的具体含义。</p>
+
+
+<p>选择<span class="menucascade">“<span class="uicontrol">监控</span> &gt; <span class="uicontrol">监控视图</span>”</span>。</p>
+
+<div class="section"><a name="it_60_51_500004__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">CPU使用率</a></h4><p><strong>指标含义</strong></p>
+<p>该指标用于统计测量对象的CPU使用率。</p>
+<p>测量对象可以是：<span>集群、</span>主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>集群CPU使用率 = 集群中各主机CPU使用率之和 / 主机数量。</li><li>主机CPU使用率 = （主机dom0的CPU使用率*dom0的核数+主机domU的CPU使用率*domU的核数）/（dom0的核数+
+domU的核数）。</li><li>虚拟机CPU使用率 = 单个虚拟机CPU使用率 / 单个虚拟机的CPU总核数。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.4.1"></a><a name="1.3.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">CPU预留率</a></h4><p><strong>指标含义</strong></p>
+<p>统计测量对象中，当前预留的CPU数量占CPU总量的百分比。 </p>
+<p>测量对象可以是：集群。</p>
+<p><strong>计算公式</strong></p>
+<p><b><span class="cmdname">CPU预留率 = CPU预留容量 / (CPU预留容量 + CPU可用容量) x
+100%</span></b></p>
+<div class="p">其中<ul><li>CPU预留容量：指测试对象下，所有运行态虚拟机预留CPU数量的总和。</li><li>CPU可用容量：指测试对象下，可分配给虚拟机使用的CPU数量的总和。</li></ul>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>在VMware虚拟化环境中，CPU预留容量不包含VMware系统自身预留的容量。 </p>
+</div></div>
+</div>
+<p><strong>相关说明</strong></p>
+<div class="p">该指标的正常取值范围为<span class="parmvalue">“0%～100%”</span>。<ul><li>若该指标等于100%，说明该测量对象下无CPU资源可分配。</li><li>若该指标等于0%，说明该测量对象下无预留CPU资源，所有CPU资源均可分配使用。</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.5.1"></a><a name="1.3.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">内存使用率</a></h4><p><strong>指标含义</strong></p>
+<p>该指标用于统计测量对象的内存使用率。</p>
+<p>测量对象可以是：<span>集群、</span>主机和虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>集群内存使用率 = 集群中各主机内存使用率之和 / 主机数量。</li><li>主机内存使用率 = （domainU内存使用量+domain0内存使用量）/（domainU内存总量+domain0内存总量）。</li><li>虚拟机内存使用率 = 该虚拟机内存使用量 / 该虚拟机内存总量。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.6.1"></a><a name="1.3.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">内存预留率</a></h4><p><strong>指标含义</strong></p>
+<p>统计测量对象中，当前预留的内存数量占内存总量的百分比。</p>
+<p>测量对象可以是：集群</p>
+<p><strong>计算公式</strong></p>
+<p><b><span class="cmdname">内存预留率 = 内存预留容量 / (内存预留容量 + 内存可用容量)
+x 100%</span></b></p>
+<div class="p">其中<ul><li>内存预留容量：<ul><li>内存复用关闭时，指测试对象下，所有运行虚拟机的内存与显存总和。</li><li>内存复用开启时，指测试对象下，所有运行虚拟机的预留与显存总和。</li></ul>
+</li><li>内存可用容量：指测试对象下，可分配给虚拟机使用的内存数量总和。</li></ul>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>在VMware虚拟化环境中，内存预留容量不包含VMware系统自身预留的容量。 </p>
+</div></div>
+</div>
+<p><strong>相关说明</strong></p>
+<div class="p">该指标的正常取值范围为<span class="parmvalue">“0%～100%”</span>。<ul><li>若该指标等于100%，说明该测量对象下无内存资源可分配。</li><li>若该指标等于0%，说明该测量对象下无预留内存资源，所有内存均可以分配使用。</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.7.1"></a><a name="1.3.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">存储使用率</a></h4><p><strong>指标含义</strong></p>
+<p>统计当前已经使用的存储容量占存储总量的百分比。 </p>
+<p>测量对象可以是：集群。</p>
+<p><strong>计算公式</strong></p>
+<p><b><span class="cmdname">存储池使用率 = 已使用存储容量
+/ (已使用存储容量 + 剩余存储容量) x 100%</span></b></p>
+<div class="p">其中<ul><li>已使用存储容量：指测试对象下，已经使用的存储容量总和。</li><li>剩余存储容量：指测试对象下，剩余未使用的存储容量总和。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<div class="p">该指标的正常取值范围为<span class="parmvalue">“0%～100%”</span>。<ul><li>若该指标等于100%，说明该测量对象下无存储空间可以分配。</li><li>若该指标等于0%，说明该测量对象所有存储空间均未被使用。</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.8.1"></a><a name="1.3.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">存储分配率</a></h4><p><strong>指标含义</strong></p>
+<p>统计测量对象中，当前已经分配的存储数量占存储总量的百分比。 </p>
+<p>测量对象可以是：集群。</p>
+<p><strong>计算公式</strong></p>
+<p><b><span class="cmdname">存储池分配率 = 已分配存储容量 / (已使用存储容量 + 剩余存储容量) x 100%</span></b></p>
+<div class="p">其中<ul><li>已分配存储容量：指测试对象下，已经分配的存储容量总和。</li><li>已使用存储容量：指测试对象下，已经实际使用的物理存储容量总和。</li><li>剩余存储容量：指测试对象下，剩余未使用的物理存储容量总和。</li></ul>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><div class="p">例如，存储池实际物理存储空间为100GB，自动精简配置后，可用于分配的存储空间为200GB。当前为虚拟机A分配了50GB，虚拟机占用20GB用于文档存储；为虚拟机B分配了80GB，虚拟机占用10GB用于数据库存储。则：<ul><li>已分配存储容量：130GB</li><li>已使用存储容量：30GB</li><li>剩余存储容量：70GB</li><li>存储池分配率：130%</li></ul>
+</div>
+</div></div>
+</div>
+<p><strong>相关说明</strong></p>
+<p>该指标的取值下限为<span class="parmvalue">“0%”</span>，上限由存储自动精简配置比例决定。</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.9.1"></a><a name="1.3.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">网络流入速率</a></h4><p><strong>指标含义</strong></p>
+<p>该指标用于统计每秒流入测量对象的网络流量。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机网络流入流速 = 主机的网络流入的字节数之和 / 测量周期。</li><li>虚拟机网络流入流速 = 虚拟机的网络流入的字节数之和 / 测量周期。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.10.1"></a><a name="1.3.10.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">网络流出速率</a></h4><p><strong>指标含义</strong></p>
+<p>该指标用于统计每秒流出测量对象的网络流量。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机网络流出流速 = 主机的网络流出的字节数之和 / 测量周期。</li><li>虚拟机网络流出流速= 虚拟机的网络流出的字节数之和 / 测量周期。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.11.1"></a><a name="1.3.11.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">磁盘I/O写入</a></h4><p><strong>指标含义</strong></p>
+<p>该指标用于统计每秒写到测量对象的数据量，以KB为单位。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<ul><li>主机磁盘写入的字节数 = 主机的磁盘写入的字节数之和 / 测量周期。</li><li>虚拟机磁盘写入的字节数 = 虚拟机的磁盘写入的字节数之和 / 测量周期。</li></ul>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.12.1"></a><a name="1.3.12.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">磁盘I/O读出</a></h4><p><strong>指标含义</strong></p>
+<p>该指标用于统计每秒从测量对象读出数据量，以KB为单位。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机磁盘读出的字节数 = 主机的磁盘读出的字节数之和 / 测量周期。</li><li>虚拟机磁盘读出的字节数 = 虚拟机的磁盘读出的字节数之和 / 测量周期。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.13.1"></a><a name="1.3.13.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">磁盘使用率</a></h4><p><strong>指标含义</strong></p>
+<p>该指标用于统计测量对象的磁盘使用情况。</p>
+<p>测量对象可以是：主机、虚拟机。</p>
+<p><strong>计算公式</strong></p>
+<div class="p"><ul><li>主机磁盘使用率 = 主机磁盘的已使用容量 / 主机磁盘的总容量。</li><li>虚拟机磁盘使用率 = 虚拟机磁盘使用容量 / 虚拟机磁盘总容量。</li></ul>
+</div>
+<p><strong>相关说明</strong></p>
+<p>无。</p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

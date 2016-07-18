@@ -1,0 +1,15 @@
+<div>
+    <div class="legend" ng-bind="i18n.template_term_scriptInfo_label"></div>
+    <tiny-formfield>
+        <tiny-item label="softwareCell.name.label" require="softwareCell.name.require">
+            <tiny-textbox id="softwareCell.name.id" value="softwareCell.scriptValue.name" tooltip="softwareCell.name.tooltip" extend-function="softwareCell.name.extendFunction" validate="softwareCell.name.validate" blur="softwareCell.name.blur('script')" width="softwareCell.name.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="softwareCell.description.label" require="softwareCell.description.require">
+            <tiny-textbox id="softwareCell.description.id" value="softwareCell.scriptValue.description" tooltip="softwareCell.description.tooltip" extend-function="softwareCell.description.extendFunction" validate="softwareCell.description.validate" blur="softwareCell.description.blur('script')"
+            width="softwareCell.description.width" type="softwareCell.description.type" height="softwareCell.description.height"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="softwareCell.version.label" require="softwareCell.version.require">
+            <tiny-textbox id="softwareCell.version.id" value="softwareCell.scriptValue.version" blur="softwareCell.version.blur('script')" width="softwareCell.version.width"></tiny-textbox>
+        </tiny-item>
+    </tiny-formfield>
+</div>

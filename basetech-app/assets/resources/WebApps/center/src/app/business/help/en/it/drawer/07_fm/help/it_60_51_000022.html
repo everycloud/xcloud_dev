@@ -1,0 +1,111 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Virtual Resource Management">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000022">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Virtual Resource Management</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_000022"></a><a name="it_60_51_000022"></a>
+
+
+<h1 class="topictitle1">Virtual Resource Management</h1>
+
+
+
+<div><p></p>
+
+<div class="section"><h4 class="sectiontitle">Overview</h4><p>Virtual resources
+include hypervisors, resource clusters, virtual hosts, storage, and
+VM resources.</p>
+<p>Adding virtual resources to <span>FusionManager</span> is the first step of resource management. Virtual resources on a
+hypervisor can be used by <span>FusionManager</span> for VM or service provisioning only after they are added.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Adding a Hypervisor</h4><div class="p">Complete the tasks shown
+in <a href="#it_60_51_000022__fig_02">Figure 1</a>.<div class="fignone" id="it_60_51_000022__fig_02"><a name="it_60_51_000022__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>Figure 1 </b>Adding a hypervisor</span>
+
+<br><span><img src="fig/fig_it_60_51_000022_02.png"></span></div>
+</div>
+<div class="p"><a href="#it_60_51_000022__tab_02">Table 1</a> describes the involved tasks.
+<div class="tablenoborder"><a name="it_60_51_000022__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000022__tab_02" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="15%" id="mcps1.3.2.3.2.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="44.333333333333336%" id="mcps1.3.2.3.2.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="40.666666666666664%" id="mcps1.3.2.3.2.2.4.1.3"><p>Web Client Navigation Path</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.3.2.3.2.2.4.1.1 "><p>Add a hypervisor.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.3.2.3.2.2.4.1.2 ">Adding virtual resources to <span>FusionManager</span> is the first step of resource management. Virtual resources on a
+hypervisor can be used by <span>FusionManager</span> for VM or service provisioning only after they are added.</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.3.2.3.2.2.4.1.3 "><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Virtualization</span></b> &gt; <b><span class="uicontrol">Hypervisor</span></b></span> </p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.3.2.3.2.2.4.1.1 "><p>Update the hypervisor.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.3.2.3.2.2.4.1.2 "><p>Hypervisors are updated automatically every six hours. To
+make the hypervisor that has been added to <span>FusionManager</span> take effect immediately, update the hypervisor.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.3.2.3.2.2.4.1.3 "><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Virtualization</span></b> &gt; <b><span class="uicontrol">Hypervisor</span></b></span>, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Update</b></span>. </p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.3.2.3.2.2.4.1.1 "><p>Associate a resource cluster with <span>FusionManager</span>.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="44.333333333333336%" headers="mcps1.3.2.3.2.2.4.1.2 "><p>The hypervisor provides virtualization capabilities. Only
+resources in clusters can be used and managed by <span>FusionManager</span>. Therefore, after a hypervisor is added and updated, you can associate
+clusters created on the hypervisor with <span>FusionManager</span>.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.666666666666664%" headers="mcps1.3.2.3.2.2.4.1.3 "><p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Virtualization</span></b> &gt; <b><span class="uicontrol">Resource Clusters</span></b></span>. </p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

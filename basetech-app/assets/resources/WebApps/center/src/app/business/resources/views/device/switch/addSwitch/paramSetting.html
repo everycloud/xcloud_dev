@@ -1,0 +1,153 @@
+<div id="addSwitchParamDiv">
+    <div id="snmpDiv" ng-if="snmpInfo.access">
+        <tiny-formfield>
+            <span class="createpage-title">{{i18n.device_term_SNMPimportPara_label}}</span>
+
+            <div class="inline-help bottom10">{{i18n.device_switch_import_para_SNMP_mean_tip}}</div>
+            <tiny-item label="paramInfo.snmpVersion.label" require="paramInfo.snmpVersion.require">
+                <tiny-select id="paramInfo.snmpVersion.id" values="paramInfo.snmpVersion.values"
+                             validate="paramInfo.snmpVersion.validate" change="paramInfo.snmpVersion.change"
+                             width="formfieldWidth"></tiny-select>
+            </tiny-item>
+            <tiny-item display="trapProtocol.length != 0" label="paramInfo.trapProtocol.label"
+                       require="paramInfo.trapProtocol.require">
+                <tiny-select id="paramInfo.trapProtocol.id" values="paramInfo.trapProtocol.values"
+                             width="formfieldWidth"
+                             validate="paramInfo.trapProtocol.validate"></tiny-select>
+                 <span popover="{{i18n.device_all_connect_para_snmp_mean_tip}}" popover-trigger="mouseenter"
+                       class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpIp.label" require="paramInfo.snmpIp.require">
+                <tiny-ip id="paramInfo.snmpIp.id" type="paramInfo.snmpIp.type"
+                         validate="paramInfo.snmpIp.validate"
+                         width="formfieldWidth"></tiny-ip>
+                <span popover="{{paramInfo.snmpIp.tooltip}}" popover-trigger="mouseenter"
+                      class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpPort.label" require="paramInfo.snmpPort.require">
+                <tiny-textbox id="paramInfo.snmpPort.id" value="paramInfo.snmpPort.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.snmpPort.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpTimeout.label" require="paramInfo.snmpTimeout.require">
+                <tiny-textbox id="paramInfo.snmpTimeout.id" value="paramInfo.snmpTimeout.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.snmpTimeout.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpRetries.label" require="paramInfo.snmpRetries.require">
+                <tiny-textbox id="paramInfo.snmpRetries.id" value="paramInfo.snmpRetries.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.snmpRetries.validate"></tiny-textbox>
+                    <span popover="{{paramInfo.snmpRetries.tooltip}}" popover-trigger="mouseenter"
+                          class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.readCommunity.label" require="paramInfo.readCommunity.require"
+                       display="snmpInfo.version != 'SNMPv3'">
+                <tiny-textbox id="paramInfo.readCommunity.id" value="paramInfo.readCommunity.value"
+                              width="formfieldWidth"
+                              validate="paramInfo.readCommunity.validate" type="input"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.writeCommunity.label" require="paramInfo.writeCommunity.require"
+                       display="snmpInfo.version != 'SNMPv3'">
+                <tiny-textbox id="paramInfo.writeCommunity.id" value="paramInfo.writeCommunity.value"
+                              width="formfieldWidth"
+                              validate="paramInfo.writeCommunity.validate" type="input"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="paramInfo.snmpSecurity.label" require="paramInfo.snmpSecurity.require"
+                       display="snmpInfo.version == 'SNMPv3'">
+                <tiny-textbox id="paramInfo.snmpSecurity.id" value="paramInfo.snmpSecurity.value" width="formfieldWidth"
+                              validate="paramInfo.snmpSecurity.validate" type="input"></tiny-textbox>
+                <span popover="{{paramInfo.snmpSecurity.tooltip}}" popover-trigger="mouseenter"
+                      class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpAuthProtocol.label" require="paramInfo.snmpAuthProtocol.require"
+                       display="snmpInfo.version == 'SNMPv3'">
+                <tiny-select id="paramInfo.snmpAuthProtocol.id" values="paramInfo.snmpAuthProtocol.values"
+                             validate="paramInfo.snmpAuthProtocol.validate"
+                             width="formfieldWidth"></tiny-select>
+                  <span popover="{{paramInfo.snmpAuthProtocol.tooltip}}" popover-trigger="mouseenter"
+                        class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpAuthPassword.label" require="paramInfo.snmpAuthPassword.require"
+                       display="snmpInfo.version == 'SNMPv3'">
+                <tiny-textbox id="paramInfo.snmpAuthPassword.id" value="paramInfo.snmpAuthPassword.value"
+                              validate="paramInfo.snmpAuthPassword.validate" width="formfieldWidth"
+                              type="paramInfo.snmpAuthPassword.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpAuthPwdConfirm.label" require="paramInfo.snmpAuthPwdConfirm.require"
+                       display="snmpInfo.version == 'SNMPv3'">
+                <tiny-textbox id="paramInfo.snmpAuthPwdConfirm.id" width="formfieldWidth"
+                              value="paramInfo.snmpAuthPwdConfirm.value"
+                              type="paramInfo.snmpAuthPwdConfirm.type"
+                              extend-function="paramInfo.snmpAuthPwdConfirm.extendFunction"
+                              validate="paramInfo.snmpAuthPwdConfirm.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpEncrptProtocol.label" require="paramInfo.snmpEncrptProtocol.require"
+                       display="snmpInfo.version == 'SNMPv3'">
+                <tiny-select id="paramInfo.snmpEncrptProtocol.id" values="paramInfo.snmpEncrptProtocol.values"
+                             width="formfieldWidth"
+                             validate="paramInfo.snmpEncrptProtocol.validate"></tiny-select>
+                 <span popover="{{paramInfo.snmpEncrptProtocol.tooltip}}" popover-trigger="mouseenter"
+                       class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpEncrptPassword.label" require="paramInfo.snmpEncrptPassword.require"
+                       display="snmpInfo.version == 'SNMPv3'">
+                <tiny-textbox id="paramInfo.snmpEncrptPassword.id" value="paramInfo.snmpEncrptPassword.value"
+                              validate="paramInfo.snmpEncrptPassword.validate" width="formfieldWidth"
+                              type="paramInfo.snmpEncrptPassword.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.snmpEncrptPwdConfirm.label" require="paramInfo.snmpEncrptPwdConfirm.require"
+                       display="snmpInfo.version == 'SNMPv3'">
+                <tiny-textbox id="paramInfo.snmpEncrptPwdConfirm.id" width="formfieldWidth"
+                              value="paramInfo.snmpEncrptPwdConfirm.value"
+                              type="paramInfo.snmpEncrptPwdConfirm.type"
+                              extend-function="paramInfo.snmpEncrptPwdConfirm.extendFunction"
+                              validate="paramInfo.snmpEncrptPwdConfirm.validate"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div id="sshDiv" ng-show="sshInfo.access">
+        <tiny-formfield>
+            <span class="createpage-title">{{i18n.device_term_SSHconnectPara_label}}</span>
+            <tiny-item label="paramInfo.sshVersion.label" require="paramInfo.sshVersion.require">
+                <div ng-bind="paramInfo.sshVersion.value"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.sshIp.label" require="paramInfo.sshIp.require">
+                <tiny-ip id="paramInfo.sshIp.id" type="paramInfo.sshIp.type"
+                         extend-function="paramInfo.sshIp.extendFunction" width="formfieldWidth"
+                         validate="paramInfo.sshIp.validate"></tiny-ip>
+                  <span popover="{{paramInfo.sshIp.tooltip}}" popover-trigger="mouseenter"
+                        class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="paramInfo.sshPort.label" require="paramInfo.sshPort.require">
+                <tiny-textbox id="paramInfo.sshPort.id" value="paramInfo.sshPort.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.sshPort.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.sshUsername.label"
+                       require="paramInfo.sshUsername.require">
+                <tiny-textbox id="paramInfo.sshUsername.id" value="paramInfo.sshUsername.value" width="formfieldWidth"
+                              type="input" validate="paramInfo.sshUsername.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.sshPassword.label"
+                       require="paramInfo.sshPassword.require">
+                <tiny-textbox id="paramInfo.sshPassword.id" value="paramInfo.sshPassword.value"
+                              type="paramInfo.sshPassword.type" width="formfieldWidth"
+                              validate="paramInfo.sshPassword.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="paramInfo.sshPasswordConfirm.label"
+                       require="paramInfo.sshPasswordConfirm.require">
+                <tiny-textbox id="paramInfo.sshPasswordConfirm.id" width="formfieldWidth"
+                              value="paramInfo.sshPasswordConfirm.value"
+                              type="paramInfo.sshPasswordConfirm.type"
+                              extend-function="paramInfo.sshPasswordConfirm.extendFunction"
+                              validate="paramInfo.sshPasswordConfirm.validate"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="fm-btn-top-small">
+        <tiny-button id="paramInfo.preBtn.id" text="paramInfo.preBtn.text"
+                     click="paramInfo.preBtn.click()"></tiny-button>
+        <tiny-button class="major-btn" id="paramInfo.nextBtn.id" text="paramInfo.nextBtn.text"
+                     click="paramInfo.nextBtn.click()"></tiny-button>
+        <tiny-button id="paramInfo.cancelBtn.id" text="paramInfo.cancelBtn.text"
+                     click="paramInfo.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

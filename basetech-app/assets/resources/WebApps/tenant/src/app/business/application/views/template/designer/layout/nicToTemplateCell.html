@@ -1,0 +1,22 @@
+<div>
+    <div class="legend" ng-bind="i18n.common_term_associateRelationship_button"></div>
+    <div>
+        <table class="table table-striped table-striped" id="nic-to-template-table">
+            <thead>
+                <tr>
+                    <th ng-bind="i18n.vpc_term_netName_label"></th>
+                    <th ng-bind="i18n.common_term_NICname_label"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td ng-bind="nicToTemplateCell.networkName"></td>
+                    <td>
+                        <tiny-select id="nicToTemplateCell.nicName.id" values="nicToTemplateCell.nicName.values" width="nicToTemplateCell.nicName.width" change="nicToTemplateCell.nicName.change()">
+                        </tiny-select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

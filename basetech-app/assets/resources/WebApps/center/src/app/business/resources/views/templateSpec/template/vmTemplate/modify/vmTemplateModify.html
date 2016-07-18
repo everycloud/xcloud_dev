@@ -1,0 +1,92 @@
+<div>
+    <div id="modifyVmt" ng-controller="resources.template.vmTemplate.modify.ctrl">
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" value="model.name" validate="name.validate" focused="name.focused"
+                              width="name.width" extend-function="name.extendFunction" tooltip="name.tooltip"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="picture.label" require="picture.require">
+                <div>
+                    <input style="display: none" ng-model="model.picture"/>
+                    <img ng-src='{{ model.picture }}'
+                         alt='../theme/default/images/vmTemplate/icon_vmtemplate_1.png'
+                         class="imgSize"/>
+
+                    <div style="display: inline-block;padding-left: 3px;" class="dropdown">
+                        <a class="dropdown-toggle" id="dLabel" data-toggle="dropdown"
+                           ng-click="picture.click()"><span ng-bind="i18n.template_term_changeIcon_button"></span></a>
+                        <ul class="dropdown-menu imgBox" role="menu" aria-labelledby="dLabel">
+                            <li class="imgItem" ng-repeat="img in picture.imgs">
+                                <img ng-src="{{ img.src }}"
+                                     ng-click="img.click()"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </tiny-item>
+
+            <tiny-item label="osType.label" require="osType.require">
+                <tiny-select id="osType.id" values="osType.values" width="osType.width"
+                             change="osType.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="osVersion.label" require="osVersion.require">
+                <tiny-select id="osVersion.id" values="osVersion.values" width="osVersion.width" height="osVersion.height"
+                             change="osVersion.change()"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="type.label" require="type.require">
+                <tiny-select id="type.id" values="type.values" width="type.width"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="description.label" require="description.require">
+                <tiny-textbox id="description.id" value="model.description"
+                              width="description.width" height="description.height" type="description.type"
+                              validate="description.validate"
+                              error-msg="description.errorMsg">
+                </tiny-textbox>
+            </tiny-item>
+
+            <!-- 操作按钮 -->
+            <tiny-item label="buttonGroup.label" require="buttonGroup.require">
+                <div class="margin-top-beautifier">
+                    <tiny-button class="major-btn" id="saveBtn.id" disable="saveBtn.disabled" icons-class="saveBtn.iconsClass" text="saveBtn.text"
+                                 tooltip="saveBtn.tip" click="saveBtn.save()"></tiny-button>
+                    <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                                 text="cancelBtn.text"
+                                 tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+                </div>
+            </tiny-item>
+
+        </tiny-formfield>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/templateSpec/template/vmTemplate/modify/vmTemplateModifyCtrl'],
+            function ($, vmTemplateModifyCtrl) {
+                var dep = ['ng', 'wcc', vmTemplateModifyCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#modifyVmt"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile) {
+                    var scope = $("#modifyVmt").scope();
+                    $compile($("#modifyVmt"))(scope);
+                    scope.$digest();
+                });
+            });
+</script>
+<style>
+    .imgBox {
+        width: 310px;
+    }
+
+    .imgItem {
+        padding-left: 10px;
+        padding-right: 20px;
+        float: left;
+    }
+
+    .imgSize {width: 20px !important;height: 20px !important;}
+</style>

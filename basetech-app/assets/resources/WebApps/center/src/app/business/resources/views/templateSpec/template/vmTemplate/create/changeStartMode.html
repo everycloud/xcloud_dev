@@ -1,0 +1,30 @@
+<div class="vmTemplate-modifyStartMode margin-left-beautifier" ng-controller="resources.vmTemplate.changeStartMode.ctrl">
+    <div class="row-fluid">
+        <span ng-bind="i18n.template_term_chooseVMdefaltStartMode_msg"></span>
+        <div class="margin-top-beautifier">
+            <tiny-radiogroup id="startMode.id" spacing="startMode.spacing" layout="startMode.layout"
+                             values="startMode.values"></tiny-radiogroup>
+        </div>
+    </div>
+    <div class="margin-top-beautifier">
+        <tiny-button class="major-btn" id="okBtn.id" text="okBtn.text"
+                     tooltip="okBtn.tooltip" click="okBtn.click()"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                     tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/templateSpec/template/vmTemplate/create/changeStartModeCtrl'],
+            function (changeStartModeCtrl) {
+                var dep = ['ng', 'wcc', changeStartModeCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $(".vmTemplate-modifyStartMode"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile) {
+                    var scope = $(".vmTemplate-modifyStartMode").scope();
+                    $compile($(".vmTemplate-modifyStartMode"))(scope);
+                    scope.$digest();
+                });
+            });
+</script>

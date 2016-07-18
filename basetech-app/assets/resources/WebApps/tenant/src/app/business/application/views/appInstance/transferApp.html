@@ -1,0 +1,35 @@
+<div id="app_list_transferApp_winId" ng-controller="app.list.transferApp.ctrl">
+    <div class="bottom10">
+        <span ng-bind-html="i18n.common_term_search_button"></span>:
+        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+            <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+            </tiny-searchbox>
+        </span>
+    </div>
+    <div class="clearfix">
+        <tiny-table id="userTable.id" data="userTable.data" columns="userTable.columns" length-menu="userTable.lengthMenu" enable-pagination="userTable.enablePagination" render-row="userTable.renderRow" pagination-style="userTable.paginationStyle" callback="userTable.callback"
+        change-select="userTable.changeSelect" display-length="userTable.displayLength" total-records="userTable.totalRecords">
+        </tiny-table>
+    </div>
+    <div class="fm-btn-top-large text-center">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" disable="transferUserId==null" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+
+<script>
+require(['app/business/application/controllers/appInstance/transferAppCtrl'],
+    function(transferAppCtrl) {
+        var dep = ['ng', 'wcc', transferAppCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $("#app_list_transferApp_winId"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($("#app_list_transferApp_winId"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

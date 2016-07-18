@@ -1,0 +1,95 @@
+<div id="storeInfoSummaryDiv" class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.hypervisor.cluster">{{i18n.virtual_term_clusters_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active">
+                <a ng-click="goToCluster()" href="javascript:void(0)">{{breadCrumbs.clusterName}}</a><span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ng-click="goToStorage()" href="javascript:void(0)">{{i18n.common_term_storage_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.storeInfo.summary">{{storeName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.common_term_summary_label||'概要'}}</li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="row-fluid">
+                <div class="span6 outbox-padding">
+                    <div class="legend" ng-bind="i18n.common_term_basicInfo_label"></div>
+                    <tiny-formfield>
+                        <tiny-item label="label.name">
+                            <div ng-bind="info.name"></div>
+                        </tiny-item>
+                        <tiny-item label="label.status">
+                            <div ng-bind="info.status"></div>
+                        </tiny-item>
+                        <tiny-item label="label.config">
+                            <div ng-bind="info.config"></div>
+                        </tiny-item>
+                        <tiny-item label="label.maintenanceMode">
+                            <div ng-bind="info.maintenanceMode"></div>
+                        </tiny-item>
+                        <tiny-item label="label.type">
+                            <div ng-bind="info.typeStr"></div>
+                        </tiny-item>
+                        <tiny-item label="label.mediaType">
+                            <div ng-bind="info.mediaType"></div>
+                        </tiny-item>
+                        <tiny-item label="label.ioSwitch" display="info.showIoSwith">
+                            <div ng-bind="info.ioSwithStr"></div>
+                        </tiny-item>
+                        <tiny-item label="label.hypervisor">
+                            <div ng-bind="info.hypervisor"></div>
+                        </tiny-item>
+                        <tiny-item label="label.cluster">
+                            <div ng-bind="info.cluster"></div>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+
+                <div class="span6 outbox-padding">
+                    <div class="legend" ng-bind="i18n.resource_term_resourceStatistic_label"></div>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="line-height30" ng-bind="i18n.perform_term_storageAllocationRate_label"></div>
+                            <div style="display: block; width: 260px;" class="clearfix">
+                                <div class="progressbar-box top5" style="width: 160px;  height: 14px; border-radius: 11px;float:left;margin-right: 5px;">
+                                    <div class="progressbar-color" ng-style="{width:storeAllotprogressDisaply/100*160}" style=" height: 14px;"></div>
+                                </div>
+                                <div class="tiny-progressBar-annotation" style="float:left;color: rgb(94, 204, 73);"><span ng-bind="storeAllotprogress"></span>%</div>
+                            </div>
+                        </div>
+                        <div class="span5 top24">
+                            <div class="line-height30">
+                                <span class="color-light-gray">{{i18n.perform_term_allocatedCapacity_label}}:</span><span class="f18 fr">{{allocated}}GB</span>
+                            </div>
+                            <div class="line-height30"><span class="color-light-gray">{{i18n.common_term_capacityTotal_label}}:</span><span class="f18 fr">{{total}}GB</span></div>
+                        </div>
+                    </div>
+                    <div class="divider_line"></div>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div  class="line-height30" ng-bind="i18n.perform_term_storageUsageRate_label"></div>
+                            <div style="display: block; width: 260px;" class="clearfix">
+                                <div class="progressbar-box top5" style="width: 160px;  height: 14px; border-radius: 11px;float:left;margin-right: 5px;">
+                                    <div class="progressbar-color" ng-style="{width:storeUseprogressDisaply/100*160}" style=" height: 14px;"></div>
+                                </div>
+                                <div class="tiny-progressBar-annotation" style="float:left;color: rgb(94, 204, 73);"><span ng-bind="storeUseprogress"></span>%</div>
+                            </div>
+                        </div>
+                        <div class="span5 top24">
+                            <div  class="line-height30"><span class="color-light-gray">{{i18n.perform_term_usedCapacity_label}}: </span><span class="f18 fr">{{used}}GB</span></div>
+                            <div  class="line-height30"><span class="color-light-gray">{{i18n.perform_term_factAvailableCapacity_label}}:</span><span class="f18 fr">{{free}}GB</span></div>
+                        </div>
+                    </div>
+                </div>
+            <div class="span6">
+                <div class="pull-right menu-wid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

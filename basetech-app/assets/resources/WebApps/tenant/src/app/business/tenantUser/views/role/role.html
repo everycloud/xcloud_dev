@@ -1,0 +1,55 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span ng-bind-html="i18n.role_term_role_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.role_role_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box clearfix">
+        <div class="form-inline clearfix">
+            <div class="fl" ng-show="!openstack">
+                <tiny-button id="createRoleModel.id" disable="createRoleModel.disable" ng-hide="createRoleModel.disable" text="createRoleModel.text" click="createRoleModel.create()" class="major-btn"></tiny-button>
+            </div>
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;" ng-show="!openstack">
+                    <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" maxlength="searchBox.maxLength" search="searchBox.search">
+                    </tiny-searchbox>
+                </span>
+                <a class="btn-link">
+                    <div title="{{refresh.tips}}" ng-click="refresh.click()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div title="{{help.tips}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="model.id"
+                        data="model.datas"
+                        columns="model.columns"
+                        enable-pagination="model.pagination"
+                        pagination-style="model.paginationStyle"
+                        length-change="model.lengthChange"
+                        length-menu="model.lengthMenu"
+                        display-length="model.displayLength"
+                        enable-filter="model.enableFilter"
+                        cur-page="model.curPage"
+                        total-records="model.totalRecords"
+                        request-config="model.requestConfig"
+                        hide-total-records="model.hideTotalRecords"
+                        render-row="model.renderRow"
+                        callback="model.callback"
+                        columns-draggable="true"
+                        change-select="model.changeSelect"
+                        show-details="model.showDetails"></tiny-table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VNC Login Troubleshooting">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000025">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>VNC Login Troubleshooting</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_000025"></a><a name="it_60_51_000025"></a>
+
+
+<h1 class="topictitle1">VNC Login Troubleshooting</h1>
+
+
+<div><p></p>
+
+<div class="section"><h4 class="sectiontitle">Context</h4><p>If VM page cannot be displayed when
+users log in to a VM using VNC in <span>FusionManager</span>, the
+possible causes may be as follows.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Possible Causes</h4><div class="p"><ul><li>The browser settings are incorrect.</li><li>The JRE version is incorrect. The JRE must be Java Plug-in 1.7.0_15
+(32鈥揵it) or later (32鈥揵it). </li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Symptom and Solution</h4><p><strong>Symptom: A pop-up
+blocking message or a security warning is displayed, or plug-ins are
+blocked.</strong></p>
+<div class="p">Solution:<ul><li>Disable the pop-up blocker of the browser.</li><li>Run this application program. </li><li>Select <span class="uicontrol"><b>Always activate plugins for this site</b></span> from the <span class="uicontrol"><b>Activate All Plugins drop-down list</b></span>. </li></ul>
+</div>
+<p><strong>Symptom: The user is prompted to download and install
+the JRE</strong></p>
+<div class="p">Solution:<ol><li>Download and install the JRE. </li><li>Log in to the VM using VNC again. </li></ol>
+</div>
+<p><strong>Symptom: After the JRE is installed, the user is still
+prompted to install the JRE when logging in to the VM using VNC.</strong></p>
+<div class="p">Solution: Enable <span class="uicontrol"><b>Deployment Toolkit</b></span>. The following steps describe how to resolve the problem using the
+Internet Explorer 8 (IE8).<ol><li>Choose <span class="uicontrol"><b>Tools</b></span> and select <span class="uicontrol"><b>Manage
+Add-ons</b></span>.</li><li>Select <span class="uicontrol"><b>Run without permission</b></span> from the <span class="uicontrol"><b>Show</b></span> drop-down list. </li><li>Right-click <span class="uicontrol"><b>Deployment Toolkit</b></span> in the right
+pane and choose <span class="uicontrol"><b>Enable</b></span>. </li><li>Log in to the VM using VNC again. </li></ol>
+</div>
+<p><strong>Symptom: The user still fails to log in to the VM using
+VNC after installing the JRE as prompted.</strong></p>
+<div class="p">Solution:<ol><li>Right-click <span><img src="fig/fig_it_59_32_00000036.png"></span> on the toolbar at the lower right corner of the PC and select <span class="uicontrol"><b>Open Control Panel</b></span>.<div class="p"><div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If <span><img src="fig/fig_it_59_32_00000036.png"></span> is not displayed on
+the toolbar at the lower right corner of the PC, open the <span class="wintitle"><b>Java Control Panel</b></span> by performing the following steps:<ol type="a"><li>Click <span class="uicontrol"><b>Start</b></span>.</li><li>Enter <b><span class="cmdname">cmd</span></b> In the <span class="uicontrol"><b>Search programs
+and files</b></span> text box. </li><li>Enter <b><span class="cmdname">java -version</span></b> in the displayed command
+line interface (CLI), and check the version number in the command
+output. </li><li>Open the version path in the jre program installation directory,
+and run <span class="filepath"><b>javacpl.exe</b></span> to display the <span class="wintitle"><b>Java Control Panel</b></span>. <p>For example, if the Java version
+is <span class="filepath"><b>1.7.0_15</b></span>, and the version path in the jre
+program installation directory is <span class="filepath"><b>C:\Program Files\Java\jre7\bin</b></span>, run <span class="filepath"><b>javacpl.exe</b></span> in this path to display the <span class="wintitle"><b>Java Control Panel</b></span>.</p>
+</li></ol>
+</div></div>
+</div>
+</li><li>Click <span class="uicontrol"><b>Advanced</b></span>.</li><li>Deselect <span class="uicontrol"><b>Enable the next-generation Java Plug-in(requires
+browser restart)</b></span>. </li><li>Click <span class="uicontrol"><b>Security</b></span>. </li><li>Select <span class="uicontrol"><b>Enable Java content in the browser</b></span>. </li><li>Log in to the VM using VNC again. </li></ol>
+</div>
+<p><strong>Symptom: The user still fails to log in to the VM using
+VNC after installing the JRE as prompted and performing corresponding
+configuration.</strong></p>
+<div class="p">Solution:<ol><li>Uninstall all jre programs on the PC and ensure that no jre or
+jdk folder exists in the jre installation directory. </li><li>After uninstallation is complete, re-install the Java Plug-in
+1.7.0_15 (32鈥揵it) or later (32鈥揵it) </li><li>Log in to the VM using VNC again. </li></ol>
+</div>
+<p><strong>Symptom: The keyboard does not function in a VM.</strong></p>
+<p>Solution:</p>
+<p>Click <span class="uicontrol"><b>Alt</b></span> or <span class="uicontrol"><b>Ctrl</b></span> on the VNC toolbar to unlock the keyboard. </p>
+<p><strong>Symptom: When Internet Explorer is used, the displayed VNC login
+window is empty without showing any message, and the VM window does
+not appear either.</strong></p>
+<p>Solution:</p>
+<p>Press <span class="uicontrol"><b>F12</b></span> and set <span class="uicontrol"><b>Browser</b></span> to <span class="parmvalue"><b>Internet Explorer
+9</b></span> in the menu bar of the <span class="wintitle"><b>Developer Tools</b></span> window, and set <span class="uicontrol"><b>Document Mode</b></span> to <span class="parmvalue"><b>Internet Explorer 9 Standards(Page Default)</b></span>.</p>
+</div>
+
+</div>
+
+
+</body>
+</html>

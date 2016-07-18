@@ -1,0 +1,158 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Elastic IP Addresses">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_400006">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Elastic IP Addresses</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("VPC\nElastic IP Addresses");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100022.html\">VPC<\/a> > Elastic IP Addresses<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_400006"></a><a name="it_60_51_400006"></a>
+
+
+
+<h1 class="topictitle1">Elastic IP Addresses</h1>
+<ul><li><a href="#it_60_51_400006__1.2.2.1">Binding an Elastic IP Address</a></li><li><a href="#it_60_51_400006__1.2.3.1">Unbinding the Elastic IP Address</a></li></ul>
+
+<div>
+<div class="section"><p id="it_60_51_400006__eip_define"><a name="it_60_51_400006__eip_define"></a><a name="eip_define"></a>By binding a public IP address
+to the VMs <span>or private IP addresses </span>associated
+with a routed network, the elastic IP address service allows services
+in a virtual private cloud (VPC) accessible to external services using
+a fixed public IP address.</p>
+<p>For example, if an internal server
+in the VPC needs to provide web services externally, the internal
+server can use an elastic IP address for Domain Name Server (DNS)
+resolution in the web service access. If the backup VM in the VPC
+needs to provide backup services externally, the backup VM can have
+an elastic IP address bound to provide a stable backup service access
+IP address. In both of these two scenarios, external users can always
+use a fixed IP address to access the external services provided by
+a server or VM in the VPC. This service ensures service continuity.</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_400006__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400006" class="sectiontitle2contents">Binding an Elastic IP Address</a></h4><p>Bind the obtained
+elastic IP address to the VM <span>or private IP address </span>associated with a routed network, so that the VM can access the public
+network using a fixed public IP address.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My VPC</span></b></span>, select a VPC, choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Elastic IP Address</span></b></span></span>, locate the row that contains the target elastic IP address,
+and click <span class="uicontrol"><b>Bind</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_400006__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_400006" class="sectiontitle2contents">Unbinding the Elastic IP Address</a></h4><p>If a VM
+is not required to provide public network access services or the VM
+needs to be replaced without changing the public IP address, you can
+unbind the elastic IP address from the VM.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My VPC</span></b></span>, select a VPC, choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Elastic IP Address</span></b></span></span>, locate the row that contains the target elastic IP address,
+and click <span class="uicontrol"><b>Unbind</b></span>.</p>
+</div>
+
+
+
+
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

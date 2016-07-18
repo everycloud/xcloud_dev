@@ -1,0 +1,12 @@
+<div>
+    <div class="legend" ng-bind="i18n.common_term_netInfo_label"></div>
+    <tiny-formfield>
+        <tiny-item label="networkCell.name.label" require="networkCell.name.require">
+            <tiny-textbox id="networkCell.name.id" tooltip="networkCell.name.tooltip" extend-function="networkCell.name.extendFunction" validate="networkCell.name.validate" value="networkCell.value.name" blur="networkCell.name.blur()" width="networkCell.name.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="networkCell.description.label" require="networkCell.description.require">
+            <tiny-textbox id="networkCell.description.id" value="networkCell.value.description" tooltip="networkCell.description.tooltip" extend-function="networkCell.description.extendFunction" validate="networkCell.description.validate" blur="networkCell.description.blur()"
+            width="networkCell.description.width" type="networkCell.description.type" height="networkCell.description.height"></tiny-textbox>
+        </tiny-item>
+    </tiny-formfield>
+</div>

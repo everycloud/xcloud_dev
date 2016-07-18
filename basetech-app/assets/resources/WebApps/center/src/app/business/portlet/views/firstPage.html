@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" href="../theme/default/css/gm/portlet.css">
+<style type="text/css">
+    .header {
+        font-size: 16px;
+        color: #0088cc;
+        font-family: Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;
+
+        margin: 10px 0px;
+        padding: 0px 0px 10px 0px;
+
+        width: 100%;
+
+        border-bottom-style: solid;
+        border-bottom-color: #dddddd;
+        border-bottom-width: 1px;
+    }
+
+    .title {
+        margin: 0px 20px 10px 20px;
+        padding: 0px;
+        font-size: 14px;
+        color: #666666;
+        vertical-align: middle;
+    }
+</style>
+<div class="index-nav">
+    <p class="index-nav-text">{{i18n.common_term_homePage_label}}</p>
+
+    <p class="index-nav-line"></p>
+</div>
+<div ng-if="!(tabs.service.show || tabs.resource.show || tabs.ictResource.show)">
+    <p ng-bind-html="i18n.common_term_homeWelcome_label"></p>
+
+    <h3 ng-bind-html="i18n.common_term_OpenConverged_label" class="firstPage-title"></h3>
+
+    <p ng-bind-html="i18n.common_term_OpenConvergedDesc_label"></p>
+
+    <h3 ng-bind-html="i18n.common_term_SimplifiedEfficient_label" class="firstPage-title"></h3>
+
+    <p ng-bind-html="i18n.common_term_SimplifiedEfficientDesc_label"></p>
+</div>
+<div ng-if="tabs.service.show || tabs.resource.show || tabs.ictResource.show">
+    <fm-tabs>
+        <div id="mainTabs" class="tiny-tabs-container top10">
+            <div class="tiny-tabs-titles">
+                <ul>
+                    <li ng-show="tabs.service.show">
+                        <a ui-sref="home.service" active="tabs.service.active">{{i18n.service_term_service_label}}</a>
+                    </li>
+                    <li ng-show="tabs.resource.show">
+                        <a ui-sref="home.resource"
+                           active="tabs.resource.active">{{i18n.common_term_resources_label}}</a>
+                    </li>
+                    <li ng-show="tabs.ictResource.show">
+                        <a ui-sref="home.ictResource" active="tabs.ictResource.active">{{i18n.common_term_resources_label}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tiny-tabs-content">
+                <div ui-view id="view-content"></div>
+            </div>
+        </div>
+    </fm-tabs>
+</div>

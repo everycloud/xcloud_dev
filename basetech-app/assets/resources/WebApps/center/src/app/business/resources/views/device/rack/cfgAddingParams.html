@@ -1,0 +1,36 @@
+<div id="cfgAddingParamsDiv" class="container-fluid" style="margin-top: 86px;">
+    <div class="margin-bottom-beautifier clearfix">
+        <tiny-button id="connect.id" text="connect.text" click="connect.click()"
+                     disabled="connect.disabled" class="major-btn"></tiny-button>
+        <div class="pull-right">
+            <tiny-button id="cancel.id" text="cancel.text" click="cancel.click()"
+                         disabled="cancel.disabled"></tiny-button>
+        </div>
+    </div>
+    <div class="row-fluid line-height30 bottom10">
+        <div class="span6">
+            <div><span class="color2">{{i18n.device_term_subrackName_label}}:</span><span
+                    ng-bind="chassisInfo.chassisName"></span></div>
+            <div><span class="color2">{{i18n.device_term_subrackModel_label}}:</span><span
+                    ng-bind="chassisInfo.productModel"></span></div>
+        </div>
+        <div class="span6">
+            <div><span class="color2">{{i18n.device_term_room_label}}:</span><span
+                    ng-bind="chassisInfo.roomName"></span></div>
+            <div><span class="color2">{{i18n.device_term_cabinet_label}}:</span><span
+                    ng-bind="chassisInfo.rackNo"></span></div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="table-tiny-box-height">
+            <tiny-table id="table.id" data="table.data"
+                    columns="table.columns" enable-pagination="table.enablePagination"
+                    request-config="table.requestConfig"
+                    columns-draggable="table.columnsDraggable"
+                    render-row="table.renderRow"></tiny-table>
+        </div>
+    </div>
+    <div class="line-height30 top10 color2">
+        {{i18n.device_all_connect_info_wait_msg}}{{i18n.device_blade_connectAll_info_msg}}
+    </div>
+</div>

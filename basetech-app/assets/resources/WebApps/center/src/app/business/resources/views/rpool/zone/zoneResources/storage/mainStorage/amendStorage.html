@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div id="amendStorageDiv">
+        <tiny-formfield>
+            <tiny-item label="storageMedia.label" require="storageMedia.require">
+                <tiny-select id="storageMedia.id" values="storageMedia.values" width="storageMedia.width"></tiny-select>
+            </tiny-item>
+
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button id="confirmBtn.id" text="confirmBtn.text" click="confirmBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/rpool/zone/zoneResources/storage/mainStorage/amendStorageCtrl'],
+             function (amendStorageCtrl) {
+                $("#amendStorageDiv").attr("ng-controller", "amendStorageCtrl");
+                var dep = ['ng', 'wcc', amendStorageCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#amendStorageDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#amendStorageDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>
+

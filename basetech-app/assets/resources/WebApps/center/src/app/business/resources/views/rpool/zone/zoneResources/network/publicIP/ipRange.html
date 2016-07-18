@@ -1,0 +1,37 @@
+<div id="ipRangeDiv" ng-controller="ipRangeCtrl">
+    <tiny-formfield>
+        <tiny-item label="startIp.label" require="startIp.require">
+            <tiny-ip id="startIp.id"
+                     type="startIp.type" value="startIp.value" width="ipSegment.width"
+                     extend-function="startIp.extendFunction"
+                     validate="startIp.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="endIp.label" require="endIp.require">
+            <tiny-ip id="endIp.id" width="ipSegment.width"
+                     type="endIp.type" value="endIp.value"
+                     extend-function="endIp.extendFunction"
+                     validate="endIp.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button class="major-btn" id="okBtn.id" text="okBtn.text"
+                         tooltip="okBtn.tooltip" click="okBtn.click()"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                         tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+        </tiny-item>
+
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/rpool/zone/zoneResources/network/publicIP/ipRangeCtrl'],
+            function (ipRangeCtrl) {
+                var dep = ['ng', 'wcc', ipRangeCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#ipRangeDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#ipRangeDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

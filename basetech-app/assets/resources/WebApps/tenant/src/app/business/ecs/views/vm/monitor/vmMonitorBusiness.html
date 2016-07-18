@@ -1,0 +1,56 @@
+<div class="ecs_vm_detail_monitor_business" ng-controller="ecs.vm.detail.monitor.business.ctrl">
+    <div class="monitor-tabs">
+        <div class="monitor-tabs-left fl" style="min-height: 455px;">
+            <ul class="nav nav-list">
+                <div ng-repeat="node in businesses">
+                    <li ng-class="{active:selectProcess.id==node.id}">
+                        <a class="btn-link" ng-click="select(node.id)" ng-bind="node.name"></a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <div class="monitor-tabs-right fl" style="min-height: 435px;">
+            <div style="margin: 0 20px;">
+                <div>
+                    <div class="legend" ng-bind="selectProcess.name"></div>
+                </div>
+                <div>
+                    <ul>
+                        <li ng-repeat="index in indexs">
+                            <div ng-if="linePlotArray[index]!=null">
+                                <div>
+                                    <span class="customPlotTitle" ng-bind="linePlotArray[index].plotTitle"></span>
+                                <span class="pull-right margin-right-beautifier">
+                                    <a class="btn-link">
+                                        <img src="../theme/default/images/gm/irm_fm_compmgr.png" ng-click="configAlarm(linePlotArray[index])" id="linePlotArray[index].refreshId" title="">
+                                    </a>
+                                </span>
+                                </div>
+                                <tiny-lineplot id="linePlotArray[index].id" xaxis="linePlotArray[index].xaxis" tips="linePlotArray[index].tips" grid="linePlotArray[index].grid" yaxis="linePlotArray[index].yaxis" data="linePlotArray[index].data" series="linePlotArray[index].series" width="linePlotArray[index].width"
+                                               height="linePlotArray[index].height" legend="linePlotArray[index].legend" related-id="linePlotArray[index].relatedId">
+                                </tiny-lineplot>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+require(['app/business/ecs/controllers/vm/monitor/vmMonitorBusinessCtrl'],
+    function(vmMonitorBusinessCtrl) {
+        var dep = ['ng', 'wcc', vmMonitorBusinessCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".ecs_vm_detail_monitor_business"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".ecs_vm_detail_monitor_business"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

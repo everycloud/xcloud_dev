@@ -1,0 +1,26 @@
+<div class="resource_hypervisor_disk_unmount" ng-controller="resource.hypervisor.disk.unmount.ctrl">
+    <div class="margin-bottom-beautifier clearfix">
+        <tiny-checkbox text='formatDisk.text' id='formatDisk.id' checked="formatDisk.checked" change="formatDisk.change()"></tiny-checkbox>
+    </div>
+    <div class="pull-left">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+
+<script>
+    require(['app/business/resources/controllers/hypervisor/vmInfo/unmountDiskCtrl'],
+            function(unmountDiskCtrl) {
+                var dep = ['ng', 'wcc', unmountDiskCtrl.name];
+                dep.unshift(["$provide",
+                    function($provide) {
+                        $provide.value("$rootElement", $(".resource_hypervisor_disk_unmount"));
+                    }
+                ]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function($compile, $rootScope) {
+                    $compile($(".resource_hypervisor_disk_unmount"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

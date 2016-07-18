@@ -1,0 +1,148 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="虚拟机-快照">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100047">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>虚拟机-快照</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源管理\n虚拟化资源管理\n资源集群管理\n虚拟机-快照");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">资源管理<\/a> > <a href=\"../father_node/it_60_99_100003.html\">虚拟化资源管理<\/a> > <a href=\"../father_node/it_60_99_100034.html\">资源集群管理<\/a> > 虚拟机-快照<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100047"></a><a name="it_60_51_100047"></a>
+
+
+<h1 class="topictitle1">虚拟机-快照</h1>
+<ul><li><a href="#it_60_51_100047__1.3.3.1">创建快照</a></li><li><a href="#it_60_51_100047__1.3.4.1">使用快照恢复虚拟机</a></li><li><a href="#it_60_51_100047__1.3.5.1">修改快照属性</a></li><li><a href="#it_60_51_100047__1.3.6.1">删除快照</a></li></ul>
+
+<div><p></p>
+
+<p id="it_60_51_100047__snap_define"><a name="it_60_51_100047__snap_define"></a><a name="snap_define"></a>快照是对虚拟机磁盘某一时刻数据和状态的一种记录。用户可通过快照对虚拟机磁盘进行备份，以便能够使用快照将虚拟机数据恢复至快照创建时刻。</p>
+
+<p id="it_60_51_100047__snap_function"><a name="it_60_51_100047__snap_function"></a><a name="snap_function"></a>创建快照时，当前磁盘被置为只读，系统自动在磁盘所在数据存储中创建增量磁盘，后续对该磁盘数据的编辑将保存在增量磁盘中，即增量磁盘表示磁盘当前状况和上次执行快照时的状况之间的差异。对该磁盘再次创建快照时，原磁盘和当前增量磁盘均被置为只读，系统会在数据存储中再创建一个增量磁盘。</p>
+
+<div class="section"><a name="it_60_51_100047__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100047" class="sectiontitle2contents">创建快照</a></h4><p>在虚拟机产生重大变更之前，可采用快照方式备份虚拟机数据，以便变更失败出现故障时，能够快速还原虚拟机数据。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“快照”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">创建快照</span>”</span>。</p>
+<p>快照的创建和使用要求请参见<a href="it_60_51_600022.html">虚拟机快照使用要求</a>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100047__1.3.4.1"></a><a name="1.3.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100047" class="sectiontitle2contents">使用快照恢复虚拟机</a></h4><p>在虚拟机故障或需要还原数据时，使用虚拟机已有的快照，将虚拟机的数据恢复至该快照创建时刻的状态。虚拟机当前数据会被覆盖，还原为与快照中保存的数据一致，请谨慎操作。</p>
+<p id="it_60_51_100047__restore"><a name="it_60_51_100047__restore"></a><a name="restore"></a>若虚拟机在创建快照后绑定了新磁盘，则在使用该快照还原虚拟机时，新磁盘会自动与虚拟机解绑定，可根据需要手动重新绑定。</p>
+<div class="p">若虚拟机的某个磁盘属性为<span class="parmvalue">“快照时不包含该磁盘”</span>，则使用快照还原虚拟机时，不对该磁盘的数据进行还原。<ul><li>如果快照后，该磁盘被解绑定且未绑定其他虚拟机，则快照恢复的虚拟机会重新绑定该磁盘，但磁盘数据不进行还原。</li><li>如果快照后，该磁盘被删除，则快照恢复的虚拟机上不存在该磁盘。</li></ul>
+</div>
+<p>虚拟机处于<span class="wintitle">“已停止”</span>或<span class="wintitle">“已休眠”</span>状态时，才可使用快照进行恢复。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“快照”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">恢复虚拟机</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100047__1.3.5.1"></a><a name="1.3.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100047" class="sectiontitle2contents">修改快照属性</a></h4><p>修改虚拟机快照的属性信息，包括名称和描述。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“快照”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">修改</span>”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_100047__1.3.6.1"></a><a name="1.3.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100047" class="sectiontitle2contents">删除快照</a></h4><p>每台虚拟机最多可以创建32个快照，快照会占用磁盘所在的数据存储的空间，为避免存储资源不足，建议对快照数量进行控制，及时删除不需要的快照。</p>
+<p><span>在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源集群</span>”</span>界面，选择一个资源集群，在<span class="menucascade">“<span class="uicontrol">虚拟机</span>”</span>界面，选择一个虚拟机，在<span class="uicontrol">“快照”</span>界面</span>，单击<span class="menucascade">“<span class="uicontrol">删除</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

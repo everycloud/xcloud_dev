@@ -1,0 +1,181 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="如何调整虚拟机的CPU规格">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600020">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>如何调整虚拟机的CPU规格</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_600020"></a><a name="it_60_51_600020"></a>
+
+
+<h1 class="topictitle1">如何调整虚拟机的CPU规格</h1>
+
+<div>
+<div class="section"><h4 class="sectiontitle">操作场景</h4>
+
+
+<div class="p"><p>调整虚拟机CPU属性，包括配置虚拟机的内核数和CPU资源控制，以满足虚拟机的性能要求。</p>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">注意事项</h4>
+
+
+<div class="p"><div class="p"><ul><li>不建议将虚拟机的内核数从单核修改为多核或者从多核修改为单核，否则可能导致虚拟机操作系统异常而无法使用。若仍修改，且虚拟机操作系统为Windows
+Server 2003或Windows XP，则需在修改后，登录虚拟机并手动修改CPU驱动。</li><li>为保证虚拟机的计算性能，建议虚拟机的内核数不能超过主机的物理CPU核数。</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">前提条件</h4>
+
+
+<div class="p"><div class="p"><ul><li>已登录<span>FusionManager</span>。</li><li>虚拟机处于<span class="parmvalue">“已停止”</span>或<span class="parmvalue">“运行中”</span>状态。</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">操作步骤</h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">修改虚拟机CPU属性</p>
+<div class="Steps-titled"><ol type="1" start="1"><li id="it_60_51_600020__vm"><a name="it_60_51_600020__vm"></a><a name="vm"></a><span>在虚拟机列表中，单击待调整的虚拟机名称。</span>
+<p>进入<span class="wintitle">“概要”</span>页面。</p>
+</li><li><span>在<span class="uicontrol">“硬件”</span>页面，单击<span class="uicontrol">“CPU”</span>。</span>
+<p>页面右侧显示虚拟机CPU属性信息。</p>
+</li><li><span>设置CPU如<a href="#it_60_51_600020__table_02">表1</a>所示的参数。</span>
+<p><div class="p">
+<div class="tablenoborder"><a name="it_60_51_600020__table_02"></a><a name="table_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600020__table_02" frame="border" border="1" rules="all"><caption><b>表1 </b>配置参数</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="16.049382716049383%" id="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.1"><p>参数</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="83.9506172839506%" id="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.2"><p>说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="16.049382716049383%" headers="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.1 "><p>内核数</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="83.9506172839506%" headers="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.2 "><div class="p">取值范围：根据虚拟化环境和虚拟机运行状态的不同，显示的最大值不同。<ul><li><span>FusionCompute</span>：<ul><li>运行状态：虚拟机所在主机的逻辑CPU个数。</li><li>停止状态：集群下所有主机中最大的逻辑CPU个数。</li><li>停止状态（绑定主机）：虚拟机所绑定主机的逻辑CPU个数。</li></ul>
+<p>主机的逻辑CPU个数等于主机CPU总线程数减2，如果使用FusionStorage存储时，逻辑CPU个数等于主机CPU总线程数减4。例如，虚拟机处于运行状态时修改CPU内核数，虚拟机所在主机上有2个线程数为12的CPU，那么虚拟机CPU内核数的最大取值为12���2&#8211;2=22。</p>
+</li><li>VMware：<ul><li>运行状态：虚拟机所在主机的逻辑核数。</li><li>停止状态：如果存在主机VRMID则显示为所在的主机逻辑核数；如果没有主机VRMID则显示为64。</li></ul>
+</li></ul>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.049382716049383%" headers="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.1 "><p>预留（MHz）</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="83.9506172839506%" headers="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.2 "><p>预留是指虚拟机的计算能力保证。只有在CPU预留可用的情况下，服务器才会允许启动虚拟机，即使在物理服务器负载较重时，服务器也会确保虚拟机可以使用预留资源。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.049382716049383%" headers="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.1 "><p>限制（MHz）</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="83.9506172839506%" headers="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.2 "><p>限制虚拟机的CPU上限，服务器分配给虚拟机的CPU资源必须小于限制。</p>
+<p>取值范围：0～1800之间的整数。</p>
+<div class="p">默认值：<ul><li><span>FusionCompute</span>：0，表示不限制。</li><li>VMware：-1，表示不限制。</li></ul>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.049382716049383%" headers="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.1 "><p>份额</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="83.9506172839506%" headers="mcps1.2.4.2.1.2.3.2.1.1.2.3.1.2 "><p>份额表示在资源处于竞争的情况下，虚拟机获得CPU资源的权重。份额定义了虚拟机的相对优先级或重要性。</p>
+<p>例如，如果某一台虚拟机的资源份额是另一台虚拟机的两倍，则这台虚拟机将优先消耗两倍的资源。</p>
+<div class="p">不同等级的份额对应关系如下：<ul><li>低：CPU个数 x 500</li><li>中：CPU个数 x 1000</li><li>高：CPU个数 x 2000</li><li>自定义：取值范围为1～128000</li></ul>
+</div>
+<p>默认值：中。</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</p>
+</li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>弹出提示框。</p>
+</li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>完成虚拟机CPU属性修改。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">修改虚拟机驱动</p>
+<div class="Steps-titled"><ol type="1" start="6"><li id="it_60_51_600020__cpu"><a name="it_60_51_600020__cpu"></a><a name="cpu"></a><span>根据虚拟机的操作系统类型和CPU的调整方式，判断是否需要修改虚拟机驱动。</span>
+<p>当虚拟机的操作系统为Windows Server 2003或Windows XP，且CPU从单核修改为多核，或是从多核修改为单核时，需修改虚拟机驱动。<ul><li>是，执行<a href="#it_60_51_600020__qu">7</a>。</li><li>否，执行<a href="#it_60_51_600020__stp_hot1">13</a>。</li></ul>
+</p>
+</li><li id="it_60_51_600020__qu"><a name="it_60_51_600020__qu"></a><a name="qu"></a><span>使用VNC方式登录虚拟机。</span>
+<p>以下操作以Windows Server 2003操作系统为例。</p>
+</li></ol></div>
+<div class="Steps-titled"><ol type="1" start="8"><li><span>在虚拟机的开始菜单栏，右键单击<span class="uicontrol">“我的电脑”</span>，选择<span class="uicontrol">“属性”</span>。</span></li><li><span>在<span class="wintitle">“硬件”</span>页签，单击<span class="uicontrol">“设备管理器”</span>。</span></li><li><span>在导航树中，展开<span class="uicontrol">“计算机”</span>，双击<span class="uicontrol">“ACPI
+Multiprocessor PC”</span>或<span class="uicontrol">“Advanced Configuration and
+Power Interface (ACPI) PC”</span>。</span>
+<p><ul><li>单核修改为多核时，需将驱动从<span class="uicontrol">“Advanced Configuration and Power Interface
+(ACPI) PC”</span>更新为<span class="uicontrol">“ACPI Multiprocessor PC”</span>。</li><li>多核修改为单核时，需将驱动从<span class="uicontrol">“ACPI Multiprocessor PC”</span>更新为<span class="uicontrol">“Advanced Configuration and Power Interface (ACPI) PC”</span>。</li></ul>
+</p>
+</li><li><span>在<span class="uicontrol">“驱动程序”</span>页签，单击<span class="uicontrol">“更新驱动程序”</span>。</span></li><li><span>根据硬件更新向导的提示和实际情况，完成驱动程序的更新。</span></li></ol></div>
+</div>
+<a name="it_60_51_600020__reboot"></a><a name="reboot"></a><div class="HandlingTitled" id="it_60_51_600020__reboot"><p class="sectiontitle">使新的CPU规格生效</p>
+<div class="Steps-titled"><ol type="1" start="13"><li id="it_60_51_600020__stp_hot1"><a name="it_60_51_600020__stp_hot1"></a><a name="stp_hot1"></a><span>根据CPU热插拔策略，判断如何使新的CPU规格生效？</span>
+<p><p>CPU热插拔策略的具体信息请参考<a href="it_60_51_600021.html">如何设置虚拟机热插拔策略</a>。</p>
+</p>
+<p><a name="it_60_51_600020__cpu_mj"></a><a name="cpu_mj"></a><ul id="it_60_51_600020__cpu_mj"><li>以下场景，无需执行任何操作，修改直接生效：<ul><li>离线增加或减少CPU数量时，虚拟机启动时自动生效。</li><li>在线增加Windows虚拟机的CPU数量，且CPU热插拔策略为<span class="parmvalue">“启用CPU热添加”</span>。</li><li>在线增加Linux虚拟机的CPU数量，CPU热插拔策略为<span class="parmvalue">“启用CPU热添加”</span>，且虚拟机的操作系统为以下操作系统中的一种：<a name="it_60_51_600020__cpu_os"></a><a name="cpu_os"></a><ul id="it_60_51_600020__cpu_os"><li>CentOS 6.2 64位</li><li>CentOS 6.3 64位</li><li>RedHat Enterprise Linux 6.0 64位</li><li>RedHat Enterprise Linux 6.1 64位</li><li>RedHat Enterprise Linux 6.2 64位</li><li>RedHat Enterprise Linux 6.3 64位</li></ul>
+</li></ul>
+</li><li>以下场景，需重启虚拟机，使修改生效：执行<a href="#it_60_51_600020__restart">14</a>。<ul><li>在线增加或减少CPU的数量，且CPU热插拔策略为<span class="parmvalue">“不启用”</span>时。</li><li>在线减少CPU的数量，且CPU热插拔策略为<span class="parmvalue">“启用CPU热添加”</span>时。</li></ul>
+</li><li>在线增加Linux虚拟机的CPU数量，CPU热插拔策略为<span class="parmvalue">“启用CPU热添加”</span>，且虚拟机的操作系统不属于以下操作系统时，需在虚拟机上执行生效操作，使修改生效：执行<a href="#it_60_51_600020__online">15</a>。<ul><li>CentOS 6.2 64位</li><li>CentOS 6.3 64位</li><li>RedHat Enterprise Linux 6.0 64位</li><li>RedHat Enterprise Linux 6.1 64位</li><li>RedHat Enterprise Linux 6.2 64位</li><li>RedHat Enterprise Linux 6.3 64位</li></ul>
+</li></ul>
+</p>
+</li><li id="it_60_51_600020__restart"><a name="it_60_51_600020__restart"></a><a name="restart"></a><span>重启虚拟机。</span>
+<p>任务结束。</p>
+</li><li id="it_60_51_600020__online"><a name="it_60_51_600020__online"></a><a name="online"></a><span>使用VNC方式登录虚拟机，并进入命令行模式。</span></li><li><span>执行以下命令，查看新增CPU的编号。</span>
+<p><p><b><span class="cmdname">cd /sys/devices/system/cpu/</span></b></p>
+<p><b><span class="cmdname">ls</span></b></p>
+回显信息中显示该虚拟机所有的CPU编号，CPU编号从0开始，依次往后排序。例如：该虚拟机已有2个CPU，再新增一个CPU，则CPU编号为：cpu0、cpu1、cpu2，即新增CPU编号为cpu2。</p>
+</li><li><span>执行以下命令，使新增CPU生效。</span>
+<p><p><b><span class="cmdname">echo 1 &gt; /sys/devices/system/cpu/cpu%</span></b><i><span class="varname">新增CPU编号</span></i><b><span class="cmdname">/online</span></b></p>
+<p>例如：<b><span class="cmdname">echo
+1 &gt; /sys/devices/system/cpu/cpu%2/online</span></b></p>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.rpool.zone">{{i18n.resource_term_zones_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="resources.zoneResources.summary.zoneSummary">{{zoneInfo.zoneName}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="resources.zoneResources.networkSummary">{{i18n.resource_term_netPools_label}}</a> <span
+                    class="divider">&gt;</span>
+            </li>
+            <li class="active"><span class="divider">{{i18n.resource_term_vlanPools_label}}</span></li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+
+
+    <div id="vlanPoolTabs" class="content-right-box clearfix">
+        <div class = "tiny-tabs-titles">
+            <ul>
+                <li ng-class="{tinyTabActive:$state.includes(plugin.openState)}" ng-repeat="plugin in plugins" ui-sref="{{plugin.openState}}">
+                    <a href="javascript:void(0)" ng-click="setSelectedTabItem(plugin.name)">{{plugin.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-tabs-content">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(["tiny-widgets/Tabs"], function(Tabs) {
+        var tabs = new Tabs({
+            "id" : "vlanPoolTabs",
+            "setActiveClass" : true
+        });
+    });
+</script>

@@ -1,0 +1,110 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * ColVis styles
+ */
+div.ColVis {
+	float: left;
+	margin-right:10px;
+}
+
+span.Radio_checked{
+	width:15px;
+    height:15px;
+    background-repeat:no-repeat;
+    background-image:url("../images/checkbox_merger.png");
+    background-position:0px -65px;
+}
+
+span.Radio_unchecked{
+	width:15px;
+    height:15px;
+    background-repeat:no-repeat;
+    background-image:url("../images/checkbox_merger.png");
+    background-position:0px -1px;
+}
+
+div.ColVis_MasterButton{
+	width:16px;
+	height:16px;
+    background: url('../images/filter_icon.png');
+	border: none;
+    display: block;
+	z-index:1;
+	margin-top: 4px;
+    outline:none;
+}
+
+.ColVis_Button {
+	position: relative;
+	float: left;
+	margin-right: 3px;
+	height: 21px;
+	border: 1px solid #d0d0d0;
+	cursor: pointer;
+	
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+button.ColVis_Button::-moz-focus-inner { 
+	border: none !important;
+	padding: 0;
+}
+
+.ColVis_text_hover {
+	border: 1px solid #999;
+	background-color: #f0f0f0;
+}
+
+div.ColVis_collectionBackground {
+	background-color: white;
+	z-index: 1100;
+}
+
+div.ColVis_collection {
+	position: relative;
+	width: 150px;
+	background-color: #f3f3f3;
+	padding: 3px;
+	border: 1px solid #ccc;
+	z-index: 1102;
+}
+
+div.ColVis_collection button.ColVis_Button {
+	background-color: #f6f5f5;
+	width: 100%;
+	float: none;
+	border:none;
+	outline: none;
+}
+div.ColVis_catcher {
+	position: absolute;
+	z-index: 1101;
+}
+
+.disabled {
+	color: #999;
+}
+
+
+
+button.ColVis_Button, div.ColVis_Button{
+	text-align: left;
+}
+
+div.ColVis_collection button.ColVis_Button:hover {
+	border:none;
+	background-color: #ffffff;
+}
+
+span.ColVis_radio {
+	display: inline-block;
+	width: 20px;
+    vertical-align: middle;
+}
+
+span span.ColVis_title{
+	font-size: 100%;
+	vertical-align: middle;
+}

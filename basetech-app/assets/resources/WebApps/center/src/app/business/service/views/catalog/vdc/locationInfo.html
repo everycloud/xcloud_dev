@@ -1,0 +1,50 @@
+<div id="createServiceVdcLocat">
+    <div class="create-page-distance">
+        <tiny-formfield>
+            <!--审批类型-->
+            <tiny-item label="locationInfo.applyType.label" require="locationInfo.applyType.require">
+                <tiny-radiogroup id="locationInfo.applyType.id" values="locationInfo.applyType.values" spacing="locationInfo.applyType.spacing" layout="locationInfo.applyType.layout" change="locationInfo.applyType.change()"></tiny-radiogroup>
+            </tiny-item>
+            <div>
+                <tiny-item label="locationInfo.location.label" require="locationInfo.location.require">
+                    <div class="fl">
+                        <tiny-select id="locationInfo.location.id" disable="locationInfo.location.disable" values="locationInfo.location.values" width="locationInfo.location.width" change='locationInfo.location.change()' validate='locationInfo.location.validate'>
+                        </tiny-select>
+                    </div>
+                    <div class="fl" style="margin: 3px 0 0 10px;">
+                        <tiny-radiogroup id="locationInfo.locationLock.id" values="locationInfo.locationLock.values" spacing="locationInfo.locationLock.spacing" layout="locationInfo.locationLock.layout" change="locationInfo.locationLock.change()"></tiny-radiogroup>
+                    </div>
+                </tiny-item>
+            </div>
+
+            <div>
+                <tiny-item label="locationInfo.vpc.label" require="locationInfo.vpc.require">
+                    <div class="fl">
+                        <tiny-select id="locationInfo.vpc.id" disable="locationInfo.vpc.disable" values="locationInfo.vpc.values" width="locationInfo.vpc.width" validate='locationInfo.vpc.validate'>
+                        </tiny-select>
+                    </div>
+                    <div class="fl" style="margin: 3px 0 0 10px;">
+                        <tiny-radiogroup id="locationInfo.vpcLock.id" values="locationInfo.vpcLock.values" spacing="locationInfo.vpcLock.spacing" layout="locationInfo.vpcLock.layout" change="locationInfo.vpcLock.change()"></tiny-radiogroup>
+                    </div>
+                </tiny-item>
+            </div>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button id="locationInfo.nextBtn.id" text="locationInfo.nextBtn.text"
+                             click="locationInfo.nextBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="locationInfo.cancelBtn.id" text="locationInfo.cancelBtn.text"
+                             click="locationInfo.cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<style type="text/css">
+    .onmouseover {
+        cursor: pointer;
+        background:#1e90ff;
+    }
+    .directorySelect{
+        width: 200px;
+        height: 100px;
+        background: #ffffff;
+    }
+</style>

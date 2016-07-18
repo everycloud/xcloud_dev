@@ -1,0 +1,113 @@
+.tiny-searchbox-searchbox_searchImage_square {
+    float: left;
+    height: 22px;
+    width: 25px;
+    margin-bottom: -7px;
+    background: url(../images/searchbox_merger.png) no-repeat 0 -123px #fff;
+	border:1px solid;
+    border-color: #A9A9A9 #D3D3D3 #D7D7D7 #BBBBBB;
+    border-left: none;
+    border-top-right-radius:2px; border-bottom-right-radius:2px;
+}
+.tiny-searchbox-inputText_square {
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    outline: none;
+    padding-left: 5px;
+    font-family: Arial;
+    font-size: 14px;
+    border:1px solid;
+    border-color: #A9A9A9 #D3D3D3 #D7D7D7 #BBBBBB;
+    border-right: none;
+    border-top-left-radius:2px; border-bottom-left-radius:2px;
+    background-color: white;
+    
+}
+.tiny-searchbox-search_div_left {
+    background: url(../images/searchbox_merger.png) no-repeat 0 0;
+    height: 24px;
+    width: 28px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+.tiny-searchbox-select_round {
+    color: black;
+    font-family: Arial;
+    font-size: 14px;
+    background:#efefef;
+}
+.tiny-searchbox-select_square {
+    background: #e4e4e4;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+.tiny-searchbox-search_div_mid {
+    background: url(../images/searchbox_merger.png) repeat-x 0 -24px;
+    height: 24px;
+    float: left;
+}
+.tiny-searchbox-search_div_right {
+    background: url(../images/searchbox_merger.png) no-repeat right -48px;
+    height: 24px;
+    width: 31px;
+    float: left;
+}
+.tiny-searchbox-searchbox_searchImage_round {
+    font-family: Arial;
+    font-size: 14px;
+    width: 10px;
+    height: 10px;
+    margin: 8px -25px 0 0;
+    float: right;
+	z-index: 1;
+	position: relative;
+    background: url(../images/searchbox_merger.png) no-repeat -73px -95px;
+    cursor: pointer;
+}
+.tiny-searchbox-inputText_round {
+    float: left;
+    outline: none;
+    border: 0px;
+    margin: 4px 0 2px 0;
+    font-family:"微软雅黑";
+    font-size: 12px;
+    background-color: white;
+    color: #aaa;
+}
+.tiny-searchbox-suggest {
+    border: 1px solid #BBBBBB;
+    font-family: Arial;
+    font-size: 14px;
+    position: absolute;
+    background-color: white;
+    z-index:2;
+}
+.tiny-searchbox-suggest li{height:25px; line-height:25px;}
+/*.tiny-searchbox-suggest li:hover{height:23px; background: #efefef;border-top:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8; line-height:23px;}*/
+.tiny-searchbox-placeholder {color: #a7a7a7;}
+.tiny-searchbox-content_round {color: #505861; }
+.tiny-searchbox-content_square {color: #000000;}
+
+.tiny-searchbox-searchbox_searchImage_long {
+    background: url(../images/searchbox_merger.png) 0 -150px no-repeat;
+    width: 86px;
+    height: 26px;
+    margin-left:5px;
+    float:left;
+}
+
+.tiny-searchbox-inputText_long{
+    float: left;
+    height: 24px;
+    line-height: 22px;
+    outline: none;
+    font-family: Arial;
+    font-size: 14px;
+    border:1px solid;
+    border-color: #A9A9A9 #D3D3D3 #D7D7D7 #BBBBBB;
+    background-color: white;
+    padding-left: 5px;
+}

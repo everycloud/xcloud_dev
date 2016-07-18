@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div id="transferUser" ng-controller="userMgr.org.memberManage.transferUser.ctrl">
+        <div>{{tips.content}}</div>
+        <div class="form-inline clearfix" style="margin-top: 10px">
+            <div class="pull-right">
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                    <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                    </tiny-searchbox>
+                </span>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="model.id" data="model.datas" columns="model.columns" enable-pagination="model.pagination" pagination-style="model.paginationStyle" length-change="model.lengthChange" length-menu="model.lengthMenu" display-length="model.displayLength" enable-filter="model.enableFilter"
+            cur-page="model.curPage" total-records="model.totalRecords" request-config="model.requestConfig" hide-total-records="model.hideTotalRecords" columns-visibility="model.visibility" render-row="model.renderRow" callback="model.callback" columns-draggable="true"></tiny-table>
+        </div>
+        <br/>
+        <br/>
+        <div style="text-align: center">
+            <tiny-button id="deleteBtn.id" text="deleteBtn.text" click="deleteBtn.click()"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>
+</div>
+<script type="application/javascript">
+require(["app/business/user/controllers/organization/transferUserCtrl"], function(transferUserCtrl) {
+    var $injector = angular.injector(["ng", transferUserCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#transferUser"));
+        link($("#transferUser").scope());
+        $("#transferUser").scope().$digest();
+    });
+});
+</script>

@@ -1,0 +1,148 @@
+<div id="addVmDiskDiv">
+    <div ng-show="vmType != 'vmware'">
+        <tiny-radiogroup id="addTypeRadio.id" values="addTypeRadio.values"
+                         change="addTypeRadio.change()"
+                         layout="addTypeRadio.layout"></tiny-radiogroup>
+        <span popover="{{i18n.vm_disk_add_para_typeStor_mean_tip}}" popover-trigger="mouseenter"
+              popover-placement="bottom" class="small-icon small-icon-tips"></span>
+    </div>
+    <div class="clear_both blank_20"></div>
+    <div id="addCommonDiskDiv" ng-show="addType == 'common'">
+        <tiny-formfield>
+            <tiny-item label="nameTextbox.label">
+                <tiny-textbox id="nameTextbox.id" value="nameTextbox.value"
+                              validate="nameTextbox.validate" disable="nameTextbox.disable"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="slotSelector.label" display="slotSelector.display">
+                <tiny-select id="slotSelector.id" values="slotSelector.values"
+                             width="slotSelector.width" change="slotSelector.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="sizeTextbox.label" require="sizeTextbox.require">
+                <tiny-textbox id="sizeTextbox.id" value="sizeTextbox.value"
+                              validate="sizeTextbox.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="patternSelector.label">
+                <tiny-select id="patternSelector.id" values="patternSelector.values"
+                             width="patternSelector.width"></tiny-select>
+            </tiny-item>
+            <tiny-item>
+                <tiny-checkbox id="influenceCheckbox.id" text="influenceCheckbox.text"
+                               change="influenceCheckbox.change()"></tiny-checkbox>
+                <div class="clear_both" ng-bind="tips.influence"></div>
+            </tiny-item>
+            <tiny-item>
+                <div style="float: left;">
+                    <tiny-radiogroup id="permanenceRadio.id" values="permanenceRadio.values"
+                                     change="permanenceRadio.change()"
+                                     layout="permanenceRadio.layout"></tiny-radiogroup>
+                </div>
+                <div style="float: left;">
+                    <p ng-bind="tips.permanence_true"></p>
+                    <p ng-bind="tips.permanence_false"></p>
+                </div>
+            </tiny-item>
+            <tiny-item label="mediaSelector.label" require="mediaSelector.require">
+                <tiny-select id="mediaSelector.id" values="mediaSelector.values" require="mediaSelector.require"
+                             width="mediaSelector.width" disable="mediaSelector.disable"></tiny-select>
+            </tiny-item>
+            <tiny-item>
+                <tiny-button class="major-btn" id="commonOkButton.id" text="commonOkButton.text" click="commonOkButton.click()"
+                             disable="commonOkButton.disable"></tiny-button>
+                <tiny-button id="commonCancelButton.id" text="commonCancelButton.text"
+                             click="commonCancelButton.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div id="addLunDiskDiv" ng-show="addType == 'lun'">
+        <tiny-formfield>
+            <tiny-item label="lunNameTextbox.label">
+                <tiny-textbox id="lunNameTextbox.id" value="lunNameTextbox.value"
+                              validate="lunNameTextbox.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="lunStoreSelector.label" require="lunStoreSelector.require">
+                <tiny-select id="lunStoreSelector.id" values="lunStoreSelector.values"
+                             require="lunStoreSelector.require" width="lunStoreSelector.width"
+                             disable="lunStoreSelector.disable" change="lunStoreSelector.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="lunSlotSelector.label" display="lunSlotSelector.display">
+                <tiny-select id="lunSlotSelector.id" values="lunSlotSelector.values"
+                             width="lunSlotSelector.width" change="lunSlotSelector.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="lunSizeTextbox.label" require="lunSizeTextbox.require">
+                <tiny-textbox id="lunSizeTextbox.id" value="lunSizeTextbox.value"
+                              validate="lunSizeTextbox.validate" disable="lunSizeTextbox.disable"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="lunPatternSelector.label">
+                <tiny-select id="lunPatternSelector.id" values="lunPatternSelector.values"
+                             width="lunPatternSelector.width" disable="lunPatternSelector.disable"></tiny-select>
+            </tiny-item>
+            <tiny-item>
+                <tiny-checkbox id="lunInfluenceCheckbox.id" text="lunInfluenceCheckbox.text"
+                               change="lunInfluenceCheckbox.change()" checked="lunInfluenceCheckbox.checked"
+                               disable="lunInfluenceCheckbox.disable"></tiny-checkbox>
+                <div class="clear_both" ng-bind="tips.influence"></div>
+            </tiny-item>
+            <tiny-item>
+                <div style="float: left;">
+                    <tiny-radiogroup id="lunPermanenceRadio.id" values="lunPermanenceRadio.values"
+                                     change="lunPermanenceRadio.change()"
+                                     layout="lunPermanenceRadio.layout"></tiny-radiogroup>
+                </div>
+                <div style="float: left;">
+                    <p ng-bind="tips.permanence_true"></p>
+                    <p ng-bind="tips.permanence_false"></p>
+                </div>
+            </tiny-item>
+            <tiny-item label="lunMediaSelector.label" require="lunMediaSelector.require">
+                <tiny-select id="lunMediaSelector.id" values="lunMediaSelector.values"
+                             require="lunMediaSelector.require"
+                             width="lunMediaSelector.width" disable="lunMediaSelector.disable"></tiny-select>
+            </tiny-item>
+            <tiny-item>
+                <tiny-button class="major-btn" id="lunOkButton.id" text="lunOkButton.text" click="lunOkButton.click()"
+                             disable="lunOkButton.disable"></tiny-button>
+                <tiny-button id="lunCancelButton.id" text="lunCancelButton.text"
+                             click="lunCancelButton.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div ng-show="addType == 'exit'" class="clear_both">
+        <tiny-table id="diskTable.id" data="diskTable.data"
+                    pagination-style="diskTable.paginationStyle"
+                    columns='diskTable.columns' render-row="diskTable.renderRow"
+                    total-records="diskTable.totalRecords" length-change="diskTable.lengthChange"
+                    cur-page="diskTable.curPage" display-length="diskTable.displayLength"
+                    enable-pagination="diskTable.enablePagination"
+                    change-select="diskTable.changeSelect"
+                    length-menu="diskTable.lengthMenu" callback="diskTable.callback"
+                    column-sorting="diskTable.columnSorting"
+                    columns-draggable="diskTable.columnsDraggable"></tiny-table>
+    </div>
+    <div class="blank_20"></div>
+    <div class="blank_20"></div>
+    <div id="addExitDiskDiv" ng-show="addType == 'exit'">
+        <tiny-formfield>
+            <tiny-item>
+                <tiny-button class="major-btn" id="exitOkButton.id" text="exitOkButton.text" click="exitOkButton.click()"
+                             disable="exitOkButton.disable"></tiny-button>
+                <tiny-button id="exitCancelButton.id" text="exitCancelButton.text"
+                             click="exitCancelButton.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/vmInfo/addVmDiskCtrl"], function (addVmDiskCtrl) {
+        var rootElement = $("#addVmDiskDiv");
+        rootElement.attr("ng-controller", "resources.vmInfo.addVmDisk.ctrl");
+        var dep = ['ng', 'wcc', addVmDiskCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile(rootElement)($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

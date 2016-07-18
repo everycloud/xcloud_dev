@@ -1,0 +1,40 @@
+<div id="modifyDhcpServerDiv">
+    <tiny-formfield>
+        <tiny-item label="dhcpIp.label" require="dhcpIp.require">
+            <tiny-ip id="dhcpIp.id" type="dhcpIp.type" width="dhcpIp.width" value="dhcpIp.value"
+                     disable="dhcpIp.disable" extend-function="dhcpIp.extendFunction"
+                     validate="dhcpIp.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="subnetMask.label" require="subnetMask.require">
+            <tiny-ip id="subnetMask.id" type="subnetMask.type" width="subnetMask.width" value="subnetMask.value"
+                     disable="subnetMask.disable" extend-function="subnetMask.extendFunction"
+                     validate="subnetMask.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="gateway.label" require="gateway.require">
+            <tiny-ip id="gateway.id" type="gateway.type" width="gateway.width" value="gateway.value"
+                     disable="gateway.disable" extend-function="gateway.extendFunction"
+                     validate="gateway.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button class="major-btn" id="okBtn.id" text="okBtn.text"
+                         click="okBtn.click()" disable="okBtn.disable"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                         click="cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/rpool/zone/zoneResources/network/extNetwork/modifyDhcpServerCtrl'],
+            function (modifyDhcpServerCtrl) {
+                $("#modifyDhcpServerDiv").attr("ng-controller", "modifyDhcpServerCtrl");
+                var dep = ['ng', 'wcc', modifyDhcpServerCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#modifyDhcpServerDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#modifyDhcpServerDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

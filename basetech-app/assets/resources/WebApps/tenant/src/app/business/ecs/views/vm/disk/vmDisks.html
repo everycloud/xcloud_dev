@@ -1,0 +1,34 @@
+<div class="ecs_vm_detail_disks" ng-controller="ecs.vm.detail.disks.ctrl">
+    <div class="clearfix">
+        <div class="fl">
+            <tiny-button id="add.id" text="add.text" click="add.click()" disable="add.disable" ng-if="hasVmBasicOperateRight" class="major-btn"></tiny-button>
+        </div>
+        <div class="pull-right">
+            <a class="btn-link margin-right-beautifier">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="margin-top-beautifier">
+        <tiny-table id="disks.id" columns="disks.columns" data="disks.data" render-row="disks.renderRow" enable-pagination="disks.enablePagination" columns-draggable="disks.draggable">
+        </tiny-table>
+    </div>
+</div>
+
+<script>
+require(['app/business/ecs/controllers/vm/disk/vmDisksCtrl'],
+    function(disksCtrl) {
+        var dep = ['ng', 'wcc', disksCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".ecs_vm_detail_disks"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".ecs_vm_detail_disks"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

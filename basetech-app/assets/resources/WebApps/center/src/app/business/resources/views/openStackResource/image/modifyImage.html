@@ -1,0 +1,61 @@
+<div class="modify-image-window" ng-controller="resources.openStackResource.modifyImage.ctrl">
+    <div id="modifyImageInfo" class="alert-tip-first">
+        <tiny-formfield>
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" value="model.name" validate="name.validate" width="name.width"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="osType.label" require="osType.require">
+                <tiny-select id="osType.id" validate="diskBus.validate" values="osType.values" width="osType.width" change="osType.change()"></tiny-select>
+                 <span popover="{{i18n.resource_image_add_para_os_mean_tip}}" popover-trigger="mouseenter"
+                       class="small-icon small-icon-tips"></span>
+            </tiny-item>
+
+            <tiny-item label="version.label" require="version.require">
+                <tiny-select id="version.id" validate="diskBus.validate" values="version.values" width="version.width" height="version.height"
+                             change="version.change()"></tiny-select>
+            </tiny-item>
+            <tiny-item label="diskBus.label" require="diskBus.require">
+                <tiny-select id="diskBus.id" validate="diskBus.validate" values="diskBus.values" width="diskBus.width" height="diskBus.height"
+                             change="diskBus.change()"></tiny-select>
+                <span popover="{{i18n.resource_image_add_para_diskDeviceType_mean_tip}}" popover-placement="bottom" popover-trigger="mouseenter"
+                      class="small-icon small-icon-tips"></span>
+            </tiny-item>
+
+            <tiny-item label="description.label" require="description.require">
+                <tiny-textbox id="description.id" value="model.description"
+                              width="description.width" height="description.height" type="description.type"
+                              validate="description.validate"
+                              error-msg="description.errorMsg">
+                </tiny-textbox>
+            </tiny-item>
+
+            <!-- 操作按钮 -->
+            <tiny-item label="buttonGroup.label" require="buttonGroup.require">
+                <div class="margin-top-beautifier">
+                    <tiny-button class="major-btn" id="saveBtn.id" disable="saveBtn.disabled" icons-class="saveBtn.iconsClass"
+                                 text="saveBtn.text"
+                                 tooltip="saveBtn.tip" click="saveBtn.save()"></tiny-button>
+                    <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                                 text="cancelBtn.text"
+                                 tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+                </div>
+            </tiny-item>
+
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/openStackResource/image/modifyImageCtrl'],
+            function (modifyImageCtrl) {
+                var dep = ['ng', 'wcc', modifyImageCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $(".modify-image-window"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile) {
+                    var scope = $(".modify-image-window").scope();
+                    $compile($(".modify-image-window"))(scope);
+                    scope.$digest();
+                });
+            });
+</script>

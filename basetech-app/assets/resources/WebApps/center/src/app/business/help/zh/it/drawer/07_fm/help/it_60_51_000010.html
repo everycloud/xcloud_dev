@@ -1,0 +1,252 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="弹性IP">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000010">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>弹性IP</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_000010"></a><a name="it_60_51_000010"></a>
+
+
+<h1 class="topictitle1">弹性IP</h1>
+
+
+
+<div><p></p>
+
+<div class="section" id="it_60_51_000010__sec_overView"><a name="it_60_51_000010__sec_overView"></a><a name="sec_overView"></a><h4 class="sectiontitle">简介</h4><p>弹性IP业务是指将公网IP地址和VPC内的虚拟机或私有IP地址绑定，以实现VPC内各种资源通过固定的公网访问地址对外提供业务。</p>
+<p>例如，VPC内部的服务器对外提供Web服务时，可以使用弹性IP地址作为Web服务的DNS解析地址，确保服务地址不变；或者使用VPC内的备份虚拟机对外提供备份服务时，可以将弹性IP地址与备份虚拟机进行绑定，实现备份业务的连续性。</p>
+</div>
+
+<div class="section" id="it_60_51_000010__sec_principle"><a name="it_60_51_000010__sec_principle"></a><a name="sec_principle"></a><h4 class="sectiontitle">原理概述</h4><div class="p"><span>FusionManager</span>支持使用路由器将弹性IP地址与虚拟机或私有IP地址进行绑定。租户通过租户管理系统申请获得弹性IP地址后，可将弹性IP地址和虚拟机进行绑定，作为虚拟机公网访问的固定IP地址，如<a href="#it_60_51_000010__fig_03">图1</a>所示。虚拟机完全独占与其绑定的弹性IP地址，不因为虚拟机的每次启动而发生改变。<div class="fignone" id="it_60_51_000010__fig_03"><a name="it_60_51_000010__fig_03"></a><a name="fig_03"></a><span class="figcap"><b>图1 </b>弹性IP业务</span>
+
+<br><span><img src="fig/fig_it_60_51_000010_6.png"></span></div>
+</div>
+<p>当与弹性IP地址绑定的虚拟机出现故障时，租户只需将弹性IP地址解绑定，并重新绑定到新的虚拟机上，可以保证业务的不间断性。如果租户有不再使用的弹性IP地址时，也可以对其进行释放。</p>
+<p>硬件路由器、软件路由器都可实现弹性IP地址的绑定功能。使用硬件路由器时，物理防火墙实现弹性IP地址的绑定功能，弹性IP地址来自于<span>FusionManager</span>所管理的公网IP地址池；使用软件路由器时，弹性IP地址来自于软件路由器所连接的外部网络。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">需要准备的软件</h4><p>通过软件路由器实现弹性IP功能时，需要获取<a href="#it_60_51_000010__tbl_01">表1</a>中的软件。</p>
+
+<div class="tablenoborder"><a name="it_60_51_000010__tbl_01"></a><a name="tbl_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000010__tbl_01" frame="border" border="1" rules="all"><caption><b>表1 </b>软件</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="23%" id="mcps1.3.3.3.2.4.1.1"><p>名称</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="35.75%" id="mcps1.3.3.3.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="41.25%" id="mcps1.3.3.3.2.4.1.3"><p>获取方式</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+
+<td class="cellrowborder" valign="top" width="23%" headers="mcps1.3.3.3.2.4.1.1 "><span class="filepath">“FusionCompute V100R005C00SPC200_VSA.zip”</span></td>
+
+<td class="cellrowborder" valign="top" width="35.75%" headers="mcps1.3.3.3.2.4.1.2 "><p>系统服务虚拟机模板文件，申请软件路由器时，系统会自动通过此模板文件创建系统服务虚拟机，提供路由器功能。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.25%" headers="mcps1.3.3.3.2.4.1.3 "><div class="p" id="it_60_51_000010__d760e114"><a name="it_60_51_000010__d760e114"></a><a name="d760e114"></a><ul><li><p>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise </span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+</li><li><p>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud
+OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+</li></ul>
+</div>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">获取到软件包后建议先执行软件包校验的操作，具体操作请参见<a href="../soft_inst/it_60_23_000021.html">校验软件包</a>。</div></div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">配置流程</h4><p>使用硬件路由器时，弹性IP业务的配置与使用流程如<a href="#it_60_51_000010__fig_01">图2</a>所示。</p>
+<div class="p"><div class="fignone" id="it_60_51_000010__fig_01"><a name="it_60_51_000010__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>图2 </b>基于硬件路由器的弹性IP业务配置流程</span>
+
+<br><span><img src="fig/fig_it_60_51_000010_5.png"></span></div>
+</div>
+<p>配置流程中的各任务说明如<a href="#it_60_51_000010__tab_01">表2</a>所示。</p>
+
+<div class="tablenoborder"><a name="it_60_51_000010__tab_01"></a><a name="tab_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000010__tab_01" frame="border" border="1" rules="all"><caption><b>表2 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="16.79790026246719%" id="mcps1.3.4.5.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="54.85564304461942%" id="mcps1.3.4.5.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="28.346456692913385%" id="mcps1.3.4.5.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="16.79790026246719%" headers="mcps1.3.4.5.2.4.1.1 "><p>接入防火墙设备</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.85564304461942%" headers="mcps1.3.4.5.2.4.1.2 "><p id="it_60_51_000010__p_accessFW"><a name="it_60_51_000010__p_accessFW"></a><a name="p_accessFW"></a>硬件类型的路由器能够提供弹性IP、NAT、ACLs、应用层包过滤和VPN功能，在使用这些功能之前，需要在防火墙设备上创建虚拟防火墙实例，并将防火墙设备接入到<span>FusionManager</span>，以便通过<span>FusionManager</span>对防火墙进行配置和管理。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.346456692913385%" headers="mcps1.3.4.5.2.4.1.3 "><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">设备</span> &gt; <span class="uicontrol">网络设备</span> &gt; <span class="uicontrol">防火墙</span>”</span></td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.79790026246719%" headers="mcps1.3.4.5.2.4.1.1 "><p>添加VLAN池并关联DVS</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.85564304461942%" headers="mcps1.3.4.5.2.4.1.2 "><p id="it_60_51_000010__p_1vlan"><a name="it_60_51_000010__p_1vlan"></a><a name="p_1vlan"></a>将规划的路由网络的VLAN，添加到<span>FusionManager</span>的VLAN池，并为其关联DVS。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.346456692913385%" headers="mcps1.3.4.5.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">VLAN池</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.79790026246719%" headers="mcps1.3.4.5.2.4.1.1 "><p>添加公网IP地址池</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.85564304461942%" headers="mcps1.3.4.5.2.4.1.2 "><p id="it_60_51_000010__p_public"><a name="it_60_51_000010__p_public"></a><a name="p_public"></a>公网IP地址池是对<span>FusionManager</span>所使用的公网IP地址进行管理的资源池，租户为VPC申请的弹性IP地址，来源于公网IP地址池。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.346456692913385%" headers="mcps1.3.4.5.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">公网IP地址池</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.79790026246719%" headers="mcps1.3.4.5.2.4.1.1 "><p>创建IP带宽规格</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.85564304461942%" headers="mcps1.3.4.5.2.4.1.2 "><p id="it_60_51_000010__p_ipband"><a name="it_60_51_000010__p_ipband"></a><a name="p_ipband"></a>IP带宽规格中规定了IP地址的接收和发送带宽。租户在申请弹性IP时，通过选择IP带宽规格，设置弹性IP业务的带宽。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.346456692913385%" headers="mcps1.3.4.5.2.4.1.3 "><span class="menucascade">“<span class="uicontrol">VDC</span> &gt; <span class="uicontrol">IP带宽规格</span>”</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<p>使用软件路由器时，弹性IP业务的配置与使用流程如<a href="#it_60_51_000010__fig_02">图3</a>所示。任务说明如<a href="#it_60_51_000010__tab_02">表3</a>所示。</p>
+<div class="p"><div class="fignone" id="it_60_51_000010__fig_02"><a name="it_60_51_000010__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>图3 </b>软件路由器提供的弹性IP业务使用流程</span>
+
+<br><span><img src="fig/fig_it_60_51_000010_4.png"></span></div>
+</div>
+
+<div class="tablenoborder"><a name="it_60_51_000010__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000010__tab_02" frame="border" border="1" rules="all"><caption><b>表3 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="16.883116883116887%" id="mcps1.3.4.8.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="54.805194805194816%" id="mcps1.3.4.8.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="28.311688311688314%" id="mcps1.3.4.8.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="16.883116883116887%" headers="mcps1.3.4.8.2.4.1.1 "><p>安装并接入VSAM</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.805194805194816%" headers="mcps1.3.4.8.2.4.1.2 "><p id="it_60_51_000010__p_vsam"><a name="it_60_51_000010__p_vsam"></a><a name="p_vsam"></a>使用系统服务虚拟机，为系统提供软件路由器、软件负载均衡以及DHCP服务等服务时，要求使用<span>FusionCompute</span>虚拟化环境，并在虚拟化环境中部署VSAM节点，该节点用来对系统服务虚拟机进行配置和管理。</p>
+<p id="it_60_51_000010__p_vsam1"><a name="it_60_51_000010__p_vsam1"></a><a name="p_vsam1"></a>如果已经在<span>FusionManager</span>上接入了虚拟化环境，在VSAM安装完成后，通过修改虚拟化环境配置VSAM的接入信息。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.311688311688314%" headers="mcps1.3.4.8.2.4.1.3 "><p><strong>安装VSAM</strong></p>
+<p><span>《<span>FusionManager V100R005C00
+软件安装指南</span>》</span>中的<span class="wintitle">“安装VSAM”</span>。</p>
+<p><strong>修改虚拟化环境</strong></p>
+<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">虚拟化环境</span>”</span></td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.883116883116887%" headers="mcps1.3.4.8.2.4.1.1 "><p>添加VLAN池并关联DVS</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.805194805194816%" headers="mcps1.3.4.8.2.4.1.2 "><div class="p" id="it_60_51_000010__p_2vlan"><a name="it_60_51_000010__p_2vlan"></a><a name="p_2vlan"></a>需要在VLAN池中添加以下网络的VLAN信息:<ul><li>路由网络的VLAN，该路由网络用来部署业务虚拟机。</li><li>外部网络的VLAN，该外部网络用来连接软件路由器。</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.311688311688314%" headers="mcps1.3.4.8.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">VLAN池</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.883116883116887%" headers="mcps1.3.4.8.2.4.1.1 "><p>添加外部网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.805194805194816%" headers="mcps1.3.4.8.2.4.1.2 "><p id="it_60_51_000010__p_external"><a name="it_60_51_000010__p_external"></a><a name="p_external"></a>本任务中的外部网络用于连接软件路由器，为路由网络中关联的虚拟机访问公网提供公网IP地址资源。在<span>FusionManager</span>上创建外部网络时要求能够连接到Internet，且子网的分配方式为静态注入，子网类型为普通。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.311688311688314%" headers="mcps1.3.4.8.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">外部网络</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.883116883116887%" headers="mcps1.3.4.8.2.4.1.1 "><p>添加VSA管理网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.805194805194816%" headers="mcps1.3.4.8.2.4.1.2 "><div class="p" id="it_60_51_000010__p_vsanet"><a name="it_60_51_000010__p_vsanet"></a><a name="p_vsanet"></a>VSA管理网络用来为系统服务虚拟机提供管理平面网络，其配置要求如下：<ul><li>VSA管理网络与系统管理平面互通。</li><li>VSA管理网络的VLAN要添加到FusionCompute的分布式交换机中，但在<span>FusionManager</span>的VLAN池中不能包含此VLAN。</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.311688311688314%" headers="mcps1.3.4.8.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">资源分区</span>”</span>界面，选择一个资源分区，选择<span class="menucascade">“<span class="uicontrol">网络资源池</span> &gt; <span class="uicontrol">VSA网络</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.883116883116887%" headers="mcps1.3.4.8.2.4.1.1 "><p>导入VSA虚拟机模板</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.805194805194816%" headers="mcps1.3.4.8.2.4.1.2 "><p id="it_60_51_000010__p_vsatemp"><a name="it_60_51_000010__p_vsatemp"></a><a name="p_vsatemp"></a>VSA虚拟机模板为系统自动创建系统服务虚拟机提供模板资源。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.311688311688314%" headers="mcps1.3.4.8.2.4.1.3 "><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">模板和规格</span> &gt; <span class="uicontrol">虚拟机模板</span>”</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

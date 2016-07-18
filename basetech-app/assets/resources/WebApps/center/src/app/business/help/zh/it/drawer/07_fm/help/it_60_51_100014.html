@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="资源集群">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100014">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>资源集群</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100014"></a><a name="it_60_51_100014"></a>
+
+
+
+<h1 class="topictitle1">资源集群</h1>
+
+
+<div><p></p>
+
+<p>资源集群是虚拟化环境中具有相同资源属性的计算资源、存储资源和网络资源的组合。资源集群只有关联至资源分区后，才会显示在资源池界面；在加入到可用分区后，其资源才能被<span>FusionManager</span>用于虚拟机或应用的发放。</p>
+
+<p>多个资源集群可以组成可用分区，可用分区和资源集群均可作为发放虚拟机或应用的资源池。</p>
+
+<div class="section"><h4 class="sectiontitle">关联资源集群</h4><p>只有关联资源集群后，<span>FusionManager</span>才可以管理资源集群。</p>
+<p>在关联过程中，为资源集群中的存储配置存储SLA，是指根据该存储使用的存储设备，为该存储设置一个存储SLA标识。在创建虚拟机和磁盘时，可根据设置的存储SLA，选择匹配的存储进行创建。</p>
+</div>
+
+
+<div class="section"><h4 class="sectiontitle">解关联资源集群</h4><p>当需要调整资源集群所属的资源分区或需要从资源分区中删除资源集群时，可以通过解关联资源集群解除资源集群和资源分区的关联关系。当资源集群已加入到可用分区，则不允许解关联。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">标签管理</h4><p id="it_60_51_100014__tag_define"><a name="it_60_51_100014__tag_define"></a><a name="tag_define"></a>定义标签后，租户可以将虚拟机创建在相应标签的资源中。例如，集群A的资源充裕，可靠性高，我们将集群打上“SLA为GOLD”的标签，这时，租户就可以将虚拟机创建在GOLD标签的资源上，从而保证了该虚拟机的性能。</p>
+<p id="it_60_51_100014__tag_source"><a name="it_60_51_100014__tag_source"></a><a name="tag_source"></a>标签选项来源于<span class="menucascade">“<span class="uicontrol">服务</span> &gt; <span class="uicontrol">标签管理</span>”</span>中定义的标签。</p>
+</div>
+
+</div>
+
+
+</body>
+</html>

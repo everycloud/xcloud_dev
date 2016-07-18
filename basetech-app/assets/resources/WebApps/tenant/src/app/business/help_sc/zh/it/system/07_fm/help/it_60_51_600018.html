@@ -1,0 +1,237 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="挂载光驱">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600018">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>挂载光驱</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n挂载光驱");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_faq_cp_01.html\">FAQ<\/a> > 挂载光驱<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600018"></a><a name="it_60_51_600018"></a>
+
+
+<h1 class="topictitle1">挂载光驱</h1>
+<ul><li><a href="#it_60_51_600018__1.2.1.1">操作场景</a></li><li><a href="#it_60_51_600018__1.2.2.1">注意事项</a></li><li><a href="#it_60_51_600018__1.2.3.1">前提条件</a></li><li><a href="#it_60_51_600018__1.2.4.1">本地方式挂载光驱</a></li><li><a href="#it_60_51_600018__1.2.5.1">共享方式挂载光驱</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600018__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">操作场景</a></h4>
+
+
+<div class="p"><div class="p">通过<span>ServiceCenter</span>，将ISO文件或者本地PC的光驱挂载给虚拟机，用于为虚拟机安装操作系统或业务软件。挂载方式如<a href="#it_60_51_600018__tbl_02">表1</a>所示，用户可根据实际情况选择恰当的方式。
+<div class="tablenoborder"><a name="it_60_51_600018__tbl_02"></a><a name="tbl_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600018__tbl_02" frame="border" border="1" rules="all"><caption><b>表1 </b>挂载光驱对应的操作系统类型</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="13.333333333333334%" id="mcps1.2.1.2.1.3.2.4.1.1"><p>挂载方式</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="25.666666666666664%" id="mcps1.2.1.2.1.3.2.4.1.2"><p>优势</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="61%" id="mcps1.2.1.2.1.3.2.4.1.3"><p>限制</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="13.333333333333334%" headers="mcps1.2.1.2.1.3.2.4.1.1 "><p>本地</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25.666666666666664%" headers="mcps1.2.1.2.1.3.2.4.1.2 "><ul><li>支持挂载ISO文件和物理光驱。</li><li>操作简单。</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="61%" headers="mcps1.2.1.2.1.3.2.4.1.3 "><p>仅适用于如下操作系统。</p>
+<div class="p"><a name="it_60_51_600018__d1283e160"></a><a name="d1283e160"></a><ul id="it_60_51_600018__d1283e160"><li>SUSE 10 sp版本、SUSE 11及以上sp版本</li><li>Ubuntu 11.10 server及以上版本</li><li>Ubuntu 12.04 desktop及以上版本</li><li>Ubuntu 12.04 Server及以上版本</li><li>Ubuntu 12.10 Server</li><li>RedHat 3.0 32位</li><li>RedHat 3.4 32位</li><li>CentOS 6.1及以上版本</li><li>RedHat 6.1及以上版本</li><li>Oracle Linux Server release 6.1</li><li>Debian GUN/Linux 6.0.4及以上版本</li><li>openSUSE 11.3 64位</li><li>Red Flag Asianux Server 4 SP2</li></ul>
+<ul><li>所有Windows操作系统</li></ul>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13.333333333333334%" headers="mcps1.2.1.2.1.3.2.4.1.1 "><p>共享</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25.666666666666664%" headers="mcps1.2.1.2.1.3.2.4.1.2 "><p>无操作系统限制。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="61%" headers="mcps1.2.1.2.1.3.2.4.1.3 "><ul><li>仅支持挂载ISO文件，不能挂载物理光驱。</li><li>需要配置ISO文件的共享参数。</li></ul>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600018__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">注意事项</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>每个虚拟机只能挂载一个光驱。</li><li>一个主机上，同时最多仅能有4个虚拟机挂载光驱。因此，需及时卸载光驱，避免该主机上的其他虚拟机挂载光驱失败。</li><li>虚拟机挂载光驱后，不能进行迁移。</li><li>虚拟机关闭、休眠或HA后，所挂载的光驱会自动卸载；使用本地方式挂载光驱时，若VNC窗口被关闭，光驱会自动卸载。</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600018__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">前提条件</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>登录<span>ServiceCenter</span>所使用的本地PC需与<span>ServiceCenter</span>的管理网络互通。若网络隔离，则可安装并配置VPN软件，通过VPN访问管理网络，具体操作请参考<a href="../soft_inst/it_60_23_000022.html">安装及配置VPN（Windows）</a>。</li><li>已登录<span>ServiceCenter</span>。</li><li>虚拟机的状态为<span class="parmvalue">“运行中”</span>。</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600018__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">本地方式挂载光驱</a></h4>
+
+<ol><li><span>使用VNC方式登录待挂载光驱的虚拟机。</span>
+<p>挂载光驱过程中，禁止关闭VNC登录窗口，否则将自动卸载光驱。</p>
+</li><li><span>如<a href="#it_60_51_600018__fig_01">图1</a>所示，单击<span><img src="fig/fig_it_60_51_600018_05.png"></span>，并选择<span class="uicontrol">“挂载光驱(本地)”</span>。</span>
+<p><div class="fignone" id="it_60_51_600018__fig_01"><a name="it_60_51_600018__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>图1 </b>挂载光驱(本地)</span>
+
+<br><span><img src="fig/fig_it_60_51_600018_01.png"></span></div>
+</p>
+</li><li><span>如<a href="#it_60_51_600018__fig_02">图2</a>所示，选择光驱所在路径。</span>
+<p><ul><li>挂载物理光驱：选择<span class="uicontrol">“CD驱动器”</span>，并选择光驱所在路径。</li><li>挂载ISO文件：选择<span class="uicontrol">“文件”</span>，单击<span class="uicontrol">“浏览”</span>，选择ISO文件。</li></ul>
+<div class="fignone" id="it_60_51_600018__fig_02"><a name="it_60_51_600018__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>图2 </b>挂载光驱(本地)</span>
+
+<br><span><img src="fig/fig_it_60_51_600018_03.png"></span><br>
+</div>
+</p>
+</li><li id="it_60_51_600018__restart"><a name="it_60_51_600018__restart"></a><a name="restart"></a><span>若挂载操作系统安装文件，为虚拟机安装操作系统，则勾选<span class="parmvalue">“立即重启虚拟机，安装操作系统”</span>。</span></li><li id="it_60_51_600018__ok"><a name="it_60_51_600018__ok"></a><a name="ok"></a><span>单击<span class="uicontrol">“确认”</span>。</span>
+<p><p>若已勾选<span class="parmvalue">“立即重启虚拟机，安装操作系统”</span>，则需在弹出的<span class="wintitle">“失去连接”</span>对话框中单击<span class="uicontrol">“是”</span>，重新连接虚拟机。否则VNC登录窗口关闭后，将自动卸载光驱。</p>
+</p>
+</li></ol>
+
+</div>
+
+
+<div class="section"><a name="it_60_51_600018__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">共享方式挂载光驱</a></h4>
+
+<ol><li><span>使用VNC方式登录待挂载光驱的虚拟机。</span>
+<p>挂载光驱过程中，禁止关闭VNC登录窗口，否则将自动卸载光驱。<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>若在创建虚拟机模板时，也可以在<span>ServiceCenter</span>界面中配置共享参数。</p>
+</div></div>
+</p>
+</li><li><span>如<a href="#it_60_51_600018__fig_03">图3</a>所示，单击<span><img src="fig/fig_it_60_51_600018_05.png"></span>，并选择<span class="uicontrol">“挂载光驱(共享)”</span>。</span>
+<p><div class="fignone" id="it_60_51_600018__fig_03"><a name="it_60_51_600018__fig_03"></a><a name="fig_03"></a><span class="figcap"><b>图3 </b>挂载光驱(共享)</span>
+
+<br><span><img src="fig/fig_it_60_51_600018_02.png"></span></div>
+</p>
+</li><li><span>如<a href="#it_60_51_600018__fig_04">图4</a>所示，配置ISO文件的共享参数。</span>
+<p><div class="fignone" id="it_60_51_600018__fig_04"><a name="it_60_51_600018__fig_04"></a><a name="fig_04"></a><span class="figcap"><b>图4 </b>挂载光驱(共享)</span>
+
+<br><span><img src="fig/fig_it_60_51_600018_04.png"></span><br>
+</div>
+</p>
+</li><li><span>若挂载操作系统安装文件，为虚拟机安装操作系统，则勾选<span class="parmvalue">“立即重启虚拟机，安装操作系统”</span>。</span></li><li><span>单击<span class="uicontrol">“确认”</span>。</span>
+<p><p>若已勾选<span class="parmvalue">“立即重启虚拟机，安装操作系统”</span>，则需在弹出的<span class="wintitle">“失去连接”</span>对话框中单击<span class="uicontrol">“是”</span>，重新连接虚拟机。否则VNC登录窗口关闭后，将自动卸载光驱。</p>
+</p>
+</li></ol>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

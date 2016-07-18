@@ -1,0 +1,174 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="VM Snapshot Usage Requirements">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600022">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VM Snapshot Usage Requirements</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nVM Snapshot Usage Requirements");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_faq_cp_01.html\">FAQ<\/a> > VM Snapshot Usage Requirements<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600022"></a><a name="it_60_51_600022"></a>
+
+
+<h1 class="topictitle1">VM Snapshot Usage Requirements</h1>
+<ul><li><a href="#it_60_51_600022__1.2.1.1">Scenarios</a></li><li><a href="#it_60_51_600022__1.2.2.1">Usage Requirements</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600022__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600022" class="sectiontitle2contents">Scenarios</a></h4>
+
+
+<div class="p"><p>A snapshot is a reproduction of the data and state
+of a VM created at a specific time point, and can be used to restore
+a VM to the state when the snapshot was taken.</p>
+<p>When you take a snapshot for a VM, the current
+disk on the VM is set to be read-only. The system automatically creates
+an incremental disk in the data store where the disk is located, and
+the subsequent edit operations on the data of the disk are saved on
+the incremental disk, that is, the incremental disk records the differences
+between the current state of the disk and the last snapshot of the
+disk. When you create another snapshot of the disk, the disk and its
+current incremental disk are both set to read-only, and the system
+creates another incremental disk in the data store. </p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600022__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600022" class="sectiontitle2contents">Usage Requirements</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>Memory snapshots cannot be created for VMs with USB devices attached. </li><li>Snapshots cannot be created for VM associated with graphics processing
+units (GPUs). </li><li>Snapshots cannot be created for linked clones.</li><li>Snapshots cannot be created for quickly copied VMs.</li><li>If a VM is bound with a CPU, the snapshot created for the VM does
+not contain information about the bound CPU information. Therefore,
+if the snapshot is used to restore a VM, the restored VM does not
+contain information about the bound CPU.</li><li>Multiple snapshots can be created for one VM. If a VM is being
+restored using a snapshot, other snapshots of the VM are not affected.</li><li>A maximum of 32 snapshots can be created for one VM. Created snapshots
+can only be manually deleted.</li><li>Snapshots cannot be created for VMs on which management nodes
+are deployed.</li><li><p>Snapshots can be created only for VMs that
+use storage whose type is Advanced SAN, FusionStorage, Local Pome,
+LUN Pome, or NAS.</p>
+<p>Snapshots cannot be created for VMs that use
+storage whose type is local disk, SAN, or local RAM disk.</p>
+</li><li>Snapshots cannot be created for VMs that use
+storage of multiple types.</li><li>Memory snapshots cannot be created for VMs
+whose disks use shared storage resources. Content in shared disks
+is not included in the common snapshots and consistency snapshots. </li><li>If <span class="parmvalue"><b>Not taken into snapshots</b></span> is set for
+a disk, the disk will not be backed up when a snapshot is taken for
+the VM where the disk is located.</li><li>Memory snapshots can be create for a VM in the hibernating state,
+and common snapshots can be create for a VM in the stopped state.</li><li>If a memory snapshot is taken for a running VM during VM snapshot
+creation, the memory snapshot stores the VM disk data at that time.
+If a memory snapshot is not taken for a running VM during VM snapshot
+creation, the disk data in the VM snapshot may be inconsistent with
+the disk data on the VM at that time.</li><li>After a snapshot is taken for a VM, the created delta disks will
+occupy the storage resources in the data store. Therefore, you are
+advised to limit the number of snapshots to be taken to prevent storage
+resource shortage.</li><li>Do not perform any operation on a VM <span>when a snapshot
+is being created for the VM</span>. After the snapshot is created, the
+VM does not support storage live migration.</li><li>Do not perform any operation that is related to memory snapshot
+of the VM when one of the following tasks are in progress:<ul><li>Live migrating the VM</li><li>Upgrading Tools</li><li>Adding VCPUs when the VM is in the running state</li><li>Restarting, hibernating, or stopping the VM</li></ul>
+</li><li>A snapshot can be created for only one VM on a host at a time.</li><li>A consistency snapshot can
+be created only when the following conditions are met:<ul><li>The VM disk type is Local Pome, LUN Pome, FusionStorage, or NAS.</li><li>The VM OS is Windows 7, Windows Server 2003, Windows Server 2008,
+Windows Server 2008 R2, or Windows Vista.</li></ul>
+</li></ul>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

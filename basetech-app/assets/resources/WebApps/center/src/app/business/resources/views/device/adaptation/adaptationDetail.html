@@ -1,0 +1,29 @@
+<div id="adaptationDetailDiv">
+    <tiny-formfield>
+        <tiny-item label="adaptatorNameLabel" ng-bind="adaptatorName"></tiny-item>
+        <tiny-item label="installDateLabel" ng-bind="installDate"></tiny-item>
+        <tiny-item label="supportDeviceLabel"></tiny-item>
+    </tiny-formfield>
+    <div id="supportTable" class="top5">
+        <tiny-table id="supportTable.id"
+                    columns="supportTable.columns"
+                    enable-pagination="supportTable.enablePagination"
+                    data="supportTable.data"></tiny-table>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/device/adaptation/adaptationDetailCtrl'],
+            function (adaptationDetailCtrl) {
+                var $container = $("#adaptationDetailDiv");
+                $container.attr("ng-controller", "adaptationDetailCtrl");
+                var dep = ['ng', 'wcc', adaptationDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $container);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($container)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

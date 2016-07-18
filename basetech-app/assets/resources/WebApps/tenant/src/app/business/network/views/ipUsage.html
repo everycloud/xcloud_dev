@@ -1,0 +1,40 @@
+<div class="network_ip_usage" ng-controller="network.ipUsage.ctrl">
+    <div id="networkIpUsageTab" class="tiny-tabs-container">
+        <div class="tiny-tabs-titles">
+            <ul>
+                <li>
+                    <a url="app/business/network/views/ipUsageByAuto.html" active="true" ng-bind="i18n.vpc_term_autoAllocationIP_label"></a>
+                </li>
+                <li ng-show="showIpByHand">
+                    <a url="app/business/network/views/ipUsageByHand.html" ng-bind="i18n.common_term_manualApplyPrivateIP_label"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-tabs-content">
+        </div>
+    </div>
+</div>
+
+<script>
+require(['tiny-widgets/Tabs',
+        'app/business/network/controllers/ipUsage'
+    ],
+    function(Tabs, ipUsageModule) {
+        var dep = ['ng', 'wcc', ipUsageModule.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".network_ip_usage"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".network_ip_usage"))($rootScope);
+            $rootScope.$digest();
+        });
+
+        var tabs = new Tabs({
+            "id": "networkIpUsageTab"
+        });
+    });
+</script>
+

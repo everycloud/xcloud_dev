@@ -1,0 +1,52 @@
+<link rel="stylesheet" type="text/css" href="../theme/default/css/gm/system.css">
+
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="centerTitle"></span></li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <div class="pull-right">
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                    <tiny-searchbox id="searchBox.id"
+                                    placeholder="searchBox.placeholder"
+                                    width="searchBox.width"
+                                    suggest-size="searchBox.suggestSize"
+                                    maxlength="searchBox.maxLength"
+                                    search="searchBox.search">
+                    </tiny-searchbox>
+                </span>
+                <a class="btn-link" href="javascript:void 0;">
+                    <div ng-click="btns.refresh.handler()" id="btns.refresh.id" title="{{btns.refresh.text}}" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link" href="javascript:void 0;">
+                    <div title="{{i18n.common_term_help_label}}" ng-hide="true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div class="">
+            <tiny-table id="machineAccountTable.id"
+                        data="machineAccountTable.data"
+                        columns="machineAccountTable.columns"
+                        enable-pagination="machineAccountTable.pagination"
+                        pagination-style="machineAccountTable.paginationStyle"
+                        length-change="machineAccountTable.lengthChange"
+                        columns-draggable="machineAccountTable.draggable"
+                        length-menu="machineAccountTable.lengthMenu"
+                        display-length="machineAccountTable.displayLength"
+                        enable-filter="machineAccountTable.enableFilter"
+                        cur-page="machineAccountTable.curPage"
+                        total-records="machineAccountTable.totalRecords"
+                        request-config="machineAccountTable.requestConfig"
+                        columns-visibility="machineAccountTable.visibility"
+                        hide-total-records="machineAccountTable.hideTotalRecords"
+                        render-row="machineAccountTable.renderRow"
+                        change-select="machineAccountTable.changeSelect"
+                        callback="machineAccountTable.callback"
+                        show-details="machineAccountTable.showDetails"></tiny-table>
+        </div>
+    </div>
+</div>

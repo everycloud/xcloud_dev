@@ -1,0 +1,29 @@
+<fm-valid valid="show.check">
+<tiny-formfield>
+	<tiny-item label="(i18n.resource_term_zone_label||'资源分区')+':'" require="true">
+		<fm-select id="para.zone" option="form.zone"
+			change="event.zoneChange" valid="i18n.resource_term_noZone_valid"></fm-select>
+	</tiny-item>
+	<tiny-item label="(i18n.resource_term_AZ_label||'可用分区')+':'" require="true">
+		<fm-select id="para.az" option="form.az"
+			change="event.azChange" valid="i18n.resource_term_noAZ_valid"></fm-select>
+	</tiny-item>
+	<tiny-item label="(i18n.common_term_shareVPC_label||'共享VPC')+':'" require="true">
+		<fm-select id="para.vpc" option="form.vpc" valid="i18n.vpc_term_noSharedVPC_valid"
+			change="event.vpcChange"></fm-select>
+		<div ng-hide="show.use" class="line-height30 color2">{{i18n.router_term_routerExist_msg||'路由器已存在，请重新选择。'}}</div>
+		<div ng-show="show.use" class="line-height30 color2">{{i18n.router_router_add_info_hardCfg_label||'只支持硬件路由器配置'}}</div>
+	</tiny-item>
+	<tiny-item display="show.use" label="(i18n.perform_term_receiveBandMaxMbps_label||'最大接收带宽(Mbps)')+':'" require="true">
+		<fm-digit value="para.rx" max="4000" min="1"></fm-digit>
+	</tiny-item>
+	<tiny-item display="show.use" label="(i18n.perform_term_sendBandMaxMbps_label||'最大发送带宽(Mbps)')+':'" require="true">
+		<fm-digit value="para.tx" max="4000" min="1"></fm-digit>
+	</tiny-item>
+    <tiny-item class="fm-btn-top-small">
+        <fm-button text="i18n.common_term_apply_button||'申请'" class='major-btn fm-valid' click="save"></fm-button>
+        <fm-button text="i18n.common_term_cancle_button||'取消'" class='fm-valid-clear' click="cancel"></fm-button>
+    </tiny-item>
+</tiny-formfield>
+
+</fm-valid>

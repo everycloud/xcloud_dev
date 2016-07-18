@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{i18n.sys_term_timeoutTime_label}}</span></li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div id="report_reportConfig_view" class="content-right-box">
+        <div class="margin-top-beautifier">
+            <tiny-formfield>
+
+                <tiny-item label="systemTimeItems.label" require="systemTimeItems.require">
+                    <fm-select id="systemTimeItems.id" name="systemTimeItems.name"
+                               option="systemTimeItems.values"></fm-select>
+                </tiny-item>
+
+                <tiny-item class="fm-btn-top-small">
+                    <fm-button ng-show="hasTimeoutOperateRight" class="major-btn" id="saveBtn.id" text="saveBtn.text"
+                               click="saveBtn.save"></fm-button>
+                </tiny-item>
+
+            </tiny-formfield>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,186 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Service Catalog">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_90_51_000007">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Service Catalog</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Service Management\nService Catalog");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start_cp.html");
+document.write("<a href=\"it_90_51_000006.html\">Service Management<\/a> > Service Catalog<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_90_51_000007"></a><a name="it_90_51_000007"></a>
+
+
+<h1 class="topictitle1">Service Catalog</h1>
+<ul><li><a href="#it_90_51_000007__1.2.5.1">Creating a Service</a></li><li><a href="#it_90_51_000007__1.2.6.1">Applying for a Service</a></li><li><a href="#it_90_51_000007__1.2.7.1">Editing a Service</a></li><li><a href="#it_90_51_000007__1.2.8.1">Deleting a Service</a></li><li><a href="#it_90_51_000007__1.2.9.1">Publishing a Service</a></li><li><a href="#it_90_51_000007__1.2.10.1">Canceling the Publishing
+of a Service</a></li></ul>
+<div>
+<p>A service is a resource template that users can apply for. It is created
+by the administrator or virtual data center (VDC) administrator and
+displayed to users for them to apply for resources.</p>
+
+<p>A service catalog is used to store services that have
+the same properties. Classifying services using a service catalog
+makes management and maintenance more convenient for the administrator.</p>
+
+<p>You can find services that you focus on by service
+name or service ID in <span class="uicontrol"><b>All Services</b></span>. You can
+also find required services by the catalog on the left.</p>
+
+<p>A VDC user only has permission to apply for services. The VDC administrator
+can only manage the created services, for example, editing and publishing
+the created services.</p>
+
+<div class="section"><a name="it_90_51_000007__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000007" class="sectiontitle2contents">Creating a Service</a></h4><p>After
+a service is created and published, users can view and apply for it.</p>
+<p>Resources such as application templates, VM templates, and virtual
+private clouds (VPCs) must be created before the application service
+creation.</p>
+<p>The system provides a service type for the virtual
+data center (VDC) administrator to create services. When creating
+a service, the VDC administrator can determine whether the service
+needs to be approved.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b></span>, and click <span class="uicontrol"><b>Create</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_90_51_000007__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000007" class="sectiontitle2contents">Applying for a Service</a></h4><p>You
+can query or apply for a service as required in <span class="uicontrol"><b>All Services</b></span> or a specific catalog.</p>
+<div class="p">If <span class="parmname"><b>Type</b></span> is set to <span class="parmvalue"><b>Shared</b></span> during cloud hard disk application, the cloud
+hard disk can be attached to multiple VMs.<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If multiple VMs that
+use a shared disk write data into the disk at the same time, data
+may be lost. Therefore, you need to use application software to control
+disk access permission.</div></div>
+</div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services
+Catalog</span></b></span>, select a catalog, and click <span class="uicontrol"><b>Apply For</b></span> in the service area.</p>
+</div>
+
+<div class="section"><a name="it_90_51_000007__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000007" class="sectiontitle2contents">Editing a Service</a></h4><p>When a service is created but not published, the administrator
+can modify properties of the service as required, such as the resource
+quota and catalog of the service.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b> &gt; <b><span class="uicontrol"><i><span class="varname">service catalog to which the service belongs</span></i></span></b></span>, and click <span class="uicontrol"><b>Edit</b></span> in the area where the service locates.</p>
+</div>
+
+<div class="section"><a name="it_90_51_000007__1.2.8.1"></a><a name="1.2.8.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000007" class="sectiontitle2contents">Deleting a Service</a></h4><p>When a service is created but not published, the administrator
+can delete the service.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b> &gt; <b><span class="uicontrol"><i><span class="varname">service catalog to which the service belongs</span></i></span></b></span>, and click <span class="uicontrol"><b>Delete</b></span> in the area where the service locates.</p>
+</div>
+
+<div class="section"><a name="it_90_51_000007__1.2.9.1"></a><a name="1.2.9.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000007" class="sectiontitle2contents">Publishing a Service</a></h4><p>After a service is created and published, users can view and apply
+for it.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b> &gt; <b><span class="uicontrol"><i><span class="varname">service
+catalog to which the service belongs</span></i></span></b></span>, and click <span class="uicontrol"><b>Publish</b></span> in the area where the
+service locates.</p>
+</div>
+
+<div class="section" id="it_90_51_000007__cancel_service"><a name="it_90_51_000007__cancel_service"></a><a name="cancel_service"></a><a name="it_90_51_000007__1.2.10.1"></a><a name="1.2.10.1"></a><h4 class="sectiontitle"><a href="#it_90_51_000007" class="sectiontitle2contents">Canceling the Publishing
+of a Service</a></h4><p>The administrator can edit or delete a service
+only when the publishing of the service is canceled.</p>
+<p>The publishing
+of a service can be canceled only when the service is in the <span class="parmvalue"><b>Publish</b></span> status.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Services Catalog</span></b> &gt; <b><span class="uicontrol"><i><span class="varname">service catalog to which the service belongs</span></i></span></b></span>, and click <span class="uicontrol"><b>Cancel Publishing</b></span> in the area where the service locates.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

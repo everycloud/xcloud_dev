@@ -1,0 +1,210 @@
+<div class="detail-background-before"></div>
+<div class="row-fluid innerbox-padding">
+	<div class="row-fluid">
+		<div class="inner-legend">{{i18n.common_term_basicInfo_label||'基本信息'}}</div>
+		<div class="row-fluid">
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_name_label||'名称')+':'">
+						{{row.name||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_desc_label||'描述')+':'">
+						{{row.description||"-"}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="'VPC ID:'">
+						{{row.vpcId||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.resource_term_AZ_label||'AZ')+' ID:'">
+						{{row.azId||"-"}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.vpc_term_bondNICnum_label||'绑定网卡数')+':'">
+						{{row.totalBoundNics||0}}&nbsp;&nbsp;
+						<a ng-click='event.showVM(row)'>{{i18n.vpc_term_checkAssociateVM_button||'查看关联虚拟机'}}</a>
+					</tiny-item>
+					<tiny-item label="'VLAN ID:'">
+						{{row.vlan||"-"}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid" ng-show="row.portSetting">
+		<div class="inner-legend">Qos</div>
+		<div class="row-fluid">
+			<div class='span4'>
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_sendSpeedLimit_label||'发送限速')+':'">
+						{{row.portSetting.outTrafficShapingPolicyFlag ? 
+							(i18n.common_term_speedLimit_label||"限速"):(i18n.common_term_notLimit_value||"不限速")}}
+					</tiny-item>
+					<tiny-item label="(i18n.perform_term_bandAvgMbps_label||'平均带宽(Mbps)')+':'">
+						{{row.portSetting.outTrafficShapingPolicy.averageBandwidth||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.perform_term_bandPeakMbps_label||'峰值带宽(Mbps)')+':'">
+						{{row.portSetting.outTrafficShapingPolicy.peakBandwidth||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_gustyMbps_label||'突发大小(Mbps)')+':'">
+						{{row.portSetting.outTrafficShapingPolicy.burstSize||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_priority_label||'优先级')+':'">
+						{{{7:i18n.common_term_low_label||'低',4:i18n.common_term_middling_label||'中',2:i18n.common_term_high_label||'高'}[row.portSetting.outTrafficShapingPolicy.priority]||"-"}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class='span4'>
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_receiveSpeedLimit_label||'接收限速')+':'">
+						{{row.portSetting.inTrafficShapingPolicyFlag ? 
+							(i18n.common_term_speedLimit_label||"限速"):(i18n.common_term_notLimit_value||"不限速")}}
+					</tiny-item>
+					<tiny-item label="(i18n.perform_term_bandAvgMbps_label||'平均带宽(Mbps)')+':'">
+						{{row.portSetting.inTrafficShapingPolicy.averageBandwidth||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.perform_term_bandPeakMbps_label||'峰值带宽(Mbps)')+':'">
+						{{row.portSetting.inTrafficShapingPolicy.peakBandwidth||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_gustyMbps_label||'突发大小(Mbps)')+':'">
+						{{row.portSetting.inTrafficShapingPolicy.burstSize||"-"}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.vpc_term_ARPsuppressionKbps_label||'ARP抑制(Kbps)')+':'">
+						{{row.portSetting.arpPacketSuppression || i18n.common_term_notBate_value||"不抑制"}}
+					</tiny-item>
+					<tiny-item label="(i18n.vpc_term_IPsuppressionKbps_label||'IP抑制(Kbps)')+':'">
+						{{row.portSetting.ipPacketSuppression || i18n.common_term_notBate_value||"不抑制"}}
+					</tiny-item>
+					<tiny-item label="(i18n.vpc_term_DHCPisolation_label||'DHCP隔离')+':'">
+						{{row.portSetting.dhcpIsolationFlag ? (i18n.common_term_isolation_value||"隔离"):(i18n.common_term_notIsolation_value||"不隔离")}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_IPbondMAC_label||'IP绑定MAC')+':'">
+						{{row.portSetting.ipMacBindFlag ? (i18n.vpc_term_bond_label||"绑定"):(i18n.common_term_noBond_value||"不绑定")}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid" ng-show="row.ipv4Subnet">
+		<div class="inner-legend">IPv4</div>
+		<div class="row-fluid">
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_IPassignMode_label||'IP分配方式')+':'">
+						{{[i18n.resource_term_externalDHCP_label||"外部DHCP",
+							i18n.common_term_innerDHCP_label||"内部DHCP",
+							i18n.common_term_manual_label||"手动",
+							i18n.vpc_term_staticInjection_label||"静态注入",
+							i18n.common_term_manual_label||"无状态自动配置"]
+							[row.ipv4Subnet.ipAllocatePolicy]||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_Subnet_label||'子网')+':'">
+						{{row.ipv4Subnet.subnetAddr||"-"}}/{{row.ipv4Subnet.subnetPrefix||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_gateway_label||'网关')+':'">
+						{{row.ipv4Subnet.gateway||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_domainName_label||'域名')+':'">
+						{{row.ipv4Subnet.dhcpOption.domainName||"-"}}
+					</tiny-item>
+					<tiny-item display="(1==row.ipv4Subnet.ipAllocatePolicy)||(3==row.ipv4Subnet.ipAllocatePolicy)" 
+						label="(i18n.perform_term_IPstatistic_label||'IP统计(已用/总和)')+':'">
+						<a ng-click='event.showIP(row)'>{{row.ipv4Subnet.usedAddrNum||0}}/{{row.ipv4Subnet.totalAddrNum||0}}</a>
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_activeDNS_label||'首选DNS服务器')+':'">
+						{{row.ipv4Subnet.dhcpOption.primaryDNS||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_standbyDNS_label||'备选DNS服务器')+':'">
+						{{row.ipv4Subnet.dhcpOption.secondaryDNS||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_activeWINS_label||'首选WIN服务器')+':'">
+						{{row.ipv4Subnet.dhcpOption.primaryWINS||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_standbyWINS_label||'备选WIN服务器')+':'">
+						{{row.ipv4Subnet.dhcpOption.secondaryWINS||"-"}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_activeDHCP_label||'首选DHCP服务器')+':'">
+						{{row.ipv4Subnet.dhcpOption.dhcpServerIP1||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_standbyDHCP_label||'备选DHCP服务器')+':'">
+						{{row.ipv4Subnet.dhcpOption.dhcpServerIP2||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_enableIPsegment_label||'可用IP段')+':'">
+						<span ng-repeat="p in row.ipv4Subnet.availableIPRanges">{{p.startIP}}-{{p.endIP}}<br/></span>
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid" ng-show="row.ipv6Subnet">
+		<div class="inner-legend">IPv6</div>
+		<div class="row-fluid">
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_IPassignMode_label||'IP分配方式')+':'">
+						{{[i18n.resource_term_externalDHCP_label||"外部DHCP",
+							i18n.common_term_innerDHCP_label||"内部DHCP",
+							i18n.common_term_manual_label||"手动",
+							i18n.vpc_term_staticInjection_label||"静态注入",
+							i18n.common_term_manual_label||"无状态自动配置"]
+							[row.ipv6Subnet.ipAllocatePolicy]||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_Subnet_label||'子网')+':'">
+						{{row.ipv6Subnet.subnetAddr||"-"}}/{{row.ipv6Subnet.subnetPrefix||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_gateway_label||'网关')+':'">
+						{{row.ipv6Subnet.gateway||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_domainName_label||'域名')+':'">
+						{{row.ipv6Subnet.dhcpOption.domainName||"-"}}
+					</tiny-item>
+					<tiny-item display="(1==row.ipv6Subnet.ipAllocatePolicy)||(3==row.ipv6Subnet.ipAllocatePolicy)" 
+						label="(i18n.perform_term_IPstatistic_label||'IP统计(已用/总和)')+':'">
+						{{row.ipv6Subnet.usedAddrNum||0}}/{{row.ipv6Subnet.totalAddrNum||0}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_activeDNS_label||'首选DNS服务器')+':'">
+						{{row.ipv6Subnet.dhcpOption.primaryDNS||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_standbyDNS_label||'备选DNS服务器')+':'">
+						{{row.ipv6Subnet.dhcpOption.secondaryDNS||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_activeWINS_label||'首选WIN服务器')+':'">
+						{{row.ipv6Subnet.dhcpOption.primaryWINS||"-"}}
+					</tiny-item>
+					<tiny-item label="(i18n.common_term_standbyWINS_label||'备选WIN服务器')+':'">
+						{{row.ipv6Subnet.dhcpOption.secondaryWINS||"-"}}
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class="span4">
+				<tiny-formfield>
+					<tiny-item label="(i18n.common_term_enableIPsegment_label||'可用IP段')+':'">
+						<span ng-repeat="p in row.ipv6Subnet.availableIPRanges">{{p.startIP}}-{{p.endIP}}<br/></span>
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="detail-background-after"></div>

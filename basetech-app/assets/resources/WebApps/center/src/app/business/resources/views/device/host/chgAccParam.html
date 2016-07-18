@@ -1,0 +1,68 @@
+<div id="chgAccParamDiv">
+
+    <tiny-formfield>
+        <tiny-item ng-bind="name.value" label="name.label" require="name.require">
+        </tiny-item>
+    </tiny-formfield>
+
+    <tiny-formfield labelwidth="80">
+        <tiny-item label="bmcInfo.bmcInfoCheckbox.text">
+        </tiny-item>
+    </tiny-formfield>
+    <div class="left12">
+        <tiny-formfield labelwidth="80">
+            <tiny-item label="bmcInfo.bmcIp.label" require="bmcInfo.bmcIp.require">
+                <tiny-ip id="bmcInfo.bmcIp.id"
+                         type="bmcInfo.bmcIp.type"
+                         value="bmcInfo.bmcIp.value"
+                         extend-function="bmcInfo.bmcIp.extendFunction"
+                         validate="bmcInfo.bmcIp.validate"
+                         width="bmcInfo.bmcIp.width"></tiny-ip>
+            </tiny-item>
+            <tiny-item label="bmcInfo.bmcUser.label" require="bmcInfo.bmcUser.require">
+                <tiny-textbox id="bmcInfo.bmcUser.id"
+                              value="bmcInfo.bmcUser.value" extend-function="bmcInfo.bmcUser.extendFunction"
+                              validate="bmcInfo.bmcUser.validate"
+                              type="input"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="bmcInfo.bmcPwd.label" require="bmcInfo.bmcPwd.require">
+                <tiny-textbox id="bmcInfo.bmcPwd.id"
+                              value="bmcInfo.bmcPwd.value" extend-function="bmcInfo.bmcPwd.extendFunction"
+                              validate="bmcInfo.bmcPwd.validate"
+                              type="bmcInfo.bmcPwd.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item label="bmcInfo.cfmBmcPwd.label"
+                       require="bmcInfo.cfmBmcPwd.require">
+                <tiny-textbox id="bmcInfo.cfmBmcPwd.id"
+                              value="bmcInfo.cfmBmcPwd.value"
+                              extend-function="bmcInfo.cfmBmcPwd.extendFunction"
+                              validate="bmcInfo.cfmBmcPwd.validate"
+                              type="bmcInfo.cfmBmcPwd.type"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+        <span class="color-gray" ng-bind="i18n.device_all_modifyConnectPara_info_wait_msg"></span>
+        <tiny-formfield labelwidth="80">
+            <tiny-item class="fm-btn-top-smaller">
+                <tiny-button class="major-btn" id="buttonGroup.okBtn.id" text="buttonGroup.okBtn.text"
+                             click="buttonGroup.okBtn.click()"></tiny-button>
+                <tiny-button id="buttonGroup.cancelBtn.id" text="buttonGroup.cancelBtn.text"
+                             click="buttonGroup.cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/device/host/chgAccParamCtrl'],
+            function (chgAccParamCtrl) {
+                $("#chgAccParamDiv").attr("ng-controller", "chgAccParamCtrl");
+                var dep = ['ng', 'wcc', chgAccParamCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#chgAccParamDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#chgAccParamDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

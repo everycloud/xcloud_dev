@@ -1,0 +1,165 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Subracks">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100003">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Subracks</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Resource Management\nDevice Management\nSubracks");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">Resource Management<\/a> > <a href=\"../father_node/it_60_99_100002.html\">Device Management<\/a> > Subracks<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100003"></a><a name="it_60_51_100003"></a>
+
+
+<h1 class="topictitle1">Subracks</h1>
+<ul><li><a href="#it_60_51_100003__1.2.1.1">Servers That Can Be Managed
+by FusionManager</a></li><li><a href="#it_60_51_100003__1.2.2.1">Adding a Subrack to FusionManager</a></li><li><a href="#it_60_51_100003__1.2.3.1">Updating Subrack Information</a></li><li><a href="#it_60_51_100003__1.2.4.1">Deleting a Subrack</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_100003__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100003" class="sectiontitle2contents">Servers That Can Be Managed
+by <span>FusionManager</span></a></h4><p><span>FusionManager</span> can monitor and manage servers added to it.</p>
+<div class="p">Servers that can
+be managed by <span>FusionManager</span> can be classified into the following types in terms of their appearance:<ul><li>Rack servers: also referred to as rack-mounted servers, are standard
+size servers used for mounting inside a data center server cabinet.</li><li>Blade servers: stripped down servers with a modular design to
+minimize the use of physical space and energy. A blade server commonly
+consists of a blade enclosure, which is also called a subrack if being
+housed in a server cabinet, and server blades.</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_100003__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100003" class="sectiontitle2contents">Adding a Subrack to <span>FusionManager</span></a></h4><p>A subrack housing blade servers must be added to <span>FusionManager</span> before the blade servers are added to it.</p>
+<div class="p"><ol><li>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Computing Devices</span></b> &gt; <b><span class="uicontrol">Subracks</span></b></span> and click <span class="uicontrol"><b>Add Subrack</b></span>.</li><li>Add the subrack is added, set the blade server adding mode:<ul><li>To add a host controlled in a hypervisor to <span>FusionManager</span>, leave <span class="uicontrol"><b>Bare Metal Access</b></span> unchecked.</li><li>To add a bare metal server to <span>FusionManager</span>, select <span class="uicontrol"><b>Bare Metal Access</b></span>.</li></ul>
+</li></ol>
+After a blade server is added to <span>FusionManager</span>:<ul><li>The blade server subrack information is displayed on the <span class="uicontrol"><b>Subracks</b></span> page.</li><li>The blade information is displayed on the <span class="uicontrol"><b>Servers</b></span> page.</li></ul>
+</div>
+<p id="it_60_51_100003__adaptor"><a name="it_60_51_100003__adaptor"></a><a name="adaptor"></a>If the required server model is not available
+for selection, include more compatible hardware devices into the system.
+For details, see <a href="it_60_51_100011.html">Adaptation Package Management</a>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100003__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100003" class="sectiontitle2contents">Updating Subrack Information</a></h4><p><strong>Configuring Blade Server Adding Parameters</strong></p>
+<div class="p">If the
+management information or Baseboard Management Controller (BMC) information
+of a server is changed in the following conditions, you need to synchronize
+the new information to <span>FusionManager</span> in a timely manner. Otherwise, <span>FusionManager</span> will lose management for the server.<ul><li>The blade server subrack has been added to <span>FusionManager</span> but blade servers have not been added.</li><li>Both the blade servers and their subrack have been added to <span>FusionManager</span>.</li></ul>
+</div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Computing Devices</span></b> &gt; <b><span class="uicontrol">Subracks</span></b></span>, locate the row that contains the target subrack, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Set Blade Adding Parameters</b></span>.</p>
+<p><strong>Changing the Subrack
+Management Account Password</strong></p>
+<p>If the management account password
+of a blade server subrack has been modified after the subrack is added
+to <span>FusionManager</span>, you need to synchronize the new password to <span>FusionManager</span> in a timely manner. Otherwise, <span>FusionManager</span> will lose management for the blade servers in the subrack.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Computing Devices</span></b> &gt; <b><span class="uicontrol">Subracks</span></b></span>, locate the row that contains the target subrack, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Change SMM Password</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100003__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100003" class="sectiontitle2contents">Deleting a Subrack</a></h4><p>If the
+blade servers in a subrack are not needed any more, you can delete
+the whole subrack to delete the blade server from the system. Blade
+servers can only be deleted by deleting their whole subrack. After
+a subrack is deleted, <span>FusionManager</span> will not manage or monitor the subrack and all the blade servers
+in it.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Computing Devices</span></b> &gt; <b><span class="uicontrol">Subracks</span></b></span>, locate the row that contains the target subrack, click <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

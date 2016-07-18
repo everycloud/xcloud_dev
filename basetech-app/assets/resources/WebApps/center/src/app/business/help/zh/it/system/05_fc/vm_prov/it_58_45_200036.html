@@ -1,0 +1,131 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="升级Tools">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_200036">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>升级Tools</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nTools管理\n升级Tools");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"it_58_45_200028.html\">Tools管理<\/a> > 升级Tools<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_200036"></a><a name="it_58_45_200036"></a>
+
+
+
+<h1 class="topictitle1">升级Tools</h1>
+<ul><li><a href="#it_58_45_200036__1.3.1.1">Tools升级过程</a></li><li><a href="#it_58_45_200036__1.3.2.1">设置Tools升级方式</a></li></ul>
+
+<div>
+<div class="section"><a name="it_58_45_200036__1.3.1.1"></a><a name="1.3.1.1"></a><h4 class="sectiontitle"><a href="#it_58_45_200036" class="sectiontitle2contents">Tools升级过程</a></h4><p>版本升级过程中，会自动推送Tools升级包至各主机，各主机再自动推送至每台虚拟机。</p>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p><span><strong>高危特性声明</strong>：该功能使用过程中可能触及最终用户数据，符合业界惯例，但仍须谨慎使用。</span></p>
+<p>升级过程中，会将Tools推送至虚拟机内部。</p>
+</div></div>
+<div class="p"><ul><li>Tools的升级方式为<span class="parmvalue">“自动升级”</span>时，Tools将自动升级，无需任何干预。</li><li>Tools的升级方式为<span class="parmvalue">“手动升级”</span>时，虚拟机用户可根据提示，选择是否升级Tools。</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_58_45_200036__1.3.2.1"></a><a name="1.3.2.1"></a><h4 class="sectiontitle"><a href="#it_58_45_200036" class="sectiontitle2contents">设置Tools升级方式</a></h4><p>管理员和虚拟机用户均可设置每个虚拟机Tools、智能网卡驱动的升级方式，以满足不同场景下用户对虚拟机升级的要求。</p>
+<div class="p"><ul><li>管理员：在<span>FusionManager</span> Web 客户端中设置每个虚拟机的升级方式。具体操作请参见<span><span class="filepath">“修改虚拟机升级方式”</span></span>。</li><li>虚拟机用户：<ul><li>Windows虚拟机：在虚拟机操作系统界面单击桌面右下角的Tools图标，设置升级方式。<p>当管理员和虚拟机用户设置的升级方式冲突时，虚拟机执行的升级方式为<span class="parmvalue">“自动升级”</span>。</p>
+</li><li>Linux虚拟机：用户无法在虚拟机内部设置升级方式。</li></ul>
+</li></ul>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

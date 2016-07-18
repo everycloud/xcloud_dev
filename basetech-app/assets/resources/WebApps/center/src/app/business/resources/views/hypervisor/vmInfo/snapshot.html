@@ -1,0 +1,66 @@
+<div id="vmInfoMonitorDiv" class="container-fluid">
+    <div class="crumbs pr">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="vdcMgr.vdc.vm">{{i18n.common_term_vms_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.vmInfo.summary">{{vmName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.vm_term_snap_label}}</li>
+            <li class="crumbs_line"></li>
+        </ul>
+        <div class="help-pa">
+            <div ng-click="help.show=true" class="small-icon small-icon-help"></div>
+        </div>
+    </div>
+</div>
+<div class="content-right-box">
+    <div class="bottom10">
+        <tiny-button id="createButton.id" class="major-btn" text="createButton.text" click="createButton.click()"
+                     disable="createButton.disable"  ng-if="hasSnapshotManageOperateRight"></tiny-button>
+        <tiny-button id="recoverVmButton.id" text="recoverVmButton.text" click="recoverVmButton.click()"
+                     disable="recoverVmButton.disable" ng-if="hasSnapshotManageOperateRight"></tiny-button>
+        <tiny-button id="editButton.id" text="editButton.text" click="editButton.click()"
+                     disable="editButton.disable" ng-if="hasSnapshotManageOperateRight"></tiny-button>
+        <tiny-button id="deleteButton.id" text="deleteButton.text" click="deleteButton.click()"
+                     disable="deleteButton.disable" ng-if="hasSnapshotManageOperateRight"></tiny-button>
+        <tiny-button id="refreshButton.id" text="refreshButton.text" click="refreshButton.click()"
+                     disable="refreshButton.disable"></tiny-button>
+        <tiny-button id="expandButton.id" text="expandButton.text" click="expandButton.click()"
+                     disable="expandButton.disable"></tiny-button>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <tiny-tree id="snapshotTreeMode.id" values="snapshotTreeMode.values"
+                       setting="snapshotTreeMode.setting"></tiny-tree>
+        </div>
+        <div class="span6">
+            <tiny-formfield>
+                <tiny-item label="snapshot.name.label">
+                    {{snapshot.name.value}}
+                </tiny-item>
+                <tiny-item label="'ID:'">
+                    {{currentSnapshotId}}
+                </tiny-item>
+                <tiny-item label="snapshot.memory.label">
+                    {{snapshot.memory.value}}
+                </tiny-item>
+                <tiny-item label="snapshot.copy.label">
+                    {{snapshot.copy.value}}
+                </tiny-item>
+                <tiny-item label="snapshot.snapProvisionSize.label">
+                    {{snapshot.snapProvisionSize.value}}
+                </tiny-item>
+                <tiny-item label="snapshot.status.label">
+                    {{snapshot.status.value}}
+                </tiny-item>
+                <tiny-item label="snapshot.time.label">
+                    {{snapshot.time.value}}
+                </tiny-item>
+                <tiny-item label="snapshot.desc.label">
+                    {{snapshot.desc.value}}
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+    <div fm-help help="'drawer_vm_snap'" i18n="'zh'" show="help.show"></div>
+</div>

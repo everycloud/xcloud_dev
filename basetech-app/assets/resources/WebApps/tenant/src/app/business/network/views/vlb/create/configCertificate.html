@@ -1,0 +1,36 @@
+<div class="row-fluid alert-tip-first" id="config-certificate-window" ng-controller="configCertificateCtrl">
+    <tiny-formfield>
+        <tiny-item label="info.name.label" require="info.name.require">
+            <tiny-textbox id="info.name.id" value="info.name.value" width="info.name.width" validate="info.name.validate" extend-function="info.name.extendFunction"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.publicKey.label" require="info.publicKey.require">
+            <tiny-textbox id="info.publicKey.id" value="info.publicKey.value" height="info.publicKey.height" type="info.publicKey.type" width="info.publicKey.width" validate="info.publicKey.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.privateKey.label" require="info.privateKey.require">
+            <tiny-textbox id="info.privateKey.id" value="info.privateKey.value" height="info.publicKey.height" focus="info.privateKey.focus()" type="info.privateKey.type" width="info.privateKey.width" validate="info.privateKey.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="info.password.label" require="info.password.require">
+            <tiny-textbox id="info.password.id" value="info.password.value" type="info.password.type" width="info.password.width" validate="info.password.validate"
+                          tooltip= "info.password.tooltip" extend-function="info.password.extendFunction"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="info.okBtn.id" text="info.okBtn.text" click="info.okBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="text/javascript">
+require(["app/business/network/controllers/vlb/create/configCertificateWindowModule"], function(configCertificateWindowModule) {
+    var dep = ['ng', configCertificateWindowModule.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#config-certificate-window"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#config-certificate-window"))($rootScope);
+        $rootScope.$digest();
+    });
+})
+</script>

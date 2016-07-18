@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="防火墙">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100005">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>防火墙</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100005"></a><a name="it_60_51_100005"></a>
+
+
+<h1 class="topictitle1">防火墙</h1>
+
+<div>
+<div class="section"><p>防火墙类似于建筑大厦中用于防止火灾蔓延的隔断墙，是一个或一组实施访问控制策略的系统。它监控可信任网络（相当于内部网络）和不可信任网络（相当于外部网络）之间的访问通道，防止外部网络的危险蔓延到内部网络上。 </p>
+<div class="p">将防火墙设备接入<span>FusionManager</span>，用于：<ul><li>对物理设备进行统一的监控和管理。</li><li>为业务功能提供物理设备资源支持：使用硬件防火墙方式，提供虚拟防火墙服务，使得用户可以在VPC中创建路由网络，以及使用弹性IP、NAT、ACL、VPN等业务。</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">接入防火墙</h4><p id="it_60_51_100005__loginCheck"><a name="it_60_51_100005__loginCheck"></a><a name="loginCheck"></a>接入前，建议先使用远程访问工具，如PuTTY，通过SSH方式登录待接入的设备，确保能够正常登录设备并顺利进入用户视图。若受到某些警告或者其他异常导致的登录阻塞或失败，则解决异常后再进行接入。</p>
+<p>接入成功后，设备信息会显示在<span class="wintitle">“防火墙”</span>界面列表中。</p>
+<p>若无待接入的设备型号可供选择，请参见<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_100011.html" target="_blank">如何兼容更多型号的硬件设备</a>。</p>
+</div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">创建虚拟防火墙</h4></div><div class="dropdowncontext"><p id="it_60_51_100005__vFW_define"><a name="it_60_51_100005__vFW_define"></a><a name="vFW_define"></a>虚拟防火墙是将一台防火墙在逻辑上划分成多台虚拟的防火墙，每个虚拟防火墙都可以被看成是一台完全独立的防火墙设备。我们在使用硬件防火墙时，其实使用的是防火墙设备中的虚拟防火墙。</p>
+<div class="p"><ol><li>虚拟防火墙的创建，是在物理防火墙设备上完成的，具体操作方法请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600003.html" target="_blank">如何在物理防火墙中创建虚拟防火墙</a>。</li><li>若在创建虚拟防火墙之前，已经将物理防火墙设备接入<span>FusionManager</span>，则完成虚拟防火墙创建后，需要重新发现防火墙。<p>在防火墙所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">重新发现</span>”</span>。</p>
+</li></ol>
+</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">设置防火墙资源使用范围</h4></div><div class="dropdowncontext"><p>用户默认可以使用接入的防火墙中的所有资源，如SNAT、NAPT、子接口等。若需要配置其中各种资源的使用范围，则需通过导入配置文件的方式进行限制设置。</p>
+<div class="p"><ol><li>单击<span class="uicontrol">“导入资源配置”</span>。</li><li>下载模板保存至本地，并按照要求填写防火墙资源信息，具体操作方法请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600001.html" target="_blank">如何配置防火墙资源文件</a>。</li><li>导入填写完成的模板，即可进行防火墙资源可用范围的配置。</li></ol>
+若接入的是主备防火墙，只需要执行一次配置文件的导入，系统会为主备防火墙同时进行配置。</div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">修改接入参数</h4></div><div class="dropdowncontext"><p>在防火墙接入后，若防火墙的管理信息被修改，需及时将信息同步到<span>FusionManager</span>系统中，否则将影响系统对防火墙的监控、使用和管理。</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">删除防火墙</h4></div><div class="dropdowncontext"><p>当设备不再使用时，删除防火墙。删除后，<span>FusionManager</span>系统不再对该防火墙进行管理和监控，和该防火墙相关的业务将无法使用。</p>
+<p>若接入的是主备防火墙，删除其中一个，另一个也会自动被删除。</p>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

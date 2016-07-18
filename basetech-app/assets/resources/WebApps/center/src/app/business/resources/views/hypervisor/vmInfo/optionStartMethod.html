@@ -1,0 +1,14 @@
+<div id="optionStartMethodDiv">
+    <div class="legend">{{i18n.common_term_startupMode_label}}</div>
+    <p class="color2 bottom10">{{i18n.vm_vm_startMode_desc_label}}</p>
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-select id="startMethodSelector.id" values="startMethodSelector.values"
+                         width="startMethodSelector.width"></tiny-select>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="startMethodOkButton.id" text="startMethodOkButton.text" click="startMethodOkButton.click()"
+                         ng-if="operable" class="major-btn"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

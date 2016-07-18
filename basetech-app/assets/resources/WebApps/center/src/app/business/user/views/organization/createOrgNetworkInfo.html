@@ -1,0 +1,87 @@
+<div id="createOrgNetworkInfo">
+    <tiny-formfield>
+        <tiny-item label="networkSelectModel.networkSelectLabel">
+            <tiny-radiogroup id="networkRange.id"
+                             values="networkRange.values"
+                             spacing="networkRange.spacing"
+                             layout="networkRange.layout"
+                             change="networkRange.change()"></tiny-radiogroup>
+        </tiny-item>
+        <tiny-item label="">
+            <div class="clearfix" id="networkTables">
+                <div class="fl" style="width:600px;max-height:500px;">
+                    <div class="form-inline">
+                        <span ng-bind="networkSelectModel.canSelectNetworkLabel"></span>
+
+                        <div class="pull-right">
+                            <tiny-filtersel id="rangeFilter.id"
+                                            label="rangeFilter.label"
+                                            values="rangeFilter.values"
+                                            change="rangeFilter.change()">
+                            </tiny-filtersel>
+                            <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                                <tiny-searchbox id="leftNetworkSearchBox.id"
+                                                placeholder="leftNetworkSearchBox.placeholder"
+                                                width="leftNetworkSearchBox.width"
+                                                suggest-size="leftNetworkSearchBox.suggestSize"
+                                                maxlength="leftNetworkSearchBox.maxLength"
+                                                search="leftNetworkSearchBox.search">
+                                </tiny-searchbox>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <tiny-table id="leftNetworkTable.id"
+                                    data="leftNetworkTable.data"
+                                    columns="leftNetworkTable.columns"
+                                    enable-pagination="leftNetworkTable.pagination"
+                                    pagination-style="leftNetworkTable.paginationStyle"
+                                    length-change="leftNetworkTable.lengthChange"
+                                    length-menu="leftNetworkTable.lengthMenu"
+                                    display-length="leftNetworkTable.displayLength"
+                                    enable-filter="leftNetworkTable.enableFilter"
+                                    cur-page="leftNetworkTable.curPage"
+                                    total-records="leftNetworkTable.totalRecords"
+                                    request-config="leftNetworkTable.requestConfig"
+                                    hide-total-records="leftNetworkTable.hideTotalRecords"
+                                    render-row="leftNetworkTable.renderRow"
+                                    callback="leftNetworkTable.callback"
+                                    change-select="leftNetworkTable.changeSelect"
+                                    columns-draggable="true"
+                                    show-details="leftNetworkTable.showDetails"></tiny-table>
+                    </div>
+                </div>
+                <div class="fl left20" style="width:400px;max-height:500px;">
+                    <div class="form-inline">
+                        <span ng-bind="networkSelectModel.networkSelectedLabel"></span>
+                    </div>
+
+                    <div>
+                        <tiny-table id="rightNetworkTable.id"
+                                    data="rightNetworkTable.data"
+                                    columns="rightNetworkTable.columns"
+                                    enable-pagination="rightNetworkTable.pagination"
+                                    hide-total-records="rightNetworkTable.hideTotalRecords"
+                                    render-row="rightNetworkTable.renderRow"
+                                    callback="rightNetworkTable.callback"
+                                    change-select="rightNetworkTable.changeSelect"
+                                    columns-draggable="true"
+                                    show-details="rightNetworkTable.showDetails"></tiny-table>
+                    </div>
+                </div>
+            </div>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+                <tiny-button id="networkInfoPreBtn.id"
+                             text="networkInfoPreBtn.text"
+                             click="networkInfoPreBtn.click()"></tiny-button>
+                <tiny-button class="major-btn"
+                             id="networkInfoNextBtn.id"
+                             text="networkInfoNextBtn.text"
+                             click="networkInfoNextBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id"
+                             text="cancelBtn.text"
+                             click="cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

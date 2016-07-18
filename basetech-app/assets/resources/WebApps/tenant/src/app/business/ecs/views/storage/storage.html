@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span ng-bind-html="i18n.common_term_disk_label"></span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.vm_disk_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div id="ecsStorageTabs" class="tiny-tabs-container" ng-if="cloudType=='ICT' && deployMode != 'serviceCenter'" >
+            <div class="tiny-tabs-titles">
+                <ul>
+                    <li ng-class="{tinyTabActive:$state.includes('ecs.storage.disk')}" ui-sref="ecs.storage.disk" >
+                        <a ng-bind-html="i18n.common_term_disk_label"></a>
+                    </li>
+                    <li ng-class="{tinyTabActive:$state.includes('ecs.storage.snapshot')}"  ui-sref="ecs.storage.snapshot">
+                        <a ng-bind-html="i18n.common_term_diskSnap_label"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tiny-tabs-content">
+                <div ui-view></div>
+            </div>
+        </div>
+        <div ui-view ng-if="cloudType!=='ICT' || deployMode == 'serviceCenter'"></div>
+    </div>
+</div>
+<script>
+require(["tiny-widgets/Tabs"], function(Tabs) {
+    var tabs = new Tabs({
+        "id": "ecsStorageTabs",
+        "setActiveClass": true
+    });
+});
+</script>

@@ -1,0 +1,35 @@
+<div id="addMacSegmentDiv" class="alert-tip-first">
+    <div class="blank_20"></div>
+    <tiny-formfield>
+        <tiny-item label="startMacTextbox.label" require="startMacTextbox.require">
+            <tiny-textbox id="startMacTextbox.id" value="startMacTextbox.value"
+                          extend-function="startMacTextbox.extendFunction"
+                          validate="startMacTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="endMacTextbox.label" require="endMacTextbox.require">
+            <tiny-textbox id="endMacTextbox.id" value="endMacTextbox.value"
+                          extend-function="endMacTextbox.extendFunction"
+                          validate="endMacTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="okButton.id" text="okButton.text" click="okButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/environment/addMacSegmentCtrl'],
+            function (addEnvironmentCtrl) {
+                $("#addMacSegmentDiv").attr("ng-controller", "resources.hypervisor.addMacSegment.ctrl");
+                var dep = ['ng', 'wcc', addEnvironmentCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#addMacSegmentDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#addMacSegmentDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

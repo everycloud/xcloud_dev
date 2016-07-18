@@ -1,0 +1,12 @@
+<div class="row-fluid tiny-step-boxset clearfix">
+    <div class="createpage-legend">
+        <span ng-bind-html="i18n.template_term_batchInstall_button"></span>
+    </div>
+    <tiny-step id="step.id" values="step.values" width="step.width" jumpable="step.jumpable"></tiny-step>
+</div>
+
+<div id="ftpUpload" style="position: absolute"></div>
+
+<div ng-include="monkey.basic.url" ng-show="monkey.show.basic"></div>
+<div ng-include="monkey.addVM.url" ng-show="monkey.show.addVM"></div>
+<div ng-include="monkey.confirm.url" ng-show="monkey.show.confirm"></div>

@@ -1,0 +1,69 @@
+<div>
+    <div>
+        <tiny-formfield labelwidth="orgRangeInfo.labelwidth">
+            <tiny-item label="rangeSelectModel.rangeSelectLabel">
+                <div class="clearfix">
+                    <div class="fl" style="width:250px">
+                        <div class="form-inline">
+                            <span ng-bind="rangeSelectModel.canSelectRangeLabel"></span>
+
+                            <div class="pull-right">
+                                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                                    <tiny-searchbox id="leftRangeSearchBox.id"
+                                                    placeholder="leftRangeSearchBox.placeholder"
+                                                    width="leftRangeSearchBox.width"
+                                                    suggest-size="leftRangeSearchBox.suggestSize"
+                                                    maxlength="leftRangeSearchBox.maxLength"
+                                                    search="leftRangeSearchBox.search">
+                                    </tiny-searchbox>
+                                </span>
+                            </div>
+                        </div>
+                        <div style="border: 1px #ccc solid;overflow-y:auto;overflow-x:hidden; height: 300px;margin-top: 10px">
+                            <div style="margin: 5px;">
+                                <div ng-repeat="left in canSelectRange.list">
+                                    <tiny-checkbox id="left.id" text="left.name" height="canSelectRange.height"
+                                                   checked="left.checked"></tiny-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fl" style="width: 100px;display:block; text-align: center; margin-top: 135px;">
+                        <div>
+                            <img src='../theme/default/images/common_leftbutton.png'
+                                 ng-click="selectRangeLeftBtn.click()">
+                        </div>
+                        <div>
+                            <img src='../theme/default/images/common_rightbutton.png'
+                                 ng-click="selectRangeRightBtn.click()">
+                        </div>
+                    </div>
+                    <div class="fl" style="width:250px">
+                        <span ng-bind="rangeSelectModel.rangeSelectedLabel"></span>
+
+                        <div style="border: 1px #ccc solid;overflow-y:auto;overflow-x:hidden;height: 300px;margin-top: 10px">
+                            <div style="padding: 5px;">
+                                <div class="clearfix" ng-repeat="right in selectedRange.list">
+                                    <div class="fl">
+                                        <tiny-checkbox id="right.id" text="right.name" checked="right.checked"
+                                                       height="selectedRange.height"
+                                                       width="selectedRange.width"></tiny-checkbox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tiny-item>
+            <tiny-item>
+                <div class="fm-btn-top-small">
+                    <tiny-button id="rangeInfoPreBtn.id" text="rangeInfoPreBtn.text"
+                                 click="rangeInfoPreBtn.click()"></tiny-button>
+                    <tiny-button class="major-btn" id="rangeInfoNextBtn.id" text="rangeInfoNextBtn.text"
+                                 disable="rangeInfoNextBtn.disable" click="rangeInfoNextBtn.click()"></tiny-button>
+                    <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

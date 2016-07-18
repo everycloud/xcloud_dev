@@ -1,0 +1,21 @@
+<div id="optionHotMigrateDiv">
+    <div class="legend">{{i18n.vm_term_basicBlockLiveMig_label}}</div>
+    <p class="color2" ng-bind-html="i18n.vm_vm_basicBlockLiveMig_desc_label"></p>
+    <p class="color2 bottom10" ng-bind-html="i18n.vm_vm_basicBlockLiveMig_info_vmStatus_label"></p>
+    <tiny-formfield>
+        <tiny-item>
+            <div class="fl">
+                <tiny-radiogroup id="hotMigrateRadioGroup.id" values="hotMigrateRadioGroup.values"
+                                 layout="hotMigrateRadioGroup.layout"></tiny-radiogroup>
+            </div>
+            <div class="fl">
+                {{i18n.vm_vm_add_para_Block_mean_no_label}}<br/>
+                {{i18n.vm_vm_add_para_Block_mean_yes_label}}
+            </div>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button class="major-btn" id="hotMigrateOkButton.id" text="hotMigrateOkButton.text"
+                         click="hotMigrateOkButton.click()"  ng-if="operable"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

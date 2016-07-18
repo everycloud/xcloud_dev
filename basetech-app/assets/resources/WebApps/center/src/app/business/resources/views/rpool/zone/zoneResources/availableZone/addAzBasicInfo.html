@@ -1,0 +1,26 @@
+<div id="addAzInfoDiv">
+    <tiny-formfield>
+        <tiny-item label="nameTextbox.label" require="nameTextbox.require">
+            <tiny-textbox id="nameTextbox.id" value="nameTextbox.value"
+                          validate="nameTextbox.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="descTextbox.label" require="descTextboxv.require">
+            <tiny-textbox id="descTextbox.id" value="descTextbox.value"
+                          validate="descTextbox.validate" type="descTextbox.type" height="descTextbox.height"></tiny-textbox>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="addTagButton.id" text="addTagButton.text" click="addTagButton.click()"></tiny-button>
+        </tiny-item>
+        <tiny-item>
+            <div class="table-tiny-box-height"  style="width: 1200px">
+                <tiny-table id="tagTable.id" data="tagTable.data"   columns-draggable="tagTable.columnsDraggable"
+                            columns='tagTable.columns' render-row="tagTable.renderRow"
+                            enable-pagination="tagTable.enablePagination"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="infoNextButton.id" text="infoNextButton.text" click="infoNextButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="infoCancelButton.id" text="infoCancelButton.text" click="infoCancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

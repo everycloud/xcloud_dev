@@ -1,0 +1,26 @@
+<div id="editClusterDomainDiv">
+    <tiny-tree id="domainTree.id" height="domainTree.height" setting="domainTree.setting"
+               values="domainTree.values"></tiny-tree>
+    <div class="clear_both">
+        <tiny-button id="quitButton.id" text="quitButton.text" click="quitButton.click()"  disable="quitButton.disable"></tiny-button>
+        <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()" disable="okButton.disable"></tiny-button>
+        <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+    </div>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/cluster/editDomainCtrl'],
+            function (editDomainCtrl) {
+                var rootElement = $("#editClusterDomainDiv");
+                rootElement.attr("ng-controller", "resources.clusterInfo.editDomain.ctrl");
+                var dep = ['ng', 'wcc', editDomainCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

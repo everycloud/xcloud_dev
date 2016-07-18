@@ -1,0 +1,30 @@
+<div id="repairSoftware" class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div class="createpage-legend">{{ i18n.template_term_restoreSoft_button }}</div>
+        <tiny-step id="service.step.id" values="service.step.values" width="service.step.width" jumpable="service.step.jumpable"></tiny-step>
+    </div>
+    <div id="ftpUpload" style="position: absolute"></div>
+    <div>
+        <div ng-show="service.show == 'baseInfo'">
+            <div ui-view="baseInfo"></div>
+        </div>
+        <div ng-show="service.show == 'upload'">
+            <div ui-view="upload"></div>
+        </div>
+    </div>
+</div>
+<style>
+    .navigation {
+        margin-top: 70px
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        var height = $(document).height() - 74;
+        $("#repairSoftware").attr("style", "min-height:" + height + "px");
+        $(window).resize(function () {
+            var height = $(document).height() - 74;
+            $("#repairSoftware").attr("style", "min-height:" + height + "px");
+        });
+    });
+</script>

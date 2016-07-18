@@ -1,0 +1,184 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="配置CommVault虚拟机备份服务器">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600009">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>配置CommVault虚拟机备份服务器</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n配置CommVault虚拟机备份服务器");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > 配置CommVault虚拟机备份服务器<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600009"></a><a name="it_60_51_600009"></a>
+
+
+
+<h1 class="topictitle1">配置CommVault虚拟机备份服务器</h1>
+<ul><li><a href="#it_60_51_600009__1.2.1.1">操作场景</a></li><li><a href="#it_60_51_600009__1.2.2.1">前提条件</a></li><li><a href="#it_60_51_600009__1.2.3.1">操作步骤</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600009__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600009" class="sectiontitle2contents">操作场景</a></h4>
+
+
+<div class="p"><p>该任务指导管理员配置CommVault虚拟机备份服务器，以对虚拟机的磁盘数据进行备份。在虚拟机故障时，可通过备份服务器上的数据对虚拟机进行恢复。</p>
+<p><span>FusionManager</span>支持的备份系统包括华为备份系统HyperDP和CommVault Simpana。Simpana是CommVault公司的数据管理软件，HyperDP是华为针对FusionCompute虚拟化环境提供灵活的数据保护解决方案，帮助用户应对虚拟机备份的规模大、数据冗余等挑战，提高虚拟机数据的安全性。</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600009__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600009" class="sectiontitle2contents">前提条件</a></h4>
+
+
+<div class="p"><ul><li>需获取备份服务器的名称、用户名和密码。</li><li>已登录<span>FusionManager</span>。</li><li>在CommVault上已完成存储策略的配置。</li><li>已获取私钥文件。</li></ul>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600009__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600009" class="sectiontitle2contents">操作步骤</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">安装CommVault客户端</p>
+<div class="Steps-titled"><ol type="1" start="1"><li id="it_60_51_600009__s_01"><a name="it_60_51_600009__s_01"></a><a name="s_01"></a><span>使用“PuTTY”，以“galaxmanager”用户登录<span>FusionManager</span>主节点。</span>
+<p>“galaxmanager”用户的默认密码：Huawei@CLOUD8</p>
+</li><li><span>执行以下命令，防止“PuTTY”超时退出。</span>
+<p><b><span class="cmdname">TMOUT=0</span></b></p>
+</li><li><span>执行以下命令，配置CommVault运行环境。</span>
+<p><b><span class="cmdname">modConfig cv -b</span></b></p>
+<p>当出现如下回显信息，表示配置成功。<pre class="screen">configure cv before install success</pre>
+</p>
+</li><li id="it_60_51_600009__step4"><a name="it_60_51_600009__step4"></a><a name="step4"></a><span>请参考<a href="../maintenance/it_60_53_000050.html">生成及替换FusionManager的安全防护证书</a>在本机安装OpenSSL。</span>
+</li><li><span>获取CommVault的ISO软件包和私钥文件并放在OpenSSL工具所在目录。</span>
+<p>例如，D:\OpenSSL-Win32\bin</p>
+</li><li><span>执行如下命令对CommVault的ISO软件包进行数字签名。</span>
+<p><b><span class="cmdname">openssl dgst -sha256 -out</span></b> <i><span class="varname">签名文件名称</span></i> <b><span class="cmdname">-sign</span></b> <i><span class="varname">私钥文件名</span></i> <i><span class="varname">CommVault的软件包名称</span></i></p>
+<p><p>签名文件名称的命名格式建议为<span class="parmname">“软件包名称.sig”</span>。</p>
+</p>
+<p>假设软件包名称为<span class="parmname">“CommVault.zip”</span>，生成的私钥文件的名称为<span class="parmname">“private.key”</span>，则生成数字签名的命令为：<p><b><span class="cmdname">openssl dgst -sha256
+-out CommVault.zip.sig -sign private.key CommVault.zip</span></b></p>
+</p>
+</li><li><span>使用<span class="parmname">“WinSCP”</span>工具，以<span class="parmname">“galaxmanager”</span>用户，将CommVault的ISO软件包和签名文件拷贝到<span>FusionManager</span>主节点的<span class="parmname">“/opt/goku/data/upload”</span>路径下。</span>
+<p>“galaxmanager”用户的默认密码：Huawei@CLOUD8</p>
+</li><li><span>执行如下命令，开始安装CommVault。</span>
+<p><b><span class="cmdname">installComponents cv Simpana_10_DVD03_UNIX_03042013.iso</span></b></p>
+</li><li><span>请参考CommVault相关产品文档，在<span>FusionManager</span>的主备节点上完成CommVault客户端iDataAgent的安装。</span>
+<p><p>可登录<a href="http://www.commvault.com.cn/services-and-support" target="_blank">http://www.commvault.com.cn/services-and-support</a>，查找并获取CommVault对应版本的产品文档。</p>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>安装iDataAgent时选择File
+System组件进行安装。</p>
+</div></div>
+</p>
+</li><li id="it_60_51_600009__stp_cv"><a name="it_60_51_600009__stp_cv"></a><a name="stp_cv"></a><span>执行如下命令，配置CommVault。</span>
+<p><b><span class="cmdname">modConfig cv -a -i</span></b><i><span class="varname"> CommVault服务器IP地址</span></i><b><span class="cmdname"> -s</span></b><i><span class="varname"> "存储策略名"</span></i></p>
+<p><p>参数说明：</p>
+<ul><li>存储策略为CommVault服务器上已经配置的存储策略的名称。</li><li>存储策略有多条时，使用“|”对多个存储策略名进行分隔。</li></ul>
+<p>例如：<b><span class="cmdname">modConfig cv -a -i 192.168.0.123 -s "storage01|storage02"</span></b></p>
+</p>
+</li><li><span>重复执行<a href="#it_60_51_600009__s_01">1</a>～<a href="#it_60_51_600009__stp_cv">10</a>，在<span>FusionManager</span>备节点上安装CommVault。</span></li><li><span>在CommVault上配置报告，用来定时采集存储使用情况，并上传到<span>FusionManager</span>指定的目录下。</span>
+<p><p>要求报文的分组依据为客户端组，输出的报文结尾为summary.csv格式，输出的路径为客户端上配置的报告存放路径。</p>
+<p>下面以CommVault Simpana 10为例，在新建报告的<span class="wintitle">“报告详细信息”</span>中做如下配置：</p>
+<ul><li>在<span class="wintitle">“常规”</span>页签，选择<span class="menucascade">“<span class="uicontrol">数据管理</span> &gt; <span class="uicontrol">备份</span>”</span>，选择<span class="parmname">“分组依据”</span>为<span class="parmvalue">“客户端组”</span>。</li><li>在<span class="wintitle">“输出”</span>页签，在<span class="wintitle">“输出格式”</span>中选择<span class="wintitle">“文本定界符”</span>为<span class="parmvalue">“逗号”</span>，上传的文件名以summary.csv结尾。</li><li>在<span class="wintitle">“输出”</span>页签，选择<span class="wintitle">“使用本地驱动器”</span>，将<span class="wintitle">“报告拷贝位置”</span>配置为/opt/cvreport。</li></ul>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置CommVault备份服务器</p>
+<div class="Steps-titled"><ol type="1" start="13"><li><span>在<span>FusionManager</span>中，选择<span class="menucascade">“<span class="uicontrol">系统</span> &gt; <span class="uicontrol">备份设定</span>”</span>。</span></li><li><span>在<span class="wintitle">“虚拟机备份服务器”</span>区域框中，勾选<span class="wintitle">“配置CommVault备份系统”</span>。</span></li><li><span>勾选<span class="uicontrol">“使用CommVault备份服务器”</span>。</span></li><li><span>在<span class="parmname">“服务器名称”</span>中输入CommVault备份服务器的名称。</span>
+</li><li><span>输入CommVault的<span class="parmname">“用户名”</span>、<span class="parmname">“密码”</span>，并确认密码。</span></li><li><span>单击<span class="uicontrol">“保存”</span>，完成配置参数保存。</span></li></ol></div>
+</div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

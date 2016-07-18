@@ -1,0 +1,76 @@
+<div id="setScheduleAddHgDiv">
+    <div id="addHgNameDiv" class="alert-tip-first">
+        <tiny-formfield>
+            <tiny-item label="nameTextbox.label" require="nameTextbox.require">
+                <tiny-textbox id="nameTextbox.id" value="nameTextbox.value" tooltip="nameTextbox.tooltip"
+                              validate="nameTextbox.validate" extend-function="nameTextbox.extendFunction"></tiny-textbox>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="row padding-left10">
+        <div class="span4">
+            <div class="color-gray bottom10">
+                {{i18n.common_term_waitChoose_value}}：<div class="fr"><tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder"
+                                      search="searchBox.search"></tiny-searchbox></div>
+            </div>
+            <div>
+                <tiny-table id="leftTable.id" data="leftTable.data"
+                            pagination-style="leftTable.paginationStyle"
+                            columns='leftTable.columns' render-row="leftTable.renderRow"
+                            total-records="leftTable.totalRecords" length-change="leftTable.lengthChange"
+                            cur-page="leftTable.curPage" display-length="leftTable.displayLength"
+                            enable-pagination="leftTable.enablePagination" length-menu="leftTable.lengthMenu"
+                            callback="leftTable.callback"></tiny-table>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="line-height30 color-gray">{{i18n.common_term_choosed_value}}：</div>
+            <div>
+                <tiny-table id="rightTable.id" data="rightTable.data" pagination-style="rightTable.paginationStyle"
+                            columns='rightTable.columns' render-row="rightTable.renderRow"
+                            total-records="rightTable.totalRecords" length-change="rightTable.lengthChange"
+                            cur-page="rightTable.curPage" display-length="rightTable.displayLength"
+                            enable-pagination="rightTable.enablePagination" length-menu="rightTable.lengthMenu"
+                            callback="rightTable.callback"></tiny-table>
+            </div>
+        </div>
+    </div>
+    <div class="fm-btn-top-large text-center">
+        <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()" disable="okButton.disable"></tiny-button>
+        <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+    </div>
+
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/cluster/setScheduleAddHgCtrl', "tiny-widgets/Checkbox"],
+            function (setScheduleAddHgCtrl, Checkbox) {
+                var rootElement = $("#setScheduleAddHgDiv");
+                rootElement.attr("ng-controller", "resources.cluster.addHg.ctrl");
+                var dep = ['ng', 'wcc', setScheduleAddHgCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                //待选虚拟机列表表头全选复选框
+                var leftTableId = "#addHgLeftTable";
+                var leftOptions = {
+                    "id": "leftTableHeadCheckbox",
+                    "checked": false,
+                    "change": function () {
+                        var isChecked = $("#" + leftOptions.id).widget().options.checked;
+                        var index = 0;
+                        while($("#leftCheckbox_" + index).widget()){
+                            $("#leftCheckbox_" + index).widget().option("checked", isChecked);
+                            index ++;
+                        }
+                    }
+                };
+                var checkbox = new Checkbox(leftOptions);
+                $(leftTableId + " th:eq(0)").html(checkbox.getDom());
+            });
+</script>

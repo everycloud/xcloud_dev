@@ -1,0 +1,21 @@
+<div id="domainUserDiv" class="container-fluid">
+    <div class="clearfix bottom10" ng-if="domainId != 'domainParentId'">
+        <div class="fl">
+            <tiny-button id="createUserModel.id" disabled="createUserModel.disabled" text="createUserModel.text" tooltip="createUserModel.tooltip" icons-class="createUserModel.iconsClass" click="createUserModel.create()" class="major-btn"></tiny-button>
+        </div>
+        <div class="pull-right">
+            <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                </tiny-searchbox>
+            </span>
+            <a class="btn-link">
+                <div ng-click="refresh.click()" class="small-icon small-icon-refresh"></div>
+            </a>
+        </div>
+    </div>
+    <div>
+        <tiny-table id="domainUserTable.id" data="domainUserTable.data" columns="domainUserTable.columns" enable-pagination="domainUserTable.pagination" pagination-style="domainUserTable.paginationStyle" length-change="domainUserTable.lengthChange" length-menu="domainUserTable.lengthMenu"
+        display-length="domainUserTable.displayLength" enable-filter="domainUserTable.enableFilter" cur-page="domainUserTable.curPage" total-records="domainUserTable.totalRecords" request-config="domainUserTable.requestConfig" hide-total-records="domainUserTable.hideTotalRecords"
+        render-row="domainUserTable.renderRow" callback="domainUserTable.callback" change-select="domainUserTable.changeSelect" columns-draggable="true" show-details="domainUserTable.showDetails"></tiny-table>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VM Templates">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100030">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>VM Templates</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100030"></a><a name="it_60_51_100030"></a>
+
+
+
+
+<h1 class="topictitle1">VM Templates</h1>
+
+
+<div>
+<div class="p"><span id="it_60_51_100030__vmTemplate_define"><a name="it_60_51_100030__vmTemplate_define"></a><a name="vmTemplate_define"></a>A VM template is a duplicate of a VM,
+which includes an OS, software packages, and a set of VM specifications. </span>VM templates can be used to:<a name="it_60_51_100030__vmTemplate_function"></a><a name="vmTemplate_function"></a><ul id="it_60_51_100030__vmTemplate_function"><li>Provision VMs. Creating VMs using a VM template can greatly reduce
+the time for creating the VMs and configuring operating systems (OSs)
+for them.</li><li>Provision application instances: A VM template can be used to
+create multiple VMs for an application instance. An application instance
+can be used to provision application instances.</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Obtaining a VM Template</h4><div class="p" id="it_60_51_100030__vmTemplate_get"><a name="it_60_51_100030__vmTemplate_get"></a><a name="vmTemplate_get"></a>You can obtain a VM in either of the following
+ways:<ol><li><p><strong>Discover an existing VM template in FusionManager</strong></p>
+<p>Discover a VM template that is created in the hypervisor and has
+been added to FusionManager.</p>
+</li><li><p><strong>Customize a VM template</strong></p>
+<p>Use an OS ISO image file
+to create a VM template and configure the VM OS as needed.</p>
+<p>For
+the detailed operation procedure, see <a href="../src/app/business/help/en/it/system/07_fm/help/it_60_51_600004.html" target="_blank">Creating a VM Template
+(Windows)</a> or <a href="../src/app/business/help/en/it/system/07_fm/help/it_60_51_600010.html" target="_blank">Creating a VM Template
+(Linux)</a>.</p>
+</li></ol>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>How to obtain a VSA or PVM VM template, For details, see <a href="../src/app/business/help/en/it/system/07_fm/help/it_60_56_c10121.html" target="_blank">Importing a VSA
+VM Template</a> or <a href="../src/app/business/help/en/it/system/07_fm/help/it_60_56_c10122.html" target="_blank">Creating a PVM
+Template</a>.</p>
+</div></div>
+</div>
+</div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Modifying a VM Template</h4></div><div class="dropdowncontext"><p><strong>Modifying Basic Information About a VM Template</strong></p>
+<p>Modify
+basic information about a VM template, including the name, OS type,
+and OS version.</p>
+<p>Locate
+the row that contains the target VM template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Modify VM Template Information</b></span>.</p>
+<p><strong>Changing Software in a VM Template</strong></p>
+<p>Install new
+software or uninstall existing software in a VM template.</p>
+<div class="p"><ol><li>Locate the row that contains the target VM template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Modify VM Template Software</b></span>.</li><li>Locate the row that contains the target VM template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Install Software</b></span>.</li></ol>
+</div>
+<p><strong>Changing VM Template Attributes</strong></p>
+<p>Change the
+hardware attributes of a VM template, including the CPUs, memory,
+NICs, and disks. A VM template is equivalent to a stopped VM, and
+changing its hardware attributes is the same as changing VM hardware
+attributes.</p>
+<p>Locate
+the row that contains the target VM template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Manage VM Template Attributes</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Converting a VM Template into a VM</h4></div><div class="dropdowncontext"><p>Convert a VM template into a VM.</p>
+<p>Locate the row that contains
+the target VM template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Convert to VM</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Deleting a VM Template</h4></div><div class="dropdowncontext"><p>If
+a VM template is not needed any more, you can delete it from the system.</p>
+<p>Locate the row that contains the target
+VM template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Delete</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">VM Logical Template</h4></div><div class="dropdowncontext"><p id="it_60_51_100030__logic_vm_define"><a name="it_60_51_100030__logic_vm_define"></a><a name="logic_vm_define"></a>A VM logical template is a set of VM templates
+with the same specifications and OS settings. When FusionManager functions
+as a service provider, it provides VM templates to other management
+platforms using VM logical templates. When the VM templates with the
+same specifications in different hypervisors are provided to upper-layer
+management platforms as one VM logical template, the differences of
+the VM templates in the hypervisors are hidden from the management
+platforms.</p>
+<p>For example, in data centers, FusionManager functions
+as a service provider that manages multiple hypervisors, and the VM
+creation and provisioning are implemented by upper-layer software
+platform. In this case, FusionManager needs to provide the VM logical
+templates for upper-layer software to provision VMs.</p>
+<div class="p">You can
+perform the following operations to create a VM logical template:<ol><li><p>Click the <span class="uicontrol"><b>VM
+Logical Template</b></span> tab and click <span class="menucascade"><b><span class="uicontrol">Create</span></b></span>.</p>
+</li><li><p>Associate the VM templates with the same specifications and
+OS settings with the VM logical template.</p>
+<p>Locate
+the row that contains the target VM template, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Associate with Logical Template</b></span>.</p>
+</li><li><p>Click the <span class="uicontrol"><b>VM Logical Template</b></span> tab, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Activate</b></span>.</p>
+</li></ol>
+</div>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

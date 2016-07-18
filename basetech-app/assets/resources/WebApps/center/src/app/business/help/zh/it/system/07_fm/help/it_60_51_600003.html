@@ -1,0 +1,323 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="如何在物理防火墙中创建虚拟防火墙">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600003">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>如何在物理防火墙中创建虚拟防火墙</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n如何在物理防火墙中创建虚拟防火墙");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > 如何在物理防火墙中创建虚拟防火墙<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600003"></a><a name="it_60_51_600003"></a>
+
+
+<h1 class="topictitle1">如何在物理防火墙中创建虚拟防火墙</h1>
+<ul><li><a href="#it_60_51_600003__1.2.1.1">操作场景</a></li><li><a href="#it_60_51_600003__1.2.2.1">前提条件</a></li><li><a href="#it_60_51_600003__1.2.3.1">操作步骤</a></li></ul>
+<div>
+<div class="section"><a name="it_60_51_600003__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600003" class="sectiontitle2contents">操作场景</a></h4>
+
+
+<div class="p"><div class="p">该任务指导系统管理员在防火墙设备中手动创建并配置虚拟防火墙。虚拟防火墙用于为VPC中的网络提供ACLs、NAT、VPN等功能。<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>以华为Eudemon 1000E-X V300R001版本防火墙设备为例，如下操作方法仅供参考，若相关的命令或参数发生变更，请以实际产品为准。其他型号设备的配置方法，请参考对应产品版本的产品文档。</p>
+</div></div>
+</div>
+<div class="p">配置数据如<a href="#it_60_51_600003__fig_data">图1</a>所示为例：<ul><li>防火墙端口GigabitEthernet0/0/2属于Untrust区域，GigabitEthernet0/0/3属于Trust区域；</li><li>汇聚交换机端口GigabitEthernet 0/0/3属于防火墙的Untrust区域，GigabitEthernet 0/0/2属于防火墙的Trust区域。</li><li>在防火墙上创建虚拟防火墙vfw101，并在防火墙端口GigabitEthernet0/0/2上为虚拟防火墙创建Untrust区域子接口GigabitEthernet0/0/2.101，所属VLAN101，与其对端的交换机端口GigabitEthernet
+0/0/3允许VLAN101通过。</li></ul>
+</div>
+<div class="fignone" id="it_60_51_600003__fig_data"><a name="it_60_51_600003__fig_data"></a><a name="fig_data"></a><span class="figcap"><b>图1 </b>虚拟防火墙vfw101配置</span>
+
+<br><span><img src="fig/fig_it_60_51_600003_01.png"></span><br>
+</div>
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletableborder">
+<tr>
+<th valign="bottom" align="left" id="mcps1.2.1.2.4.1.1" width="13.000000000000002%"><p>项目</p>
+</th>
+
+<th valign="bottom" align="left" id="mcps1.2.1.2.4.1.2" width="39%"><p>数据</p>
+</th>
+
+<th valign="bottom" align="left" id="mcps1.2.1.2.4.1.3" width="48%"><p>说明</p>
+</th>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.1.2.4.1.1"><p>vfw101</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.2"><p>路由标示为 101:1</p>
+<p>Untrust域子接口：GigabitEthernet0/0/2.101</p>
+<p>VLAN：101</p>
+<p>Vlanif101的IP地址：192.168.101.1/29</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.3"><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.1.2.4.1.1"><p>（1）</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.2"><p>防火墙端口号：GigabitEthernet 0/0/2</p>
+<p>安全区域：vfw101的Untrust</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.3"><p>防火墙主备部署时，配置备节点上的子接口IP为192.168.101.2。</p>
+</td>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.1.2.4.1.1"><p>（2）</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.2"><p>防火墙端口号：GigabitEthernet 0/0/3</p>
+<p>安全区域：vfw101的Trust</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.3"><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.1.2.4.1.1"><p>（3）</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.2"><p>交换机端口号：GigabitEthernet 0/0/3</p>
+<p>VLAN101</p>
+<p>Vlanif101的IP地址：192.168.101.4/29</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.3"><p>-</p>
+</td>
+
+</tr>
+
+<tr>
+<td valign="top" headers="mcps1.2.1.2.4.1.1"><p>（4）</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.2"><p>交换机端口号：GigabitEthernet 0/0/2</p>
+<p>VLAN：80～90</p>
+</td>
+
+<td valign="top" headers="mcps1.2.1.2.4.1.3"><p>80～90表示规划的VPC子网VLAN。</p>
+</td>
+
+</tr>
+
+</table>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600003__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600003" class="sectiontitle2contents">前提条件</a></h4>
+
+
+<div class="p"><ul><li>在创建虚拟防火墙之前，需要参考Eudemon防火墙对应版本的产品文档，完成物理防火墙的以下基础配置：<ul><li>防火墙主备部署时，需要完成防火墙的主备配置。</li><li>在物理防火墙上创建SSH用户，用于登录防火墙进行配置操作。</li></ul>
+</li><li>已使用超级终端登录防火墙和交换机设备。</li></ul>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600003__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600003" class="sectiontitle2contents">操作步骤</a></h4>
+
+<ul><div class="HandlingTitled"><p class="sectiontitle">创建并配置虚拟防火墙。</p>
+<p><p>防火墙和汇聚交换机之间的组网类型分为静态路由和OSPF两种，以下内容介绍OSPF组网类型时如何配置虚拟防火墙。静态路由限用于汇聚交换机型号为S6324和S9300时，可参考该内容配置虚拟防火墙，但无需配置OSPF。</p>
+</p><div class="Steps-titled"><ol type="1" start="1"><li><span>将防火墙端口GigabitEthernet0/0/2加入到Untrust域，将防火墙端口GigabitEthernet0/0/3加入到Trust域。</span>
+<p><p>&lt;Eudemon_A&gt;<b><span class="cmdname">system-view</span></b></p>
+<p>[Eudemon_A]<b><span class="cmdname">firewall zone untrust</span></b></p>
+<p>[Eudemon_A-zone-untrust]<b><span class="cmdname">add interface GigabitEthernet0/0/2</span></b></p>
+<p>[Eudemon_A-zone-untrust]<b><span class="cmdname">quit</span></b></p>
+<p>[Eudemon_A]<b><span class="cmdname">firewall zone trust</span></b></p>
+<p>[Eudemon_A-zone-untrust]<b><span class="cmdname">add interface GigabitEthernet0/0/3</span></b></p>
+<p>[Eudemon_A-zone-untrust]<b><span class="cmdname">quit</span></b></p>
+</p>
+</li><li><span>在防火墙上创建虚拟防火墙vfw101。</span>
+<p><p>&lt;Eudemon_A&gt;<b><span class="cmdname">system-view</span></b></p>
+<p>[Eudemon_A]<strong>ip vpn-instance vfw101</strong></p>
+<p>[Eudemon_A-vpn-instance-vfw101]<strong>route-distinguisher 101:1</strong></p>
+<p>[Eudemon_A-vpn-instance-vfw101]<strong>quit</strong></p>
+</p>
+</li><li><span>配置虚拟防火墙vfw101默认包过滤。</span>
+<p><p>[Eudemon_A]<strong>firewall packet-filter default permit interzone
+vpn-instance vfw101 local trust direction inbound</strong></p>
+<p>[Eudemon_A]<strong>firewall packet-filter default permit interzone vpn-instance vfw101
+trust untrust direction inbound</strong></p>
+<p>[Eudemon_A]<strong>firewall packet-filter
+default permit interzone vpn-instance vfw101 trust untrust direction
+outbound</strong></p>
+</p>
+</li><li><span>在防火墙的GigabitEthernet0/0/2上，创建并配置虚拟防火墙Untrust域子接口。</span>
+<p><p>[Eudemon_A]<strong>interface GigabitEthernet0/0/2.101</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>vlan-type dot1q 101</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>ip binding vpn-instance
+vfw101</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>ip address
+192.168.101.1 255.255.255.248</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>quit</strong></p>
+<p>[Eudemon_A]<b><span class="cmdname">firewall zone vpn-instance vfw101
+untrust</span></b></p>
+<p>[Eudemon_A-zone-untrust-vfw101]<b><span class="cmdname">add
+interface GigabitEthernet0/0/2.101</span></b></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>quit</strong></p>
+<p>防火墙主备部署时需要在备防火墙上执行相同的操作，例如，配置备节点上的子接口IP为<span class="parmvalue">“192.168.101.2”</span>。</p>
+</p>
+</li><li><span>（防火墙主备部署时）分别在主备配置虚拟防火墙子接口的VRRP备份组，并配置备份组的虚拟IP地址。</span>
+<p><p>[Eudemon_A]<strong>interface GigabitEthernet0/0/2.101</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>vrrp vrid 1 virtual-ip 192.168.101.3
+master</strong></p>
+<p>[Eudemon_A-GigabitEthernet0/0/2.101]<strong>quit</strong></p>
+<p>[Eudemon_B]<strong>interface GigabitEthernet0/0/2.101</strong></p>
+<p>[Eudemon_B-GigabitEthernet0/0/2.101]<strong>vrrp vrid 1 virtual-ip 192.168.101.3 slave</strong></p>
+<p>[Eudemon_B-GigabitEthernet0/0/2.101]<strong>quit</strong></p>
+</p>
+</li><li><span>通过Untrust域子接口将NAT映射地址的静态路由发布到相连的交换机端口上。</span>
+<p><p>[Eudemon_A]<strong>ospf 1 vpn-instance vfw101</strong></p>
+<p>[Eudemon_A-ospf-1]<strong>import-route static</strong></p>
+<p>[Eudemon_A-ospf-1]<strong>area 1</strong></p>
+<p>[Eudemon_A-ospf-1-area-0.0.0.1]<strong>network 192.168.101.0 0.0.0.7</strong></p>
+<p>[Eudemon_A-ospf-1-area-0.0.0.1]<b><span class="cmdname">quit</span></b></p>
+<p><span class="parmvalue">“192.168.101.0”</span>是指虚拟防火墙Untrust域子接口所在IP地址网段。</p>
+<p>防火墙主备部署时需要在备防火墙上执行相同的操作。</p>
+</p>
+</li><li><span>添加虚拟防火墙到汇聚交换机的静态路由。</span>
+<p><p>[Eudemon_A]<strong>ip route-static vpn-instance vfw101 0.0.0.0
+0.0.0.0 192.168.101.4</strong></p>
+</p>
+</li><li><span>在主防火墙上开启限流策略，备防火墙会自动同步。</span>
+<p><p>[Eudemon_A]<strong>traffic-policy enable</strong></p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置汇聚交换机。</p>
+<div class="Steps-titled"><ol type="1" start="9"><li><span>配置与防火墙Untrust域连接的汇聚交换机端口GigabitEthernet0/0/3。</span>
+<p><p>&lt;Quidway&gt;<strong>system-view</strong></p>
+<p>[Quidway]<strong>interface
+GigabitEthernet0/0/3</strong></p>
+<p>[Quidway-GigabitEthernet0/0/3]<strong>port
+hybrid tagged vlan 101</strong></p>
+<p>[Quidway-GigabitEthernet0/0/3]<strong>quit</strong></p>
+<p>[Quidway]<strong>interface vlanif 101</strong></p>
+<p>[Quidway_vlanif101]<strong>ip address 192.168.101.4 255.255.255.248</strong></p>
+<p>[Quidway_vlanif101]<strong>quit</strong></p>
+</p>
+</li><li><span>配置与防火墙Trust域连接的汇聚交换机端口GigabitEthernet0/0/4。</span>
+<p><p>[Quidway]<strong>interface GigabitEthernet0/0/4</strong></p>
+<p>[Quidway-GigabitEthernet0/0/4]<strong>port hybrid tagged vlan 80 to 90</strong></p>
+<p>[Quidway-GigabitEthernet0/0/4]<strong>quit</strong></p>
+<p>其中的<span class="parmvalue">“80～90”</span>表示规划的VPC子网的VLAN。</p>
+</p>
+</li><li><span>配置汇聚交换机与防火墙Untrust域对接的端口启用OSPF。</span>
+<p><p>[Quidway]<strong>ospf 1</strong></p>
+<p>[Quidway-ospf-1]<strong>area 0.0.0.1</strong></p>
+<p>[Quidway-ospf-1–area-0.0.0.1]<strong>network 192.168.101.0 0.0.0.7</strong></p>
+</p>
+</li></ol></div>
+<p><div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/icon-notice.gif"> 注意： </span><div class="noticebody"><p>在虚拟防火墙基础数据配置完成后，其业务配置是通过<span>FusionManager</span>对防火墙下发配置实现的，请勿在防火墙上对已创建好的虚拟防火墙进行其他配置，否则可能会导致业务异常。</p>
+</div></div>
+</p></div>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

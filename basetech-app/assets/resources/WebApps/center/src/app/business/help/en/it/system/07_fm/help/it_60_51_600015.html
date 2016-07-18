@@ -1,0 +1,414 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Installing the Puppet Client on a Linux VM">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600015">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Installing the Puppet Client on a Linux VM</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nPuppet Client Management\nInstalling the Puppet Client on a Linux VM");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../father_node/it_60_99_100031.html\">Puppet Client Management<\/a> > Installing the Puppet Client on a Linux VM<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600015"></a><a name="it_60_51_600015"></a>
+
+
+<h1 class="topictitle1">Installing the Puppet Client on a Linux VM</h1>
+<ul><li><a href="#it_60_51_600015__1.2.1.1">Scenarios</a></li><li><a href="#it_60_51_600015__1.2.2.1">Security Statement</a></li><li><a href="#it_60_51_600015__1.2.3.1">Prerequisites</a></li><li><a href="#it_60_51_600015__1.2.4.1">Procedure</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_51_600015__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600015" class="sectiontitle2contents">Scenarios</a></h4>
+
+
+<div class="p"><p>To use the automatic software deployment function, install
+the Puppet Client on the VM.</p>
+<div class="p"><span>FusionManager</span> provides the automatic software deployment function to allow users
+to rapidly deploy software packages and scripts on VMs in batches.<ul><li>Automatic software installation: When you provision application
+instances using an application template in which the VM template has
+specific software configured, the system automatically installs the
+software on the VM that is to run the application instance.</li><li>Software distribution: After you select a software package and
+specify the target VMs to install the package, the system automatically
+installs the software on the specified VMs.</li></ul>
+<ul><li>Automatic script execution: When you provision application instances
+using an application template in which the VM template has specific
+script file configured, the system automatically executes the script
+on the VM that is to run the application instance.</li><li>Script distribution: After you select a script file and specify
+the target VMs to execute the script file, the system automatically
+distributes the script to the specified VMs and executes the script
+on them.</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section" id="it_60_51_600015__sec"><a name="it_60_51_600015__sec"></a><a name="sec"></a><a name="it_60_51_600015__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600015" class="sectiontitle2contents">Security Statement</a></h4>
+
+
+<div class="p"><p>Please read through and understand the items
+in this statement.</p>
+<p>The Puppet software is required to implement automatic software
+deployment. Before installing the Puppet software, you must evaluate
+its product quality and possible security risks. You can determine
+whether to use the automatic software deployment function after a
+careful evaluation and consideration.</p>
+<p>Huawei
+can help you to locate the problems caused by the software. Beyond
+that, Huawei is not obliged to provide any support, and Huawei does
+not provide any warranty services for the after-sales issues of the
+software. In addition, Huawei does not take any responsibilities for
+the security risks caused by the software.</p>
+<p>You can
+determine whether to use these functions. However, if you determine
+to use these functions, Huawei regards that you accept the consequences
+of your action.</p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600015__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600015" class="sectiontitle2contents">Prerequisites</a></h4>
+
+
+<div class="p"><div class="p"><ul><li id="it_60_51_600015__puppet2"><a name="it_60_51_600015__puppet2"></a><a name="puppet2"></a>The operating system (OS) has been installed on the
+VM.</li><li id="it_60_51_600015__puppet3"><a name="it_60_51_600015__puppet3"></a><a name="puppet3"></a><div class="p">You have obtained the software listed in <a href="#it_60_51_600015__tbl_01">Table 1</a>.
+<div class="tablenoborder"><a name="it_60_51_600015__tbl_01"></a><a name="tbl_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600015__tbl_01" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Required software</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="22.604422604422602%" id="mcps1.2.3.2.1.1.2.1.2.2.4.1.1"><p>Software</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="22.604422604422602%" id="mcps1.2.3.2.1.1.2.1.2.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="54.79115479115478%" id="mcps1.2.3.2.1.1.2.1.2.2.4.1.3"><p>How to Obtain</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="22.604422604422602%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.1 "><p>Puppet Client installation file and dependent software package
+for enabling automatic software deployment</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22.604422604422602%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.2 "><div class="p">The installation file must meet the following requirements:<ul><li>The software version is 2.7.12 or later.</li><li>The software version is compatible with the server software version.</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.79115479115478%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.3 "><p>Visit <a href="https://rubygems.org" target="_blank">https://rubygems.org</a> and download the installation file and dependent software package.</p>
+<p>For example, download the installation file <span class="parmvalue"><b>puppet-2.7.12.gem</b></span> and the dependent software package <span class="parmvalue"><b>facter-2.2.0.gem</b></span>.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.604422604422602%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.1 "><p>Tools used for installing *.gem files</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22.604422604422602%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.2 "><div class="p">The following tools are included:<ul><li>ruby</li><li>ruby-devel</li><li>rubygems</li></ul>
+</div>
+<p>Tools of version 1.8.7 or later are recommended.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.79115479115478%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.3 "><p>Prepared by customers.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.604422604422602%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.1 "><p>ISO file creation tool</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22.604422604422602%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.2 "><p>Place the installation files required
+for enabling the function into an ISO file so that you can copy the
+installation files to the VM by attaching the CD/DVD-ROM drive.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.79115479115478%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.3 "><p>You can use any ISO image creation tool, such as UltraISO
+and ISOMaker, to create an ISO file for the desired software. For
+more information, visit <span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span>.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="22.604422604422602%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.1 "><p>puppetclient_linux.iso</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22.604422604422602%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.2 "><p id="it_60_51_600015__puppet_huawei"><a name="it_60_51_600015__puppet_huawei"></a><a name="puppet_huawei"></a>This is the client software configuration
+file for enabling automatic <span>FusionManager</span> software
+deployment. This file is required after the software is installed.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.79115479115478%" headers="mcps1.2.3.2.1.1.2.1.2.2.4.1.3 "><p>Download the package at <span class="filepath"><b>FusionManager V100R005C00SPC200_tool.zip</b></span> and then decompress it.</p>
+<p>For
+enterprise users, visit http://support.huawei.com/enterprise and choose <span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">IT</span></b> &gt; <b><span class="uicontrol">FusionCloud</span></b> &gt; <b><span class="uicontrol">FusionSphere</span></b> &gt; <b><span class="uicontrol">FusionManager</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC200</span></b></span>.</p>
+<p>For carrier users,
+visit http://support.huawei.com and choose <span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Carrier Software &amp; Core Network </span></b> &gt; <b><span class="uicontrol">Carrier Cloud Computing</span></b> &gt; <b><span class="uicontrol">IT Cloud
+Infrastructure Solution</span></b> &gt; <b><span class="uicontrol">Cloud OS</span></b> &gt; <b><span class="uicontrol">FusionManager</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC200</span></b></span>.</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">Verify the obtained software packages.
+For details, see <a href="../soft_inst/it_60_23_000021.html">Verifying Software Packages</a>.</div></div>
+</div>
+</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600015__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600015" class="sectiontitle2contents">Procedure</a></h4>
+
+<ul><a name="it_60_51_600015__make_iso"></a><a name="make_iso"></a><div class="HandlingTitled" id="it_60_51_600015__make_iso"><p class="sectiontitle">Place the software to be installed into an
+ISO file.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>Place all the software to be installed into an ISO file,
+so that the installation file can be copied to the VM.</span>
+<p><p>You can use any ISO image creation tool, such as UltraISO
+and ISOMaker, to create an ISO file for the desired software. For
+more information, visit <span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span>.</p>
+<p>In the following steps, the ISO file is named <span class="filepath" id="it_60_51_600015__softwareISO"><a name="it_60_51_600015__softwareISO"></a><a name="softwareISO"></a><b>puppet.iso</b></span> as an example, which contains
+the <span class="filepath"><b>puppet</b></span> folder.</p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Copy the installation files contained in the ISO file to
+the VM by attaching the CD/DVD-ROM drive.</p>
+<div class="Steps-titled"><ol type="1" start="2"><li><span>Log in to the VM using Virtual Network Computing (VNC)
+and attach the ISO file <span class="filepath"><b>puppet.iso</b></span> to the VM.</span>
+<p>For details about how to attach the CD/DVD-ROM drive, see <a href="it_60_51_600018.html">Mounting a CD/DVD-ROM Drive or an ISO File</a>.</p>
+</li><li><span>Log in to the VM OS as user <span class="parmvalue"><b>root</b></span>.</span>
+<p>If you are using a Graphical User Interface (GUI) system, right-click
+on the VM OS desktop and choose <span class="uicontrol"><b>Open in Terminal</b></span> from the shortcut menu.</p>
+<p>The CLI window is displayed.</p>
+</li><li><span>Run the following command to disable user logout upon
+system timeout:</span>
+<p><b><span class="cmdname">TMOUT=0</span></b></p>
+</li></ol></div>
+<a name="it_60_51_600015__linux_mountISO"></a><a name="linux_mountISO"></a><div class="Steps-titled"><ol type="1" start="5" id="it_60_51_600015__linux_mountISO"><li id="it_60_51_600015__mkdir"><a name="it_60_51_600015__mkdir"></a><a name="mkdir"></a><span>Run the following command to create the <span class="filepath"><b>xvdd</b></span> directory:</span>
+<p><b><span class="cmdname">mkdir xvdd</span></b></p>
+</li><li id="it_60_51_600015__mount"><a name="it_60_51_600015__mount"></a><a name="mount"></a><span id="it_60_51_600015__mount1"><a name="it_60_51_600015__mount1"></a><a name="mount1"></a>Run the following command to
+attach the CD/DVD-ROM drive:</span>
+<p><p><b><span class="cmdname">mount</span></b><i><span class="varname"> Mounting directory</span></i><b><span class="cmdname"> xvdd</span></b></p>
+<p>For example, <b><span class="cmdname">mount /dev/sr0
+xvdd</span></b></p>
+</p>
+<p><a href="#it_60_51_600015__d2226e112">Table 2</a> lists the directories for mounting a CD/DVD-ROM drive or ISO file to a VM running the Linux OS.
+<div class="tablenoborder"><a name="it_60_51_600015__d2226e112"></a><a name="d2226e112"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600015__d2226e112" frame="border" border="1" rules="all"><caption><b>Table 2 </b>Directories for mounting a CD/DVD-ROM drive or ISO file to a VM running the Linux OS</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="48.00000000000001%" id="mcps1.2.4.2.2.3.2.3.2.2.4.1.1"><p>Linux Version</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.00000000000001%" id="mcps1.2.4.2.2.3.2.3.2.2.4.1.2"><p>Supported CD/DVD-ROM Drive Type</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="19%" id="mcps1.2.4.2.2.3.2.3.2.2.4.1.3"><p>Mounting Directory</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="48.00000000000001%" headers="mcps1.2.4.2.2.3.2.3.2.2.4.1.1 "><div class="p"><ul><li>CentOS 5.8 or earlier</li><li>Red Hat Enterprise Linux 5.8 or earlier</li><li>Oracle Linux Server release 5.7</li><li>SUSE Linux Enterprise Server 10</li><li>NeoShine</li><li>Red Flag Asianux Server 3</li><li>DOPRA ICTOM V002R003 EIMP</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.00000000000001%" headers="mcps1.2.4.2.2.3.2.3.2.2.4.1.2 "><p>ISO file or CD/DVD-ROM drive</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="19%" headers="mcps1.2.4.2.2.3.2.3.2.2.4.1.3 "><p>/dev/hdd</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="48.00000000000001%" headers="mcps1.2.4.2.2.3.2.3.2.2.4.1.1 "><div class="p"><ul><li>CentOS 6.0 or later</li><li>Red Hat Enterprise Linux 6.0 or later</li><li>Oracle Linux Server release 6.1</li><li>SUSE Linux Enterprise Server 11 or later</li><li>openSUSE 11.3</li><li>Debian GNU/Linux</li><li>Ubuntu 8.04 or later</li><li>SUSE Linux Enterprise Server 11 or later</li><li>Fedora 9 or later</li><li>Red Flag Asianux Server 4</li><li>DOPRA ICTOM V002R003 IMAOS</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.00000000000001%" headers="mcps1.2.4.2.2.3.2.3.2.2.4.1.2 "><p>ISO file or CD/DVD-ROM drive</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="19%" headers="mcps1.2.4.2.2.3.2.3.2.2.4.1.3 "><p>/dev/sr0</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If the VMware hypervisor is used, change the CD-ROM drive mounting directory by following the procedures in the documentation for the hypervisor and the OS in use.</div></div>
+</p>
+</li></ol></div>
+<div class="Steps-titled"><ol type="1" start="7"><li><span>Run the following command to copy the <span class="filepath"><b>puppet</b></span> folder contained in the ISO file to the <span class="filepath"><b>/home</b></span> directory of the VM:</span>
+<p><p><b><span class="cmdname">cp -r xvdd/puppet/ /home</span></b></p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Install the Puppet Client software.</p>
+<div class="Steps-titled"><ol type="1" start="8"><li><span>Use the installation file that has been copied to the <span class="filepath"><b>/home</b></span> directory to install the <span class="parmname"><b>ruby</b></span>, <span class="parmname"><b>ruby-devel</b></span>, and <span class="parmname"><b>rubygems</b></span> software.</span></li><li><span>Use the installation file that has been copied to the <span class="filepath"><b>/home</b></span> directory to install the dependent software package
+and Puppet Client software.</span>
+<p>For details, see the product documents on the Puppet official
+website.</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure the Puppet Client software.</p>
+<div class="Steps-titled"><ol type="1" start="10"><li><span>Log in to the VM OS as user <span class="parmvalue"><b>root</b></span>.</span>
+<p>If you are using a Graphical User Interface (GUI) system, right-click
+on the VM OS desktop and choose <span class="uicontrol"><b>Open in Terminal</b></span> from the shortcut menu.</p>
+<p>The CLI window is displayed.</p>
+</li><li><span>Determine whether the in-use OS is a Red Hat Linux enterprise
+5.5 64-bit, CentOS 5.6 32-bit, or CentOS 5.6 64-bit OS.</span>
+<p><ul><li>If yes, go to <a href="#it_60_51_600015__judge_selinux">12</a>.</li><li>If no, go to <a href="#it_60_51_600015__cfg_puppet">17</a>.</li></ul>
+</p>
+</li><li id="it_60_51_600015__judge_selinux"><a name="it_60_51_600015__judge_selinux"></a><a name="judge_selinux"></a><span>Run the following command to check
+whether the command output contains <span class="parmvalue"><b>disabled</b></span> or <span class="parmvalue"><b>permissive</b></span>:</span>
+<p><b><span class="cmdname">sestatus -v</span></b><div class="p">The command output containing <span class="parmvalue"><b>disabled</b></span> is as follows:<pre class="screen">SELinux status:                 disabled</pre>
+</div>
+<div class="p">The command output containing <span class="parmvalue"><b>permissive</b></span> is as follows:<pre class="screen">SELinux status:                 enabled
+SELinuxfs mount:                /selinux
+Current mode:                   permissive
+Mode from config file:          enforcing</pre>
+</div>
+<ul><li>If yes, go to <a href="#it_60_51_600015__cfg_puppet">17</a>.</li><li>If no, go to <a href="#it_60_51_600015__set_selinux">13</a>.</li></ul>
+</p>
+</li><li id="it_60_51_600015__set_selinux"><a name="it_60_51_600015__set_selinux"></a><a name="set_selinux"></a><span>run the following command to open the <span class="filepath"><b>/etc/selinux/config</b></span> file using the visual interface (vi)
+editor:</span>
+<p><b><span class="cmdname">vi /etc/selinux/config</span></b></p>
+</li><li><span>Press <span class="parmvalue"><b>i</b></span> to enter editing mode
+and set <span class="parmname"><b>SELINUX</b></span> to <span class="parmvalue"><b>disabled</b></span>.</span></li><li><span>Enter <b><span class="cmdname">:wq</span></b> and press <span class="uicontrol"><b>Enter</b></span> to save the configuration and exit the vi editor.</span></li><li><span>Run the following command to restart the OS:</span>
+<p><b><span class="cmdname">reboot</span></b></p>
+</li><li id="it_60_51_600015__cfg_puppet"><a name="it_60_51_600015__cfg_puppet"></a><a name="cfg_puppet"></a><span>After the OS is restarted, reattach
+the ISO file <span class="filepath"><b>puppetclient_linux.iso</b></span> to the <span class="filepath"><b>xvdd</b></span> directory.</span></li><li><span>Run the following command to access the configuration
+file directory:</span>
+<p><b><span class="cmdname">cd xvdd/puppetclient_linux</span></b><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>If the Red Hat Linux Enterprise OS is used, check whether the
+files or folders in the directory contains only lowercase letters.
+If yes, restart the VM, attach the CD/DVD-ROM drive again, and then
+configure the Puppet Client. </p>
+</div></div>
+</p>
+</li><li><span>Switch to the directory of the in-use OS.</span></li><li><span>Run the following command to execute the configuration
+script:</span>
+<p><b><span class="cmdname">sh configpuppet.sh</span></b><div class="p">The software is successfully
+configured if the following information is displayed:<pre class="screen">GalaxManager Agent has been installed successfully!</pre>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>After the software is configured successfully,
+the system automatically generates a <span class="parmname"><b>puppet</b></span> account.
+The <span class="parmname"><b>puppet</b></span> account does not require any password,
+but this account cannot be used to log in to the system and therefore
+does not have any security risks.</p>
+</div></div>
+</div>
+</p>
+</li></ol></div>
+</div>
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

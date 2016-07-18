@@ -1,0 +1,73 @@
+<div id="createAppConfirmId">
+    <div class="create-page-distance">
+        <div>
+            <div class="tableOuterHeaderLabel bottom10">
+                <span class="createpage-title" ng-bind="i18n.template_term_app_label">：</span>
+            </div>
+            <div class="confirmDivider"></div>
+            <tiny-formfield labelwidth="info.confirmInfo.labelWidth">
+                <tiny-item label="info.confirmInfo.serviceTemplateLabel">
+                    <span>{{params.appTemplateName}}</span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div>
+            <div class="tableOuterHeaderLabel bottom10">
+                <span class="createpage-title" ng-bind="i18n.common_term_basicInfo_label">：</span>
+            </div>
+            <div class="confirmDivider"></div>
+            <div class="confirmContentMarginLeft">
+                <tiny-formfield labelwidth="info.confirmInfo.labelWidth">
+                    <tiny-item label="info.confirmInfo.nameLabel">
+                        <span>{{params.appName}}</span>
+                    </tiny-item>
+                    <tiny-item label="info.confirmInfo.directory">
+                        <span>{{params.catalogs}}</span>
+                    </tiny-item>
+                    <tiny-item label="info.confirmInfo.resPoolLabel">
+                        <div class="fl" style="width:100px;" ng-if="lock.locationLock === '0'">
+                            <span>{{params.selResPoolName}}</span>
+                        </div>
+                        <div class="fl" style="margin: 6px 0 0 10px;">
+                            <tiny-radiogroup id="info.locationLock.id" disable="info.locationLock.disable"  values="info.locationLock.values" spacing="info.locationLock.spacing" layout="info.locationLock.layout"></tiny-radiogroup>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="info.confirmInfo.vpcLabel">
+                        <div class="fl"  style="width:100px;" ng-if="lock.vpcLock === '0'">
+                            <span>{{params.selVpcName}}</span>
+                        </div>
+                        <div class="fl" style="margin: 6px 0 0 10px;">
+                            <tiny-radiogroup id="info.vpcLock.id" disable="info.vpcLock.disable"  values="info.vpcLock.values" spacing="info.vpcLock.spacing" layout="info.vpcLock.layout"></tiny-radiogroup>
+                        </div>
+                    </tiny-item>
+                    <tiny-item label="info.confirmInfo.descriptionLabel">
+                        <span>{{params.selDescription}}</span>
+                    </tiny-item>
+                    <div>
+                        <tiny-item label="info.logo.label" require="info.logo.require">
+                            <img ng-src="{{params.curLogo}}" width='60px' height='76px'>
+                        </tiny-item>
+                    </div>
+                </tiny-formfield>
+            </div>
+        </div>
+
+        <div>
+            <div class="tableOuterHeaderLabel bottom10">
+                <span class="createpage-title" ng-bind="i18n.common_term_sharePara_label">：</span>
+            </div>
+            <div class="confirmDivider"></div>
+            <div class="confirmContentMarginLeft">
+                <tiny-table id="info.confirmCommonParams.id" data="commonParams.confirmData" columns="info.confirmCommonParams.columns" enable-pagination="info.confirmCommonParams.enablePagination" render-row="info.confirmCommonParams.renderRow" pagination-style="info.confirmCommonParams.paginationStyle"
+                callback="info.confirmCommonParams.callback" change-select="info.confirmCommonParams.changeSelect" length-menu="info.confirmCommonParams.lengthMenu" display-length="info.confirmCommonParams.displayLength" total-records="info.confirmCommonParams.totalRecords">
+                </tiny-table>
+            </div>
+        </div>
+
+        <div class="create-btn-margin" style="margin:55px 0px 0px 35px;">
+            <tiny-button id="info.preBtn.id" text="info.preBtn.text" tooltip="info.preBtn.tooltip" click="info.preBtn.click()"></tiny-button>
+            <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" tooltip="info.nextBtn.tooltip" click="info.nextBtn.click()"></tiny-button>
+            <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" tooltip="info.cancelBtn.tooltip" click="info.cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>

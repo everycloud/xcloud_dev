@@ -1,0 +1,33 @@
+<div id="localManageAzTagDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-button id="addTagButton.id" text="addTagButton.text" click="addTagButton.click()" class="major-btn"></tiny-button>
+        </tiny-item>
+        <tiny-item>
+            <div class="table-tiny-box-height clearfix" style="width:700px;">
+                <tiny-table id="tagTable.id" data="tagTable.data" columns='tagTable.columns'
+                            render-row="tagTable.renderRow" enable-pagination="tagTable.enablePagination">
+                </tiny-table>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+require(['app/business/tag/controllers/label/localManageTagCtrl'],
+    function(manageTagCtrl) {
+        var rootElement = $("#localManageAzTagDiv");
+        rootElement.attr("ng-controller", "local.manageTag.ctrl");
+        var dep = ['ng', 'wcc', manageTagCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", rootElement);
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile(rootElement)($rootScope);
+            $rootScope.$digest();
+        });
+        $("#localManageAzTagDiv").scope().getTagsGroup();
+    });
+</script>

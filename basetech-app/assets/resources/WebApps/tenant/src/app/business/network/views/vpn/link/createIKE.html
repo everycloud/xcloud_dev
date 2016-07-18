@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="create-page-distance" id="createVpnLinkIKEDiv">
+        <div ng-if="service.isModifyMode">
+            <tiny-formfield>
+                <tiny-item>
+                    <tiny-checkbox id="info.ikePwdChangeBox.id" text="info.ikePwdChangeBox.text" change="info.ikePwdChangeBox.change()" checked="canChangeSharePwd">
+                    </tiny-checkbox>
+                </tiny-item>
+            </tiny-formfield>
+            <tiny-formfield>
+                <tiny-item label="info.sharepwd.label" require="true">
+                    <tiny-textbox id="info.sharepwd.id" type="info.sharepwd.type" value="info.sharepwd.value" disable="!canChangeSharePwd" extend-function="info.sharepwd.extendFunction" validate="info.sharepwd.validate"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="info.certainpwd.label" require="true">
+                    <tiny-textbox id="info.certainpwd.id" type="info.certainpwd.type" value="info.certainpwd.value" disable="!canChangeSharePwd" extend-function="info.certainpwd.extendFunction" validate="info.certainpwd.validate"></tiny-textbox>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div ng-if="!service.isModifyMode">
+            <tiny-formfield>
+                <tiny-item label="info.sharepwd.label" require="true">
+                    <tiny-textbox id="info.sharepwd.id" type="info.sharepwd.type" value="info.sharepwd.value" extend-function="info.sharepwd.extendFunction" validate="info.sharepwd.validate"></tiny-textbox>
+                </tiny-item>
+                <tiny-item label="info.certainpwd.label" require="true">
+                    <tiny-textbox id="info.certainpwd.id" type="info.certainpwd.type" value="info.certainpwd.value" extend-function="info.certainpwd.extendFunction" validate="info.certainpwd.validate"></tiny-textbox>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div style="margin-left: 70px;">
+            <tiny-formfield>
+                <tiny-item label="info.opt.label">
+                    <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+                    <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>

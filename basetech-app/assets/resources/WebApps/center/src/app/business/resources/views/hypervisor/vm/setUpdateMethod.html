@@ -1,0 +1,36 @@
+<div id="setUpdateMethodDiv">
+    <p ng-bind="i18n.vm_vm_modifyUpdateMode_desc_batch_label"></p>
+
+    <div class="fl">
+        <tiny-formfield>
+            <tiny-item label="methodRadio.label">
+                <tiny-radiogroup id="methodRadio.id" values="methodRadio.values"
+                                 change="methodRadio.change()"
+                                 layout="methodRadio.layout"></tiny-radiogroup>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()"></tiny-button>
+                <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="fl top10 color2">
+        <p ng-bind="i18n.vm_vm_add_para_updateType_Mean_auto_label"></p>
+        <p ng-bind="i18n.vm_vm_add_para_updateType_Mean_manual_label"></p>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/hypervisor/vm/setUpdateMethodCtrl"], function (setUpdateMethodCtrl) {
+        var rootElement = $("#setUpdateMethodDiv");
+        rootElement.attr("ng-controller", "resources.vm.setUpdateMethod.ctrl");
+        var dep = ['ng', 'wcc', setUpdateMethodCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile(rootElement)($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

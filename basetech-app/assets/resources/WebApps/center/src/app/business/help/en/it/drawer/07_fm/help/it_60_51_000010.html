@@ -1,0 +1,271 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Elastic IP Addresses">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000010">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Elastic IP Addresses</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_000010"></a><a name="it_60_51_000010"></a>
+
+
+<h1 class="topictitle1">Elastic IP Addresses</h1>
+
+
+
+<div><p></p>
+
+<div class="section" id="it_60_51_000010__sec_overView"><a name="it_60_51_000010__sec_overView"></a><a name="sec_overView"></a><h4 class="sectiontitle">Overview</h4><p>The elastic IP address service allows the system to bind public IP addresses with VMs or private IP addresses in a virtual private cloud (VPC), enabling various resources in the VPC to provide external
+services using fixed public IP addresses.</p>
+<p>For example, if an internal server in the VPC needs to provide Web services externally, the internal server can use an elastic IP address as the Domain Name Server (DNS)-resolved IP address for Web service
+access. If the backup VM in the VPC needs to provide backup services externally, the backup VM can have an elastic IP address bound to ensure backup service continuity.</p>
+</div>
+
+<div class="section" id="it_60_51_000010__sec_principle"><a name="it_60_51_000010__sec_principle"></a><a name="sec_principle"></a><h4 class="sectiontitle">Principles</h4><div class="p"><span>FusionManager</span> allows an elastic IP address to bind to a VM or private IP address using a router. With this function, after obtaining an
+elastic IP address, a tenant can bind the elastic IP address to a VM so that the VM can use this elastic IP address to access the public network, as shown in <a href="#it_60_51_000010__fig_03">Figure 1</a>. With an elastic IP address bound, the VM is allowed to exclusively
+use the IP address even after it is restarted.<div class="fignone" id="it_60_51_000010__fig_03"><a name="it_60_51_000010__fig_03"></a><a name="fig_03"></a><span class="figcap"><b>Figure 1 </b>Elastic IP address service</span>
+
+<br><span><img src="fig/fig_it_60_51_000010_6.png"></span></div>
+</div>
+<p>If the VM with an elastic IP address bound is faulty, the tenant can unbind the elastic IP address from the VM and bind the elastic IP address to another VM to ensure service continuity.
+If the elastic IP address is not needed any more, the tenant can release the elastic IP address.</p>
+<p>Elastic IP address binding can be implemented when either a hardware router or software router is used. If a hardware router is used, the elastic IP
+address is provided by the public IP address pool managed by <span>FusionManager</span>, and the physical firewall implements the elastic IP address binding. If a software router is used, the elastic IP address
+is provided by the external network connected to the software router.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Required Software</h4><p><a href="#it_60_51_000010__tbl_01">Table 1</a> lists the software required for <span>FusionManager</span> to implement elastic IP addresses functions using a software router.</p>
+
+<div class="tablenoborder"><a name="it_60_51_000010__tbl_01"></a><a name="tbl_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000010__tbl_01" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Software</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="23%" id="mcps1.3.3.3.2.4.1.1"><p>Name</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="35.75%" id="mcps1.3.3.3.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="41.25%" id="mcps1.3.3.3.2.4.1.3"><p>How to Obtain</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+
+<td class="cellrowborder" valign="top" width="23%" headers="mcps1.3.3.3.2.4.1.1 "><span class="filepath"><b>FusionCompute
+V100R005C00SPC200_VSA.zip</b></span></td>
+
+<td class="cellrowborder" valign="top" width="35.75%" headers="mcps1.3.3.3.2.4.1.2 "><p>System service VM template. Upon receiving a request for
+creating a software firewall, the system automatically uses this template
+to create a VM to provide firewall functions.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="41.25%" headers="mcps1.3.3.3.2.4.1.3 "><div class="p" id="it_60_51_000010__d814e114"><a name="it_60_51_000010__d814e114"></a><a name="d814e114"></a><ul><li><p>For
+enterprise users, visit http://support.huawei.com/enterprise and choose <span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">IT</span></b> &gt; <b><span class="uicontrol">FusionCloud</span></b> &gt; <b><span class="uicontrol">FusionSphere</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span>.</p>
+</li><li><p>For carrier users,
+visit http://support.huawei.com and choose <span class="menucascade"><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Carrier Software &amp; Core Network </span></b> &gt; <b><span class="uicontrol">Carrier Cloud Computing</span></b> &gt; <b><span class="uicontrol">IT Cloud
+Infrastructure Solution</span></b> &gt; <b><span class="uicontrol">Cloud OS</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span>.</p>
+</li></ul>
+</div>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">Verify the obtained software packages.
+For details, see <a href="../soft_inst/it_60_23_000021.html">Verifying Software Packages</a>.</div></div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Configuration Process</h4><p><a href="#it_60_51_000010__fig_01">Figure 2</a> shows the process for configuring the elastic IP address service supported by hardware routers.</p>
+<div class="p"><div class="fignone" id="it_60_51_000010__fig_01"><a name="it_60_51_000010__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>Figure 2 </b>Configuration process</span>
+
+<br><span><img src="fig/fig_it_60_51_000010_5.png"></span></div>
+</div>
+<p><a href="#it_60_51_000010__tab_01">Table 2</a> describes the involved tasks.</p>
+
+<div class="tablenoborder"><a name="it_60_51_000010__tab_01"></a><a name="tab_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000010__tab_01" frame="border" border="1" rules="all"><caption><b>Table 2 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="16.79790026246719%" id="mcps1.3.4.5.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="54.85564304461942%" id="mcps1.3.4.5.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="28.346456692913385%" id="mcps1.3.4.5.2.4.1.3"><p>Web Client Navigation</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="16.79790026246719%" headers="mcps1.3.4.5.2.4.1.1 "><p>Connect a physical firewall device to the system.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.85564304461942%" headers="mcps1.3.4.5.2.4.1.2 "><p id="it_60_51_000010__p_accessFW"><a name="it_60_51_000010__p_accessFW"></a><a name="p_accessFW"></a>Hardware firewalls can provide elastic IP address, network address translation (NAT), access control list (ACL), Application Specific Packet Filtering (ASPF), and virtual private network (VPN) functions. To configure and manage
+these functions on <span>FusionManager</span>, you need to create virtual firewalls on the physical firewall device and add the physical firewall device to <span>FusionManager</span>.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.346456692913385%" headers="mcps1.3.4.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Network Devices</span></b> &gt; <b><span class="uicontrol">Firewalls</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.79790026246719%" headers="mcps1.3.4.5.2.4.1.1 "><p>Add a virtual local area network (VLAN) pool and associate the VLAN pool with a distributed virtual switch (DVS).</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.85564304461942%" headers="mcps1.3.4.5.2.4.1.2 "><p id="it_60_51_000010__p_1vlan"><a name="it_60_51_000010__p_1vlan"></a><a name="p_1vlan"></a>Add the VLANs planned for routed networks to the VLAN pool on <span>FusionManager</span> and associate the VLANs with a DVS.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.346456692913385%" headers="mcps1.3.4.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource zone, and choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">VLAN Pools</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.79790026246719%" headers="mcps1.3.4.5.2.4.1.1 "><p>Add a public IP address pool.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.85564304461942%" headers="mcps1.3.4.5.2.4.1.2 "><p id="it_60_51_000010__p_public"><a name="it_60_51_000010__p_public"></a><a name="p_public"></a>A public IP address pool on <span>FusionManager</span> provides public IP addresses for tenants to apply for.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.346456692913385%" headers="mcps1.3.4.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource zone, and choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">Public IP Address Pool</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="16.79790026246719%" headers="mcps1.3.4.5.2.4.1.1 "><p>Specify IP bandwidth specifications for the elastic IP address.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.85564304461942%" headers="mcps1.3.4.5.2.4.1.2 "><p id="it_60_51_000010__p_ipband"><a name="it_60_51_000010__p_ipband"></a><a name="p_ipband"></a>The IP bandwidth specifications include the IP packet receive and transmit bandwidths allowed for the obtained elastic IP address. When applying for an elastic IP address, the service administrator can select an IP bandwidth specifications
+template to set the IP bandwidth limits for the obtained elastic IP address.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="28.346456692913385%" headers="mcps1.3.4.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VDC</span></b> &gt; <b><span class="uicontrol">IP Bandwidth Spec</span></b></span>.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<p><a href="#it_60_51_000010__fig_02">Figure 3</a> shows the process for configuring the elastic IP address service supported by software routers. <a href="#it_60_51_000010__tab_02">Table 3</a> describes the involved tasks.</p>
+<div class="p"><div class="fignone" id="it_60_51_000010__fig_02"><a name="it_60_51_000010__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>Figure 3 </b>Configuration process</span>
+
+<br><span><img src="fig/fig_it_60_51_000010_4.png"></span></div>
+</div>
+
+<div class="tablenoborder"><a name="it_60_51_000010__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000010__tab_02" frame="border" border="1" rules="all"><caption><b>Table 3 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="18.393782383419687%" id="mcps1.3.4.8.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="53.8860103626943%" id="mcps1.3.4.8.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="27.72020725388601%" id="mcps1.3.4.8.2.4.1.3"><p>Web Client Navigation</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="18.393782383419687%" headers="mcps1.3.4.8.2.4.1.1 "><p>Create the Virtual Service Appliance Management (VSAM) VM and connect it to the system.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="53.8860103626943%" headers="mcps1.3.4.8.2.4.1.2 "><p id="it_60_51_000010__p_vsam"><a name="it_60_51_000010__p_vsam"></a><a name="p_vsam"></a>If <span>FusionManager</span> requires system service VMs to provide functions, such as software routers, software load balancers, and Dynamic Host Configuration Protocol (DHCP)
+services, the <span>FusionCompute</span> hypervisor with a VSAM node deployed must be used. The VSAM node is used to configure and manage system service VMs.</p>
+<p id="it_60_51_000010__p_vsam1"><a name="it_60_51_000010__p_vsam1"></a><a name="p_vsam1"></a>If a hypervisor is already
+added to <span>FusionManager</span> before the VSAM node installation, you can add the VSAM node information by modifying the hypervisor settings after installing the VSAM node.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.72020725388601%" headers="mcps1.3.4.8.2.4.1.3 "><p><strong>Install the VSAM node.</strong></p>
+<p>For details, see <span class="wintitle"><b>Installing VSAM</b></span> in the <i><cite><span>FusionManager V100R005C00
+Software Installation Guide</span></cite></i>.</p>
+<p><strong>Modify hypervisor settings.</strong></p>
+Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Hypervisor</span></b></span>.</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="18.393782383419687%" headers="mcps1.3.4.8.2.4.1.1 "><p>Add a VLAN pool and associate the VLAN pool with a DVS.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="53.8860103626943%" headers="mcps1.3.4.8.2.4.1.2 "><div class="p" id="it_60_51_000010__p_2vlan"><a name="it_60_51_000010__p_2vlan"></a><a name="p_2vlan"></a>Add the following VLANs to the VLAN pool:<ul><li>Routed network VLANs: Routed networks are used to deploy service VMs.</li><li>External network VLANs: External networks are used to connect to the software router in the VPC.</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.72020725388601%" headers="mcps1.3.4.8.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource zone, and choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">VLAN Pools</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="18.393782383419687%" headers="mcps1.3.4.8.2.4.1.1 "><p>Add an external network.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="53.8860103626943%" headers="mcps1.3.4.8.2.4.1.2 "><p id="it_60_51_000010__p_external"><a name="it_60_51_000010__p_external"></a><a name="p_external"></a>An external network can connect to the software router and provide public IP addresses for VMs associated with the routed network in the VPC. The external networks created on <span>FusionManager</span> must meet the following requirements: its connection mode is subnet (common VLAN), it is connected to the Internet, its subnet IP address assignment mode is static injection, and it
+does not contain an IPv6 subnet.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.72020725388601%" headers="mcps1.3.4.8.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource zone, and choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">External Networks</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="18.393782383419687%" headers="mcps1.3.4.8.2.4.1.1 "><p>Add a VSA management network.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="53.8860103626943%" headers="mcps1.3.4.8.2.4.1.2 "><div class="p" id="it_60_51_000010__p_vsanet"><a name="it_60_51_000010__p_vsanet"></a><a name="p_vsanet"></a>The VSA management network provides the management plane for system service VMs. It must meet the following requirements:<ul><li>The VSA management network connects to the system management plane.</li><li>The VSA management network VLAN has been added to the DVS created on the FusionCompute hypervisor, but the VLAN is not contained in the <span>FusionManager</span> VLAN pool.</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.72020725388601%" headers="mcps1.3.4.8.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Zones</span></b></span>, select a resource zone, and choose <span class="menucascade"><b><span class="uicontrol">Network Resource Pools</span></b> &gt; <b><span class="uicontrol">VSA Networks</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="18.393782383419687%" headers="mcps1.3.4.8.2.4.1.1 "><p>Import a VSA VM template to the system.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="53.8860103626943%" headers="mcps1.3.4.8.2.4.1.2 "><p id="it_60_51_000010__p_vsatemp"><a name="it_60_51_000010__p_vsatemp"></a><a name="p_vsatemp"></a><span>FusionManager</span> can use a VSA VM template to automatically create system service VMs.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="27.72020725388601%" headers="mcps1.3.4.8.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Templates and Specs</span></b> &gt; <b><span class="uicontrol">VM Templates</span></b></span>.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

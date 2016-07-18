@@ -1,0 +1,48 @@
+<div id="migrateSelectDiskDiv">
+    <div class="color2" ng-bind-html="i18n.resource_stor_migrate_info_targetStor_label"></div>
+    <span class="createpage-title none-line" ng-bind="i18n.vm_term_chooseTargetStor_label"></span>
+
+    <div class="clearfix">
+        <tiny-table id="storeTable.id" caption="storeTable.caption" data="storeTable.data"
+                    pagination-style="storeTable.paginationStyle"
+                    columns='storeTable.columns' render-row="storeTable.renderRow"
+                    total-records="storeTable.totalRecords" length-change="storeTable.lengthChange"
+                    cur-page="storeTable.curPage" display-length="storeTable.displayLength"
+                    enable-pagination="storeTable.enablePagination"
+                    length-menu="storeTable.lengthMenu" callback="storeTable.callback"
+                    change-select="storeTable.changeSelect"></tiny-table>
+    </div>
+    <div class="clear_both row top10">
+        <div class="span3">
+            <tiny-formfield>
+                <tiny-item label="speedRadio.label">
+                    <tiny-radiogroup id="speedRadio.id" values="speedRadio.values"
+                                     change="speedRadio.change()" layout="speedRadio.layout"></tiny-radiogroup>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="span4">
+            <span ng-bind="i18n.vm_vm_migrate_para_rate_Mean_fast_label"></span>
+            <br/>
+            <span ng-bind="i18n.vm_vm_migrate_para_rate_Mean_mid_label"></span>
+        </div>
+    </div>
+    <span class="clear_both createpage-title none-line" ng-bind="i18n.vm_term_targetCfgMode_label"></span>
+
+    <div class="table-tiny-box-height">
+        <tiny-table id="modeTable.id" caption="modeTable.caption" data="modeTable.data"
+                    pagination-style="modeTable.paginationStyle"
+                    columns='modeTable.columns' render-row="modeTable.renderRow"
+                    total-records="modeTable.totalRecords" length-change="modeTable.lengthChange"
+                    cur-page="modeTable.curPage" display-length="modeTable.displayLength"
+                    enable-pagination="modeTable.enablePagination"
+                    length-menu="modeTable.lengthMenu" callback="modeTable.callback"
+                    change-select="modeTable.changeSelect"></tiny-table>
+    </div>
+    <div class="clear_both fm-btn-top-large">
+        <tiny-button id="configPreButton.id" text="configPreButton.text" click="configPreButton.click()"></tiny-button>
+        <tiny-button id="configOkButton.id" text="configOkButton.text" click="configOkButton.click()" disable="configOkButton.disable" class="major-btn"></tiny-button>
+        <tiny-button id="configCancelButton.id" text="configCancelButton.text"
+                     click="configCancelButton.click()"></tiny-button>
+    </div>
+</div>

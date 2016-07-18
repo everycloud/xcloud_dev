@@ -1,0 +1,91 @@
+<div id="seniorConfigDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <div class="fl">
+                <tiny-checkbox id="haCheckbox.id" text="haCheckbox.text" change="haCheckbox.change()"
+                               checked="haCheckbox.checked"></tiny-checkbox>
+            </div>
+        </tiny-item>
+        <tiny-item>
+            <div class="fl" style="width: 150px">
+                <tiny-checkbox id="haReserveCheckbox.id" text="haReserveCheckbox.text"
+                               disable="haReserveCheckbox.disable" change="haReserveCheckbox.change()"></tiny-checkbox>
+            </div>
+            <div class="fl" ng-bind="cpuReserveSpinner.label"></div>
+            <div class="fl" style="width: 130px">
+                <tiny-spinner id="cpuReserveSpinner.id" value="cpuReserveSpinner.value" max="cpuReserveSpinner.max"
+                              min="cpuReserveSpinner.min" width="cpuReserveSpinner.width"
+                              disable="cpuReserveSpinner.disable"></tiny-spinner>
+            </div>
+            <div class="fl" ng-bind="memoryReserveSpinner.label"></div>
+            <div class="fl">
+                <tiny-spinner id="memoryReserveSpinner.id" value="memoryReserveSpinner.value"
+                              max="memoryReserveSpinner.max" min="memoryReserveSpinner.min"
+                              width="memoryReserveSpinner.width" disable="memoryReserveSpinner.disable"></tiny-spinner>
+            </div>
+            <p class="clear_both" ng-bind="label.ha"></p>
+
+            <p ng-bind="label.reserve"></p>
+        </tiny-item>
+        <tiny-item>
+            <div>
+                <tiny-checkbox id="reuseCheckbox.id" text="reuseCheckbox.text"></tiny-checkbox>
+            </div>
+            <p class="clear_both" ng-bind="label.reuse"></p>
+            <p ng-bind="label.openReuse"></p>
+            <p ng-bind="label.closeReuse"></p>
+        </tiny-item>
+        <tiny-item label="policySelector.label">
+            <div>
+                <tiny-select id="policySelector.id" values="policySelector.values" checked="policySelector.checked"
+                             width="policySelector.width" disable="policySelector.disable"></tiny-select>
+            </div>
+            <p class="clear_both" ng-bind="label.policy"></p>
+            <p ng-bind="label.loadBalance"></p>
+            <p ng-bind="label.random"></p>
+        </tiny-item>
+        <tiny-item>
+            <div>
+                <tiny-checkbox id="numaCheckbox.id" text="numaCheckbox.text"></tiny-checkbox>
+            </div>
+            <p class="clear_both" ng-bind="label.numa"></p>
+        </tiny-item>
+        <tiny-item>
+            <tiny-checkbox id="imcCheckbox.id" text="imcCheckbox.text" checked="imcCheckbox.checked"
+                           change="imcCheckbox.change()"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item label="imcSelector.label">
+            <tiny-select id="imcSelector.id" values="imcSelector.values" width="imcSelector.width"
+                         disable="imcSelector.disable" change="imcSelector.change()"></tiny-select>
+        </tiny-item>
+        <tiny-item label="descTextbox.label">
+            <tiny-textbox id="descTextbox.id" type="descTextbox.type" height="descTextbox.height"
+                          disable="descTextbox.disable" width="descTextbox.width"></tiny-textbox>
+        </tiny-item>
+        <tiny-item>
+            <a href="javascript:void(0)" ng-click="cpuidInfo()" ng-show="isImc"  ng-bind="label.cpuid"></a>
+
+            <p ng-hide="isImc" class="disabled" ng-bind="label.cpuid"></p>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/cluster/seniorConfigCtrl'],
+            function (seniorConfigCtrl) {
+                var rootElement = $("#seniorConfigDiv");
+                rootElement.attr("ng-controller", "resources.clusterInfo.seniorConfig.ctrl");
+                var dep = ['ng', 'wcc', seniorConfigCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

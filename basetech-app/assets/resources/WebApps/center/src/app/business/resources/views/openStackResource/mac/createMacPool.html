@@ -1,0 +1,30 @@
+<div id="createMacPoolDiv">
+    <tiny-formfield>
+        <tiny-item  label="macName.label" require=macName.require>
+            <tiny-textbox id="macName.id" value="macName.value" validate="macName.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="descriptionTextBox.label" require=descriptionTextBox.require>
+            <tiny-textbox id="descriptionTextBox.id" value="descriptionTextBox.value"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="okButton.id" text="okButton.text" click="okButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/resources/controllers/openStackResource/mac/createMacPoolCtrl'],
+            function (createMacPoolCtrl) {
+                $("#createMacPoolDiv").attr("ng-controller", "resources.mac.createMacPool.ctrl");
+                var dep = ['ng', 'wcc', createMacPoolCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#createMacPoolDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#createMacPoolDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

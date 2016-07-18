@@ -1,0 +1,20 @@
+<div class="margin-erect-beautifier clearfix">
+
+    <fm-button id="createAlarmShieldBtn.id" icons-class="icon-plus" text="createAlarmShieldBtn.text" click="createAlarmShieldBtn.click" class="major-btn"></fm-button>
+
+    <div class="pull-right">
+        <tiny-filtersel id="queryComTypeCtrl.id" values="queryComTypeCtrl.values" width="queryComTypeCtrl.width" default-label="queryComTypeCtrl.dftLabel" change="queryComTypeCtrl.change()">
+        </tiny-filtersel>
+       {{i18n.common_term_alarmName_label}}:
+        <tiny-textbox id="queryAlarmNameCtrl.id" value="queryAlarmNameCtrl.value"></tiny-textbox>
+       {{i18n.common_term_alarmID_label}}:
+        <tiny-textbox id="queryAlarmIdCtrl.id" value="queryAlarmIdCtrl.value"></tiny-textbox>
+        <tiny-button id="queryAlarmShieldBtn.id" icons-class="icon-plus" text="queryAlarmShieldBtn.text" click="queryAlarmShieldBtn.click()"></tiny-button>
+    </div>
+</div>
+
+
+
+<tiny-table id="alarmDefineListTable.id" data="alarmDefineListTable.data" columns="alarmDefineListTable.columns" pagination-style="alarmDefineListTable.paginationStyle" length-change="alarmDefineListTable.lengthChange" length-menu="alarmDefineListTable.lengthMenu"
+display-length="alarmDefineListTable.displayLength" enable-filter="alarmDefineListTable.enableFilter" change-select="alarmDefineListTable.changeSelect" show-details="alarmDefineListTable.showDetails" callback="alarmDefineListTable.callback" render-row="alarmDefineListTable.renderRow"
+columns-visibility="false" total-records="alarmDefineListTable.totalRecords" cur-page="alarmDefineListTable.curPage" columns-draggable="false"></tiny-table>

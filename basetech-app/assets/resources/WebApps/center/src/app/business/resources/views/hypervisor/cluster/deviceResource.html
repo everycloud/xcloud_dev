@@ -1,0 +1,56 @@
+<div class="row-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.hypervisor.cluster">{{i18n.virtual_term_clusters_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.clusterInfo.summary">{{clusterName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.device_term_deviceResource_label}}</li>
+        </ul>
+        <ul class="nav nav-list noPadding">
+            <li class="two-lead">
+                <p ng-bind-html="virtual_cluster_view_explan_USBdevice_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+</div>
+<div id="deviceResourceDiv" class="container-fluid content-right-box">
+    <div class="clearfix bottom10 ">
+        <div class="fr clear_both">
+            <a class="btn-link">
+                <div class="small-icon small-icon-refresh" ng-click="refresh()"></div>
+            </a>
+            <a class="btn-link">
+                <div ng-click="help.show=true" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+        <div class="fr button_mr">
+            <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder"
+                            search="searchBox.search"></tiny-searchbox>
+        </div>
+        <div class="fr">
+            <tiny-filtersel id="searchSelector.id" values="searchSelector.values" width="searchSelector.width"
+                            change="searchSelector.change()"></tiny-filtersel>
+        </div>
+        <div class="fr button_mr">
+            <tiny-filtersel id="statusSelector.id" values="statusSelector.values" width="statusSelector.width"
+                            change="statusSelector.change()"></tiny-filtersel>
+        </div>
+        <div class="fr button_mr">
+            <tiny-filtersel id="allocateSelector.id" values="allocateSelector.values" width="allocateSelector.width"
+                            change="allocateSelector.change()"></tiny-filtersel>
+        </div>
+    </div>
+    <div>
+        <tiny-table id="deviceTable.id" data="deviceTable.data"
+                    columns='deviceTable.columns' render-row="deviceTable.renderRow"
+                    total-records="deviceTable.totalRecords" length-change="deviceTable.lengthChange"
+                    cur-page="deviceTable.curPage" display-length="deviceTable.displayLength"
+                    enable-pagination="deviceTable.enablePagination"
+                    length-menu="deviceTable.lengthMenu" callback="deviceTable.callback"
+                    columns-draggable="deviceTable.columnsDraggable"
+                    change-select="deviceTable.changeSelect" pagination-style="deviceTable.paginationStyle"></tiny-table>
+    </div>
+    <div fm-help help="'drawer_virtual_cluster_device'" i18n="'zh'" show="help.show"></div>
+</div>

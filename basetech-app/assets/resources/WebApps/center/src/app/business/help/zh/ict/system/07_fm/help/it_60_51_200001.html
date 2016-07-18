@@ -1,0 +1,156 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VDC">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_200001">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VDC</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("VDC管理\nVDC");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100019.html\">VDC管理<\/a> > VDC<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_200001"></a><a name="it_60_51_200001"></a>
+
+
+
+
+<h1 class="topictitle1">VDC</h1>
+<ul><li><a href="#it_60_51_200001__1.2.2.1">创建VDC</a></li><li><a href="#it_60_51_200001__1.2.3.1">为VDC添加用户</a></li><li><a href="#it_60_51_200001__1.2.4.1">管理配额</a></li><li><a href="#it_60_51_200001__1.2.5.1">管理云资源池</a></li><li><a href="#it_60_51_200001__1.2.6.1">导出VDC列表</a></li><li><a href="#it_60_51_200001__1.2.7.1">删除VDC</a></li></ul>
+<div>
+<div class="section"><p id="it_60_51_200001__vdc_define"><a name="it_60_51_200001__vdc_define"></a><a name="vdc_define"></a>VDC（Virtual Data Centers）是在<span>FusionManager</span>中使用虚拟资源的单位。例如，一个公司拥有所有云资源，每个部门分得一个VDC，VDC中包含这个部门可以使用的虚拟资源，包括计算资源、存储资源和网络资源。</p>
+<p>每个VDC可以包含多个成员，由VDC管理员进行管理，可以为VDC增加或删除成员，选择可使用的资源范围并设置资源配额。</p>
+</div>
+
+<div class="section"><a name="it_60_51_200001__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_200001" class="sectiontitle2contents">创建VDC</a></h4><p>创建一个新的VDC，并配置能管理VDC中资源的用户。</p>
+<p>VDC相当于<span>FusionSphere OpenStack</span>中的<span class="parmname">“domain”</span>。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VDC</span> &gt; <span class="uicontrol">VDC管理</span>”</span>页面，单击<span class="uicontrol">“创建VDC”</span>。</p>
+</div>
+
+
+
+<div class="section"><a name="it_60_51_200001__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_200001" class="sectiontitle2contents">为VDC添加用户</a></h4><p>VDC由VDC管理员进行管理。</p>
+<p>VDC创建完成后，可以通过创建用户的方式为VDC添加管理员：</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VDC</span> &gt; <span class="uicontrol">VDC管理</span>”</span>页面，VDC所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">成员管理</span>”</span>。</p>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">创建用户时可以设置用户的Email的个人信息，以方便通知或联系用户。在使用这些个人信息时，请遵从当地的法律法规。<p>Email用于告警转邮件功能，出现告警时可以通过发邮件的方式及时通知管理员或租户。系统管理员可以查看所有VDC管理员和VDC租户的Email信息，VDC管理员可以查看VDC内所有租户的Email信息。Email信息从用户创建会一直保存在系统中，直至用户从系统中删除。</p>
+</div></div>
+</div>
+
+<div class="section"><a name="it_60_51_200001__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_200001" class="sectiontitle2contents">管理配额</a></h4><p>VDC创建好后，如果需要调整VDC中使用的资源值，可以通过调整配额来实现。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VDC</span> &gt; <span class="uicontrol">VDC管理</span>”</span>页面，VDC所在行，单击<span class="uicontrol">“配额管理”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_200001__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_200001" class="sectiontitle2contents">管理云资源池</a></h4><p>VDC创建后，能够调整VDC可以使用的云资源池。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VDC</span> &gt; <span class="uicontrol">VDC管理</span>”</span>页面，VDC所在行中，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">云资源池管理</span>”</span>。</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_200001__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_200001" class="sectiontitle2contents">导出VDC列表</a></h4><p>将当前所有VDC详细信息，导出并保存到本地，便于信息备份和统计。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VDC</span> &gt; <span class="uicontrol">VDC管理</span>”</span>页面，单击<span class="uicontrol">“导出”</span>。</p>
+</div>
+
+<div class="section"><a name="it_60_51_200001__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_200001" class="sectiontitle2contents">删除VDC</a></h4><p>当VDC不再使用时，清空VDC中的资源后，删除VDC。</p>
+<p>在<span class="menucascade">“<span class="uicontrol">VDC</span> &gt; <span class="uicontrol">VDC管理</span>”</span>页面，VDC所在行，选择<span class="menucascade">“<span class="uicontrol">更多</span> &gt; <span class="uicontrol">删除</span>”</span>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

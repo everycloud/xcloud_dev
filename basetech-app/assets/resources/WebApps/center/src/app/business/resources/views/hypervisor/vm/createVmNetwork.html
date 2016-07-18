@@ -1,0 +1,39 @@
+<div id="createVmNetworkDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-checkbox id="vpcCheckbox.id" text="vpcCheckbox.text"
+                           change="vpcCheckbox.change()" disable="!model.azId"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item display="vpcCheckbox.display">
+            <div style="width: 1200px">
+                <tiny-table id="vpcTable.id" caption="vpcTable.caption" data="vpcTable.data"
+                            pagination-style="vpcTable.paginationStyle"
+                            columns='vpcTable.columns' render-row="vpcTable.renderRow"
+                            total-records="vpcTable.totalRecords" length-change="vpcTable.lengthChange"
+                            cur-page="vpcTable.curPage" display-length="vpcTable.displayLength"
+                            enable-pagination="vpcTable.enablePagination" change-select="vpcTable.changeSelect"
+                            length-menu="vpcTable.lengthMenu" callback="vpcTable.callback"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item label="nicNumSelector.label" require="nicNumSelector.require">
+            <tiny-select id="nicNumSelector.id" values="nicNumSelector.values" width="nicNumSelector.width"
+                         validate="nicNumSelector.validate" change="nicNumSelector.change()"></tiny-select>
+            <span popover="{{i18n.vm_vm_NIC_info_gateway_label}}" popover-trigger="mouseenter"
+                  popover-placement="right" class="small-icon small-icon-tips"></span>
+        </tiny-item>
+    </tiny-formfield>
+    <div>
+        <tiny-table id="nicTable.id" data="nicTable.data"
+                    columns='nicTable.columns' render-row="nicTable.renderRow"
+                    enable-pagination="nicTable.enablePagination"></tiny-table>
+    </div>
+    <div class="clear_both">
+        <div class="blank_10"></div>
+        <tiny-button id="networkPreButton.id" text="networkPreButton.text"
+                     click="networkPreButton.click()"></tiny-button>
+        <tiny-button id="networkNextButton.id" text="networkNextButton.text"
+                     click="networkNextButton.click()"></tiny-button>
+        <tiny-button id="networkCancelButton.id" text="networkCancelButton.text"
+                     click="networkCancelButton.click()"></tiny-button>
+    </div>
+</div>

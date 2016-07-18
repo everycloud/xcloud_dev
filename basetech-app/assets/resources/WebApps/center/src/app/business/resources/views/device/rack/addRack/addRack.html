@@ -1,0 +1,12 @@
+<div class="box_padding">
+    <div id="addRackStep" class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-bind="i18n.device_term_connectSubrack_button"></div>
+        <tiny-step id="addRackStep.id" jumpable="addRackStep.jumpable"
+                   values="addRackStep.values" width="addRackStep.width"></tiny-step>
+    </div>
+    <div class="create-page-distance">
+        <div ng-include="addHostStep1.url" ng-show="showBasicInfoPage"></div>
+        <div ng-include="addHostStep2.url" ng-show="showParamSettingPage"></div>
+        <div ng-include="addHostStep3.url" ng-show="showConfirmInfoPage"></div>
+    </div>
+</div>

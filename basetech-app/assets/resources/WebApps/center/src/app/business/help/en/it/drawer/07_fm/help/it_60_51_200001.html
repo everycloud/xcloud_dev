@@ -1,0 +1,122 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VDCs">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_200001">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>VDCs</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_200001"></a><a name="it_60_51_200001"></a>
+
+
+
+<h1 class="topictitle1">VDCs</h1>
+
+<div>
+<div class="section"><p id="it_60_51_200001__vdc_define"><a name="it_60_51_200001__vdc_define"></a><a name="vdc_define"></a>A virtual data center (VDC) is the primary
+unit of virtual resources managed in <span>FusionManager</span>. For example, an enterprise can assign an independent VDC for each
+of its department, and each VDC contains all virtual resources that
+can be used by the assigned department, such as computing, storage,
+and network resources.</p>
+<p>VDC resources are managed by the VDC
+administrator. You can add or delete members for a VDC and configure
+scope and quota for resources in the VDC.</p>
+<p>After <span>FusionManager</span> is installed, the system provides two default VDCs <span class="parmname"><b>DefaultSharedORG</b></span> and <span class="parmname"><b>DefaultVPCORG</b></span>.</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">Creating a VDC</h4><p>You can create
+a VDC, select availability zones and resources for the VDC, and configure
+a VDC administrator that have permission to manage resources in the
+VDC.</p>
+</div>
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Adding a VDC Administrator</h4></div><div class="dropdowncontext"><p>Resources in a VDC are under management of the VDC administrator. </p>
+<div class="p">After creating a VDC, you can use one of the following methods
+to add administrators for the VDC:<ul><li>Add an existing user in the system to the VDC administrator.</li><li>Create a new tenant for the VDC. An <span class="parmname"><b>ftp</b></span> user
+account for uploading files is automatically created during tenant
+creation.</li></ul>
+</div>
+<p>Locate the row that contains the target
+VDC, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Member
+Management</b></span>.</p>
+<div class="note" id="it_60_51_200001__note"><a name="it_60_51_200001__note"></a><a name="note"></a><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">When creating a user, you can set a phone number and email address
+for the user as contact information. Ensure that you comply with local
+laws and regulation when using the specified personal information.<ul><li>Phone number: used for alarm notification by SMS. This function
+allows the system to send alarm information to the administrator or
+tenants using SMS messages after an alarm is generated. The system
+administrator can view the phone numbers specified for all VDC administrators
+and all tenants in the VDC. The administrator of a VDC can view the
+phone numbers specified for all tenants in the VDC. After a phone
+number is configured for a user, the number will be kept in the system
+until being deleted from the system. In this version of <span>FusionManager</span>, the alarm notification by SMS function has not yet been delivered
+for commercial use, though the phone number can be specified as part
+of the personal information of a user added to the system. However,
+the system will not use the collected phone number information for
+other purposes. </li><li>Email address: used for alarm notification by email. This function
+allows the system to send alarm information to the administrator or
+tenants using emails after an alarm is generated. The system administrator
+can view the email addresses specified for all VDC administrators
+and all tenants in the VDC. The administrator of a VDC can view the
+email addresses specified for all tenants in the VDC. After an email
+address is configured for a user, the email address will be kept in
+the system until being deleted from the system.</li></ul>
+</div></div>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Configuring Availability
+Zones for a VDC</h4></div><div class="dropdowncontext"><p>You can add an availability zone to or delete
+an availability zone from a VDC as need.</p>
+<p>Locate the row that contains the target
+VDC, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Availability
+Zone Management</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Managing VDC Resource Quota</h4></div><div class="dropdowncontext"><p>After creating a VDC, you can modify the resource quota for the
+VDC as needed.</p>
+<p>Locate the
+row that contains the target VDC and select <span class="uicontrol"><b>Quota Management</b></span>.</p>
+</div></div></div>
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Managing an External Network</h4></div><div class="dropdowncontext"><p>By default, a VDC is allowed to use all external networks in the
+availability zone of the VDC. Using the external network management
+function, you can allocate a specific external network in the availability
+zone to the VDC.</p>
+<p>Locate the row that contains the target
+VDC, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>External
+Network Management</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Exporting VDC Information</h4></div><div class="dropdowncontext"><p>You can export the information about all available VDCs
+and save it to the local PC as a backup or for statistics purpose.</p>
+</div></div></div>
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">Deleting a VDC</h4></div><div class="dropdowncontext"><p>If a VDC is
+not needed any more, you can delete the VDC from the system. Before
+deleting the VDC, ensure that the resources in the VDC have been deleted.</p>
+<p>Locate the row that contains the target VDC,
+click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Delete</b></span>.</p>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

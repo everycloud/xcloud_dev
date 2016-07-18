@@ -1,0 +1,368 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="Installing the iNIC Driver on a Linux VM">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_200052">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Installing the iNIC Driver on a Linux VM</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\niNIC Driver Management\nInstalling the iNIC Driver on a Linux VM");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"it_58_45_200048.html\">iNIC Driver Management<\/a> > Installing the iNIC Driver on a Linux VM<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_200052"></a><a name="it_58_45_200052"></a>
+
+
+<h1 class="topictitle1">Installing the iNIC Driver on a Linux VM</h1>
+<ul><li><a href="#it_58_45_200052__1.2.1">Scenarios</a></li><li><a href="#it_58_45_200052__1.2.2">Prerequisites</a></li><li><a href="#it_58_45_200052__1.2.3">Procedure</a></li></ul>
+
+<div>
+<div class="Section"><a name="it_58_45_200052__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_58_45_200052" class="sectiontitle2contents">Scenarios</a></h2>
+<div class="Sectionbody"><p>If a host uses an iNIC, iNIC drivers must be installed on all VMs
+on the host. Otherwise, VM NICs cannot be detected and the VM network
+is unavailable.</p>
+<p>If a host uses an iNIC, you are
+advised to install iNIC drivers on all VMs to prevent VM network fault
+after VM migration.</p>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200052__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_58_45_200052" class="sectiontitle2contents">Prerequisites</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">Conditions</p></span><ul><li>You have logged in to the <span>FusionManager</span>.</li><li><p>The VM is in the <span class="parmvalue"><b>Running</b></span> state.</p>
+</li><li><p>The VM has the Tools run properly on it.</p>
+</li><li>You have obtained the ISO file that contains the iNIC driver. <p>The software package name
+is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOSDrivers.zip</b></span>, and the ISO file name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOS.iso</b></span>.</p>
+<div class="p">To obtain the software package <ul><li><span>For enterprise
+users, visit <span class="uicontrol"><b>http://support.huawei.com/enterprise</b></span> and choose <span class="menucascade" id="it_58_45_200052__d63e90"><a name="it_58_45_200052__d63e90"></a><a name="d63e90"></a><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">IT</span></b> &gt; <b><span class="uicontrol">FusionCloud</span></b> &gt; <b><span class="uicontrol">FusionSphere</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span>.</span></li><li><span>For telecom carrier
+users, visit <span class="uicontrol"><b>http://support.huawei.com</b></span> and
+choose <span class="menucascade" id="it_58_45_200052__d63e112"><a name="it_58_45_200052__d63e112"></a><a name="d63e112"></a><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Carrier Software &amp; Core Network </span></b> &gt; <b><span class="uicontrol">Carrier Cloud Computing</span></b> &gt; <b><span class="uicontrol">IT Cloud Infrastructure
+Solution</span></b> &gt; <b><span class="uicontrol">Cloud OS</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span>.</span></li></ul>
+</div>
+<div class="note" id="it_58_45_200052__d66e39"><a name="it_58_45_200052__d66e39"></a><a name="d66e39"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">Verify
+the obtained software packages. For details, see <a href="../../07_fm/soft_inst/it_60_23_000021.html">Verifying Software Packages</a>.</div></div>
+</li></ul>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200052__1.2.3"></a><a name="1.2.3"></a><h2 class="sectiontitle"><a href="#it_58_45_200052" class="sectiontitle2contents">Procedure</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle">Determine whether
+to install an iNIC.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li><span>On the <span>FusionManager</span> page, choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">Device</span></b> &gt; <b><span class="uicontrol">Host</span></b></span> and select the target host.</span></li><li><span>On the <span class="wintitle"><b>Hardware</b></span> page, click <span class="uicontrol"><b>NIC</b></span>.</span>
+<p><p>The NIC <span class="parmname"><b>Model</b></span> is displayed in the NIC
+information.</p>
+<p>The NIC type can be determined based
+on the model information.</p>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Mount a CD/DVD-ROM drive to the Linux VM.</p>
+<div class="Steps-titled"><ol type="1" start="3"><li id="it_58_45_200052__linux"><a name="it_58_45_200052__linux"></a><a name="linux"></a><span>Log in to the VM using VNC as user <span class="parmvalue"><b>root</b></span>, and mount a CD/DVD-ROM drive or ISO file to the VM.</span>
+<p>The <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOS.iso</b></span> is the required ISO file to be mounted.</p>
+</li><li><span>On the VM desktop displayed in the VNC window, right-click the desktop, and choose <span class="uicontrol"><b>Open in Terminal</b></span>.</span>
+<p>The command line interface (CLI) window is displayed. If the Linux OS does not provide a graphical user interface (GUI), run commands on the VM OS interface.</p>
+</li><li id="it_58_45_200052__mount_after"><a name="it_58_45_200052__mount_after"></a><a name="mount_after"></a><span>Run the following commands to mount a CD/DVD-ROM drive to the VM:</span>
+<p><p><b><span class="cmdname">mount</span></b><i><span class="varname"> Path to be mounted</span></i><b><span class="cmdname"> xvdd</span></b></p>
+<p>For example, <b><span class="cmdname">mount /dev/sr0 xvdd</span></b></p>
+</p>
+<p><a href="#it_58_45_200052__tab_mount">Table 1</a> lists the directories for mounting a CD/DVD-ROM drive or ISO file to a Linux VM.
+<div class="tablenoborder"><a name="it_58_45_200052__tab_mount"></a><a name="tab_mount"></a><table cellpadding="4" cellspacing="0" summary="" id="it_58_45_200052__tab_mount" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Directories for mounting a CD/DVD-ROM drive or ISO file to a Linux VM</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.3.1.2.2.3.3.2.2.4.1.1"><p>Linux Version</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.3.1.2.2.3.3.2.2.4.1.2"><p>Supported CD/DVD-ROM Drive Type</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.3.1.2.2.3.3.2.2.4.1.3"><p>Mounting Directory</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.1 "><div class="p"><ul><li>CentOS 6.0 or earlier</li><li>Red Hat Enterprise Linux 4.4 to 6.0</li><li>Oracle Linux Server release 5.7</li><li>Ubuntu 10.10 or earlier</li><li>Fedora 9</li><li>Fedora 12</li><li>Fedora 14</li><li>NeoShine</li><li>Red Flag Asianux Server 3</li><li>DOPRA ICTOM V002R003 EIMP</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.2 "><p>ISO file</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.3 "><p>/dev/xvdd</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.1 "><ul><li>DOPRA ICTOM V002R003 EIMP</li><li>DOPRA ICTOM V002R003 IMAOS</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.2 "><p>ISO file</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.3 "><p>/dev/sdd</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.1 "><div class="p"><ul><li>CentOS 6.1 or later</li><li>Red Hat Enterprise Linux 6.1 or later</li><li>Oracle Linux Server release 6.1</li><li>Ubuntu 11.10 or later</li><li>SUSE Linux Enterprise Server 11 or later</li><li>openSUSE 11.3</li><li>Debian GNU/Linux</li><li>Ubuntu 8.04 or later</li><li>Red Flag Asianux Server 4</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.2 "><p>ISO file or CD/DVD-ROM drive</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.3 "><p>/dev/sr0</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.1 "><div class="p"><ul><li>SUSE Linux Enterprise Server 10</li><li>Red Hat Enterprise Linux 3.0</li><li>Red Hat Enterprise Linux 3.4</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.2 "><p>ISO file or CD/DVD-ROM drive</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.2.2.3.3.2.2.4.1.3 "><p>/dev/hdd</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If the VMware hypervisor is in use, change the CD-ROM drive mounting directory by following the procedures in the documentation for the hypervisor and the OS in use.</div></div>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Install the iNIC driver.</p>
+<a name="it_58_45_200052__linux_inic2"></a><a name="linux_inic2"></a><div class="Steps-titled"><ol type="1" start="6" id="it_58_45_200052__linux_inic2"><li><span>Run the following command to switch to the path saving the driver package:</span>
+<p><b><span class="cmdname">cd xvdd/iNICDriver/linux</span></b></p>
+</li><li><span>Run the following command to view the iNIC driver:</span>
+<p><b><span class="cmdname">ls</span></b></p>
+<p><a href="#it_58_45_200052__tb02">Table 2</a> lists the mapping between OS versions and iNIC driver versions.
+<div class="tablenoborder"><a name="it_58_45_200052__tb02"></a><a name="tb02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_58_45_200052__tb02" frame="border" border="1" rules="all"><caption><b>Table 2 </b>Mapping between OS versions and iNIC driver versions</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.3.1.3.2.2.3.2.2.4.1.1"><p>OS Version</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.3.1.3.2.2.3.2.2.4.1.2"><p>iNIC Driver Version</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.3.1.3.2.2.3.2.2.4.1.3"><p>Path to the iNIC Driver</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.1 "><p>DOPRA ICTOM V002R003 EIMP</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.2 "><p>pvdriver-dopra-eimp-64bit-xxx-xx.tar.bz2</p>
+</td>
+
+<td class="cellrowborder" rowspan="4" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.3 "><p>linux/inic-linux-customize</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.1 "><p>DOPRA ICTOM V002R003 IMAOS</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.2 "><p>pvdriver-dopra-ump-64bit-xxx-xx.tar.bz2</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.1 "><p>Red Hat Enterprise Linux 3.0</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.2 "><p>pvdriver-redhat3.0-32bit-xxx-xx.tar.bz2</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.1 "><p>Red Hat Enterprise Linux 3.4</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.2 "><p>pvdriver-redhat3.4-32bit-xxx-xx.tar.bz2</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.1 "><p>Others</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.2 "><p>uvp-tools-linux-xxx.tar.bz2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.3.1.3.2.2.3.2.2.4.1.3 "><p>linux</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<p>This section takes <span class="filepath"><b>inic-linux-x.x.x.xx.tar.gz</b></span> as an example to describe how to install the iNIC driver on a Linux VM. The procedure of installation on other OSs is similar to that on a Linux VM.</p>
+</p>
+</li><li><span>Run the following command to copy the iNIC driver to the <span class="filepath"><b>root</b></span> folder:</span>
+<p><p><b><span class="cmdname">cp</span></b><i><span class="varname"> Driver package name</span></i><b><span class="cmdname"> /root</span></b></p>
+<p>For example, <b><span class="cmdname">cp inic-linux-x.x.x.xx.tar.gz /root</span></b>.</p>
+</p>
+</li><li><span>Run the following commands to decompress the iNIC driver installation package:</span>
+<p><p><b><span class="cmdname">cd /root</span></b></p>
+<p><b><span class="cmdname">tar -zxf</span></b><i><span class="varname"> Driver package name</span></i></p>
+<p>For example, <b><span class="cmdname">tar -zxf inic-linux-x.x.x.xx.tar.gz</span></b></p>
+</p>
+</li><li><span>Run the following command to install the iNIC driver:</span>
+<p><p><b><span class="cmdname">cd</span></b><i><span class="varname"> Directory that contains the driver package</span></i></p>
+<p><b><span class="cmdname">./install.sh</span></b></p>
+<p>For example, run the following commands:</p>
+<p><b><span class="cmdname">cd inic-linux</span></b></p>
+<p><b><span class="cmdname">./install.sh</span></b></p>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>If the VM runs a Red Hat 3.0, Red Hat 3.4 OS, the directory that contains the driver package varies depending on the OS kernel versions.</p>
+<p>To check the VM OS kernel version, run the following command:</p>
+<p><b><span class="cmdname">uname
+-a</span></b></p>
+<div class="p">If information similar to the following is displayed, the directory that contains the driver package has <span class="filepath"><b>smp</b></span> in the directory name.<pre class="screen">Linux xxxx-<strong>SMP</strong></pre>
+</div>
+</div></div>
+</p>
+</li><li><span>Run the following command to restart the VM:</span>
+<p><b><span class="cmdname">reboot</span></b></p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Verify the installation result.</p>
+<div class="Steps-titled"><ol type="1" start="12"><li><span>After the VM restarts, log in to the VM using VNC as user <span class="parmvalue"><b>root</b></span>.</span></li><li><span>On the VM desktop displayed in the VNC window, right-click the desktop, and choose <span class="uicontrol"><b>Open in Terminal</b></span>.</span>
+<p>The command line interface (CLI) window is displayed.</p>
+</li><li><span>Run the following command to check whether the iNIC driver is installed successfully:</span>
+<p><b><span class="cmdname">rpm -qa|grep iNIC</span></b></p>
+<p>The iNIC driver is installed successfully if iNIC information similar to the following is displayed in the command output contain:<pre class="screen">iNIC-SLES11.1-x.x.x.xx</pre>
+</p>
+</li><li><span>Unmount the CD/DVD-ROM drive or
+ISO file.</span></li></ol></div>
+</div>
+</ul>
+
+</div></div>
+
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

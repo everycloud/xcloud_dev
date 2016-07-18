@@ -1,0 +1,36 @@
+<div id="disasterDetailDiv">
+    <tiny-formfield>
+        <tiny-item label="label.name">
+            <div ng-bind="name"></div>
+        </tiny-item>
+        <tiny-item label="'ID:'">
+            <div ng-bind="id"></div>
+        </tiny-item>
+        <tiny-item label="label.desc">
+            <div ng-bind="desc"></div>
+        </tiny-item>
+        <tiny-item label="label.member">
+            <div  style="width: 600px">
+                <tiny-table id="disasterTable.id" data="disasterTable.data" columns='disasterTable.columns'
+                            enable-pagination="disasterTable.enablePagination" columns-draggable="disasterTable.columnsDraggable"
+                            render-row="disasterTable.renderRow"></tiny-table>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["app/business/resources/controllers/rpool/zone/zoneResources/storage/disasterRecovery/disasterDetailCtrl"], function (disasterCtrl) {
+        var rootElement = $("#disasterDetailDiv");
+        rootElement.attr("ng-controller", "resources.zone.disasterDetail.ctrl");
+        var dep = ['ng', 'wcc', disasterCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile) {
+            var scope = rootElement.scope();
+            $compile(rootElement)(scope);
+            scope.$digest();
+        });
+    });
+</script>

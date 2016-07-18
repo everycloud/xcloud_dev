@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="i18n.resource_term_zones_label"></span></li>
+            <li class="two-lead">
+                <p ng-bind-html="resource_zone_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+        <tiny-button class="major-btn fl" id="createZone.id" disable="createZone.disable"  ng-if="operable"
+                     text="createZone.text" click="createZone.create()"></tiny-button>
+        <!--刷新、列选择、帮助-->
+        <div class="pull-right">
+            <a class="btn-link">
+                <div ng-click="refresh.refresh()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div title="{{i18n.common_term_help_label}}" ng-click="help.show=true" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+        <div class="fr button_mr">
+            <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder"
+                            search="searchBox.search"></tiny-searchbox>
+        </div>
+        </div>
+        <div>
+            <tiny-table id="zoneTable.id" caption="zoneTable.caption" data="zoneTable.data"
+                        columns="zoneTable.columns"
+                        enable-pagination="zoneTable.enablePagination"
+                        pagination-style="zoneTable.paginationStyle" length-change="zoneTable.lengthChange"
+                        length-menu="zoneTable.lengthMenu" display-length="zoneTable.displayLength"
+                        enable-filter="zoneTable.enableFilter"
+                        cur-page="zoneTable.curPage" total-records="zoneTable.totalRecords"
+                        hide-total-records="zoneTable.hideTotalRecords"
+                        callback="zoneTable.callback" render-row="zoneTable.renderRow"
+                        show-details="zoneTable.showDetails" change-select="zoneTable.changeSelect"
+                        columns-draggable="zoneTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+    <div fm-help help="'drawer_resource_zone'" i18n="'zh'" show="help.show"></div>
+</div>

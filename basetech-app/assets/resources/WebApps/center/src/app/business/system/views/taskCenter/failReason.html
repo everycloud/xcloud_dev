@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div id="failReasionDiv">
+        <tiny-formfield>
+            <tiny-item label="failReason.label">
+                <div style="max-width:650px;word-wrap:break-word;word-break:normal;" ng-bind="failReason.value"></div>
+            </tiny-item>
+            <tiny-item label="resolve.label">
+                <div style="max-width:650px;word-wrap:break-word;word-break:normal;" ng-bind="resolve.value"></div>
+            </tiny-item>
+        </tiny-formfield>
+        <div>
+            <tiny-formfield>
+                <tiny-item label="subtaskFail.label"></tiny-item>
+            </tiny-formfield>
+            <div class="top5 clearfix">
+                <tiny-table id="failsubTable.id" data="failsubTable.data" columns="failsubTable.columns"
+                            enable-pagination="failsubTable.pagination" columns-draggable="failsubTable.draggable"
+                            render-row="failsubTable.renderRow">
+                </tiny-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/system/controllers/taskCenter/failReasonCtrl'],
+
+            function (failReasonCtrl) {
+                $("#failReasionDiv").attr("ng-controller", "failReasonCtrl");
+                var dep = ['ng', 'wcc', failReasonCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#failReasionDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#failReasionDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

@@ -1,0 +1,48 @@
+<div fm-help help="'drawer_template_vm'" show="show.help" i18n="'zh'"></div>
+<div>
+    <div class="clearfix bottom10">
+        <div ng-if="privilege.role_role_add_option_vmLogicHandle_value" class="fl">
+            <tiny-button class="major-btn" id="create.id" disable="create.disabled" icons-class="create.iconsClass"
+                         text="create.text"
+                         tooltip="create.tip" click="create.create()"></tiny-button>
+        </div>
+
+        <!--刷新、列选择、帮助-->
+        <div class="pull-right">
+            <tiny-filtersel id="searchStatus.id" values="searchStatus.values" width="searchStatus.width"
+                            change="searchStatus.change()">
+            </tiny-filtersel>
+        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+            <a class="btn-link">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{ i18n.common_term_fresh_button }}"
+                     class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div title="{{ i18n.common_term_onlinehelp_label }}" ng-click="show.help=true"
+                     class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="margin-top-beautifier">
+        <tiny-table id="logicVmTemplateTable.id" caption="logicVmTemplateTable.caption" data="logicVmTemplateTable.data"
+                    columns="logicVmTemplateTable.columns"
+                    enable-pagination="logicVmTemplateTable.enablePagination"
+                    pagination-style="logicVmTemplateTable.paginationStyle"
+                    length-change="logicVmTemplateTable.lengthChange"
+                    length-menu="logicVmTemplateTable.lengthMenu" display-length="logicVmTemplateTable.displayLength"
+                    enable-filter="logicVmTemplateTable.enableFilter"
+                    cur-page="logicVmTemplateTable.curPage" total-records="logicVmTemplateTable.totalRecords"
+                    hide-total-records="logicVmTemplateTable.hideTotalRecords"
+                    callback="logicVmTemplateTable.callback" render-row="logicVmTemplateTable.renderRow"
+                    change-select="logicVmTemplateTable.changeSelect"
+                    show-details="logicVmTemplateTable.showDetails"
+                    columns-draggable="logicVmTemplateTable.columnsDraggable"></tiny-table>
+    </div>
+</div>

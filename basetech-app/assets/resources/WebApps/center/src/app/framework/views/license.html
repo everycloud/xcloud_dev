@@ -1,0 +1,46 @@
+<div id="licenseStepsDiv">
+    <link rel="stylesheet" type="text/css" href="../theme/default/css/gm/license.css" class="ng-scope">
+    <h3 class="license-expired-title" ng-if="licenseExpired" ng-bind="tip"></h3>
+    <ul class="license-manage">
+        <li>
+            <p>
+                <span ng-bind-html="i18n.sys_license_import1_info_label"></span>
+                <span>{{licenseESN}}</span>
+            </p>
+            <p>
+                <span ng-bind-html="i18n.sys_license_import2_info_label"></span>
+            </p>
+        </li>
+        <li class="file-upload-container">
+            <label class="clearfix">
+                <span class="fl right10"><span ng-bind="i18n.sys_term_licenseFilePath_label"></span>:</span>
+                <tiny-fileupload id="licenseUpload.id" enable-detail="true"
+                                 file-obj-name="licenseUpload.fileObjName"
+                                 enable-progress="false"
+                                 file-type="licenseUpload.type"
+                                 max-size="licenseUpload.maxSize"
+                                 action="licenseUpload.url"
+                                 complete="licenseUpload.complete"
+                                 click="licenseUpload.beforeSubmit"
+                                 select-error="licenseUpload.selectError"
+                        >
+                </tiny-fileupload>
+            </label>
+        </li>
+    </ul>
+
+</div>
+<script type="text/javascript">
+    require(["app/framework/controllers/licenseModel"], function (licenseModel) {
+        $("#licenseStepsDiv").attr("ng-controller", "licenseStepsCtrl");
+        var dep = ['ng', 'wcc', licenseModel.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", $("#licenseStepsDiv"));
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile, $rootScope) {
+            $compile($("#licenseStepsDiv"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

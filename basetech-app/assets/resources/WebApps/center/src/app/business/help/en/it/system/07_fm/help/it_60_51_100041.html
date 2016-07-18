@@ -1,0 +1,174 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Cloud Resource Pools">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100041">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Cloud Resource Pools</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Service Management\nCloud Resource Pools");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100030.html\">Service Management<\/a> > Cloud Resource Pools<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100041"></a><a name="it_60_51_100041"></a>
+
+
+<h1 class="topictitle1">Cloud Resource Pools</h1>
+<ul><li><a href="#it_60_51_100041__1.2.4.1">Adding FusionSphere to FusionManager</a></li><li><a href="#it_60_51_100041__1.2.5.1">Modifying a Cloud Resource Pool</a></li><li><a href="#it_60_51_100041__1.2.6.1">Suspending or Resuming a Cloud Resource Pool</a></li><li><a href="#it_60_51_100041__1.2.7.1">Deleting a Cloud Resource Pool</a></li><li><a href="#it_60_51_100041__1.2.8.1">Adding an Availability Zone</a></li><li><a href="#it_60_51_100041__1.2.9.1">Managing the Tag Assigned to an Availability Zone</a></li><li><a href="#it_60_51_100041__1.2.10.1">Managing the VDC of an Availability Zone</a></li><li><a href="#it_60_51_100041__1.2.11.1">Suspending or Resuming a Availability Zone</a></li><li><a href="#it_60_51_100041__1.2.12.1">Deleting an Availability Zone</a></li></ul>
+<div>
+<p id="it_60_51_100041__cloud_define"><a name="it_60_51_100041__cloud_define"></a><a name="cloud_define"></a>A cloud resource pool contains all resources managed in a <span>FusionSphere</span> system.</p>
+
+<p id="it_60_51_100041__cloud_function"><a name="it_60_51_100041__cloud_function"></a><a name="cloud_function"></a><span>FusionManager</span> is able to manage multiple cloud resource pools.</p>
+
+<p id="it_60_51_100041__import"><a name="it_60_51_100041__import"></a><a name="import"></a>If <span>FusionManager</span> is deployed in all-in-one mode, you do not need to manually connect cloud resource pools to the system, because the system in this deployment mode
+supports automatic cloud resource pool connection. You can modify the cloud resource pool information, including the name and region, based on actual conditions. However, if you intend to use an all-in-one <span>FusionManager</span> to manage other Local <span>FusionManager</span> systems that are deployed in Top-Local mode, you need to manually connect these Local <span>FusionManager</span> systems to the all-in-one <span>FusionManager</span>.</p>
+
+<div class="section"><a name="it_60_51_100041__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Adding <span>FusionSphere</span> to <span>FusionManager</span></a></h4><p id="it_60_51_100041__cloud_import"><a name="it_60_51_100041__cloud_import"></a><a name="cloud_import"></a>After a cloud resource pool is added to <span>FusionManager</span>, <span>FusionManager</span> can use and manage all the resources in the pool in a unified manner. A cloud resource pool can be connected to only one <span>FusionManager</span> system. Otherwise, system exceptions may occur.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span> and click <span class="uicontrol"><b>Add FusionSphere</b></span>.</p>
+<p id="it_60_51_100041__psw"><a name="it_60_51_100041__psw"></a><a name="psw"></a>The username used for connecting a cloud resource pool to <span>FusionManager</span> is <span class="parmname"><b>FMRest</b></span>, and its default password
+is <span class="parmvalue"><b>Huawei@CLOUD8!</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100041__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Modifying a Cloud Resource Pool</a></h4><p>You can modify the attributes of a cloud resource pool.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>, locate the row that contains the cloud resource pool, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Modify</b></span>.</p>
+</div>
+
+
+<div class="section"><a name="it_60_51_100041__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Suspending or Resuming a Cloud Resource Pool</a></h4><p id="it_60_51_100041__cloud_pause"><a name="it_60_51_100041__cloud_pause"></a><a name="cloud_pause"></a>If the resources in a cloud resource pool are insufficient or you need to perform maintenance for the pool, for example, scale up the pool, suspend
+the cloud resource pool. In this case, however, using existing resources in the pool, such as VMs, is not affected.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>, locate the
+row that contains the cloud resource pool, click <span class="uicontrol"><b>More</b></span>, and select the required operation.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100041__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Deleting a Cloud Resource Pool</a></h4><p>If a cloud resource pool is not needed any more, for example, the pool is to be deleted for system capacity reduction, delete all resources in the resource pool and delete the cloud
+resource pool.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>, locate the row that contains the cloud resource pool, and click <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100041__1.2.8.1"></a><a name="1.2.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Adding an Availability Zone</a></h4><p>After a cloud resource pool is connected to the system, if the Local <span>FusionManager</span> administrator has created
+an availability zone in the cloud resource pool, the Top <span>FusionManager</span> administrator needs to manually add this availability zone to the system to make the availability zone take effect.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>, select a cloud resource pool, navigate to the <span class="uicontrol"><b>Availability Zones</b></span> page, and click <span class="uicontrol"><b>Add</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100041__1.2.9.1"></a><a name="1.2.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Managing the Tag Assigned to an Availability Zone</a></h4><p>Tags are used to facilitate identification and selection of virtual resources, such as resources clusters and availability zone. After creating an
+availability zone, you can adjust the tag assigned to it.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>, select a cloud resource pool, navigate to the <span class="uicontrol"><b>Availability
+Zones</b></span> page, locate the row that contains the availability zone, and click <span class="uicontrol"><b>Tags</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100041__1.2.10.1"></a><a name="1.2.10.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Managing the VDC of an Availability Zone</a></h4><p>Manage the VDC of an AZ.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>, select
+a cloud resource pool, navigate to the <span class="uicontrol"><b>Availability Zones</b></span> page, locate the row that contains the availability zone, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>VDCs</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100041__1.2.11.1"></a><a name="1.2.11.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Suspending or Resuming a Availability Zone</a></h4><p>If the resources in a availability zone are insufficient or you need to perform maintenance for the availability zone, suspend the availability zone. In
+this case, however, using existing resources in the availability zone, such as VMs, is not affected.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>, select a cloud resource
+pool, navigate to the <span class="uicontrol"><b>Availability Zones</b></span> page, locate the row that contains the availability zone, click <span class="uicontrol"><b>More</b></span>, and select the required operation.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100041__1.2.12.1"></a><a name="1.2.12.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100041" class="sectiontitle2contents">Deleting an Availability Zone</a></h4><p>If an availability zone is not needed any more, you can delete it from the system. </p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Cloud Resource Pool</span></b></span>, select a cloud resource pool, navigate to the <span class="uicontrol"><b>Availability Zones</b></span> page, locate the row that contains the availability zone, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

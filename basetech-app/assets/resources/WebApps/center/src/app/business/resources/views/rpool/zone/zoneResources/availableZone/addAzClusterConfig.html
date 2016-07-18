@@ -1,0 +1,24 @@
+<div id="addAzClusterDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-button class="major-btn" id="addClusterButton.id" text="addClusterButton.text"
+                         click="addClusterButton.click()"></tiny-button>
+        </tiny-item>
+        <tiny-item>
+            <div style="width: 1200px">
+                <tiny-table id="clusterTable.id" data="clusterTable.data"  columns-draggable="clusterTable.columnsDraggable"
+                            columns='clusterTable.columns' render-row="clusterTable.renderRow"
+                            enable-pagination="clusterTable.enablePagination"
+                            columns-visibility="clusterTable.columnsVisibility"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="clusterPreButton.id" text="clusterPreButton.text"
+                         click="clusterPreButton.click()"></tiny-button>
+            <tiny-button id="clusterNextButton.id" text="clusterNextButton.text"
+                         click="clusterNextButton.click()" class="major-btn"></tiny-button>
+            <tiny-button id="clusterCancelButton.id" text="clusterCancelButton.text"
+                         click="clusterCancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

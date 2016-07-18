@@ -1,0 +1,61 @@
+<div class="network-createDvs" ng-controller="resources.zoneResources.createDvsCtrl">
+    <div id="resources_dvs_createInfo">
+        <tiny-formfield>
+            <tiny-item label="zoneInfo.label" require="zoneInfo.require">
+                <span ng-bind="zoneInfo.zoneName"></span>
+            </tiny-item>
+
+            <tiny-item label="name.label" require="name.require">
+                <tiny-textbox id="name.id" value="name.value" validate="name.validate" tooltip="name.tooltip"
+                              width="name.width"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="hypervisor.label" require="hypervisor.require">
+                <tiny-select id="hypervisor.id" values="hypervisor.values" width="hypervisor.width"
+                             disable="hypervisor.disable" change="hypervisor.change()"></tiny-select>
+            </tiny-item>
+
+            <tiny-item label="description.label" require="description.require">
+                <tiny-textbox id="description.id" value="description.value"
+                              width="description.width" type="description.type"
+                              tooltip="description.tooltip" validate="description.validate"
+                              height="description.height">
+                </tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="vssTable.label" require="vssTable.require">
+            </tiny-item>
+        </tiny-formfield>
+        <tiny-table id="vssTable.id" caption="vssTable.caption" data="vssTable.data"
+                    columns="vssTable.columns"
+                    enable-pagination="vssTable.enablePagination"
+                    enable-filter="vssTable.enableFilter"
+                    cur-page="vssTable.curPage" total-records="vssTable.totalRecords"
+                    hide-total-records="vssTable.hideTotalRecords"
+                    render-row="vssTable.renderRow"
+                    show-details="vssTable.showDetails"
+                    columns-draggable="vssTable.columnsDraggable"></tiny-table>
+    </div>
+
+    <div class="blank_20"></div>
+    <div>
+        <tiny-button class="major-btn" id="createBtn.id" text="createBtn.text"
+                     disable="createBtn.disable" click="createBtn.click()"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                     click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/rpool/zone/zoneResources/network/dvs/createDvsCtrl'],
+            function (createDvsCtrl) {
+                var dep = ['ng', 'wcc', createDvsCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $(".network-createDvs"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($(".network-createDvs"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

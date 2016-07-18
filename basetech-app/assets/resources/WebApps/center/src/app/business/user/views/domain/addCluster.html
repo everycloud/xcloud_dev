@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div id="addCluster" ng-controller="userMgr.domain.addCluster.ctrl">
+        <div class="clearfix">
+            <div class="fl" style="width:361px;max-height:4750px;">
+                <div class="form-inline">
+                    <span ng-bind="clusterSelectModel.canSelectClusterLabel"></span>
+
+                    <div class="pull-right">
+                                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                                    <tiny-searchbox id="leftClusterSearchBox.id"
+                                                    placeholder="leftClusterSearchBox.placeholder"
+                                                    width="leftClusterSearchBox.width"
+                                                    suggest-size="leftClusterSearchBox.suggestSize"
+                                                    maxlength="leftClusterSearchBox.maxLength"
+                                                    suggest="leftClusterSearchBox.suggest"
+                                                    search="leftClusterSearchBox.search">
+                                    </tiny-searchbox>
+                                </span>
+                    </div>
+                </div>
+                <div>
+                    <tiny-table id="leftTable.id"
+                                data="leftTable.data"
+                                columns="leftTable.columns"
+                                enable-pagination="leftTable.pagination"
+                                pagination-style="leftTable.paginationStyle"
+                                length-change="leftTable.lengthChange"
+                                length-menu="leftTable.lengthMenu"
+                                display-length="leftTable.displayLength"
+                                enable-filter="leftTable.enableFilter"
+                                cur-page="leftTable.curPage"
+                                total-records="leftTable.totalRecords"
+                                request-config="leftTable.requestConfig"
+                                hide-total-records="leftTable.hideTotalRecords"
+                                render-row="leftTable.renderRow"
+                                callback="leftTable.callback"
+                                change-select="leftTable.changeSelect"
+                                columns-draggable="true"
+                                show-details="leftTable.showDetails"></tiny-table>
+                </div>
+            </div>
+            <div class="fr" style="width:361px;max-height:4750px;">
+                <div class="form-inline">
+                    <span ng-bind="clusterSelectModel.clusterSelectedLabel"></span>
+                </div>
+
+                <div>
+                    <tiny-table id="rightTable.id"
+                                data="rightTable.data"
+                                columns="rightTable.columns"
+                                enable-pagination="rightTable.pagination"
+                                hide-total-records="rightTable.hideTotalRecords"
+                                render-row="rightTable.renderRow"
+                                callback="rightTable.callback"
+                                change-select="rightTable.changeSelect"
+                                columns-draggable="true"
+                                show-details="rightTable.showDetails"></tiny-table>
+                </div>
+            </div>
+        </div>
+        <div class="fm-btn-top-large" style="margin-left: 315px">
+            <tiny-button class="major-btn"
+                         id="addClusterSaveBtn.id"
+                         text="addClusterSaveBtn.text"
+                         disable="addClusterSaveBtn.disable"
+                         click="addClusterSaveBtn.click()"></tiny-button>
+            <tiny-button id="addClusterCancelBtn.id"
+                         text="addClusterCancelBtn.text"
+                         click="addClusterCancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["app/business/user/controllers/domain/addClusterCtrl"], function (addClusterCtrl) {
+        var $injector = angular.injector(["ng", addClusterCtrl.name]);
+        $injector.invoke(function ($compile) {
+            var link = $compile($("#addCluster"));
+            link($("#addCluster").scope());
+            $("#addCluster").scope().$digest();
+        });
+    });
+</script>

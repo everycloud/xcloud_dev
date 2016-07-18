@@ -1,0 +1,125 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="虚拟化防病毒管理">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600029">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>虚拟化防病毒管理</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_600029"></a><a name="it_60_51_600029"></a>
+
+
+<h1 class="topictitle1">虚拟化防病毒管理</h1>
+
+<div>
+<div class="section"><h4 class="sectiontitle">虚拟化防病毒简介</h4><p><span>FusionCompute</span>联合防病毒厂商为用户提供虚拟化防病毒功能。其中，华为提供虚拟化平台的防病毒接口（API），防病毒厂商基于该接口进行开发，集成其杀毒引擎、病毒库等，最终为用户的虚拟化平台提供防病毒能力。</p>
+<p>使用该功能时，只需在主机上部署一台安全服务虚拟机（SVM，<a href="#it_60_51_600029__d1109e35">注1</a>），并在运行在该主机上的其他虚拟机（称为安全用户虚拟机，GVM，<a href="#it_60_51_600029__d1109e37">注2</a>）安装防病毒驱动，即可为安全用户虚拟机提供病毒查杀、病毒实时监控等服务（<a href="#it_60_51_600029__d1109e42">注3</a>）。</p>
+<p>与传统防病毒功能相比，<span>FusionCompute</span>虚拟化防病毒功能无需在用户虚拟机上安装完整的防病毒软件，节省用户存储资源；运行病毒查杀等功能时仅需占用用户虚拟机极少的计算资源，用于运行防病毒驱动。</p>
+<p>同时，<span>FusionCompute</span>虚拟化防病毒功能通过主机物理内存交换进行病毒查杀和实时监控，效率高、速度快，并且由于不依赖网络，因此不会占用用户虚拟机网络资源。</p>
+<p id="it_60_51_600029__d1109e35"><a name="it_60_51_600029__d1109e35"></a><a name="d1109e35"></a>注1：安全服务虚拟机由防病毒厂商提供。</p>
+<p id="it_60_51_600029__d1109e37"><a name="it_60_51_600029__d1109e37"></a><a name="d1109e37"></a>注2：目前仅支持部分Windows操作系统的虚拟机作为安全用户虚拟机，具体支持类型请参见<span>如下使用约束</span>。安全用户虚拟机所安装的防病毒驱动由华为提供。</p>
+<p id="it_60_51_600029__d1109e42"><a name="it_60_51_600029__d1109e42"></a><a name="d1109e42"></a>注3：虚拟化防病毒功能所提供的具体防病毒服务及性能由防病毒厂商提供的防病毒引擎的能力决定。</p>
+</div>
+
+
+<div class="section"><h4 class="sectiontitle">部署方案</h4><div class="p">虚拟化防病毒功能整体部署方案如<a href="#it_60_51_600029__d1109e52">图1</a>所示。<div class="fignone" id="it_60_51_600029__d1109e52"><a name="it_60_51_600029__d1109e52"></a><a name="d1109e52"></a><span class="figcap"><b>图1 </b>虚拟化防病毒部署方案</span>
+
+<br><span><img src="../../05_fc/vm_prov/fig/fig_it_58_45_500001_01.png"></span></div>
+</div>
+<div class="p">说明如下：<ul><li>每台主机可配置多台安全用户虚拟机。</li><li>每台主机部署一台安全服务虚拟机，为安全用户虚拟机提供防病毒服务。</li><li>需部署一个防病毒管理中心，用于管理所有安全服务虚拟机，配置安全服务虚拟机的防病毒策略，下发病毒扫描任务等。<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">不同防病毒厂商提供的软件名称不同，本文档中统一称其为<span class="uicontrol">“防病毒管理中心”</span>。</div></div>
+</li><li>防病毒管理中心通过网络与安全服务虚拟机连接，因此防病毒管理中心需要与安全服务虚拟机网络互通。</li></ul>
+</div>
+</div>
+
+<div class="section" id="it_60_51_600029__restrict"><a name="it_60_51_600029__restrict"></a><a name="restrict"></a><h4 class="sectiontitle">使用约束</h4><div class="p">使用<span>FusionCompute</span>虚拟化防病毒功能时，具有如下约束：<ul><li>每台主机仅支持部署一台安全服务虚拟机。</li><li>仅支持以下操作系统的虚拟机作为安全用户虚拟机：<ul><li>Windows 7 (32 bit)</li><li>Windows Server 2003 (32 bit)</li></ul>
+</li><li><p id="it_60_51_600029__d1109e104"><a name="it_60_51_600029__d1109e104"></a><a name="d1109e104"></a>安全用户虚拟机要求所安装的Tools为1.3.10及以上版本。</p>
+</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">影响</h4><p>使用<span>FusionCompute</span>虚拟化防病毒功能时，不能同时使用图形处理器共享功能。即开启主机防病毒功能时，不能同时开启图形处理器共享。但图形处理器直通或图形处理器自身虚拟化功能不受影响。</p>
+<div class="p">使用<span>FusionCompute</span>虚拟化防病毒功能时，对安全服务虚拟机自身功能影响如下：<ul><li>不支持生成内存快照。</li><li>安全服务虚拟机需实时服务，因此不能对安全服务虚拟机执行关闭、休眠等操作。</li><li>安全服务虚拟机与主机绑定，如发生集群动态资源调度或主机故障，无法自动迁移。</li></ul>
+</div>
+<div class="p">使用<span>FusionCompute</span>虚拟化防病毒功能时，对安全用户虚拟机自身功能影响如下：<ul><li>不支持生成内存快照。</li><li><p>安全用户虚拟机依赖安全服务虚拟机提供的服务，如在集群动态资源调度或主机故障发生自动迁移时，需要迁移至已部署安全服务虚拟机的主机，否则虚拟机迁移后将无法启动。</p>
+<p>因此建议同一个集群的主机同时开启虚拟化防病毒功能，并部署安全服务虚拟机。</p>
+</li></ul>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">前提条件</h4><div class="p"><ul><li>已登录<span>ServiceCenter</span>。</li><li>已规划安全服务虚拟机的IP地址，用于接入防病毒管理中心。</li><li>在Local
+FusionManager中已经完成了相关配置，详情请参考<span>《FusionManager V100R005C00
+local管理员指南(服务器整合,top-local)》</span>中的<span class="menucascade">“<span class="uicontrol">FAQ</span> &gt; <span class="uicontrol">虚拟机管理</span> &gt; <span class="uicontrol">虚拟化防病毒管理</span>”</span>。 </li><li><div class="p">需获取的软件如<a href="#it_60_51_600029__d1122e51">表1</a>所示。
+<div class="tablenoborder"><a name="it_60_51_600029__d1122e51"></a><a name="d1122e51"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600029__d1122e51" frame="border" border="1" rules="all"><caption><b>表1 </b></caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="36.5%" id="mcps1.2.5.2.1.4.1.2.2.3.1.1"><p>软件</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="63.5%" id="mcps1.2.5.2.1.4.1.2.2.3.1.2"><p>获取方式</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="36.5%" headers="mcps1.2.5.2.1.4.1.2.2.3.1.1 "><p>防病毒管理中心软件</p>
+</td>
+
+<td class="cellrowborder" rowspan="2" valign="top" width="63.5%" headers="mcps1.2.5.2.1.4.1.2.2.3.1.2 "><p>需额外购买。购买后联系防病毒厂商获取软件、License以及产品文档。</p>
+<p>目前支持趋势科技提供的防病毒软件，请访问趋势官方网站<a href="http://www.trendmicro.com" target="_blank">http://www.trendmicro.com</a>，联系客服咨询软件、License以及产品文档的获取方式。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.5.2.1.4.1.2.2.3.1.1 "><p>安全服务虚拟机模板</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="36.5%" headers="mcps1.2.5.2.1.4.1.2.2.3.1.1 "><p>FusionCompute V100R005C00SPC100_GuestOSDrivers.zip</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="63.5%" headers="mcps1.2.5.2.1.4.1.2.2.3.1.2 "><p>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise</span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></p>
+<p>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">FusionCompute
+V100R005</span> &gt; <span class="uicontrol">FusionCompute V100R005C00SPC100</span>”</span></p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</li></ul>
+</div>
+</div>
+
+
+<div class="section" id="it_60_51_600029__install"><a name="it_60_51_600029__install"></a><a name="install"></a><h4 class="sectiontitle">安装虚拟化防病毒客户端驱动</h4><div class="p">为安全用户虚拟机安装虚拟化防病毒客户端驱动。<ol><li>使用VNC方式登录虚拟机，并挂载光驱。<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC100_GuestOS.iso”</span>。</p>
+</li><li>在VNC登录窗口的虚拟机操作系统界面，选择<span class="menucascade">“<span class="uicontrol">开始</span> &gt; <span class="uicontrol">计算机</span>”</span>，双击虚拟光驱图标。<p>打开存放虚拟化防病毒客户端驱动安装程序的目录。</p>
+</li><li>在<span class="filepath">“gvmPciDriver”</span>文件夹内，双击虚拟化防病毒客户端驱动的安装程序，根据页面提示完成驱动的安装。<p>安装成功后要求重启虚拟机。</p>
+</li><li>卸载光驱。</li></ol>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

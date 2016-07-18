@@ -1,0 +1,30 @@
+<div id="queryVMNumDiv">
+    <tiny-formfield>
+        <tiny-item label="label.runningVMnum">
+            <div ng-bind="info.runningVMnum"></div>
+        </tiny-item>
+        <tiny-item label="label.troubleVMnum">
+            <div ng-bind="info.troubleVMnum"></div>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+
+
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/host/queryVMNumCtrl'],
+            function (antiVirusCtrl) {
+                var rootElement = $("#queryVMNumDiv");
+                rootElement.attr("ng-controller", "resources.host.queryVMNum.ctrl");
+                var dep = ['ng', 'wcc', antiVirusCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

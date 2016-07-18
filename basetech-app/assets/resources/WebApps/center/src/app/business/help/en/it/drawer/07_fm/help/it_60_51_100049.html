@@ -1,0 +1,57 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="USB Devices">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100049">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>USB Devices</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100049"></a><a name="it_60_51_100049"></a>
+
+
+<h1 class="topictitle1">USB Devices</h1>
+
+
+
+<div><p></p>
+
+<p>A resource cluster is a collection of computing, storage, and network
+resources that have the same resource attributes in a resource zone.
+A virtual cluster is the resource pool used by <span>FusionManager</span> to provision virtual resources.</p>
+
+<p>You can add a USB device only when the VM is
+in the <span class="parmvalue"><b>Running</b></span> or <span class="parmvalue"><b>Stopped</b></span> state, the VM is already equipped with a USB controller, and the
+host on which the VM is running has available USB devices.</p>
+
+<div class="p">A maximum
+of four USB devices can be attached to each set of VM. The four USB
+devices must be deployed on the same host. Attaching a USB device
+to a VM has the following impacts on the VM:<ul><li>HA: When HA is enabled on a VM to which a USB device is attached,
+the USB's state changes to <span class="parmvalue"><b>Assigned, Non-passthrough</b></span> and the USB device cannot be attached to other VMs.</li><li>Migration: The VM does not support live migration after being
+attached to a USB device.</li><li>Hibernation: After a VM is hibernated, do not remove or insert
+the USB device that is attached to the VM.</li><li>VM snapshot: The VM does not support memory snapshots after being
+attached to a USB device.</li><li>Cluster scheduling policy: The cluster scheduling policy takes
+no effect on the VM to which a USB device is attached.</li><li>Transmission rate: After the USB device is attached to a VM, the
+maximum transmission rate of the USB port is 3 MB/s.</li></ul>
+</div>
+
+
+
+</div>
+
+
+</body>
+</html>

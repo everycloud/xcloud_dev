@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div id="setPrivilegeDiv" ng-controller="userMgr.domain.setPrivilege.ctrl">
+        <div style="border: 1px #ccc solid;overflow-y:auto;overflow-x:hidden; height: 400px;">
+            <div style="margin: 5px;">
+                <tiny-checkboxgroup id="privilegeGroup.id" layout="privilegeGroup.layout" values="privilegeGroup.values"></tiny-checkboxgroup>
+            </div>
+        </div>
+        <div class="margin-top-beautifier" style="margin-left: 100px">
+            <tiny-button class="major-btn" id="saveBtn.id" text="saveBtn.text" click="saveBtn.click()"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+require(["app/business/user/controllers/domain/setPrivilegeCtrl"], function(setPrivilegeCtrl) {
+    var $injector = angular.injector(["ng", setPrivilegeCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#setPrivilegeDiv"));
+        link($("#setPrivilegeDiv").scope());
+        $("#setPrivilegeDiv").scope().$digest();
+    });
+});
+</script>

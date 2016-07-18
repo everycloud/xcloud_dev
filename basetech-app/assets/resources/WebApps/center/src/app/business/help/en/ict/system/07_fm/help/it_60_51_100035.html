@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VM Specifications">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100035">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VM Specifications</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Resource Management\nOpenStack Resource Management\nOpenStack Instances\nVM Specifications");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">Resource Management<\/a> > <a href=\"../father_node/it_60_99_100028.html\">OpenStack Resource Management<\/a> > <a href=\"../father_node/it_60_99_100029.html\">OpenStack Instances<\/a> > VM Specifications<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100035"></a><a name="it_60_51_100035"></a>
+
+
+<h1 class="topictitle1">VM Specifications</h1>
+<ul><li><a href="#it_60_51_100035__1.2.4.1">Setting the Boot Device</a></li><li><a href="#it_60_51_100035__1.2.5.1">Configuring Tags</a></li><li><a href="#it_60_51_100035__1.2.6.1">Deleting VM Specifications</a></li></ul>
+<div>
+<p><span id="it_60_51_100035__vmSpec_define"><a name="it_60_51_100035__vmSpec_define"></a><a name="vmSpec_define"></a>VM specifications define the VM hardware
+settings, including the number of CPUs, memory space, and system disk
+space.</span></p>
+
+<p><span id="it_60_51_100035__vmSpec_function"><a name="it_60_51_100035__vmSpec_function"></a><a name="vmSpec_function"></a>You can define VM specifications for provisioning
+VMs with the defined specifications. VMs can have different specifications
+specified to meet different performance requirements.</span></p>
+
+
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">OpenStack Instances</span></b></span>, select an OpenStack instance, navigate to the <span class="uicontrol"><b>VM Specifications</b></span> page</span> and click <span class="uicontrol"><b>Create</b></span>.</p>
+
+
+
+<div class="section"><a name="it_60_51_100035__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100035" class="sectiontitle2contents">Setting the Boot Device</a></h4><div class="p">The default boot device for defining VM specifications
+is the image. After the VM specifications are defined, you can change
+the boot device. The following boot devices are available for VM specifications:<ul><li><span class="parmname"><b>Image</b></span>: In this mode, the VM system disks
+are created using the local disk file system of the host. Cold migrating
+VMs or modifying VM specifications requires configuration of the host
+mutual trust relationships. However, configuring the host mutual trust
+relationships is not recommended because it may cause risks. If you
+need to configure the mutual trust relationships, visit OpenStack
+official website and see related configuration information.</li><li><span class="parmname"><b>Cloud Hard Disk</b></span>: In this mode, the VM system
+disks are created using the cinder-volume storage resource, which
+can be provided by a local host disk or a shared storage device, such
+as IP SAN or FusionStorage. The VM system disks can be managed by
+FusionManager. If a shared storage device provides storage space for
+the system disks, configuration of the host mutual trust relationships
+is not required.</li></ul>
+<span id="it_60_51_100035__default"><a name="it_60_51_100035__default"></a><a name="default"></a>The boot device setting configured in VM specifications
+takes effect only when VMs are being created. When you use an application
+template to create an application instance, the VMs included in the
+application instance start using the image file by default.</span></div>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">OpenStack Instances</span></b></span>, select an OpenStack instance, navigate to the <span class="uicontrol"><b>VM Specifications</b></span> page</span>, locate the row that contains the target VM specifications,
+click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Set Boot
+Device</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100035__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100035" class="sectiontitle2contents">Configuring Tags</a></h4><p>The tags configured for a host group can apply to a set of VM
+specifications. If this set of VM specifications is used to create
+VMs, the system only selects the hosts that fully meet the specified
+tags in the host group to create VMs.</p>
+<p>For example, if host group 1 has an tag attribute configured,
+with its name set to <span class="parmname"><b>computing_performance</b></span> and
+value set to <span class="parmvalue"><b>High</b></span>, and this <span class="parmname"><b>computing_performance</b></span> tag is configured for the VM specifications set <span class="parmvalue"><b>spec01</b></span>, the system selects a qualified host from host group 1 when using <span class="parmvalue"><b>spec01</b></span> to create VMs.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">OpenStack Instances</span></b></span>, select an OpenStack instance, navigate to the <span class="uicontrol"><b>VM Specifications</b></span> page</span>, locate the row that contains the target host group, click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Manage Tag</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100035__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100035" class="sectiontitle2contents">Deleting VM Specifications</a></h4><p>If a set of VM specifications is not needed any more, you can delete
+it from the system.</p>
+<p>Locate the row that contains the
+target VM specification set and click <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<div id="addRackConfirmInfo">
+    <div>
+        <span class="createpage-title">{{i18n.common_term_basicInfo_label}}</span>
+        <tiny-formfield>
+            <tiny-item label="basicInfo.name.label">
+                <div ng-bind="createInfo.name"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.model.label">
+                <div ng-bind="createInfo.chassisType"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.zone.label" display="cloudType=='FUSIONSPHERE'">
+                <div ng-bind="basicInfo.zone.value"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.room.label">
+                <div ng-bind="createInfo.roomName"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.cabinet.label">
+                <div ng-bind="createInfo.rackId"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.subrack.label">
+                <div ng-bind="createInfo.subRackId"></div>
+            </tiny-item>
+            <tiny-item label="basicInfo.description.label">
+                <div ng-bind="createInfo.description"></div>
+            </tiny-item>
+        </tiny-formfield>
+
+    </div>
+    <div>
+        <span class="createpage-title">{{i18n.common_term_setPara_label}}</span>
+        <tiny-formfield>
+            <tiny-item label="paramInfo.version.label">
+                <div ng-bind="createInfo.snmpConnectorParam.snmpVersion"></div>
+            </tiny-item>
+            <tiny-item display="trapProtocol.length != 0" label="paramInfo.trapProtocol.label">
+                <div ng-bind="createInfo.snmpConnectorParam.snmpTrapVersion"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.mmIp.label">
+                <div ng-bind="createInfo.snmpConnectorParam.ipAddr"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.port.label">
+                <div ng-bind="createInfo.snmpConnectorParam.port"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.timeout.label">
+                <div ng-bind="createInfo.snmpConnectorParam.timeOut"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.retries.label">
+                <div ng-bind="createInfo.snmpConnectorParam.reties"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.mmAIp.label">
+                <div ng-bind="createInfo.mm1IpAddr"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.mmBIp.label">
+                <div ng-bind="createInfo.mm2IpAddr"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.readCommunity.label" display="!isSnmpV3">
+                <div ng-bind="createInfo.snmpConnectorParam.readComm"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.writeCommunity.label" display="!isSnmpV3">
+                <div ng-bind="createInfo.snmpConnectorParam.writeComm"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.security.label" display="isSnmpV3">
+                <div ng-bind="createInfo.snmpConnectorParam.securityName"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.authProtocol.label" display="isSnmpV3">
+                <div ng-bind="createInfo.snmpConnectorParam.authProtocol"></div>
+            </tiny-item>
+            <tiny-item label="paramInfo.encrptProtocol.label" display="isSnmpV3">
+                <div ng-bind="createInfo.snmpConnectorParam.encryptProtocol"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+
+    <div class="fm-btn-top-smaller">
+        <tiny-button id="confirmInfo.preBtn.id" text="confirmInfo.preBtn.text"
+                     click="confirmInfo.preBtn.click()"></tiny-button>
+        <tiny-button class="major-btn" id="confirmInfo.okBtn.id" text="confirmInfo.okBtn.text"
+                     tooltip="confirmInfo.okBtn.tooltip" click="confirmInfo.okBtn.click()"></tiny-button>
+        <tiny-button id="confirmInfo.cancelBtn.id" text="confirmInfo.cancelBtn.text"
+                     tooltip="confirmInfo.cancelBtn.tooltip"
+                     click="confirmInfo.cancelBtn.click()"></tiny-button>
+    </div>
+</div>

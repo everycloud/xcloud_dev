@@ -1,0 +1,61 @@
+<div id="hardwareCpuDiv">
+    <div class="outbox-padding">
+        <div class="legend">CPU</div>
+        <p class="color2 bottom10" ng-bind-html="i18n.vm_vm_modify_para_CPU_mean_label"></p>
+        <tiny-formfield>
+            <tiny-item label="cpuCoreSelector.label">
+                <tiny-select id="cpuCoreSelector.id" values="cpuCoreSelector.values" height="cpuCoreSelector.height"
+                             width="cpuCoreSelector.width" change="cpuCoreSelector.change()"></tiny-select>
+                <span popover="{{i18n.vm_vm_create_para_vCPU_mean_tip}}" popover-trigger="mouseenter"
+                      popover-placement="right" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item label="slotSelector.label">
+                <div class="fl">
+                    <tiny-select id="slotSelector.id" values="slotSelector.values" width="slotSelector.width"
+                                 change="slotSelector.change()"></tiny-select>
+                </div>
+                <div class="fl" style="margin-left: 10px;margin-top:3px">{{i18n.common_term_slotNum_label}}: <span
+                        ng-bind="slotNum"></span>
+                    <span popover="{{i18n.vm_vm_create_para_vCPUnumPerSlot_mean_label}}" popover-trigger="mouseenter"
+                          popover-placement="right" class="small-icon small-icon-tips"></span>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+
+    <div class="outbox-padding line-height20">
+        <div class="legend">{{i18n.vm_term_CPUcontrol_label}}</div>
+        <tiny-formfield>
+            <tiny-item label="cpuLimitSpinner.label">
+                <div style="display: inline-block">
+                    <tiny-spinner id="cpuLimitSpinner.id" value="cpuLimitSpinner.value" max="cpuLimitSpinner.max"
+                                  min="cpuLimitSpinner.min" change="cpuLimitSpinner.change()"></tiny-spinner>
+                </div>
+                <span popover="{{i18n.vm_vm_create_para_QoS_mean_limit_tip}}" popover-trigger="mouseenter"
+                      popover-placement="right" class="small-icon small-icon-tips" style="margin-top: -20px;"></span>
+            </tiny-item>
+            <tiny-item label="cpuReserveSpinner.label">
+                <div style="display: inline-block">
+                    <tiny-spinner id="cpuReserveSpinner.id" value="cpuReserveSpinner.value" max="cpuReserveSpinner.max"
+                                  min="cpuReserveSpinner.min"></tiny-spinner>
+                </div>
+                <span popover="{{i18n.vm_vm_create_para_QoS_mean_reserved_tip}}" popover-trigger="mouseenter"
+                      popover-placement="right" class="small-icon small-icon-tips" style="margin-top: -20px;"></span>
+            </tiny-item>
+            <tiny-item label="cpuWeightSelector.label">
+                <tiny-select id="cpuWeightSelector.id" values="cpuWeightSelector.values" width="cpuWeightSelector.width"
+                             change="cpuWeightSelector.change()"></tiny-select>
+                <tiny-textbox id="cpuWeightTextbox.id" value="cpuWeightTextbox.value" change="cpuWeightTextbox.change()"
+                              validate="cpuWeightTextbox.validate"></tiny-textbox>
+                <span popover="{{i18n.vm_vm_create_para_QoS_mean_qouta_tip}}" popover-trigger="mouseenter"
+                      popover-placement="right" class="small-icon small-icon-tips"></span>
+            </tiny-item>
+            <tiny-item>
+                <div class="fm-btn-top-small">
+                    <tiny-button class="major-btn" id="cpuOkButton.id" text="cpuOkButton.text"
+                                 click="cpuOkButton.click()" ng-if="operable"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>

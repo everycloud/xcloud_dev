@@ -1,0 +1,64 @@
+<div>
+    <div fm-help help="'drawer_sc_to_do_list'" show="show.help" i18n="'zh'"></div>
+    <div class="serviceOrderApprovalCls container-fluid">
+        <div class="crumbs">
+            <ul class="nav nav-list noPadding">
+                <li>
+                    <span ng-bind="i18n.service_term_doApproval_label"></span>
+                </li>
+                <li class="two-lead">
+                    <p ng-bind-html="i18n.service_cluster_view_explan_allApprove_label"></p>
+                </li>
+                <li class="divider"></li>
+            </ul>
+        </div>
+
+        <div class="content-right-box">
+            <div class="clearfix bottom10">
+                <div class="pull-right">
+                    <tiny-filtersel id="searchType.id"
+                                    values="searchType.values"
+                                    width="searchType.width"
+                                    change="searchType.change()">
+                    </tiny-filtersel>
+
+            <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                <tiny-searchbox id="searchBox.id"
+                                title="{{searchBox.placeholder}}"
+                                placeholder="searchBox.placeholder"
+                                width="searchBox.width"
+                                maxlength="searchBox.maxLength"
+                                search="searchBox.search">
+                </tiny-searchbox>
+            </span>
+
+                    <a class="btn-link">
+                        <div ng-click="refresh.click()"
+                             id="refresh.id"
+                             title="{{i18n.common_term_fresh_button}}"
+                             class="small-icon small-icon-refresh"></div>
+                    </a>
+                    <a class="btn-link">
+                        <div title="{{i18n.common_term_help_label}}"
+                             ng-click="show.help=true"
+                             class="small-icon small-icon-help"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="margin-top-beautifier">
+                <tiny-table id="approvals.id"
+                            columns="approvals.columns"
+                            data="approvals.data"
+                            pagination-style="approvals.paginationStyle"
+                            length-menu="approvals.lengthMenu"
+                            render-row="approvals.renderRow"
+                            display-length="approvals.displayLength"
+                            total-records="approvals.totalRecords"
+                            callback="approvals.callback"
+                            change-select="approvals.changeSelect">
+                </tiny-table>
+            </div>
+        </div>
+    </div>
+</div>

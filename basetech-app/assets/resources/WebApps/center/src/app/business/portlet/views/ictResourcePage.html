@@ -1,0 +1,58 @@
+<style type="text/css">
+    .info_line {
+        font-size: 14px;
+        color: #666666;
+        font-family: Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;
+
+        margin: 20px;
+        padding: 0px;
+    }
+
+    .info_value {
+        font-size: 18px;
+        font-family: Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;
+    }
+</style>
+<link href="../theme/default/css/gm/homeTenant.css" type="text/css" rel="stylesheet"/>
+<div>
+    <div class="outbox-padding top10">
+        <div class="row-fluid margin-left-beautifier">
+            <div class="span4">
+                <div class="legend" ng-bind="i18n.common_term_vms_label"></div>
+                <div class="clearfix" style="margin-bottom: 20px;">
+                    <fm-select id="regionSelector.id" name="regionSelector.name" option="regionSelector.type"
+                               change="regionSelector.change" filter="true"></fm-select>
+                </div>
+                <div class="inlineBlockCss"><span>{{i18n.common_term_created_value}}: </span><span
+                        class="homeGreenNumber" ng-bind="runningVm"></span></div>
+            </div>
+
+            <div class="span8">
+                <div class="legend border-none" ng-bind="i18n.alarm_term_alarms_label"></div>
+                <tiny-table id="alarmListTable.id" data="alarmListTable.datas" columns="alarmListTable.columns"
+                            enable-pagination="alarmListTable.pagination"
+                            pagination-style="alarmListTable.paginationStyle" length-change="alarmListTable.lengthChange"
+                            length-menu="alarmListTable.lengthMenu" display-length="alarmListTable.displayLength"
+                            enable-filter="alarmListTable.enableFilter" cur-page="alarmListTable.curPage"
+                            total-records="alarmListTable.totalRecords" request-config="alarmListTable.requestConfig"
+                            hide-total-records="alarmListTable.hideTotalRecords" render-row="alarmListTable.renderRow"
+                            callback="alarmListTable.callback"></tiny-table>
+            </div>
+        </div>
+    </div>
+
+    <div class="outbox-padding">
+        <div class="legend" ng-bind="i18n.resource_term_openstack_label"></div>
+        <div>
+            <tiny-table id="regionTable.id" data="regionTable.data" columns="regionTable.columns"
+                        enable-pagination="regionTable.pagination"
+                        pagination-style="regionTable.paginationStyle" length-change="regionTable.lengthChange"
+                        length-menu="regionTable.lengthMenu" display-length="regionTable.displayLength"
+                        enable-filter="regionTable.enableFilter" cur-page="regionTable.curPage"
+                        total-records="regionTable.totalRecords" request-config="regionTable.requestConfig"
+                        hide-total-records="regionTable.hideTotalRecords" render-row="regionTable.renderRow"
+                        callback="regionTable.callback"></tiny-table>
+        </div>
+    </div>
+</div>
+

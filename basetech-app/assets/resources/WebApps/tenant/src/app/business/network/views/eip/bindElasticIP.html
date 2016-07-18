@@ -1,0 +1,40 @@
+<div class="network_eip_bindElasticIP" ng-controller="network.eip.bindElasticIP.ctrl">
+    <div id="networkEipBindElasticIPTabs" class="tiny-tabs-container">
+        <div class="tiny-tabs-titles">
+            <ul>
+                <li>
+                    <a url="app/business/network/views/eip/bindElasticIPByVM.html" active="true" ng-bind="i18n.common_term_vm_label"></a>
+                </li>
+                <li ng-show="showBusiness&&!vpcTypeShared">
+                    <a url="app/business/network/views/eip/bindElasticIPByPrivateIp.html" ng-bind="i18n.common_term_privateIP_label"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-tabs-content">
+        </div>
+    </div>
+</div>
+
+<script>
+require(['tiny-widgets/Tabs',
+        'app/business/network/controllers/eip/bindElasticIP'
+    ],
+    function(Tabs, bindElasticIPModule) {
+        var dep = ['ng', 'wcc', bindElasticIPModule.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".network_eip_bindElasticIP"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".network_eip_bindElasticIP"))($rootScope);
+            $rootScope.$digest();
+        });
+
+        var tabs = new Tabs({
+            "id": "networkEipBindElasticIPTabs"
+        });
+    });
+</script>
+

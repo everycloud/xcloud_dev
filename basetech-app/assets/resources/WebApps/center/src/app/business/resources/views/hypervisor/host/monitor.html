@@ -1,0 +1,93 @@
+<div class="row-fluid margin-bottom-beautifier">
+    <div class="span2">
+        <div class="two-title" style="display: inline;">{{i18n.common_term_cycle_label}}:</div>
+        <tiny-select id="cycle.id" values="cycle.values" width="cycle.width" change="cycle.change()"></tiny-select>
+    </div>
+    <div class="span8">
+        <div ng-show="isCustomized">
+            {{i18n.perform_term_customCycle_label}}:
+            <tiny-datetime id="customizedCycle.startDate.id" type="customizedCycle.startDate.type"
+                           time-format="customizedCycle.startDate.timeFormat"
+                           date-format="customizedCycle.startDate.dateFormat"
+                           min-date="customizedCycle.startDate.minDate"
+                           max-date="customizedCycle.startDate.maxDate"
+                           ampm="customizedCycle.startDate.ampm"
+                           first-day="customizedCycle.startDate.firstDay"
+                           on-close="customizedCycle.startDate.onClose"></tiny-datetime>
+            -
+            <tiny-datetime id="customizedCycle.endDate.id" type="customizedCycle.endDate.type"
+                           time-format="customizedCycle.endDate.timeFormat"
+                           date-format="customizedCycle.endDate.dateFormat"
+                           min-date="customizedCycle.endDate.minDate"
+                           max-date="customizedCycle.endDate.maxDate"
+                           ampm="customizedCycle.endDate.ampm"
+                           first-day="customizedCycle.endDate.firstDay"
+                           on-close="customizedCycle.endDate.onClose"></tiny-datetime>
+            <tiny-button class="major-btn left20" id="customizedCycle.okBtn.id" text="customizedCycle.okBtn.text"
+                         click="customizedCycle.okBtn.click()"></tiny-button>
+
+        </div>
+    </div>
+    <div class="span2 text-right pull-right">
+        <div class="fr">
+            <tiny-button id="export.id" text="export.text"
+                         click="export.click()"></tiny-button>
+        </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span6 outbox-padding">
+        <div class="legend">{{i18n.perform_term_CPUusageRate_label}}</div>
+        <tiny-lineplot id="cpuUsage.id" xaxis="cpuUsage.xaxis" tips="cpuUsage.tips" grid="cpuUsage.grid"
+                       yaxis="cpuUsage.yaxis" data="cpuUsage.data" series="cpuUsage.series"
+                       width="cpuUsage.width" height="cpuUsage.height"
+                       legend="cpuUsage.legend">
+        </tiny-lineplot>
+        <div id="cpuUsageLegend"></div>
+    </div>
+    <div class="span6 outbox-padding">
+        <div class="legend">{{i18n.perform_term_memUsageRate_label}}</div>
+        <tiny-lineplot id="memoUsage.id" xaxis="memoUsage.xaxis" tips="memoUsage.tips" grid="memoUsage.grid"
+                       yaxis="memoUsage.yaxis" data="memoUsage.data" series="memoUsage.series"
+                       width="memoUsage.width" height="memoUsage.height"
+                       legend="memoUsage.legend">
+        </tiny-lineplot>
+        <div id="memoUsageLegend"></div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span6 outbox-padding">
+        <div class="legend">{{i18n.common_term_diskIO_label}}</div>
+        <tiny-lineplot id="diskIo.id" xaxis="diskIo.xaxis" tips="diskIo.tips" grid="diskIo.grid"
+                       yaxis="diskIo.yaxis" data="diskIo.data" series="diskIo.series"
+                       width="diskIo.width" height="diskIo.height"
+                       legend="diskIo.legend">
+        </tiny-lineplot>
+        <div id="diskIoLegend"></div>
+    </div>
+    <div class="span6 outbox-padding">
+        <div class="legend">{{i18n.perform_term_netFlowSpeedAvg_label}}</div>
+        <tiny-lineplot id="netIo.id" xaxis="netIo.xaxis" tips="netIo.tips" grid="netIo.grid"
+                       yaxis="netIo.yaxis" data="netIo.data" series="netIo.series"
+                       width="netIo.width" height="netIo.height"
+                       legend="netIo.legend">
+        </tiny-lineplot>
+        <div id="netIoLegend"></div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span6 outbox-padding">
+        <div class="legend">{{i18n.perform_term_diskUsageRate_label}}</div>
+        <tiny-lineplot id="disk_usage.id" xaxis="disk_usage.xaxis" tips="disk_usage.tips" grid="disk_usage.grid"
+                       yaxis="disk_usage.yaxis" data="disk_usage.data" series="disk_usage.series"
+                       width="disk_usage.width" height="disk_usage.height"
+                       legend="disk_usage.legend">
+        </tiny-lineplot>
+        <div id="diskUsageLegend"></div>
+    </div>
+</div>
+
+<iframe id="download" style="display:none"></iframe>

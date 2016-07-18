@@ -1,0 +1,101 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="crumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <a ui-sref="resources.openStackResource.region">{{i18n.resource_term_openstack_label}}</a> <span class="divider">&gt;</span>
+                </li>
+                <li class="active"><a ui-sref="resources.regionResources.summary">{{regionName}}</a><span class="divider">&gt;</span></li>
+                <li class="active">{{i18n.common_term_summary_label}}</li>
+            </ul>
+            <ul class="nav nav-list noPadding">
+                <li class="two-lead">
+                    <p ng-bind-html="i18n.resource_open_view_explan_general_label"></p>
+                </li>
+                <li class="divider"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-right-box">
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="divblock outbox-padding">
+                    <div class="legend">{{i18n.common_term_basicInfo_label}}</div>
+                    <tiny-formfield>
+                        <tiny-item label="basicInfo.name.label">
+                            <div ng-bind="basicInfo.name.value"></div>
+                        </tiny-item>
+                        <tiny-item label="basicInfo.service.label">
+                            <div ng-repeat="service in basicInfo.service.values">
+                                <div ng-bind="service"></div>
+                            </div>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+            <div class="span6 outbox-padding">
+                <div class="legend1">{{label.resourceUseInfo}}</div>
+                <div class="horizontal_line"></div>
+                <div style="margin: 11px 0px;">
+                    <div class="fl image_style"><img src="../theme/default/images/gm/cpu.png"><p>vCPU</p></div>
+                    <div class="fl info_line">
+                        <p>{{label.rate}}</p>
+                        <p class="info_value f24 line-height30" style="color:#5ecc49" ng-bind="cpu.rate"></p>
+                    </div>
+                    <div class="fl ml30 top-10">
+                        <tiny-formfield>
+                            <tiny-item label="label.total">
+                                <div ng-bind="cpu.total"></div>
+                            </tiny-item>
+                            <tiny-item label="label.useInfo">
+                                <div ng-bind="cpu.useInfo"></div>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+                <div class="clear_both divider_line"></div>
+                <div style="margin: 11px 0px;">
+                    <div class="fl image_style"><img src="../theme/default/images/gm/Memory.png"><p>{{label.memory}}</p></div>
+                    <div class="fl info_line">
+                        <p>{{label.rate}}</p>
+                        <p class="info_value f24 line-height30" style="color:#5ecc49" ng-bind="memory.rate"></p>
+                    </div>
+                    <div class="fl ml30 top-10">
+                        <tiny-formfield>
+                            <tiny-item label="label.total">
+                                <div ng-bind="memory.total"></div>
+                            </tiny-item>
+                            <tiny-item label="label.useInfo">
+                                <div ng-bind="memory.useInfo"></div>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+                <div class="clear_both divider_line"></div>
+                <div style="margin: 11px 0px;">
+                    <div class="fl image_style"><img src="../theme/default/images/gm/disk_ico.png"><p>{{label.localStorage}}</p></div>
+                    <div class="fl info_line">
+                        <p>{{label.rate}}</p>
+
+                        <p class="info_value f24 line-height30" style="color:#5ecc49" ng-bind="storage.rate"></p>
+                    </div>
+                    <div class="fl top-10 ml30">
+                        <tiny-formfield>
+                            <tiny-item label="label.total">
+                                <div ng-bind="storage.total"></div>
+                            </tiny-item>
+                            <tiny-item label="label.useInfo">
+                                <div ng-bind="storage.useInfo"></div>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+                <div class="clear_both" style="margin: 18px 0px 0px 0px;">
+                    <tiny-columnchart id="networkChart.id" values="networkChart.values" bold="networkChart.bold"
+                                      is-fill="networkChart.isFill" width="networkChart.width"></tiny-columnchart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

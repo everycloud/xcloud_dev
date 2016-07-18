@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>物理机安装子网</span></li>
+            <li class="two-lead">
+                <p>下载配置模板，填入数据中心。</p>
+
+                <p>资源分区物理设备等信息，并将其批量导入系统内。</p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="outbox-padding content-right-box" id="physicalSubNetsDiv">
+        <tiny-formfield>
+            <tiny-item label="formObj.netPortName.label" require="formObj.netPortName.require">
+                <tiny-select id="formObj.netPortName.id"
+                             values="formObj.netPortName.val"
+                             width="formObj.netPortName.width"></tiny-select>
+            </tiny-item>
+
+            <tiny-item id="formObj.subnetAddr.id"
+                       label="formObj.subnetAddr.label"
+                       require="formObj.subnetAddr.require">
+                {{model.subnetAddr}}
+            </tiny-item>
+
+            <tiny-item id="formObj.mask.id"
+                       label="formObj.mask.label"
+                       require="formObj.mask.require">
+                {{model.mask}}
+            </tiny-item>
+
+            <tiny-item id="formObj.gateway.id"
+                       label="formObj.gateway.label"
+                       require="formObj.gateway.require">
+                {{model.gateway}}
+            </tiny-item>
+
+            <tiny-item label="formObj.useIpSection.label"
+                       require="formObj.useIpSection.require"
+                       id="formObj.useIpSection.id">
+                <div ng-repeat="section in formObj.useIpSection.val"
+                     style="margin-bottom:10px;"
+                     id="formObj.useIpSection.id + 'Div' + $index"
+                     ng-show="section.show">
+                    <tiny-ip id="section.start.id"
+                             type="formObj.useIpSection.type"
+                             value="section.start.val"
+                             extend-function="section.start.extendFunction"
+                             validate="section.start.validate"
+                             tip-pos="'top'"></tiny-ip>
+                    <span>-</span>
+                    <tiny-ip id="section.end.id"
+                             type="formObj.useIpSection.type"
+                             value="section.end.val"
+                             extend-function="section.end.extendFunction"
+                             validate="section.end.validate"
+                             tip-pos="'top'"></tiny-ip>
+                    <a href="javascript:void(0)"
+                       ng-click="operater.del($index)"
+                       style="margin-left:10px;"
+                       ng-hide="formObj.useIpSection.disableDel">删除</a>
+                </div>
+                <a href="javascript:void(0)"
+                   ng-click="operater.add()"
+                   style="margin-left:10px;"
+                   ng-hide="formObj.useIpSection.disableAdd">添加</a>
+            </tiny-item>
+
+            <tiny-item>
+                <fm-button id="formObj.save.id" text="formObj.save.text" click="formObj.save.handler"></fm-button>
+            </tiny-item>
+
+        </tiny-formfield>
+
+    </div>
+</div>
+
+
+>
+
+

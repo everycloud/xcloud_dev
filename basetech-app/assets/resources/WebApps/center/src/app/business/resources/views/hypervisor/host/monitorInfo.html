@@ -1,0 +1,40 @@
+<link href="../theme/default/css/line_plot.css" type="text/css" rel="stylesheet"/>
+
+
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.device.host">{{i18n.device_term_servers_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="resources.hostDetail.summary">{{hostInfo.serverName}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><span class="divider">{{i18n.perform_term_monitor_label}}</span></li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div id="monitorTabs" class="tiny-tabs-container">
+            <div class="tiny-tabs-titles">
+                <ul>
+                    <li ng-class="{tinyTabActive:$state.includes(plugin.openState)}" ng-repeat="plugin in plugins"
+                        ui-sref="{{plugin.openState}}">
+                        <a href="#" ng-click="setSelectedTabItem(plugin.name)">{{plugin.name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tiny-tabs-content">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(["tiny-widgets/Tabs"], function (Tabs) {
+        var tabs = new Tabs({
+            "id": "monitorTabs",
+            "setActiveClass": true
+        });
+    });
+</script>

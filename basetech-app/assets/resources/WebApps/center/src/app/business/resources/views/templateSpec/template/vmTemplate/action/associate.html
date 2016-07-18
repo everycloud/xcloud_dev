@@ -1,0 +1,57 @@
+<div>
+    <div id="associateLogicVmt" ng-controller="resources.template.associateLogicVmt.ctrl">
+        <span ng-bind="i18n.template_term_vmName_label"></span>:<span class="margin-left-beautifier" ng-bind="model.name"></span>
+        <!--刷新、列选择、帮助-->
+        <div class="pull-right">
+            <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                                suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                                suggest="searchBox.suggest" search="searchBox.search">
+                </tiny-searchbox>
+            </span>
+            <a class="btn-link">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{ i18n.common_term_fresh_button }}" class="small-icon small-icon-refresh"></div>
+            </a>
+        </div>
+
+        <div class="margin-top-beautifier">
+            <tiny-table id="logicVmtTable.id" caption="logicVmtTable.caption" data="logicVmtTable.data"
+                        columns="logicVmtTable.columns"
+                        enable-pagination="logicVmtTable.enablePagination"
+                        pagination-style="logicVmtTable.paginationStyle" length-change="logicVmtTable.lengthChange"
+                        length-menu="logicVmtTable.lengthMenu" display-length="logicVmtTable.displayLength"
+                        enable-filter="logicVmtTable.enableFilter"
+                        cur-page="logicVmtTable.curPage" total-records="logicVmtTable.totalRecords"
+                        hide-total-records="logicVmtTable.hideTotalRecords"
+                        callback="logicVmtTable.callback" render-row="logicVmtTable.renderRow"
+                        columns-draggable="logicVmtTable.columnsDraggable"></tiny-table>
+        </div>
+        <br>
+        <br>
+
+        <div class="margin-top-beautifier">
+            <tiny-button class="major-btn" id="saveBtn.id" disable="saveBtn.disabled" icons-class="saveBtn.iconsClass"
+                         text="saveBtn.text"
+                         tooltip="saveBtn.tip" click="saveBtn.save()"></tiny-button>
+            <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                         text="cancelBtn.text"
+                         tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+        </div>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/templateSpec/template/vmTemplate/action/associateCtrl'],
+            function ($, associateCtrl) {
+                var dep = ['ng', 'wcc', associateCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#associateLogicVmt"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile) {
+                    var scope = $("#associateLogicVmt").scope();
+                    $compile($("#associateLogicVmt"))(scope);
+                    scope.$digest();
+                });
+            });
+</script>

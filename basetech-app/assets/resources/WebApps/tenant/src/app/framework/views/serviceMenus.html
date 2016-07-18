@@ -1,0 +1,183 @@
+<link href="../theme/default/css/gm/ecs.css" type="text/css" rel="stylesheet" />
+<div id="main_menu_div" style="width:100%;position:fixed;top:0px;z-index: 10000" ng-controller="serviceMenusCtrl">
+    <div id="tiny-menu" style="margin: 0 auto; max-width: 1400px;padding: 0 20px;">
+        <ul>
+            <li class="header-bg" ng-if="isSC">
+                <div id="mani_icon_div" ng-class="{true: 'main-icon', false: 'margin-right-beautifier'}[isSC]">
+                    <img ng-src="{{companyLogo}}">
+                </div>
+            </li>
+            <li  class="header-bg" ng-if="!isSC">
+                <div id="main_logo_div">
+                    <img src="../theme/default/images/product_name_it.png"  ng-if="isIt" />
+                    <img src="../theme/default/images/product_name_ict.png"  ng-if="isIct" />
+                </div>
+            </li>
+            <li ng-repeat="plugin in plugins" ng-if="!plugin.hide" class="header-bg">
+                <a ng-if="plugin.openState" ui-sref="{{plugin.openState}}">
+                    <h1 ng-class="{menu_active: $state.includes(plugin.state)}" ng-bind="plugin.text"></h1>
+                </a>
+                <a ng-if="!(plugin.openState)">
+                    <h1 ng-class="{menu_active: $state.includes(plugin.state)}" ng-bind="plugin.text"></h1>
+                </a>
+                <ul ng-repeat="subPlugin in plugin.children" ng-if="!subPlugin.hide">
+                    <li ng-if="subPlugin.state">
+                        <a ui-sref="{{subPlugin.state}}">
+                            <h2 ng-bind="subPlugin.text"></h2>
+                        </a>
+                    </li>
+                    <li ng-if="!(subPlugin.state)">
+                        <h2 ng-bind="subPlugin.text"></h2>
+                    </li>
+                    <li ng-repeat="menu in subPlugin.children" ng-if="!menu.hide">
+                        <a ui-sref="{{menu.state}}" ng-bind="menu.text"></a>
+                    </li>
+                </ul>
+            </li>
+
+            <div class="pull-right clearfix header-bg">
+                <div class="vdc-select fl" ng-if="user.vdcId !== '-1'">
+                    <div>
+                        <div class="small-icon small-icon-menuicon">
+                        </div>
+                        <span ng-if="user.cloudType==='ICT'" ng-bind="vdcNmaeICT" title={{vdcNmaeICT}} class="line-height30"> </span>
+                        <tiny-menubutton ng-if="user.cloudType==='IT'" id='info.vdc.id' text='info.vdc.text' content='info.vdc.content' ></tiny-menubutton>
+                    </div>
+                </div>
+                <div class="alarm fl clearfix">
+                    <div class="sp-line fl">
+                        <span class="btn-link"></span>
+                    </div>
+                    <i class='icon-user icon-white fl' style="margin:26px 5px;"></i>
+                    <tiny-menubutton id='info.user.id' text='info.user.text' content='info.user.content' class="fl"></tiny-menubutton>
+
+                    <tiny-menubutton class="left10 fl"
+                                     id='info.other.id'
+                                     text='info.other.text'
+                                     content='info.other.content'></tiny-menubutton>
+                </div>
+            </div>
+        </ul>
+    </div>
+</div>
+<style>
+.vdc-select {
+    display: inline-block;
+    color: #fff;
+    margin-right: 20px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    height: 66px;
+    line-height: 66px;
+}
+.vdc-select .tiny-menubutton-main-a {
+    height: 66px;
+    line-height: 66px;
+    color: #fff;
+}
+.vdc-select .tiny-menubutton-main-a .tiny-menubutton-caret {
+    border-top: 4px solid #fff;
+    float: left;
+    display: inline-block;
+    margin-top: 33px;
+}
+.vdc-select .tiny-menubutton-main-a .menu-item-btn {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+}
+.vdc-select: hover {
+}
+#caret-white {
+    margin: 0 0 0 5px;
+    vertical-align: middle;
+    border-top: 4px solid #FFF;
+}
+#vdc-select-meun.dropdown-menu {
+    background: #666;
+    text-align: left;
+    font-size: 12px;
+}
+#vdc-select-meun.dropdown-menu > li > span {
+    text-align: left;
+    color: #fff;
+    line-height: 20px;
+    padding: 4px;
+    display: inline-block;
+    width: 100%;
+    ;
+}
+#vdc-select-meun.dropdown-menu > li > span: hover {
+    color: #1f90c8;
+}
+#main_menu_div {
+    list-style: none;
+    font: normal 10px Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;
+    background-color: #484a4b;
+    height: 66px;
+    line-height: 66px;
+    z-index: 5;
+}
+
+.alarm {
+    float: left;
+    color: #fff;
+    line-height: 66px;
+    height: 66px;
+}
+.alarm > div {
+    float: left;
+}
+.alarm-icon{
+    width: 16px;
+    height: 16px;
+    margin: 0 10px 0 0;
+}
+.alarm-0 {
+    background: url('../theme/default/images/gm/gm-images-sp.png') no-repeat 0 -39px;
+}
+.alarm-1 {
+    background: url('../theme/default/images/gm/gm-images-sp.png') no-repeat -80px -39px;
+}
+.alarm-2 {
+    background:  url('../theme/default/images/gm/gm-images-sp.png') no-repeat -160px -39px;
+}
+.alarm-3 {
+    background:  url('../theme/default/images/gm/gm-images-sp.png') no-repeat -238px -39px;
+}
+.alarm > div > span {
+    padding: 0 0px 0 18px;
+    color: #fff;
+}
+.sp-line {
+    width: 5px;
+    background: url('../theme/default/images/sp_line.png') no-repeat center;
+}
+.main-icon {
+    margin-right: 38px;
+}
+#framework-menus-user .menu-item-btn {
+    color: #fff;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: top;
+}
+</style>
+<script type="application/javascript">
+require(["tiny-widgets/Menu"],
+    function(Menu) {
+        var menu = new Menu({
+            "id": "main_menu_div"
+        });
+    });
+</script>
+
+

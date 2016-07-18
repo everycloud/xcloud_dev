@@ -1,0 +1,64 @@
+.tiny-spinner-upbtn {
+	padding: 0px;
+	width: 13px;
+	height: 10px;
+	background: url('../images/datetime_merger.png') -360px -49px no-repeat;
+	font-size: 1px;
+	float: right;
+}
+.tiny-spinner-container {
+	border: 1px solid #D3D3D3;
+	float: left;
+	background-color: rgb(255, 255, 255);
+	width: 134px;
+	border-radius: 4px;
+	box-shadow: 1px 1px 1px #fff,inset 1px 1px 1px rgba(0,0,0,0.1);
+}
+.tiny-spinner-container-forcus {
+	border: 1px solid #53b8eb;
+}
+.tiny-spinner-editor {
+	margin: 0px;
+	border: 0px;
+	float: left;
+	overflow: hidden;
+	padding: 2px 0 2px 8px;
+	width: 110px;
+	font-size: 12px;
+	resize: none;
+}
+.tiny-spinner-container-disabled{
+	background-color: #ededed;
+}
+
+.tiny-spinner-input {
+	width: 115px;
+	border: 0;
+	outline: none;
+	font-weight: normal;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+	color: #666666;
+}
+.tiny-spinner-input-disabled {
+	background-color: #ededed;
+}
+.tiny-spinner-downbtn {
+	padding: 0px;
+	width: 13px;
+	height: 9px;
+	background: url('../images/datetime_merger.png') -323px -52px no-repeat;
+	font-size: 1px;
+	float: right;
+}
+.tiny-updownbutt-style {
+	background-color: rgb(210, 210, 210);
+	border: 1px solid rgb(220, 220, 220);
+}
+.placeholder {
+	color: #a7a7a7;
+}
+.tiny-spinner{
+	height: 26px;
+}

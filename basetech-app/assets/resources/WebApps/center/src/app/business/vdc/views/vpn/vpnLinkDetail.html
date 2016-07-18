@@ -1,0 +1,162 @@
+<div class="detail-background-before"></div>
+<div class="row-fluid innerbox-padding">
+<div ng-if="0 == row.vpnType" class="row-fluid">
+	<div class="span4">
+		<div class="inner-legend">{{i18n.common_term_basicInfo_label||'基本信息'}}</div>
+		<tiny-formfield>
+			<tiny-item label="(i18n.common_term_desc_label||'描述')+':'">
+				{{row.description||'-'}}
+			</tiny-item>
+		</tiny-formfield>
+	</div>
+	<div class="span8">
+		<div class="inner-legend">{{i18n.vpn_term_tunnelInfo_label||'隧道信息'}}</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<tiny-formfield>
+					<tiny-item label="(i18n.vpn_term_localGatewayIP_label||'本端网关IP')+':'">
+						{{row.localIPAddr}}
+					</tiny-item>
+					<tiny-item label="(i18n.vpn_term_localUserNet_label||'本端网络ID')+':'">
+					<div ng-repeat="e in row.networkIDs">
+						{{e}}<br />
+					</div>
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+			<div class="span6">
+				<tiny-formfield>
+					<tiny-item label="(i18n.vpn_term_remoteNet_label||'远端网关IP')+':'">
+						{{row.customerGw.ipAddr}}
+					</tiny-item>
+					<tiny-item label="(i18n.vpn_term_remoteNetSubnetMask_label||'远端网络(子网/掩码)')+':'">
+					<div ng-repeat="e in row.customerGw.customerSubnets">
+						{{e.subnetAddr}}/{{e.subnetMask}}<br />
+					</div>
+					</tiny-item>
+				</tiny-formfield>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-if="0 == row.vpnType" class="row-fluid">
+	<div class="span4">
+		<div class="inner-legend">{{i18n.vpn_term_ESPpolicy_label||'ESP策略'}}</div>
+		<tiny-formfield>
+			<tiny-item label="(i18n.common_term_authenticArithmetic_label||'认证算法')+':'">
+				{{row.espPublicInfo.authentication}}
+			</tiny-item>
+			<tiny-item label="(i18n.vpn_term_DH_label||'DH算法')+':'">
+				{{row.pfsGroup}}
+			</tiny-item>
+			<tiny-item label="(i18n.device_term_encryptArithmetic_label||'加密算法')+':'">
+				{{row.espPublicInfo.encryption}}
+			</tiny-item>
+			<tiny-item label="(i18n.vpn_term_consultationPeriod_label||'协商周期')+':'">
+				{{row.lifeTime}}
+			</tiny-item>
+		</tiny-formfield>
+	</div>
+	<div class="span4">
+		<div class="inner-legend">{{i18n.vpn_term_IKEpolicy_label||'IKE策略'}}</div>
+		<tiny-formfield>
+			<tiny-item label="(i18n.common_term_authenticArithmetic_label||'认证算法')+':'">
+				{{row.ikePublicInfo.authentication}}
+			</tiny-item>
+			<tiny-item label="(i18n.vpn_term_DH_label||'DH算法')+':'">
+				{{row.ikePublicInfo.pfsGroup}}
+			</tiny-item>
+			<tiny-item label="(i18n.common_term_authenticationMode_label||'鉴权方式')+':'">
+				{{["PreSharedKey","X.509 "+(i18n.common_term_certificate_value||'证书')][row.ikePublicInfo.authMethod] || row.ikePublicInfo.authMethod}}
+			</tiny-item>
+			<tiny-item label="(i18n.device_term_encryptArithmetic_label||'加密算法')+':'">
+				{{row.ikePublicInfo.encryption}}
+			</tiny-item>
+			<tiny-item label="(i18n.vpn_term_consultationPeriod_label||'协商周期')+':'">
+				{{row.ikePublicInfo.lifeTime}}
+			</tiny-item>
+		</tiny-formfield>
+	</div>
+	<div class="span4">
+		<div class="inner-legend">DPD</div>
+		<tiny-formfield>
+			<tiny-item label="(i18n.vpn_term_DPDretransmitDistance_label||'DPD检测重传时间间隔')+':'">
+				{{row.dpdInfo.dpdInterval}}
+			</tiny-item>
+			<tiny-item label="(i18n.vpn_term_DPDtimeout_label||'DPD检测超时时间')+':'">
+				{{row.dpdInfo.dpdTimeOut}}
+			</tiny-item>
+		</tiny-formfield>
+	</div>
+</div>
+<div ng-if="1 == row.vpnType" class="row-fluid">
+	<div class="span4">
+		<div class="inner-legend">{{i18n.common_term_basicInfo_label||'基本信息'}}</div>
+		<tiny-formfield>
+			<tiny-item label="(i18n.common_term_desc_label||'描述')+':'">
+				{{row.description||'-'}}
+			</tiny-item>
+		</tiny-formfield>
+	</div>
+	<div class="span4">
+		<div class="inner-legend">{{i18n.vpn_term_userIPassign_label||'用户地址分配'}}</div>
+		<div ng-if="1== row.l2tpInfo.l2tpType" class="row-fluid">
+			<tiny-formfield>
+				<tiny-item label="(i18n.common_term_SubnetAndMask_label||'子网/掩码')+':'">
+					<div ng-repeat="e in row.l2tpInfo.subnetPolicys">
+						{{e.subnetAddr}}/{{e.subnetMask}}<br />
+					</div>
+				</tiny-item>
+			</tiny-formfield>
+		</div>
+		<div ng-if="1!=row.l2tpInfo.l2tpType" class="row-fluid">
+		<tiny-formfield>
+			<tiny-item label="(i18n.common_term_Subnet_label||'子网')+':'">
+				{{row.l2tpInfo.subnetAddr}}
+			</tiny-item>
+			<tiny-item label="(i18n.common_term_SubnetMask_label||'子网掩码')+':'">
+				{{row.l2tpInfo.subnetMask}}
+			</tiny-item>
+		</tiny-formfield>
+		</div>
+	</div>
+	<div class="span4">
+		<div class="inner-legend">{{i18n.vpn_term_connectUser_label||'接入用户'}}</div>
+		<tiny-formfield>
+			<tiny-item label="(i18n.common_term_users_label||'用户列表')+':'">
+			<div ng-repeat="e in row.l2tpInfo.vpnUsers">
+				{{e.name}}<br />
+			</div>
+			</tiny-item>
+		</tiny-formfield>
+	</div>
+</div>
+<div ng-if="1 == row.vpnType" class="row-fluid">
+	<div class="span4">
+		<div class="inner-legend">{{i18n.vpn_term_ESPpolicy_label||'ESP策略'}}</div>
+		<tiny-formfield>
+			<tiny-item label="(i18n.common_term_authenticArithmetic_label||'认证算法')+':'">
+				{{row.espPublicInfo.authentication}}
+			</tiny-item>
+			<tiny-item label="(i18n.device_term_encryptArithmetic_label||'加密算法')+':'">
+				{{row.espPublicInfo.encryption}}
+			</tiny-item>
+		</tiny-formfield>
+	</div>
+	<div class="span4">
+		<div class="inner-legend">{{i18n.vpn_term_IKEpolicy_label||'IKE策略'}}</div>
+		<tiny-formfield>
+			<tiny-item label="(i18n.common_term_authenticArithmetic_label||'认证算法')+':'">
+				{{row.ikePublicInfo.authentication}}
+			</tiny-item>
+			<tiny-item label="(i18n.common_term_authenticationMode_label||'鉴权方式')+':'">
+				{{["PreSharedKey","X.509 "+(i18n.common_term_certificate_value||'证书')][row.ikePublicInfo.authMethod] || row.ikePublicInfo.authMethod}}
+			</tiny-item>
+			<tiny-item label="(i18n.device_term_encryptArithmetic_label||'加密算法')+':'">
+				{{row.ikePublicInfo.encryption}}
+			</tiny-item>
+		</tiny-formfield>
+	</div>
+</div>
+</div>
+<div class="detail-background-after"></div>

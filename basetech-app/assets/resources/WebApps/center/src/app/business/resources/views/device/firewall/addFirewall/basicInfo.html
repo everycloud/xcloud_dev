@@ -1,0 +1,121 @@
+<link href="../theme/default/css/formfield.css" type="text/css" rel="stylesheet"/>
+<div id="addFirewallBasicInfoDiv">
+    <tiny-formfield>
+        <tiny-item label="basicInfo.accessMtd.label" require="basicInfo.accessMtd.require">
+            <tiny-radiogroup id="basicInfo.accessMtd.id" values="basicInfo.accessMtd.values"
+                             spacing="basicInfo.accessMtd.spacing" layout="basicInfo.accessMtd.layout"
+                             change="basicInfo.accessMtd.change()"></tiny-radiogroup>
+        </tiny-item>
+        <tiny-item label="basicInfo.protocol.label" require="basicInfo.protocol.require">
+            {{basicInfo.protocol.value}}
+        </tiny-item>
+        <tiny-item label="basicInfo.zone.label" require="basicInfo.zone.require" display="cloudType=='FUSIONSPHERE'">
+            <fm-select id="phyFwConnectInfo.zoneId" name="basicInfo.zone.value"
+                       width="formfieldWidth"
+                       option="basicInfo.zone.values"></fm-select>
+        </tiny-item>
+        <tiny-item label="basicInfo.username.label" require="basicInfo.username.require">
+            <tiny-textbox id="basicInfo.username.id" value="basicInfo.username.value" width="formfieldWidth"
+                          validate="basicInfo.username.validate" type="input"></tiny-textbox>
+             <span popover="{{basicInfo.username.tips}}" popover-trigger="mouseenter"
+                   class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="basicInfo.password.label"
+                   require="basicInfo.password.require">
+            <tiny-textbox id="basicInfo.password.id" value="basicInfo.password.value"
+                          validate="basicInfo.password.validate" width="formfieldWidth"
+                          type="basicInfo.password.type"></tiny-textbox>
+              <span popover="{{basicInfo.password.tips}}" popover-trigger="mouseenter"
+                    class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="basicInfo.passwordConfirm.label"
+                   require="basicInfo.passwordConfirm.require">
+            <tiny-textbox id="basicInfo.passwordConfirm.id"
+                          value="basicInfo.passwordConfirm.value" width="formfieldWidth"
+                          extend-function="basicInfo.passwordConfirm.extendFunction"
+                          validate="basicInfo.passwordConfirm.validate"
+                          type="basicInfo.passwordConfirm.type"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="basicInfo.portId.label" require="basicInfo.portId.require">
+            <tiny-textbox id="basicInfo.portId.id" value="basicInfo.portId.value" type="input"
+                          validate="basicInfo.portId.validate" width="formfieldWidth"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="basicInfo.networkType.label" require="basicInfo.networkType.require">
+            <tiny-select id="basicInfo.networkType.id" values="basicInfo.networkType.values"
+                         validate="basicInfo.networkType.validate"
+                         width="formfieldWidth"></tiny-select>
+             <span popover="{{basicInfo.networkType.tips}}" popover-trigger="mouseenter"
+                   class="small-icon small-icon-tips"></span>
+        </tiny-item>
+        <tiny-item label="i18n.device_term_activeDevice_label" display="firwallAccessMth == '2'">
+        </tiny-item>
+        <tiny-item label="basicInfo.masterIp.label" require="basicInfo.masterIp.require">
+            <tiny-ip id="basicInfo.masterIp.id" type="basicInfo.masterIp.type"
+                     width="formfieldWidth" validate="basicInfo.masterIp.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="basicInfo.masterRoom.label" require="basicInfo.masterRoom.require">
+            <tiny-combobox id="basicInfo.masterRoom.id" values="basicInfo.masterRoom.values"
+                           values-from="basicInfo.masterRoom.valuesFrom" match-method="basicInfo.masterRoom.matchMethod"
+                           width="formfieldWidth" height="basicInfo.masterRoom.height"
+                           select="basicInfo.masterRoom.select()"
+                           tooltip="basicInfo.masterRoom.tooltip"
+                           validate="basicInfo.masterRoom.validate"></tiny-combobox>
+        </tiny-item>
+        <tiny-item label="basicInfo.masterCabinet.label" require="basicInfo.masterCabinet.require">
+            <tiny-combobox id="basicInfo.masterCabinet.id" values="basicInfo.masterCabinet.values"
+                           values-from="basicInfo.masterCabinet.valuesFrom"
+                           match-method="basicInfo.masterCabinet.matchMethod"
+                           width="formfieldWidth" height="basicInfo.masterCabinet.height"
+                           tooltip="basicInfo.masterCabinet.tooltip"
+                           validate="basicInfo.masterCabinet.validate"></tiny-combobox>
+        </tiny-item>
+        <tiny-item label="basicInfo.masterSubrack.label" require="basicInfo.masterSubrack.require">
+            <tiny-textbox id="basicInfo.masterSubrack.id" value="basicInfo.masterSubrack.value" type="input"
+                          tooltip="basicInfo.masterSubrack.tooltip" validate="basicInfo.masterSubrack.validate"
+                          tip-position="right" width="formfieldWidth"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="i18n.device_term_standbyDevice_label" display="firwallAccessMth == '2'">
+        </tiny-item>
+        <tiny-item label="basicInfo.slaveIp.label" require="basicInfo.slaveIp.require"
+                   display="firwallAccessMth == '2'">
+            <tiny-ip id="basicInfo.slaveIp.id" type="basicInfo.slaveIp.type"
+                     width="formfieldWidth" validate="basicInfo.slaveIp.validate"></tiny-ip>
+        </tiny-item>
+        <tiny-item label="basicInfo.slaveRoom.label" require="basicInfo.slaveRoom.require"
+                   display="firwallAccessMth == '2'">
+            <tiny-combobox id="basicInfo.slaveRoom.id" values="basicInfo.slaveRoom.values"
+                           values-fom="basicInfo.slaveRoom.valuesFrom" match-method="basicInfo.slaveRoom.matchMethod"
+                           tooltip="basicInfo.slaveRoom.tooltip" select="basicInfo.slaveRoom.select()"
+                           width="formfieldWidth" height="basicInfo.slaveRoom.height"
+                           validate="basicInfo.slaveRoom.validate"></tiny-combobox>
+        </tiny-item>
+        <tiny-item label="basicInfo.slaveCabinet.label" require="basicInfo.slaveCabinet.require"
+                   display="firwallAccessMth == '2'">
+            <tiny-combobox id="basicInfo.slaveCabinet.id" values="basicInfo.slaveCabinet.values"
+                           values-from="basicInfo.slaveCabinet.valuesFrom"
+                           match-method="basicInfo.slaveCabinet.matchMethod"
+                           tooltip="basicInfo.slaveCabinet.tooltip"
+                           width="formfieldWidth" height="basicInfo.slaveCabinet.height"
+                           validate="basicInfo.slaveCabinet.validate"></tiny-combobox>
+        </tiny-item>
+        <tiny-item label="basicInfo.slaveSubrack.label" require="basicInfo.slaveSubrack.require"
+                   display="firwallAccessMth == '2'">
+            <tiny-textbox id="basicInfo.slaveSubrack.id" value="basicInfo.slaveSubrack.value" type="input"
+                          tooltip="basicInfo.slaveSubrack.tooltip" width="formfieldWidth"
+                          extend-function="basicInfo.slaveSubrack.extendFunction"
+                          validate="basicInfo.slaveSubrack.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="basicInfo.description.label" require="basicInfo.description.require">
+            <tiny-textbox id="basicInfo.description.id" value="basicInfo.description.value"
+                          type="basicInfo.description.type" height="basicInfo.description.height"
+                          validate="basicInfo.description.validate"
+                          width="formfieldWidth"></tiny-textbox>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button class="major-btn" id="basicInfo.nextBtn.id" text="basicInfo.nextBtn.text"
+                         click="basicInfo.nextBtn.click()"></tiny-button>
+            <tiny-button id="basicInfo.cancelBtn.id" text="basicInfo.cancelBtn.text"
+                         click="basicInfo.cancelBtn.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

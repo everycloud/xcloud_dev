@@ -1,0 +1,138 @@
+<style>
+    .resourceDiv {
+        position: relative;
+        height: 220px;
+        margin: 0;
+    }
+
+    .resourceDiv .resourceDivBtn {
+        position: absolute;
+        bottom: 10px;
+    }
+</style>
+<div class="container-fluid">
+   
+    <div class="crumbs crumb">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{i18n.common_term_resource_label}}>{{i18n.common_term_navigation_label}}</span></li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+  <div class="outbox-padding">
+    <div class="legend">{{i18n.resource_general_resourceInitialize_title_label}}</div>
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="resourceDiv">
+                <img src="../theme/default/images/resources/irm_rpool_navigation_importresource.png" alt="...">
+                <h5><span class="label label-important">{{i18n.resource_general_Step1_title_label}}</span></h5>
+
+                <p class="pblock">{{i18n.resource_general_Step1_desc_label}}</p>
+
+                <div class="resourceDivBtn">
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_deviceHandle_value"
+                       ui-sref="resources.device.adaptation">{{i18n.device_term_installAdaptor_label}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="resourceDiv">
+                <img src="../theme/default/images/resources/irm_rpool_navigation_addhyperv.png" alt="...">
+                <h5><span class="label label-important">{{i18n.resource_general_Step2_title_label}}</span></h5>
+
+                <p class="pblock">{{i18n.resource_general_Step2_desc_label}}</p>
+
+                <div class="resourceDivBtn">
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_hypervisorHandle_value"
+                       ui-sref="resources.addEnvironment">{{i18n.virtual_term_addHyper_button}}</a>
+                    <span ng-if="privilege.role_role_add_option_hypervisorHandle_value">|</span>
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_clusterHandle_value"
+                       ui-sref="resources.associateZone">{{i18n.resource_term_associateCluster_button}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="resourceDiv">
+                <img src="../theme/default/images/resources/irm_rpool_navigation_createnet.png" alt="...">
+                <h5><span class="label label-important">{{i18n.resource_general_Step3_title_label}}</span></h5>
+
+                <p class="pblock">{{i18n.resource_general_Step3_desc_label}}</p>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="resourceDiv">
+                <img src="../theme/default/images/resources/irm_rpool_navigation_imagemgr.png" alt="...">
+                <h5><span class="label label-important">{{i18n.resource_general_Step4_title_label}}</span></h5>
+
+                <p class="pblock">{{i18n.resource_general_Step4_desc_label}}</p>
+
+                <div class="resourceDivBtn">
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_vmTemplateHandle_value"
+                       ui-sref="resources.templateSpec.vmTemplateResources.vmTemplate">{{i18n.template_term_createVMtemplate_button}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="outbox-padding">
+    <div class="legend">{{i18n.resource_general_resourceMgr_title_label}}</div>
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="resourceDiv">
+                <img src="../theme/default/images/resources/irm_rpool_navigation_device.png" alt="...">
+                <h5><span class="label label-important">{{i18n.device_term_deviceMgr_label}}</span></h5>
+
+                <p class="pblock">{{i18n.resource_general_deviceMgr_desc_label}}</p>
+
+                <div class="resourceDivBtn">
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_deviceHandle_value" ui-sref="resources.device.rack">{{i18n.device_term_connectSubrack_button}}</a>
+                    <span ng-if="privilege.role_role_add_option_deviceHandle_value">|</span>
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_deviceHandle_value" ui-sref="resources.device.host">{{i18n.device_term_connectRackServer_button}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="resourceDiv">
+                <img src="../theme/default/images/resources/irm_rpool_navigation_hypervisormgr.png" alt="...">
+                <h5><span class="label label-important">{{i18n.virtual_term_hypervisorMgr_label}}</span></h5>
+
+                <p class="pblock">{{i18n.resource_general_hyperMgr_desc_label}}</p>
+
+                <div class="resourceDivBtn">
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_hypervisorView_value" ui-sref="resources.hypervisor.environment">{{i18n.resource_term_checkVirtual_button}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="resourceDiv">
+                <img src="../theme/default/images/resources/irm_rpool_navigation_resourcepoolmgr.png" alt="...">
+                <h5><span class="label label-important">{{i18n.resource_term_resourcePoolMgr_label}}</span></h5>
+
+                <p class="pblock">{{i18n.resource_general_zoneMgr_desc_label}}</p>
+
+                <div class="resourceDivBtn">
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_zoneHandle_value" ng-click="createZone()">{{i18n.resource_term_createZone_button}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="resourceDiv" ng-if="privilege.role_role_add_option_softwareHandle_value || privilege.role_role_add_option_isoHandle_value || privilege.role_role_add_option_vmTemplateView_value">
+                <img src="../theme/default/images/resources/irm_rpool_navigation_imagemgr.png" alt="...">
+                <h5><span class="label label-important">{{i18n.template_term_templateMgr_label}}</span></h5>
+
+                <p class="pblock">{{i18n.resource_general_templateMgr_desc_label}}</p>
+
+                <div class="resourceDivBtn">
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_vmTemplateView_value" ui-sref="resources.templateSpec.vmTemplateResources.vmTemplate">{{i18n.resource_term_checkVMtemplate_button}}</a>
+                    <span ng-if="privilege.role_role_add_option_vmTemplateView_value">|</span>
+                    <a class="btn-link" ng-if="privilege.role_role_add_option_softwareHandle_value"
+                       ui-sref="resources.registSoftwarePackage.navigation({'action':'create','id':'null', 'from':'resources.navigation'})">{{i18n.template_term_addSoftPacket_button}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+    <br>
+</div>
+

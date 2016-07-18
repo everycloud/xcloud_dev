@@ -1,0 +1,88 @@
+<div class="container-fluid">
+<div class="row-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.openStackResource.region">{{i18n.resource_term_openstack_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active">
+                <a ui-sref="resources.regionResources.summary">{{regionName}}</a><span class="divider">&gt;</span>
+            </li>
+            <li class="active">
+                <a ui-sref="resources.regionResources.host">{{i18n.common_term_hostList_label}}</a><span class="divider">&gt;</span>
+            </li>
+            <li class="active">
+                <a ui-sref="resources.ictHostDetail.summary">{{name}}</a><span class="divider">&gt;</span>
+            </li>
+            <li class="active">{{i18n.common_term_summary_label}}</li>
+        </ul>
+        <ul class="nav nav-list noPadding">
+            <li class="two-lead">
+                <p ng-bind-html="i18n.resource_open_view_explan_hostview_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+</div>
+
+<div class="content-right-box">
+<div class="row-fluid">
+    <div class="span6">
+        <div  class="divblock outbox-padding">
+            <div class="legend">{{i18n.common_term_monitorInfo_label}}</div>
+            <div class="tiny_form line-height30">
+                <div class="row-fluid">
+                    <div class="clearfix">
+                        <div class="fl image_style"><img src="../theme/default/images/gm/cpu.png"><p>CPU</p></div>
+                        <div class="span4 word-break">
+                            <div >{{i18n.perform_term_CPUusageRate_label}}：
+                                <p class="f24" style="color:#5ecc49">{{cpuUsedRate}}%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="horizontal_line"></div>
+                <div class="row-fluid">
+                    <div class="clearfix">
+                        <div class="fl image_style"><img src="../theme/default/images/gm/Memory.png"><p>{{i18n.common_term_memory_label}}</p></div>
+                        <div class="span4 word-break">
+                            <div>{{i18n.perform_term_memUsageRate_label}}：
+                            <p class="f24" style="color:#5ecc49">{{memUsedRate}}%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="horizontal_line"></div>
+                <div class="row-fluid">
+                    <div class="clearfix">
+                        <div class="fl image_style"><img src="../theme/default/images/gm/disk_ico.png"><p>{{i18n.common_term_disks_label}}</p></div>
+                        <div class="span4 word-break">
+                            <div>{{i18n.perform_term_diskUsageRate_label}}：
+                            <p class="f24" style="color:#5ecc49">{{diskUsedRate}}%</p>
+                            </div>
+                        </div>
+                        <div class="span4 word-break">
+                                <div>{{i18n.device_term_ioWrite_label}}：{{disk_io_in}}KB/S</div>
+                                <div>{{i18n.device_term_ioRead_label}}：{{disk_io_out}}KB/S</div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="horizontal_line"></div>
+                <div class="row-fluid clearfix">
+                    <div class="fl image_style"><img src="../theme/default/images/gm/network_ico.png"><p>{{i18n.vpc_term_net_label}}</p></div>
+                    <div class="span4 word-break">
+                        <div>{{i18n.common_term_netInRate_label}}：{{nic_byte_in}}KB/S</div>
+                        <div>{{i18n.common_term_receivePacketSpeed_label}}：{{net_receive_pkg_rate}}{{i18n.common_term_entry_label}}/S</div>
+                    </div>
+                    <div class="span4 word-break">
+                        <div>{{i18n.common_term_netOutRate_label}}：{{nic_byte_out}}KB/S</div>
+                        <div>{{i18n.common_term_sendPacketSpeed_label}}：{{net_send_pkg_rate}}{{i18n.common_term_entry_label}}/S</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

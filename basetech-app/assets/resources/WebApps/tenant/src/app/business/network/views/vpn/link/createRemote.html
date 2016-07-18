@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="create-page-distance" id="createVpnLinkRemoteDiv">
+        <tiny-formfield>
+            <tiny-item label="info.localTable.label" require="info.localTable.require">
+                <tiny-table id="info.localTable.id" data="info.localTable.data" columns="info.localTable.columns" enable-pagination="false" render-row="info.localTable.renderRow"></tiny-table>
+            </tiny-item>
+            <tiny-item label="info.gatewayIP.label" require="info.gatewayIP.require">
+                <tiny-ip id="info.gatewayIP.id" value="service.customerGw.ipAddr" validate="info.gatewayIP.validate" disable="service.isModifyMode && service.type=='0'" extend-function="info.gatewayIP.extendFunction" type="info.gatewayIP.type"></tiny-ip>
+            </tiny-item>
+
+            <tiny-item label="info.network.label" require="info.network.require">
+                <tiny-button id="info.network.id" text="info.network.text" disable="info.network.disable" click="info.network.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+        <div ng-repeat="subnet in service.customerGw.customerSubnets" style="margin-left: 75px">
+            <tiny-formfield>
+                <tiny-item require="true">
+                    <span ng-bind="i18n.common_term_SubnetIP_label">:</span>
+                    <tiny-ip value="subnet.subnetAddr" validate="info.gatewayIP.validate" extend-function="info.gatewayIP.extendFunction" id="subnet.subnetAddrId" type="ipv4"></tiny-ip>
+                    <span ng-bind="i18n.common_term_SubnetMask_label">:</span>
+                    <tiny-ip value="subnet.subnetMask" validate="info.gatewayIP.validate" extend-function="info.gatewayIP.extendFunction" id="subnet.subnetMaskId" type="ipv4"></tiny-ip>
+                    <a class="btn-link margin-horizon-beautifier" ng-click="delete($index)" ng-show="service.customerGw.customerSubnets.length!=1" ng-bind="i18n.common_term_delete_button"></a>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div style="margin-left: 75px">
+            <tiny-formfield>
+                <tiny-item>
+                    <a class="btn-link margin-horizon-beautifier" ng-click="click()" style="margin-left: -85px;" ng-bind="i18n.common_term_advancedSet_label"></a>
+
+                    <div class="vpn_create_remote_img">
+                        <img src="../theme/default/images/colspand.png" id="linkImg" ng-click="click()">
+                    </div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <div id="subnetInfoDiv" style="display: none; margin-left: 9px">
+            <p class="createpage-title" ng-bind="i18n.vpn_term_ESPpolicy_label"></p>
+            <tiny-formfield>
+                <tiny-item label="info.dnAlgorithm.label" require="info.dnAlgorithm.require">
+                    <tiny-select id="info.dnAlgorithm.id" values="info.dnAlgorithm.values" class="margin-right-beautifier">
+                    </tiny-select>
+                </tiny-item>
+                <tiny-item label="info.lifeTime.label" require="true">
+                    <tiny-textbox id="info.lifeTime.id" value="service.lifeTime" validate="info.lifeTime.validate"></tiny-textbox>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+
+        <div style="margin-left: 70px;">
+            <tiny-formfield>
+                <tiny-item label="info.opt.label" class="fm-btn-top-smaller">
+                    <tiny-button id="info.preBtn.id" text="info.preBtn.text" click="info.preBtn.click()"></tiny-button>
+                    <tiny-button id="info.nextBtn.id" text="info.nextBtn.text" disable="selectedRouterIds.length <= 0" click="info.nextBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="info.cancelBtn.id" text="info.cancelBtn.text" click="info.cancelBtn.click()"></tiny-button>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>

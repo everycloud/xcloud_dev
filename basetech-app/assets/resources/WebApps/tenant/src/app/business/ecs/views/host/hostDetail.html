@@ -1,0 +1,68 @@
+<div class="container-fluid host-detail" ng-controller="ecs.host.detail.ctrl">
+    <div class="row-fluid innerbox-padding">
+        <div class="span5" style="padding-bottom: 0px;">
+            <tiny-formfield>
+                <!--服务实例-->
+                <tiny-item label="serviceInstanceName.label" display = "isServiceCenter">
+                    <div >
+                        <a ng-bind="instanceName" title="{{i18n.common_term_search_button}} {{instanceName}}" class="btn-link"
+                           ng-click="jumpServiceInstancePage(instanceId)"></a>
+                    </div>
+                </tiny-item>
+                <tiny-item label="phyName.label">
+                    <span ng-bind="phyName.value"  title="{{phyName.value}}"></span>
+                </tiny-item>
+                <tiny-item label="phyType.label">
+                    <span ng-bind="phyType.value" title="{{phyType.value}}"></span>
+                </tiny-item>
+                <tiny-item label="phySpec.label">
+                    <span ng-bind="phySpec.value" title="{{phySpec.value}}"></span>
+                </tiny-item>
+                <tiny-item label="phyOS.label">
+                    <span ng-bind="phyOS.value" title="{{phyOS.value}}"></span>
+                </tiny-item>
+                <tiny-item label="phyIP.label">
+                    <span ng-bind="phyIP.value" title="{{phyIP.value}}"></span>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(['app/business/ecs/controllers/host/hostDetailModel'],
+            function(detailModel) {
+                var curView = undefined;
+                $(".host-detail").each(function() {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+                curView.attr("id", new Date().getMilliseconds());
+
+                //编译(编译前scope是父页面继承来的)
+                var scope = curView.scope();
+                var currentItem = scope.currentItem || {};
+                var dep = ['ng', 'wcc', detailModel.name];
+                dep.unshift(["$provide",
+                    function($provide) {
+                        $provide.value("$rootElement", curView);
+                    }
+                ]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function($compile, $rootScope) {
+                    $compile(curView)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                //查询详细信息 (编译后scope是新new出来的)
+                var newScope = curView.scope();
+                newScope.hosytId = currentItem.id;
+                newScope.hosytName = currentItem.name;
+                newScope.hosytModel = currentItem.model;
+                newScope.hosytOsType = currentItem.osType;
+                newScope.hosytOsIp = currentItem.osIp;
+                newScope.hosytSpec = currentItem.hardwareSpec;
+                newScope.init();
+            });
+</script>

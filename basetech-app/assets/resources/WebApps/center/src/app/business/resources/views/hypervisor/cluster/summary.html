@@ -1,0 +1,223 @@
+<div class="container-fluid">
+        <div class="crumbs pr">
+            <ul class="breadcrumb">
+                <li>
+                    <a ui-sref="resources.hypervisor.cluster">{{i18n.virtual_term_clusters_label}}</a> <span class="divider">&gt;</span>
+                </li>
+                <li class="active"><a ui-sref="resources.clusterInfo.summary">{{clusterName}}</a><span class="divider">&gt;</span></li>
+                <li class="active">{{i18n.common_term_summary_label||'概要'}}</li>
+                <li class="crumbs_line"></li>
+            </ul>
+            <div class="help-pa help-pa_btn">
+                <a class="btn-link">
+                    <div ng-click="help.show=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+            <div class="crumbs_btn crumbs_btn_help">
+                <tiny-button class="major-btn" id="seniorConfigButton.id" text="seniorConfigButton.text"
+                             click="seniorConfigButton.click()" ng-if="operable"></tiny-button>
+                <tiny-button id="viewTopologyButton.id" text="viewTopologyButton.text"
+                             click="viewTopologyButton.click()" display="false"></tiny-button>
+                <tiny-button id="setScheduleButton.id" text="setScheduleButton.text"
+                             click="setScheduleButton.click()" ng-if="operable"></tiny-button>
+            </div>
+        </div>
+    <div fm-help help="'drawer_virtual_cluster_advanced'" i18n="'zh'" show="help.show"></div>
+    <div id="clusterInfo_summary_div" class="container-fluid">
+        <div class="content-right-box">
+            <div class="row-fluid line-height30">
+                <div class="span6">
+                    <div class="outbox-padding">
+                        <div class="legend">{{i18n.common_term_basicInfo_label||'基本信息'}}</div>
+                        <tiny-formfield>
+                            <tiny-item label="label.name">
+                                <div ng-bind="info.name"></div>
+                            </tiny-item>
+                            <tiny-item label="label.type">
+                                <div ng-bind="info.type"></div>
+                            </tiny-item>
+                            <tiny-item label="label.desc">
+                                <div ng-bind="info.desc"></div>
+                            </tiny-item>
+                            <tiny-item label="label.domain">
+                            <span ng-bind="info.domain" style="width: 200px;word-break:break-all"
+                                  id="clusterInfoDomainSpan"></span>
+                            <span class="btn-link" ng-click="editDomain()" ng-if="operable">
+                                <img src="../theme/default/images/gm/edit.gif"/>
+                            </span>
+                            </tiny-item>
+                            <tiny-item label="label.hypervisor">
+                                <div ng-bind="info.hypervisor"></div>
+                            </tiny-item>
+                            <tiny-item label="label.createTime">
+                                <div ng-bind="info.createTime"></div>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+
+                    <div class="outbox-padding" ng-if="privilege['perform_term_monitor_label.107001']">
+                        <div class="legend">{{i18n.common_term_monitorInfo_label||'监控信息'}}</div>
+                        <div class="tl">
+                            <div class="clearfix">
+                                <div class="fl control_infor_icon"><img
+                                        src="../theme/default/images/gm/cpu.png">
+
+                                    <p>CPU</p></div>
+                                <div class="fl control_right">
+                                    <div class="row-fluid line-height30">
+                                        <div class="span3 color-gray">
+                                            <div>{{i18n.perform_term_CPUusageRate_label||'CPU占用率'}}:</div>
+                                        </div>
+                                        <div class="span6">
+                                            <div><span class="color-gray">{{i18n.common_term_enableSum_label||'可用/总容量'}}:</span>{{cpu_availableCapacity}}GHz/{{cpu_totalCapacity}}GHz</div>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid line-height30">
+                                        <div class="span3 f24" style="color:#5ecc49;">
+                                            {{cpuUsedRate}}%
+                                        </div>
+                                        <div class="span5">
+                                            <div><span class="color-gray">{{i18n.perform_term_reservedCapacityRtae_label||'预留容量/率'}}:</span>{{cpu_reserveCapacity}}GHz/{{cpu_reserveRate}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divider_line ml-30"></div>
+                            <div class="clearfix">
+                                <div class="fl control_infor_icon"><img
+                                        src="../theme/default/images/gm/disk_ico.png">
+
+                                    <p>{{i18n.common_term_memory_label||'内存'}}</p></div>
+                                <div class="fl control_right">
+                                    <div class="row-fluid line-height30">
+                                        <div class="span3 color-gray">
+                                            <div>{{i18n.perform_term_memUsageRate_label||'内存占用率'}}:</div>
+                                        </div>
+                                        <div class="span5">
+                                            <div><span class="color-gray">{{i18n.common_term_enableSum_label||'可用/总容量'}}:</span>{{mem_availableCapacity}}GB/{{mem_totalCapacity}}GB</div>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid line-height30">
+                                        <div class="span3 f24" style="color: #ffa235;">
+                                            {{memUsedRate}}%
+                                        </div>
+                                        <div class="span5">
+                                            <div><span class="color-gray">{{i18n.perform_term_reservedCapacityRtae_label||'预留容量/率'}}:</span>{{mem_reserveCapacity}}GB/{{mem_reserveRate}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divider_line ml-30"></div>
+                            <div class="clearfix">
+                                <div class="fl control_infor_icon"><img
+                                        src="../theme/default/images/gm/disk_ico.png">
+
+                                    <p class="control_right_lh">{{i18n.resource_term_storagePool_label||'存储池'}}</p></div>
+                                <div class="fl control_right">
+                                    <div class="row-fluid line-height30">
+                                        <div class="span3 color-gray">
+                                            <div class="control_right_en">{{i18n.perform_term_storagePoolUsageRate_label||'存储占用率'}}:</div>
+                                        </div>
+                                        <div class="span5">
+                                            <div><span class="color-gray">{{i18n.common_term_capacityTotal_label||'总容量'}}:</span>{{storage_totalCapacity}}GB</div>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid line-height30">
+                                        <div class="span3 f24 control_right_en_num" style="color: #ffa235;">
+                                            {{storageUsedRate}}%
+                                        </div>
+                                        <div class="span5">
+                                            <div><span class="color-gray">{{i18n.perform_term_usedAndLeft_label||'已使用/剩余'}}:</span>{{storage_usedCapacity}}GB/{{storage_remainCapacity}}GB</div>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid line-height30">
+                                        <div class="span3">
+                                        </div>
+                                        <div class="span6">
+                                            <div><span class="color-gray">{{i18n.perform_term_allocatedCapacityAndRtae_label||'已分配容量/率'}}:</span>{{storage_allocatedCapacity}}GB/{{storage_allocatedRate}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outbox-padding">
+                        <div class="legend none-line">{{i18n.cloud_term_tagInfo_label||'标签信息'}}</div>
+                        <div>
+                            <tiny-table id="azDetailTagTable.id" data="azDetailTagTable.data"
+                                        columns='azDetailTagTable.columns' render-row="azDetailTagTable.renderRow"
+                                        enable-pagination="azDetailTagTable.enablePagination"></tiny-table>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="outbox-padding">
+                        <div class="fr" style="line-height: 40px;">
+                            <a href="javascript:void(0)" ng-click="gotoAlarm('0')" ng-bind="i18n.common_term_more_button"></a>
+                        </div>
+                        <div class="legend">{{i18n.alarm_term_alarm_label||'告警'}}</div>
+                        <div class="row-fluid" style="line-height: 18px;">
+                            <div class="span1">
+                                <div class="pointer alarm-icon alarm-0" title="{{i18n.alarm_term_AlarmCritical_label}}"
+                                     ng-click="gotoAlarm('1')">
+                                    <a class="text-zero1" href="javascript:void(0)" ng-bind="alarmInfo.critical"></a>
+                                </div>
+                            </div>
+                            <div class="span1">
+                                <div class="pointer alarm-icon alarm-1" title="{{i18n.alarm_term_alarmMajor_label}}"
+                                     ng-click="gotoAlarm('2')">
+                                    <a class="text-zero1" href="javascript:void(0)" ng-bind="alarmInfo.major"></a>
+                                </div>
+                            </div>
+                            <div class="span1">
+                                <div class="pointer alarm-icon alarm-2" title="{{i18n.alarm_term_alarmMinor_label}}"
+                                     ng-click="gotoAlarm('3')">
+                                    <a class="text-zero1" href="javascript:void(0)" ng-bind="alarmInfo.minor"></a>
+                                </div>
+                            </div>
+                            <div class="span1">
+                                <div class="pointer alarm-icon alarm-3" title="{{i18n.alarm_term_alarmWarning_label}}"
+                                     ng-click="gotoAlarm('4')">
+                                    <a class="text-zero1" href="javascript:void(0)" ng-bind="alarmInfo.warning"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="outbox-padding">
+                        <div class="legend">{{i18n.resource_term_computeSchedul_label||'计算资源调度'}}</div>
+                        <div class="row-fluid line-height30">
+                            <div ng-if="!drsSwitch">
+                                <tiny-formfield>
+                                    <tiny-item label="(i18n.resource_term_computeSchedul_label||'计算资源调度')+':'">
+                                        {{i18n.common_term_noTurnOn_value||'未启用'}}
+                                    </tiny-item>
+                                </tiny-formfield>
+                            </div>
+                            <div ng-if="drsSwitch">
+                                <tiny-formfield>
+                                    <tiny-item label="(i18n.resource_term_computeSchedul_label||'计算资源调度')+':'">
+                                        {{i18n.common_term_enable_value||'启用'}}
+                                    </tiny-item>
+                                    <tiny-item label="(i18n.common_term_autoLevel_label||'自动化级别')+':'">
+                                        {{drsLevel}}
+                                    </tiny-item>
+                                    <tiny-item label="(i18n.common_term_weighFactor_label||'衡量因素')+':'" display="hyperType !== 'VMware'">
+                                        {{factor}}
+                                    </tiny-item>
+                                    <tiny-item label="(i18n.resource_term_MigrateThreshold_label||'当前迁移阀值')+':'">
+                                        {{drsLimen}}
+                                    </tiny-item>
+                                    <tiny-item label="(i18n.virtual_term_clusterBlanceStatus_label||'集群平衡状态')+':'">
+                                        {{drsBalance}}
+                                    </tiny-item>
+                                </tiny-formfield>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

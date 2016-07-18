@@ -1,0 +1,58 @@
+<div fm-help help="'drawer_resource_dvs'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.rpool.zone">{{i18n.resource_term_zones_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="resources.zoneResources.summary.zoneSummary">{{zoneInfo.zoneName}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="resources.zoneResources.networkSummary">{{i18n.resource_term_netPools_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><span class="divider">DVS</span></li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+
+    <!--刷新、列选择、帮助-->
+    <div class="content-right-box">
+        <div class="clearfix">
+            <tiny-button ng-show="vmwareHyper && right.hasNetPoolOperateRight" class="major-btn" id="create.id"
+                         disable="create.disabled"
+                         icons-class="create.iconsClass"
+                         text="create.text"
+                         tooltip="create.tip" click="create.create()"></tiny-button>
+            <div class="pull-right bottom10">
+                <tiny-filtersel id="searchHyper.id" values="searchHyper.values" width="searchHyper.width"
+                                default-label="searchHyper.dftLabel" change="searchHyper.change()">
+                </tiny-filtersel>
+        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+                <a class="btn-link">
+                    <div ng-click="refresh.refresh()" id="dvsRefresh_id" title="{{i18n.common_term_fresh_button}}"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <tiny-table id="dvsTable.id" caption="dvsTable.caption" data="dvsTable.data"
+                    columns="dvsTable.columns"
+                    enable-pagination="dvsTable.enablePagination"
+                    pagination-style="dvsTable.paginationStyle" length-change="dvsTable.lengthChange"
+                    length-menu="dvsTable.lengthMenu" display-length="dvsTable.displayLength"
+                    enable-filter="dvsTable.enableFilter"
+                    cur-page="dvsTable.curPage" total-records="dvsTable.totalRecords"
+                    hide-total-records="dvsTable.hideTotalRecords" change-select="dvsTable.changeSelect"
+                    callback="dvsTable.callback" render-row="dvsTable.renderRow"
+                    show-details="dvsTable.showDetails" columns-visibility="dvsTable.columnVisibility"
+                    columns-draggable="dvsTable.columnsDraggable"></tiny-table>
+    </div>
+</div>

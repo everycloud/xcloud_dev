@@ -1,0 +1,36 @@
+<div id="transferVmDiv" class="alert-tip-first">
+    <tiny-formfield>
+        <tiny-item label="vpcTable.name" require="vpcTable.require">
+            <div style="width: 570px">
+                <tiny-table id="vpcTable.id" caption="vpcTable.caption" data="vpcTable.data"
+                            pagination-style="vpcTable.paginationStyle" columns-draggable="vpcTable.columnsDraggable"
+                            columns='vpcTable.columns' render-row="vpcTable.renderRow"
+                            total-records="vpcTable.totalRecords" length-change="vpcTable.lengthChange"
+                            cur-page="vpcTable.curPage" display-length="vpcTable.displayLength"
+                            enable-pagination="vpcTable.enablePagination" change-select="vpcTable.changeSelect"
+                            length-menu="vpcTable.lengthMenu" callback="vpcTable.callback"></tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button class="major-btn" id="okButton.id" text="okButton.text" click="okButton.click()"></tiny-button>
+            <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/resources/controllers/hypervisor/vm/transferCtrl'],
+            function (transferCtrl) {
+                var rootElement = $("#transferVmDiv");
+                rootElement.attr("ng-controller", "resources.vm.transferVm.ctrl");
+                var dep = ['ng', 'wcc', transferCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

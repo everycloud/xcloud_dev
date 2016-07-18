@@ -1,0 +1,685 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Importing Firewall Configurations">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600001">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Importing Firewall Configurations</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nImporting Firewall Configurations");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > Importing Firewall Configurations<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600001"></a><a name="it_60_51_600001"></a>
+
+
+
+
+<h1 class="topictitle1">Importing Firewall Configurations</h1>
+<ul><li><a href="#it_60_51_600001__1.2.1.1">Background</a></li><li><a href="#it_60_51_600001__1.2.2.1">Conditions</a></li><li><a href="#it_60_51_600001__1.2.3.1">Procedure</a></li></ul>
+<div><div class="section"><a name="it_60_51_600001__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600001" class="sectiontitle2contents">Background</a></h4>
+
+
+<div class="p"><p>On the <span>FusionManager</span>, import the device configuration file of a physical firewall
+to configure parameters of the physical firewall for the <span>FusionManager</span> system to use, such as source network address translation (SNAT),
+network address and port translation (NAPT), subinterfaces, access
+control list (ACL) IDs. </p>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600001__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600001" class="sectiontitle2contents">Conditions</a></h4>
+
+
+<div class="p"><ul><li>You have logged in to the <span>FusionManager</span>.</li><li>Firewall devices have been added to the FusionManger.</li></ul>
+</div>
+
+</div>
+
+
+<div class="section"><a name="it_60_51_600001__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600001" class="sectiontitle2contents">Procedure</a></h4>
+
+<ol><li><span>On the <span>FusionManager</span>, choose <span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Network Devices</span></b></span>.</span></li><li><span>In the navigation tree on the left, choose <span class="uicontrol"><b>Firewalls</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>Import Configuration</b></span>.</span>
+<p>The <span class="wintitle"><b>Import Configuration</b></span> dialog box is
+displayed.</p>
+</li><li><span>Click <span class="uicontrol"><b>Download</b></span>, and download and
+save the device configuration file to the local computer.</span></li><li><span>Open the device configuration file and enter the parameters
+listed in <a href="#it_60_51_600001__tab_cf">Table 1</a> and their values in the device
+configuration file in the following format:</span>
+<p><pre class="screen">&lt;resources&gt;
+  &lt;!--firewall rid--&gt;
+  &lt;resource devicerid="2"/&gt;
+    &lt;ReservedVfw&gt;
+      &lt;VfwName name="vfw1"/&gt;
+    &lt;/ReservedVfw&gt;
+&lt;!--Start id of Acl--&gt;
+&lt;item name="ID_GENERATOR_ACL_ENTRY_START" value="0"/&gt;
+&lt;!--end id of Acl--&gt;
+&lt;item name="ID_GENERATOR_ACL_ENTRY_END" value="9999"/&gt;
+    ……
+  &lt;/resource&gt;
+&lt;/resources&gt;</pre>
+<p><span class="parmvalue"><b>ReservedVfw</b></span> specifies
+the firewall reserved for the customer. If multiple firewalls need
+to be reserved, add this parameter in multiple lines.</p>
+<p><span class="parmvalue"><b>vfw1</b></span> indicates the virtual firewall reserved for the
+user.</p>
+<p><span class="parmvalue"><b>2</b></span> indicates the value of <span class="wintitle"><b>Firewall Rid</b></span>, which identifies the firewall connecting
+to the <span>FusionManager</span>. You can query the value by choosing <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Devices</span></b> &gt; <b><span class="uicontrol">Network
+Devices</span></b> &gt; <b><span class="uicontrol">Firewalls</span></b></span>.</p>
+
+<div class="tablenoborder"><a name="it_60_51_600001__tab_cf"></a><a name="tab_cf"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600001__tab_cf" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Parameter values of physical firewall of different versions</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="19.363395225464192%" id="mcps1.2.3.2.5.2.5.2.5.1.1"><p>Firewall Version</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="26.259946949602124%" id="mcps1.2.3.2.5.2.5.2.5.1.2"><p>Parameter</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="26.525198938992045%" id="mcps1.2.3.2.5.2.5.2.5.1.3"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="27.85145888594165%" id="mcps1.2.3.2.5.2.5.2.5.1.4"><p>Value</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" rowspan="17" valign="top" width="19.363395225464192%" headers="mcps1.2.3.2.5.2.5.2.5.1.1 "><p>Eudemon1000E V300R001C00</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.259946949602124%" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">ID_FW_SUBPORT_START</td>
+
+<td class="cellrowborder" valign="top" width="26.525198938992045%" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">Specifies the start ID of the subinterfaces.</td>
+
+<td class="cellrowborder" valign="top" width="27.85145888594165%" headers="mcps1.2.3.2.5.2.5.2.5.1.4 ">1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_FW_SUBPORT_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the subinterfaces.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1024</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ADDRESS_GROUP_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the IP address pools.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ADDRESS_GROUP_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the IP address pools.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1023</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the virtual routers.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the virtual routers.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">255</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">FW_TRUST_PORT</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the firewall port of the trust zone.<div class="note" id="it_60_51_600001__N_trust"><a name="it_60_51_600001__N_trust"></a><a name="N_trust"></a><span class="notetitle"> NOTE: </span><div class="notebody"><p>Port GigabitEthernet0/0/0 is the default firewall management port
+and it cannot be used as a trust zone port.</p>
+</div></div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">GigabitEthernet0/0/1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ACL_ENTRY_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the access control list (ACL) rules.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ACL_ENTRY_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the ACL rules.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">4294967294</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_REPEAT</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the times for repeatedly using the ID of a virtual
+router.<div class="note"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>Default value for Eudemon1000E V300R001C00SPC800 and earlier versions: <span class="parmvalue"><b>1</b></span></li><li>Default value for Eudemon1000E V300R001C00SPC900 and later versions: <span class="parmvalue"><b>30</b></span></li></ul>
+</div></div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_NAT_POLICY_NUM_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the SNAT policies.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_NAT_POLICY_NUM_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the SNAT policies.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">4294967294</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_IPSEC_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule start ID for the IPSec VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3000</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_IPSEC_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule end ID for the IPSec VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3999</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_L2TP_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule start ID for the L2TP VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3000</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_L2TP_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule end ID for the L2TP VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3999</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ACL_BASE_LINE</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">ACL rule base line ID</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="15" valign="top" width="19.363395225464192%" headers="mcps1.2.3.2.5.2.5.2.5.1.1 "><p>Eudemon8000E V200R001C01</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.259946949602124%" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">ID_FW_SUBPORT_START</td>
+
+<td class="cellrowborder" valign="top" width="26.525198938992045%" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">Specifies the start ID of the subinterfaces.</td>
+
+<td class="cellrowborder" valign="top" width="27.85145888594165%" headers="mcps1.2.3.2.5.2.5.2.5.1.4 ">1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_FW_SUBPORT_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the subinterfaces.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">4096</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ADDRESS_GROUP_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the IP address pools.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ADDRESS_GROUP_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the IP address pools.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">4095</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the virtual routers.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the virtual routers.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">255</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">FW_TRUST_PORT</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the firewall port of the trust zone.<div class="note"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Port GigabitEthernet0/0/0 is the default firewall management port
+and it cannot be used as a trust zone port.</p>
+</div></div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">GigabitEthernet0/0/1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ACL_ENTRY_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the ACL rules.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ACL_ENTRY_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the ACL rules.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">9999</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_REPEAT</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the times for repeatedly using the ID of a virtual
+router.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">16</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_IPSEC_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule start ID for the IPSec VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3000</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_IPSEC_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule end ID for the IPSec VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3999</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_L2TP_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule start ID for the L2TP VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3000</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_L2TP_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule end ID for the L2TP VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3999</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ACL_BASE_LINE</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">ACL rule base line ID</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" rowspan="17" valign="top" width="19.363395225464192%" headers="mcps1.2.3.2.5.2.5.2.5.1.1 "><p>Eudemon8000E V300R001C00</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.259946949602124%" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">ID_FW_SUBPORT_START</td>
+
+<td class="cellrowborder" valign="top" width="26.525198938992045%" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">Specifies the start ID of the subinterfaces.</td>
+
+<td class="cellrowborder" valign="top" width="27.85145888594165%" headers="mcps1.2.3.2.5.2.5.2.5.1.4 ">1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_FW_SUBPORT_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the subinterfaces.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1024</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ADDRESS_GROUP_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the IP address pools.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ADDRESS_GROUP_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the IP address pools.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1023</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the virtual routers.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the virtual routers.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">255</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">FW_TRUST_PORT</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the firewall port of the trust zone.<div class="note"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Port GigabitEthernet0/0/0 is the default firewall management port
+and it cannot be used as a trust zone port.</p>
+</div></div>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">GigabitEthernet0/0/1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ACL_ENTRY_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the access control list (ACL) rules.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_GENERATOR_ACL_ENTRY_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the ACL rules.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">4294967294</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_VIRT_ROUTE_REPEAT</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the times for repeatedly using the ID of a virtual
+router.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">1</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_NAT_POLICY_NUM_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the start ID of the SNAT policies.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_NAT_POLICY_NUM_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the end ID of the SNAT policies.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">65535</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_IPSEC_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule start ID for the IPSec VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3000</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_IPSEC_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule end ID for the IPSec VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3999</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_L2TP_START</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule start ID for the L2TP VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3000</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ID_ACL_VPN_L2TP_END</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">Specifies the ACL rule end ID for the L2TP VPN service.</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">3999</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.1 ">ACL_BASE_LINE</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.2 ">ACL rule base line ID</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.2.3.2.5.2.5.2.5.1.3 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<p>Parameter values listed in <a href="#it_60_51_600001__tab_cf">Table 1</a> are the maximum value a physical firewall supports. Users need to
+determine the parameter values based on the site conditions.</p>
+<p>If both Internet Protocol Security (IPSec) and Layer 2 Tunneling Protocol
+(L2TP) virtual private network (VPN) services are required, ensure
+that the ACL rule ranges do not overlap. In the <span>FusionManager</span> system, the default ACL rule start ID for the IPSec VPN service is
+3000, and the default end ID is 3499; the default ACL rule start ID
+for the IPSec VPN
+service is 3500, and the default end ID is 3999. If you need to manually
+configure the VPN service on the firewall, ensure that the ACL rule
+ranges for the <span>FusionManager</span> system and the VPN service on the firewall do not overlap.</p>
+</p>
+</li><li><span>Save the device configuration file.</span>
+<p>Open the file using the Internet Explorer browser and check
+whether the XML file format is correct.</p>
+</li><li><span>In the <span class="wintitle"><b>Import Configuration</b></span> dialog
+box, select the device configuration file on the local PC in <span class="wintitle"><b>Device configuration file</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>Import</b></span>.</span>
+<p>A message is displayed, indicating that the firewall configuration
+file is imported successfully.</p>
+</li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span></li><li><span>If two firewalls
+are deployed in active/standby mode, change the value of <span class="parmname"><b>devicerid</b></span> in the configuration file to the RID of the
+other firewall and import the file again.</span>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>The content of the two imported configuration
+files is consistent, export for the firewall RIDs.</p>
+</div></div>
+</p>
+</li></ol>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

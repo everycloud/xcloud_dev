@@ -1,0 +1,44 @@
+<div class="ssp_extend_instance alert-tip-first" ng-controller="ssp.extend.instance.ctrl">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="expireTime.label" require="expireTime.require" class="clearfix">
+                <div class="fl">
+                    <tiny-datetime id="expireTime.id" type="expireTime.type" disable="expireTime.disable" show-clear="false"
+                                   min-date="expireTime.minDate" width="expireTime.width"
+                                   date-format="expireTime.dateFormat" time-format="expireTime.timeFormat"
+                                   default-date="expireTime.defaultDate" default-time="expireTime.defaultTime">
+                    </tiny-datetime>
+                </div>
+                <span class="fl line-height25" style="margin: 6px 0 0 10px;">
+                    <tiny-checkbox id="neverExpire.id" checked="neverExpire.checked" change="neverExpire.change()" text="neverExpire.text"></tiny-checkbox>
+                </span>
+            </tiny-item>
+            
+            <tiny-item label="remark.label">
+                <tiny-textbox id="remark.id" value="remark.value" type="remark.type" width="remark.width" height="remark.height" validate="remark.validate">
+                </tiny-textbox>
+            </tiny-item>
+            
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+
+<script>
+    require(['app/business/ssp/controllers/catalog/instance/extendInstanceCtrl'],
+            function (extendInstanceCtrl) {
+                var dep = ['ng', 'wcc', extendInstanceCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $(".ssp_extend_instance"));
+                }]);
+
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($(".ssp_extend_instance"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

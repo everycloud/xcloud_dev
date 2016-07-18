@@ -1,0 +1,34 @@
+<div class="row-fluid" id="ipUsageByHandbasic" ng-controller="network.ipUsageByHand.ctrl">
+    <div class="pull-right">
+        <span style="display: inline-block; vertical-align: middle;">
+            <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+            </tiny-searchbox>
+        </span>
+        <a class="btn-link">
+            <div ng-click="refreshClick()" class="small-icon small-icon-refresh"></div>
+        </a>
+    </div>
+    <div class="margin-bottom-beautifier major-btn">
+        <tiny-button id="applyBtn.id" text="applyBtn.text" click="applyBtn.click()" class="margin-right-beautifier"></tiny-button>
+    </div>
+    <div>
+        <tiny-table id="ipListTable.id" data="ipListTable.data" columns="ipListTable.columns " display-length="ipListTable.displayLength" total-records="ipListTable.totalRecords" render-row="ipListTable.renderRow" pagination-style="ipListTable.paginationStyle"
+        length-menu="ipListTable.lengthMenu" callback="ipListTable.callback" change-select="ipListTable.changeSelect">
+        </tiny-table>
+    </div>
+</div>
+<script type="text/javascript">
+require(["app/business/network/controllers/ipUsageByHand"], function(ipUsageByHandModule) {
+    var dep = ['ng', ipUsageByHandModule.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#ipUsageByHandbasic"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#ipUsageByHandbasic"))($rootScope);
+        $rootScope.$digest();
+    });
+})
+</script>

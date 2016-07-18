@@ -1,0 +1,52 @@
+<fm-help help="help.helpKey" show="help.show" i18n="help.i18n"></fm-help>
+<div>
+    <div class="clearfix bottom10">
+        <div class="pull-right">
+            <tiny-filtersel id="searchLocation.id" values="searchLocation.values" width="searchLocation.width"
+                            change="searchLocation.change()">
+            </tiny-filtersel>
+            <tiny-filtersel id="searchVpc.id" values="searchVpc.values" width="searchVpc.width"
+                            change="searchVpc.change()">
+            </tiny-filtersel>
+        <span style="display: inline-block; vertical-align: middle;">
+            <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                            suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                            suggest="searchBox.suggest" search="searchBox.search">
+            </tiny-searchbox>
+        </span>
+            <a class="btn-link">
+                <div ng-click="refresh.click()" id="refresh.id" title="{{refresh.text}}"
+                     class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div title="{{i18n.common_term_help_label}}" ng-click="help.click()"
+                     class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+    </div>
+    <div>
+        <tiny-table id="diskSnapshots.id" columns="diskSnapshots.columns" data="diskSnapshots.data"
+                    render-row="diskSnapshots.renderRow" enable-pagination="diskSnapshots.enablePagination"
+                    columns-draggable="diskSnapshots.columnsDraggable">
+        </tiny-table>
+    </div>
+    <div style="margin-top:20px">
+        <div class="fr">
+            <a ng-class="{tinyPagination_paginationNextSpan: hasNextPage,tinyPagination_paginationNextSpanDisabled: !hasNextPage}"
+               href="javascript:void(0)" title="{{i18n.common_term_nextPage_button}}" class="tinyPagination_tinybutton" ng-click="nextPage()"></a>
+        </div>
+        <div class="fr">
+            <a ng-class="{tinyPagination_paginationPrevSpan: hasPrePage,tinyPagination_paginationPrevSpanDisabled: !hasPrePage}"
+               href="javascript:void(0)"  title="{{i18n.common_term_previous_button}}" class="tinyPagination_tinybutton" ng-click="prePage()"></a>
+        </div>
+        <div class="fr" style="margin-right:10px;margin-top: 3px" ng-bind="curPage">
+        </div>
+        <div class="fr" style="margin-right:10px;margin-top: 3px">
+            <span ng-bind="i18n.common_term_currentPage_label"></span>:
+        </div>
+        <div class="fr"  style="margin-right:10px">
+            <tiny-select id="sizeSelector.id" values="sizeSelector.values" width="sizeSelector.width"
+                         change="sizeSelector.change()"></tiny-select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<ul class="breadcrumb">
+    <li>
+        <a ui-sref="resources.device.switch">{{i18n.device_term_switchs_label}}</a> <span class="divider">&gt;</span>
+    </li>
+    <li class="active"><span class="divider">{{switchInfo.name}}</span></li>
+    <li class="crumbs_line"></li>
+</ul>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span6 outbox-padding">
+            <div class="legend">{{i18n.common_term_basicInfo_label}}</div>
+            <tiny-formfield>
+                <tiny-item label="basicInfo.name.label">
+                    <div ng-bind="switchInfo.name"></div>
+                </tiny-item>
+                <tiny-item label="basicInfo.status.label">
+                    <div ng-bind="switchInfo.statusStr"></div>
+                </tiny-item>
+                <tiny-item label="basicInfo.type.label">
+                    <div ng-bind="switchInfo.typeStr"></div>
+                </tiny-item>
+                <tiny-item label="basicInfo.mgnIp.label">
+                    <div ng-bind="switchInfo.ip"></div>
+                </tiny-item>
+                <tiny-item label="basicInfo.product.label">
+                    <div ng-bind="switchInfo.product"></div>
+                </tiny-item>
+                <tiny-item label="basicInfo.description.label">
+                    <div ng-bind="switchInfo.description"></div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+        <div class="span6">
+            <div class="outbox-padding">
+                <div class="legend">{{i18n.alarm_term_alarm_label}}</div>
+
+
+                <div class="row-fluid">
+                    <div class="span1">
+                        <div class="pointer alarm-icon alarm-0" title="{{i18n.alarm_term_AlarmCritical_label}}"
+                             ng-click="operate.goToAlarm('1')">
+                            <p class="text-zero1" ng-bind="alarmInfo.critical"></p></div>
+                    </div>
+                    <div class="span1">
+                        <div class="pointer alarm-icon alarm-1" title="{{i18n.alarm_term_alarmMajor_label}}"
+                             ng-click="operate.goToAlarm('2')">
+                            <p class="text-zero1" ng-bind="alarmInfo.major"></p></div>
+                    </div>
+                    <div class="span1">
+                        <div class="pointer alarm-icon alarm-2" title="{{i18n.alarm_term_alarmMinor_label}}"
+                             ng-click="operate.goToAlarm('3')">
+                            <p class="text-zero1" ng-bind="alarmInfo.minor"></p></div>
+                    </div>
+                    <div class="span1">
+                        <div class="pointer alarm-icon alarm-3" title="{{i18n.alarm_term_alarmWarning_label}}"
+                             ng-click="operate.goToAlarm('4')">
+                            <p class="text-zero1" ng-bind="alarmInfo.warning"></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid" ng-show="hasPort">
+            <div class="span12 outbox-padding">
+                <div class="legend none-line">{{i18n.common_term_portStatus_label}}</div>
+                <div class="over-flow">
+                    <tiny-table id="switchPortTable.id" data="switchPortTable.data"
+                                columns="switchPortTable.columns"
+                                enable-pagination="switchPortTable.enablePagination"
+                                pagination-style="switchPortTable.paginationStyle"
+                                enable-filter="switchPortTable.enableFilter"
+                                length-change="switchPortTable.lengthChange"
+                                display-length="switchPortTable.displayLength"
+                                column-sorting="switchPortTable.columnSorting"
+                                columns-draggable="switchPortTable.columnsDraggable"
+                                request-config="switchPortTable.requestConfig"
+                                hide-total-records="switchPortTable.hideTotalRecords"
+                                total-records="switchPortTable.totalRecords" render-row="switchPortTable.renderRow"
+                                show-details="switchPortTable.showDetails" callback="switchPortTable.callback"
+                                change-select="switchPortTable.changeSelect"></tiny-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div id="createHostDiv" class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div class="createpage-legend" ng-bind="createStep.title"></div>
+        <div id="createHostTitle" class="createpage-legend"></div>
+        <tiny-step id="createStep.id" values="createStep.values" jumpable="createStep.jumpable" width="createStep.width"></tiny-step>
+    </div>
+    <div  class="top20">
+        <div ng-include="stepUrl.basicInfo"  ng-show="curStep == 'basicInfo'"></div>
+        <div ng-include="stepUrl.confirmInfo"  ng-show="curStep == 'confirmInfo'"></div>
+    </div>
+</div>

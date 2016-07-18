@@ -1,0 +1,42 @@
+<div class="content-right-box">
+    <div class="margin-erect-beautifier">
+        <tiny-button id="info.startBtn.id" text="info.startBtn.text" disable="info.startBtn.disable" click="info.startBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="info.stopBtn.id" text="info.stopBtn.text" disable="info.stopBtn.disable" click="info.stopBtn.click()"></tiny-button>
+        <tiny-button id="info.deleteBtn.id" text="info.deleteBtn.text" disable="info.deleteBtn.disable" click="info.deleteBtn.click()"></tiny-button>
+        <a class="btn-link margin-right-beautifier">
+            <div ng-click="queryPVM()" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+        </a>
+        <span class="inline-help" ng-bind="i18n.vpc_deployService_refresh_info_msg"></span>
+    </div>
+    <div class="outbox-padding">
+        <div class="row-fluid">
+            <div class="legend" ng-bind="i18n.common_term_basicInfo_label"></div>
+            <tiny-formfield>
+                <tiny-item label="info.name.label" require="info.name.require">
+                    <span ng-bind="pvm.name"></span>
+                </tiny-item>
+                <tiny-item label="info.status.label" require="info.status.require">
+                    <span ng-bind="pvm.pvmStateUI"></span>
+                </tiny-item>
+                <tiny-item label="info.createTime.label" require="info.createTime.require">
+                    <span ng-bind="pvm.createTime"></span>
+                </tiny-item>
+            </tiny-formfield>
+            <div class="row-fluid">
+                <div class="pull-right bottom10">
+                    <tiny-button id="info.addNetworkBtn.id" text="info.addNetworkBtn.text" disable="info.addNetworkBtn.disable" click="info.addNetworkBtn.click()" class="major-btn"></tiny-button>
+                </div>
+            </div>
+            <tiny-formfield>
+                <tiny-item label="info.networkInfo.label" require="info.networkInfo.require">
+                    <tiny-table id="info.networkInfo.id" data="info.networkInfo.data" columns="info.networkInfo.columns" render-row="info.networkInfo.renderRow" enable-pagination="false"></tiny-table>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.tiny_form_td_label {
+    width: 70px
+}
+</style>

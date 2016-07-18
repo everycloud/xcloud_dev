@@ -1,0 +1,51 @@
+<div id="retrieveDiskDiv">
+    <p>磁盘资源回收可以将用户删除的数据占用的空间从精简磁盘中释放出来，减少精简磁盘在存储上占用的空间大小，提升服务器存储空间利用率。</p>
+
+    <div class="top10 clearfix">
+        <tiny-table id="diskTable.id" caption="diskTable.caption" data="diskTable.data"
+                    pagination-style="diskTable.paginationStyle"
+                    columns='diskTable.columns' render-row="diskTable.renderRow"
+                    total-records="diskTable.totalRecords" length-change="diskTable.lengthChange"
+                    cur-page="diskTable.curPage" display-length="diskTable.displayLength"
+                    enable-pagination="diskTable.enablePagination"
+                    length-menu="diskTable.lengthMenu" callback="diskTable.callback"></tiny-table>
+    </div>
+    <div class="clear_both fm-btn-top-smaller">
+        <tiny-button id="retrieveButton.id" text="retrieveButton.text"
+                     click="retrieveButton.click()"></tiny-button>
+        <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["tiny-widgets/Checkbox", 'app/business/resources/controllers/hypervisor/disk/retrieveDiskCtrl'],
+            function (Checkbox, retrieveDiskCtrl) {
+                var rootElement = $("#retrieveDiskDiv");
+                rootElement.attr("ng-controller", "resources.disk.retrieveDisk.ctrl");
+                var dep = ['ng', 'wcc', retrieveDiskCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                //表头全选复选框
+                var tableId = "#retrieveDiskTable";
+                var options = {
+                    "id": "diskTableHeadCheckbox",
+                    "checked": false,
+                    "change": function () {
+                        var isChecked = $("#" + options.id).widget().option("checked");
+                        var index = 0;
+                        while($("#diskCheckbox_" + index).widget()){
+                            $("#diskCheckbox_" + index).widget().option("checked", isChecked);
+                            index ++;
+                        }
+                    }
+                };
+                var checkbox = new Checkbox(options);
+                $(tableId + ' th:eq(0)').html(checkbox.getDom());
+            });
+</script>

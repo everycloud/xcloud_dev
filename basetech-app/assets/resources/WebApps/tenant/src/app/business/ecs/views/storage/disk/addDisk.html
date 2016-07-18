@@ -1,0 +1,60 @@
+<div class="ecs_vm_detail_disk_add" ng-controller="ecs.storage.disk.add.ctrl">
+    <tiny-formfield>
+        <tiny-item label="name.label">
+            <tiny-textbox id="name.id" value="name.value" width="name.width" validate="name.validate"
+                          extend-function="name.extendFunction"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="az.label" require="az.require">
+            <tiny-select id="az.id" values="az.values" width="az.width" change="az.change()" validate="az.validate">
+            </tiny-select>
+        </tiny-item>
+        <tiny-item label="diskType.label">
+            <div class="fl">
+                <tiny-radiogroup id="diskType.id" layout="diskType.layout" values="diskType.values">
+                </tiny-radiogroup>
+            </div>
+            <div class="fl" ng-show="isIT">
+                <span popover="{{i18n.org_disk_add_para_type_mean_tip}}" popover-trigger="mouseenter"
+                      popover-placement="bottom" class="small-icon small-icon-tips"></span>
+            </div>
+        </tiny-item>
+        <tiny-item label="capacity.label" require="capacity.require">
+            <tiny-textbox id="capacity.id" value="capacity.value" width="capacity.width" tooltip="capacity.tips"
+                          validate="capacity.validate"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="patternSelector.label" display="isIT">
+            <tiny-select id="patternSelector.id" values="patternSelector.values"
+                         width="patternSelector.width"></tiny-select>
+        </tiny-item>
+        <tiny-item label="storageMedia.label" require="storageMedia.require">
+            <tiny-select id="storageMedia.id" values="storageMedia.values" width="storageMedia.width"
+                         validate="storageMedia.validate">
+            </tiny-select>
+            <span popover="{{i18n.vm_vm_create_para_storageMedia_mean_tip}}" popover-trigger="mouseenter"
+                  popover-placement="left" class="small-icon small-icon-tips"  ng-show="isIT"></span>
+        </tiny-item>
+        <tiny-item>
+            <div class="fm-btn-top-small">
+                <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+
+<script>
+    require(['app/business/ecs/controllers/storage/disk/addDiskCtrl'],
+            function (addDiskCtrl) {
+                var dep = ['ng', 'wcc', addDiskCtrl.name];
+                dep.unshift(["$provide",
+                    function ($provide) {
+                        $provide.value("$rootElement", $(".ecs_vm_detail_disk_add"));
+                    }
+                ]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($(".ecs_vm_detail_disk_add"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

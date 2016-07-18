@@ -1,0 +1,19 @@
+<div id="scheduleHistoryDiv">
+    <div class="clearfix bottom10">
+        <div class="fr">
+            <a class="btn-link">
+                <div ng-click="refresh()" class="small-icon small-icon-refresh"></div>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix">
+        <tiny-table id="historyTable.id" data="historyTable.data"
+                    pagination-style="historyTable.paginationStyle"
+                    columns='historyTable.columns' render-row="historyTable.renderRow"
+                    total-records="historyTable.totalRecords" length-change="historyTable.lengthChange"
+                    cur-page="historyTable.curPage" display-length="historyTable.displayLength"
+                    enable-pagination="historyTable.enablePagination" change-select="historyTable.changeSelect"
+                    length-menu="historyTable.lengthMenu" callback="historyTable.callback"
+                    column-sorting="historyTable.columnSorting"></tiny-table>
+    </div>
+</div>

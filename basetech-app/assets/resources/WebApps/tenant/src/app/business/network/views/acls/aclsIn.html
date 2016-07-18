@@ -1,0 +1,25 @@
+<div>
+    <div class="clearfix bottom10">
+        <div class="fl">
+            <tiny-button id="createBtn.id" text="createBtn.text" click="createBtn.click()" ng-show="hasACLSOperateRight" class="major-btn"></tiny-button>
+        </div>
+        <!--刷新、帮助-->
+        <div class="pull-right">
+            <tiny-filtersel id="searchRuleType.id" values="searchRuleType.values" width="searchRuleType.width" change="searchRuleType.change()">
+            </tiny-filtersel>
+            <tiny-filtersel id="searchProtocolType.id" values="searchProtocolType.values" width="searchProtocolType.width" change="searchProtocolType.change()">
+            </tiny-filtersel>
+            <a class="btn-link btn-link-padding">
+                <div id="refresh.id" title="{{refresh.tips}}" ng-click="refresh.click()" class="small-icon small-icon-refresh"></div>
+            </a>
+            <a class="btn-link">
+                <div title="{{help.tips}}" ng-click="help.click()" class="small-icon small-icon-help"></div>
+            </a>
+        </div>
+    </div>
+    <div>
+        <tiny-table id="aclsInTable.id" data="aclsInTable.data" columns="aclsInTable.columns " display-length="aclsInTable.displayLength" total-records="aclsInTable.totalRecords" render-row="aclsInTable.renderRow" pagination-style="aclsInTable.paginationStyle"
+        length-menu="aclsInTable.lengthMenu" callback="aclsInTable.callback" change-select="aclsInTable.changeSelect" columns-draggable="aclsInTable.columnsDraggable">
+        </tiny-table>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.rpool.zone">{{i18n.resource_term_zones_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.zoneResources.summary.zoneSummary">{{layoutInfo.zoneName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.resource_term_Azs_label}}</li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="fm-btn-bottom-small clearfix">
+            <tiny-button class="major-btn fl" id="createButton.id" disable="createButton.disable" ng-if="operable"
+                         text="createButton.text" click="createButton.click()"></tiny-button>
+        
+
+        <!--刷新、列选择、帮助-->
+        <div class="pull-right">
+        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+            <a class="btn-link"><img src="../theme/default/images/gm/refresh.gif" ng-click="refresh.refresh()"
+                                     id="refresh.id" title="{{i18n.common_term_fresh_button}}"></a>
+            <a class="btn-link"><img
+                    src="../theme/default/images/gm/help.png" title="{{i18n.common_term_help_label}}" ng-click="help.show=true"></a>
+        </div>
+        </div>
+        <div class="margin-top-beautifier clear_both">
+            <tiny-table id="azTable.id" data="azTable.data" columns="azTable.columns"
+                        enable-pagination="azTable.enablePagination"
+                        pagination-style="azTable.paginationStyle" length-change="azTable.lengthChange"
+                        length-menu="azTable.lengthMenu" display-length="azTable.displayLength"
+                        enable-filter="azTable.enableFilter"
+                        cur-page="azTable.curPage" total-records="azTable.totalRecords"
+                        hide-total-records="azTable.hideTotalRecords"
+                        callback="azTable.callback" render-row="azTable.renderRow"
+                        show-details="azTable.showDetails" change-select="azTable.changeSelect"
+                        columns-draggable="azTable.columnsDraggable"></tiny-table>
+        </div>
+    </div>
+    <div fm-help help="'drawer_resource_az'" i18n="'zh'" show="help.show"></div>
+</div>

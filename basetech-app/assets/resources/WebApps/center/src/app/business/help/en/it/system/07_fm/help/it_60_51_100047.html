@@ -1,0 +1,186 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="VM-Snapshot">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100047">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>VM-Snapshot</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Resource Management\nVirtual Resource Management\nResource Cluster Management\nVM-Snapshot");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">Resource Management<\/a> > <a href=\"../father_node/it_60_99_100003.html\">Virtual Resource Management<\/a> > <a href=\"../father_node/it_60_99_100034.html\">Resource Cluster Management<\/a> > VM-Snapshot<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100047"></a><a name="it_60_51_100047"></a>
+
+
+<h1 class="topictitle1">VM-Snapshot</h1>
+<ul><li><a href="#it_60_51_100047__1.3.3.1">Creating a Snapshot</a></li><li><a href="#it_60_51_100047__1.3.4.1">Restoring a VM using a Snapshot </a></li><li><a href="#it_60_51_100047__1.3.5.1">Modifying VM Snapshot Attributes </a></li><li><a href="#it_60_51_100047__1.3.6.1">Deleting a Snapshot</a></li></ul>
+
+<div><p></p>
+
+<p id="it_60_51_100047__snap_define"><a name="it_60_51_100047__snap_define"></a><a name="snap_define"></a>A snapshot is a reproduction of the data and state
+of a VM created at a specific time point, and can be used to restore
+a VM to the state when the snapshot was taken.</p>
+
+<p id="it_60_51_100047__snap_function"><a name="it_60_51_100047__snap_function"></a><a name="snap_function"></a>When you take a snapshot for a VM, the current
+disk on the VM is set to be read-only. The system automatically creates
+an incremental disk in the data store where the disk is located, and
+the subsequent edit operations on the data of the disk are saved on
+the incremental disk, that is, the incremental disk records the differences
+between the current state of the disk and the last snapshot of the
+disk. When you create another snapshot of the disk, the disk and its
+current incremental disk are both set to read-only, and the system
+creates another incremental disk in the data store. </p>
+
+<div class="section"><a name="it_60_51_100047__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100047" class="sectiontitle2contents">Creating a Snapshot</a></h4><p>Snapshots
+can be created before major changes of the VM happen. They can be
+used to restore the VM data if faults occurs because the change fails.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Clusters</span></b></span>, select a resource
+cluster, navigate to the <span class="uicontrol"><b>VMs</b></span> page, select a
+VM, navigate to the <span class="uicontrol"><b>Snapshot</b></span> page</span> and click <span class="uicontrol"><b>Create Snapshot</b></span>.</p>
+<p>For
+details, see <a href="it_60_51_600022.html">VM Snapshot Usage Requirements</a>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100047__1.3.4.1"></a><a name="1.3.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100047" class="sectiontitle2contents">Restoring a VM using a Snapshot </a></h4><p>Use the created snapshot to restore the VM data to the state when
+the snapshot is created if a VM is faulty or requires data restoration.
+The current data on the VM will be overwritten by the data in the
+snapshot. Therefore, exercise caution when performing this operation.</p>
+<p id="it_60_51_100047__restore"><a name="it_60_51_100047__restore"></a><a name="restore"></a>If a new disk is attached to a VM after a snapshot
+is taken for the VM, the disk will be automatically detached from
+the VM after the VM is restored using this snapshot. If necessary,
+you can attach this disk to the VM again. </p>
+<div class="p">If a disk on a VM is set to <span class="parmvalue"><b>Not taken into snapshots</b></span>, data on the disk will not be
+restored after the VM is restored using a snapshot.<ul><li>If a snapshot is taken for a VM, and disks on the VM are detached
+from the VM and not attached to any other VM, the disks will be attached
+to the VM after the VM is restored using the snapshot. However, data
+on the disks will not be restored.</li><li>If a snapshot is taken for a VM and disks on the VM are deleted,
+the disks will not appear on the VM after the VM is restored using
+the snapshot.</li></ul>
+</div>
+<p>You can restore a VM using a snapshot only when the VM is
+in the <span class="wintitle"><b>Stopped</b></span> or <span class="wintitle"><b>Hibernated</b></span> state.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Clusters</span></b></span>, select a resource
+cluster, navigate to the <span class="uicontrol"><b>VMs</b></span> page, select a
+VM, navigate to the <span class="uicontrol"><b>Snapshot</b></span> page</span> and click <span class="uicontrol"><b>Restore VM</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100047__1.3.5.1"></a><a name="1.3.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100047" class="sectiontitle2contents">Modifying VM Snapshot Attributes </a></h4><p>modify VM snapshot attributes, including the name and description. </p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Clusters</span></b></span>, select a resource
+cluster, navigate to the <span class="uicontrol"><b>VMs</b></span> page, select a
+VM, navigate to the <span class="uicontrol"><b>Snapshot</b></span> page</span> and click <span class="uicontrol"><b>Modify</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100047__1.3.6.1"></a><a name="1.3.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100047" class="sectiontitle2contents">Deleting a Snapshot</a></h4><p>For each
+VM, a maximum of 32 snapshots can be created. Snapshots take space
+of the data store where the disk is located. To prevent insufficient
+storage resources, control the number of snapshots and promptly delete
+snapshots no longer used.</p>
+<p><span>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Resource Clusters</span></b></span>, select a resource
+cluster, navigate to the <span class="uicontrol"><b>VMs</b></span> page, select a
+VM, navigate to the <span class="uicontrol"><b>Snapshot</b></span> page</span> and click <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

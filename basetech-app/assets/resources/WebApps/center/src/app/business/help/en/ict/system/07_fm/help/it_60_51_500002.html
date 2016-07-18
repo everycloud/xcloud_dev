@@ -1,0 +1,166 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Alarm Setting">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_500002">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Alarm Setting</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Monitoring\nAlarm Monitoring\nAlarm Setting");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100008.html\">Monitoring<\/a> > <a href=\"../father_node/it_60_99_100009.html\">Alarm Monitoring<\/a> > Alarm Setting<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_500002"></a><a name="it_60_51_500002"></a>
+
+
+
+<h1 class="topictitle1">Alarm Setting</h1>
+<ul><li><a href="#it_60_51_500002__1.3.1.1">Setting Alarm Email Notification</a></li><li><a href="#it_60_51_500002__1.3.2.1">Setting Alarm Thresholds</a></li><li><a href="#it_60_51_500002__1.3.3.1">Setting Alarm Masking</a></li><li><a href="#it_60_51_500002__1.3.4.1">Configuring Accessing of Alarms Generated
+for Third-Party Components</a></li></ul>
+
+
+<div><p></p>
+
+<div class="section" id="it_60_51_500002__alarm_email"><a name="it_60_51_500002__alarm_email"></a><a name="alarm_email"></a><a name="it_60_51_500002__1.3.1.1"></a><a name="1.3.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500002" class="sectiontitle2contents">Setting Alarm Email Notification</a></h4><p>In addition to the <span>FusionManager</span> Web Client, you can obtain alarm information from emails.</p>
+<p>Before configuring the alarm notification
+by email function, you need to navigate to <span class="menucascade"><b><span class="uicontrol">System</span></b> &gt; <b><span class="uicontrol">Email Server</span></b></span> and complete the email server configuration.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Alarm Settings</span></b> &gt; <b><span class="uicontrol">Alarm
+Email Notification</span></b></span>.</p>
+</div>
+
+<div class="section" id="it_60_51_500002__alarm_threshold"><a name="it_60_51_500002__alarm_threshold"></a><a name="alarm_threshold"></a><a name="it_60_51_500002__1.3.2.1"></a><a name="1.3.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500002" class="sectiontitle2contents">Setting Alarm Thresholds</a></h4><p>An alarm is generated if
+the alarm threshold is hit. You can set the alarm threshold based
+on service requirements. If the alarm threshold is not configured,
+the default value is used.</p>
+<p>If the disk usage threshold for triggering
+a major alarm is 95%, that for triggering a minor alarm is 85%, and
+the offset is 5%,</p>
+<div class="p">then, <ul><li>When the real disk usage is greater than or equal to 95%, a major
+alarm is generated.</li><li>When the CPU usage exceeds 85% but is lower than 95%, a minor
+alarm is generated.</li><li>When the real disk usage is lower than 90%, that is, the threshold
+for the major alarm (95%) minus the offset (5%), the system automatically
+clears the major alarm.</li><li>When the real disk usage is lower than 80%, that is, the alarm
+threshold for the minor alarm (85%) minus the offset (5%), the system
+automatically clears the minor alarm.</li></ul>
+</div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Alarm Settings</span></b> &gt; <b><span class="uicontrol">Alarm
+Thresholds</span></b></span>.</p>
+</div>
+
+<div class="section" id="it_60_51_500002__alarm_mask"><a name="it_60_51_500002__alarm_mask"></a><a name="alarm_mask"></a><a name="it_60_51_500002__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500002" class="sectiontitle2contents">Setting Alarm Masking</a></h4><p>You can mask unimportant alarms based on service requirements.
+The masked alarms are not displayed in the alarm list.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Alarm Settings</span></b> &gt; <b><span class="uicontrol">Alarm
+Mask</span></b></span>.</p>
+</div>
+
+<div class="section" id="it_60_51_500002__alarm_3rd"><a name="it_60_51_500002__alarm_3rd"></a><a name="alarm_3rd"></a><a name="it_60_51_500002__1.3.4.1"></a><a name="1.3.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500002" class="sectiontitle2contents">Configuring Accessing of Alarms Generated
+for Third-Party Components</a></h4><p>To enable alarms generated for
+third-party components to be accessed and managed by <span>FusionManager</span> in a unified manner, you can add third-party component information
+to <span>FusionManager</span>.</p>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>Do not set the interconnection parameters as follows because risks
+may arise:<ul><li>The <span class="parmname"><b>SNMP Version</b></span> is <span class="parmvalue"><b>SNMPv2c</b></span>.</li><li>The <span class="parmname"><b>Authentication Protocol</b></span> is <span class="parmvalue"><b>MD5</b></span>.</li><li>The <span class="parmname"><b>Key Type</b></span> is <span class="parmvalue"><b>DES56</b></span>.</li></ul>
+</li><li>Set the interconnection parameters as follows, instead:<ul><li>The <span class="parmname"><b>SNMP Version</b></span> is <span class="parmvalue"><b>SNMPv3</b></span>.</li><li>The <span class="parmname"><b>Authentication Protocol</b></span> is <span class="parmvalue"><b>SHA1</b></span>.</li><li>The <span class="parmname"><b>Key Type</b></span> is <span class="parmvalue"><b>AES128</b></span>, <span class="parmvalue"><b>AES192</b></span>, or <span class="parmvalue"><b>AES256</b></span>.</li></ul>
+</li></ul>
+</div></div>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Alarm Settings</span></b> &gt; <b><span class="uicontrol">Third-Party
+Components</span></b></span>.</p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div id="modify-vpc-basic" ng-controller="modifyCtrl">
+    <div class="margin-top-beautifier">
+    <tiny-formfield>
+        <tiny-item label="name.label" require="name.require">
+            <tiny-textbox id="name.id" value="name.value" validate="name.validate" tooltip="name.tooltip" tip-width="name.tipWidth" tip-position="name.tipPosition"></tiny-textbox>
+        </tiny-item>
+        <tiny-item label="description.label" require="description">
+            <tiny-textbox id="description.id" value="description.value" type="description.type" width="description.width" height="description.height" validate="description.validate" tooltip="description.tooltip" tip-position="description.tipPosition">
+            </tiny-textbox>
+        </tiny-item>
+        <tiny-item label="okBtn.tip" class="fm-btn-top-small">
+            <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+        </tiny-item>
+
+    </tiny-formfield>
+    </div>
+</div>
+<style type="text/css">
+    div.ui-dialog .window_dialog_content{
+        padding-top: 0
+    }
+    #modify-vpc-basic>div {
+        margin:20px 0 0 0;
+    }
+</style>
+<script type="text/javascript">
+require(["app/business/network/controllers/vpc/modifyVpcModule"], function(modifyVpcModule) {
+    var dep = ['ng', 'wcc', modifyVpcModule.name];
+    dep.unshift(["$provide",
+        function($provide) {
+            $provide.value("$rootElement", $("#modify-vpc-basic"));
+        }
+    ]);
+    var $injector = angular.injector(dep);
+    $injector.invoke(function($compile, $rootScope) {
+        $compile($("#modify-vpc-basic"))($rootScope);
+        $rootScope.$digest();
+    });
+})
+</script>

@@ -1,0 +1,14 @@
+<div id="createVmDiv" class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div id="createVmtitle" class="createpage-legend"></div>
+        <tiny-step id="createVmStep.id" values="createVmStep.values" jumpable="createVmStep.jumpable" width="createVmStep.width"></tiny-step>
+    </div>
+    <div  class="content create-page-distance">
+        <div ng-include="createVmStep1.url" ng-show="locationInfoPage"></div>
+        <div ng-include="createVmStep2.url" ng-show="templateInfoPage"></div>
+        <div ng-include="createVmStep3.url" ng-show="specInfoPage"></div>
+        <div ng-include="createVmStep4.url" ng-show="networkInfoPage"></div>
+        <div ng-include="createVmStep5.url" ng-show="basicInfoPage"></div>
+        <div ng-include="createVmStep6.url" ng-show="confirmPage"></div>
+    </div>
+</div>

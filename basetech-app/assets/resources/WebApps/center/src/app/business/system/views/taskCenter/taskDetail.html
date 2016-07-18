@@ -1,0 +1,54 @@
+<div id="taskDetailDiv" class="innerbox-padding" ng-controller="system.taskCenter.taskDetail.ctrl">
+    <div class="row-fluid">
+        <div class="span6">
+            <div><span ng-bind="i18n.task_term_subtaskNumTotal_label"></span>:<span ng-bind="subTaskNum"></span></div>
+            <div><span ng-bind="i18n.task_term_subtaskSucceedNum_label"></span>:<span ng-bind="subTaskSucNum"></span></div>
+        </div>
+        <div class="span6">
+            <div><span ng-bind="i18n.task_term_subtaskFailNum_label"></span>:<span ng-bind="subTaskFailNum"></span></div>
+            <div><span ng-bind="i18n.common_term_runningSubtaskNum_label"></span>:<span ng-bind="runningSubTaskNum"></span></div>
+        </div>
+    </div>
+    <br>
+
+    <div style="overflow: hidden;">
+        <tiny-table id="taskDetailTable.id" caption="taskDetailTable.caption" data="taskDetailTable.data"
+                    columns="taskDetailTable.columns"
+                    columns-draggable="taskDetailTable.draggable"
+                    enable-pagination="taskDetailTable.pagination"
+                    pagination-style="taskDetailTable.paginationStyle"
+                    length-change="taskDetailTable.lengthChange" render-row="taskDetailTable.renderRow"></tiny-table>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["jquery",
+        "app/business/system/controllers/taskCenter/taskDetailCtrl"],
+            function ($, taskDetailCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $("#taskDetailDiv").parent().parent().parent().prev().attr("lineNum");
+                var taskId = $("#taskDetailDiv").parent().parent().parent().prev().attr("taskId");
+                var domId = "taskDetailDiv" + lineNum;
+                $("#taskDetailDiv").attr("id", domId);
+
+                // 2.编译
+                var scope = $("#" + domId).scope();
+                var modules = ["wcc", taskDetailCtrl.name];
+                modules.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + domId));
+                }]);
+                modules.unshift("ng");
+                var $injector = angular.injector(modules);
+                $injector.invoke(["$compile", function ($compile) {
+                    $compile($("#" + domId))(scope);
+                    scope.$digest();
+                }]);
+
+                // 3.初始化scope
+                var newScope = $("#" + domId).scope();
+                newScope.$apply(function () {
+                    newScope.taskId = taskId;
+                    newScope.getTaskDetail();
+                });
+            });
+</script>

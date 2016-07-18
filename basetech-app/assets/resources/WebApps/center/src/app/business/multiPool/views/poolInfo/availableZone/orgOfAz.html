@@ -1,0 +1,34 @@
+<div id="orgOfAzDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-button id="bindOrgButton.id" text="bindOrgButton.text"  ng-if="operable"
+                         click="bindOrgButton.click()" class="major-btn"></tiny-button>
+        </tiny-item>
+        <tiny-item>
+            <div style="width: 750px">
+                <tiny-table id="orgTable.id" data="orgTable.data" cur-page="orgTable.curPage"
+                            columns='orgTable.columns' render-row="orgTable.renderRow" callback="orgTable.callback"
+                            enable-pagination="orgTable.enablePagination" length-menu="orgTable.lengthMenu"
+                            total-records="orgTable.totalRecords" display-length="orgTable.displayLength"
+                            columns-visibility="orgTable.columnsVisibility" length-change="orgTable.lengthChange"
+                            change-select="orgTable.changeSelect"  pagination-style="orgTable.paginationStyle"></tiny-table>
+            </div>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(['app/business/multiPool/controllers/poolInfo/availableZone/orgOfAzCtrl'],
+            function (orgOfAzCtrl) {
+                var rootElement = $("#orgOfAzDiv");
+                rootElement.attr("ng-controller", "multiPool.availableZone.orgOfAz.ctrl");
+                var dep = ['ng', 'wcc', orgOfAzCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

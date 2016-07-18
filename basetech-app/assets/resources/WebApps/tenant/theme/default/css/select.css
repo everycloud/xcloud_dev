@@ -1,0 +1,110 @@
+.tiny-select {
+    position: relative;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+}
+.tiny-select-input-field {
+    height: 22px;
+    border: 1px solid #d3d3d3;
+    background-image: url(../images/select_merger.png);
+    background-position: 100% 0px;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    padding: 1px 35px 1px 5px;
+}
+.tiny-select-input-field-selected-down {
+    border-color: #A9A9A9 #D3D3D3 #D7D7D7 #bbb;
+    border-bottom-left-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+}
+.tiny-select-input-field-selected-up {
+    border-color: #BBB #D3D3D3 #D7D7D7 #A9A9A9;
+    border-top-left-radius: 0!important;
+    border-top-right-radius: 0!important;
+}
+
+.tiny-select-input-field-disable {
+    background-color: #ededed;
+    color: #999;
+}
+.tiny-select-text {
+    outline: none;
+    box-shadow: none;
+    padding-left: 3px;
+    border: 0px;
+    background-color: transparent;
+    border: 0 none;
+    height : 23px;
+    color: #666;
+}
+.tiny-select-popup-container {
+	z-index: 10002;
+    position: absolute;
+    background: white;
+    display: none;
+    overflow-x: auto;
+    overflow-y: auto;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    overflow: auto;
+}
+
+.tiny-select-popup-container-up {
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 0px solid #bbb;
+    border-top: 1px solid #bbb;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.tiny-select-option {
+	color: #666;
+    background: #FFFFFF;
+    padding: 0 0 0 8px;/*针对下拉选项和输入框中的文字未对齐问题的修改，以前是5px，1.10.0版本变更*/
+    line-height: 26px;
+    white-space: nowrap;
+    display: inline-block;
+    height: 26px;/*针对选项的label为空时的修改，1.10.0版本变更*/
+}
+.tiny-select-option-selected {
+	color: #08c;
+    background: #f4f4f4;
+    line-height: 24px;
+    border-top: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
+    cursor: default;
+    height: 24px;/*针对选项的label为空时的修改，1.10.0版本变更*/
+}
+
+.tiny-select-option img{
+    padding-bottom: 3px;
+    vertical-align: middle;
+    margin-right: 4px;
+    height: 14px;
+    width: 14px;
+}
+.tiny-select-checkbox {
+    background-image: url(../images/select_merger.png);
+    background-position: 0 -50px;
+    width: 16px;
+    height: 16px;
+    margin: 0 3px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0 none;
+    outline: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+.tiny-select-checkbox-focus {
+    background-position: 0 -91px;
+}
+.tiny-select-checkbox-checked {
+    background-position: 0 -114px;
+}

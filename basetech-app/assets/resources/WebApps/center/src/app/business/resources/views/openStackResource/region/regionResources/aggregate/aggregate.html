@@ -1,0 +1,42 @@
+<div fm-help help="'drawer_resource_hostgrp_ict'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.openStackResource.region">{{i18n.resource_term_openstack_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="resources.regionResources.summary">{{regionName}}</a><span class="divider">&gt;</span></li>
+            <li class="active">{{i18n.common_term_hostGroupList_label}}</li>
+        </ul>
+        <ul class="nav nav-list noPadding">
+            <li class="two-lead">
+                <p ng-bind-html="i18n.resource_open_view_explan_hostGroup_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div id="aggregateDiv">
+            <div class="bottom10 clearfix">
+                <div class="pull-right">
+                    <a class="btn-link">
+                        <div ng-click="refreshButton.click()" id="refreshButton.id" title="{{ i18n.common_term_fresh_button }}" class="small-icon small-icon-refresh"></div>
+                    </a>
+                    <a class="btn-link">
+                        <div title="{{ i18n.common_term_onlinehelp_label }}" ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <tiny-table id="aggregateTable.id" data="aggregateTable.data" pagination-style="aggregateTable.paginationStyle"
+                            columns='aggregateTable.columns' render-row="aggregateTable.renderRow"
+                            total-records="aggregateTable.totalRecords" length-change="aggregateTable.lengthChange"
+                            cur-page="aggregateTable.curPage" display-length="aggregateTable.displayLength"
+                            enable-pagination="aggregateTable.enablePagination"
+                            length-menu="aggregateTable.lengthMenu" callback="aggregateTable.callback"
+                            columns-visibility="aggregateTable.columnsVisibility"
+                            columns-draggable="aggregateTable.columnsDraggable" renderRow="aggregateTable.renderRow"></tiny-table>
+            </div>
+        </div>
+    </div>
+</div>

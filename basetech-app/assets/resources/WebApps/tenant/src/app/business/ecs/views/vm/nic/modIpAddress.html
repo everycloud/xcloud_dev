@@ -1,0 +1,32 @@
+<div class="ecs_vm_detail_nic_mod_ip" ng-controller="ecs.vm.nic.mod.ip.ctrl">
+    <div>
+        <tiny-formfield>
+            <tiny-item label="ip.label" require="ip.require">
+                <tiny-ip id="ip.id" value="ip.value" width="ip.width" extend-function="ip.extendFunction" validate="ip.validate"></tiny-ip>
+            </tiny-item>
+            <tiny-item>
+                <div class="fm-btn-top-small">
+                    <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+                    <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+
+<script>
+require(['app/business/ecs/controllers/vm/nic/modIpAddressCtrl'],
+    function(modIpCtrl) {
+        var dep = ['ng', 'wcc', modIpCtrl.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".ecs_vm_detail_nic_mod_ip"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".ecs_vm_detail_nic_mod_ip"))($rootScope);
+            $rootScope.$digest();
+        });
+    });
+</script>

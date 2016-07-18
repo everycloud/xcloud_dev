@@ -1,0 +1,23 @@
+<div id="failedDetailDiv">
+    <tiny-formfield>
+        <tiny-item label="label.message">
+            <div ng-bind="errorMsg"></div>
+        </tiny-item>
+    </tiny-formfield>
+</div>
+<script type="application/javascript">
+    require(["app/business/multiPool/controllers/fusionCasecade/failedDetailCtrl"], function (failedDetailCtrl) {
+        var rootElement = $("#failedDetailDiv");
+        rootElement.attr("ng-controller", "multipool.failedDetail.ctrl");
+        var dep = ['ng', 'wcc', failedDetailCtrl.name];
+        dep.unshift(["$provide", function ($provide) {
+            $provide.value("$rootElement", rootElement);
+        }]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function ($compile) {
+            var scope = rootElement.scope();
+            $compile(rootElement)(scope);
+            scope.$digest();
+        });
+    });
+</script>

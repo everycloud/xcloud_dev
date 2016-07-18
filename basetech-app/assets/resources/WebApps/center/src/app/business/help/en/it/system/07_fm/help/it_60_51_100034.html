@@ -1,0 +1,197 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Scripts">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100034">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Scripts</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Resource Management\nTemplates and Specification Management\nScripts");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100001.html\">Resource Management<\/a> > <a href=\"../father_node/it_60_99_100006.html\">Templates and Specification Management<\/a> > Scripts<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_100034"></a><a name="it_60_51_100034"></a>
+
+
+<h1 class="topictitle1">Scripts</h1>
+<ul><li><a href="#it_60_51_100034__1.2.6.1">Distributing Scripts</a></li><li><a href="#it_60_51_100034__1.2.7.1">Modifying Script File Information</a></li><li><a href="#it_60_51_100034__1.2.8.1">Restoring a Script File</a></li><li><a href="#it_60_51_100034__1.2.9.1">Deleting a Script File</a></li><li><a href="#it_60_51_100034__1.2.10.1">FAQ</a></li></ul>
+
+<div>
+<p><span id="it_60_51_100034__script_define"><a name="it_60_51_100034__script_define"></a><a name="script_define"></a>Scripts are included in application instance
+VMs to control software and process running in the VMs.</span></p>
+
+<div class="p">After a locally-stored script file is uploaded to <span>FusionManager</span>, it can be used for:<a name="it_60_51_100034__script_function"></a><a name="script_function"></a><ul id="it_60_51_100034__script_function"><li>Automatic script execution: When you provision application instances
+using an application template in which the VM template has specific
+script file configured, the system automatically executes the script
+on the VM that is to run the application instance.</li><li>Script distribution: After you select a script file and specify
+the target VMs to execute the script file, the system automatically
+distributes the script to the specified VMs and executes the script
+on them.</li></ul>
+</div>
+
+<div class="p" id="it_60_51_100034__script_condition"><a name="it_60_51_100034__script_condition"></a><a name="script_condition"></a>Note the following points for script execution:<ul><li>A return value is displayed after script execution is complete.
+Value <span class="parmvalue"><b>0</b></span> indicates that the operation is successful.
+Other values indicate that the operation fails.</li><li>If you need to print operation logs during script execution, do
+not print the logs on the operation console. This is to prevent excessive
+amount of information from being generated on the console. If such
+a case occurs, the console may fail to return the correct operation
+result to the system. Instead, you need to configure
+the function that enables the logs to be redirected to the log file
+for print.</li></ul>
+</div>
+
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Templates and Specs</span></b> &gt; <b><span class="uicontrol">Scripts</span></b></span> and click <span class="uicontrol"><b>Add</b></span>.</p>
+
+<p>For more details, see <a href="it_60_51_000018.html">Automatic Software Deployment</a>.</p>
+
+<div class="section"><a name="it_60_51_100034__1.2.6.1"></a><a name="1.2.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100034" class="sectiontitle2contents">Distributing Scripts</a></h4><p>After
+you select a script file and specify the target VMs to execute the
+script file, the system automatically executes the script on the specified
+VMs.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Templates and Specs</span></b> &gt; <b><span class="uicontrol">Scripts</span></b></span>, locate the row that contains the target script file,
+and click <span class="uicontrol"><b>Batch Install</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100034__1.2.7.1"></a><a name="1.2.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100034" class="sectiontitle2contents">Modifying Script File Information</a></h4><p>A script file that has been uploaded to the system cannot be uploaded
+again, and the file name is not allowed to be changed. However, other
+file attributes can be modified as needed.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Templates and Specs</span></b> &gt; <b><span class="uicontrol">Scripts</span></b></span>, locate the row that contains the target script file,
+click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Modify</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100034__1.2.8.1"></a><a name="1.2.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100034" class="sectiontitle2contents">Restoring a Script File</a></h4><p>If
+a script file is only deleted from the file system of the storage
+space but is not deleted from the <span>FusionManager</span> Web Client, the script file is displayed in an abnormal state
+on <span>FusionManager</span>. You can restore the script file so that the script file can
+be reloaded to the <span>FusionManager</span> system and changes to the normal state on the Web Client.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Templates and Specs</span></b> &gt; <b><span class="uicontrol">Scripts</span></b></span>, locate the row that contains the target script file,
+and click <span class="uicontrol"><b>Restore</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100034__1.2.9.1"></a><a name="1.2.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100034" class="sectiontitle2contents">Deleting a Script File</a></h4><p>If
+a script file is not needed any more, you can delete it from the system.</p>
+<p>Choose <span class="menucascade"><b><span class="uicontrol">Resource</span></b> &gt; <b><span class="uicontrol">Templates and Specs</span></b> &gt; <b><span class="uicontrol">Scripts</span></b></span>, locate the row that contains the target script file,
+click <span class="uicontrol"><b>More</b></span>, and select <span class="uicontrol"><b>Delete</b></span>.</p>
+</div>
+
+<div class="section"><a name="it_60_51_100034__1.2.10.1"></a><a name="1.2.10.1"></a><h4 class="sectiontitle"><a href="#it_60_51_100034" class="sectiontitle2contents">FAQ</a></h4><p><strong>Why is the <span class="parmname"><b>Browser</b></span> button not available to click to select the file to be uploaded?</strong></p>
+<p>This issue may be caused because the JRE version
+you are using requires you to add the site you are visiting to the
+reliable site list. To do so, open <span class="wintitle"><b>Java Control Panel</b></span>, click the <span class="uicontrol"><b>Security</b></span> tab, and add the <span>FusionManager</span> site to the exceptions in the format of <span class="parmvalue"><b>Protocol+IP address+Port</b></span>.</p>
+<div class="p"><strong>Possible causes for the file
+uploading failure</strong><ul><li>Network disconnection<p id="it_60_51_100034__d993e108"><a name="it_60_51_100034__d993e108"></a><a name="d993e108"></a>If the network communication
+between the PC and <span>FusionManager</span> is disconnected, file uploading to <span>FusionManager</span> will fail. Try uploading the file again after the network is connected.</p>
+</li><li>Incorrect password<p>If you enter an incorrect password for uploading
+a file to <span>FusionManager</span>, file uploading will fail. Try uploading the file again after entering
+a correct password.</p>
+</li><li>Insufficient storage space<div class="p" id="it_60_51_100034__d993e124"><a name="it_60_51_100034__d993e124"></a><a name="d993e124"></a>If the storage space
+in the <span>FusionManager</span> system is insufficient, uploading a file to the system will
+fail. You can use the following methods to expand system storage space:<ul><li>Delete unnecessary software
+packages, or scripts to release storage space.</li><li>Change a storage device providing larger storage space. For details,
+see <a href="it_60_51_600007.html">Expanding Space for Storing Scripts and Software Packages</a>.</li></ul>
+</div>
+</li></ul>
+</div>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013_en/index.html" target="_blank">Documentation</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1595,4289.html?l=en" target="_blank">Forum</a></span></p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

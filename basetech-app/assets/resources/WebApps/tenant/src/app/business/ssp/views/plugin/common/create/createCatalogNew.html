@@ -1,0 +1,9 @@
+<div class="container-fluid" id="create-catalog-window">
+    <div class="row-fluid">
+        <div class="tiny-step-boxset clearfix">
+            <div class="createpage-legend" id="catalogHeadHtml" ng-bind="i18n.service_term_addService_button"></div>
+        </div>
+    </div>
+    <div ng-include="monkey.catalogBasic.url" ng-show="monkey.show.catalogBasic"></div>
+    <div ng-include="monkey.basicInfo.url" ng-show="monkey.show.basicInfo"></div>
+</div>

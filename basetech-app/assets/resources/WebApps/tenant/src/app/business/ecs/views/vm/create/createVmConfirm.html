@@ -1,0 +1,112 @@
+<div>
+    <div class="create-page-distance">
+        <div>
+            <div class="row-fluid">
+                <div class="span3">
+                    <div class="ecs_vm_create_confirm_title">
+                        <div class="createpage-title"><span ng-bind-html="i18n.common_term_basicInfo_label"></span>:</div>
+                    </div>
+                    <tiny-formfield labelwidth="labelWidth">
+                        <tiny-item label="name.label">
+                            <span class="textOverflow maxWidth220" title="{{service.vmName}}">{{service.vmName}}</span>
+                        </tiny-item>
+                        <tiny-item label="computeName.label" labelcls="labelHeight">
+                            <span>{{service.vmComputeName}}</span>
+                        </tiny-item>
+                        <tiny-item label="description.label">
+                            <span class="textOverflow maxWidth220" title="{{service.description}}">{{service.description}}</span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+
+                <div class="span9">
+                    <div class="ecs_vm_create_confirm_title">
+                        <div class="createpage-title"><span ng-bind-html="i18n.template_term_vm_label"></span>:</div>
+                    </div>
+                    <tiny-formfield labelwidth="labelWidth">
+                        <tiny-item label="templateName.label">
+                            <span class="textOverflow maxWidth400" title="{{service.selTemplate.vmtName}}">{{service.selTemplate.vmtName}}</span>
+                        </tiny-item>
+                        <tiny-item label="os.label">
+                            <span>{{service.selTemplate.osType}}</span>
+                        </tiny-item>
+                        <tiny-item label="osType.label">
+                            <span>{{service.selTemplate.osVersion}}</span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span3">
+                    <div class="ecs_vm_create_confirm_title">
+                        <div class="createpage-title"><span ng-bind-html="i18n.spec_term_vm_label"></span></div>
+                    </div>
+                    <tiny-formfield labelwidth="labelWidth">
+                        <tiny-item label="sla.label" labelcls="labelHeight" display="!isICT">
+                            <span>{{service.sla.value}}</span>
+                        </tiny-item>
+                        <tiny-item label="configTemplate.labelSystem" display="service.configType=='system'">
+                            <span>{{service.configTemplate.name}}</span>
+                        </tiny-item>
+                        <tiny-item label="configTemplate.labelUserDefine" display="service.configType=='userDefine'">
+                            <span>{{service.cpuNum}}vCPU/{{service.memory}}MB<span ng-bind-html="i18n.common_term_memory_label"></span></span>
+                        </tiny-item>
+                        <tiny-item label="storageType.label" display="service.vm_support_user_define_config">
+                            <span ng-if="service.dataType == 1">{{desc.local}}</span>
+                            <span ng-if="service.dataType == 2">{{desc.shared}}</span>
+                        </tiny-item>
+                        <tiny-item label="vmNum.label">
+                            <span>{{service.vmNum}}</span>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+
+                <div class="span9">
+                    <div ng-if="service.networkType=='basic'">
+                        <div class="ecs_vm_create_confirm_title">
+                            <div class="createpage-title"><span ng-bind-html="i18n.common_term_basicNet_label"></span></div>
+                        </div>
+                        <tiny-formfield labelwidth="labelWidth">
+                            <tiny-item label="az.label">
+                                <span class="textOverflow maxWidth400" title="{{service.basicNetwork.azName}}" ng-bind="service.basicNetwork.azName"></span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+
+                    <div ng-if="service.networkType=='private'">
+                        <div class="ecs_vm_create_confirm_title">
+                            <div class="createpage-title"><span ng-bind-html="i18n.common_term_privateNet_label"></span></div>
+                        </div>
+                        <tiny-formfield labelwidth="labelWidth">
+                            <tiny-item label="vpc.label">
+                                <span class="textOverflow maxWidth400" title="{{service.vpcName}}" ng-bind="service.vpcName"></span>
+                            </tiny-item>
+                        </tiny-formfield>
+
+                        <div ng-repeat="nic in service.privateNetwork">
+                            <div class="clearfix">
+                                <span ng-bind="network.label" class="ecs_vm_create_confirm_network_label"></span>
+                                <span ng-bind="nic.networkViewName" class="textOverflow ecs_vm_create_confirm_network_value" title="{{nic.networkViewName}}"></span>
+
+                                <span ng-bind="ipv4.label" class="ecs_vm_create_ip_label fl"></span>
+                                <span class="ecs_vm_create_confirm_ip_value fl">{{nic.ipv4}}&nbsp;</span>
+
+                                <span ng-bind="ipv6.label" class="ecs_vm_create_ip_label fl"></span>
+                                <span ng-bind="nic.ipv6" class="fl"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fm-btn-top-large">
+            <tiny-button id="preBtn.id" text="preBtn.text" tooltip="preBtn.tooltip" click="preBtn.click()"></tiny-button>
+            <tiny-button id="nextBtn.id" text="nextBtn.text" tooltip="nextBtn.tooltip" click="nextBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="cancelBtn.id" text="cancelBtn.text" tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+
+
+</div>

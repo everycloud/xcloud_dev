@@ -1,0 +1,64 @@
+<div id="storageDetailDiv" class="row-fluid innerbox-padding" ng-controller="rpool.zone.zoneResources.storageDetail.ctrl">
+    <div class="span6">
+        <tiny-formfield>
+            <tiny-item label="'ID:'">
+                <div ng-bind="info.id"></div>
+            </tiny-item>
+            <tiny-item label="label.mediaType">
+                <div ng-bind="info.mediaType"></div>
+            </tiny-item>
+            <tiny-item label="label.thin">
+                <div ng-bind="info.config"></div>
+            </tiny-item>
+            <tiny-item label="label.maintenance">
+                <div ng-bind="info.maintenanceMode"></div>
+            </tiny-item>
+            <tiny-item label="label.threshold" display="info.supportThreshold">
+                <div ng-bind="info.threshold"></div>
+            </tiny-item>
+            <tiny-item label="label.ioSwitch" display="competition.storageIoControl">
+                <div ng-bind="info.ioSwitchStr"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+    <div class="span6">
+        <tiny-formfield>
+            <tiny-item label="label.hypervisor">
+                <div ng-bind="info.hypervisor"></div>
+            </tiny-item>
+            <tiny-item label="label.cluster">
+                <div ng-bind="info.cluster"></div>
+            </tiny-item>
+            <tiny-item label="label.device">
+                <div ng-bind="info.storageunitname"></div>
+            </tiny-item>
+            <tiny-item label="label.disasterGroup">
+                <div ng-bind="info.disasterGroupName"></div>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script>
+    require(['jquery',
+        'app/business/resources/controllers/rpool/zone/zoneResources/storage/secondaryStorage/storageDetailCtrl'],
+            function ($, storageDetailCtrl) {
+
+                //替换ID，使ID唯一
+                var lineNum = $("#storageDetailDiv").parent().parent().parent().prev().attr("lineNum");
+                var storageId = $("#storageDetailDiv").parent().parent().parent().prev().attr("storageId");
+                var id = "storageDetailDiv_" + lineNum;
+                $("#storageDetailDiv").attr("id", id);
+
+                //编译
+                var dep = ['ng', 'wcc', storageDetailCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#" + id));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#" + id))($rootScope);
+                    $rootScope.$digest();
+                });
+                $("#" + id).scope().getStorage(storageId, id);
+            });
+</script>

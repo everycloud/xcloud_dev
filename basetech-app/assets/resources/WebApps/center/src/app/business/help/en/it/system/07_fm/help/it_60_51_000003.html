@@ -1,0 +1,189 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Login and Logout">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000003">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Login and Logout</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Before You Start\nLogin and Logout");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_start.html\">Before You Start<\/a> > Login and Logout<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000003"></a><a name="it_60_51_000003"></a>
+
+
+
+<h1 class="topictitle1">Login and Logout</h1>
+<ul><li><a href="#it_60_51_000003__1.2.1.1">Scenarios</a></li><li><a href="#it_60_51_000003__1.2.2.1">Prerequisites</a></li><li><a href="#it_60_51_000003__1.2.3.1">Login Using Internet Explorer</a></li><li><a href="#it_60_51_000003__1.2.4.1">Logout</a></li><li><a href="#it_60_51_000003__1.2.5.1">FAQ</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_51_000003__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000003" class="sectiontitle2contents">Scenarios</a></h4>
+
+
+<div class="p">Log in to <span>FusionManager</span> and perform operations on it. After operations are complete,
+log out of <span>FusionManager</span> to ensure user security.</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_000003__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000003" class="sectiontitle2contents">Prerequisites</a></h4>
+
+
+<div class="p"><ul><li>You have installed the browser of the required version. If you
+use Internet Explorer or Mozilla Firefox, ensure that the browser
+you use has been configured properly.</li><li>You have obtained the floating IP address of the <span>FusionManager</span> node.</li><li>You have obtained the username, password, and user domain for
+logging in to <span>FusionManager</span>.</li><li>The required resolution has been set on the local PC.</li></ul>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_000003__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000003" class="sectiontitle2contents">Login Using Internet Explorer</a></h4>
+
+
+<div class="p">The following uses Internet Explorer 9.0 as an example to
+describe how to log in to <span>FusionManager</span>.</div>
+
+<ol><li><span>Open Internet Explorer.</span></li><li><span>Enter the network address of <span>FusionManager</span> in the address box and press <span class="uicontrol"><b>Enter</b></span>.</span>
+<p>The network address format is <strong>http://<em><span>FusionManager</span> floating IP address</em></strong>.</p>
+<p>For example, enter <span class="filepath"><b>http://192.168.40.2</b></span>.</p>
+</li><li><span>If the security certificate is not installed, a security
+warning dialog box is displayed. Click <span class="uicontrol"><b>Continue to this
+website (not recommended)</b></span> to continue login.</span>
+<p>If the <span class="parmvalue"><b>Firefox</b></span> or <span class="parmvalue"><b>Google Chrome</b></span> browser is used, proceed as required:<ul><li>If the browser is <span class="parmvalue"><b>Firefox</b></span>, click <span class="uicontrol"><b>Add Exception</b></span>.</li><li>If the browser is <span class="parmvalue"><b>Google Chrome</b></span>, click <span class="uicontrol"><b>Advanced</b></span>.</li></ul>
+</p>
+<p>The login certificate provided by <span>FusionManager</span> is a self-signed certificate. When you attempt to log in to the
+system, a message is displayed indicating that no security certificate
+is installed. If you expect to use your custom certificate to authenticate
+login, you can apply for a certificate from the third-party Certificate
+Authority (CA) and replace the default certificate with your own certificate
+by following steps described in <a href="../maintenance/it_60_53_000048.html">Replacing the nginx Certificate of the FusionManager Web Server</a>. After the certificate
+is replaced, the system will not display the security-certificate-absent
+messages any more.</p>
+</li><li><span>Enter <span class="parmname"><b>Username</b></span> and <span class="parmname"><b>Password</b></span>.</span></li><li><span>Select a view type.</span></li><li><span>Enter the verification code.</span></li><li><span>Click <span class="uicontrol"><b>Login</b></span>.</span>
+<p>The <span>FusionManager</span> page is displayed.</p>
+<p>If the system displays a message indicating that the login password
+must be changed upon the first login or be reset, change the password
+as instructed.</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>On the <span>FusionManager</span> Web Client, do not press <span class="uicontrol"><b>Backspace</b></span> after
+a dialog box is displayed. Otherwise, the Web Client may fail to work
+properly. If this situation occurs, you can refresh the page.</p>
+</div></div>
+</p>
+</li></ol>
+
+</div>
+
+<div class="section"><a name="it_60_51_000003__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000003" class="sectiontitle2contents">Logout</a></h4>
+
+
+<div class="p">In the upper right corner of the login page, click <span class="wintitle"><b>username</b></span> and select <span class="wintitle"><b>Logout</b></span> to log
+out of <span>FusionManager</span>.</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_000003__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000003" class="sectiontitle2contents">FAQ</a></h4>
+
+
+<div class="p"><strong>How Do I Log in to two <span>FusionManager</span> Web Clients on the Same PC?</strong><div class="p">To log in to two <span>FusionManager</span> Web Clients on your local PC, ensure that the following requirements
+are met:<ul><li>Different usernames are used for logging in to two <span>FusionManager</span> Web Clients.</li><li>The <span>FusionManager</span> Web Clients are opened in different browsers.</li></ul>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

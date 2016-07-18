@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="虚拟防火墙">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100027">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>虚拟防火墙</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100027"></a><a name="it_60_51_100027"></a>
+
+
+
+
+<h1 class="topictitle1">虚拟防火墙</h1>
+
+<div>
+<p>弹性IP、NAT、ACL、VPN等业务需要使用虚拟防火墙。当前资源分区内，在VPC中创建的虚拟防火墙均会在该界面显示。</p>
+
+<div class="p">虚拟防火墙分为如下两种：<a name="it_60_51_100027__vFW_type"></a><a name="vFW_type"></a><ul id="it_60_51_100027__vFW_type"><li>硬件防火墙：由物理防火墙中的虚拟防火墙设备提供。</li><li>软件防火墙：由<span>FusionManager</span>中的系统服务虚拟机提供。</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle">如何获得虚拟防火墙</h4><p><strong>前提条件</strong></p>
+<ul><li>硬件防火墙：已将物理防火墙设备接入<span>FusionManager</span>中，且物理防火墙设备中已经创建虚拟机防火墙。</li><li>软件防火墙：已在资源分区网络资源池中添加VSA管理网络、已导入VSA虚拟机模板。</li></ul>
+<p><strong>获得方法</strong></p>
+<p>业务管理员在VPC中申请虚拟防火墙。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">配置DNAT参数</h4><p>使用DNAT功能时执行该任务。为<span>FusionManager</span>配置DNAT业务使用的公网起始端口、结束端口。配置公网访问虚拟机时长，当公网访问虚拟机达到该时长后，会自动断开，继续访问虚拟机时需要重新建立连接。更多功能信息请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_000011.html" target="_blank">NAT</a>。</p>
+</div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<div class="op_detail" ng-controller="system.operatorLog.detail.ctrl">
+    <div class="container-fluid">
+        <div class="row-fluid innerbox-padding">
+            <div class="span12">
+                <div class="inner-legend" ng-bind="i18n.common_term_detailInfo_label"></div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <tiny-formfield>
+                            <tiny-item label="labels.operationName">
+                                <span ng-bind="itemValues.operationName"></span>
+                            </tiny-item>
+                            <tiny-item label="labels.levelText">
+                                <span ng-bind="itemValues.levelText"></span>
+                            </tiny-item>
+                            <tiny-item label="labels.componentInfoName">
+                                <span ng-bind="itemValues.componentInfo.name"></span>
+                            </tiny-item>
+                            <tiny-item label="labels.userInfoName">
+                                <span ng-bind="itemValues.userInfo.name"></span>
+                            </tiny-item>
+                            <tiny-item label="labels.startTime">
+                                <span ng-bind="itemValues.startTime"></span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                    <div class="span6">
+                        <tiny-formfield>
+                            <tiny-item>
+                                <span ng-bind="'&nbsp;'"></span>
+                            </tiny-item>
+                            <tiny-item label="labels.resultText">
+                                <span ng-bind="itemValues.resultText"></span>
+                            </tiny-item>
+                            <tiny-item label="labels.componentInfoType">
+                                <span ng-bind="itemValues.componentInfo.type"></span>
+                            </tiny-item>
+                            <tiny-item label="labels.userInfoIp">
+                                <span ng-bind="itemValues.userInfo.ip"></span>
+                            </tiny-item>
+                            <tiny-item label="labels.oplogDetail">
+                                <span ng-bind="itemValues.oplogDetail"></span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <tiny-formfield>
+                    <tiny-item label="labels.failureCause" ng-if="itemValues.result == 'failed'">
+                        <span ng-bind="itemValues.failCause"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(["jquery",
+        "app/business/monitor/controllers/oplog/operatorLogDetailCtrl"],
+            function ($, opDetailCtrl) {
+                // 1.获取当前Dom
+                var curView = undefined;
+                $(".op_detail").each(function() {
+                    if ($(this).attr("id") === undefined) {
+                        curView = $(this);
+                    }
+                });
+                curView.attr("id", new Date().getMilliseconds());
+
+                // 2.编译(编译前scope是父页面继承来的)
+                var scope = curView.scope();
+                var itemValues = scope.itemValues;
+                var modules = ["ng", "wcc", opDetailCtrl.name];
+                modules.unshift(["$provide",
+                    function($provide) {
+                        $provide.value("$rootElement", $(".op_detail"));
+                    }
+                ]);
+                var $injector = angular.injector(modules);
+                $injector.invoke(function($compile, $rootScope) {
+                    $compile(curView)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                // 3.查询初始化信息
+                var newScope = curView.scope();
+                newScope.itemValues = itemValues;
+                newScope.getDetail();
+            });
+</script>
+

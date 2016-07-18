@@ -1,0 +1,37 @@
+<div fm-help help="'drawer_resource_internet'" show="show.help" i18n="'zh'"></div>
+<div class="clearfix">
+    <tiny-button ng-show="right.hasNetPoolOperateRight" class="major-btn" id="create.id"
+                 disable="create.disabled" icons-class="create.iconsClass"
+                 text="create.text"
+                 tooltip="create.tip" click="create.create()"></tiny-button>
+    <!--刷新、列选择、帮助-->
+    <div class="pull-right">
+        <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+           <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                           suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                           suggest="searchBox.suggest" search="searchBox.search">
+           </tiny-searchbox>
+         </span>
+        <a class="btn-link">
+            <div ng-click="refresh.refresh()" id="extNetworkRefresh_id" title="{{i18n.common_term_fresh_button}}"
+                 class="small-icon small-icon-refresh"></div>
+        </a>
+        <a class="btn-link">
+            <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+        </a>
+    </div>
+    <div class="margin-top-beautifier">
+        <tiny-table id="extNetworkTable.id" caption="extNetworkTable.caption" data="extNetworkTable.data"
+                    columns="extNetworkTable.columns"
+                    enable-pagination="extNetworkTable.enablePagination"
+                    pagination-style="extNetworkTable.paginationStyle" length-change="extNetworkTable.lengthChange"
+                    length-menu="extNetworkTable.lengthMenu" display-length="extNetworkTable.displayLength"
+                    enable-filter="extNetworkTable.enableFilter"
+                    cur-page="extNetworkTable.curPage" total-records="extNetworkTable.totalRecords"
+                    hide-total-records="extNetworkTable.hideTotalRecords"
+                    callback="extNetworkTable.callback" change-select="extNetworkTable.changeSelect"
+                    render-row="extNetworkTable.renderRow"
+                    show-details="extNetworkTable.showDetails" columns-visibility="extNetworkTable.columnVisibility"
+                    columns-draggable="extNetworkTable.columnsDraggable"></tiny-table>
+    </div>
+</div>

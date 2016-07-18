@@ -1,0 +1,33 @@
+<div id="addAzDiv">
+    <div class="blank_10"></div>
+    <div class="clearfix">
+        <tiny-table id="azTable.id" caption="azTable.caption" data="azTable.data"
+                    pagination-style="azTable.paginationStyle"
+                    columns='azTable.columns' render-row="azTable.renderRow"
+                    total-records="azTable.totalRecords" length-change="azTable.lengthChange"
+                    cur-page="azTable.curPage" display-length="azTable.displayLength"
+                    enable-pagination="azTable.enablePagination" change-select="azTable.changeSelect"
+                    length-menu="azTable.lengthMenu" callback="azTable.callback"></tiny-table>
+    </div>
+    <div class="clear_both fm-btn-top-large text-center">
+        <tiny-button id="okButton.id" text="okButton.text"
+                     click="okButton.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["tiny-widgets/Checkbox", 'app/business/multiPool/controllers/poolInfo/availableZone/addAzCtrl'],
+            function (Checkbox, bindOrgCtrl) {
+                var rootElement = $("#addAzDiv");
+                rootElement.attr("ng-controller", "multiPool.availableZone.addAz.ctrl");
+                var dep = ['ng', 'wcc', bindOrgCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>

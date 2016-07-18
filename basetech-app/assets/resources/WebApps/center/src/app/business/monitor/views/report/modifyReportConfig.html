@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div id="systemReportConfig" ng-controller="report.modifyReportConfig.ctrl">
+        <tiny-formfield>
+            <tiny-item label="periodType.label" require="periodType.require">
+                <tiny-select id="periodType.id" values="periodType.values" change="periodType.change()" style="vertical-align: top;display: inline-block;"></tiny-select>
+                <tiny-select id="week.id" values="week.values" display="week.display" style="vertical-align: top;display: inline-block;"></tiny-select>
+                <tiny-select id="day.id" values="day.values" display="day.display" height="day.height" style="vertical-align: top;display: inline-block;"></tiny-select>
+                <tiny-datetime id="time.id" type="time.type" default-time="time.defaultTime" time-format="time.timeFormat"></tiny-datetime>
+            </tiny-item>
+            <tiny-item label="maxCopy.label" require="maxCopy.require">
+                <tiny-textbox id="maxCopy.id" value="maxCopy.value" tooltip="maxCopy.tooltip" validate="maxCopy.validate"></tiny-textbox>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="saveBtn.id" text="saveBtn.text" display="saveBtn.display" click="saveBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+require(["app/business/monitor/controllers/report/modifyReportConfigCtrl"], function(modifyReportConfigCtrl) {
+    var $injector = angular.injector(["ng", modifyReportConfigCtrl.name]);
+    $injector.invoke(function($compile) {
+        var link = $compile($("#systemReportConfig"));
+        link($("#systemReportConfig").scope());
+        $("#systemReportConfig").scope().$digest();
+    });
+});
+</script>

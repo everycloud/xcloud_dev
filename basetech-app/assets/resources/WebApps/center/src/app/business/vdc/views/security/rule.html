@@ -1,0 +1,10 @@
+<div class="clearfix bottom10">
+    <div class="pull-right">
+        <a class="btn-link">
+            <div ng-click="ruleTable.update()" class="small-icon small-icon-refresh"></div>
+        </a>
+    </div>
+</div>
+<fm-table columns="ruleTable.columns" data="ruleTable.data"
+          total="ruleTable.total" change="changeRule" update="ruleTable.update">
+</fm-table>

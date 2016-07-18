@@ -1,0 +1,78 @@
+<div fm-help help="'drawer_alarm'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li>
+                <span>{{i18n.common_term_alarmList_label}}</span>
+            </li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.alarm_general_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+    <div class="content-right-box">
+        <div class="margin-erect-beautifier clearfix">
+           <div class="fl">
+               <fm-button class="major-btn" id="clearBtn.id" icons-class="icon-plus" text="clearBtn.text" click="clearBtn.click" ng-if="operateRight"></fm-button>
+               <fm-button id="createExportBtn.id" icons-class="icon-plus" text="createExportBtn.text" click="createExportBtn.click" ng-if="queryRight"></fm-button>
+           </div>
+
+            <div class="pull-right">
+                <tiny-filtersel id="searchLevel.id" values="searchLevel.values" width="searchLevel.width" default-label="searchLevel.dftLabel" change="searchLevel.change()">
+                </tiny-filtersel>
+
+                <tiny-filtersel id="searchAlarmType.id" values="searchAlarmType.values" width="searchAlarmType.width" default-label="searchAlarmType.dftLabel" change="searchAlarmType.change()">
+                </tiny-filtersel>
+                {{i18n.common_term_generantTime_label}}:
+                <tiny-datetime id="timeIds.searchStartTime"
+                               type="time.type"
+                               width="time.width"
+                               date-format="time.dateFormat"
+                               time-format="time.timeFormat"
+                               min-date="time.start.minDate"
+                               max-date="time.start.maxDate"
+                               first-day="time.firstDay"
+                               on-close="time.start.onClose"
+                               ampm="time.ampm"></tiny-datetime>
+                -
+                <tiny-datetime id="timeIds.searchEndTime"
+                               type="time.type"
+                               width="time.width"
+                               date-format="time.dateFormat"
+                               time-format="time.timeFormat"
+                               min-date="time.end.minDate"
+                               max-date="time.end.maxDate"
+                               first-day="time.firstDay"
+                               on-close="time.end.onClose"
+                               ampm="time.ampm"></tiny-datetime>
+
+                <span style="display: inline-block; vertical-align: middle;">
+                    <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width" suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength" suggest="searchBox.suggest" search="searchBox.search">
+                    </tiny-searchbox>
+                </span>
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{i18n.common_term_fresh_button}}" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div id="alarmTable" class="margin-top-beautifier">
+            <tiny-table id="alarmListTable.id" data="alarmListTable.data" columns="alarmListTable.columns" pagination-style="alarmListTable.paginationStyle" length-change="alarmListTable.lengthChange" length-menu="alarmListTable.lengthMenu" display-length="alarmListTable.displayLength"
+            enable-filter="alarmListTable.enableFilter" change-select="alarmListTable.changeSelect" show-details="alarmListTable.showDetails" callback="alarmListTable.callback" render-row="alarmListTable.renderRow" columns-visibility="false" total-records="alarmListTable.totalRecords"
+            cur-page="alarmListTable.curPage" columns-draggable="true"></tiny-table>
+        </div>
+    </div>
+    <iframe id="download" style="display:none"></iframe>
+</div>
+
+<style>
+.tdHead {
+    text-align: right;
+    vertical-align: middle;
+    margin-left: 50px;
+}
+</style>
+

@@ -1,0 +1,63 @@
+<div id="addMemberToAffinityDiv">
+    <div class="fr button_mr" style="margin-bottom: 10px">
+        <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder"
+                        search="searchBox.search"></tiny-searchbox>
+    </div>
+    <div class="clear_both">
+        <tiny-table id="memberTable.id" data="memberTable.data"
+                    columns='memberTable.columns' render-row="memberTable.renderRow"
+                    enable-pagination="memberTable.enablePagination" callback="memberTable.callback"></tiny-table>
+    </div>
+    <div style="margin-top:20px">
+        <div class="fr">
+            <a ng-class="{tinyPagination_paginationNextSpan: hasNextPage,tinyPagination_paginationNextSpanDisabled: !hasNextPage}"
+               href="javascript:void(0)" title="{{i18n.common_term_nextPage_button}}" class="tinyPagination_tinybutton" ng-click="nextPage()"></a>
+        </div>
+        <div class="fr">
+            <a ng-class="{tinyPagination_paginationPrevSpan: hasPrePage,tinyPagination_paginationPrevSpanDisabled: !hasPrePage}"
+               href="javascript:void(0)" title="{{i18n.common_term_previous_button}}" class="tinyPagination_tinybutton" ng-click="prePage()"></a>
+        </div>
+        <div class="fr"  style="margin-right:10px">
+            <tiny-select id="sizeSelector.id" values="sizeSelector.values" width="sizeSelector.width"
+                         change="sizeSelector.change()"></tiny-select>
+        </div>
+    </div>
+    <div class="clear_both fm-btn-top-smaller">
+        <tiny-button class="major-btn" id="okButton.id" text="okButton.text"
+                     click="okButton.click()"></tiny-button>
+        <tiny-button id="cancelButton.id" text="cancelButton.text" click="cancelButton.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["tiny-widgets/Checkbox", 'app/business/resources/controllers/openStackResource/region/regionResources/affinity/addMemberToAffinityCtrl'],
+            function (Checkbox, addMemberCtrl) {
+                var rootElement = $("#addMemberToAffinityDiv");
+                rootElement.attr("ng-controller", "resources.regionResources.addMemberToAffinity.ctrl");
+                var dep = ['ng', 'wcc', addMemberCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", rootElement);
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile(rootElement)($rootScope);
+                    $rootScope.$digest();
+                });
+
+                //表头全选复选框
+                var tableId = "#addmemberTable";
+                var options = {
+                    "id": "memberHeadCheckbox",
+                    "checked": false,
+                    "change": function () {
+                        var isChecked = $("#" + options.id).widget().option("checked");
+                        var index = 0;
+                        while($("#memberCheckbox_" + index).widget()){
+                            $("#memberCheckbox_" + index).widget().option("checked", isChecked);
+                            index ++;
+                        }
+                    }
+                };
+                var checkbox = new Checkbox(options);
+                $(tableId + ' th:eq(0)').html(checkbox.getDom());
+            });
+</script>

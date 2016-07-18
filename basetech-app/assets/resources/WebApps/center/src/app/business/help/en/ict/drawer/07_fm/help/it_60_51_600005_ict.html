@@ -1,0 +1,372 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Creating an Application Template">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600005_ict">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>Creating an Application Template</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_600005_ict"></a><a name="it_60_51_600005_ict"></a>
+
+
+<h1 class="topictitle1">Creating an Application Template</h1>
+
+
+
+<div>
+<div class="section"><h4 class="sectiontitle">Scenarios</h4>
+
+
+<div class="p" id="it_60_51_600005_ict__back"><a name="it_60_51_600005_ict__back"></a><a name="back"></a><p><span>An application template is a service
+model that combines logical components, including VMs, software packages,
+scripts, and network resources, based on the configured relationship. </span><span>You can use an application template
+to create VMs in batches and rapidly deploy application instances.</span></p>
+<p>On <span>FusionManager</span>, create
+an application template on the design panel.</p>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Prerequisites</h4>
+
+
+<div class="p"><div class="p"><ul><li>You have logged in to <span>FusionManager</span> and
+switch to the <span class="menucascade"><b><span class="uicontrol">Services</span></b> &gt; <b><span class="uicontrol">Application Templates</span></b></span> page. </li><li>You have planned the application service model.</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Procedure</h4>
+
+<a name="it_60_51_600005_ict__step"></a><a name="step"></a><ol id="it_60_51_600005_ict__step"><li><span>On the <span class="wintitle"><b>Application Templates</b></span> page,
+click <span class="uicontrol"><b>Create</b></span>.</span>
+<p>The <span class="wintitle"><b>Create Application Template</b></span> page is
+displayed.</p>
+</li><li><span>Configure template information.</span>
+<p>The following information needs to be configured:<ul><li><span class="parmname"><b>Name</b></span></li><li><span class="parmname"><b>Icon</b></span></li><li><span class="parmname"><b>Description</b></span></li></ul>
+</p>
+</li><li><span>Configure template content.</span>
+<p>Edit the template content in compliance with OpenStack standards.
+For more information, visit the OpenStack official website <a href="http://docs.openstack.org/developer/heat/" target="_blank">http://docs.openstack.org/developer/heat/</a>.<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Application templates support automatic software
+deployment using an universal software package management tool, such
+as Yum, Zypper, and Ubuntu. If an application template contains automatic
+software deployment code, you need to deploy the installation source
+server of the deployment management tool before using the application
+template to create application instances, and ensure that the installation
+source server is connected to the VMs in the application instance.</p>
+</div></div>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Verify</b></span>, verify template information,
+and click <span class="uicontrol"><b>Save</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>Close</b></span>. In the application
+template list, click <span class="uicontrol"><b>Publish</b></span>.</span></li></ol>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle">Operation Result</h4>
+
+
+<div class="p"><p>In the application template list, the status of the new
+application template changes to <span class="parmvalue"><b>Published</b></span>,
+indicating that the application template can be used to create application
+instances.</p>
+</div>
+
+</div>
+
+<div class="section" id="it_60_51_600005_ict__example01"><a name="it_60_51_600005_ict__example01"></a><a name="example01"></a><h4 class="sectiontitle">Application Template Example (1)</h4>
+
+
+<div class="p"><p>This application template contains a VM and defines the
+image, VM specifications, and network used by the VM.</p>
+<div class="p">The template
+code is as follows:<div class="note" id="it_60_51_600005_ict__copy"><a name="it_60_51_600005_ict__copy"></a><a name="copy"></a><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Do not add the comment
+information (symbol # and the content following #) to the application
+template when filling out the template on <span>FusionManager</span>. Otherwise, the template is unavailable.</p>
+</div></div>
+<pre>{
+    "Description":"Simple app template, with one VM to be created.",
+    "Parameters":{                                                                                     #Application template parameters
+        "ServerAZ":{                                                                                   #Availability zone selected for creating the application instance
+            "Description":"Availability Zone",                                                         #Description information
+            "Type":"String",                                                                           #Variable type
+            "ConstraintDescription":"must be a valid availability zone"                                #Constraint
+        },
+        "ServerImageId":{                                                                              #Image used to create the application instance VM
+            "Description":"EC2 Image Id",                                                              #Description information
+            "Type":"String",                                                                           #Variable type
+            "ConstraintDescription":"must be a valid VM template id or image id"                       #Constraint
+        },
+        "ServerInstanceType":{                                                                         #Specifications used to create the application instance VM
+            "Description":"EC2 Instance Type",                                                         #Description information
+            "Type":"String",                                                                           #Variable type
+            "ConstraintDescription":"must be an existed instance type"                                 #Constraint
+        },
+        "Net0":{                                                                                       #Network selected for creating the application instance
+            "Description":"Subnet",                                                                    #Description information
+            "Type":"String",                                                                           #Variable type
+            "ConstraintDescription":"must be an existed subnet id"                                     #Constraint
+        }
+    },
+    "Resources":{
+        "ServerNic0":{                                                                                 #Network interface of the application instance
+            "Type":"AWS::EC2::NetworkInterface",                                                       #Network interface type of the application instance (recommended: AWS network interface)
+            "Properties":{
+                "SubnetId":{                                                                           #Subnet ID
+                    "Ref":"Net0"
+                },
+                "Description":"Interface for control traffic such as SSH"
+            }
+        },
+        "Server":{                                                                                     #VM instance of the application instance
+            "Type":"AWS::EC2::Instance",                                                               #VM instance of the application instance (recommended: AWS VM instance)
+            "Properties":{
+                "AvailabilityZone":{                                                                   #Availability zone
+                    "Ref":"ServerAZ"
+                },
+                "ImageId":{                                                                            #Image ID
+                    "Ref":"ServerImageId"
+                },
+                "InstanceType":{                                                                       #VM specifications
+                    "Ref":"ServerInstanceType"
+                },
+                "NetworkInterfaces":[                                                                  #Network interface
+                    {
+                        "DeviceIndex":"0",
+                        "NetworkInterfaceId":{
+                            "Ref":"ServerNic0"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}</pre>
+</div>
+</div>
+
+</div>
+
+<div class="section" id="it_60_51_600005_ict__example02"><a name="it_60_51_600005_ict__example02"></a><a name="example02"></a><h4 class="sectiontitle">Application Template Example (2)</h4>
+
+
+<div class="p"><p>This application template contains a VM and defines the
+image, VM specifications, network, and scaling policies used by the
+VM.</p>
+<div class="p">The template code is as follows:<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Do not add the comment
+information (symbol # and the content following #) to the application
+template when filling out the template on <span>FusionManager</span>. Otherwise, the template is unavailable.</p>
+</div></div>
+<pre>{
+    "AWSTemplateFormatVersion":"2010-09-09",
+    "Description":"AWS CloudFormation Sample Template",
+    "Parameters":{                                                                                 #Application template parameters
+        "ServerAZ":{                                                                               #Availability zone selected for creating the application instance
+            "Description":"Availability Zone",                                                     #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be a valid availability zone"                            #Constraint
+        },
+        "ServerImageId":{                                                                          #Image used to create the application instance VM
+            "Description":"EC2 Image Id",                                                          #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be a valid VM template id or image id"                   #Constraint
+        },
+        "InstanceType":{                                                                           #Specifications used to create the application instance VM
+            "Description":"WebServer EC2 instance type",                                           #Description information
+            "Type":"String",                                                                       #Variable type
+            "Default":"m1.small",                                                                  #Default VM specifications
+            "AllowedValues":[                                                                      #Allowed values
+                "m1.tiny",
+                "m1.small",
+                "m1.medium",
+                "m1.large",
+                "m1.xlarge"
+            ],
+            "ConstraintDescription":"must be a valid EC2 instance type."                           #Constraint
+        },
+        "Net0":{                                                                                   #Network selected for creating the application instance
+            "Description":"Subnet",                                                                #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be an existed subnet id"                                 #Constraint
+        },
+        "isDesiredCapacity":{                                                                      #Number of expected VMs in the application instance scaling group, which is a value between the maximum and minimum numbers of supported VMs
+            "Description":"Desire Capacity",                                                       #Description information
+            "Type":"Number",                                                                       #Variable type
+            "ConstraintDescription":"must be an int value between minsize and maxsize"             #Constraint
+        },
+        "MinSize":{                                                                                #Minimum number of VMs in the application instance scaling group, which must be less than the maximum number
+            "Description":"Min Instance Number",                                                   #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be an int value smaller than maxsize"                    #Constraint
+        },
+        "MaxSize":{                                                                                #Maximum number of VMs in the application instance scaling group, which must be greater than the minimum number
+            "Description":"Max Instance Number",                                                   #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be an int value bigger than minsize"                     #Constraint
+        },
+        "ScalingUpAdj":{                                                                           #Step for scaling up the application instance scaling group
+            "Description":"Scaling Down Adjustment",                                               #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be an int value"                                         #Constraint
+        },
+        "ScalingDownAdj":{                                                                         #Step for scaling down the application instance scaling group
+            "Description":"Scaling Down Adjustment",                                               #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be an int value"                                         #Constraint
+        },
+        "ScalingUpThre":{                                                                          #CPU usage threshold to trigger a scale-up of the application instance scaling group, which must be greater than the threshold for triggering a scale-down of the application instance scaling group
+            "Description":"Scaling Up Threshold",                                                  #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be an int value between 1 ~ 100"                         #Constraint
+        },
+        "ScalingDownThre":{                                                                        #CPU usage threshold to trigger a scale-down of the application instance scaling group, which must be less than the threshold for triggering a scale-up of the application instance scaling group
+            "Description":"Scaling Down Threshold",                                                #Description information
+            "Type":"String",                                                                       #Variable type
+            "ConstraintDescription":"must be an int value between 1 ~ 100"                         #Constraint
+        }
+    },
+    "Resources":{
+        "WebServerGroup":{
+            "Type":"AWS::AutoScaling::AutoScalingGroup",                                           #Scaling group type of the application instance (recommended: AWS scaling group)
+            "Properties":{
+                "AvailabilityZones":[                                                              #Availability zone
+                    {
+                        "Ref":"ServerAZ"
+                    }
+                ],
+                "LaunchConfigurationName":{                                                        #VM configuration item in the application instance
+                    "Ref":"LaunchConfig"
+                },
+                "MinSize":{                                                                        #Minimum number of VMs in the application instance
+                    "Ref":"MinSize"
+                },
+                "DesiredCapacity":{                                                                #Number of expected VMs in the application instance
+                    "Ref":"isDesiredCapacity"
+                },
+                "MaxSize":{                                                                        #Maximum number of VMs in the application instance
+                    "Ref":"MaxSize"
+                },
+                "VPCZoneIdentifier":[                                                              #Network where the application instance resides
+                    {
+                        "Ref":"Net0"
+                    }
+                ]
+            }
+        },
+        "WebServerScaleUpPolicy":{                                                                 #Policy for scaling up the application instance scaling group
+            "Type":"AWS::AutoScaling::ScalingPolicy",
+            "Properties":{
+                "AdjustmentType":"ChangeInCapacity",
+                "AutoScalingGroupName":{
+                    "Ref":"WebServerGroup"
+                },
+                "Cooldown":"60",                                                                   #Cooling duration of the scaling policy (unit: s)
+                "ScalingAdjustment":{
+                    "Ref":"ScalingUpAdj"
+                }
+            }
+        },
+        "WebServerScaleDownPolicy":{                                                               #Policy for scaling down the application instance scaling group
+            "Type":"AWS::AutoScaling::ScalingPolicy",
+            "Properties":{
+                "AdjustmentType":"ChangeInCapacity",
+                "AutoScalingGroupName":{
+                    "Ref":"WebServerGroup"
+                },
+                "Cooldown":"60",                                                                   #Cooling duration of the scaling policy (unit: s)
+                "ScalingAdjustment":{
+                    "Ref":"ScalingDownAdj"
+                }
+            }
+        },
+        "CPUAlarmHigh":{                                                                           #Scale-up alarm indicators monitored by the application instance
+            "Type":"OS::Ceilometer::Alarm",                                                        #Alarm
+            "Properties":{
+                "description":"Scale-up",
+                "meter_name":"cpu_util",                                                           #Monitoring item: CPU usage
+                "statistic":"avg",
+                "period":"60",                                                                     #Alarm time window length (unit: 60s)
+                "evaluation_periods":"1",                                                          #Number of alarm time windows
+                "threshold":{                                                                      #Alarm threshold
+                    "Ref":"ScalingUpThre"
+                },
+                "repeat_actions":true,                                                             #Sending the alarm repeatedly
+                "alarm_actions":[                                                                  #Alarm triggering action
+                    {
+                        "Fn::GetAtt":[
+                            "WebServerScaleUpPolicy",
+                            "AlarmUrl"
+                        ]
+                    }
+                ],
+                "matching_metadata":{
+                    "metadata.user_metadata.groupname":{                                           #Monitored object name
+                        "Ref":"WebServerGroup"
+                    }
+                },
+                "comparison_operator":"gt"
+            }
+        },
+        "CPUAlarmLow":{                                                                            #Scale-down alarm indicators monitored by the application instance
+            "Type":"OS::Ceilometer::Alarm",                                                        #Alarm
+            "Properties":{
+                "description":"Scale-down",
+                "meter_name":"cpu_util",                                                           #Monitoring item: CPU usage
+                "statistic":"avg",
+                "period":"60",                                                                     #Alarm time window length (unit: 60s)
+                "evaluation_periods":"1",                                                          #Number of alarm time windows
+                "threshold":{                                                                      #Alarm threshold
+                    "Ref":"ScalingDownThre"
+                },
+                "repeat_actions":true,                                                             #Sending the alarm repeatedly
+                "alarm_actions":[                                                                  #Alarm triggering action
+                    {
+                        "Fn::GetAtt":[
+                            "WebServerScaleDownPolicy",
+                            "AlarmUrl"
+                        ]
+                    }
+                ],
+                "matching_metadata":{
+                    "metadata.user_metadata.groupname":{                                           #Monitored object name
+                        "Ref":"WebServerGroup"
+                    }
+                },
+                "comparison_operator":"lt"
+            }
+        },
+        "LaunchConfig":{                                                                           #VM configuration information in the application instance
+            "Type":"AWS::AutoScaling::LaunchConfiguration",
+            "Properties":{
+                "ImageId":{                                                                        #Image for creating VMs in the application instance
+                    "Ref":"ServerImageId"
+                },
+                "InstanceType":{                                                                   #Specifications for creating VMs in the application instance
+                    "Ref":"InstanceType"
+                }
+            }
+        }
+    }
+}
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

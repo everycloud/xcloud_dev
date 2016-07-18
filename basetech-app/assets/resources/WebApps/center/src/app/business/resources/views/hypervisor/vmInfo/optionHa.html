@@ -1,0 +1,13 @@
+<div id="optionHaDiv">
+    <div class="legend">HA</div>
+    <p class="color2 bottom10">{{i18n.vm_vm_HA_desc_label}}</p>
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-select id="haPolicySelector.id" values="haPolicySelector.values"
+                         width="haPolicySelector.width"></tiny-select>
+        </tiny-item>
+        <tiny-item>
+            <tiny-button id="haOkButton.id" text="haOkButton.text" click="haOkButton.click()"  ng-if="operable" class="major-btn"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

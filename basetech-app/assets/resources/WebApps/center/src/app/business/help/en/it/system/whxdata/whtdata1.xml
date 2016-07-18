@@ -1,0 +1,59 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<tocdata>
+<item name="Verifying Software Packages" url="07_fm/soft_inst/it_60_23_000021.html" />
+<item name="Connecting a Firewall to FusionManager" url="07_fm/help/it_60_51_600012.html" />
+<item name="Importing Firewall Configurations" url="07_fm/help/it_60_51_600001.html" />
+<item name="Configuring the Multicast Function on Switches" url="07_fm/help/it_60_51_600002.html" />
+<item name="Creating a Virtual Firewall" url="07_fm/help/it_60_51_600003.html" />
+<item name="Configuring VLAN Aggregation on the Switch" url="07_fm/help/it_60_51_600016.html" />
+<item name="Configuring IPv6 Forwarding on the Switch" url="07_fm/help/it_60_51_600023.html" />
+<item name="Configuring Network Information for the DHCP Server" url="07_fm/help/it_60_51_600017.html" />
+<item name="Creating a VM Template (Windows)" url="07_fm/help/it_60_51_600004.html" />
+<item name="Creating a VM Template (Linux)" url="07_fm/help/it_60_51_600010.html" />
+<item name="Importing a VSA VM Template" url="07_fm/help/it_60_56_c10121.html" />
+<item name="Creating a PVM Template" url="07_fm/help/it_60_56_c10122.html" />
+<item name="Creating an Application Template" url="07_fm/help/it_60_51_600005.html" />
+<item name="Expanding Space for Storing Scripts and Software Packages" url="07_fm/help/it_60_51_600007.html" />
+<item name="Configuring a CommVault VM Backup Server" url="07_fm/help/it_60_51_600009.html" />
+<item name="Modifying Network Configurations of a Shared VPC" url="07_fm/help/it_60_51_600031.html" />
+<item name="Configuring Public IP Addresses to Be Multiplexed in Both DNAT and SNAT" url="07_fm/help/it_60_51_600033.html" />
+<item name="Installing and Configuring VPN (Windows)" url="07_fm/soft_inst/it_60_23_000022.html" />
+<book name="VM Management" url="07_fm/father_node/it_60_99_100032.html" >
+  <item name="Mounting a CD/DVD-ROM Drive or an ISO File" url="07_fm/help/it_60_51_600018.html" />
+  <item name="Replacing VM OS Kernel Files" url="05_fc/vm_prov/it_58_45_000005.html" />
+  <item name="Configuring the VM SID Customization" url="05_fc/vm_prov/it_58_45_200037.html" />
+  <item name="Configuring Specifications Attribute Customization for a Windows VM" url="05_fc/vm_prov/it_58_45_200038.html" />
+  <item name="Configuring Linux VM Network Attributes" url="05_fc/vm_prov/it_58_45_200040.html" />
+  <item name="VNC Login Troubleshooting" url="07_fm/help/it_60_51_000025.html" />
+  <item name="VM Migration Requirements" url="05_fc/vm_prov/it_58_45_200041.html" />
+  <item name="Restoring a VM" url="07_fm/help/it_60_51_600019.html" />
+  <item name="Modifying CPU Attributes" url="07_fm/help/it_60_51_600020.html" />
+  <item name="Deleting the NIC Configuration from a Linux VM" url="07_fm/help/it_60_51_600024.html" />
+  <item name="Setting Hot Swap Policies for a VM" url="07_fm/help/it_60_51_600021.html" />
+  <item name="VM Snapshot Usage Requirements" url="07_fm/help/it_60_51_600022.html" />
+  <item name="Installing the Antivirus Software Client Driver" url="07_fm/help/it_60_51_600029.html" />
+  <item name="How to Attach a Raw Device Mapped Disk That Has Been Detached from a VM to a Physical Server" url="05_fc/vm_prov/it_58_45_400012.html" />
+</book>
+<book name="Tools Management" url="05_fc/vm_prov/it_58_45_200028.html" >
+  <item name="Introduction" url="05_fc/vm_prov/it_58_45_200029.html" />
+  <item name="Installing the Tools on a Windows VM" url="05_fc/vm_prov/it_58_45_200031.html" />
+  <item name="Installing the Tools on a Linux VM" url="05_fc/vm_prov/it_58_45_200032.html" />
+  <item name="Uninstalling the Tools from a Windows VM" url="05_fc/vm_prov/it_58_45_200034.html" />
+  <item name="Uninstalling the Tools from a Linux VM" url="05_fc/vm_prov/it_58_45_200035.html" />
+  <item name="Upgrading the Tools" url="05_fc/vm_prov/it_58_45_200036.html" />
+</book>
+<book name="iNIC Driver Management" url="05_fc/vm_prov/it_58_45_200048.html" >
+  <item name="Introduction" url="05_fc/vm_prov/it_58_45_200049.html" />
+  <item name="Installing the iNIC Driver on a Windows VM" url="05_fc/vm_prov/it_58_45_200051.html" />
+  <item name="Installing the iNIC Driver on a Linux VM" url="05_fc/vm_prov/it_58_45_200052.html" />
+  <item name="Uninstalling the iNIC Driver from a Windows VM" url="05_fc/vm_prov/it_58_45_200054.html" />
+  <item name="Uninstalling the iNIC Driver from a Linux VM" url="05_fc/vm_prov/it_58_45_200055.html" />
+  <item name="Upgrading an iNIC Driver" url="05_fc/vm_prov/it_58_45_200056.html" />
+</book>
+<book name="Puppet Client Management" url="07_fm/father_node/it_60_99_100031.html" >
+  <item name="Overview" url="07_fm/help/it_60_51_600013.html" />
+  <item name="Installing the Puppet Client on a Windows VM" url="07_fm/help/it_60_51_600014.html" />
+  <item name="Installing the Puppet Client on a Linux VM" url="07_fm/help/it_60_51_600015.html" />
+</book>
+
+</tocdata>

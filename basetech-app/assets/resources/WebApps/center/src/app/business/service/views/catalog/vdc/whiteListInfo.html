@@ -1,0 +1,28 @@
+<div id="createWhiteListInfo">
+    <span class="panel_title padding-left15">添加白名单</span>
+    <div class="horizontal_line"></div>
+    <div class="left20 top20">
+        <div>
+            <div class="form-inline">
+                <tiny-button id="whiteInfo.createBtn.id" disable="whiteInfo.createBtn.disable" text="whiteInfo.createBtn.text"
+                             click="whiteInfo.createBtn.click()"></tiny-button>
+                <tiny-table id="model.id" data="model.datas" columns="model.columns"></tiny-table>
+            </div>
+            <div>
+                <tiny-table id="vdcModel.id" data="vdcModel.data" columns="vdcModel.columns"
+                            pagination-style="vdcModel.paginationStyle" enable-pagination="vdcModel.enablePagination"
+                            display-length="vdcModel.displayLength" total-records="vdcModel.totalRecords"
+                            render-row="vdcModel.renderRow" callback="vdcModel.callback"
+                            change-select="vdcModel.changeSelect"></tiny-table>
+            </div>
+        </div>
+        <div class="create-btn-margin" style="margin-top: 80px;">
+            <tiny-button id="catalogWhiteInfo.preBtn.id" text="catalogWhiteInfo.preBtn.text"
+                         tooltip="catalogWhiteInfo.preBtn.tooltip" click="catalogWhiteInfo.preBtn.click()"></tiny-button>
+            <tiny-button id="catalogWhiteInfo.nextBtn.id" text="catalogWhiteInfo.nextBtn.text" tooltip="catalogWhiteInfo.nextBtn.tooltip"
+                         click="catalogWhiteInfo.nextBtn.click()" class="major-btn"></tiny-button>
+            <tiny-button id="catalogWhiteInfo.cancelBtn.id" text="catalogWhiteInfo.cancelBtn.text"
+                         tooltip="catalogWhiteInfo.cancelBtn.tooltip" click="catalogWhiteInfo.cancelBtn.click()"></tiny-button>
+        </div>
+    </div>
+</div>

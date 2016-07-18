@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="resources.rpool.zone">{{i18n.resource_term_zones_label}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="resources.zoneResources.summary.zoneSummary">{{zoneInfo.zoneName}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li>
+                <a ui-sref="resources.zoneResources.networkSummary">{{i18n.resource_term_netPools_label}}</a> <span
+                    class="divider">&gt;</span>
+            </li>
+            <li class="active"><span class="divider">{{i18n.resource_term_vFWs_label}}</span></li>
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    <div class="margin-top-beautifier content-right-box">
+        <div id="virtualFirewallTabs" class="tiny-tabs-container">
+            <div class="tiny-tabs-titles">
+                <ul>
+                    <li ng-class="{tinyTabActive:$state.includes(plugin.openState)}" ng-repeat="plugin in plugins"
+                        ui-sref="{{plugin.openState}}">
+                        <a href="javascript:void(0)" ng-click="setSelectedTabItem(plugin.name)">{{plugin.name}}</a>
+                    </li>
+                </ul>
+                <div style="display: inline-block;">
+                    <a ng-show="right.hasNetPoolOperateRight"
+                       style="position: absolute;margin-top: -28px; margin-left: 10px;" href="javascript:void(0)"
+                       ng-click="config()">{{i18n.resource_term_setPublicNetAccessVM_button}}</a>
+                    <a ng-hide="right.hasNetPoolOperateRight" class="disabled"
+                       style="position: absolute;margin-top: -28px; margin-left: 10px;" href="javascript:void(0)">{{i18n.resource_term_setPublicNetAccessVM_button}}</a>
+                </div>
+            </div>
+            <div class="tiny-tabs-content">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(["tiny-widgets/Tabs"], function (Tabs) {
+        var tabs = new Tabs({
+            "id": "virtualFirewallTabs",
+            "setActiveClass": true
+        });
+    });
+</script>

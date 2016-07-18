@@ -1,0 +1,45 @@
+<div id="distributeScriptSelectVm" class="create-page-distance">
+    <tiny-formfield>
+        <tiny-item label="model.label" require="model.require">
+            <!--刷新、列选择、帮助-->
+            <div style="text-align:right;">
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                                suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                                suggest="searchBox.suggest" search="searchBox.search">
+                </tiny-searchbox>
+                </span>
+                <a class="btn-link">
+                    <div ng-click="refresh.click()" id="refresh.id" title="{{ i18n.common_term_fresh_button }}" class="small-icon small-icon-refresh"></div>
+                </a>
+            </div>
+        </tiny-item>
+        <tiny-item label="model.label" require="model.require">
+            <div width="500px;">
+            <tiny-table id="vmListTable.id" data="vmListTable.data"
+                        columns="vmListTable.columns"
+                        enable-pagination="vmListTable.enablePagination"
+                        pagination-style="vmListTable.paginationStyle"
+                        length-change="vmListTable.lengthChange" length-menu="vmListTable.lengthMenu"
+                        display-length="vmListTable.displayLength" cur-page="vmListTable.curPage"
+                        total-records="vmListTable.totalRecords"
+                        request-config="vmListTable.requestConfig"
+                        hide-total-records="vmListTable.hideTotalRecords"
+                        render-row="vmListTable.renderRow" change-select="vmListTable.changeSelect"
+                        callback="vmListTable.callback">
+            </tiny-table>
+            </div>
+        </tiny-item>
+        <tiny-item class="fm-btn-top-small">
+            <tiny-button id="preBtn.id" disable="preBtn.disabled" icons-class="preBtn.iconsClass"
+                         text="preBtn.text"
+                         tooltip="preBtn.tip" click="preBtn.pre()"></tiny-button>
+            <tiny-button class="major-btn" id="nextBtn.id" disable="nextBtn.disabled" icons-class="nextBtn.iconsClass"
+                         text="nextBtn.text"
+                         tooltip="nextBtn.tip" click="nextBtn.next()"></tiny-button>
+            <tiny-button id="cancelBtn.id" disable="cancelBtn.disabled" icons-class="cancelBtn.iconsClass"
+                         text="cancelBtn.text"
+                         tooltip="cancelBtn.tip" click="cancelBtn.cancel()"></tiny-button>
+        </tiny-item>
+    </tiny-formfield>
+</div>

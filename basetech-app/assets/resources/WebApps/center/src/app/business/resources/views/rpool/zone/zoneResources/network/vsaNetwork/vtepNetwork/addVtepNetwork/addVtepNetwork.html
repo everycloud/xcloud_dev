@@ -1,0 +1,19 @@
+<style>
+    .navigation {
+        margin-top: 70px
+    }
+</style>
+<div id="addVtepNetworkDiv" class="container-fluid">
+    <div class="tiny-step-boxset clearfix">
+        <div ng-show="action=='add'" class="createpage-legend">{{i18n.resource_term_createVTEPnet_button}}</div>
+        <div ng-show="action=='edit'" class="createpage-legend">{{i18n.resource_term_modifyVTEPnet_button}}</div>
+        <tiny-step id="addVtepNetworkStep.id" values="addVtepNetworkStep.values"
+                   width="addVtepNetworkStep.width"
+                   jumpable="addVtepNetworkStep.jumpable"></tiny-step>
+    </div>
+    <div class="create-page-distance">
+        <div ng-include="addVtepNetworkStep1.url" ng-show="showBasicInfoPage"></div>
+        <div ng-include="addVtepNetworkStep2.url" ng-show="showResourcePage"></div>
+        <div ng-include="addVtepNetworkStep3.url" ng-show="showConfirmInfoPage"></div>
+    </div>
+</div>

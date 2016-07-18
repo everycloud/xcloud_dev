@@ -1,0 +1,38 @@
+<div id="storeInfoLayoutDiv">
+    <div class="tiny-layout-container">
+        <div class="tiny-layout-west">
+            <ul>
+                <div class="tiny-layout-title">
+                    <div class="row-fluid nosidedown-txt">
+                        <div class="span4">
+                            <div class="title-icon">
+                                <img src="../theme/default/images/resource_01.png">
+                            </div>
+                        </div>
+                        <div class="span8">
+                            <p class="title-text"  id="storeInfoNameDiv">{{i18n.common_term_storage_label}}：{{storeName}}</p>
+                        </div>
+                    </div>
+                </div>
+                <li>
+                    <a ui-sref="resources.storeInfo.summary" ng-bind="i18n.common_term_summary_label"></a>
+                </li>
+                <li ng-show="privilege['perform_term_monitor_label.107001']">
+                    <a ui-sref="resources.storeInfo.monitor" ng-bind="i18n.perform_term_monitor_label"></a>
+                </li>
+                <li ng-show="privilege['role_role_add_option_hostView_value']">
+                    <a ui-sref="resources.storeInfo.host" ng-bind="i18n.common_term_host_label"></a>
+                </li>
+                <li ng-show="privilege['common_term_check_button']">
+                    <a ui-sref="resources.storeInfo.vm" ng-bind="i18n.common_term_vms_label"></a>
+                </li>
+                <li ng-show="privilege['role_role_add_option_diskView_value.609000']">
+                    <a ui-sref="resources.storeInfo.storeDisk" ng-bind="i18n.common_term_disks_label"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="tiny-layout-center">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

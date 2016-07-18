@@ -1,0 +1,52 @@
+<div id="migrateSelectDiskDiv">
+    <div class="createpage-title" ng-bind="i18n.resource_term_chooseDisk_label"></div>
+    <div class="margin-erect-beautifier">
+        <label>{{i18n.resource_stor_migrate_para_type_option_vm_value}}:</label>
+        <tiny-select id="vmSelectWidget.id" values="vmSelectWidget.values" width="vmSelectWidget.width"
+                     change="vmSelectWidget.change()">
+        </tiny-select>
+
+        <label>&nbsp;&nbsp;{{i18n.resource_stor_migrate_para_type_option_cluster_value}}:</label>
+        <tiny-select id="clusterSelectWidget.id" values="clusterSelectWidget.values" width="clusterSelectWidget.width"
+                     change="clusterSelectWidget.change()">
+        </tiny-select>
+    </div>
+    <div class="clearfix">
+        <tiny-table id="diskTable.id" caption="diskTable.caption" data="diskTable.data"
+                    pagination-style="diskTable.paginationStyle"
+                    columns='diskTable.columns' render-row="diskTable.renderRow"
+                    total-records="diskTable.totalRecords" length-change="diskTable.lengthChange"
+                    cur-page="diskTable.curPage" display-length="diskTable.displayLength"
+                    enable-pagination="diskTable.enablePagination"
+                    length-menu="diskTable.lengthMenu" callback="diskTable.callback"
+                    change-select="diskTable.changeSelect"></tiny-table>
+    </div>
+
+    <div class="fm-btn-top-large">
+        <tiny-button id="diskNextButton.id" text="diskNextButton.text"
+                     click="diskNextButton.click()" class="major-btn"></tiny-button>
+        <tiny-button id="diskCancelButton.id" text="diskCancelButton.text"
+                     click="diskCancelButton.click()"></tiny-button>
+    </div>
+</div>
+<script type="application/javascript">
+    require(["tiny-widgets/Checkbox"],
+            function (Checkbox) {
+                //表头全选复选框
+                var tableId = "#selectDiskTable";
+                var options = {
+                    "id": "diskTableHeadCheckbox",
+                    "checked": false,
+                    "change": function () {
+                        var isChecked = $("#" + options.id).widget().option("checked");
+                        var index = 0;
+                        while($("#diskCheckbox_" + index).widget()){
+                            $("#diskCheckbox_" + index).widget().option("checked", isChecked);
+                            index ++;
+                        }
+                    }
+                };
+                var checkbox = new Checkbox(options);
+                $(tableId + ' th:eq(0)').html(checkbox.getDom());
+            })
+</script>

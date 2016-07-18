@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <div id="configBackupDiv">
+        <tiny-formfield>
+
+            <div class="clearfix">
+                <tiny-checkbox id="backupSystem.id" checked="backupSystem.checked" value="backupSystem.value"
+                               text="backupSystem.text" disable="backupSystem.disable"
+                               change="backupSystem.change()"></tiny-checkbox>
+
+                <tiny-item label="serverAddress.label" require="serverAddress.require">
+                    <tiny-ip ng-if="serverAddress.type"
+                             type="serverAddress.type"
+                             width="serverAddress.width"
+                             id="serverAddress.id"
+                             disable="serverAddress.disable"
+                             extend-function="serverAddress.extendFunction"
+                             validate="serverAddress.validate"
+                             value="params.serverAddress"></tiny-ip>
+
+                    <tiny-textbox
+                            ng-if="!serverAddress.type"
+                            type="serverAddress.type"
+                            id="serverAddress.id"
+                            disable="serverAddress.disable"
+                            validate="serverAddress.validate"
+                            value="params.serverAddress"></tiny-textbox>
+                </tiny-item>
+            </div>
+
+            <tiny-item label="userName.label" require="userName.require">
+                <tiny-textbox id="userName.id"
+                              type="userName.type"
+                              value="params.userName"
+                              validate="userName.validate"
+                              disable="userName.disable"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item display="changePWD.display">
+                <tiny-checkbox id="changePWD.id"
+                               checked="changePWD.checked"
+                               text="changePWD.text"
+                               disable="changePWD.disable"
+                               change="changePWD.change()"></tiny-checkbox>
+            </tiny-item>
+
+            <tiny-item label="password.label" require="password.require">
+                <tiny-textbox id="password.id"
+                              type="password.type"
+                              disable="password.disable"
+                              validate="password.validate"
+                              type="password.type"></tiny-textbox>
+            </tiny-item>
+
+            <tiny-item label="repassword.label" require="repassword.require">
+                <tiny-textbox id="repassword.id"
+                              type="repassword.type"
+                              disable="repassword.disable"
+                              extend-function="repassword.extendFunction"
+                              validate="repassword.validate"
+                              type="repasswrod.type"></tiny-textbox>
+            </tiny-item>
+            <tiny-item class="fm-btn-top-small">
+                <fm-button class="major-btn" id="saveBtn.id" text="saveBtn.text" click="saveBtn.save"></fm-button>
+                <fm-button id="closeBtn.id" text="closeBtn.text" click="closeBtn.close"></fm-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+
+<script type="application/javascript">
+    require(['app/business/system/controllers/systemConfig/configBackupCtrl'],
+            function (configBackupCtrl) {
+                $("#configBackupDiv").attr("ng-controller", "configBackupCtrl");
+                var dep = ['ng', 'wcc', configBackupCtrl.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $("#configBackupDiv"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile, $rootScope) {
+                    $compile($("#configBackupDiv"))($rootScope);
+                    $rootScope.$digest();
+                });
+            });
+</script>
+

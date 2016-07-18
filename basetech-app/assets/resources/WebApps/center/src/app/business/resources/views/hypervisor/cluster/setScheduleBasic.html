@@ -1,0 +1,106 @@
+<div id="setScheduleBasicDiv">
+    <tiny-formfield>
+        <tiny-item>
+            <tiny-checkbox id="openCheckbox.id" text="openCheckbox.text"
+                           disabled="openCheckbox.disabled" change="openCheckbox.change()"></tiny-checkbox>
+        </tiny-item>
+        <tiny-item label="automateRadio.label" require="automateRadio.require">
+            <div class="fl">
+                <tiny-radiogroup id="automateRadio.id" values="automateRadio.values" spacing="automateRadio.spacing"
+                                 layout="automateRadio.layout" change="automateRadio.change()"></tiny-radiogroup>
+            </div>
+            <div class="color-gray">
+                <p ng-bind-html="i18n.virtual_cluster_schedul_para_autoLevel_mean_manual_label"></p>
+
+                <p ng-bind-html="i18n.virtual_cluster_schedul_para_autoLevel_mean_auto_label"></p>
+            </div>
+        </tiny-item>
+        <tiny-item label="factorRadio.label" require="factorRadio.require">
+            <tiny-radiogroup id="factorRadio.id" values="factorRadio.values"
+                             layout="factorRadio.layout" change="factorRadio.change()"></tiny-radiogroup>
+        </tiny-item>
+        <tiny-item label="limenRadio.label">
+            <div class="fl">
+                <tiny-radiogroup id="limenRadio.id" values="limenRadio.values"
+                                 layout="limenRadio.layout" change="limenRadio.change()"></tiny-radiogroup>
+            </div>
+            <div class="fl" style="margin-top: 25px" ng-show="limenCycle == '2'">
+                <div ng-repeat="weekCheckbox in weekCheckboxs" class="fl" style="margin-right: 5px">
+                    <tiny-checkbox id="weekCheckbox.id" text="weekCheckbox.text"></tiny-checkbox>
+                </div>
+            </div>
+            <div class="fl" ng-show="limenCycle == '3'" style="width: 450px">
+                <div ng-repeat="monthCheckbox in monthCheckboxs" class="fl" style="margin-right: 5px">
+                    <tiny-checkbox id="monthCheckbox.id" text="monthCheckbox.text"></tiny-checkbox>
+                </div>
+            </div>
+        </tiny-item>
+        <tiny-item label="i18n.resource_term_MigrateThreshold_label+':'">
+            <div></div>
+        </tiny-item>
+    </tiny-formfield>
+    <div id="thresholdTable" class="bottom5 text-center">
+        <div class="table_top">
+        </div>
+    </div>
+    <div class="color-gray">
+        <div>{{i18n.virtual_cluster_schedul_para_threshold_mean_conservative_label}}</div>
+        <div>{{i18n.virtual_cluster_schedul_para_threshold_mean_medium_label}}</div>
+        <div>{{i18n.virtual_cluster_schedul_para_threshold_mean_radical_label}}</div>
+    </div>
+</div>
+<style>
+    .table_top {
+        width: 610px;
+        height: 22px;
+        border: 1px solid #C3C3C3;
+        clear: both;
+    }
+
+    .table_top_blank {
+        width: 30px;
+        height: 20px;
+        float: left;
+    }
+
+    .table_top_num {
+        width: 22px;
+        float: left;
+    }
+
+    .table_head {
+        width: 40px;
+        height: 20px;
+        border: 1px solid #C3C3C3;
+        float: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table_row {
+        height: 22px;
+        clear: both;
+    }
+
+    .table_cell {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #C3C3C3;
+        float: left;
+        cursor: pointer
+    }
+
+    .select_conservative {
+        background-color: yellow;
+    }
+
+    .select_medium {
+        background-color: orange;
+    }
+
+    .select_radical {
+        background-color: red;
+    }
+
+</style>

@@ -1,0 +1,312 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Monitoring View">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_500004">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Monitoring View</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Monitoring\nPerformance Monitoring\nMonitoring View");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100008.html\">Monitoring<\/a> > <a href=\"../father_node/it_60_99_100010.html\">Performance Monitoring<\/a> > Monitoring View<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_500004"></a><a name="it_60_51_500004"></a>
+
+
+
+<h1 class="topictitle1">Monitoring View</h1>
+<ul><li><a href="#it_60_51_500004__1.3.3.1">CPU Usage</a></li><li><a href="#it_60_51_500004__1.3.4.1">CPU Reservation</a></li><li><a href="#it_60_51_500004__1.3.5.1">Memory Usage</a></li><li><a href="#it_60_51_500004__1.3.6.1">Memory Reservation</a></li><li><a href="#it_60_51_500004__1.3.7.1">Storage Usage</a></li><li><a href="#it_60_51_500004__1.3.8.1">Storage Allocation</a></li><li><a href="#it_60_51_500004__1.3.9.1">Network Inbound</a></li><li><a href="#it_60_51_500004__1.3.10.1">Network Outbound</a></li><li><a href="#it_60_51_500004__1.3.11.1">Disk Write (kbit/s)</a></li><li><a href="#it_60_51_500004__1.3.12.1">Disk Read (kbit/s)</a></li><li><a href="#it_60_51_500004__1.3.13.1">Disk Usage</a></li></ul>
+
+
+<div id="perf_monitor"><a name="perf_monitor"></a><a name="perf_monitor"></a><p></p>
+
+<p><span>FusionManager</span> provides performance monitoring indicators of the clusters, hosts,
+and VMs in the hypervisor connected to it. The following uses <span>FusionCompute</span> as an example to describe its performance indicators.</p>
+
+
+<p>To view performance indicators, choose <span class="menucascade"><b><span class="uicontrol">Monitoring</span></b> &gt; <b><span class="uicontrol">Monitoring View</span></b></span>.</p>
+
+<div class="section"><a name="it_60_51_500004__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">CPU Usage</a></h4><p><strong>Definition</strong></p>
+<p>Measures the CPU usage of a measurement object.</p>
+<p>The measurement objects can be a <span>clusters, </span>host, or VM.</p>
+<p><strong>Formula</strong></p>
+<div class="p"><ul><li>Cluster CPU usage = Total CPU usage of all hosts
+in a cluster/Number of hosts</li><li>Host CPU usage = (Dom0 CPU usage of a host x Number
+of Dom0 cores + DomU CPU usage of the host x Number of DomU cores)/(Number
+of Dom0 cores + Number of DomU cores)</li><li>VM CPU usage = CPU usage of a VM/Number of VM CPU cores</li></ul>
+</div>
+<p><strong>Description</strong></p>
+<p>None</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.4.1"></a><a name="1.3.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">CPU Reservation</a></h4><p><strong>Definition</strong></p>
+<p>Measures the percentage of the number of
+reserved CPUs in the total number of CPUs of a measurement object.</p>
+<p>The measurement object can be a cluster.</p>
+<p><strong>Formula</strong></p>
+<p><b><span class="cmdname">CPU reservation rate = Reserved CPU capacity/(Reserved
+CPU capacity + Available CPU capacity) x 100%</span></b></p>
+<div class="p">where<ul><li>Reserved CPU capacity: specifies the total number of CPUs reserved
+for the running VMs of the measurement object.</li><li>Available CPU capacity: specifies the total number of CPUs that
+can be allocated to VMs of the measurement object.</li></ul>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>In the VMware hypervisor, the
+reserved CPU capacity does not include the capacity reserved for the
+VMware system.</p>
+</div></div>
+</div>
+<p><strong>Description</strong></p>
+<div class="p">The value
+of this performance indicator ranges from <span class="parmvalue"><b>0%</b></span> to <span class="parmvalue"><b>100%</b></span>.<ul><li>If the value is <span class="parmvalue"><b>100%</b></span>, no CPU can be allocated.</li><li>If the value is <span class="parmvalue"><b>0%</b></span>, no CPU is reserved
+for VMs. That is, all the CPUs are available to the measurement object.</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.5.1"></a><a name="1.3.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Memory Usage</a></h4><p><strong>Definition</strong></p>
+<p>Measures the memory usage of a measurement object.</p>
+<p>The
+measurement objects can be a <span>cluster, </span>host,
+or VM.</p>
+<p><strong>Formula</strong></p>
+<div class="p"><ul><li>Cluster memory usage = Total memory usage of all
+hosts in a cluster/Number of hosts</li><li>Host memory usage = (DomU memory usage of a host
+x Dom0 memory usage of a host)/(Total memory of DomU + Total memory
+of Dom0)</li><li>VM memory usage = Memory usage of a VM/Total memory of the VM</li></ul>
+</div>
+<p><strong>Description</strong></p>
+<p>None</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.6.1"></a><a name="1.3.6.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Memory Reservation</a></h4><p><strong>Definition</strong></p>
+<p>Measures the percentage of the reserved memory
+capacity in the total memory capacity of a measurement object.</p>
+<p>The measurement object can be a cluster.</p>
+<p><strong>Formula</strong></p>
+<p><b><span class="cmdname">Memory reservation rate = Reserved memory capacity/(Reserved
+memory capacity + Available memory capacity) x 100%</span></b> </p>
+<div class="p">where<ul><li>Reserved memory capacity:<ul><li>Specifies the sum of memory and GPU for the running VMs of the
+measurement object when memory overcommitment is disabled.</li><li>Specifies the sum of reserved memory and GPU for the running VMs
+of the measurement object when memory overcommitment is enabled.</li></ul>
+</li><li>Available memory capacity: specifies the total amount of memory
+that can be allocated to VMs of the measurement object.</li></ul>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>In the VMware hypervisor, the
+reserved memory capacity does not include the capacity reserved for
+the VMware system.</p>
+</div></div>
+</div>
+<p><strong>Description</strong></p>
+<div class="p">The value
+of this performance indicator ranges from <span class="parmvalue"><b>0%</b></span> to <span class="parmvalue"><b>100%</b></span>.<ul><li>If the value is <span class="parmvalue"><b>100%</b></span>, no memory can be
+allocated.</li><li>If the value is <span class="parmvalue"><b>0%</b></span>, no memory is reserved
+for VMs. That is, all the memory is available to the measurement object.</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.7.1"></a><a name="1.3.7.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Storage Usage</a></h4><p><strong>Definition</strong></p>
+<p>Measures the percentage of the used storage
+capacity in the total storage capacity of a measurement object.</p>
+<p>The measurement object can be a cluster.</p>
+<p><strong>Formula</strong></p>
+<p><b><span class="cmdname">Storage usage = Used storage capacity/(Used storage capacity
++ Remaining storage capacity) x 100%</span></b> </p>
+<div class="p">where<ul><li>Used storage capacity: specifies the total storage capacity that
+has been used by a measurement object.</li><li>Remaining storage capacity: specifies the total storage capacity
+that has not been used by a measurement object.</li></ul>
+</div>
+<p><strong>Description</strong></p>
+<div class="p">The value of this performance
+indicator ranges from <span class="parmvalue"><b>0%</b></span> to <span class="parmvalue"><b>100%</b></span>.<ul><li>If the value is <span class="parmvalue"><b>100%</b></span>, no storage space
+can be allocated.</li><li>If the value is <span class="parmvalue"><b>0%</b></span>, no storage space has
+been used.</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.8.1"></a><a name="1.3.8.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Storage Allocation</a></h4><p><strong>Definition</strong></p>
+<p>Measures the percentage of the allocated storage
+capacity in the total storage capacity of a measurement object.</p>
+<p>The measurement object can be a cluster.</p>
+<p><strong>Formula</strong></p>
+<p><b><span class="cmdname">Storage allocation rate = Allocated storage capacity/(Used
+storage capacity + Remaining storage capacity) x 100%</span></b> </p>
+<div class="p">where<ul><li>Allocated storage capacity: specifies the total storage capacity
+that has been allocated to a measurement object.</li><li>Used storage capacity: specifies the total storage capacity that
+has been used by a measurement object.</li><li>Remaining storage capacity: specifies the total physical storage
+capacity that has not been used by a measurement object.</li></ul>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><div class="p">For example, the real physical storage space
+of a storage pool is 100 GB. After thin provisioning is enabled, the
+allocatable storage space is 200 GB. If 50 GB of the storage space
+is allocated to VM A that uses 20 GB to store its files, and 80 GB
+of the storage space is allocated to VM B that uses 10 GB to store
+its database, then:<ul><li>Allocated storage capacity: 130 GB</li><li>Used storage capacity: 30 GB</li><li>Remaining storage capacity: 70 GB</li><li>Storage allocation rate: 130%</li></ul>
+</div>
+</div></div>
+</div>
+<p><strong>Description</strong></p>
+<p>The lower limit of
+this performance indicator is <span class="parmvalue"><b>0%</b></span>, and the upper
+limit depends on the thin provisioning ratio.</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.9.1"></a><a name="1.3.9.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Network Inbound</a></h4><p><strong>Definition</strong></p>
+<p>Measures the amount of inbound network traffic per second of a
+measurement object.</p>
+<p>The measurement objects can be a host or
+VM.</p>
+<p><strong>Formula</strong></p>
+<div class="p"><ul><li>Network inbound rate of a host = Number of inbound bytes of the
+host/Measurement period</li><li>Network inbound rate of a VM = Number of inbound bytes of the
+VM/Measurement period</li></ul>
+</div>
+<p><strong>Description</strong></p>
+<p>None</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.10.1"></a><a name="1.3.10.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Network Outbound</a></h4><p><strong>Definition</strong></p>
+<p>Measures the amount of outbound network traffic
+per second of a measurement object.</p>
+<p>The measurement objects
+can be a host or VM.</p>
+<p><strong>Formula</strong></p>
+<div class="p"><ul><li>Network outbound rate of a host = Number of outbound bytes of
+the host/Measurement period</li><li>Network outbound rate of a VM = Number of outbound bytes of the
+VM/Measurement period</li></ul>
+</div>
+<p><strong>Description</strong></p>
+<p>None</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.11.1"></a><a name="1.3.11.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Disk Write (kbit/s)</a></h4><p><strong>Definition</strong></p>
+<p>Measures the amount of data written to the measurement object
+per second.</p>
+<p>The measurement objects can be a host or VM.</p>
+<p><strong>Formula</strong></p>
+<ul><li>Disk writes of a host = Total number of bytes written to host
+disks/Measurement period</li><li>Disk writes of a VM = Total number of bytes written to VM disks/Measurement
+period</li></ul>
+<p><strong>Description</strong></p>
+<p>None</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.12.1"></a><a name="1.3.12.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Disk Read (kbit/s)</a></h4><p><strong>Definition</strong></p>
+<p>Measures the amount of data read from the measurement object
+per second.</p>
+<p>The measurement objects can be a host or VM.</p>
+<p><strong>Formula</strong></p>
+<div class="p"><ul><li>Disk reads of a host = Total number of bytes read from host disks/Measurement
+period</li><li>Disk reads of a VM = Total number of bytes read from VM disks/Measurement
+period</li></ul>
+</div>
+<p><strong>Description</strong></p>
+<p>None</p>
+</div>
+
+<div class="section"><a name="it_60_51_500004__1.3.13.1"></a><a name="1.3.13.1"></a><h4 class="sectiontitle"><a href="#it_60_51_500004" class="sectiontitle2contents">Disk Usage</a></h4><p><strong>Definition</strong></p>
+<p>Measures the disk usage of a measurement object.</p>
+<p>The
+measurement objects can be a host or VM.</p>
+<p><strong>Formula</strong></p>
+<div class="p"><ul><li>Host disk usage = Used disk capacity of a host/Total disk capacity
+of the host</li><li>VM Disk usage = Occupied disk capacity of a VM/Total disk capacity
+of a VM </li></ul>
+</div>
+<p><strong>Description</strong></p>
+<p>None</p>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

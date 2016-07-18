@@ -1,0 +1,90 @@
+/*列表页面的整体布局*/
+.goku-worktable-vmtemplates {
+	
+}
+
+.goku-tablepage-north {
+    margin: 10px 0 0 0;
+}
+
+.goku-tablepage-button {
+	display: inline-block;
+}
+
+/*列表中的操作列 样式*/
+.goku-table-opt {
+	cursor: pointer;
+	display: inline-block;
+}
+
+/*表单公共样式*/
+.goku-window-form {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.goku-window-form-field {
+	margin: 5px 8px;
+	position: relative;
+}
+
+.goku-window-form-field-label {
+	display: inline-block;
+	width: 150px;
+	height: 20px;
+	line-height: 18px;
+	text-align: left;
+	font: "13px 微软雅黑 normal normal";
+}
+
+.goku-window-form-field-value {
+	display: inline-block;
+}
+
+/*stepform公共样式*/
+.goku-window-stepform {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.goku-window-stepform-left {
+	float: left;
+	width: 100%;
+}
+
+.goku-window-stepform-right {
+	clear: both;
+	float: left;
+	margin: 8px 0 0 0;
+	width: 100%;
+}
+
+/*panel公共样式*/
+.goku-panel {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.goku-panel-head {
+	background: #E5E5E5;
+	font: bold 12px 'Microsoft Yahei', SimSun, Arial, Tahoma;
+	padding: 5px 12px;
+	line-height: 18px;
+}
+
+.goku-panel-opts {
+	position: absolute;
+	left: 130px;
+	top: 210px;
+}
+
+.goku-panel-opt {
+	display: inline-block;
+}
+.m115 {
+    cursor: pointer;
+}

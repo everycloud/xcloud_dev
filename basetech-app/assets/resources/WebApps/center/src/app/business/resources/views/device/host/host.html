@@ -1,0 +1,78 @@
+<link rel="stylesheet" type="text/css" href="../theme/default/css/menubutton.css">
+<div fm-help help="'drawer_device_host'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs" ng-show="!zoneId">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="i18n.device_term_servers_label"></span></li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.device_rack_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box clearfix">
+        <div class="clearfix fm-btn-bottom-small">
+            <tiny-button ng-show="right.hasDeviceOperateRight" id="addRackHostModel.id" text="addRackHostModel.text"
+                         click="addRackHostModel.click()" class="major-btn">
+            </tiny-button>
+            <tiny-button ng-show="right.hasDeviceOperateRight&& cloudType=='FUSIONSPHERE'" id="powerOnAll.id"
+                         text="powerOnAll.text" click="powerOnAll.click()"
+                         >
+            </tiny-button>
+            <tiny-button ng-show="right.hasDeviceOperateRight&&  cloudType=='FUSIONSPHERE'" id="powerOffAll.id"
+                         text="powerOffAll.text" click="powerOffAll.click()" >
+            </tiny-button>
+            <tiny-button ng-show="right.hasDeviceOperateRight && cloudType=='OPENSTACK'" id="refreshRackHost.id"
+                         text="refreshRackHost.text" click="refreshRackHost.click()" tooltip="refreshRackHost.tooltip">
+            </tiny-button>
+
+            <!--刷新、列选择、帮助-->
+            <div class="pull-right">
+                <tiny-filtersel ng-show="cloudType == 'FUSIONSPHERE'&&!zoneId" id="zoneFilter.id"
+                                values="zoneFilter.values"
+                                width="zoneFilter.width"
+                                default-label="zoneFilter.dftLabel" change="zoneFilter.change()">
+                </tiny-filtersel>
+                <tiny-filtersel id="runningStatusFilter.id" values="runningStatusFilter.values"
+                                width="runningStatusFilter.width"
+                                default-label="runningStatusFilter.dftLabel" change="runningStatusFilter.change()">
+                </tiny-filtersel>
+                <tiny-filtersel id="resourceStatusFilter.id" values="resourceStatusFilter.values"
+                                width="resourceStatusFilter.width"
+                                change="resourceStatusFilter.change()">
+                </tiny-filtersel>
+                <span style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder" width="searchBox.width"
+                                suggest-size="searchBox.suggestSize" maxlength="searchBox.maxLength"
+                                suggest="searchBox.suggest" search="searchBox.search">
+                </tiny-searchbox>
+              </span>
+                <a class="btn-link">
+                    <div ng-click="operate.queryHostsData()" id="refreshHost" title="{{i18n.common_term_fresh_button}}"
+                         class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div id="deviceHostTable" class="clearfix">
+            <tiny-table id="hostTableModel.id" data="hostTableModel.data"
+                        columns="hostTableModel.columns"
+                        enable-pagination="hostTableModel.enablePagination"
+                        pagination-style="hostTableModel.paginationStyle"
+                        length-change="hostTableModel.lengthChange" length-menu="hostTableModel.lengthMenu"
+                        display-length="hostTableModel.displayLength" cur-page="hostTableModel.curPage"
+                        total-records="hostTableModel.totalRecords"
+                        request-config="hostTableModel.requestConfig"
+                        columns-draggable="hostTableModel.columnsDraggable"
+                        column-sorting="hostTableModel.columnSorting"
+                        hide-total-records="hostTableModel.hideTotalRecords"
+                        render-row="hostTableModel.renderRow"
+                        columns-visibility="hostTableModel.columnsVisibility"
+                        show-details="hostTableModel.showDetails" callback="hostTableModel.callback"
+                        change-select="hostTableModel.changeSelect"></tiny-table>
+        </div>
+    </div>
+</div>

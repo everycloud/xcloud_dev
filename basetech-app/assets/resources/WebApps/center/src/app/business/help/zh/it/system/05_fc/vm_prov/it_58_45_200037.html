@@ -1,0 +1,447 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="配置虚拟机的SID">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_200037">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>配置虚拟机的SID</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\n虚拟机管理\n配置虚拟机的SID");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../../07_fm/father_node/it_60_99_100032.html\">虚拟机管理<\/a> > 配置虚拟机的SID<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_200037"></a><a name="it_58_45_200037"></a>
+
+
+<h1 class="topictitle1">配置虚拟机的SID</h1>
+<ul><li><a href="#it_58_45_200037__1.2.1">操作场景</a></li><li><a href="#it_58_45_200037__1.2.2">必备事项</a></li><li><a href="#it_58_45_200037__1.2.3">操作步骤</a></li></ul>
+<div>
+<div class="Section"><a name="it_58_45_200037__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_58_45_200037" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>若需通过该模板创建出的虚拟机的SID不相同或能够加入域，则需要进行SID配置。</p>
+<p>若对虚拟机的SID无要求，则无需进行该操作。</p>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p><span><strong>高危特性声明</strong>：该功能使用过程中可能触及最终用户数据，符合业界惯例，但仍须谨慎使用。</span></p>
+<p>该操作配置了用户虚拟机注册表和首次启动后执行的脚本，如果涉及虚拟机中的用户数据，请在获得虚拟机用户许可后执行该操作。</p>
+</div></div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200037__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_58_45_200037" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">前提条件</p></span><div class="p"><ul><li><p id="it_58_45_200037__ospv"><a name="it_58_45_200037__ospv"></a><a name="ospv"></a>虚拟机已安装操作系统和Tools。</p>
+</li><li>已获取配置文件所在的ISO文件。<p id="it_58_45_200037__guestos"><a name="it_58_45_200037__guestos"></a><a name="guestos"></a>软件包名称为<span class="filepath">“FusionCompute V100R005C00SPC200_GuestOSDrivers.zip”</span>，解压缩后的ISO文件名称为<span class="filepath">“FusionCompute V100R005C00SPC200_Customization.iso”</span>。</p>
+<div class="p">软件包下载路径：<ul><li>企业用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com/enterprise</span> &gt; <span class="uicontrol">软件下载</span> &gt; <span class="uicontrol">IT</span> &gt; <span class="uicontrol">云计算</span> &gt; <span class="uicontrol">云操作系统</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">V100R005C00SPC100</span>”</span></li><li>运营商用户：<span class="menucascade">“<span class="uicontrol">http://support.huawei.com</span> &gt; <span class="uicontrol">产品软件</span> &gt; <span class="uicontrol">电信软件与核心网</span> &gt; <span class="uicontrol">电信云计算</span> &gt; <span class="uicontrol">IT云基础设施解决方案</span> &gt; <span class="uicontrol">Cloud OS</span> &gt; <span class="uicontrol">FusionCompute</span> &gt; <span class="uicontrol">FusionCompute
+V100R005</span> &gt; <span class="uicontrol">FusionCompute V100R005C00SPC100</span>”</span></li></ul>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">获取到软件包后建议先执行软件包校验的操作，具体操作请参见<a href="../../07_fm/soft_inst/it_60_23_000021.html">校验软件包</a>。</div></div>
+</li></ul>
+</div>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200037__1.2.3"></a><a name="1.2.3"></a><h2 class="sectiontitle"><a href="#it_58_45_200037" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle">删除历史文件</p>
+<div class="Steps-titled"><ol type="1" start="1"><li id="it_58_45_200037__d142e79"><a name="it_58_45_200037__d142e79"></a><a name="d142e79"></a><span>在VNC登录窗口的虚拟机操作系统界面，启用administrator用户，并删除其他用户。</span>
+</li><li><span>检查在虚拟机的C盘根目录下，是否存在<span class="filepath">“setpass.vbs”</span>文件。</span>
+<p>若存在该文件，需将该文件手动删除。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">判断虚拟机的操作系统类型</p>
+<div class="Steps-titled"><ol type="1" start="3"><li id="it_58_45_200037__sid22"><a name="it_58_45_200037__sid22"></a><a name="sid22"></a><span>判断虚拟机的操作系统类型。</span>
+<p><ul><li>Windows XP，执行<a href="#it_58_45_200037__sid_xp2">4</a>～<a href="#it_58_45_200037__xpend">11</a>。</li><li>Windows 7，执行<a href="#it_58_45_200037__sid_win72">17</a>～<a href="#it_58_45_200037__win7end2">27</a>。</li><li>Windows 8，执行<a href="#it_58_45_200037__sid_win82">32</a>～<a href="#it_58_45_200037__win8end2">42</a>。</li><li>Windows Server 2003，执行<a href="#it_58_45_200037__sid_win032">47</a>～<a href="#it_58_45_200037__win03end2">58</a>。</li><li>Windows Server 2008，执行<a href="#it_58_45_200037__sid_win082">63</a>～<a href="#it_58_45_200037__win08end2">73</a>。</li><li>Windows Server 2012，执行<a href="#it_58_45_200037__sid_win122">78</a>～<a href="#it_58_45_200037__win12end2">88</a>。<div class="note" id="it_58_45_200037__win2012DC"><a name="it_58_45_200037__win2012DC"></a><a name="win2012DC"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">Windows Server 2012
+R2 Datacenter 64bit操作系统不支持配置SID功能。</div></div>
+</li><li>其他操作系统，不支持该功能。</li></ul>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Windows XP下配置SID</p>
+<div class="Steps-titled"><ol type="1" start="4"><li id="it_58_45_200037__sid_xp2"><a name="it_58_45_200037__sid_xp2"></a><a name="sid_xp2"></a><span>在VNC登录窗口的虚拟机操作系统界面，启用administrator用户，并删除其他用户。</span>
+</li><li id="it_58_45_200037__sid_iso"><a name="it_58_45_200037__sid_iso"></a><a name="sid_iso"></a><span>挂载光驱，即配置文件所在ISO文件。</span>
+<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC200_Customization.iso”</span>。</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host"><a name="it_58_45_200037__copy_from_host"></a><a name="copy_from_host"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">当无法获取到iso文件时，可从任意主机拷贝配置文件，所在目录为<span class="filepath">“/home/GalaX8800/customization”</span>。</div></div>
+</p>
+</li><li id="it_58_45_200037__xp22"><a name="it_58_45_200037__xp22"></a><a name="xp22"></a><span>将ISO文件中对应操作系统的<span class="filepath">“sysprep”</span>文件夹拷贝至虚拟机的C盘根目录下。</span></li><li id="it_58_45_200037__xp3"><a name="it_58_45_200037__xp3"></a><a name="xp3"></a><span id="it_58_45_200037__xp31"><a name="it_58_45_200037__xp31"></a><a name="xp31"></a>在虚拟机中，修改虚拟机目录文件<span class="filepath">“C:\sysprep\sysprep.inf”</span>。</span>
+<p><span id="it_58_45_200037__xp33"><a name="it_58_45_200037__xp33"></a><a name="xp33"></a>需修改以下内容：</span><ol type="a"><li><span id="it_58_45_200037__xp34"><a name="it_58_45_200037__xp34"></a><a name="xp34"></a>在<span class="parmname">“AdminPassword”</span>参数后的引号内设置当前虚拟机的密码。</span></li><li id="it_58_45_200037__xp35"><a name="it_58_45_200037__xp35"></a><a name="xp35"></a>将<span class="parmvalue">“ProductKey”</span>修改为用户购买的Windows操作系统的序列号。</li><li id="it_58_45_200037__xptimezone"><a name="it_58_45_200037__xptimezone"></a><a name="xptimezone"></a><p>将<span class="parmname">“TimeZone”</span>参数的值设置为虚拟机用户当地时区代码。</p>
+<p>查询时区代码，可在微软英文MSDN网站（http://msdn.microsoft.com/en-us）中搜索<span class="uicontrol">“Microsoft Time Zone Index Values”</span>。</p>
+</li><li><p>将<span class="parmname">“LanguageGroup”</span>参数的值修改为当地语言对应的语言组代码。</p>
+<p>查询语言组代码，可在微软技术支持网站（http://support.microsoft.com/?ln=zh-cn）中搜索<span class="uicontrol">“语言组ID”</span>。</p>
+</li></ol>
+</p>
+</li><li id="it_58_45_200037__xp4"><a name="it_58_45_200037__xp4"></a><a name="xp4"></a><span>将操作系统的ISO文件挂载到虚拟机中。</span></li><li id="it_58_45_200037__xp5"><a name="it_58_45_200037__xp5"></a><a name="xp5"></a><span>解压缩ISO文件中的<span class="filepath">“SUPPORT\TOOLS\DEPLOY.CAB”</span>文件。</span></li><li id="it_58_45_200037__xp6"><a name="it_58_45_200037__xp6"></a><a name="xp6"></a><span>将<span class="filepath">“DEPLOY.CAB”</span>解压缩后的所有文件拷贝至虚拟机的<span class="filepath">“C:\sysprep”</span>目录下。</span></li><li id="it_58_45_200037__xpend"><a name="it_58_45_200037__xpend"></a><a name="xpend"></a><span>在VNC登录窗口的虚拟机操作系统界面的命令行窗口中，执行以下命令，配置虚拟机的SID。</span>
+<p><p><b><span class="cmdname">C:\sysprep\sysprep -mini -noreboot -reseal -quiet</span></b></p>
+<p>操作结束。</p>
+</p>
+</li><li><span>在VNC登录窗口的虚拟机操作系统界面，单击<span class="uicontrol">“开始”</span>，在下方搜索栏中输入<span class="parmvalue">“regedit”</span>，按<span class="uicontrol">“Enter”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>展开<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Run</span>”</span>。</span>
+<p>显示<span class="parmname">“Run”</span>下所有的注册表项。</p>
+</li><li><span>双击<span class="parmname">“(默认)”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>在数值数据项中，输入<span class="parmvalue">“c:\setpass.vbs”</span>。</span></li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>关闭对话框。</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Windows 7下配置SID</p>
+<div class="Steps-titled"><ol type="1" start="17"><li id="it_58_45_200037__sid_win72"><a name="it_58_45_200037__sid_win72"></a><a name="sid_win72"></a><span>在VNC登录窗口的虚拟机操作系统界面，启用administrator用户，并删除其他用户。</span>
+</li><li><span>挂载光驱，即配置文件所在ISO文件。</span>
+<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC200_Customization.iso”</span>。</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_1"><a name="it_58_45_200037__copy_from_host_1"></a><a name="copy_from_host_1"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">当无法获取到iso文件时，可从任意主机拷贝配置文件，所在目录为<span class="filepath">“/home/GalaX8800/customization”</span>。</div></div>
+</p>
+</li><li id="it_58_45_200037__win79"><a name="it_58_45_200037__win79"></a><a name="win79"></a><span>将ISO文件中对应操作系统的<span class="filepath">“X86”</span>或<span class="filepath">“X64”</span>文件夹拷贝至虚拟机的<span class="filepath">“C:\Windows\System32”</span>目录下。</span>
+<p><ul><li>如果是32位操作系统，拷贝<span class="filepath">“X86”</span>文件夹。</li><li>如果是64位操作系统，拷贝<span class="filepath">“X64”</span>文件夹。</li></ul>
+</p>
+</li><li id="it_58_45_200037__win73"><a name="it_58_45_200037__win73"></a><a name="win73"></a><span id="it_58_45_200037__win731"><a name="it_58_45_200037__win731"></a><a name="win731"></a>在虚拟机中修改虚拟机目录文件。</span>
+<p><a name="it_58_45_200037__win732_ul"></a><a name="win732_ul"></a><ul id="it_58_45_200037__win732_ul"><li>如果是32位操作系统，虚拟机目录文件为<span class="filepath">“C:\Windows\System32\X86\professional\Untitled.xml”</span>。</li><li>如果是64位操作系统，虚拟机目录文件为<span class="filepath">“C:\Windows\System32\X64\professional\Untitled.xml”</span>。</li></ul>
+<p id="it_58_45_200037__untitled1"><a name="it_58_45_200037__untitled1"></a><a name="untitled1"></a>需修改以下内容：</p>
+<div class="p" id="it_58_45_200037__untitled2"><a name="it_58_45_200037__untitled2"></a><a name="untitled2"></a><ol type="a"><li id="it_58_45_200037__untitled_li1"><a name="it_58_45_200037__untitled_li1"></a><a name="untitled_li1"></a><p id="it_58_45_200037__untitled_li1_p"><a name="it_58_45_200037__untitled_li1_p"></a><a name="untitled_li1_p"></a>在虚拟机目录文件中，找到<span class="parmname">“Password”</span>标记对，在其中的<span class="parmname">“Value”</span>标记对中设置当前虚拟机的密码。</p>
+</li><li id="it_58_45_200037__untitled_li2"><a name="it_58_45_200037__untitled_li2"></a><a name="untitled_li2"></a><p>修改如下字段，使虚拟机目录文件中的定义的语言类型与操作系统实际语言类型一致：</p>
+<pre class="screen">&lt;InputLocale&gt;<strong>zh-CN</strong>&lt;/InputLocale&gt;
+&lt;SystemLocale&gt;<strong>zh-CN</strong>&lt;/SystemLocale&gt;
+&lt;UILanguage&gt;<strong>zh-CN</strong>&lt;/UILanguage&gt;
+&lt;UILanguageFallback&gt;<strong>zh-CN</strong>&lt;/UILanguageFallback&gt;
+&lt;UserLocale&gt;<strong>zh-CN</strong>&lt;/UserLocale&gt;</pre>
+<p>字段中默认的语言类型为<span class="parmvalue">“zh-CN”</span>，即简体中文。</p>
+<p>如操作系统语言需改为英文，需设置为<span class="parmvalue">“en-US”</span>。</p>
+<p>更多语言所对应的标识请在微软Windows产品官方网站搜索<span class="parmvalue">“语言包默认值”</span>。</p>
+</li><li id="it_58_45_200037__win7timezone"><a name="it_58_45_200037__win7timezone"></a><a name="win7timezone"></a><p>修改<span class="parmname">“TimeZone”</span>标记对中的值为当前时区，并修改<span class="parmname">“TimeZone”</span>标记对前一行的<span class="parmname">“RegisteredOwner”</span>标记对中的值为当前国家名。</p>
+<p>时区的标准名称可在微软英文MSDN网站（http://msdn.microsoft.com/en-us）中搜索<span class="uicontrol">“Microsoft Time Zone Index Values”</span>。</p>
+</li></ol>
+</div>
+</p>
+</li><li id="it_58_45_200037__win74"><a name="it_58_45_200037__win74"></a><a name="win74"></a><span id="it_58_45_200037__win741"><a name="it_58_45_200037__win741"></a><a name="win741"></a>在命令行窗口中，执行以下命令，配置虚拟机的SID。</span>
+<p><div class="p"><ul><li>如果是32位操作系统，执行以下命令。<p><b><span class="cmdname">C:\Windows\System32\X86\professional\SysprepCmd.cmd</span></b></p>
+</li><li>如果是64位操作系统，执行以下命令。<p><b><span class="cmdname" id="it_58_45_200037__win742"><a name="it_58_45_200037__win742"></a><a name="win742"></a>C:\Windows\System32\X64\professional\SysprepCmd.cmd</span></b></p>
+</li></ul>
+</div>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>如果系统未报错，说明命令执行成功。</li><li>请勿重复执行该命令。</li></ul>
+</div></div>
+</p>
+</li><li id="it_58_45_200037__win75"><a name="it_58_45_200037__win75"></a><a name="win75"></a><span>单击<span class="uicontrol">“开始”</span>，在下方搜索栏中输入<span class="parmvalue">“regedit”</span>，按<span class="uicontrol">“Enter”</span>。</span>
+<p>弹出对话框。</p>
+</li><li id="it_58_45_200037__win76"><a name="it_58_45_200037__win76"></a><a name="win76"></a><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SYSTEM</span> &gt; <span class="uicontrol">Setup</span>”</span>。</span>
+<p>显示<span class="uicontrol">“Setup”</span>下所有的注册表项。</p>
+</li><li id="it_58_45_200037__win77"><a name="it_58_45_200037__win77"></a><a name="win77"></a><span>将<span class="parmname">“Cmdline”</span>的值从<span class="parmvalue">“oobe\windeploy.exe”</span>修改为<span class="parmvalue">“X86\professional\deploy.cmd”</span>或<span class="parmvalue">“X64\professional\deploy.cmd”</span>。</span>
+<p><ul><li>如果是32位操作系统，则修改为<span class="parmvalue">“X86\professional\deploy.cmd”</span>。</li><li>如果是64位操作系统，则修改为<span class="parmvalue">“X64\professional\deploy.cmd”</span>。</li></ul>
+</p>
+</li><li id="it_58_45_200037__win78"><a name="it_58_45_200037__win78"></a><a name="win78"></a><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows NT</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Winlogon</span>”</span></span>
+<p>显示<span class="uicontrol">“Winlogon”</span>下所有的注册表项。</p>
+</li><li id="it_58_45_200037__win7end"><a name="it_58_45_200037__win7end"></a><a name="win7end"></a><span>将<span class="parmname">“DefaultPassword”</span>的值修改为当前虚拟机密码。</span>
+<p><p>如果没有<span class="filepath">“DefaultPassword”</span>，请新建字符串值，并重命名为<span class="parmvalue">“DefaultPassword”</span>。</p>
+</p>
+</li><li id="it_58_45_200037__win7end2"><a name="it_58_45_200037__win7end2"></a><a name="win7end2"></a><span>将<span class="parmname">“AutoAdminLogon”</span>的值修改为<span class="userinput"><b>1</b></span>。</span>
+<p><p>如果没有<span class="filepath">“AutoAdminLogon”</span>，请新建字符串值，并重命名为<span class="parmvalue">“AutoAdminLogon”</span>。</p>
+</p>
+</li><li><span>展开<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Run</span>”</span>。</span>
+<p>显示<span class="parmname">“Run”</span>下所有的注册表项。</p>
+</li><li><span>双击<span class="parmname">“(默认)”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>在数值数据项中，输入<span class="parmvalue">“c:\setpass.vbs”</span>。</span></li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>关闭对话框。</p>
+</li></ol></div>
+<p><p>操作结束。</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Windows 8下配置SID</p>
+<div class="Steps-titled"><ol type="1" start="32"><li id="it_58_45_200037__sid_win82"><a name="it_58_45_200037__sid_win82"></a><a name="sid_win82"></a><span>在VNC登录窗口的虚拟机操作系统界面，启用administrator用户，并删除其他用户。</span>
+</li><li><span>挂载光驱，即配置文件所在ISO文件。</span>
+<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC200_Customization.iso”</span>。</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_2"><a name="it_58_45_200037__copy_from_host_2"></a><a name="copy_from_host_2"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">当无法获取到iso文件时，可从任意主机拷贝配置文件，所在目录为<span class="filepath">“/home/GalaX8800/customization”</span>。</div></div>
+</p>
+</li><li><span>将ISO文件中对应操作系统的<span class="filepath">“X86”</span>或<span class="filepath">“X64”</span>文件夹拷贝至虚拟机的<span class="filepath">“C:\Windows\System32”</span>目录下。</span>
+<p><ul><li>如果是32位操作系统，拷贝<span class="filepath">“X86”</span>文件夹。</li><li>如果是64位操作系统，拷贝<span class="filepath">“X64”</span>文件夹。</li></ul>
+</p>
+</li><li id="it_58_45_200037__win83"><a name="it_58_45_200037__win83"></a><a name="win83"></a><span>在虚拟机中修改虚拟机目录文件。</span>
+<p></p>
+<p><ul><li>如果是32位操作系统，虚拟机目录文件为<span class="filepath">“C:\Windows\System32\X86\professional\Untitled.xml”</span>。</li><li>如果是64位操作系统，虚拟机目录文件为<span class="filepath">“C:\Windows\System32\X64\professional\Untitled.xml”</span>。</li></ul>
+<p>需修改以下内容：</p>
+<ol type="a"><li><p id="it_58_45_200037__win8_li1_p"><a name="it_58_45_200037__win8_li1_p"></a><a name="win8_li1_p"></a>在虚拟机目录文件中，找到<span class="parmname">“Password”</span>和<span class="parmname">“AdministratorPassword”</span>标记对，分别在其中的<span class="parmname">“Value”</span>标记对中设置当前虚拟机的密码。</p>
+</li><li><p>修改如下字段，使虚拟机目录文件中的定义的语言类型与操作系统实际语言类型一致：</p>
+<pre class="screen">&lt;InputLocale&gt;<strong>zh-CN</strong>&lt;/InputLocale&gt;
+&lt;SystemLocale&gt;<strong>zh-CN</strong>&lt;/SystemLocale&gt;
+&lt;UILanguage&gt;<strong>zh-CN</strong>&lt;/UILanguage&gt;
+&lt;UILanguageFallback&gt;<strong>zh-CN</strong>&lt;/UILanguageFallback&gt;
+&lt;UserLocale&gt;<strong>zh-CN</strong>&lt;/UserLocale&gt;</pre>
+<p>字段中默认的语言类型为<span class="parmvalue">“zh-CN”</span>，即简体中文。</p>
+<p>如操作系统语言需改为英文，需设置为<span class="parmvalue">“en-US”</span>。</p>
+<p>更多语言所对应的标识请在微软Windows产品官方网站搜索<span class="parmvalue">“语言包默认值”</span>。</p>
+</li><li><p>修改<span class="parmname">“TimeZone”</span>标记对中的值为当前时区，并修改<span class="parmname">“TimeZone”</span>标记对前一行的<span class="parmname">“RegisteredOwner”</span>标记对中的值为当前国家名。</p>
+<p>时区的标准名称可在微软英文MSDN网站（http://msdn.microsoft.com/en-us）中搜索<span class="uicontrol">“Microsoft Time Zone Index Values”</span>。</p>
+</li></ol>
+</p>
+</li><li><span id="it_58_45_200037__win741_1"><a name="it_58_45_200037__win741_1"></a><a name="win741_1"></a>在命令行窗口中，执行以下命令，配置虚拟机的SID。</span>
+<p><div class="p"><ul><li>如果是32位操作系统，执行以下命令。<p><b><span class="cmdname">C:\Windows\System32\X86\professional\SysprepCmd.cmd</span></b></p>
+</li><li>如果是64位操作系统，执行以下命令。<p><b><span class="cmdname" id="it_58_45_200037__win742_1"><a name="it_58_45_200037__win742_1"></a><a name="win742_1"></a>C:\Windows\System32\X64\professional\SysprepCmd.cmd</span></b></p>
+</li></ul>
+</div>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>如果系统未报错，说明命令执行成功。</li><li>请勿重复执行该命令。</li></ul>
+</div></div>
+</p>
+</li><li id="it_58_45_200037__win85"><a name="it_58_45_200037__win85"></a><a name="win85"></a><span>在命令行窗口中输入<span class="parmvalue">“regedit”</span>，按<span class="uicontrol">“Enter”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SYSTEM</span> &gt; <span class="uicontrol">Setup</span>”</span>。</span>
+<p>显示<span class="uicontrol">“Setup”</span>下所有的注册表项。</p>
+</li><li><span>将<span class="parmname">“Cmdline”</span>的值从<span class="parmvalue">“oobe\windeploy.exe”</span>修改为<span class="parmvalue">“X86\professional\deploy.cmd”</span>或<span class="parmvalue">“X64\professional\deploy.cmd”</span>。</span>
+<p><ul><li>如果是32位操作系统，则修改为<span class="parmvalue">“X86\professional\deploy.cmd”</span>。</li><li>如果是64位操作系统，则修改为<span class="parmvalue">“X64\professional\deploy.cmd”</span>。</li></ul>
+</p>
+</li><li><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows NT</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Winlogon</span>”</span></span>
+<p>显示<span class="uicontrol">“Winlogon”</span>下所有的注册表项。</p>
+</li><li id="it_58_45_200037__win8end"><a name="it_58_45_200037__win8end"></a><a name="win8end"></a><span>将<span class="parmname">“DefaultPassword”</span>的值修改为当前虚拟机密码。</span>
+<p><p>如果没有<span class="filepath">“DefaultPassword”</span>，请新建字符串值，并重命名为<span class="parmvalue">“DefaultPassword”</span>。</p>
+</p>
+</li><li id="it_58_45_200037__win8end2"><a name="it_58_45_200037__win8end2"></a><a name="win8end2"></a><span>将<span class="parmname">“AutoAdminLogon”</span>的值修改为<span class="userinput"><b>1</b></span>。</span>
+<p><p>如果没有<span class="filepath">“AutoAdminLogon”</span>，请新建字符串值，并重命名为<span class="parmvalue">“AutoAdminLogon”</span>。</p>
+</p>
+</li><li><span>展开<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Run</span>”</span>。</span>
+<p>显示<span class="parmname">“Run”</span>下所有的注册表项。</p>
+</li><li><span>双击<span class="parmname">“(默认)”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>在数值数据项中，输入<span class="parmvalue">“c:\setpass.vbs”</span>。</span></li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>关闭对话框。</p>
+</li></ol></div>
+<p><p>操作结束。</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Windows Server 2003下配置SID</p>
+<div class="Steps-titled"><ol type="1" start="47"><li id="it_58_45_200037__sid_win032"><a name="it_58_45_200037__sid_win032"></a><a name="sid_win032"></a><span>在VNC登录窗口的虚拟机操作系统界面，启用administrator用户，并删除其他用户。</span>
+</li><li><span>挂载光驱，即配置文件所在ISO文件。</span>
+<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC200_Customization.iso”</span>。</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_3"><a name="it_58_45_200037__copy_from_host_3"></a><a name="copy_from_host_3"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">当无法获取到iso文件时，可从任意主机拷贝配置文件，所在目录为<span class="filepath">“/home/GalaX8800/customization”</span>。</div></div>
+</p>
+</li><li><span>将ISO文件中对应操作系统的<span class="filepath">“sysprep”</span>文件夹拷贝至虚拟机的C盘根目录下。</span></li><li><span id="it_58_45_200037__xp31_1"><a name="it_58_45_200037__xp31_1"></a><a name="xp31_1"></a>在虚拟机中，修改虚拟机目录文件<span class="filepath">“C:\sysprep\sysprep.inf”</span>。</span>
+<p><span id="it_58_45_200037__xp33_1"><a name="it_58_45_200037__xp33_1"></a><a name="xp33_1"></a>需修改以下内容：</span><ol type="a"><li><span id="it_58_45_200037__xp34_1"><a name="it_58_45_200037__xp34_1"></a><a name="xp34_1"></a>在<span class="parmname">“AdminPassword”</span>参数后的引号内设置当前虚拟机的密码。</span></li><li id="it_58_45_200037__xp35_1"><a name="it_58_45_200037__xp35_1"></a><a name="xp35_1"></a>将<span class="parmvalue">“ProductKey”</span>修改为用户购买的Windows操作系统的序列号。</li><li id="it_58_45_200037__xptimezone_1"><a name="it_58_45_200037__xptimezone_1"></a><a name="xptimezone_1"></a><p>将<span class="parmname">“TimeZone”</span>参数的值设置为虚拟机用户当地时区代码。</p>
+<p>查询时区代码，可在微软英文MSDN网站（http://msdn.microsoft.com/en-us）中搜索<span class="uicontrol">“Microsoft Time Zone Index Values”</span>。</p>
+</li><li><p>将<span class="parmname">“LanguageGroup”</span>参数的值修改为当地语言对应的语言组代码。</p>
+<p>查询语言组代码，可在微软技术支持网站（http://support.microsoft.com/?ln=zh-cn）中搜索<span class="uicontrol">“语言组ID”</span>。</p>
+</li></ol>
+</p>
+</li><li><span>将操作系统的ISO文件挂载到虚拟机中。</span></li><li><span>解压缩ISO文件中的<span class="filepath">“SUPPORT\TOOLS\DEPLOY.CAB”</span>文件。</span></li><li><span>将<span class="filepath">“DEPLOY.CAB”</span>解压缩后的所有文件拷贝至虚拟机的<span class="filepath">“C:\sysprep”</span>目录下。</span></li><li><span>在VNC登录窗口的虚拟机操作系统界面的命令行窗口中，执行以下命令，配置虚拟机的SID。</span>
+<p><p><b><span class="cmdname">C:\sysprep\sysprep -mini -noreboot -reseal -quiet</span></b></p>
+<p>操作结束。</p>
+</p>
+</li><li><span>单击<span class="uicontrol">“开始”</span>，在下方搜索栏中输入<span class="parmvalue">“regedit”</span>，按<span class="uicontrol">“Enter”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows NT</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Winlogon</span>”</span></span>
+<p>显示<span class="uicontrol">“Winlogon”</span>下所有的注册表项。</p>
+</li><li id="it_58_45_200037__win03end"><a name="it_58_45_200037__win03end"></a><a name="win03end"></a><span>将<span class="parmname">“DefaultPassword”</span>的值修改为当前虚拟机密码。</span>
+<p><p>如果没有<span class="filepath">“DefaultPassword”</span>，请新建字符串值，并重命名为<span class="parmvalue">“DefaultPassword”</span>。</p>
+</p>
+</li><li id="it_58_45_200037__win03end2"><a name="it_58_45_200037__win03end2"></a><a name="win03end2"></a><span>将<span class="parmname">“AutoAdminLogon”</span>的值修改为<span class="userinput"><b>1</b></span>。</span>
+<p><p>如果没有<span class="filepath">“AutoAdminLogon”</span>，请新建字符串值，并重命名为<span class="parmvalue">“AutoAdminLogon”</span>。</p>
+</p>
+</li><li><span>展开<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Run</span>”</span>。</span>
+<p>显示<span class="parmname">“Run”</span>下所有的注册表项。</p>
+</li><li><span>双击<span class="parmname">“(默认)”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>在数值数据项中，输入<span class="parmvalue">“c:\setpass.vbs”</span>。</span></li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>关闭对话框。</p>
+</li></ol></div>
+<p><p>操作结束。</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Windows Server 2008下配置SID</p>
+<div class="Steps-titled"><ol type="1" start="63"><li id="it_58_45_200037__sid_win082"><a name="it_58_45_200037__sid_win082"></a><a name="sid_win082"></a><span>在VNC登录窗口的虚拟机操作系统界面，启用administrator用户，并删除其他用户。</span>
+</li><li><span>挂载光驱，即配置文件所在ISO文件。</span>
+<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC200_Customization.iso”</span>。</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_4"><a name="it_58_45_200037__copy_from_host_4"></a><a name="copy_from_host_4"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">当无法获取到iso文件时，可从任意主机拷贝配置文件，所在目录为<span class="filepath">“/home/GalaX8800/customization”</span>。</div></div>
+</p>
+</li><li><span>将ISO文件中对应操作系统的<span class="filepath">“X86”</span>或<span class="filepath">“X64”</span>文件夹拷贝至虚拟机的<span class="filepath">“C:\Windows\System32”</span>目录下。</span>
+<p><ul><li>如果是32位操作系统，拷贝<span class="filepath">“X86”</span>文件夹。</li><li>如果是64位操作系统，拷贝<span class="filepath">“X64”</span>文件夹。</li></ul>
+</p>
+</li><li><span>在虚拟机中修改虚拟机目录文件。</span>
+<p></p>
+<p><ul><li>如果是32位操作系统，虚拟机目录文件为<span class="filepath">“C:\Windows\System32\X86\professional\Untitled.xml”</span>。</li><li>如果是64位操作系统，虚拟机目录文件为<span class="filepath">“C:\Windows\System32\X64\professional\Untitled.xml”</span>。</li></ul>
+<p>需修改以下内容：</p>
+<ol type="a"><li><p id="it_58_45_200037__win8_li1_p_1"><a name="it_58_45_200037__win8_li1_p_1"></a><a name="win8_li1_p_1"></a>在虚拟机目录文件中，找到<span class="parmname">“Password”</span>和<span class="parmname">“AdministratorPassword”</span>标记对，分别在其中的<span class="parmname">“Value”</span>标记对中设置当前虚拟机的密码。</p>
+</li><li><p>修改如下字段，使虚拟机目录文件中的定义的语言类型与操作系统实际语言类型一致：</p>
+<pre class="screen">&lt;InputLocale&gt;<strong>zh-CN</strong>&lt;/InputLocale&gt;
+&lt;SystemLocale&gt;<strong>zh-CN</strong>&lt;/SystemLocale&gt;
+&lt;UILanguage&gt;<strong>zh-CN</strong>&lt;/UILanguage&gt;
+&lt;UILanguageFallback&gt;<strong>zh-CN</strong>&lt;/UILanguageFallback&gt;
+&lt;UserLocale&gt;<strong>zh-CN</strong>&lt;/UserLocale&gt;</pre>
+<p>字段中默认的语言类型为<span class="parmvalue">“zh-CN”</span>，即简体中文。</p>
+<p>如操作系统语言需改为英文，需设置为<span class="parmvalue">“en-US”</span>。</p>
+<p>更多语言所对应的标识请在微软Windows产品官方网站搜索<span class="parmvalue">“语言包默认值”</span>。</p>
+</li><li><p>修改<span class="parmname">“TimeZone”</span>标记对中的值为当前时区，并修改<span class="parmname">“TimeZone”</span>标记对前一行的<span class="parmname">“RegisteredOwner”</span>标记对中的值为当前国家名。</p>
+<p>时区的标准名称可在微软英文MSDN网站（http://msdn.microsoft.com/en-us）中搜索<span class="uicontrol">“Microsoft Time Zone Index Values”</span>。</p>
+</li></ol>
+</p>
+</li><li><span id="it_58_45_200037__win741_2"><a name="it_58_45_200037__win741_2"></a><a name="win741_2"></a>在命令行窗口中，执行以下命令，配置虚拟机的SID。</span>
+<p><div class="p"><ul><li>如果是32位操作系统，执行以下命令。<p><b><span class="cmdname">C:\Windows\System32\X86\professional\SysprepCmd.cmd</span></b></p>
+</li><li>如果是64位操作系统，执行以下命令。<p><b><span class="cmdname" id="it_58_45_200037__win742_2"><a name="it_58_45_200037__win742_2"></a><a name="win742_2"></a>C:\Windows\System32\X64\professional\SysprepCmd.cmd</span></b></p>
+</li></ul>
+</div>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>如果系统未报错，说明命令执行成功。</li><li>请勿重复执行该命令。</li></ul>
+</div></div>
+</p>
+</li><li><span>在命令行窗口中输入<span class="parmvalue">“regedit”</span>，按<span class="uicontrol">“Enter”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SYSTEM</span> &gt; <span class="uicontrol">Setup</span>”</span>。</span>
+<p>显示<span class="uicontrol">“Setup”</span>下所有的注册表项。</p>
+</li><li><span>将<span class="parmname">“Cmdline”</span>的值从<span class="parmvalue">“oobe\windeploy.exe”</span>修改为<span class="parmvalue">“X86\professional\deploy.cmd”</span>或<span class="parmvalue">“X64\professional\deploy.cmd”</span>。</span>
+<p><ul><li>如果是32位操作系统，则修改为<span class="parmvalue">“X86\professional\deploy.cmd”</span>。</li><li>如果是64位操作系统，则修改为<span class="parmvalue">“X64\professional\deploy.cmd”</span>。</li></ul>
+</p>
+</li><li><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows NT</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Winlogon</span>”</span></span>
+<p>显示<span class="uicontrol">“Winlogon”</span>下所有的注册表项。</p>
+</li><li id="it_58_45_200037__win08end"><a name="it_58_45_200037__win08end"></a><a name="win08end"></a><span>将<span class="parmname">“DefaultPassword”</span>的值修改为当前虚拟机密码。</span>
+<p><p>如果没有<span class="filepath">“DefaultPassword”</span>，请新建字符串值，并重命名为<span class="parmvalue">“DefaultPassword”</span>。</p>
+</p>
+</li><li id="it_58_45_200037__win08end2"><a name="it_58_45_200037__win08end2"></a><a name="win08end2"></a><span>将<span class="parmname">“AutoAdminLogon”</span>的值修改为<span class="userinput"><b>1</b></span>。</span>
+<p><p>如果没有<span class="filepath">“AutoAdminLogon”</span>，请新建字符串值，并重命名为<span class="parmvalue">“AutoAdminLogon”</span>。</p>
+</p>
+</li><li><span>展开<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Run</span>”</span>。</span>
+<p>显示<span class="parmname">“Run”</span>下所有的注册表项。</p>
+</li><li><span>双击<span class="parmname">“(默认)”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>在数值数据项中，输入<span class="parmvalue">“c:\setpass.vbs”</span>。</span></li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>关闭对话框。</p>
+</li></ol></div>
+<p><p>操作结束。</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Windows Server 2012下配置SID</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">Windows Server 2012
+R2 Datacenter 64bit操作系统不支持配置SID功能。</div></div>
+</p><div class="Steps-titled"><ol type="1" start="78"><li id="it_58_45_200037__sid_win122"><a name="it_58_45_200037__sid_win122"></a><a name="sid_win122"></a><span>在VNC登录窗口的虚拟机操作系统界面，启用administrator用户，并删除其他用户。</span>
+</li><li><span>挂载光驱，即配置文件所在ISO文件。</span>
+<p>挂载光驱时需挂载<span class="filepath">“FusionCompute V100R005C00SPC200_Customization.iso”</span>。</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_5"><a name="it_58_45_200037__copy_from_host_5"></a><a name="copy_from_host_5"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody">当无法获取到iso文件时，可从任意主机拷贝配置文件，所在目录为<span class="filepath">“/home/GalaX8800/customization”</span>。</div></div>
+</p>
+</li><li><span>将ISO文件中的<span class="filepath">“X64”</span>文件夹拷贝至虚拟机的<span class="filepath">“C:\Windows\System32”</span>目录下。</span></li><li><span>在虚拟机中修改虚拟机目录文件。</span>
+<p>虚拟机目录文件为<span class="filepath">“C:\Windows\System32\X64\professional\Untitled.xml”</span>。<p>需修改以下内容：</p>
+<ol type="a"><li><p>在虚拟机目录文件中，找到<span class="parmname">“Password”</span>和<span class="parmname">“AdministratorPassword”</span>标记对，分别在其中的<span class="parmname">“Value”</span>标记对中设置当前虚拟机的密码。</p>
+</li><li><p>修改如下字段，使虚拟机目录文件中的定义的语言类型与操作系统实际语言类型一致：</p>
+<pre class="screen">&lt;InputLocale&gt;<strong>zh-CN</strong>&lt;/InputLocale&gt;
+&lt;SystemLocale&gt;<strong>zh-CN</strong>&lt;/SystemLocale&gt;
+&lt;UILanguage&gt;<strong>zh-CN</strong>&lt;/UILanguage&gt;
+&lt;UILanguageFallback&gt;<strong>zh-CN</strong>&lt;/UILanguageFallback&gt;
+&lt;UserLocale&gt;<strong>zh-CN</strong>&lt;/UserLocale&gt;</pre>
+<p>字段中默认的语言类型为<span class="parmvalue">“zh-CN”</span>，即简体中文。</p>
+<p>如操作系统语言需改为英文，需设置为<span class="parmvalue">“en-US”</span>。</p>
+<p>更多语言所对应的标识请在微软Windows产品官方网站搜索<span class="parmvalue">“语言包默认值”</span>。</p>
+</li><li><p>修改<span class="parmname">“TimeZone”</span>标记对中的值为当前时区，并修改<span class="parmname">“TimeZone”</span>标记对前一行的<span class="parmname">“RegisteredOwner”</span>标记对中的值为当前国家名。</p>
+<p>时区的标准名称可在微软英文MSDN网站（http://msdn.microsoft.com/en-us）中搜索<span class="uicontrol">“Microsoft Time Zone Index Values”</span>。</p>
+</li></ol>
+</p>
+</li><li><span>在命令行窗口中，执行以下命令，配置虚拟机的SID。</span>
+<p><b><span class="cmdname">C:\Windows\System32\X64\professional\SysprepCmd.cmd</span></b></p>
+</li><li><span>在命令行窗口中输入<span class="parmvalue">“regedit”</span>，按<span class="uicontrol">“Enter”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SYSTEM</span> &gt; <span class="uicontrol">Setup</span>”</span>。</span>
+<p>显示<span class="uicontrol">“Setup”</span>下所有的注册表项。</p>
+</li><li><span>将<span class="parmname">“Cmdline”</span>的值从<span class="parmvalue">“oobe\windeploy.exe”</span>修改为<span class="parmvalue">“X64\professional\deploy.cmd”</span>。</span></li><li><span>选择<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows NT</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Winlogon</span>”</span></span>
+<p>显示<span class="uicontrol">“Winlogon”</span>下所有的注册表项。</p>
+</li><li id="it_58_45_200037__win12end"><a name="it_58_45_200037__win12end"></a><a name="win12end"></a><span>将<span class="parmname">“DefaultPassword”</span>的值修改为当前虚拟机密码。</span>
+<p><p>如果没有<span class="filepath">“DefaultPassword”</span>，请新建字符串值，并重命名为<span class="parmvalue">“DefaultPassword”</span>。</p>
+</p>
+</li><li id="it_58_45_200037__win12end2"><a name="it_58_45_200037__win12end2"></a><a name="win12end2"></a><span>将<span class="parmname">“AutoAdminLogon”</span>的值修改为<span class="userinput"><b>1</b></span>。</span>
+<p><p>如果没有<span class="filepath">“AutoAdminLogon”</span>，请新建字符串值，并重命名为<span class="parmvalue">“AutoAdminLogon”</span>。</p>
+</p>
+</li><li><span>展开<span class="menucascade">“<span class="uicontrol">HKEY_LOCAL_MACHINE</span> &gt; <span class="uicontrol">SOFTWARE</span> &gt; <span class="uicontrol">Microsoft</span> &gt; <span class="uicontrol">Windows</span> &gt; <span class="uicontrol">CurrentVersion</span> &gt; <span class="uicontrol">Run</span>”</span>。</span>
+<p>显示<span class="parmname">“Run”</span>下所有的注册表项。</p>
+</li><li><span>双击<span class="parmname">“(默认)”</span>。</span>
+<p>弹出对话框。</p>
+</li><li><span>在数值数据项中，输入<span class="parmvalue">“c:\setpass.vbs”</span>。</span></li><li><span>单击<span class="uicontrol">“确定”</span>。</span>
+<p>关闭对话框。</p>
+</li></ol></div>
+<p><p>操作结束。</p>
+</p></div>
+</ul>
+
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

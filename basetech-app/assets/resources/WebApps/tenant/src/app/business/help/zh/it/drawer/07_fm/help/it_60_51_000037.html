@@ -1,0 +1,116 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="负载均衡">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000037">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>负载均衡</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_000037"></a><a name="it_60_51_000037"></a>
+
+
+
+<h1 class="topictitle1">负载均衡</h1>
+
+
+<div><p></p>
+
+<div class="section"><h4 class="sectiontitle">简介</h4><p>随着用户访问量和数据流量的快速增长，运行业务的服务器的处理能力和计算强度也在不断加大，使得单一的服务器难以承担。如果将多台提供相同业务的服务器，通过网络简单的进行连接，如何解决多个服务器之间业务请求的合理分配，使服务器的负载情况相同。</p>
+<p>负载均衡提供了一种有效的方法，通过负载均衡器上均衡策略，实现业务请求分发到运行着相同业务的不同服务器上，提升了业务的吞吐量和服务器的资源的利用效率，使系统健康运转，为用户提供更好的访问质量。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">原理概述</h4><p><span>FusionManager</span>支持硬件负载均衡和软件负载均衡两种类型的虚拟负载均衡器。</p>
+<p><strong>硬件负载均衡</strong></p>
+<p>硬件类型的负载均衡是通过在物理负载均衡器上创建的负载均衡实例提供负载均衡功能。使用硬件负载均衡时需要先接入负载均衡设备，在创建完VPC和网络后就可以为规划的业务或网络申请硬件类型的负载均衡了。</p>
+<p><strong>软件负载均衡</strong></p>
+<p>软件类型的负载均衡是通过<span>FusionManager</span>中的系统服务虚拟机提供负载均衡功能。VSA管理网络为系统服务虚拟机提供管理平面网络，使系统服务虚拟机与管理节点互通。在VPC中申请VLB后，<span>FusionManager</span>会通过VSAM节点完成系统服务虚拟机的创建与配置。</p>
+<div class="p">每个VLB包含两张业务网卡，与之关联的网络分别为前端网络和后端网络。如<a href="#it_60_51_000037__d750e44">图1</a>所示，真正对外提供业务的虚拟机所在网络是后端网络，对用户呈现并提供业务访问所需IP地址的网络是前端网络。<div class="fignone" id="it_60_51_000037__d750e44"><a name="it_60_51_000037__d750e44"></a><a name="d750e44"></a><span class="figcap"><b>图1 </b>软件负载均衡</span>
+
+<br><span><img src="fig/fig_it_60_51_000014_01.png"></span></div>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle">注意事项</h4><ul><li>VLB的前端网络和后端网络的子网的IP分配方式需为内部DHCP或静态注入的方式。</li><li>创建软件负载均衡时，如果VLB的前端网络和后端网络是同一网络，请确保业务虚拟机所在网络也为该网络。</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle">配置流程</h4><div class="p">负载均衡的配置流程如<a href="#it_60_51_000037__fig_02">图2</a>所示。<div class="fignone" id="it_60_51_000037__fig_02"><a name="it_60_51_000037__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>图2 </b>负载均衡配置流程</span>
+
+<br><span><img src="fig/fig_it_60_51_000037_01.png"></span></div>
+</div>
+<div class="p">配置流程中的各任务说明如<a href="#it_60_51_000037__tab_02">表1</a>所示。
+<div class="tablenoborder"><a name="it_60_51_000037__tab_02"></a><a name="tab_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000037__tab_02" frame="border" border="1" rules="all"><caption><b>表1 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="21.92982456140351%" id="mcps1.3.4.3.2.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="40.643274853801174%" id="mcps1.3.4.3.2.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="37.42690058479533%" id="mcps1.3.4.3.2.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="21.92982456140351%" headers="mcps1.3.4.3.2.2.4.1.1 "><p>创建VPC</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.643274853801174%" headers="mcps1.3.4.3.2.2.4.1.2 "><p id="it_60_51_000037__p_creVPC"><a name="it_60_51_000037__p_creVPC"></a><a name="p_creVPC"></a>创建属于VDC的网络环境。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="37.42690058479533%" headers="mcps1.3.4.3.2.2.4.1.3 "><span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span></td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.92982456140351%" headers="mcps1.3.4.3.2.2.4.1.1 "><p>创建网络</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.643274853801174%" headers="mcps1.3.4.3.2.2.4.1.2 "><p id="it_60_51_000037__p_creNet"><a name="it_60_51_000037__p_creNet"></a><a name="p_creNet"></a>创建VLB的过程中需要关联前端网络和后端网络，这两个网络需要根据业务部署要求创建。如果需要创建路由网络，还需要申请虚拟防火墙，并准备虚拟防火墙所需资源。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="37.42690058479533%" headers="mcps1.3.4.3.2.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="menucascade">“<span class="uicontrol">网络</span> &gt; <span class="uicontrol">网络</span>”</span>。</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="21.92982456140351%" headers="mcps1.3.4.3.2.2.4.1.1 "><p>创建VLB</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40.643274853801174%" headers="mcps1.3.4.3.2.2.4.1.2 "><p id="it_60_51_000037__p_creVLB"><a name="it_60_51_000037__p_creVLB"></a><a name="p_creVLB"></a>创建软件负载均衡，系统将自动使用VSA虚拟机模板，创建提供负载均衡服务的系统服务虚拟机。</p>
+<p>创建硬件负载均衡，系统会自动在负载均衡设备上创建负载均衡实例。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="37.42690058479533%" headers="mcps1.3.4.3.2.2.4.1.3 ">在<span class="menucascade">“<span class="uicontrol">VPC</span> &gt; <span class="uicontrol">我的VPC</span>”</span>界面，选择一个VPC，选择<span class="uicontrol">“VLB”</span>。</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

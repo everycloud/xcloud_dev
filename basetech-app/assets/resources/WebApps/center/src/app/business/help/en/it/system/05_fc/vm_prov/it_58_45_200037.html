@@ -1,0 +1,592 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="Configuring the VM SID Customization">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_58_45_200037">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Configuring the VM SID Customization</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nVM Management\nConfiguring the VM SID Customization");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../../07_fm/father_node/it_60_99_start.html");
+document.write("<a href=\"../../07_fm/father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../../07_fm/father_node/it_60_99_100032.html\">VM Management<\/a> > Configuring the VM SID Customization<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_58_45_200037"></a><a name="it_58_45_200037"></a>
+
+
+<h1 class="topictitle1">Configuring the VM SID Customization</h1>
+<ul><li><a href="#it_58_45_200037__1.2.1">Scenarios</a></li><li><a href="#it_58_45_200037__1.2.2">Prerequisites</a></li><li><a href="#it_58_45_200037__1.2.3">Procedure</a></li></ul>
+
+<div>
+<div class="Section"><a name="it_58_45_200037__1.2.1"></a><a name="1.2.1"></a><h2 class="sectiontitle"><a href="#it_58_45_200037" class="sectiontitle2contents">Scenarios</a></h2>
+<div class="Sectionbody"><p>To enable the security identifier (SID)
+of the VMs created using the template to be different or to be added
+to a domain, this operation is required.</p>
+<p>If there
+is no requirements for the VM SIDs, this operation is not required.</p>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p><span><strong>Declaration</strong>: This feature is a high-risk feature. Using this feature complies
+with industry practices. However, end user data may be required for
+implementing the feature. Exercise caution and obtain end user's consent
+when using this feature.</span></p>
+<p>This
+operation configures user VM registries and the script executed for
+the initial startup. If the end user data is involved, obtain end
+user's consent before you perform this operation.</p>
+</div></div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200037__1.2.2"></a><a name="1.2.2"></a><h2 class="sectiontitle"><a href="#it_58_45_200037" class="sectiontitle2contents">Prerequisites</a></h2>
+<div class="Sectionbody">
+<div style="padding-left: 15px;">
+<span><p class="sectiontitle">Conditions</p></span><div class="p"><ul><li><p id="it_58_45_200037__ospv"><a name="it_58_45_200037__ospv"></a><a name="ospv"></a>The OS and the Tools have been installed on the VM.</p>
+</li><li>You have obtained the software package of the ISO image that contains
+the configuration file.<p id="it_58_45_200037__guestos"><a name="it_58_45_200037__guestos"></a><a name="guestos"></a>The software package name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_GuestOSDrivers.zip</b></span>, and the ISO file name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_Customization.iso</b></span>.</p>
+<div class="p">To obtain the software package <ul><li><span>For enterprise
+users, visit <span class="uicontrol"><b>http://support.huawei.com/enterprise</b></span> and choose <span class="menucascade" id="it_58_45_200037__d63e90"><a name="it_58_45_200037__d63e90"></a><a name="d63e90"></a><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">IT</span></b> &gt; <b><span class="uicontrol">FusionCloud</span></b> &gt; <b><span class="uicontrol">FusionSphere</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span>.</span></li><li><span>For telecom carrier
+users, visit <span class="uicontrol"><b>http://support.huawei.com</b></span> and
+choose <span class="menucascade" id="it_58_45_200037__d63e112"><a name="it_58_45_200037__d63e112"></a><a name="d63e112"></a><b><span class="uicontrol">Software</span></b> &gt; <b><span class="uicontrol">Carrier Software &amp; Core Network </span></b> &gt; <b><span class="uicontrol">Carrier Cloud Computing</span></b> &gt; <b><span class="uicontrol">IT Cloud Infrastructure
+Solution</span></b> &gt; <b><span class="uicontrol">Cloud OS</span></b> &gt; <b><span class="uicontrol">FusionCompute</span></b> &gt; <b><span class="uicontrol">V100R005C00SPC100</span></b></span>.</span></li></ul>
+</div>
+<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">Verify
+the obtained software packages. For details, see <a href="../../07_fm/soft_inst/it_60_23_000021.html">Verifying Software Packages</a>.</div></div>
+</li></ul>
+</div>
+
+</div>
+</div></div>
+
+<div class="Section"><a name="it_58_45_200037__1.2.3"></a><a name="1.2.3"></a><h2 class="sectiontitle"><a href="#it_58_45_200037" class="sectiontitle2contents">Procedure</a></h2>
+<div class="Sectionbody">
+<ul><div class="HandlingTitled"><p class="sectiontitle">Delete the historical file.</p>
+<div class="Steps-titled"><ol type="1" start="1"><li id="it_58_45_200037__d166e84"><a name="it_58_45_200037__d166e84"></a><a name="d166e84"></a><span>In the VNC login window, enable the user <span class="parmname"><b>administrator</b></span> of the OS and delete other users.</span>
+</li><li><span>Go to the root directory of the C drive and check whether
+the <span class="filepath"><b>setpass.vbs</b></span> file exists.</span>
+<p>If yes, delete the <span class="filepath"><b>setpass.vbs</b></span> file.</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Check the VM OS version.</p>
+<div class="Steps-titled"><ol type="1" start="3"><li id="it_58_45_200037__sid22"><a name="it_58_45_200037__sid22"></a><a name="sid22"></a><span>Perform the required steps based on the VM
+OS version.</span>
+<p><ul><li>If the OS is Windows XP, perform <a href="#it_58_45_200037__sid_xp2">4</a> to <a href="#it_58_45_200037__xpend">11</a>.</li><li>If the OS is Windows 7, perform <a href="#it_58_45_200037__sid_win72">17</a> to <a href="#it_58_45_200037__win7end2">27</a>.</li><li>If the OS is Windows 8, perform <a href="#it_58_45_200037__sid_win82">32</a> to <a href="#it_58_45_200037__win8end2">42</a>.</li><li>If the OS is Windows Server 2003, perform <a href="#it_58_45_200037__sid_win032">47</a> to <a href="#it_58_45_200037__win03end2">58</a>.</li><li>If the OS is Windows Server 2008, perform <a href="#it_58_45_200037__sid_win082">63</a> to <a href="#it_58_45_200037__win08end2">73</a>.</li><li>If the OS is Windows Server 2012, perform <a href="#it_58_45_200037__sid_win122">78</a> to <a href="#it_58_45_200037__win12end2">88</a>.<div class="note" id="it_58_45_200037__win2012DC"><a name="it_58_45_200037__win2012DC"></a><a name="win2012DC"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">The Windows
+Server 2012 R2 Datacenter 64-bit OS does not support SID configuration.</div></div>
+</li><li>If the OS is not mentioned above, VM SID configuration is not
+supported.</li></ul>
+</p>
+</li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure SID for a Windows XP VM.</p>
+<div class="Steps-titled"><ol type="1" start="4"><li id="it_58_45_200037__sid_xp2"><a name="it_58_45_200037__sid_xp2"></a><a name="sid_xp2"></a><span>In the VNC login window, enable the user <span class="parmname"><b>administrator</b></span> of the OS and delete other users.</span>
+</li><li id="it_58_45_200037__sid_iso"><a name="it_58_45_200037__sid_iso"></a><a name="sid_iso"></a><span>Mount the ISO image
+that contains the configuration file.</span>
+<p>The ISO image name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_Customization.iso</b></span>.</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host"><a name="it_58_45_200037__copy_from_host"></a><a name="copy_from_host"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If you did not obtain
+the ISO image, you can copy the configuration file from the <span class="filepath"><b>/home/GalaX8800/customization</b></span> directory
+on any host in the cluster.</div></div>
+</p>
+</li><li id="it_58_45_200037__xp22"><a name="it_58_45_200037__xp22"></a><a name="xp22"></a><span>Copy the <span class="filepath"><b>sysprep</b></span> folder of the VM OS in the ISO image to the root directory of drive
+C on the VM.</span></li><li id="it_58_45_200037__xp3"><a name="it_58_45_200037__xp3"></a><a name="xp3"></a><span id="it_58_45_200037__xp31"><a name="it_58_45_200037__xp31"></a><a name="xp31"></a>Change the following parameters in
+the <span class="filepath"><b>sysprep.inf</b></span> file in the <span class="filepath"><b>C:\sysprep</b></span> directory on the VM:</span>
+<p><ol type="a"><li><span id="it_58_45_200037__xp34"><a name="it_58_45_200037__xp34"></a><a name="xp34"></a>Between the quotation marks on the right of <span class="parmname"><b>AdminPassword</b></span>, set the password for logging in to the
+current VM.</span></li><li id="it_58_45_200037__xp35"><a name="it_58_45_200037__xp35"></a><a name="xp35"></a><span class="parmvalue"><b>ProductKey</b></span>: Change it to the
+serial number of the purchased Windows OS.</li><li id="it_58_45_200037__xptimezone"><a name="it_58_45_200037__xptimezone"></a><a name="xptimezone"></a><p>Set the value of <span class="parmname"><b>TimeZone</b></span> to the local time zone index value.</p>
+<p>You can visit http://msdn.microsoft.com/en-us
+and enter <span class="uicontrol"><b>Microsoft Time Zone Index Values</b></span> in
+the search box to query the required local time zone index value. </p>
+</li><li><p>Change the value of <span class="parmname"><b>LanguageGroup</b></span> to the
+language group ID of the local language.</p>
+<p>You can visit http://support.microsoft.com/?ln=en-us
+and enter <span class="uicontrol"><b>Language Group IDs</b></span> in the search
+box to query the required language group ID. </p>
+</li></ol>
+</p>
+</li><li id="it_58_45_200037__xp4"><a name="it_58_45_200037__xp4"></a><a name="xp4"></a><span>Mount the OS ISO file to the VM.</span></li><li id="it_58_45_200037__xp5"><a name="it_58_45_200037__xp5"></a><a name="xp5"></a><span>Decompress the <span class="filepath"><b>DEPLOY.CAB</b></span> file in the ISO file to the <span class="filepath"><b>SUPPORT\TOOLS\</b></span> directory.</span>
+</li><li id="it_58_45_200037__xp6"><a name="it_58_45_200037__xp6"></a><a name="xp6"></a><span>Copy all the files generated after <span class="filepath"><b>DEPLOY.CAB</b></span> is decompressed to the <span class="filepath"><b>C:\sysprep</b></span> directory on the VM.</span></li><li id="it_58_45_200037__xpend"><a name="it_58_45_200037__xpend"></a><a name="xpend"></a><span>In the command line interface (CLI) of the
+VM in the VNC login window, run the following command to configure
+the VM SID:</span>
+<p><p><b><span class="cmdname">C:\sysprep\sysprep -mini -noreboot -reseal -quiet</span></b></p>
+</p>
+</li><li><span>On the VM desktop displayed in the VNC
+window, click <span class="uicontrol"><b>Start</b></span>, and enter <span class="parmvalue"><b>regedit</b></span> in the search box, and press <span class="uicontrol"><b>Enter</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Run</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Run</b></span> are displayed.</p>
+</li><li><span>Double click <span class="parmname"><b>(Default)</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Enter <span class="parmvalue"><b>c:\setpass.vbs</b></span> in <span class="wintitle"><b>Value data</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span>
+<p>The dialog box is closed.</p>
+</li></ol></div>
+<p><p>No further
+action is required.</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure SID for a Windows 7 VM.</p>
+<div class="Steps-titled"><ol type="1" start="17"><li id="it_58_45_200037__sid_win72"><a name="it_58_45_200037__sid_win72"></a><a name="sid_win72"></a><span>In the VNC login window, enable the user <span class="parmname"><b>administrator</b></span> of the OS and delete other users.</span>
+</li><li><span>Mount the ISO image
+that contains the configuration file.</span>
+<p>The ISO image name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_Customization.iso</b></span>.</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_1"><a name="it_58_45_200037__copy_from_host_1"></a><a name="copy_from_host_1"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If you did not obtain
+the ISO image, you can copy the configuration file from the <span class="filepath"><b>/home/GalaX8800/customization</b></span> directory
+on any host in the cluster.</div></div>
+</p>
+</li><li id="it_58_45_200037__win79"><a name="it_58_45_200037__win79"></a><a name="win79"></a><span>Copy the <span class="filepath"><b>X86</b></span> or <span class="filepath"><b>X64</b></span> folder of the VM OS in the ISO image
+to the <span class="filepath"><b>C:\Windows\System32</b></span> directory on the VM.</span>
+<p><ul><li>If the VM runs a 32-bit OS, copy the <span class="filepath"><b>X86</b></span> folder.</li><li>If the VM runs a 64-bit OS, copy the <span class="filepath"><b>X64</b></span> folder.</li></ul>
+</p>
+</li><li id="it_58_45_200037__win73"><a name="it_58_45_200037__win73"></a><a name="win73"></a><span id="it_58_45_200037__win731"><a name="it_58_45_200037__win731"></a><a name="win731"></a>Modify the VM directory file
+on the VM.</span>
+<p><a name="it_58_45_200037__win732_ul"></a><a name="win732_ul"></a><ul id="it_58_45_200037__win732_ul"><li>If the VM runs a 32-bit OS, the directory file is <span class="filepath"><b>C:\Windows\System32\X86\professional\Untitled.xml</b></span>.</li><li>If the VM runs a 64-bit OS, the directory file is <span class="filepath"><b>C:\Windows\System32\X64\professional\Untitled.xml</b></span>.</li></ul>
+<p id="it_58_45_200037__untitled1"><a name="it_58_45_200037__untitled1"></a><a name="untitled1"></a>The modification includes:</p>
+<div class="p" id="it_58_45_200037__untitled2"><a name="it_58_45_200037__untitled2"></a><a name="untitled2"></a><ol type="a"><li id="it_58_45_200037__untitled_li1"><a name="it_58_45_200037__untitled_li1"></a><a name="untitled_li1"></a><p id="it_58_45_200037__untitled_li1_p"><a name="it_58_45_200037__untitled_li1_p"></a><a name="untitled_li1_p"></a>In the VM directory file,
+locate the <span class="parmname"><b>Value</b></span> tags between the <span class="parmname"><b>Password</b></span> tags and set the password for logging in to the current VM between
+the <span class="parmname"><b>Value</b></span> tags.</p>
+</li><li id="it_58_45_200037__untitled_li2"><a name="it_58_45_200037__untitled_li2"></a><a name="untitled_li2"></a><p>Change the system language setting in the
+following field to the current VM OS language:</p>
+<pre class="screen">&lt;InputLocale&gt;<strong>zh-CN</strong>&lt;/InputLocale&gt;
+&lt;SystemLocale&gt;<strong>zh-CN</strong>&lt;/SystemLocale&gt;
+&lt;UILanguage&gt;<strong>zh-CN</strong>&lt;/UILanguage&gt;
+&lt;UILanguageFallback&gt;<strong>zh-CN</strong>&lt;/UILanguageFallback&gt;
+&lt;UserLocale&gt;<strong>zh-CN</strong>&lt;/UserLocale&gt;</pre>
+<p>The default
+system language is <span class="parmvalue"><b>zh-CN</b></span>, which indicates the
+simple Chinese.</p>
+<p>To change the language to English, change <strong>zh-CN</strong> to <span class="parmvalue"><b>en-US</b></span>.</p>
+<p>For more language
+settings, enter <span class="parmvalue"><b>Available Language Packs</b></span> at
+the Microsoft official website to search for language IDs.</p>
+</li><li id="it_58_45_200037__win7timezone"><a name="it_58_45_200037__win7timezone"></a><a name="win7timezone"></a><p>Set the value of <span class="parmname"><b>TimeZone</b></span> to the current time zone name and change the value of <span class="parmname"><b>RegisteredOwner</b></span> in the previous row to the name of the
+country you currently reside.</p>
+<p>You can visit http://msdn.microsoft.com/en-us
+and enter <span class="uicontrol"><b>Microsoft Time Zone Index Values</b></span> in
+the search box to query the time zone name.</p>
+</li></ol>
+</div>
+</p>
+</li><li id="it_58_45_200037__win74"><a name="it_58_45_200037__win74"></a><a name="win74"></a><span id="it_58_45_200037__win741"><a name="it_58_45_200037__win741"></a><a name="win741"></a>In the CLI, run the following
+command to configure the VM SID:</span>
+<p><ul><li>If the VM runs a 32-bit OS, run the <b><span class="cmdname">C:\Windows\System32\X86\professional\SysprepCmd.cmd</span></b> command.</li><li>If the VM runs a 64-bit OS, run the <b><span class="cmdname" id="it_58_45_200037__win742"><a name="it_58_45_200037__win742"></a><a name="win742"></a>C:\Windows\System32\X64\professional\SysprepCmd.cmd</span></b> command.</li></ul>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>If no error message is displayed, the command is executed successfully.</li><li>Do not run this command repeatedly.</li></ul>
+</div></div>
+</p>
+</li><li id="it_58_45_200037__win75"><a name="it_58_45_200037__win75"></a><a name="win75"></a><span>Click <span class="uicontrol"><b>Start</b></span>, and enter <span class="parmvalue"><b>regedit</b></span> in the search box, and press <span class="uicontrol"><b>Enter</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li id="it_58_45_200037__win76"><a name="it_58_45_200037__win76"></a><a name="win76"></a><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SYSTEM</span></b> &gt; <b><span class="uicontrol">Setup</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Setup</b></span> are displayed.</p>
+</li><li id="it_58_45_200037__win77"><a name="it_58_45_200037__win77"></a><a name="win77"></a><span>Change the value of <span class="parmname"><b>Cmdline</b></span> from <span class="parmvalue"><b>oobe\windeploy.exe</b></span> to <span class="parmvalue"><b>X86\professional\deploy.cmd</b></span> or <span class="parmvalue"><b>X64\professional\deploy.cmd</b></span> using the
+OS registry editor.</span>
+<p><ul><li>If the VM runs a 32-bit OS, change the value to <span class="parmvalue"><b>X86\professional\deploy.cmd</b></span>.</li><li>If the VM runs a 64-bit OS, change the value to <span class="parmvalue"><b>X64\professional\deploy.cmd</b></span>.</li></ul>
+</p>
+</li><li id="it_58_45_200037__win78"><a name="it_58_45_200037__win78"></a><a name="win78"></a><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows NT</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Winlogon</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Winlogon</b></span> are
+displayed.</p>
+</li><li id="it_58_45_200037__win7end"><a name="it_58_45_200037__win7end"></a><a name="win7end"></a><span>Change the value of <span class="parmname"><b>DefaultPassword</b></span> to the password for logging in to the current VM using the registry
+editor.</span>
+<p><p>If <span class="filepath"><b>DefaultPassword</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>DefaultPassword</b></span>.</p>
+</p>
+</li><li id="it_58_45_200037__win7end2"><a name="it_58_45_200037__win7end2"></a><a name="win7end2"></a><span>Change the <span class="parmname"><b>AutoAdminLogon</b></span> value to <span class="userinput"><b>1</b></span>.</span>
+<p><p>If <span class="filepath"><b>AutoAdminLogon</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>AutoAdminLogon</b></span>.</p>
+<p>No further action is required.</p>
+</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Run</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Run</b></span> are displayed.</p>
+</li><li><span>Double click <span class="parmname"><b>(Default)</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Enter <span class="parmvalue"><b>c:\setpass.vbs</b></span> in <span class="wintitle"><b>Value data</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span>
+<p>The dialog box is closed.</p>
+</li></ol></div>
+<p><p>No further
+action is required.</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure SID for a Windows 8 VM.</p>
+<div class="Steps-titled"><ol type="1" start="32"><li id="it_58_45_200037__sid_win82"><a name="it_58_45_200037__sid_win82"></a><a name="sid_win82"></a><span>In the VNC login window, enable the user <span class="parmname"><b>administrator</b></span> of the OS and delete other users.</span>
+</li><li><span>Mount the ISO image
+that contains the configuration file.</span>
+<p>The ISO image name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_Customization.iso</b></span>.</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_2"><a name="it_58_45_200037__copy_from_host_2"></a><a name="copy_from_host_2"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If you did not obtain
+the ISO image, you can copy the configuration file from the <span class="filepath"><b>/home/GalaX8800/customization</b></span> directory
+on any host in the cluster.</div></div>
+</p>
+</li><li><span>Copy the <span class="filepath"><b>X86</b></span> or <span class="filepath"><b>X64</b></span> folder of the VM OS in the ISO image
+to the <span class="filepath"><b>C:\Windows\System32</b></span> directory on the VM.</span>
+<p><ul><li>If the VM runs a 32-bit OS, copy the <span class="filepath"><b>X86</b></span> folder.</li><li>If the VM runs a 64-bit OS, copy the <span class="filepath"><b>X64</b></span> folder.</li></ul>
+</p>
+</li><li id="it_58_45_200037__win83"><a name="it_58_45_200037__win83"></a><a name="win83"></a><span>Modify the VM directory file
+on the VM.</span>
+<p><ul><li>If the VM runs a 32-bit OS, the directory file is <span class="filepath"><b>C:\Windows\System32\X86\professional\Untitled.xml</b></span>.</li><li>If the VM runs a 64-bit OS, the directory file is <span class="filepath"><b>C:\Windows\System32\X64\professional\Untitled.xml</b></span>.</li></ul>
+<p>The modification includes:</p>
+<ol type="a"><li><p id="it_58_45_200037__win8_li1_p"><a name="it_58_45_200037__win8_li1_p"></a><a name="win8_li1_p"></a>In the VM directory file, locate the <span class="parmname"><b>Value</b></span> tags between the <span class="parmname"><b>Password</b></span> tags
+as well as between the <span class="parmname"><b>AdministratorPassword</b></span> tags
+and set the password for logging in to the current VM in the two pairs
+of <span class="parmname"><b>Value</b></span> tags.</p>
+</li><li><p>Change the system language setting in the
+following field to the current VM OS language:</p>
+<pre class="screen">&lt;InputLocale&gt;<strong>zh-CN</strong>&lt;/InputLocale&gt;
+&lt;SystemLocale&gt;<strong>zh-CN</strong>&lt;/SystemLocale&gt;
+&lt;UILanguage&gt;<strong>zh-CN</strong>&lt;/UILanguage&gt;
+&lt;UILanguageFallback&gt;<strong>zh-CN</strong>&lt;/UILanguageFallback&gt;
+&lt;UserLocale&gt;<strong>zh-CN</strong>&lt;/UserLocale&gt;</pre>
+<p>The default
+system language is <span class="parmvalue"><b>zh-CN</b></span>, which indicates the
+simple Chinese.</p>
+<p>To change the language to English, change <strong>zh-CN</strong> to <span class="parmvalue"><b>en-US</b></span>.</p>
+<p>For more language
+settings, enter <span class="parmvalue"><b>Available Language Packs</b></span> at
+the Microsoft official website to search for language IDs.</p>
+</li><li><p>Set the value of <span class="parmname"><b>TimeZone</b></span> to the current time zone name and change the value of <span class="parmname"><b>RegisteredOwner</b></span> in the previous row to the name of the
+country you currently reside.</p>
+<p>You can visit http://msdn.microsoft.com/en-us
+and enter <span class="uicontrol"><b>Microsoft Time Zone Index Values</b></span> in
+the search box to query the time zone name.</p>
+</li></ol>
+</p>
+</li><li><span id="it_58_45_200037__win741_1"><a name="it_58_45_200037__win741_1"></a><a name="win741_1"></a>In the CLI, run the following
+command to configure the VM SID:</span>
+<p><ul><li>If the VM runs a 32-bit OS, run the <b><span class="cmdname">C:\Windows\System32\X86\professional\SysprepCmd.cmd</span></b> command.</li><li>If the VM runs a 64-bit OS, run the <b><span class="cmdname" id="it_58_45_200037__win742_1"><a name="it_58_45_200037__win742_1"></a><a name="win742_1"></a>C:\Windows\System32\X64\professional\SysprepCmd.cmd</span></b> command.</li></ul>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>If no error message is displayed, the command is executed successfully.</li><li>Do not run this command repeatedly.</li></ul>
+</div></div>
+</p>
+</li><li id="it_58_45_200037__win85"><a name="it_58_45_200037__win85"></a><a name="win85"></a><span>In the CLI, enter <span class="parmvalue"><b>regedit</b></span>, and press <span class="uicontrol"><b>Enter</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SYSTEM</span></b> &gt; <b><span class="uicontrol">Setup</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Setup</b></span> are displayed.</p>
+</li><li><span>Change the value of <span class="parmname"><b>Cmdline</b></span> from <span class="parmvalue"><b>oobe\windeploy.exe</b></span> to <span class="parmvalue"><b>X86\professional\deploy.cmd</b></span> or <span class="parmvalue"><b>X64\professional\deploy.cmd</b></span> using the
+OS registry editor.</span>
+<p><ul><li>If the VM runs a 32-bit OS, change the value to <span class="parmvalue"><b>X86\professional\deploy.cmd</b></span>.</li><li>If the VM runs a 64-bit OS, change the value to <span class="parmvalue"><b>X64\professional\deploy.cmd</b></span>.</li></ul>
+</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows NT</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Winlogon</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Winlogon</b></span> are
+displayed.</p>
+</li><li id="it_58_45_200037__win8end"><a name="it_58_45_200037__win8end"></a><a name="win8end"></a><span>Change the value of <span class="parmname"><b>DefaultPassword</b></span> to the password for logging in to the current VM using the registry
+editor.</span>
+<p><p>If <span class="filepath"><b>DefaultPassword</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>DefaultPassword</b></span>.</p>
+</p>
+</li><li id="it_58_45_200037__win8end2"><a name="it_58_45_200037__win8end2"></a><a name="win8end2"></a><span>Change the <span class="parmname"><b>AutoAdminLogon</b></span> value to <span class="userinput"><b>1</b></span>.</span>
+<p><p>If <span class="filepath"><b>AutoAdminLogon</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>AutoAdminLogon</b></span>.</p>
+<p>No further action is required.</p>
+</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Run</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Run</b></span> are displayed.</p>
+</li><li><span>Double click <span class="parmname"><b>(Default)</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Enter <span class="parmvalue"><b>c:\setpass.vbs</b></span> in <span class="wintitle"><b>Value data</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span>
+<p>The dialog box is closed.</p>
+</li></ol></div>
+<p><p>No further
+action is required.</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure SID for a Windows Server 2003 VM.</p>
+<div class="Steps-titled"><ol type="1" start="47"><li id="it_58_45_200037__sid_win032"><a name="it_58_45_200037__sid_win032"></a><a name="sid_win032"></a><span>In the VNC login window, enable the user <span class="parmname"><b>administrator</b></span> of the OS and delete other users.</span>
+</li><li><span>Mount the ISO image
+that contains the configuration file.</span>
+<p>The ISO image name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_Customization.iso</b></span>.</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_3"><a name="it_58_45_200037__copy_from_host_3"></a><a name="copy_from_host_3"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If you did not obtain
+the ISO image, you can copy the configuration file from the <span class="filepath"><b>/home/GalaX8800/customization</b></span> directory
+on any host in the cluster.</div></div>
+</p>
+</li><li><span>Copy the <span class="filepath"><b>sysprep</b></span> folder of the VM OS in the ISO image to the root directory of drive
+C on the VM.</span></li><li><span id="it_58_45_200037__xp31_1"><a name="it_58_45_200037__xp31_1"></a><a name="xp31_1"></a>Change the following parameters in
+the <span class="filepath"><b>sysprep.inf</b></span> file in the <span class="filepath"><b>C:\sysprep</b></span> directory on the VM:</span>
+<p><ol type="a"><li><span id="it_58_45_200037__xp34_1"><a name="it_58_45_200037__xp34_1"></a><a name="xp34_1"></a>Between the quotation marks on the right of <span class="parmname"><b>AdminPassword</b></span>, set the password for logging in to the
+current VM.</span></li><li id="it_58_45_200037__xp35_1"><a name="it_58_45_200037__xp35_1"></a><a name="xp35_1"></a><span class="parmvalue"><b>ProductKey</b></span>: Change it to the
+serial number of the purchased Windows OS.</li><li id="it_58_45_200037__xptimezone_1"><a name="it_58_45_200037__xptimezone_1"></a><a name="xptimezone_1"></a><p>Set the value of <span class="parmname"><b>TimeZone</b></span> to the local time zone index value.</p>
+<p>You can visit http://msdn.microsoft.com/en-us
+and enter <span class="uicontrol"><b>Microsoft Time Zone Index Values</b></span> in
+the search box to query the required local time zone index value. </p>
+</li><li><p>Change the value of <span class="parmname"><b>LanguageGroup</b></span> to the
+language group ID of the local language.</p>
+<p>You can visit http://support.microsoft.com/?ln=en-us
+and enter <span class="uicontrol"><b>Language Group IDs</b></span> in the search
+box to query the required language group ID. </p>
+</li></ol>
+</p>
+</li><li><span>Mount the OS ISO file to the VM.</span></li><li><span>Decompress the <span class="filepath"><b>DEPLOY.CAB</b></span> file in the ISO file to the <span class="filepath"><b>SUPPORT\TOOLS\</b></span> directory.</span>
+</li><li><span>Copy all the files generated after <span class="filepath"><b>DEPLOY.CAB</b></span> is decompressed to the <span class="filepath"><b>C:\sysprep</b></span> directory on the VM.</span></li><li><span>In the command line interface (CLI) of the
+VM in the VNC login window, run the following command to configure
+the VM SID:</span>
+<p><p><b><span class="cmdname">C:\sysprep\sysprep -mini -noreboot -reseal -quiet</span></b></p>
+</p>
+</li><li><span>Click <span class="uicontrol"><b>Start</b></span>, and enter <span class="parmvalue"><b>regedit</b></span> in the search box, and press <span class="uicontrol"><b>Enter</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows NT</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Winlogon</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Winlogon</b></span> are
+displayed.</p>
+</li><li id="it_58_45_200037__win03end"><a name="it_58_45_200037__win03end"></a><a name="win03end"></a><span>Change the value of <span class="parmname"><b>DefaultPassword</b></span> to the password for logging in to the current VM using the registry
+editor.</span>
+<p><p>If <span class="filepath"><b>DefaultPassword</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>DefaultPassword</b></span>.</p>
+</p>
+</li><li id="it_58_45_200037__win03end2"><a name="it_58_45_200037__win03end2"></a><a name="win03end2"></a><span>Change the <span class="parmname"><b>AutoAdminLogon</b></span> value to <span class="userinput"><b>1</b></span>.</span>
+<p><p>If <span class="filepath"><b>AutoAdminLogon</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>AutoAdminLogon</b></span>.</p>
+<p>No further action is required.</p>
+</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Run</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Run</b></span> are displayed.</p>
+</li><li><span>Double click <span class="parmname"><b>(Default)</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Enter <span class="parmvalue"><b>c:\setpass.vbs</b></span> in <span class="wintitle"><b>Value data</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span>
+<p>The dialog box is closed.</p>
+</li></ol></div>
+<p><p>No further
+action is required.</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure SID for a Windows Server 2008 VM.</p>
+<div class="Steps-titled"><ol type="1" start="63"><li id="it_58_45_200037__sid_win082"><a name="it_58_45_200037__sid_win082"></a><a name="sid_win082"></a><span>In the VNC login window, enable the user <span class="parmname"><b>administrator</b></span> of the OS and delete other users.</span>
+</li><li><span>Mount the ISO image
+that contains the configuration file.</span>
+<p>The ISO image name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_Customization.iso</b></span>.</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_4"><a name="it_58_45_200037__copy_from_host_4"></a><a name="copy_from_host_4"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If you did not obtain
+the ISO image, you can copy the configuration file from the <span class="filepath"><b>/home/GalaX8800/customization</b></span> directory
+on any host in the cluster.</div></div>
+</p>
+</li><li><span>Copy the <span class="filepath"><b>X86</b></span> or <span class="filepath"><b>X64</b></span> folder of the VM OS in the ISO image
+to the <span class="filepath"><b>C:\Windows\System32</b></span> directory on the VM.</span>
+<p><ul><li>If the VM runs a 32-bit OS, copy the <span class="filepath"><b>X86</b></span> folder.</li><li>If the VM runs a 64-bit OS, copy the <span class="filepath"><b>X64</b></span> folder.</li></ul>
+</p>
+</li><li><span>Modify the VM directory file
+on the VM.</span>
+<p><ul><li>If the VM runs a 32-bit OS, the directory file is <span class="filepath"><b>C:\Windows\System32\X86\professional\Untitled.xml</b></span>.</li><li>If the VM runs a 64-bit OS, the directory file is <span class="filepath"><b>C:\Windows\System32\X64\professional\Untitled.xml</b></span>.</li></ul>
+<p>The modification includes:</p>
+<ol type="a"><li><p id="it_58_45_200037__win8_li1_p_1"><a name="it_58_45_200037__win8_li1_p_1"></a><a name="win8_li1_p_1"></a>In the VM directory file, locate the <span class="parmname"><b>Value</b></span> tags between the <span class="parmname"><b>Password</b></span> tags
+as well as between the <span class="parmname"><b>AdministratorPassword</b></span> tags
+and set the password for logging in to the current VM in the two pairs
+of <span class="parmname"><b>Value</b></span> tags.</p>
+</li><li><p>Change the system language setting in the
+following field to the current VM OS language:</p>
+<pre class="screen">&lt;InputLocale&gt;<strong>zh-CN</strong>&lt;/InputLocale&gt;
+&lt;SystemLocale&gt;<strong>zh-CN</strong>&lt;/SystemLocale&gt;
+&lt;UILanguage&gt;<strong>zh-CN</strong>&lt;/UILanguage&gt;
+&lt;UILanguageFallback&gt;<strong>zh-CN</strong>&lt;/UILanguageFallback&gt;
+&lt;UserLocale&gt;<strong>zh-CN</strong>&lt;/UserLocale&gt;</pre>
+<p>The default
+system language is <span class="parmvalue"><b>zh-CN</b></span>, which indicates the
+simple Chinese.</p>
+<p>To change the language to English, change <strong>zh-CN</strong> to <span class="parmvalue"><b>en-US</b></span>.</p>
+<p>For more language
+settings, enter <span class="parmvalue"><b>Available Language Packs</b></span> at
+the Microsoft official website to search for language IDs.</p>
+</li><li><p>Set the value of <span class="parmname"><b>TimeZone</b></span> to the current time zone name and change the value of <span class="parmname"><b>RegisteredOwner</b></span> in the previous row to the name of the
+country you currently reside.</p>
+<p>You can visit http://msdn.microsoft.com/en-us
+and enter <span class="uicontrol"><b>Microsoft Time Zone Index Values</b></span> in
+the search box to query the time zone name.</p>
+</li></ol>
+</p>
+</li><li><span id="it_58_45_200037__win741_2"><a name="it_58_45_200037__win741_2"></a><a name="win741_2"></a>In the CLI, run the following
+command to configure the VM SID:</span>
+<p><ul><li>If the VM runs a 32-bit OS, run the <b><span class="cmdname">C:\Windows\System32\X86\professional\SysprepCmd.cmd</span></b> command.</li><li>If the VM runs a 64-bit OS, run the <b><span class="cmdname" id="it_58_45_200037__win742_2"><a name="it_58_45_200037__win742_2"></a><a name="win742_2"></a>C:\Windows\System32\X64\professional\SysprepCmd.cmd</span></b> command.</li></ul>
+</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>If no error message is displayed, the command is executed successfully.</li><li>Do not run this command repeatedly.</li></ul>
+</div></div>
+</p>
+</li><li><span>In the CLI, enter <span class="parmvalue"><b>regedit</b></span>, and press <span class="uicontrol"><b>Enter</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SYSTEM</span></b> &gt; <b><span class="uicontrol">Setup</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Setup</b></span> are displayed.</p>
+</li><li><span>Change the value of <span class="parmname"><b>Cmdline</b></span> from <span class="parmvalue"><b>oobe\windeploy.exe</b></span> to <span class="parmvalue"><b>X86\professional\deploy.cmd</b></span> or <span class="parmvalue"><b>X64\professional\deploy.cmd</b></span> using the
+OS registry editor.</span>
+<p><ul><li>If the VM runs a 32-bit OS, change the value to <span class="parmvalue"><b>X86\professional\deploy.cmd</b></span>.</li><li>If the VM runs a 64-bit OS, change the value to <span class="parmvalue"><b>X64\professional\deploy.cmd</b></span>.</li></ul>
+</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows NT</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Winlogon</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Winlogon</b></span> are
+displayed.</p>
+</li><li id="it_58_45_200037__win08end"><a name="it_58_45_200037__win08end"></a><a name="win08end"></a><span>Change the value of <span class="parmname"><b>DefaultPassword</b></span> to the password for logging in to the current VM using the registry
+editor.</span>
+<p><p>If <span class="filepath"><b>DefaultPassword</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>DefaultPassword</b></span>.</p>
+</p>
+</li><li id="it_58_45_200037__win08end2"><a name="it_58_45_200037__win08end2"></a><a name="win08end2"></a><span>Change the <span class="parmname"><b>AutoAdminLogon</b></span> value to <span class="userinput"><b>1</b></span>.</span>
+<p><p>If <span class="filepath"><b>AutoAdminLogon</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>AutoAdminLogon</b></span>.</p>
+<p>No further action is required.</p>
+</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Run</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Run</b></span> are displayed.</p>
+</li><li><span>Double click <span class="parmname"><b>(Default)</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Enter <span class="parmvalue"><b>c:\setpass.vbs</b></span> in <span class="wintitle"><b>Value data</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span>
+<p>The dialog box is closed.</p>
+</li></ol></div>
+<p><p>No further
+action is required.</p>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle">Configure SID for a Windows Server 2012 VM.</p>
+<p><div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">The Windows
+Server 2012 R2 Datacenter 64-bit OS does not support SID configuration.</div></div>
+</p><div class="Steps-titled"><ol type="1" start="78"><li id="it_58_45_200037__sid_win122"><a name="it_58_45_200037__sid_win122"></a><a name="sid_win122"></a><span>In the VNC login window, enable the user <span class="parmname"><b>administrator</b></span> of the OS and delete other users.</span>
+</li><li><span>Mount the ISO image
+that contains the configuration file.</span>
+<p>The ISO image name is <span class="filepath"><b>FusionCompute
+V100R005C00SPC200_Customization.iso</b></span>.</p>
+<p><div class="note" id="it_58_45_200037__copy_from_host_5"><a name="it_58_45_200037__copy_from_host_5"></a><a name="copy_from_host_5"></a><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody">If you did not obtain
+the ISO image, you can copy the configuration file from the <span class="filepath"><b>/home/GalaX8800/customization</b></span> directory
+on any host in the cluster.</div></div>
+</p>
+</li><li><span>Copy the <span class="filepath"><b>X64</b></span> folder of the VM OS in the ISO image to the <span class="filepath"><b>C:\Windows\System32</b></span> directory on the VM.</span></li><li><span>Modify the VM directory file
+on the VM.</span>
+<p>The VM directory file is <span class="filepath"><b>C:\Windows\System32\X64\professional\Untitled.xml</b></span>.<p>The modification includes:</p>
+<ol type="a"><li><p>In the VM directory file, locate the <span class="parmname"><b>Value</b></span> tags between the <span class="parmname"><b>Password</b></span> tags
+as well as between the <span class="parmname"><b>AdministratorPassword</b></span> tags
+and set the password for logging in to the current VM in the two pairs
+of <span class="parmname"><b>Value</b></span> tags.</p>
+</li><li><p>Change the system language setting in the
+following field to the current VM OS language:</p>
+<pre class="screen">&lt;InputLocale&gt;<strong>zh-CN</strong>&lt;/InputLocale&gt;
+&lt;SystemLocale&gt;<strong>zh-CN</strong>&lt;/SystemLocale&gt;
+&lt;UILanguage&gt;<strong>zh-CN</strong>&lt;/UILanguage&gt;
+&lt;UILanguageFallback&gt;<strong>zh-CN</strong>&lt;/UILanguageFallback&gt;
+&lt;UserLocale&gt;<strong>zh-CN</strong>&lt;/UserLocale&gt;</pre>
+<p>The default
+system language is <span class="parmvalue"><b>zh-CN</b></span>, which indicates the
+simple Chinese.</p>
+<p>To change the language to English, change <strong>zh-CN</strong> to <span class="parmvalue"><b>en-US</b></span>.</p>
+<p>For more language
+settings, enter <span class="parmvalue"><b>Available Language Packs</b></span> at
+the Microsoft official website to search for language IDs.</p>
+</li><li><p>Set the value of <span class="parmname"><b>TimeZone</b></span> to the current time zone name and change the value of <span class="parmname"><b>RegisteredOwner</b></span> in the previous row to the name of the
+country you currently reside.</p>
+<p>You can visit http://msdn.microsoft.com/en-us
+and enter <span class="uicontrol"><b>Microsoft Time Zone Index Values</b></span> in
+the search box to query the time zone name.</p>
+</li></ol>
+</p>
+</li><li><span>In the CLI, run the following
+command to configure the VM SID:</span>
+<p><b><span class="cmdname">C:\Windows\System32\X64\professional\SysprepCmd.cmd</span></b></p>
+</li><li><span>In the CLI, enter <span class="parmvalue"><b>regedit</b></span>, and press <span class="uicontrol"><b>Enter</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SYSTEM</span></b> &gt; <b><span class="uicontrol">Setup</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Setup</b></span> are displayed.</p>
+</li><li><span>Change the value of <span class="parmname"><b>Cmdline</b></span> from <span class="parmvalue"><b>oobe\windeploy.exe</b></span> to <span class="parmvalue"><b>X64\professional\deploy.cmd</b></span> using the OS registry editor.</span></li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows NT</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Winlogon</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Winlogon</b></span> are
+displayed.</p>
+</li><li id="it_58_45_200037__win12end"><a name="it_58_45_200037__win12end"></a><a name="win12end"></a><span>Change the value of <span class="parmname"><b>DefaultPassword</b></span> to the password for logging in to the current VM using the registry
+editor.</span>
+<p><p>If <span class="filepath"><b>DefaultPassword</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>DefaultPassword</b></span>.</p>
+</p>
+</li><li id="it_58_45_200037__win12end2"><a name="it_58_45_200037__win12end2"></a><a name="win12end2"></a><span>Change the <span class="parmname"><b>AutoAdminLogon</b></span> value to <span class="userinput"><b>1</b></span>.</span>
+<p><p>If <span class="filepath"><b>AutoAdminLogon</b></span> is not displayed,
+create a string value and name it <span class="parmvalue"><b>AutoAdminLogon</b></span>.</p>
+<p>No further action is required.</p>
+</p>
+</li><li><span>Choose <span class="menucascade"><b><span class="uicontrol">HKEY_LOCAL_MACHINE</span></b> &gt; <b><span class="uicontrol">SOFTWARE</span></b> &gt; <b><span class="uicontrol">Microsoft</span></b> &gt; <b><span class="uicontrol">Windows</span></b> &gt; <b><span class="uicontrol">CurrentVersion</span></b> &gt; <b><span class="uicontrol">Run</span></b></span>.</span>
+<p>All registry entries under <span class="parmname"><b>Run</b></span> are displayed.</p>
+</li><li><span>Double click <span class="parmname"><b>(Default)</b></span>.</span>
+<p>A dialog box is displayed.</p>
+</li><li><span>Enter <span class="parmvalue"><b>c:\setpass.vbs</b></span> in <span class="wintitle"><b>Value data</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span>
+<p>The dialog box is closed.</p>
+</li></ol></div>
+<p><p>No further
+action is required.</p>
+</p></div>
+</ul>
+
+</div></div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

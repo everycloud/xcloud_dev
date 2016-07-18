@@ -1,0 +1,59 @@
+<style type="text/css">
+    .srv_notify {
+        font-size: 12px;
+        color: #666666;
+        font-family: Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;
+
+        margin: 5px;
+        padding: 0px;
+
+        border-style: solid;
+        border-color: #dddddd;
+        border-width: 1px;
+    }
+
+    .srv_alert {
+        margin: 5px;
+        padding: 0px;
+        font-size: 16px;
+        color: #0088cc;
+        vertical-align: middle;
+    }
+
+    .index-notify {
+        color: #333;
+        font-size: 16px;
+    }
+</style>
+<div ng-controller="servicePage.notify.ctrl">
+    <div ng-if="showTodo" class="outbox-padding top10">
+        <div ng-if="false">
+            <div class="letdl fl">
+                <div class="legend" ng-bind="i18n.common_term_sysBulletin_label"></div>
+            </div>
+            <div class="letd2 fr">
+                <div class="legend border-none" ng-bind="i18n.service_term_myCharged_label"></div>
+            </div>
+            <div class="clearfix">
+                <div class="letdl fl">
+                    <ul>
+                        <li class="divider"></li>
+                        <li><a src="">请知：2014年03月20日 系统已整体升级至FusionSphere R5C0版本，新增VDC/VPC特性。</a></li>
+                        <li><a src="">请知：2014年03月29日 00:00 至 2014年03月30日 08:00 华天资源池存储系统扩容、升级。</a></li>
+                        <li><a src="">请知：2014年04月05日 00:00 至 2014年04月07日 08:00 端午节假期，系统全局下电维护。</a></li>
+                    </ul>
+                </div>
+                <div class="letdl-fr fr" style="margin-top: -15px;">
+                    <img src="../theme/default/images/common_info.png"/>
+                    <span ng-bind-html="todo"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="index-notify top20">
+            <img src="../theme/default/images/common_info.png"/>
+            <span ng-bind-html="todo" class="left10"></span>
+        </div>
+    </div>
+</div>
+

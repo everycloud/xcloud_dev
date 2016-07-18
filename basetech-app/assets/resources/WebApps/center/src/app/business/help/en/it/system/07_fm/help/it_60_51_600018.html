@@ -1,0 +1,274 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Mounting a CD/DVD-ROM Drive or an ISO File">
+<meta name="DC.Relation" scheme="URI" content="../../07_fm/father_node/it_60_99_100032.html">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_600018">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Mounting a CD/DVD-ROM Drive or an ISO File</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("FAQ\nVM Management\nMounting a CD/DVD-ROM Drive or an ISO File");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_faq.html\">FAQ<\/a> > <a href=\"../father_node/it_60_99_100032.html\">VM Management<\/a> > Mounting a CD/DVD-ROM Drive or an ISO File<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_600018"></a><a name="it_60_51_600018"></a>
+
+
+<h1 class="topictitle1">Mounting a CD/DVD-ROM Drive or an ISO File</h1>
+<ul><li><a href="#it_60_51_600018__1.2.1.1">Scenarios</a></li><li><a href="#it_60_51_600018__1.2.2.1">Precautions</a></li><li><a href="#it_60_51_600018__1.2.3.1">Prerequisites</a></li><li><a href="#it_60_51_600018__1.2.4.1">Mounting a CD/DVD-ROM Drive or an ISO File in Local Mode</a></li><li><a href="#it_60_51_600018__1.2.5.1">Mounting an ISO File in Sharing Mode</a></li></ul>
+
+<div>
+<div class="section"><a name="it_60_51_600018__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">Scenarios</a></h4>
+
+
+<div class="p"><div class="p">On <span>FusionManager</span>, mount a CD/DVD-ROM drive of the local PC or an ISO file to a VM
+to facilitate operating system (OS) and application installation on
+the VM. <a href="#it_60_51_600018__tbl_02">Table 1</a> describes the mounting methods.
+You can select a proper method as required.
+<div class="tablenoborder"><a name="it_60_51_600018__tbl_02"></a><a name="tbl_02"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_600018__tbl_02" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Methods of mounting a CD/DVD-ROM drive or an ISO file</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="13.333333333333334%" id="mcps1.2.1.2.1.3.2.4.1.1"><p>Mounting Method</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="25.666666666666664%" id="mcps1.2.1.2.1.3.2.4.1.2"><p>Advantage</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="61%" id="mcps1.2.1.2.1.3.2.4.1.3"><p>Limitation</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="13.333333333333334%" headers="mcps1.2.1.2.1.3.2.4.1.1 "><p>Local mode</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25.666666666666664%" headers="mcps1.2.1.2.1.3.2.4.1.2 "><ul><li>Supports ISO files and physical CD/DVD-ROM drives.</li><li>Simplifies operations.</li></ul>
+</td>
+
+<td class="cellrowborder" valign="top" width="61%" headers="mcps1.2.1.2.1.3.2.4.1.3 "><p>Applies only to the following OSs:</p>
+<div class="p"><a name="it_60_51_600018__d2237e160"></a><a name="d2237e160"></a><ul id="it_60_51_600018__d2237e160"><li>SUSE Linux Enterprise Server 10 SP, SUSE Linux Enterprise Server
+11 SP and later</li><li>Ubuntu 11.10 Server and later</li><li>Ubuntu 12.04 Desktop and later</li><li>Ubuntu 12.04 Server and later</li><li>Ubuntu 12.10 Server</li><li>Red Hat 3.0 32-bit</li><li>Red Hat 3.4 32-bit</li><li>CentOS 6.1 and later</li><li>Red Hat 6.1 and later</li><li>Oracle Linux Server release 6.1</li><li>Debian GUN/Linux 6.0.4 and later</li><li>openSUSE 11.3 64-bit</li><li>Red Flag Asianux Server 4 SP2</li></ul>
+<ul><li>Windows of all versions</li></ul>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13.333333333333334%" headers="mcps1.2.1.2.1.3.2.4.1.1 "><p>Sharing mode</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="25.666666666666664%" headers="mcps1.2.1.2.1.3.2.4.1.2 "><p>Has no limitation on the OS.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="61%" headers="mcps1.2.1.2.1.3.2.4.1.3 "><ul><li>Supports only ISO files.</li><li>Requires the setting of ISO file sharing parameters.</li></ul>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600018__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">Precautions</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>Only one CD/DVD-ROM drive or ISO file can be mounted to a VM.</li><li>You can mount CD/DVD-ROM drives or ISO files only for a maximum
+of four VMs on a host. Therefore, if the CD/DVD-ROM drive or ISO file
+is not used, unmount it. Otherwise, mounting a CD/DVD-ROM drive to
+another VM running on the host fails.</li><li>A VM cannot be migrated when a CD/DVD-ROM drive or an ISO file
+is being mounted to the VM.</li><li>The CD/DVD-ROM drive or ISO file will be automatically unmounted
+from the VM after the VM is stopped, hibernated, migrated, or restarted
+using HA. If the CD/DVD-ROM drive or ISO file is mounted in local
+mode to a VM, it will be automatically unmounted from the VM after
+the VNC window is closed.</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600018__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">Prerequisites</a></h4>
+
+
+<div class="p"><div class="p"><ul><li>The PC used for logging in to <span>FusionManager</span> can
+communicate with the <span>FusionManager</span> management
+network. If they are isolated from each other, a virtual private network
+(VPN) software is configured on the PC to allow the PC user to access
+the <span>FusionManager</span> management network. For details about VPN configuration, see <a href="../soft_inst/it_60_23_000022.html">Installing and Configuring VPN (Windows)</a>.</li><li>You have logged in to <span>FusionManager</span>.</li><li>The VM is in the <span class="parmvalue"><b>Running</b></span> state.</li></ul>
+</div>
+</div>
+
+</div>
+
+<div class="section"><a name="it_60_51_600018__1.2.4.1"></a><a name="1.2.4.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">Mounting a CD/DVD-ROM Drive or an ISO File in Local Mode</a></h4>
+
+<ol><li><span>Log in to the VM using Virtual Network Computing (VNC)
+and mount a CD/DVD-ROM drive or an ISO file to the VM.</span>
+<p>During the mounting process, do not close the VNC window. Otherwise,
+the CD/DVD-ROM drive or ISO file is automatically unmounted.</p>
+</li><li><span>Click <span><img src="fig/fig_it_60_51_600018_05.png"></span> and select <span class="uicontrol"><b>Mount Local CD/DVD-ROM Drive</b></span>,
+as shown in <a href="#it_60_51_600018__fig_01">Figure 1</a>.</span>
+<p><div class="fignone" id="it_60_51_600018__fig_01"><a name="it_60_51_600018__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>Figure 1 </b>Mounting a CD/DVD-ROM drive or an ISO file in local mode</span>
+
+<br><span><img src="fig/fig_it_60_51_600018_01.png"></span></div>
+</p>
+</li><li><span>Select the directory that contains the CD/DVD-ROM drive
+or ISO file, as shown in <a href="#it_60_51_600018__fig_02">Figure 2</a>.</span>
+<p><ul><li>If you want to mount a CD/DVD-ROM drive, select <span class="uicontrol"><b>CD/DVD-ROM</b></span> and the directory that contains the CD/DVD-ROM drive.</li><li>If you want to mount an ISO file, select <span class="uicontrol"><b>File</b></span>, click <span class="uicontrol"><b>Browse</b></span>, and select the ISO file.</li></ul>
+<div class="fignone" id="it_60_51_600018__fig_02"><a name="it_60_51_600018__fig_02"></a><a name="fig_02"></a><span class="figcap"><b>Figure 2 </b>Mounting a CD/DVD-ROM drive or an ISO file in local mode</span>
+
+<br><span><img src="fig/fig_it_60_51_600018_03.png"></span><br>
+</div>
+</p>
+</li><li id="it_60_51_600018__restart"><a name="it_60_51_600018__restart"></a><a name="restart"></a><span>To mount an OS installation file and install
+the OS for the VM, select <span class="parmvalue"><b>Restart the VM now to install
+the OS</b></span>.</span></li><li id="it_60_51_600018__ok"><a name="it_60_51_600018__ok"></a><a name="ok"></a><span>Click <span class="uicontrol"><b>OK</b></span>.</span>
+<p><p>If <span class="parmvalue"><b>Restart the VM now to install the OS</b></span> is already selected, click <span class="uicontrol"><b>Yes</b></span> in the <span class="wintitle"><b>Connection</b></span> dialog box that is displayed to reconnect the
+VM. Otherwise, the CD/DVD-ROM drive or ISO file is automatically unmounted.</p>
+</p>
+</li></ol>
+
+</div>
+
+
+<div class="section"><a name="it_60_51_600018__1.2.5.1"></a><a name="1.2.5.1"></a><h4 class="sectiontitle"><a href="#it_60_51_600018" class="sectiontitle2contents">Mounting an ISO File in Sharing Mode</a></h4>
+
+<ol><li><span>Log in to the VM using VNC and mount an ISO file to the
+VM.</span>
+<p>During the mounting process, do not close the VNC window. Otherwise,
+the ISO file is automatically unmounted.<div class="note"><img src="../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>When
+creating a VM template, you can set sharing parameters on the <span>FusionManager</span> page.</p>
+</div></div>
+</p>
+</li><li><span>Click <span><img src="fig/fig_it_60_51_600018_05.png"></span> and select <span class="uicontrol"><b>Mount Shared CD/DVD-ROM Drive</b></span>,
+as shown in <a href="#it_60_51_600018__fig_03">Figure 3</a>.</span>
+<p><div class="fignone" id="it_60_51_600018__fig_03"><a name="it_60_51_600018__fig_03"></a><a name="fig_03"></a><span class="figcap"><b>Figure 3 </b>Mounting an ISO file in sharing mode</span>
+
+<br><span><img src="fig/fig_it_60_51_600018_02.png"></span></div>
+</p>
+</li><li><span>Set ISO file sharing parameters, as shown in <a href="#it_60_51_600018__fig_04">Figure 4</a>.</span>
+<p><div class="fignone" id="it_60_51_600018__fig_04"><a name="it_60_51_600018__fig_04"></a><a name="fig_04"></a><span class="figcap"><b>Figure 4 </b>Mounting an ISO file in sharing mode</span>
+
+<br><span><img src="fig/fig_it_60_51_600018_04.png"></span><br>
+</div>
+</p>
+</li><li><span>To mount an OS installation file and install
+the OS for the VM, select <span class="parmvalue"><b>Restart the VM now to install
+the OS</b></span>.</span></li><li><span>Click <span class="uicontrol"><b>OK</b></span>.</span>
+<p><p>If <span class="parmvalue"><b>Restart the VM now to install the OS</b></span> is already selected, click <span class="uicontrol"><b>Yes</b></span> in the <span class="wintitle"><b>Connection</b></span> dialog box that is displayed to reconnect the
+VM. Otherwise, the CD/DVD-ROM drive or ISO file is automatically unmounted.</p>
+</p>
+</li></ol>
+
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../father_node/it_60_99_100032.html" title="">VM Management</a></div>
+</div>
+</div>
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

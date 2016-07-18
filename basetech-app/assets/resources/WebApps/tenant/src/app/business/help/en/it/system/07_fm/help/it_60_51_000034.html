@@ -1,0 +1,254 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Elastic IP Addresses">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000034">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>Elastic IP Addresses</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Service Functions\nElastic IP Addresses");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_User_System.htm", "", ">", "Home", "../father_node/it_60_99_start_cp.html");
+document.write("<a href=\"../father_node/it_60_99_100024.html\">Service Functions<\/a> > Elastic IP Addresses<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_User_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000034"></a><a name="it_60_51_000034"></a>
+
+
+
+<h1 class="topictitle1">Elastic IP Addresses</h1>
+<ul><li><a href="#it_60_51_000034__1.3.1.1">Overview</a></li><li><a href="#it_60_51_000034__1.3.2.1">Principles</a></li><li><a href="#it_60_51_000034__1.3.3.1">Configuration Process</a></li></ul>
+
+<div><p></p>
+
+<div class="section"><a name="it_60_51_000034__1.3.1.1"></a><a name="1.3.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000034" class="sectiontitle2contents">Overview</a></h4><p>The elastic IP address service allows the system to bind public IP addresses with VMs or private IP addresses in a virtual private cloud (VPC), enabling various resources in the VPC to provide external
+services using fixed public IP addresses.</p>
+<p>For example, if an internal server in the VPC needs to provide Web services externally, the internal server can use an elastic IP address as the Domain Name Server (DNS)-resolved IP address for Web service
+access. If the backup VM in the VPC needs to provide backup services externally, the backup VM can have an elastic IP address bound to ensure backup service continuity.</p>
+</div>
+
+<div class="section"><a name="it_60_51_000034__1.3.2.1"></a><a name="1.3.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000034" class="sectiontitle2contents">Principles</a></h4><div class="p"><span>FusionManager</span> allows an elastic IP address to bind to a VM or private IP address using a router. With this function, after obtaining an
+elastic IP address, a tenant can bind the elastic IP address to a VM so that the VM can use this elastic IP address to access the public network, as shown in <a href="#it_60_51_000034__d753e28">Figure 1</a>. With an elastic IP address bound, the VM is allowed to exclusively
+use the IP address even after it is restarted.<div class="fignone" id="it_60_51_000034__d753e28"><a name="it_60_51_000034__d753e28"></a><a name="d753e28"></a><span class="figcap"><b>Figure 1 </b>Elastic IP address service</span>
+
+<br><span><img src="fig/fig_it_60_51_000010_6.png"></span></div>
+</div>
+<p>If the VM with an elastic IP address bound is faulty, the tenant can unbind the elastic IP address from the VM and bind the elastic IP address to another VM to ensure service continuity.
+If the elastic IP address is not needed any more, the tenant can release the elastic IP address.</p>
+<p>Elastic IP address binding can be implemented when either a hardware router or software router is used. If a hardware router is used, the elastic IP
+address is provided by the public IP address pool managed by <span>FusionManager</span>, and the physical firewall implements the elastic IP address binding. If a software router is used, the elastic IP address
+is provided by the external network connected to the software router.</p>
+</div>
+
+<div class="section"><a name="it_60_51_000034__1.3.3.1"></a><a name="1.3.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000034" class="sectiontitle2contents">Configuration Process</a></h4><p><a href="#it_60_51_000034__fig_01">Figure 2</a> shows the process for configuring the elastic IP address
+service in a VPC.</p>
+<div class="p"><div class="fignone" id="it_60_51_000034__fig_01"><a name="it_60_51_000034__fig_01"></a><a name="fig_01"></a><span class="figcap"><b>Figure 2 </b>Configuration process</span>
+
+<br><span><img src="fig/fig_it_60_51_000034_1.png"></span></div>
+</div>
+<p><a href="#it_60_51_000034__tab_01">Table 1</a> describes the involved tasks.</p>
+
+<div class="tablenoborder"><a name="it_60_51_000034__tab_01"></a><a name="tab_01"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000034__tab_01" frame="border" border="1" rules="all"><caption><b>Table 1 </b>Task description</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="18.848167539267013%" id="mcps1.3.3.5.2.4.1.1"><p>Task</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="54.973821989528794%" id="mcps1.3.3.5.2.4.1.2"><p>Description</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="26.17801047120419%" id="mcps1.3.3.5.2.4.1.3"><p>Web Client Navigation</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="18.848167539267013%" headers="mcps1.3.3.5.2.4.1.1 "><p>Apply for a router.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.973821989528794%" headers="mcps1.3.3.5.2.4.1.2 "><p id="it_60_51_000034__p_applyFW"><a name="it_60_51_000034__p_applyFW"></a><a name="p_applyFW"></a>Apply for a router for the VPC to support
+elastic IP address, network address translation (NAT), access control
+list (ACL), and virtual private network (VPN) services in the VPC.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.17801047120419%" headers="mcps1.3.3.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="uicontrol"><b>Routers</b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="18.848167539267013%" headers="mcps1.3.3.5.2.4.1.1 "><p id="it_60_51_000034__route_01"><a name="it_60_51_000034__route_01"></a><a name="route_01"></a>Create a routed network.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.973821989528794%" headers="mcps1.3.3.5.2.4.1.2 "><div class="p" id="it_60_51_000034__route_02"><a name="it_60_51_000034__route_02"></a><a name="route_02"></a>Only a VM or private IP address in a routed
+network can be bound to an elastic IP address using a router.<ul><li>To bind an elastic IP address to a VM, the VM must have at least
+one network interface card (NIC) connected to the routed network.</li><li>To bind an elastic IP address to a private IP address, the private
+IP address must be obtained from the routed network.</li></ul>
+</div>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.17801047120419%" headers="mcps1.3.3.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Network</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="18.848167539267013%" headers="mcps1.3.3.5.2.4.1.1 "><p>Apply for
+public IP addresses.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.973821989528794%" headers="mcps1.3.3.5.2.4.1.2 "><p id="it_60_51_000034__p_pub01"><a name="it_60_51_000034__p_pub01"></a><a name="p_pub01"></a>Before using a public IP address, ensure that you have applied for
+the public IP address from the FusionManager public IP address pool
+for the VPC.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.17801047120419%" headers="mcps1.3.3.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Public IP Address</span></b></span>.</td>
+
+</tr>
+
+<tr>
+
+<td class="cellrowborder" valign="top" width="18.848167539267013%" headers="mcps1.3.3.5.2.4.1.1 "><p id="it_60_51_000034__eip_01"><a name="it_60_51_000034__eip_01"></a><a name="eip_01"></a>Apply for an elastic IP address.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.973821989528794%" headers="mcps1.3.3.5.2.4.1.2 "><p id="it_60_51_000034__p_eip1"><a name="it_60_51_000034__p_eip1"></a><a name="p_eip1"></a>In the public IP address pool created on <span>FusionManager</span>, apply for a public IP address to function as an elastic IP
+address.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.17801047120419%" headers="mcps1.3.3.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Elastic IP Address</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="18.848167539267013%" headers="mcps1.3.3.5.2.4.1.1 "><p id="it_60_51_000034__vm_01"><a name="it_60_51_000034__vm_01"></a><a name="vm_01"></a>Create VMs or apply for private IP addresses.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.973821989528794%" headers="mcps1.3.3.5.2.4.1.2 "><p id="it_60_51_000034__vm_02"><a name="it_60_51_000034__vm_02"></a><a name="vm_02"></a>Create VMs or apply for private IP addresses
+from the routed network based on the service requirements.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.17801047120419%" headers="mcps1.3.3.5.2.4.1.3 "><p><strong>Create VMs.</strong></p>
+<span class="menucascade"><b><span class="uicontrol">Resources</span></b> &gt; <b><span class="uicontrol">VMs</span></b></span><p><strong>Apply for private IP addresses.</strong></p>
+Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Network</span></b></span>.</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="18.848167539267013%" headers="mcps1.3.3.5.2.4.1.1 "><p id="it_60_51_000034__bound_01"><a name="it_60_51_000034__bound_01"></a><a name="bound_01"></a>Bind the elastic IP address.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="54.973821989528794%" headers="mcps1.3.3.5.2.4.1.2 "><p id="it_60_51_000034__bound_02"><a name="it_60_51_000034__bound_02"></a><a name="bound_02"></a>Bind the obtained elastic IP address to the
+specific VM or private IP address.</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="26.17801047120419%" headers="mcps1.3.3.5.2.4.1.3 ">Choose <span class="menucascade"><b><span class="uicontrol">VPC</span></b> &gt; <b><span class="uicontrol">My
+VPC</span></b></span>, select a VPC, and choose <span class="menucascade"><b><span class="uicontrol">Network</span></b> &gt; <b><span class="uicontrol">Elastic IP Address</span></b></span>.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">Huawei Proprietary and Confidential</div><div class="hwcopyright">Copyright &copy; Huawei Technologies Co., Ltd.</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

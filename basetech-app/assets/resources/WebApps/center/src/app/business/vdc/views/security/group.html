@@ -1,0 +1,45 @@
+<div fm-help help="'drawer_security'" show="show.help" i18n="'zh'"></div>
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span>{{i18n.security_term_SG_label||'安全组'}}</span></li>
+            <li class="two-lead">
+				<div ng-repeat="e in i18n.split(i18n.security_general_view_explan_label)">
+					{{e}}<br/>
+				</div>
+				<div ng-if="!i18n.security_general_view_explan_label">
+                <p>安全组用来实现安全组内和组间虚拟机的访问控制，加强虚拟机的安全保护。</p>
+                <p>管理员可以在创建的安全组中定义各种访问规则，当虚拟机加入该安全组后，即受到这些访问规则的保护。</p>
+				</div>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div class="bottom10 clearfix">
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="table.update()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="show.help=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+        </div>
+        <div>
+			<fm-dialog title="i18n.common_term_rule_label||'规则'" width="960" height="480" show="show.rule">
+				<div ng-show="show.rule" ng-include src="'app/business/vdc/views/security/rule.html'"></div>
+			</fm-dialog>
+			<fm-dialog title="i18n.security_term_memberVM_label||'成员虚拟机'" width="960" height="480" show="show.vm">
+				<div ng-show="show.vm" ng-include src="'app/business/vdc/views/security/vm.html'"></div>
+			</fm-dialog>
+			<fm-table columns="table.columns" data="table.data"
+				template="'app/business/vdc/views/security/col.html'"
+                total="table.total" change="change" update="table.update">
+			</fm-table>
+        </div>
+    </div>
+
+</div>

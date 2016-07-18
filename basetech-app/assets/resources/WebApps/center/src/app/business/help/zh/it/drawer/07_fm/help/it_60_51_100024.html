@@ -1,0 +1,62 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="外部网络">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_100024">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>外部网络</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="it_60_51_100024"></a><a name="it_60_51_100024"></a>
+
+
+<h1 class="topictitle1">外部网络</h1>
+
+
+<div>
+<p id="it_60_51_100024__internet_define"><a name="it_60_51_100024__internet_define"></a><a name="internet_define"></a>外部网络是指用户已有的网络，相对于VPC中的网络，称之为外部网络。将外部网络资源添加至<span>FusionManager</span>中，便可用于发放虚拟机和创建VPC中的直连网络。<span>其中，连接方式为子网（普通VLAN）、能够连接到Internet，子网要求IP分配方式为静态注入的IPv4网络，且不包含IPv6子网的外部网络可用于连接软件路由器，为弹性IP等业务提供所需的公网IP地址。</span></p>
+
+<div class="section"><h4 class="sectiontitle">创建外部网络</h4><div class="p">创建外部网络前，要求已在交换机上配置用于创建外部网络的VLAN或子网，且已经将使用的VLAN添加到VLAN池中。以下几种情况还需要在交换机上进行相关配置：<ul><li>如果外部网络的<span class="parmname">“连接方式”</span>选择<span class="parmvalue">“超级VLAN”</span>，还需在交换机上配置Super-VLAN及Sub-VLAN。具体操作方法请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600016.html" target="_blank">在交换机上配置VLAN聚合</a>。<div class="note"><img src="../theme/default/images/icon-note.gif"><span class="notetitle"> 说明： </span><div class="notebody"><p>Super-VLAN的VLAN ID不能添加到VLAN池中，但要将Sub-VLAN的VLAN
+ID添加到VLAN池中。</p>
+</div></div>
+</li><li>如果要求外部网络支持IPv6的子网，需要提前完成以下配置：<ol><li>在汇聚交换机上开启IPv6转发功能，具体操作方法请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600023.html" target="_blank">在交换机上配置IPv6转发功能</a>。</li><li>在FusionCompute上，选择<span class="menucascade">“<span class="uicontrol">网络</span> &gt; <span class="uicontrol">网络配置</span>”</span>，开启<span class="wintitle">“IPv6转发配置”</span>。</li></ol>
+</li><li>如果外部网络使用外部DHCP服务器分配IP地址，还需在汇聚交换机上配置DHCP服务器的网络信息和DHCP中继。具体操作方法请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600017.html" target="_blank">配置DHCP服务器的网络信息</a>。</li><li>如果外部网络使用内部DHCP服务器分配IP地址，还需完成如下任务，创建一个系统服务虚拟机作为内部DHCP服务器：<ol><li>添加VSA管理网络。</li><li>导入系统服务虚拟机模板。</li><li><p>在<span class="wintitle">“DHCP服务器”</span>页签，单击<span class="menucascade">“<span class="uicontrol">创建DHCP服务器</span>”</span>。</p>
+</li><li>在汇聚交换机上配置DHCP服务器的网络信息和DHCP中继。具体操作方法请参考<a href="../src/app/business/help/zh/it/system/07_fm/help/it_60_51_600017.html" target="_blank">配置DHCP服务器的网络信息</a>。</li></ol>
+</li></ul>
+满足上述条件后，才可以开始创建外部网络。</div>
+</div>
+
+
+<div class="section"><h4 class="sectiontitle">修改外部网络</h4><p>修改外部网络的信息。</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle">删除外部网络</h4><p>当外部网络不再使用时，删除外部网络。已被VDC使用的外部网络，不允许删除。</p>
+</div>
+
+
+
+
+<div class="section"><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><h4 class="sectiontitle">FAQ</h4></div><div class="dropdowncontext"><p><strong>什么是超级子网</strong></p>
+<p>超级子网是指一个子网支持多个VLAN，通过VLAN对子网中的IP地址资源进行隔离。超级子网用于多个VPC使用同一网段的公网IP地址，可确保不同VPC使用的公网IP互相隔离，又能使公网IP资源充分利用。一个超级子网的一个所属VLAN，只能被一个VPC使用。超级子网的可用IP个数和子网相关，子网中的IP地址供超级子网中的多个VLAN使用。 </p>
+</div></div></div>
+
+<div class="section"><div class="p"><pre class="screen"> </pre>
+</div>
+<p><span><a href="http://enterprise.huawei.com/topic/FusionCloud_2013/index.html" target="_blank">文档中心</a></span><span> | </span><span><a href="http://support.huawei.com/ecommunity/bbs/list_1069,1079.html?tclass=605" target="_blank">技术论坛</a></span></p>
+</div>
+
+</div>
+
+
+</body>
+</html>

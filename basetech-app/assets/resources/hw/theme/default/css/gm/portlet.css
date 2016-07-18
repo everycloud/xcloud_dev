@@ -1,0 +1,10 @@
+@charset "utf-8";
+.vm_created{color:#1fbe5c;font-size: 24px;line-height: 24px;}
+.vm_can_create{color:#1fbe5c;font-size: 24px;line-height: 24px;}
+.status_normal{color:#1fbe5c;}
+.status_abnormal{color:#F21414;}
+.alarm_major a{color:#F7820D;font-size: 24px;}
+.alarm_critical a{color:#F21414;font-size: 24px;}
+.alarm_normal{color:#1fbe5c;font-size: 24px;}
+.alarm_major{color:#F7820D;font-size: 24px;}
+.alarm_critical{color:#F21414;font-size: 24px;}

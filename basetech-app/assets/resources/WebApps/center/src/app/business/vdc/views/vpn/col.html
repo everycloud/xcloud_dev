@@ -1,0 +1,6 @@
+<dd class='desp'><a ng-click='show.detail=true;netTable.id=row.id;netTable.update(row.id);'>{{i18n.common_term_check_button||'查看'}}</a><dd>
+<dd class='id'>
+	<fm-check map="para.map" option="netTable.data[index].box" 
+		ng-click="event.click(index)">
+	</fm-check>
+<dd>

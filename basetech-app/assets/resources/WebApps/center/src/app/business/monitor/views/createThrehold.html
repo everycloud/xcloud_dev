@@ -1,0 +1,149 @@
+<div class="monitor_alarm_create_threhold" ng-controller="monitor.threhold.create.ctrl" style="margin-top: 0px;">
+    <tiny-formfield>
+        <tiny-item label="threhold.threholdName.label" require="threhold.threholdName.require">
+            <tiny-textbox id="threhold.threholdName.id" value="threhold.threholdName.value"></tiny-textbox>
+        </tiny-item>
+
+        <tiny-item label="threhold.alarmIndex.label" require="threhold.alarmIndex.require">
+            <tiny-select id="threhold.alarmIndex.id" values="threhold.alarmIndex.values" width="threhold.alarmIndex.width" class="margin-right-beautifier" default-label="threhold.alarmIndex.dftLabel" change="threhold.alarmIndex.change()">
+            </tiny-select>
+        </tiny-item>
+
+        <tiny-item label="threhold.alarmId.label" require="threhold.alarmId.require">
+            <label ng-bind="threhold.alarmId.value"></label>
+        </tiny-item>
+
+
+
+        <tiny-item label="threhold.optInfo.label" require="threhold.optInfo.require">
+            <tiny-button id="createAddBtn.id" icons-class="icon-plus" text="createAddBtn.text" click="createAddBtn.click()"></tiny-button>
+            <tiny-button id="createDeleteBtn.id" icons-class="icon-plus" text="createDeleteBtn.text" click="createDeleteBtn.click()"></tiny-button>
+        </tiny-item>
+
+
+    </tiny-formfield>
+    <div style="margin:0px 0px 0px 70px;">
+        <tiny-table id="addThreholdListTable.id" data="addThreholdListTable.data" columns="addThreholdListTable.columns" pagination-style="addThreholdListTable.paginationStyle" length-change="addThreholdListTable.lengthChange" length-menu="addThreholdListTable.lengthMenu"
+        display-length="addThreholdListTable.displayLength" enable-filter="addThreholdListTable.enableFilter" show-details="addThreholdListTable.showDetails" render-row="addThreholdListTable.renderRow" columns-visibility="false" columns-draggable="false"></tiny-table>
+
+
+
+    </div>
+    <div style="margin:50px 0px 0px 0px;">
+        <tiny-formfield>
+            <tiny-item label="threhold.alarmLevel.label" require="threhold.alarmLevel.require">
+                <div class="clearfix" style="height: 32px;">
+                    <div style="display: inline-block;float: left;margin: 2px 5px 0 0;">
+                        <tiny-checkbox id="threhold.alarmLevel.id" text="threhold.alarmLevel.values[0].text" checked="threhold.alarmLevel.values[0].checked"></tiny-checkbox>
+                    </div>
+                    <div style="display: inline-block;float: left">
+                        <span ng-bind="threhold.alarmLevel.value1"></span>
+                        <tiny-textbox id="txt1" value="30" width="50"></tiny-textbox>
+                        <tiny-select id="threhold.timeType.id" values="threhold.timeType.values" width="threhold.timeType.width" class="margin-right-beautifier" default-label="threhold.timeType.dftLabel" change="searchLevel.change()">
+                        </tiny-select>
+                        <span ng-bind="threhold.alarmLevel.value2"></span>
+                        <tiny-textbox id="txt2" value="90" width="50"></tiny-textbox>
+                        <span ng-bind="threhold.alarmLevel.value3 "></span>
+                        <tiny-textbox id="txt3" value="1" width="50"></tiny-textbox>
+                        <span ng-bind="threhold.alarmLevel.value4 "></span>
+                    </div>
+                </div>
+                <div class="clearfix" style="height: 32px;">
+                    <div style="display: inline-block;float: left;margin:2px 5px 0 0;">
+                        <tiny-checkbox id="threhold.alarmLevel.id" text="threhold.alarmLevel.values[1].text" checked="threhold.alarmLevel.values[1].checked"></tiny-checkbox>
+                    </div>
+                    <div style="display: inline-block;float: left">
+                        <span ng-bind="threhold.alarmLevel.value1"></span>
+                        <tiny-textbox id="txt4" value="30" width="50"></tiny-textbox>
+                        <tiny-select id="threhold.timeType.id" values="threhold.timeType.values" width="threhold.timeType.width" class="margin-right-beautifier" default-label="threhold.timeType.dftLabel" change="searchLevel.change()">
+                        </tiny-select>
+                        <span ng-bind="threhold.alarmLevel.value2"></span>
+                        <tiny-textbox id="txt5" value="80" width="50"></tiny-textbox>
+                        <span ng-bind="threhold.alarmLevel.value3"></span>
+                        <tiny-textbox id="txt6" value="1" width="50"></tiny-textbox>
+                        <span ng-bind="threhold.alarmLevel.value4 "></span>
+                    </div>
+                </div>
+                <div class="clearfix" style="height: 32px;">
+                    <div style="display: inline-block;float: left;margin:2px 5px 0 0;">
+                        <tiny-checkbox id="threhold.alarmLevel.id" text="threhold.alarmLevel.values[2].text" checked="threhold.alarmLevel.values[2].checked"></tiny-checkbox>
+                    </div>
+                    <div style="display: inline-block;float: left">
+                        <span ng-bind="threhold.alarmLevel.value1"></span>
+                        <tiny-textbox id="txt7" value="30" width="50"></tiny-textbox>
+                        <tiny-select id="threhold.timeType.id" values="threhold.timeType.values" width="threhold.timeType.width" class="margin-right-beautifier" default-label="threhold.timeType.dftLabel" change="searchLevel.change()">
+                        </tiny-select>
+                        <span ng-bind="threhold.alarmLevel.value2"></span>
+                        <tiny-textbox id="txt8" value="70" width="50"></tiny-textbox>
+                        <span ng-bind="threhold.alarmLevel.value3"></span>
+                        <tiny-textbox id="txt9" value="1" width="50"></tiny-textbox>
+                        <span ng-bind="threhold.alarmLevel.value4 "></span>
+                    </div>
+                </div>
+                <div class="clearfix" style="height: 32px;">
+                    <div style="display: inline-block;float: left;margin:2px 5px 0 0;">
+                        <tiny-checkbox id="threhold.alarmLevel.id" text="threhold.alarmLevel.values[3].text" checked="threhold.alarmLevel.values[3].checked"></tiny-checkbox>
+                    </div>
+                    <div style="display: inline-block;float: left">
+                        <span ng-bind="threhold.alarmLevel.value1"></span>
+                        <tiny-textbox id="txt10" value="30" width="50"></tiny-textbox>
+                        <tiny-select id="threhold.timeType.id" values="threhold.timeType.values" width="threhold.timeType.width" class="margin-right-beautifier" default-label="threhold.timeType.dftLabel" change="searchLevel.change()">
+                        </tiny-select>
+                        <span ng-bind="threhold.alarmLevel.value2"></span>
+                        <tiny-textbox id="txt11" value="60" width="50"></tiny-textbox>
+                        <span ng-bind="threhold.alarmLevel.value3 "></span>
+                        <tiny-textbox id="txt12" value="1" width="50"></tiny-textbox>
+                        <span ng-bind="threhold.alarmLevel.value4 "></span>
+                    </div>
+                </div>
+            </tiny-item>
+        </tiny-formfield>
+
+    </div>
+
+
+    <div style="margin:0px 0px 0px 50px;">
+        <tiny-button class="major-btn" id="createOkBtn.id" icons-class="icon-plus" text="createOkBtn.text" click="createOkBtn.click()"></tiny-button>
+        <tiny-button id="createCancelBtn.id" icons-class="icon-plus" text="createCancelBtn.text" click="createCancelBtn.click()"></tiny-button>
+
+    </div>
+
+</div>
+
+<script type="application/javascript">
+require(['app/business/monitor/controllers/createThrehold', 'app/services/httpService'],
+    function(createThrehold, http) {
+        var curView = undefined;
+        $(".monitor_alarm_create_threhold").each(function() {
+            if ($(this).attr("id") === undefined) {
+                curView = $(this);
+            }
+        });
+        curView.attr("id", new Date().getMilliseconds());
+
+        var dep = ['ng', 'wcc', createThrehold.name];
+        dep.unshift(["$provide",
+            function($provide) {
+                $provide.value("$rootElement", $(".monitor_alarm_create_threhold"));
+            }
+        ]);
+        var $injector = angular.injector(dep);
+        $injector.invoke(function($compile, $rootScope) {
+            $compile($(".monitor_alarm_create_threhold"))($rootScope);
+            $rootScope.$digest();
+        });
+
+        var newScope = curView.scope();
+        var camel = new http();
+        var deferred = camel.get({
+            "url": "/uportal/monitoring/threholdObjQuery"
+        });
+        deferred.success(function(data) {
+
+            newScope.$apply(function() {
+                newScope.addThreholdListTable.data = data;
+            });
+        });
+
+    });
+</script>

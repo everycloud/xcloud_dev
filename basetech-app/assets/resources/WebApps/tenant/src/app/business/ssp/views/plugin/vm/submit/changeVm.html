@@ -1,0 +1,132 @@
+<div class="ssp_modify_ecs container-fluid">
+    <div class="container-fluid top10">
+        <div class="product-info-section">
+            <div class="sprite-x s-heading collapse" style="cursor: auto;">
+                <h5 class="headFont left25" ng-bind="i18n.service_term_applyVMspecChange_label"></h5>
+                <div class="product-info-section-subtitle"></div>
+            </div>
+            <div class="s-content" style="display: block;">
+                <div class="top10 left25">
+                    <div>
+                        <tiny-formfield labelwidth="vmName.labelWidth">
+                            <tiny-item label="vmName.label">
+                                <span ng-bind="vmDetail.name"></span>
+                            </tiny-item>
+                            <tiny-item label="vmId.label">
+                                <span ng-bind="vmDetail.id"></span>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+
+                    <!-- IT单独修改CPU、内存 -->
+                    <div ng-if="supportModifyConfig=='false'">
+                        <tiny-formfield labelwidth="vmName.labelWidth">
+                            <tiny-item label="oldConfig.label">
+                                <div id="sspModifyEcsOldCpuMem">
+                                    <tiny-formfield>
+                                        <tiny-item label="cpu.label">
+                                            <div style="min-width: 500px;">
+                                                <span ng-bind="vmDetail.vmSpecInfo.cpuRebootCount"></span>
+                                                <span ng-if="vmDetail.vmSpecInfo.cpuRebootCount !== vmDetail.vmSpecInfo.cpuCount">{{i18n.vm_vm_modifySpecs_info_restart_label}}</span>
+                                            </div>
+                                        </tiny-item>
+                                        <tiny-item label="memory.label">
+                                            <div style="min-width: 500px;">
+                                                <span ng-bind="vmDetail.vmSpecInfo.memoryRebootCount"></span> MB
+                                                <span ng-if="vmDetail.vmSpecInfo.memoryRebootCount !== vmDetail.vmSpecInfo.memoryCount">{{i18n.vm_vm_modifySpecs_info_restart_label}}</span>
+                                            </div>
+                                        </tiny-item>
+                                    </tiny-formfield>
+                                </div>
+                            </tiny-item>
+
+                            <tiny-item label="newConfig.label">
+                                <div id="sspModifyEcsNewCpuMem">
+                                    <div>
+                                        <div ng-bind="cpu.label"></div>
+                                        <div>
+                                            <div class="options createvm-cpu">
+                                                <div class="types-options cpu-options selected" data-value="1">1{{i18n.common_term_core_label}}</div>
+                                                <div class="types-options cpu-options" data-value="2">2{{i18n.common_term_core_label}}</div>
+                                                <div class="types-options cpu-options" data-value="4">4{{i18n.common_term_core_label}}</div>
+                                                <div class="types-options cpu-options" data-value="6">6{{i18n.common_term_core_label}}</div>
+                                                <div class="types-options cpu-options" data-value="8">8{{i18n.common_term_core_label}}</div>
+                                                <div class="types-options cpu-options" self-defined data-value="">{{i18n.common_term_custom_label}}</div>
+                                                <div class="input-tip">1～64</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="top10 bottom20">
+                                        <div ng-bind="memory.label"></div>
+                                        <div class="options createvm-memory">
+                                            <div class="types-options memory-options selected" data-value="512">512MB</div>
+                                            <div class="types-options memory-options" data-value="1024">1G</div>
+                                            <div class="types-options memory-options" data-value="2048">2G</div>
+                                            <div class="types-options memory-options" data-value="4096">4G</div>
+                                            <div class="types-options memory-options" data-value="8192">8G</div>
+                                            <div class="types-options memory-options" self-defined data-value="">{{i18n.common_term_custom_label}}</div>
+                                            <div class="input-tip">1～1024</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+
+                    <!-- ICT直接修改规格 -->
+                    <div class="row-fluid" ng-if="supportModifyConfig=='true'">
+                        <tiny-formfield labelwidth="vmName.labelWidth">
+                            <tiny-item label="oldConfig.label">
+                                <div id="sspModifyEcsOldConfig">
+                                    <div ng-bind="oldConfig.detail.name" class="bottom10"></div>
+                                    <tiny-formfield>
+                                        <tiny-item label="cpu.label">
+                                            <span ng-bind="oldConfig.detail.cpuCount"></span>
+                                        </tiny-item>
+                                        <tiny-item label="memory.labelMB">
+                                            <span ng-bind="oldConfig.detail.memSize"></span>
+                                        </tiny-item>
+                                        <tiny-item label="disk.label">
+                                            <span ng-bind="oldConfig.detail.diskTotalSize"></span>
+                                        </tiny-item>
+                                    </tiny-formfield>
+                                </div>
+                            </tiny-item>
+
+                            <tiny-item label="newConfig.label">
+                                <div id="sspModifyEcsNewConfig" class="top5">
+                                    <div class="bottom10">
+                                        <tiny-select id="newConfig.id" values="newConfig.values" width="newConfig.width" height="newConfig.height" change="newConfig.change()" validate="newConfig.validate"></tiny-select>
+                                    </div>
+                                    <tiny-formfield>
+                                        <tiny-item label="cpu.label" labelcls="cpu.class">
+                                            <span ng-bind="newConfig.detail.cpuCount"></span>
+                                        </tiny-item>
+                                        <tiny-item label="memory.labelMB" labelcls="cpu.class">
+                                            <span ng-bind="newConfig.detail.memSize"></span>
+                                        </tiny-item>
+                                        <tiny-item label="disk.label" labelcls="cpu.class">
+                                            <span ng-bind="newConfig.detail.diskTotalSize"></span>
+                                        </tiny-item>
+                                    </tiny-formfield>
+                                </div>
+                            </tiny-item>
+                        </tiny-formfield>
+                    </div>
+
+                    <tiny-formfield labelwidth="vmName.labelWidth">
+                        <tiny-item label="remark.label" labelcls="vmName.labelCls">
+                            <tiny-textbox id="remark.id" value="remark.value" type="remark.type" width="remark.width" height="remark.height" validate="remark.validate">
+                            </tiny-textbox>
+                        </tiny-item>
+                    </tiny-formfield>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fm-btn-top-large">
+        <tiny-button id="okBtn.id" text="okBtn.text" click="okBtn.click()" class="major-btn"></tiny-button>
+        <tiny-button id="cancelBtn.id" text="cancelBtn.text" click="cancelBtn.click()"></tiny-button>
+    </div>
+</div>

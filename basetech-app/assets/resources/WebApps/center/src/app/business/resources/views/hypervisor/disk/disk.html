@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="nav nav-list noPadding">
+            <li><span ng-bind="i18n.common_term_disk_label"></span></li>
+            <li class="two-lead">
+                <p ng-bind-html="i18n.vm_disk_view_explan_label"></p>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="content-right-box">
+        <div class="bottom10 clearfix">
+            <div class="fl"><tiny-button class="major-btn" id="exportButton.id" text="exportButton.text" click="exportButton.click()"
+                         ng-if="exportAble"></tiny-button></div>
+            <!--刷新、帮助-->
+            <div class="pull-right">
+                <a class="btn-link">
+                    <div ng-click="refresh()" class="small-icon small-icon-refresh"></div>
+                </a>
+                <a class="btn-link">
+                    <div ng-click="help.show=true" class="small-icon small-icon-help"></div>
+                </a>
+            </div>
+            <div class="fr button_mr">
+                <tiny-searchbox id="searchBox.id" placeholder="searchBox.placeholder"
+                                search="searchBox.search"></tiny-searchbox>
+            </div>
+        </div>
+        <div>
+            <tiny-table id="diskTable.id" data="diskTable.data" pagination-style="diskTable.paginationStyle"
+                        columns='diskTable.columns' render-row="diskTable.renderRow"
+                        total-records="diskTable.totalRecords" length-change="diskTable.lengthChange"
+                        cur-page="diskTable.curPage" display-length="diskTable.displayLength"
+                        enable-pagination="diskTable.enablePagination" show-details="diskTable.showDetails"
+                        length-menu="diskTable.lengthMenu" callback="diskTable.callback"
+                        column-sorting="diskTable.columnSorting" columns-visibility="diskTable.columnsVisibility"
+                        columns-draggable="diskTable.columnsDraggable"
+                        change-select="diskTable.changeSelect"></tiny-table>
+        </div>
+    </div>
+    <div fm-help help="'drawer_vm_disk'" show="help.show" i18n="'zh'"></div>
+    <iframe id="downloadDiskIframe" style="display:none"></iframe>
+</div>

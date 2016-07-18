@@ -1,0 +1,59 @@
+<div class="create-sla-extra container-fluid" ng-controller="template.flavor.sla.ctrl">
+    <div class="margin-top-beautifier">
+        <tiny-formfield>
+            <tiny-item label="resourceTagsTable.label" require="resourceTagsTable.require">
+                <tiny-button id="resourceTagsTable.id" text="resourceTagsTable.text" click="resourceTagsTable.addTag()"></tiny-button>
+                <div class="margin-top-beautifier">
+                    <!-- 自定义表格 -->
+                    <table class="complexTable">
+                        <tr>
+                            <th style="width: 200px;"><span ng-bind="i18n.cloud_term_tagName_label"></span></th>
+                            <th style="width: 180px;"><span ng-bind="i18n.cloud_term_tagValue_label"></span></th>
+                            <th style="width: 80px;"><span ng-bind="i18n.role_role_add_option_tagHandle_value"></span></th>
+                        </tr>
+                        <tbody>
+                        <tr ng-if="resourceTagsTable.data.length == 0" class="complexTable-empty-tr">
+                            <td valign="top" colspan="3">No data available in table</td>
+                        </tr>
+                        <tr class="complexTable-tr" ng-repeat="tr in resourceTagsTable.data">
+                            <td style="overflow:visible;">
+                                <tiny-select ng-if="tr.key==''" id="$index" values="slaSelect.values" width="slaSelect.width" change="slaSelect.change($index)"></tiny-select>
+                                <span ng-bind="tr.key"></span>
+                            </td>
+                            <td style="overflow:visible;">
+                                <span ng-bind="tr.value"></span>
+                            </td>
+                            <td><a href="javascript:void(0)"
+                                   ng-click="resourceTagsTable.deleteTag($index)"
+                                   style="width:auto" ng-bind="i18n.common_term_delete_button"></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </tiny-item>
+            <tiny-item label="buttonGroup.label" require="buttonGroup.require" class="fm-btn-top-small">
+                <tiny-button class="major-btn" id="saveBtn.id" text="saveBtn.text"
+                             tooltip="saveBtn.tooltip" click="saveBtn.click()"></tiny-button>
+                <tiny-button id="cancelBtn.id" text="cancelBtn.text"
+                             tooltip="cancelBtn.tooltip" click="cancelBtn.click()"></tiny-button>
+            </tiny-item>
+        </tiny-formfield>
+    </div>
+</div>
+<script type="application/javascript">
+    require(['app/business/resources/controllers/openStackResource/region/regionResources/flavor/createSlaExtraCtrl',
+        "app/framework/directive/directiveFM"],
+            function (createSlaExtraCtrl, fm) {
+                var dep = ['ng', 'wcc', createSlaExtraCtrl.name, fm.name];
+                dep.unshift(["$provide", function ($provide) {
+                    $provide.value("$rootElement", $(".create-sla-extra"));
+                }]);
+                var $injector = angular.injector(dep);
+                $injector.invoke(function ($compile) {
+                    var scope = $(".create-sla-extra").scope();
+                    $compile($(".create-sla-extra"))(scope);
+                    scope.$digest();
+                });
+            });
+</script>

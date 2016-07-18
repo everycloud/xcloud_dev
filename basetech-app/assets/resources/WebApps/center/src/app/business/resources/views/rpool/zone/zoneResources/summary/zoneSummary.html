@@ -1,0 +1,124 @@
+<div class="row-fluid" style="padding-left: 20px;">
+    <div class="span6 outbox-padding">
+        <div class="legend1" ng-bind="i18n.common_term_basicInfo_label"></div>
+        <div class="horizontal_line"></div>
+        <div class="fl" id="zoneSummaryBasic">
+            <tiny-formfield>
+                <tiny-item label="nameItem.label">
+                    <div ng-if="!nameItem.modifying">
+                        <span ng-bind="nameItem.value"></span>
+                            <span class="btn-link" ng-click="nameItem.clickModify()" ng-if="operable">
+                                <img src="../theme/default/images/gm/edit.gif"></span>
+                    </div>
+                    <div ng-if="nameItem.modifying">
+                        <tiny-textbox id="nameItem.id" value="nameItem.value" blur="nameItem.blur()"
+                                      keypressfn="nameItem.keypressfn" width="150"
+                                      validate="nameItem.validate"></tiny-textbox>
+                    </div>
+                </tiny-item>
+                <tiny-item label="areaItem.label">
+                    <div ng-if="!areaItem.modifying">
+                        <span ng-bind="areaItem.value"></span>
+                            <span class="btn-link" ng-click="areaItem.clickModify()" ng-if="operable">
+                                <img src="../theme/default/images/gm/edit.gif"></span>
+                    </div>
+                    <div ng-if="areaItem.modifying">
+                        <tiny-textbox id="areaItem.id" value="areaItem.value" blur="areaItem.blur()"
+                                      keypressfn="areaItem.keypressfn" width="150"
+                                      validate="areaItem.validate"></tiny-textbox>
+                    </div>
+                </tiny-item>
+                <tiny-item label="descItem.label">
+                    <div ng-if="!descItem.modifying">
+                        <span ng-bind="descItem.value" style="word-break:break-all"></span>
+                            <span class="btn-link" ng-click="descItem.clickModify()" ng-if="operable">
+                                <img src="../theme/default/images/gm/edit.gif"></span>
+                    </div>
+                    <div ng-if="descItem.modifying">
+                        <tiny-textbox id="descItem.id" height="descItem.height" width="descItem.width"
+                                      value="descItem.value" blur="descItem.blur()" keypressfn="descItem.keypressfn"
+                                      type="descItem.type" width="150" validate="descItem.validate"></tiny-textbox>
+                    </div>
+                </tiny-item>
+                <tiny-item label="'ID:'">
+                    <div ng-bind="zoneId"></div>
+                </tiny-item>
+                <tiny-item label="label.networkMode">
+                    <div ng-bind="mode"></div>
+                </tiny-item>
+                <tiny-item label="label.createTime">
+                    <div ng-bind="createTime"></div>
+                </tiny-item>
+                <tiny-item label="label.lastTime">
+                    <div ng-bind="lastModifiedTime"></div>
+                </tiny-item>
+            </tiny-formfield>
+        </div>
+    </div>
+    <div class="span6 outbox-padding">
+        <div class="legend1" ng-bind="i18n.resource_term_resourceUsageStatus_label"></div>
+        <div class="horizontal_line"></div>
+        <div style="margin: 11px 0px;">
+            <div class="fl image_style"><img src="../theme/default/images/gm/cpu.png"><p>CPU</p></div>
+            <div class="fl info_line">
+                <p class="color-gray">{{i18n.perform_term_UsageRate_label}}:</p>
+                <p class="info_value f24 line-height30" style="color:#5ecc49" ng-bind="cpu.rate"></p>
+            </div>
+            <div class="fl ml30">
+                <tiny-formfield>
+                    <tiny-item label="label.total">
+                        <div ng-bind="cpu.total"></div>
+                    </tiny-item>
+                    <tiny-item label="label.useInfo">
+                        <div ng-bind="cpu.useInfo"></div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+        <div class="clear_both divider_line"></div>
+        <div style="margin: 11px 0px;">
+            <div class="fl image_style"><img src="../theme/default/images/gm/disk_ico.png"><p>{{i18n.common_term_memory_label}}</p></div>
+            <div class="fl info_line">
+                <p class="color-gray">{{i18n.perform_term_UsageRate_label}}:</p>
+                <p class="info_value f24 line-height30" style="color:#5ecc49" ng-bind="memory.rate"></p>
+            </div>
+            <div class="fl ml30">
+                <tiny-formfield>
+                    <tiny-item label="label.total">
+                        <div ng-bind="memory.total"></div>
+                    </tiny-item>
+                    <tiny-item label="label.useInfo">
+                        <div ng-bind="memory.useInfo"></div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+        <div class="clear_both divider_line"></div>
+        <div style="margin: 11px 0px;">
+            <div class="fl image_style"><img src="../theme/default/images/gm/disk_ico.png"><p>{{i18n.common_term_storage_label}}</p></div>
+            <div class="fl info_line">
+                <p class="color-gray">{{i18n.perform_term_UsageRate_label}}:</p>
+
+                <p class="info_value f24 line-height30" style="color:#5ecc49" ng-bind="storage.rate"></p>
+            </div>
+            <div class="fl ml30">
+                <tiny-formfield>
+                    <tiny-item label="label.total">
+                        <div ng-bind="storage.total"></div>
+                    </tiny-item>
+                    <tiny-item label="label.useInfo">
+                        <div ng-bind="storage.useInfo"></div>
+                    </tiny-item>
+                    <tiny-item label="label.allotInfo">
+                        <div ng-bind="storage.allotInfo"></div>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+        </div>
+        <div class="clear_both divider_line"></div>
+        <div class="clear_both" style="margin: 18px 0px 0px 0px;">
+            <tiny-columnchart id="networkChart.id" values="networkChart.values" bold="networkChart.bold"
+                              is-fill="networkChart.isFill" width="networkChart.width"></tiny-columnchart>
+        </div>
+    </div>
+</div>

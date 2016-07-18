@@ -1,0 +1,98 @@
+<div class="container-fluid createvpc-confirm">
+    <div class="create-page-distance" ng-show="service.showConfirmInfo">
+        <div class="row-fluid">
+            <div class="createpage-title" ng-bind="i18n.common_term_basicInfo_label"></div>
+            <tiny-formfield>
+                <tiny-item label="baseInfo.name">
+                    <span ng-bind="service.name" class="textOverflow maxWidth200"></span>
+                </tiny-item>
+                <tiny-item label="baseInfo.description">
+                    <span ng-bind="service.description" class="textOverflow maxWidth200"></span>
+                </tiny-item>
+            </tiny-formfield>
+            <div ng-show="service.type!=='4' && service.type!=='5'">
+                <div class="createpage-title" ng-bind="i18n.vpc_term_directConnectNet_label"></div>
+                <tiny-formfield>
+                    <tiny-item label="baseInfo.name">
+                        <span ng-bind="service.direct.name" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.description" display="!service.isICT">
+                        <span ng-bind="service.direct.description" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.vlan.label">
+                        <span ng-bind="service.direct.vlanId" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-show="service.type==='3' || service.type==='5'">
+                <div class="createpage-title" ng-bind="i18n.vpc_term_innerNet_label"></div>
+                <tiny-formfield>
+                    <tiny-item label="baseInfo.name">
+                        <span ng-bind="service.internal.name" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.IPassignMode">
+                        <span ng-bind="service.internal.ipType" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.subnetMask">
+                        <span ng-bind="service.internal.subnetAndMark" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.gateway">
+                        <span ng-bind="service.internal.gateway" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.description" display="!service.isICT">
+                        <span ng-bind="service.internal.description" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <div ng-show="service.type!='0'&&service.type!='4'&&service.type!='5'">
+                <div class="createpage-title" ng-bind="i18n.vpc_term_routerNet_label"></div>
+                <tiny-formfield>
+                    <tiny-item label="baseInfo.name">
+                        <span ng-bind="service.router.name" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.IPassignMode">
+                        <span ng-bind="service.router.ipType" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.routerType" display="!service.isICT">
+                        <span ng-bind="service.router.routerTypeUI" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.supporVXLAN" display="!service.isICT && service.router.routerType=='2'">
+                        <span ng-bind="service.router.supportVxlan ? i18n.common_term_yes_button : i18n.common_term_no_label" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.subnetMask">
+                        <span ng-bind="service.router.subnetAndMark" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.gateway">
+                        <span ng-bind="service.router.gateway" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                    <tiny-item label="baseInfo.description" display="!service.isICT">
+                        <span ng-bind="service.router.description" class="textOverflow maxWidth200"></span>
+                    </tiny-item>
+                </tiny-formfield>
+            </div>
+            <form class="form-horizontal fm-btn-top-small">
+                <tiny-button id="baseInfo.preBtn.id" text="baseInfo.preBtn.text" click="baseInfo.preBtn.click()"></tiny-button>
+                <tiny-button id="baseInfo.createBtn.id" text="baseInfo.createBtn.text" click="baseInfo.createBtn.click()" class="major-btn"></tiny-button>
+                <tiny-button id="baseInfo.cancelBtn.id" text="baseInfo.cancelBtn.text" click="baseInfo.cancelBtn.click()"></tiny-button>
+            </form>
+        </div>
+    </div>
+    <div ng-show="service.showProgressbar" class="create-page-distance">
+        <div ng-bind="service.progressInfo"></div>
+        <div style="display: block; width: 560px;">
+            <div class="clearfix top10">
+                <div class="progressbar-box" style="width: 500px;  height: 22px; border-radius: 11px;float:left;margin-right: 5px;">
+                    <div class="progressbar-color" ng-style="{width:service.progress*5}" style=" height: 20px;"></div>
+                </div>
+                <div style="float:left;" class="progressbar-text">
+                    <span ng-bind="service.progress"></span>%</div>
+            </div>
+            <div ng-repeat="stepInfo in service.progressStepInfo">
+                <div ng-bind="stepInfo" />
+            </div>
+            <form class="form-horizontal fm-btn-top-large">
+                <tiny-button id="baseInfo.cancelBtn.id" text="baseInfo.confirmBtn.text" click="baseInfo.cancelBtn.click()" class="major-btn"></tiny-button>
+            </form>
+        </div>
+    </div>
+</div>

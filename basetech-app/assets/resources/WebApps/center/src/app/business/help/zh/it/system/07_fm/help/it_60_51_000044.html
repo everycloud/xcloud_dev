@@ -1,0 +1,168 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) 版权 2005">
+<meta name="DC.rights.owner" content="(C) 版权 2005">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="应用层包过滤">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="it_60_51_000044">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<title>应用层包过滤</title>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+
+ <meta name="generator" content="Adobe RoboHelp 9">
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = decodeURI(document.location.href);
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = encodeURI(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("资源配置\n特性配置\n应用层包过滤");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../Help_Admin_System.htm", "", ">", "Home", "../father_node/it_60_99_start.html");
+document.write("<a href=\"../father_node/it_60_99_100012.html\">资源配置<\/a> > <a href=\"../father_node/it_60_99_100013.html\">特性配置<\/a> > 应用层包过滤<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../Help_Admin_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><a name="it_60_51_000044"></a><a name="it_60_51_000044"></a>
+
+
+<h1 class="topictitle1">应用层包过滤</h1>
+<ul><li><a href="#it_60_51_000044__1.2.1.1">简介</a></li><li><a href="#it_60_51_000044__1.2.2.1">原理概述</a></li><li><a href="#it_60_51_000044__1.2.3.1">配置流程</a></li></ul>
+<div>
+<div class="section" id="it_60_51_000044__sec_overView"><a name="it_60_51_000044__sec_overView"></a><a name="sec_overView"></a><a name="it_60_51_000044__1.2.1.1"></a><a name="1.2.1.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000044" class="sectiontitle2contents">简介</a></h4><p>应用层包过滤是基于应用连接状态的报文过滤，它可以和普通的静态防火墙协同工作，以便于实施内部网络的安全策略。</p>
+</div>
+
+<div class="section" id="it_60_51_000044__sec_principle"><a name="it_60_51_000044__sec_principle"></a><a name="sec_principle"></a><a name="it_60_51_000044__1.2.2.1"></a><a name="1.2.2.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000044" class="sectiontitle2contents">原理概述</a></h4><p>应用层包过滤是对通过设备的报文的应用层数据进行解析，以识别通信过程中自动协商出来的随机端口，并自动为其开放相应的访问规则，使得某些在ACL规则中没有明确定义要放行的报文也能够得到正常转发。</p>
+<p>例如FTP协议，如果设置了ACL规则只允许用户与FTP Server的21端口的连接，在不启用应用层包过滤功能时，设备会建立一个会话表项以保证用户和FTP
+Server的21端口的报文传输。但是FTP Server是随机选择端口与用户之间建立连接的，其使用的端口是不确定的，所以这个连接是不能建立成功的。</p>
+<p>在启用应用层包过滤功能的情况下，如<a href="#it_60_51_000044__fig_aspf">图1</a>所示，用户A发起连接后，防火墙将自动识别用户发起连接的端口，并创建一条server-map表项允许任意IP和端口访问用户A的22787端口。防火墙会先使用默认的端口来初始化一个控制连接，然后再动态的选择用于数据传输的端口。防火墙能够解析并记录每一个连接所使用的端口，并为每一个连接建立一个会话表项，在数据连接结束时，删除之前建立的server-map表项，从而对使用动态端口的应用连接实现有效的访问控制。</p>
+<div class="fignone" id="it_60_51_000044__fig_aspf"><a name="it_60_51_000044__fig_aspf"></a><a name="fig_aspf"></a><span class="figcap"><b>图1 </b>FTP协议的应用层包过滤</span>
+
+<br><span><img src="fig/fig_it_60_51_000044_02.png"></span></div>
+<div class="p" id="it_60_51_000044__p_aspflist"><a name="it_60_51_000044__p_aspflist"></a><a name="p_aspflist"></a>在<span>FusionManager</span>上可以通过应用层包过滤对以下协议的流量进行检测：<ul><li>DNS（Domain Name System），域名解析系统。</li><li>FTP（File Transfer Protocol），文件传输协议。</li><li>ILS（Internet Locator Server），Internet定位服务</li><li>MSN（Mircosoft Service Network Protocol），微软网络服务协议，是微软公司提供的即时通信工具MSN
+Messenger所使用的通信协议。</li><li>QQ，指腾讯公司提供的即时通信工具QQ所使用的通信协议。</li><li>H323（H.323 Protocol），用于在计算机网络中实现音频和视频通信。</li><li>NETBIOS（Network Basic Input Output System），网络基本输入输出系统。NetBIOS
+定义了一种软件接口以及在应用程序和连接介质之间提供通信接口的标准方法。</li><li>SIP（Session initiation Protocol），SIP是一个基于文本的应用层控制协议，独立于底层传输协议TCP/UDP/SCTP，用于建立、修改和终止IP网上的双方或多方多媒体会话。</li><li>MGCP（Media Gateway Control Protocol），媒体网关控制协议，是一种应用于分开的多媒体网关单元之间的VOIP协议。</li><li>MMS（Microsoft Media Server Protocol），Micosoft多媒体协议，是用来访问并且流式接收Windows
+Media服务器中.asf文件的一种协议。MMS协议用于访问Windows Media发布点上的单播内容。在线广播电台应用较多。</li><li>RTSP（Real-Time Streaming Protocol），实时流传输协议，该协议定义了一对多应用程序如何有效地通过IP网络传送多媒体数据。</li><li>PPTP（Point to Point Tunneling Protocol），点到点隧道协议，用于在因特网上建立IP虚拟专用网（VPN）隧道。</li><li>SQLNET（SQL.NET Protocol），一种Oracle数据库语言。</li></ul>
+</div>
+</div>
+
+<div class="section"><a name="it_60_51_000044__1.2.3.1"></a><a name="1.2.3.1"></a><h4 class="sectiontitle"><a href="#it_60_51_000044" class="sectiontitle2contents">配置流程</a></h4><p>应用层包过滤功能是基于防火墙设备实现的，在<span>FusionManager</span>上开启应用层包过滤功能前，需要完成如<a href="#it_60_51_000044__table_aspf">表1</a>所示任务。</p>
+
+<div class="tablenoborder"><a name="it_60_51_000044__table_aspf"></a><a name="table_aspf"></a><table cellpadding="4" cellspacing="0" summary="" id="it_60_51_000044__table_aspf" frame="border" border="1" rules="all"><caption><b>表1 </b>任务说明</caption>
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="28.999999999999996%" id="mcps1.2.3.3.2.4.1.1"><p>任务</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="39.666666666666664%" id="mcps1.2.3.3.2.4.1.2"><p>说明</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="31.33333333333333%" id="mcps1.2.3.3.2.4.1.3"><p>界面入口</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="28.999999999999996%" headers="mcps1.2.3.3.2.4.1.1 "><p>接入防火墙设备</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="39.666666666666664%" headers="mcps1.2.3.3.2.4.1.2 "><p>硬件类型的路由器能够提供弹性IP、NAT、ACLs、应用层包过滤和VPN功能，在使用这些功能之前，需要在防火墙设备上创建虚拟防火墙实例，并将防火墙设备接入到<span>FusionManager</span>，以便通过<span>FusionManager</span>对防火墙进行配置和管理。</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="31.33333333333333%" headers="mcps1.2.3.3.2.4.1.3 "><p><span class="menucascade">“<span class="uicontrol">资源</span> &gt; <span class="uicontrol">设备</span> &gt; <span class="uicontrol">网络设备</span> &gt; <span class="uicontrol">防火墙</span>”</span></p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+</div>
+
+
+<div class="hrcopyright"><hr size="2"></div><div class="hwcopyright">华为专有和保密信息</div><div class="hwcopyright">版权所有 &copy; 华为技术有限公司</div><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>
