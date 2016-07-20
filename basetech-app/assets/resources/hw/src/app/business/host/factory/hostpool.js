@@ -58,6 +58,7 @@ define([
 				});
 			},
 			create: function() {
+				console.log("enter create......")
 				modalOpen("/view/hostpool/new_host.html", newHostCtrl, null, $modal, "md");
 			},
 			doCreate: function($modalInstance, data) {

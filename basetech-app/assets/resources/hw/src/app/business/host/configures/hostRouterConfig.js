@@ -24,16 +24,19 @@ define(["tiny-lib/angular",
                 $stateProvider.state("host", {
                     url: "/host",
                     templateUrl: "/resources/hw/src/app/business/host/views/hosts.html",
-                    controller: "host.ctrl",
+                    controller: "HostpoolCtrl",
                     resolve: {
                         deps: function ($q, $rootScope) {
                             var deferred = $q.defer();
                             var dependencies = [
-                                'app/business/host/controllers/hostsCtrl' //相对于basePath
+                                'app/business/host/controllers/hostsCtrl' ,//相对于basePath
+                                'app/business/host/controllers/newHostCtrl'
                             ];
-                            require(dependencies, function (ctrl) {
+                            require(dependencies, function (HostpoolCtrl, NewHostCtrl) {
                                 $rootScope.$apply(function () {
-                                    $controllerProvider.register("host.ctrl", ctrl);
+                                    $controllerProvider.register("HostpoolCtrl", HostpoolCtrl);
+                                    $controllerProvider.register("NewHostCtrl", NewHostCtrl);
+                                    
                                     deferred.resolve();
                                 });
                             });
