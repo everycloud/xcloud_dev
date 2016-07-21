@@ -164,7 +164,5 @@ require([
     window.STYLE_PATH = "app/business/application/controllers/template/designer/styles";
     
     var injector = angular.bootstrap($("html"), [app.name]);
-    var state = injector.get("$state");
-    rootScope = injector.get("$rootScope");
    
 });

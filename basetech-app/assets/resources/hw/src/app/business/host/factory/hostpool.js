@@ -49,7 +49,7 @@ define([
 		});
 	}
 
-	var hostsFactory = ["$htpp",,"$modal", "$state",
+	var hostsFactory = ["$http",,"$modal", "$state",
 	                   function($http, $modal, $state) {
 		return {
 			getAll: function(callback) {
@@ -58,7 +58,7 @@ define([
 				});
 			},
 			create: function() {
-				console.log("enter create......")
+				console.log("enter new_host.html......")
 				modalOpen("/view/hostpool/new_host.html", newHostCtrl, null, $modal, "md");
 			},
 			doCreate: function($modalInstance, data) {
