@@ -12,7 +12,7 @@ define(["tiny-lib/angular",
     ],
     function (angular, ngSanitize, wcc, router, uibootstrap, frameworkConfig, hostConfig) {
         "use strict";
-
+        console.log("enter in framework");
         //注入框架的配置文件
         var dependency = [
             "ng",

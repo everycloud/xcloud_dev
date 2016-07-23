@@ -1,24 +1,35 @@
 /* global define */
 define([
     'tiny-lib/angular',
+        'app/business/host/factory/hostpool'
 ],
-    function (angular) {
+    function (angular,hostpool) {
         "use strict";
+        var hostsCtrl = ["$scope","$http","$modal",
+            function ($scope,$http,$modal){
+                var hostpoolIns = new hostpool(angular);
+                console.log(hostpoolIns);
 
-        var hostsCtrl = ["$scope","hostpool",
-            function ($scope, hostpool){
-            hostpool.getAll(function(hosts) {
+            $scope.getAll = function(hosts) {
+                console.log("22222---");
                 $scope.hosts = hosts;
-            });
+            };
             $scope.addHost = function(){
-                hostpool.create();
+                hostpoolIns.create($modal);
             }
             $scope.delHost = function(hostid){
-                hostpool.doDelete(hostid);
+                hostpoolIns.doDelete(hostid);
             }
 
-        }
-        ];
+            //获取初始化信息
+            $scope.$on("$viewContentLoaded", function () {
+                    console.log("hahahaha");
+                    var host = hostpoolIns.getAll(function(hosts) {
+                        $scope.hosts = hosts;
+                    },$http);
+                });
+
+        }];
         return hostsCtrl;
     }
 );

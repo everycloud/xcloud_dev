@@ -7,6 +7,7 @@ define([
 
 	var newHostCtrl = ["$scope","hostpool","$modalInstance",
 	                   function ($scope, hostpool, $modalInstance){
+		console.log("enter in newHostCtrl");
 		$scope.save = function(item, event) {
 			console.log("saving new host...");
 			console.log($scope.form);

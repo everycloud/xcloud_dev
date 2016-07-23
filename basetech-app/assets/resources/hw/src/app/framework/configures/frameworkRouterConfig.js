@@ -7,6 +7,7 @@ define(["tiny-lib/angular",
     "use strict";
 
     var serviceConfigs = ["$stateProvider", "$urlRouterProvider", "$controllerProvider", function ($stateProvider, $urlRouterProvider, $controllerProvider) {
+        console.log("enter in frameworkRouterConifg");
         $urlRouterProvider.otherwise("/home");
 
         $stateProvider.state("/home", {
