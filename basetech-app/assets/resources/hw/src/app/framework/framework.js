@@ -8,9 +8,10 @@ define(["tiny-lib/angular",
         "ui-router/angular-ui-router",
         "bootstrapui/ui-bootstrap-tpls",
         "app/framework/configures/frameworkRouterConfig",
+        "app/business/application/configures/appRouterConfig",
         "app/business/host/configures/hostRouterConfig",
     ],
-    function (angular, ngSanitize, wcc, router, uibootstrap, frameworkConfig, hostConfig) {
+    function (angular, ngSanitize, wcc, router, uibootstrap, frameworkConfig, appConfig, hostConfig) {
         "use strict";
         console.log("enter in framework");
         //注入框架的配置文件
@@ -21,6 +22,7 @@ define(["tiny-lib/angular",
             "ui.router",
             "ui.bootstrap",
             frameworkConfig.name,
+            appConfig.name,
             hostConfig.name
         ];
         

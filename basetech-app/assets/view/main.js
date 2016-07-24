@@ -154,7 +154,7 @@ require([
     'tiny-lib/angular',
     "app/framework/framework",
     "tiny-lib/underscore",
-], function (sprintf, $, angular, app, _, keyIDI18n) {
+], function (sprintf, $, angular, app, _) {
 	
 	console.log("enter--------------");
 	
