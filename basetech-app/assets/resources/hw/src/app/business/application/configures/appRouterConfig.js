@@ -4,6 +4,10 @@
  */
 define(["tiny-lib/angular",
         "ui-router/angular-ui-router",
+        "tiny-directives/Button",
+        "tiny-directives/Table",
+        "tiny-directives/FilterSelect",
+        "tiny-directives/Searchbox",
     ],
     function (angular, router) {
         "use strict";

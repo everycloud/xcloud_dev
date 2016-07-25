@@ -1,5 +1,7 @@
-<link rel="stylesheet" type="text/css" href="/resources/hw/theme/default/css/menubutton.css">
-<link rel="stylesheet" type="text/css" href="/resources/hw/theme/default/css/gm/application.css">
+<link rel="stylesheet" type="text/css"
+	href="/resources/hw/theme/default/css/menubutton.css">
+<link rel="stylesheet" type="text/css"
+	href="/resources/hw/theme/default/css/gm/application.css">
 <div class="container-fluid">
 	<div class="crumbs" ng-show="!zoneId">
 		<ul class="nav nav-list noPadding">
@@ -10,49 +12,52 @@
 			<li class="divider"></li>
 		</ul>
 	</div>
-	
-	<!--数量统计-->
-	<div class="text-center">
-		<div class="appTextRight">
-			<div class="inlineBlockCss">
-				<span ng-bind="appLabels.app_label_total"></span> <span
-					class="appGreenNumber" ng-bind="configSpec.total"></span>
-			</div>
-			<div class="inlineBlockCss">
-				<span ng-bind="appLabels.app_label_running"></span> <span
-					class="appGreenNumber" ng-bind="configSpec.running"></span>
-			</div>
-			<div class="inlineBlockCss">
-				<span ng-bind="appLabels.app_label_stopped"></span> <span
-					class="appGreenNumber" ng-bind="configSpec.stopped"></span>
-			</div>
-		</div>
-	</div>
-	>
 
 	<div class="content-right-box clearfix">
 		<div class="clearfix fm-btn-bottom-small">
-		    <!--创建应用按钮-->
+			<!--创建应用按钮-->
 			<tiny-button ng-show="true" id="addAppModel.id"
 				text="addAppModel.text" click="addAppModel.click()"
 				class="major-btn"> </tiny-button>
 
-            <!--创建应用按钮-->
+			<!--创建应用按钮-->
 			<tiny-button ng-show="true" id="addGroupModel.id"
 				text="addGroupModel.text" click="addGroupModel.click()"
 				class="major-btn"> </tiny-button>
-				
-			<!--刷新、列选择、帮助-->
-			<div class="pull-right">
-				<tiny-filtersel id="runningStatusFilter.id"
-					values="runningStatusFilter.values"
-					width="runningStatusFilter.width"
-					default-label="runningStatusFilter.dftLabel"
-					change="runningStatusFilter.change()"> </tiny-filtersel>
-				</span> <a class="btn-link">
-					<div ng-click="operate.queryAppsData()" id="refreshApp" title="刷新"
-						class="small-icon small-icon-refresh"></div>
-				</a>
+
+			<!--数量统计-->
+			<div class="text-center">
+				<div class="appTextLeft">
+					<div class="inlineBlockCss">
+						<span ng-bind="appLabels.app_label_total"></span> <span
+							class="appGreenNumber" ng-bind="configSpec.total"></span>
+					</div>
+					<div class="inlineBlockCss">
+						<span ng-bind="appLabels.app_label_running"></span> <span
+							class="appGreenNumber" ng-bind="configSpec.running"></span>
+					</div>
+					<div class="inlineBlockCss">
+						<span ng-bind="appLabels.app_label_stopped"></span> <span
+							class="appGreenNumber" ng-bind="configSpec.stopped"></span>
+					</div>
+				</div>
+				<!--刷新、列选择、帮助-->
+				<div class="pull-right">
+					<tiny-filtersel id="statusFilter.id" values="statusFilter.values"
+						width="statusFilter.width" default-label="statusFilter.dftLabel"
+						change="statusFilter.change()"> </tiny-filtersel>
+					<span
+						style="display: inline-block; vertical-align: middle; margin-bottom: 2px;">
+						<tiny-searchbox id="searchBox.id"
+							placeholder="searchBox.placeholder" width="searchBox.width"
+							suggest-size="searchBox.suggestSize"
+							maxlength="searchBox.maxLength" suggest="searchBox.suggest"
+							search="searchBox.search"> </tiny-searchbox>
+					</span> <a class="btn-link">
+						<div ng-click="operate.queryAppsData()" id="refreshApp" title="刷新"
+							class="small-icon small-icon-refresh"></div>
+					</a>
+				</div>
 			</div>
 		</div>
 		<div id="appTable" class="clearfix">

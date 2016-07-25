@@ -48,6 +48,13 @@ define(['tiny-lib/angular',
                 };
         	$scope.right = {"hasAppOperateRight" : true}
         	
+        	$scope.configSpec = 
+        		{
+        			"total" : 1,
+        			"running": 1,
+        			"stopped": 0
+        		}
+        	
                 //创建按钮
                 $scope.addAppModel = {
                     "id": "addApp",
@@ -149,7 +156,7 @@ define(['tiny-lib/angular',
                 //搜索框
                 $scope.searchBox = {
                     "id": "appSearchBox",
-                    "placeholder": $scope.appLabels.app_search,
+                    "placeholder": $scope.appLabels.app_searchbox,
                     "type": "round", // round,square,long
                     "width": "200",
                     "suggest-size": 10,
@@ -158,7 +165,7 @@ define(['tiny-lib/angular',
                     },
                     "search": function (searchString) {
                         $scope.searchModel.name = searchString;
-                        $scope.operate.queryHostsData();
+                        $scope.operate.queryAppsData();
                     }
                 };
 
