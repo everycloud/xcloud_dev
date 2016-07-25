@@ -11,7 +11,7 @@ define(['tiny-lib/angular',
         	
         	$scope.appLabels = {
                     "app_title": "应用列表",
-                    "app_titie_explan": "显示所有创建的应用。<br/>单击应用名称，可以查看应用的详细信息。",
+                    "app_title_explan": "显示所有创建的应用。<br/>单击应用名称，可以查看应用的详细信息。",
                     "app_btn_create_app":"创建应用",
                     "app_btn_create_group":"创建分组",
                     "app_label_total": "应用总数：",
@@ -24,8 +24,8 @@ define(['tiny-lib/angular',
                     "app_filter_status_absent": "异常",
                     "app_searchbox": "请输入应用名称",
                     "app_table_name": "应用名称",
-                    "app_table_name": "应用ID",
-                    "app_table_group": "应用分组",
+                    "app_table_id": "应用ID",
+                    "app_table_group_name": "应用分组",
                     "app_table_template_name": "模板名称",
                     "app_table_zone_name": "云环境",
                     "app_table_status": "运行状态",
@@ -51,7 +51,7 @@ define(['tiny-lib/angular',
                 //创建按钮
                 $scope.addAppModel = {
                     "id": "addApp",
-                    "text": scope.appLabels.app_btn_create_app,
+                    "text": $scope.appLabels.app_btn_create_app,
                     "focused": false,
                     "click": function () {
                         $state.go("applications.addApp");
@@ -61,7 +61,7 @@ define(['tiny-lib/angular',
 	        	//创建按钮
 	            $scope.addGroupModel = {
 	                "id": "addGroup",
-	                "text": scope.appLabels.app_btn_create_group,
+	                "text": $scope.appLabels.app_btn_create_group,
 	                "focused": false,
 	                "click": function () {
 	                    $state.go("applications.addGroup");
@@ -209,7 +209,7 @@ define(['tiny-lib/angular',
                     {
                         "sTitle": $scope.appLabels.app_table_created_time,
                         "mData": function (data) {
-                            return $.encoder.encodeForHTML(data.zoneName);
+                            return $.encoder.encodeForHTML(data.createdTime);
                         },
                         "sWidth": "20%",
                         "bSortable": true},
@@ -262,7 +262,7 @@ define(['tiny-lib/angular',
                     "changeSelect": function (evtObj) {
                         $scope.searchModel.start = evtObj.currentPage;
                         $scope.searchModel.limit = evtObj.displayLength;
-                        $scope.hostTableModel.displayLength = evtObj.displayLength;
+                        $scope.appTableModel.displayLength = evtObj.displayLength;
                         $scope.operate.queryAppsData();
                     },
                     "renderRow": function (nRow, aData, iDataIndex) {
@@ -441,6 +441,38 @@ define(['tiny-lib/angular',
                     },
                     //查询服务器
                     queryAppsData: function () {
+                    	var response = {
+                    	        code: 0,
+                    	        total:1,
+                    	        apps: [
+                    	            {
+                    	            	"id":"111111111",
+                    	            	"name":"testApp",
+                    	            	"group":"生产应用",
+                    	            	"groupId":"2222",
+                    	            	"zoneId":"1",
+                    	            	"zoneName":"阿里云",
+                    	            	"templateId":"3333333",
+                    	            	"templateName":"wordpress应用模板",
+                    	            	"status":"运行",
+                    	            	"createdTime":"2016-07-24 11:11:11",
+                    	            	
+                    	            }
+                    	        ]};
+                    	console.log("11111------", response.apps, response.total);
+                    	
+                    	console.log("before set appTableModel-------");
+                        $scope.appTableModel.data = response.apps;
+                        $scope.appTableModel.totalRecords = response.total;
+                        console.log("2222-------", $scope.appTableModel);
+                        /*
+                    	 $scope.$apply(function () {
+                    		 console.log("before set appTableModel-------");
+                             $scope.appTableModel.data = response.apps;
+                             $scope.appTableModel.totalRecords = response.total;
+                             console.log("2222-------", $scope.appTableModel);
+                         });*/
+                    	/**
                         var queryConfig = deviceConstants.rest.HOST_QUERY
                         var deferred = camel.get({
                                 "url": {s: queryConfig.url, o: {"start": $scope.searchModel.start, "limit": $scope.searchModel.limit, "sort_key": "", "sort_dir": "", "zoneId": $scope.searchModel.zoneId, "runStatus": $scope.searchModel.runStatus, "resourceStatus": $scope.searchModel.resourceStatus, "name": $scope.searchModel.name, "type": $scope.searchModel.type}},
@@ -458,6 +490,7 @@ define(['tiny-lib/angular',
                                 $scope.hostTableModel.totalRecords = response.total;
                             });
                         });
+                        **/
                     },
                     //主机操作，包括上电下电重启
                     hostAction: function (params) {
@@ -478,7 +511,7 @@ define(['tiny-lib/angular',
                 };
 
                 //初始化数据
-                //$scope.operate.queryAppsData();
+                $scope.operate.queryAppsData();
                 //$scope.operate.getZones();
 
             }]

@@ -1,0 +1,11 @@
+.appTextRight{
+    text-align: right;
+}
+.inlineBlockCss{
+    display: inline-block;
+    margin-right: 15px;
+}
+.appGreenNumber{
+    font-size: 18px;
+    color: #5ecc49;
+}
