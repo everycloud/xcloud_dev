@@ -15,40 +15,16 @@ define(["tiny-lib/angular",
     ],
     function (angular, router, hostpool) {
         "use strict";
-        console.log("-------");
         var dependency = [
             "ui.router",
         ];
         var hostConfig = angular.module("host.config", dependency);
         hostConfig.factory("Hostpool", hostpool);
-        console.log("-------");
-        console.log(hostpool);
 
         //定义框架的路由配置module
         var serviceConfigs = ["$stateProvider", "$urlRouterProvider", "$controllerProvider",
             function ($stateProvider, $urlRouterProvider, $controllerProvider) {
 
-                // 虚拟机
-                $stateProvider.state("ecs.vm", {
-                    url: "/vm?cloudInfraId&vpcId&condition&vmId&vmName&fromPerformance",
-                    templateUrl: "app/business/ecs/views/vm/vms.html",
-                    controller: "ecs.vm.ctrl",
-                    resolve: {
-                        deps: function ($q, $rootScope) {
-                            var deferred = $q.defer();
-                            var dependencies = [
-                                'app/business/ecs/controllers/vm/vmsCtrl' //相对于basePath
-                            ];
-                            require(dependencies, function (ctrl) {
-                                $rootScope.$apply(function () {
-                                    $controllerProvider.register("ecs.vm.ctrl", ctrl);
-                                    deferred.resolve();
-                                });
-                            });
-                            return deferred.promise;
-                        }
-                    }
-                });
 
                 // 物理机
                 $stateProvider.state("host", {

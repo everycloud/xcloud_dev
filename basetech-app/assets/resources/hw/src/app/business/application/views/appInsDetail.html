@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="crumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="apps">{{appDetailLabels.app_detail_crumbs_apps}}</a> <span class="divider">&gt;</span>
+            </li>
+            <li class="active"><a ui-sref="apps.detail">{{appInfo.name}}</a></li>
+
+            <li class="crumbs_line"></li>
+        </ul>
+    </div>
+    
+    
+    <div class="content-right-box">
+    <div class="margin-top-beautifier">
+        <div id="appDetailTabs" class="tiny-tabs-container">
+            <div class = "tiny-tabs-titles">
+                <ul>
+                    <li ng-show="plugin.show" ng-class="{tinyTabActive:$state.includes(plugin.openState)}" ng-repeat="plugin in plugins" ui-sref="{{plugin.openState}}">
+                        <a href="javascript:void(0)" ng-click="setSelectedTabItem(plugin.name)">{{plugin.name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tiny-tabs-content" style="margin-left: -20px;">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script>
+    require(["tiny-widgets/Tabs"], function(Tabs) {
+        var tabs = new Tabs({
+            "id" : "appDetailTabs",
+            "setActiveClass" : true
+        });
+    });
+
+</script>
