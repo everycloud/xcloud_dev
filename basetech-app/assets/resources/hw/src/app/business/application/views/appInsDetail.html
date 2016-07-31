@@ -2,16 +2,57 @@
     <div class="crumbs">
         <ul class="breadcrumb">
             <li>
-                <a ui-sref="apps">{{appDetailLabels.app_detail_crumbs_apps}}</a> <span class="divider">&gt;</span>
+                <a ui-sref="apps">{{appDetailLabels.app_detail_crumbs_apps}}</a>
             </li>
             <li class="active"><a ui-sref="apps.detail">{{appInfo.name}}</a></li>
 
             <li class="crumbs_line"></li>
         </ul>
     </div>
-    
-    
-    <div class="content-right-box">
+
+	<div>
+		<div class="small-layout-inner">
+			<div class="clearfix">
+				<img ng-src="{{appInfo.picture}}"
+					class="fl pointer" style="width: 110px;">
+
+				<div class="fl templateRightLayout">
+					<div class="clearfix">
+						<div class="small-layout-title pointer fl"
+							title="{{appInfo.name}}">
+							<span ng-bind="appInfo.name"></span>
+						</div>
+					</div>
+					<div class="fl">
+						<tiny-formfield> <tiny-item label="appDetailLabels.app_detail_labels_created_time" title="{{appInfo.id}}">
+						<span>{{appInfo.createdTime}}</span> </tiny-item> <tiny-item
+							label="appDetailLabels.app_detail_labels_template"> <span>{{appInfo.templateName}}</span> </tiny-item> 
+							 <tiny-item
+							label="appDetailLabels.app_detail_labels_description"> <span>{{appInfo.description}}</span> </tiny-item>
+							 <tiny-item
+								label="appDetailLabels.app_detail_labels_status"> <span class="fl">{{appInfo.status}}</span></tiny-item>
+							</tiny-formfield>
+						
+						<div>
+								<a href="javascript:void(0)"
+									ng-click="actOnApp(app.id, 'Start')"  class="appListBottom">
+									<div class="small-icon small-icon-start"></div>
+									<span ng-bind="appDetailLabels.app_detail_btn_start"></span>
+								 <a href="javascript:void(0)"
+									ng-click="actOnApp(app.id, app.vpcId, 'Stop')" class="appListBottom">
+									<div class="small-icon small-icon-stopped"></div>
+									<span ng-bind="appDetailLabels.app_detail_btn_stop"></span>
+								<tiny-menubutton class="major-btn" id="appInfo.id"
+									text="moreBtn.text" content="appInfo.content" type="moreBtn.type"
+									click-callback="moreBtn.clickCallback"></tiny-menubutton>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="content-right-box">
     <div class="margin-top-beautifier">
         <div id="appDetailTabs" class="tiny-tabs-container">
             <div class = "tiny-tabs-titles">

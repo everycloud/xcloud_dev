@@ -9,6 +9,7 @@ define(["tiny-lib/angular",
         "tiny-directives/Table",
         "tiny-directives/FilterSelect",
         "tiny-directives/Searchbox",
+        'tiny-directives/Menubutton',
     ],
     function (angular, router, appsCtrl) {
         "use strict";

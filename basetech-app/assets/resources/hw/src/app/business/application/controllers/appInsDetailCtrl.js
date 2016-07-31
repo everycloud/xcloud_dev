@@ -1,6 +1,5 @@
 define(["tiny-lib/angular",
-    'tiny-widgets/Tabs',
-    'fixtures/appDetailFixture'],
+    'tiny-widgets/Tabs'],
     function (angular, Tabs) {
         "use strict";
 
@@ -10,15 +9,20 @@ define(["tiny-lib/angular",
         			appId:$stateParams.appId
         	}
         	
-        	 var detailLayout = new Layout({
-                 "id": "appDetailLayout"
-             });
-             $scope.$on("$stateChangeSuccess", function () {
-                 detailLayout.opActive($("a[ui-sref='" + $state.$current.name + "']"));
-             })
         	
         	$scope.appDetailLabels = {
         			"app_detail_crumbs_apps" : "应用管理",
+        			"app_detail_labels_created_time": "创建时间：",
+        			"app_detail_labels_template": "使用的模板：",
+        			"app_detail_labels_description": "描述：",
+        			"app_detail_labels_status": "状态：",
+        			"app_detail_btn_stop" : " 停止",
+        			"app_detail_btn_start" : "启动",
+        			"app_detail_btn_update_template" : "更新模板",
+        			"app_detail_btn_upgrade" : "升级应用",
+        			"app_detail_btn_rollback" : "回滚应用",
+        			"app_detail_btn_delete" : "删除应用",
+        			"app_detail_btn_more" : "更多",
         			"app_detail_tabs_resource" : "资源列表",
         			"app_detail_tabs_param" : "参数设置",
         			"app_detail_tabs_event" : "事件",
@@ -28,6 +32,12 @@ define(["tiny-lib/angular",
         			"app_detail_tabs_scale" : "弹性伸缩",
         			
         	};
+        	
+        	$scope.moreBtn = {
+                     "id": "",
+                     "text": $scope.appDetailLabels.app_detail_btn_more,
+                     "type": "button"
+                };
 
             $scope.plugins = [
                 {
@@ -68,8 +78,8 @@ define(["tiny-lib/angular",
                 
             ];
             
-            fuction getAppDetail(){
-            	app = {
+            function getAppDetail(){
+            	var app = {
     	            	"id":"111111111",
     	            	"name":"testApp",
     	            	"group":"生产应用",
@@ -80,9 +90,18 @@ define(["tiny-lib/angular",
     	            	"templateName":"wordpress应用模板",
     	            	"status":"运行",
     	            	"createdTime":"2016-07-24 11:11:11",
+    	            	"description": "这是一个测试的应用",
+    	            	"picture": "/resources/hw/theme/default/images/gm/appImage/buff01.jpg",
+    	            	"content": getContentByStatus(),
     	            	
     	            };
+            	
+            	/*_.extend(app, {
+                    "content": getContentByStatus(),
+            	});*/
+            	
             	$scope.appInfo = app;
+            	console.log("content is ", app.content);
             }
             
             /**
@@ -129,6 +148,45 @@ define(["tiny-lib/angular",
                 });
             };
             **/
+            
+            var allMoreBtnContents = {
+                    "updateTemplate": {
+                        title: "<div class='msg-info'><img src='/resources/hw/theme/default/images/gm/appImage/ssp_common_mod.png'><span class='customMoreItemMargin'>" + $scope.appDetailLabels.app_detail_btn_update_template + "</span></div>",
+                        click: function (evt, item, widgetThis) {
+                           
+                        }
+                    },
+                    "upgrade": {
+                        title: "<div class='msg-info'><img src='/resources/hw/theme/default/images/gm/appImage/ssp_common_mod.png'><span class='customMoreItemMargin'>" + $scope.appDetailLabels.app_detail_btn_upgrade + "</span></div>",
+                        click: function (evt, item, widgetThis) {
+                           
+                        }
+                    },
+                    "rollback": {
+                        title: "<div class='msg-info'><img src='/resources/hw/theme/default/images/gm/appImage/ssp_common_mod.png'><span class='customMoreItemMargin'>" + $scope.appDetailLabels.app_detail_btn_rollback + "</span></div>",
+                        click: function (evt, item, widgetThis) {
+                           
+                        }
+                    },
+                    "delete": {
+                        title: "<div class='msg-info'><img src='/resources/hw/theme/default/images/gm/appImage/ssp_delete.png'><span class='customMoreItemMargin'>" + $scope.appDetailLabels.app_detail_btn_delete + "</span></div>",
+                        click: function (evt, item, widgetThis) {
+                           
+                        }
+                    },
+                };
+            
+            //注:这里的tiny-moreBut的内容动态的刷新,无权限时滤掉,状态不允许时灰掉
+            function getContentByStatus() {
+                var curAppContent = [];
+                curAppContent.push(allMoreBtnContents.updateTemplate);
+                curAppContent.push(allMoreBtnContents.upgrade);
+                curAppContent.push(allMoreBtnContents.rollback);
+                curAppContent.push(allMoreBtnContents.delete);
+                return curAppContent;
+            }
+            
+            
             getAppDetail();
         }];
 
