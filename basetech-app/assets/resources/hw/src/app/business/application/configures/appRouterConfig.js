@@ -73,6 +73,28 @@ define(["tiny-lib/angular",
                     }
                 });
                 
+             // 应用实例拓扑
+                $stateProvider.state("apps.detail.topo", {
+                    url: "/topo",
+                    templateUrl: "/resources/hw/src/app/business/application/views/designer/layout/layout.html",
+                    controller: "apps.instance.detail.topo.ctrl",
+                    resolve: {
+                        deps: function ($q, $rootScope) {
+                            var deferred = $q.defer();
+                            var dependencies = [
+                                'app/business/application/controllers/designer/Layout/layoutCtrl'
+                            ];
+                            require(dependencies, function (ctrl) {
+                                $rootScope.$apply(function () {
+                                    $controllerProvider.register("apps.instance.detail.topo.ctrl", ctrl);
+                                    deferred.resolve();
+                                });
+                            });
+                            return deferred.promise;
+                        }
+                    }
+                });
+                
             }
         ];
         

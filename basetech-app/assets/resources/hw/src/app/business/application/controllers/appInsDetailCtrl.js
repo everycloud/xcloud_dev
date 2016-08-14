@@ -1,6 +1,7 @@
-define(["tiny-lib/angular",
+define(["tiny-lib/underscore",
+        "tiny-lib/angular",
     'tiny-widgets/Tabs'],
-    function (angular, Tabs) {
+    function (_, angular, Tabs) {
         "use strict";
 
         var appDetailCtrl = ["$scope", "$stateParams", function ($scope, $stateParams) {
@@ -41,7 +42,7 @@ define(["tiny-lib/angular",
 
             $scope.plugins = [
                 {
-                    "openState": "apps.detail.resources",
+                    "openState": "apps.detail.topo",
                     "name": $scope.appDetailLabels.app_detail_tabs_resource,
                     "show":true
                 },
@@ -100,8 +101,13 @@ define(["tiny-lib/angular",
                     "content": getContentByStatus(),
             	});*/
             	
-            	$scope.appInfo = app;
-            	console.log("content is ", app.content);
+            	$scope.appInfo = app;/*
+            	_.each($scope.plugins, function(item){
+            		var param =  "{appId: " + app.id + "}";
+            		item.openState += param;
+            			});*/
+            	
+            	console.log("plugins is ", $scope.plugins);
             }
             
             /**
