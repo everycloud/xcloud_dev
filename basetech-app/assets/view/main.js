@@ -160,8 +160,8 @@ require([
 	
     window.mxLoadResources = false;
     window.mxLoadStylesheets = false;
-    window.IMAGE_PATH = "../resources/hw/src/app/business/application/controllers/template/designer/images";
-    window.STYLE_PATH = "../resources/hw/src/app/business/application/controllers/template/designer/styles";
+    window.IMAGE_PATH = "../resources/hw/src/app/business/application/controllers/designer/images";
+    window.STYLE_PATH = "../resources/hw/src/app/business/application/controllers/designer/styles";
     
     var injector = angular.bootstrap($("html"), [app.name]);
    

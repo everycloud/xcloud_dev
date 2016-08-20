@@ -105,7 +105,7 @@ define(["tiny-lib/angular",
                         deps: function ($q, $rootScope) {
                             var deferred = $q.defer();
                             var dependencies = [
-                                'app/business/application/controllers/template/designer/layout/layoutCtrl2'
+                                'app/business/application/controllers/designer/layout/layoutCtrl2'
                                 //'app/business/application/controllers/appListCtrl'
                             ];
                             require(dependencies, function (ctrl) {

@@ -24,7 +24,7 @@ define(["mxGraph"], function (mxClient) {
         var mo = (mxClient.IS_TOUCH) ? 'touchstart' : 'mouseover';
         var mu = (mxClient.IS_TOUCH) ? 'touchend' : 'mouseup';
         // Delete
-        var img = mxUtils.createImage("../theme/default/images/designbone-resource-delete.png");
+        var img = mxUtils.createImage("/resources/hw/theme/default/images/designbone-resource-delete.png");
         img.style.cursor = 'pointer';
         img.style.width = '16px';
         img.style.height = '16px';
