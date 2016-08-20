@@ -5,7 +5,7 @@ define([
     "../framework/resource",
     "../framework/OSVersions",
     "tiny-lib/underscore",
-    "app/business/application/services/desiger/desigerService",
+    "/app/business/application/services/desiger/desigerService",
     "../framework/CoreGraph",
     "../framework/Sidebar",
     "tiny-widgets/Window",
@@ -14,8 +14,8 @@ define([
 ], function ($, $jBase, Constant, $rs, OS, _, desigerService,CoreGraph, Sidebar, Window) {
     "use strict";
 
-    var ctrl = ["$rootScope", "$window","$scope", "$compile",  "exception", "$q", "$timeout", "$state", "$stateParams",
-        function ($rootScope, $window, $scope, $compile, exception, $q, $timeout, $state, $stateParams) {
+    var ctrl = ["$rootScope", "$window","$scope", "$compile", "$q", "$timeout", "$state", "$stateParams",
+        function ($rootScope, $window, $scope, $compile, $q, $timeout, $state, $stateParams) {
             //公共对象
             var graph = new CoreGraph();
             graph.template = new TemplateDefine();
@@ -24,9 +24,29 @@ define([
             $scope.getKeyHandler = function () {
                 return keyHandler;
             };
-            
+
+            var i18n = $scope.i18n;
             $scope.graph = graph;
-            
+            //左侧栏
+            $scope.sidebar = new Sidebar(graph);
+            $scope.elements = {
+                network: {
+                    "src": "../theme/default/images/icon-network.png",
+                    "title": "网络"
+                },
+                template: {
+                    "src": "../theme/default/images/icon-vm.png",
+                    "title": "虚拟机"
+                },
+                software: {
+                    "src": "../theme/default/images/icon-software.png",
+                    "title": "软件"
+                },
+                script: {
+                    "src": "../theme/default/images/icon-script.png",
+                    "title": "脚本"
+                }
+            };
 
             //应用模板的图标初始化
             $scope.initAppTemplate = function () {

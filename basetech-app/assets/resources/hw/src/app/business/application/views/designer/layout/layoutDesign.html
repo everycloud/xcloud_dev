@@ -1,8 +1,9 @@
 <div class="container-fluid" id="designer-container">
+    <div>{{params}}</div>
     <div id="designer-container-opts" class="margin-erect-beautifier clearfix">
         <div class="pull-right bottom10" ng-if="params.mode !== 'view'">
-            <tiny-button id="info.saveBtn.id" text="info.saveBtn.text" click="info.saveBtn.click()" class="major-btn" ng-if="hasOperateAppTempRight"></tiny-button>
-            <tiny-button id="info.validateBtn.id" text="info.validateBtn.text" click="info.validateBtn.click()" ng-if="hasOperateAppTempRight"></tiny-button>
+            <tiny-button id="info.saveBtn.id" text="info.saveBtn.text" click="info.saveBtn.click()" class="major-btn" ></tiny-button>
+            <tiny-button id="info.validateBtn.id" text="info.validateBtn.text" click="info.validateBtn.click()" ></tiny-button>
             <tiny-button id="info.backBtn.id" text="info.backBtn.text" click="info.backBtn.click()"></tiny-button>
         </div>
         <div class="pull-right bottom10" ng-if="params.mode === 'view'">

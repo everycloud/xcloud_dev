@@ -94,6 +94,30 @@ define(["tiny-lib/angular",
                         }
                     }
                 });
+
+
+                $stateProvider.state("apps.design", {
+                    url: "/design?templateId&mode",
+                    templateUrl: "/resources/hw/src/app/business/application/views/designer/layout/layoutDesign.html",
+                    //templateUrl: "/resources/hw/src/app/business/application/views/appList.html",
+                    controller: "apps.designer.ctrl",
+                    resolve: {
+                        deps: function ($q, $rootScope) {
+                            var deferred = $q.defer();
+                            var dependencies = [
+                                'app/business/application/controllers/template/designer/layout/layoutCtrl2'
+                                //'app/business/application/controllers/appListCtrl'
+                            ];
+                            require(dependencies, function (ctrl) {
+                                $rootScope.$apply(function () {
+                                    $controllerProvider.register("apps.designer.ctrl", ctrl);
+                                    deferred.resolve();
+                                });
+                            });
+                            return deferred.promise;
+                        }
+                    }
+                });
                 
             }
         ];

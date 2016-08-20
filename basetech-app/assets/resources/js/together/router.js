@@ -22,7 +22,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('hostpool', {
             url: "/hostpool",
-            templateUrl: "/view/hostpool/hostpool_manage.html",
+            templateUrl: "/view/hostpool/host.html",
             data: { pageTitle: 'host管理' }
         })
         .state('user', {
