@@ -42,6 +42,9 @@ define(["./Graph", "./GenenalNameUtil"], function (Graph, GenenalNameUtil) {
         if (cell.type === "Script") {
             return this.createSoftwareScriptDropHandler(cell, allowSplit);
         }
+        if (cell.type == "Host"){
+            return this.createHostDropHandler(cell, allowSplit);
+        }
     };
 
     /**
@@ -76,6 +79,42 @@ define(["./Graph", "./GenenalNameUtil"], function (Graph, GenenalNameUtil) {
             //处理资源
             var resourceId = TemplateUtils.createId();
             var resource = TemplateDefine.createResource(graph.template, [], newCell.type, resourceName, resourceId);
+            newCell.resource = resource;
+            newCell.resourceId = resourceId;
+            graph.template.addResource(resource);
+
+            //必须放到最后，触发graph的seleceHandler事件
+            graph.setSelectionCell(newCell);
+        };
+    };
+
+    /**
+     * 创建一个拖动host节点的回调函数
+     */
+    Sidebar.prototype.createHostDropHandler = function (cell) {
+        return function (graph, evt, target, x, y) {
+            graph.stopEditing(true);
+            var model = graph.getModel();
+            var newCell = model.cloneCell(cell);
+            newCell.setGeometry(new mxGeometry(x, y, cell.geometry.width, cell.geometry.height));
+            // 给资源名称加一，同时需要判断资源名称是否重复
+            var resourceName = "";
+            while (true) {
+                resourceName = GenenalNameUtil.genSerialName(cell.type);
+                break;
+            }
+            var displayName = GenenalNameUtil.displayResourceName(resourceName, cell.type);
+            newCell.setValue(displayName);
+            model.beginUpdate();
+            try {
+                graph.addCell(newCell);
+            } finally {
+                model.endUpdate();
+            }
+
+            //生成资源
+            var resourceId = TemplateUtils.createId();
+            var resource = TemplateDefine.createResource(graph.template, [], cell.type, resourceName, resourceId);
             newCell.resource = resource;
             newCell.resourceId = resourceId;
             graph.template.addResource(resource);
@@ -225,6 +264,12 @@ define(["./Graph", "./GenenalNameUtil"], function (Graph, GenenalNameUtil) {
         }
         if (type == "Script") {
             styleString = "Script";
+        }
+        if (type == "Host") {
+            styleString = "Host";
+        }
+        if (type == "Component") {
+            styleString = "Component";
         }
         var cell = new mxCell((value != null) ? value : '', new mxGeometry(0, 0, width, height), styleString);
         cell.vertex = true;

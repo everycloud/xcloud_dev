@@ -525,7 +525,9 @@
             return ScalingGroupDefine.createResource;
         } else if (typeName == "Software" || typeName == "Script") {
             return SoftwareDefine.createResource;
-        } else {
+        } else if (typeName == "Host"){
+            return HostDefine.createResource;
+        }else {
             return null;
         }
     };
@@ -729,6 +731,145 @@
         for (var i = 0; i < attributes.length; i++) {
             var attr = attributes[i];
             // 把首字母转成小写 
+            attr.name = attr.name.charAt(0).toLowerCase().concat(attr.name.substr(1));
+            if (attr.name in resource.properties) {
+                resource.properties[attr.name] = attr.value;
+            }
+        }
+        resource.properties.name = resourceName;
+        return resource;
+    };
+
+
+    /**
+     * HostDefine 类，构造函数，继承于Resource
+     * @param id   资源唯一号
+     * @param name  资源名称
+     * @param type  资源类型
+     * @param templateDefine 模板实例
+     */
+    HostDefine = function (id, name, type, templateDefine) {
+        ResourceDefine.call(this, id, name, type);
+        this.templateDefine = templateDefine;
+        this.properties = {
+            "name": name,
+            "description": null,
+            "hostID": "" //RC 版本中将portGroupId修改为networkId
+        };
+    };
+    HostDefine.prototype = new ResourceDefine();
+    HostDefine.prototype.constructor = HostDefine;
+
+    /**
+     * 根据resource属性，生成cell的属性
+     */
+    HostDefine.prototype.genCellAttr = function () {
+        var attrList = [];
+        attrList.push({
+            "name": "HostID",
+            "type": "String",
+            "value": this.properties["hostID"]
+        });
+        attrList.push({
+            "name": "Description",
+            "type": "String",
+            "value": this.properties["description"]
+        });
+        return attrList;
+    };
+
+    HostDefine.prototype.getName = function () {
+        if (this.isReferOfName()) {
+            return this.properties["name"].attrKey;
+        } else {
+            return this.properties["name"];
+        }
+    };
+    /**
+     * 设置PortGroupDefine的名称
+     * @param {Object} name 当name为字符串时，表示没有引用公共参数，当为ReferenceAttr时表示引用了公共参数
+     */
+    HostDefine.prototype.setName = function (name, isRefer) {
+        this.properties["name"] = (isRefer ? new ReferenceAttr({
+            "refId": "Parameters",
+            "attrKey": name
+        }) : name);
+        this.name = this.getName();
+        //修改公共参数引用个数,请调用相应的
+    };
+
+    /**
+     * 获取描述
+     * @return description
+     */
+    HostDefine.prototype.getDescription = function () {
+        return this.properties["description"];
+    };
+    /**
+     * 设置描述
+     */
+    HostDefine.prototype.setDescription = function (description) {
+        this.properties["description"] = description;
+    };
+
+    HostDefine.prototype.isReferOfName = function () {
+        if (this.properties["name"] && this.properties["name"].type == Constant.REFERENCEATTRTYPE) {
+            return true;
+        }
+        return false;
+    };
+
+    /**
+     * 资源对象生成Json字符串
+     * @return Json字符串
+     */
+    HostDefine.prototype.toJson = function () {
+        var id = this.defualtId();
+        var json = this.fullString(id) + ":" + "{";
+        json += this.toCommonJson();
+        json += ",";
+
+        var properties = this.properties;
+        json += this.fullString("Properties") + ":" + "{";
+
+        for (var key in properties) {
+            if (properties.hasOwnProperty(key)) {
+                json += this.fullString(this.firstUpper(key)) + ":";
+                if (properties[key] && properties[key].type == Constant.REFERENCEATTRTYPE) {
+                    json += properties[key].toJson();
+                } else {
+                    json += this.fullString(properties[key]);
+                }
+                json += ",";
+            }
+        }
+        json = this.trimComma(json);
+        json += "}";
+
+        json += "}";
+        return json;
+    };
+
+    /**
+     * 创建端口组资源实例
+     * @static
+     * @public
+     * @param attributes   资源属性列表
+     * @param typeName     资源类型名称
+     * @param resourceName 资源名称
+     * @param resourceId   资源ID  全局唯一
+     * @return 端口组资源实例
+     */
+    HostDefine.createResource = function (templateDefine, attributes, typeName, resourceName, resourceId) {
+        var resource = new PortGroupDefine();
+        resource.templateDefine = templateDefine;
+        //添加ID、资源类型名称及名称
+        resource.id = resourceId;
+        resource.type = typeName;
+        resource.name = resourceName;
+        for (var i = 0; i < attributes.length; i++) {
+            var attr = attributes[i];
+            // 把首字母转成小写
             attr.name = attr.name.charAt(0).toLowerCase().concat(attr.name.substr(1));
             if (attr.name in resource.properties) {
                 resource.properties[attr.name] = attr.value;

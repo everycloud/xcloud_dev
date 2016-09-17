@@ -1,5 +1,4 @@
 <div class="container-fluid" id="designer-container">
-    <div>{{params}}</div>
     <div id="designer-container-opts" class="margin-erect-beautifier clearfix">
         <div class="pull-right bottom10" ng-if="params.mode !== 'view'">
             <tiny-button id="info.saveBtn.id" text="info.saveBtn.text" click="info.saveBtn.click()" class="major-btn" ></tiny-button>
@@ -14,6 +13,14 @@
         <div id="designer-container-west" class="span1">
             <div id="app-design-elements">
                 <div class="app-design-left">
+                    <div class="design-item" id="host-elt-id">
+                        <img ng-src="{{elements.host.src}}" alt="{{elements.host.title}}" />
+                        <span ng-bind="elements.host.title"></span>
+                    </div>
+                    <div class="design-item" id="component-elt-id">
+                        <img ng-src="{{elements.component.src}}" alt="{{elements.component.title}}" />
+                        <span ng-bind="elements.component.title"></span>
+                    </div>
                     <div class="design-item" id="network-elt-id">
                         <img ng-src="{{elements.network.src}}" alt="{{elements.network.title}}" />
                         <span ng-bind="elements.network.title"></span>

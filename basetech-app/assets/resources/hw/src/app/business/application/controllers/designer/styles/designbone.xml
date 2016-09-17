@@ -3,6 +3,26 @@
 		<add as="fontSize" value="12" />
 		<add as="fontFamily" value="Verdana" />
 	</add>
+	<add as="Host">
+		<add as="type" value="Host" />
+		<add as="fillColor" value="#fff" />
+		<add as="strokeColor" value="#727272" />
+		<add as="shape" value="swimlane" />
+		<add as="startSize" value="35" />
+		<add as="shadow" value="0" />
+		<add as="resizable" value="0" />
+	</add>
+
+	<add as="Component">
+		<add as="type" value="Component" />
+		<add as="shape" value="image" />
+		<add as="image" value="/resources/hw/theme/default/images/designbone_resource_background.png" />
+		<add as="align" value="center" />
+		<add as="connectable" value="0" />
+		<add as="resizable" value="0" />
+		<add as="rounded" value="1" />
+	</add>
+
 	<add as="Software">
 		<add as="type" value="Software" />
 		<add as="shape" value="image" />

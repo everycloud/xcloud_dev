@@ -24,7 +24,7 @@ require.config({
         "jre": "lib/jre",
         "upload": "lib/upload",
         "sprintf": "lib/sprintf/sprintf.min",
-        "mxGraph": "lib/mxgraph/javascript/src/js/mxClient",
+        "mxGraph": "lib/mxgraph/javascript/debug/js/mxClient",
         "language": "i18n/" + window.urlParams.lang
     },
     "shim": {
