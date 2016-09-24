@@ -111,6 +111,10 @@
 
         SCRIPTDEFINETYPE: "Script",
 
+        COMPONENTTYPE: "Component",
+
+        HOSTTYPE: "Host",
+
         /**
          * ScalingGroupDefine 类型
          */
@@ -527,7 +531,9 @@
             return SoftwareDefine.createResource;
         } else if (typeName == "Host"){
             return HostDefine.createResource;
-        }else {
+        } else if (typeName == "Component"){
+            return ComponentDefine.createResource;
+        } else {
             return null;
         }
     };
@@ -754,7 +760,8 @@
         this.properties = {
             "name": name,
             "description": null,
-            "hostID": "" //RC 版本中将portGroupId修改为networkId
+            "hostID": "", //RC 版本中将portGroupId修改为networkId
+            "components": new ArrayList()
         };
     };
     HostDefine.prototype = new ResourceDefine();
@@ -851,6 +858,34 @@
     };
 
     /**
+     * 获取host上所有的components
+     */
+    HostDefine.prototype.getComponents = function () {
+        var components = this.properties["components"];
+        if (!components) {
+            components = new ArrayList();
+            this.setComponents(components);
+        }
+        return components;
+    };
+    HostDefine.prototype.setComponents = function (components) {
+        this.properties["components"] = components;
+    };
+    /**
+     * 增加组件
+     * @param key 组件名称
+     * @param value 软件值
+     * @return false失败，否则增加组件
+     */
+    HostDefine.prototype.addComponent = function (key, value) {
+        //验证Key和value
+        if (!key || !value || (value.type != Constant.COMPONENTTYPE )) {
+            return false;
+        }
+        return this.getComponents().add(key, value);
+    };
+
+    /**
      * 创建端口组资源实例
      * @static
      * @public
@@ -861,7 +896,146 @@
      * @return 端口组资源实例
      */
     HostDefine.createResource = function (templateDefine, attributes, typeName, resourceName, resourceId) {
-        var resource = new PortGroupDefine();
+        var resource = new HostDefine();
+        resource.templateDefine = templateDefine;
+        //添加ID、资源类型名称及名称
+        resource.id = resourceId;
+        resource.type = typeName;
+        resource.name = resourceName;
+        for (var i = 0; i < attributes.length; i++) {
+            var attr = attributes[i];
+            // 把首字母转成小写
+            attr.name = attr.name.charAt(0).toLowerCase().concat(attr.name.substr(1));
+            if (attr.name in resource.properties) {
+                resource.properties[attr.name] = attr.value;
+            }
+        }
+        resource.properties.name = resourceName;
+        return resource;
+    };
+
+
+    /**
+     * ComponentDefine 类，构造函数，继承于Resource
+     * @param id   资源唯一号
+     * @param name  资源名称
+     * @param type  资源类型
+     * @param templateDefine 模板实例
+     */
+    ComponentDefine = function (id, name, type, templateDefine) {
+        ResourceDefine.call(this, id, name, type);
+        this.templateDefine = templateDefine;
+        this.properties = {
+            "name": name,
+            "description": null,
+            "hostID": "", //RC 版本中将portGroupId修改为networkId
+        };
+    };
+    ComponentDefine.prototype = new ResourceDefine();
+    ComponentDefine.prototype.constructor = ComponentDefine;
+
+    /**
+     * 根据resource属性，生成cell的属性
+     */
+    ComponentDefine.prototype.genCellAttr = function () {
+        var attrList = [];
+        attrList.push({
+            "name": "HostID",
+            "type": "String",
+            "value": this.properties["hostID"]
+        });
+        attrList.push({
+            "name": "Description",
+            "type": "String",
+            "value": this.properties["description"]
+        });
+        return attrList;
+    };
+
+    ComponentDefine.prototype.getName = function () {
+        if (this.isReferOfName()) {
+            return this.properties["name"].attrKey;
+        } else {
+            return this.properties["name"];
+        }
+    };
+    /**
+     * 设置ComponentDefine的名称
+     * @param {Object} name 当name为字符串时，表示没有引用公共参数，当为ReferenceAttr时表示引用了公共参数
+     */
+    ComponentDefine.prototype.setName = function (name, isRefer) {
+        this.properties["name"] = (isRefer ? new ReferenceAttr({
+            "refId": "Parameters",
+            "attrKey": name
+        }) : name);
+        this.name = this.getName();
+        //修改公共参数引用个数,请调用相应的
+    };
+
+    /**
+     * 获取描述
+     * @return description
+     */
+    ComponentDefine.prototype.getDescription = function () {
+        return this.properties["description"];
+    };
+    /**
+     * 设置描述
+     */
+    ComponentDefine.prototype.setDescription = function (description) {
+        this.properties["description"] = description;
+    };
+
+    ComponentDefine.prototype.isReferOfName = function () {
+        if (this.properties["name"] && this.properties["name"].type == Constant.REFERENCEATTRTYPE) {
+            return true;
+        }
+        return false;
+    };
+
+    /**
+     * 资源对象生成Json字符串
+     * @return Json字符串
+     */
+    ComponentDefine.prototype.toJson = function () {
+        var id = this.defualtId();
+        var json = this.fullString(id) + ":" + "{";
+        json += this.toCommonJson();
+        json += ",";
+
+        var properties = this.properties;
+        json += this.fullString("Properties") + ":" + "{";
+
+        for (var key in properties) {
+            if (properties.hasOwnProperty(key)) {
+                json += this.fullString(this.firstUpper(key)) + ":";
+                if (properties[key] && properties[key].type == Constant.REFERENCEATTRTYPE) {
+                    json += properties[key].toJson();
+                } else {
+                    json += this.fullString(properties[key]);
+                }
+                json += ",";
+            }
+        }
+        json = this.trimComma(json);
+        json += "}";
+
+        json += "}";
+        return json;
+    };
+
+    /**
+     * 创建组件资源实例
+     * @static
+     * @public
+     * @param attributes   资源属性列表
+     * @param typeName     资源类型名称
+     * @param resourceName 资源名称
+     * @param resourceId   资源ID  全局唯一
+     * @return 端口组资源实例
+     */
+    ComponentDefine.createResource = function (templateDefine, attributes, typeName, resourceName, resourceId) {
+        var resource = new ComponentDefine();
         resource.templateDefine = templateDefine;
         //添加ID、资源类型名称及名称
         resource.id = resourceId;

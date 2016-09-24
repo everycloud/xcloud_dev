@@ -23,7 +23,7 @@ define(["./Graph", "./GenenalNameUtil"], function (Graph, GenenalNameUtil) {
     Sidebar.prototype.thumbBorder = 2;
     Sidebar.prototype.SOFTWARE_VIRTUAL_HEIGHT = 45; // 软件虚拟高度
     Sidebar.prototype.SOFTWARE_ACTUAL_HEIGHT = 40; // 软件实际高度
-    Sidebar.prototype.VM_PADDING_HEIGHT = 35; // 虚拟机padding的高度
+    Sidebar.prototype.VM_PADDING_HEIGHT = 45; // 虚拟机padding的高度
     Sidebar.prototype.VM_HEIGHT = 70; // 虚拟机整体的高度
 
     /**
@@ -44,6 +44,9 @@ define(["./Graph", "./GenenalNameUtil"], function (Graph, GenenalNameUtil) {
         }
         if (cell.type == "Host"){
             return this.createHostDropHandler(cell, allowSplit);
+        }
+        if (cell.type == "Component"){
+            return this.createComponentDropHandler(cell, allowSplit);
         }
     };
 
@@ -123,6 +126,71 @@ define(["./Graph", "./GenenalNameUtil"], function (Graph, GenenalNameUtil) {
             graph.setSelectionCell(newCell);
         };
     };
+
+    Sidebar.prototype.createComponentDropHandler = function (cell) {
+        return mxUtils.bind(this, function (graph, evt, target, x, y) {
+            graph.stopEditing(true);
+            var offset = mxUtils.getOffset(graph.container);
+            var parent = graph.getSwimlaneAt(evt.clientX - offset.x + $(graph.container).scrollLeft(), evt.clientY - offset.y + $(graph.container).scrollTop());
+            var pstate = graph.getView().getState(parent);
+            if (parent == null || pstate == null || (parent.type !== "Host")) {
+                return;
+            }
+            // 记录 当前软件的个数
+            var childCount = graph.model.getChildCount(parent);
+            if (childCount >= 50) {
+                // 组件个数已经到达50个。
+                return;
+            }
+            var model = graph.getModel();
+            var newCell = model.cloneCell(cell);
+            newCell.setConnectable(false);
+            // 软件在VM中左边距10, 35为VM padding的高度
+            newCell.setGeometry(new mxGeometry(10, this.VM_PADDING_HEIGHT + 5, cell.geometry.width, cell.geometry.height));
+            // 给资源名称加一，同时需要判断资源名称是否重复
+            var resourceName = "";
+            while (true) {
+                resourceName = GenenalNameUtil.genSerialName(cell.type);
+                break;
+            }
+            var displayName = GenenalNameUtil.displayResourceName(resourceName, cell.type);
+            newCell.setValue(displayName);
+
+            model.beginUpdate();
+            try {
+                if (childCount != 0) {
+                    //移动软件或者脚本的顺序，软件&脚本下移
+                    for (var i = 0; i < childCount; i++) {
+                        var item = parent.getChildAt(i);
+                        item.geometry.y += this.SOFTWARE_VIRTUAL_HEIGHT;
+                        model.add(parent, item, i);
+                    }
+                }
+                // 新增软件
+                graph.addCell(newCell, parent);
+                //注意：10表示 最后一个软件离VM的最底边的距离
+                parent.geometry.height = this.VM_PADDING_HEIGHT + (childCount + 1) * this.SOFTWARE_VIRTUAL_HEIGHT + 10;
+            } finally {
+                model.endUpdate();
+            }
+
+            //处理资源
+            var resourceId = TemplateUtils.createId();
+            var resource = TemplateDefine.createResource(graph.template, [], newCell.type, resourceName, resourceId);
+            resource.properties.type = newCell.type;
+            newCell.resource = resource;
+            newCell.resourceId = resourceId;
+            // 将资源添加到容器中
+            var parentResource = graph.template.getResourceById(parent.resourceId);
+            parentResource.isReferOfName();
+
+            parentResource.addComponent(resourceId, resource);
+            //graph.resetSoftwareInstallOrder(parent);
+
+            //必须放到最后，触发graph的seleceHandler事件
+            graph.setSelectionCell(newCell);
+        });
+    }
 
     /**
      * 创建一个拖动网络节点的回调函数

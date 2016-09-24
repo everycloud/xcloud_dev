@@ -118,8 +118,8 @@ define([
             };
 
             $scope.$on("$viewContentLoaded", function () {
-                $scope.sidebar.createVertexTemplate(document.getElementById("host-elt-id"), "Host", 150, 40, "host");
-                //$scope.sidebar.createVertexTemplate(document.getElementById("component-elt-id"), "Component", 150, 40, "component");
+                $scope.sidebar.createVertexTemplate(document.getElementById("host-elt-id"), "Host", 170, 70, "host");
+                $scope.sidebar.createVertexTemplate(document.getElementById("component-elt-id"), "Component", 150, 40, "component");
                 $scope.sidebar.createVertexTemplate(document.getElementById("network-elt-id"), "Network", 150, 40, "network");
                 $scope.sidebar.createVertexTemplate(document.getElementById("template-elt-id"), "VmTemplate", 170, 70, "vm-template");
                 $scope.sidebar.createVertexTemplate(document.getElementById("software-elt-id"), "Software", 150, 40, "software");

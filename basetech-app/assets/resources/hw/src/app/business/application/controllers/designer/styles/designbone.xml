@@ -8,7 +8,7 @@
 		<add as="fillColor" value="#fff" />
 		<add as="strokeColor" value="#727272" />
 		<add as="shape" value="swimlane" />
-		<add as="startSize" value="35" />
+		<add as="startSize" value="50" />
 		<add as="shadow" value="0" />
 		<add as="resizable" value="0" />
 	</add>
@@ -18,8 +18,8 @@
 		<add as="shape" value="image" />
 		<add as="image" value="/resources/hw/theme/default/images/designbone_resource_background.png" />
 		<add as="align" value="center" />
-		<add as="connectable" value="0" />
-		<add as="resizable" value="0" />
+		<add as="connectable" value="1" />
+		<add as="resizable" value="1" />
 		<add as="rounded" value="1" />
 	</add>
 
