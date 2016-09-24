@@ -113,9 +113,9 @@ define(["./Graph", "./mxVertexToolHandler", "./GenenalNameUtil"], function (Grap
             return null;
         }
         // 只支持VM连接到Network, 判断资源是否连接自己
-        if ((source.type !== "VmTemplate" && source.type !== "ScalingGroup") || target.type !== "Network" || source.resourceId === target.resourceId) {
-            return null;
-        }
+        //if ((source.type !== "VmTemplate" && source.type !== "ScalingGroup") || target.type !== "Network" || source.resourceId === target.resourceId) {
+        //    return null;
+        //}
 
         //判断是否存在连线
         var connectResource = this.template.getConnsByResId(source.resourceId, target.resourceId);
@@ -124,23 +124,23 @@ define(["./Graph", "./mxVertexToolHandler", "./GenenalNameUtil"], function (Grap
         }
 
         //判断是否有可用的网卡
-        var sourceResource = this.template.getResourceById(source.resourceId);
-        if (!sourceResource || !sourceResource.hasAvailableNics()) {
-            return null;
-        }
+        //var sourceResource = this.template.getResourceById(source.resourceId);
+        //if (!sourceResource || !sourceResource.hasAvailableNics()) {
+        //    return null;
+        //}
 
         var connectionId = TemplateUtils.createId();
         var connectResource = TemplateDefine.createConnection(this.template, source.resourceId, target.resourceId, "", connectionId);
         edge.resource = connectResource;
         edge.lineName = connectionId;
 
-        var nics = sourceResource.getNics().getArray();
-        for (var i = 0; i < nics.length; i++) {
-            if (nics[i] && nics[i].type === Constant.NICTYPE && nics[i].portGroupId && (nics[i].portGroupId.refId === null)) {
-                nics[i].portGroupId.refId = target.resourceId;
-                break;
-            }
-        }
+        //var nics = sourceResource.getNics().getArray();
+        //for (var i = 0; i < nics.length; i++) {
+        //    if (nics[i] && nics[i].type === Constant.NICTYPE && nics[i].portGroupId && (nics[i].portGroupId.refId === null)) {
+        //        nics[i].portGroupId.refId = target.resourceId;
+        //        break;
+        //    }
+        //}
         return Graph.prototype.addEdge.apply(this, arguments);
     };
 

@@ -10,7 +10,7 @@
 		<add as="shape" value="swimlane" />
 		<add as="startSize" value="50" />
 		<add as="shadow" value="0" />
-		<add as="resizable" value="0" />
+		<add as="resizable" value="1" />
 	</add>
 
 	<add as="Component">
@@ -22,6 +22,19 @@
 		<add as="resizable" value="1" />
 		<add as="rounded" value="1" />
 	</add>
+	<!--<add as="Component">-->
+		<!--<add as="type" value="Network" />-->
+		<!--<add as="shape" value="image" />-->
+		<!--<add as="align" value="right" />-->
+		<!--<add as="connectable" value="0" />-->
+		<!--<add as="resizable" value="0" />-->
+		<!--<add as="image" value="/resources/hw/theme/default/images/designerbone-network-icon.png"/>-->
+		<!--<add as="imageWidth" value="32"/>-->
+		<!--<add as="imageHeight" value="32"/>-->
+		<!--<add as="strokeColor" value="#727272" />-->
+		<!--<add as="fillColor" value="#727272"/>-->
+		<!--<add as="strokeWidth" value="1" />-->
+	<!--</add>-->
 
 	<add as="Software">
 		<add as="type" value="Software" />
